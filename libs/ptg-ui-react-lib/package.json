@@ -1,5 +1,13 @@
 {
   "name": "@ptg-ui/react",
-  "version": "0.0.1",
+  "version": "1.0.3",
+  "description": "Yash React UI Component Library",
+  "keywords": [
+    "React",
+    "Library"
+  ],
+  "publishConfig": {
+    "registry": "https://pkgs.dev.azure.com/YASHTech-UIUX/YASH-UIUX-Library/_packaging/UI-packages/npm/registry/"
+  },
   "sideEffects": false
 }

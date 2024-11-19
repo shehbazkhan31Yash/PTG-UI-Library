@@ -7,17 +7,9 @@
 import { useCallback, useState,useLayoutEffect, useEffect } from "react";
 import CheckboxList from "../CheckboxList/CheckboxList";
 import { updateItemStates } from "./updateItemStates";
+import { CheckboxState, ItemState } from "../CheckboxList/checkbox.interface";
 
-export enum CheckboxState {
-  UNCHECKED,
-  CHECKED,
-  INDETERMINATE,
-}
 
-export type ItemState = {
-  id?: number;
-  state?: CheckboxState;
-};
 
 export interface PtgUiIndeterminateCheckboxProps {
   items:any;

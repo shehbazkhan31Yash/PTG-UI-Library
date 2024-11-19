@@ -10,8 +10,11 @@
 import { useEffect, useState } from 'react';
 import './forgotPassword.scss';
 import { useTranslation } from 'react-i18next';
-import { PtgUiButton, PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
+
 import { Modal } from 'react-bootstrap';
+import PtgUiAlert from '../../alert/alert';
+import PtgUiButton from '../../button/button';
+import PtgUiInput from '../../input/input';
 
 export default function PtgUiForgotPassword() {
   const { t } = useTranslation();

@@ -5,14 +5,10 @@
  */
 import React from "react";
 import Checkbox from "../Checkbox/Checkbox";
-import { CheckboxState } from "../Tree/CheckboxTree";
 import "./checkboxlist.scss";
+import { CheckboxState, Item } from "./checkbox.interface";
 
-export interface Item  {
-  id: number;
-  name: string;
-  parentId: number;
-};
+
 
 interface CheckboxListProps {
   items: Item[];
@@ -53,7 +49,7 @@ function CheckboxList  ({items,getStateForId,idsToRender = [],indentLevel = 0,on
                 isChecked={checkboxState === CheckboxState.CHECKED}
                 indeterminate={checkboxState === CheckboxState.INDETERMINATE}
                 labelId={item.name+"_"+item.id}
-                
+
               />
               {/* <label className="align-text-bottom">{item.name}</label> */}
             </li>

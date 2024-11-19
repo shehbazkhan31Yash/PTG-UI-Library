@@ -4,14 +4,13 @@
  * @uses Reusable Component for Indeterminate Checkbox
  */
 
-import { Item } from "../CheckboxList/CheckboxList";
-import { CheckboxState, ItemState } from "./CheckboxTree";
+import { CheckboxState, Item, ItemState } from "../CheckboxList/checkbox.interface";
 
 export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId: number) => {
   const newState = oldState.map((i) => ({ ...i }));
   // getters
   const getItemState = (id: number) => {
-    let temp:any =newState.find((i) => i.id === id)  
+    let temp:any =newState.find((i) => i.id === id)
     return temp.state;
   };
   // setters
@@ -35,7 +34,7 @@ export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId
     updateParent(parent.id);
   };
   const setUnchecked = (id: number) => {
-    let tempNewState:any =newState.find((i:any) => i.id === id); 
+    let tempNewState:any =newState.find((i:any) => i.id === id);
     tempNewState.state = CheckboxState.UNCHECKED;
     items
       .filter((i) => i.parentId === id)

@@ -1,4 +1,5 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib",
-    "appService.showBuildDuringDeployPrompt": false
+    "appService.showBuildDuringDeployPrompt": false,
+    "nxConsole.nxWorkspacePath": ""
 }
