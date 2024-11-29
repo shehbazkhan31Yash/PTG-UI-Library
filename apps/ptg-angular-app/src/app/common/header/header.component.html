@@ -5,8 +5,8 @@
       <a class="navbar-brand logo" href="#">
         <img src="assets/yash-logo-new@2x.png" aria-label="logo" alt="logo of the website to understand the purpose">
       </a>
-      <div class="d-flex">
-        <div class="me-2">
+      <div class="d-flex align-items-center">
+        <div class="me-2 mt-2">
           <ptg-ui-select class="w-100" [id]="'inputFile'" [items]='langeList'
           [isMultiple]="false" [closeOnSelect]="true" (change)="changeLang($event)" bindLabel="English" [(ngModel)]="itemValue">
         </ptg-ui-select>
