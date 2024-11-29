@@ -10,9 +10,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiLogin } from '@ptg-ui/react';
 
-export interface PtgLoginProps {}
-
-export function PtgLogin(props: PtgLoginProps) {
+export function PtgLogin() {
   const [showCode, setShowCode] = useState(false);
 
   const ShowExampleCode = () => {

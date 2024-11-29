@@ -1,7 +1,9 @@
 @import 'variables';
 .user-wrapper{
   .profile-icon {
-    filter: brightness(0.3);
+    //filter: brightness(0.3);
+    height: 30px;
+    width: 30px;
   }
   .outer-profile{
    position: relative;
@@ -14,9 +16,10 @@
     border-radius: 50%;
     overflow: hidden;
     user-select: none;
-    background: $profilebgColor !important;
-    width: 34px;
-    height: 34px;
+    background-color: transparent;
+    //background: $profilebgColor !important;
+    width: 30px;
+    height: 30px;
     font-size: 1.2rem;
     cursor: pointer;
 }

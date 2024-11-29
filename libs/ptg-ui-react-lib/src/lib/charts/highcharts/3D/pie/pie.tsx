@@ -7,10 +7,8 @@
 
 import * as React from 'react'
 import * as Highcharts from 'highcharts';
-import Highcharts3d from 'highcharts/highcharts-3d';
 import HighchartsReact from 'highcharts-react-official'
 
-Highcharts3d(Highcharts);
 /* eslint-disable-next-line */
 export interface PtgUi3dPieProps {
   remainingOptions:any,

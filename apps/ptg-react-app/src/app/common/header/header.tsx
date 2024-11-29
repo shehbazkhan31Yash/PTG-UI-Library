@@ -22,7 +22,7 @@ export function Header({}: HeaderProps) {
           </label>
           <a className="navbar-brand logo px-2 me-auto" href="#">
             <img
-              src="assets/images/YashLogo.png"
+              src="assets/images/yash-logo-new@2x.png"
               aria-label="logo"
               className="header-logo"
             />

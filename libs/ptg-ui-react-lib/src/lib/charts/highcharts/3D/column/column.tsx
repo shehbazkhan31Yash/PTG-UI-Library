@@ -9,11 +9,9 @@ import './column.scss';
 import * as React from 'react'
 import { useState, useEffect } from 'react';
 import * as Highcharts from 'highcharts';
-import Highcharts3d from 'highcharts/highcharts-3d';
 import HighchartsReact from 'highcharts-react-official'
 import PtguseFetch from '../../../../hooks/useFetch';
 
-Highcharts3d(Highcharts);
 /* eslint-disable-next-line */
 export interface PtgUi3dColumnProps {
   remainingOptions:any,

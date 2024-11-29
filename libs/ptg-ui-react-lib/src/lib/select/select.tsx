@@ -5,7 +5,7 @@
  *
  */
 import './select.scss';
-import Form from 'react-bootstrap/Form';
+import {Form} from 'react-bootstrap';
 //import Select from 'react-select';
 /* eslint-disable-next-line */
 export interface PtgUiSelectProps {

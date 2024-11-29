@@ -232,11 +232,11 @@ const routing = [
     component: Button,
   },
   {
-    path: 'auth-login',
+    path: '/auth-login',
     component: Authentication,
   },
   {
-    path: 'auth-signup',
+    path: '/auth-signup',
     component: signUp,
   },
   {

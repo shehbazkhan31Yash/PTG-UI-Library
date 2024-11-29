@@ -73,7 +73,8 @@
       "@ptg-ui/ptg-ui-web-components/loader": [
         "libs/ptg-ui-web-components/build/loader"
       ],
-      "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"]
+      "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"],
+      "@ptg-ui/react/input": ["libs/ptg-ui-react-lib/src/lib/input/input"]
     }
   },
   "exclude": ["node_modules", "tmp"]
