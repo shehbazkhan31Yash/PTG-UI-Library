@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
@@ -12,63 +9,33 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit, 
   ViewChild,
-  Output,
-  EventEmitter,
+  HostListener,
 } from '@angular/core';
+
 
 @Component({
   selector: 'ptg-ui-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  host: {
-    '[tabindex]': 'disabled ? -1 : 0',
-    '(keydown)': 'handleKeyDown($event)',
-  },
 })
-export class ButtonComponent implements OnInit {
-  @Input() type: any = 'button';
-  @Input() isDisable = false;
-  @Input() isBlock = false;
-  @Input() accessKey = '';
+export class ButtonComponent  {
+  @Input() type? : 'button' | 'submit' | 'reset' = 'button';
+  @Input() isDisable? = false;
+  @Input() isBlock? = false;
   @ViewChild('button', { static: true }) button!: ElementRef;
-  @Input() btnStyleType:any;
-  @Input() size?: 'small' | 'medium' | 'large';
-  @Input() primary = false;
-  @Output() onClick = new EventEmitter<Event>();
+  @Input() btnStyleType? : 'primary' | 'secondary'| 'warning' | 'danger' | 'success' | 'info' | 'light' | 'dark' = 'primary';
+  @Input() size?: 'small' | 'medium' | 'large' = 'medium';
   @Input() label = 'Button';
-  @Input() backgroundColor?: string;
 
-  ngOnInit(): void {
-    // this.button.nativeElement.accessKey = this.accessKey;
-  }
-
-  handleKeyDown(event: KeyboardEvent) {
-    switch (event.which) {
-      case 13:
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.code) {
+      case 'Enter':
         this.button.nativeElement.click();
         break;
       default:
         return;
     }
-  }
-
-
-
-
-  public get classes(): string[] {
-
-     const mode = this.primary
-       ? 'ptg-ui-button--primary'
-       : 'ptg-ui-button--secondary';
-       
-       
-     return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, mode];
-    
-  
-   }
-   
-
-   
+  }   
 }

@@ -1,6 +1,5 @@
 @import '../../styles/variables';
 .ptg-ui-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
   border-radius: 3em;
@@ -9,35 +8,19 @@
   line-height: 1;
 }
 
-.ptg-ui-button--primary {
-  background-color: $btnBlue;
-}
-
-.ptg-ui-button--secondary {
-  color: $dark;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-
 .ptg-ui-button--small {
-  background-color: $btnBlue;
   font-size: 12px;
   padding: 4px 8px;
-  color: $dark;
 }
 
 .ptg-ui-button--medium {
   font-size: 14px;
-  color: $dark;
-  background-color: $btnBlue;
   padding: 6px 12px;
 }
 
 .ptg-ui-button--large {
   font-size: 16px;
-  color: $dark;
   padding: 8px 16px;
-  background-color: $btnBlue;
 }
 
 .ptg-ui-button--isDisable {

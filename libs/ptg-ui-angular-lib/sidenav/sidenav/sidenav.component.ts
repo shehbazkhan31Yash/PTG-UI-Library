@@ -217,6 +217,13 @@ export class SidenavComponent {
         label: 'BREADCRUMBS',
         disabled: false,
       },
+      {
+        id: '17',
+        path: '/button',
+        icon: 'fa-solid fa-file',
+        label: 'Button',
+        disabled: false,
+      },
     ];
     this.menuItems.sort((a, b) => a.label.localeCompare(b.label));
 

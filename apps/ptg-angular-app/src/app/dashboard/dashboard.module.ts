@@ -72,6 +72,7 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
 
 import { WebComponentsAngularModule } from '@ptg-ui/ptg-ui-web-components-angular';
 import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
+import { ButtonExampleComponent } from './button-example/button-example.component';
 defineCustomElements();
 
 @NgModule({
@@ -112,7 +113,8 @@ defineCustomElements();
     DialogExampleComponent,
     CardExampleComponent,
     BreadcrumbsExampleComponent,
-    CarouselExampleComponent
+    CarouselExampleComponent,
+    ButtonExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -138,7 +140,8 @@ defineCustomElements();
     MatInputModule,
     DemoPtgUiNgModule,
     MatSnackBarModule,
-    WebComponentsAngularModule
+    WebComponentsAngularModule,
+    ButtonModule
   ],
 })
 export class DashboardModule {}

@@ -17,33 +17,26 @@ import {ButtonComponent} from './button.component';
  We can import the button tag using the following importation : 
 
 ```
-    import { ButtonComponent } from ' @ptg-ui/angular'
+import { ButtonModule } from ' @ptg-ui/angular'
+
 ```    
 
  Types of controls supported by button:
 
- - isDisable
- - size
- - isBlock
- - backgroundColor
- - accessKey
-
-
+ - isDisable : optional boolean
+ - size : optional string
+ - isBlock : optional boolean
+ - btnStyleType : optional string
+ - label : required string
+ - type: optional string
 
 
  ## Quick Start
  
  we can create a button using the following HTML Tag: 
 
-
 ```
-<ptg-ui-button
-  type="button"
-  [isDisable]="false"
-  [isBlock]="false"
-  accessKey=""
-  label="Button"
-></ptg-ui-button>
+<ptg-ui-button label="Button"></ptg-ui-button>
 
 ```
 
@@ -66,27 +59,78 @@ import {ButtonComponent} from './button.component';
 
  2] size : 
 
- Some types of sizes in buttons are below :  
+The default  size of button is medium
+Some types of sizes in buttons are below :  
 
-A] Primary Button :  <Canvas><Story id="component-buttoncomponent--primary" /></Canvas>   
-B] Small Button :    <Canvas><Story id="component-buttoncomponent--small" /></Canvas>
-C] Medium Button :   <Canvas><Story id="component-buttoncomponent--medium" /></Canvas>      
-D] Large Button :    <Canvas><Story id="component-buttoncomponent--large" /></Canvas>
+A] Small Button :    <Canvas><Story id="component-buttoncomponent--small" /></Canvas>
+B] Medium Button :   <Canvas><Story id="component-buttoncomponent--medium" /></Canvas>      
+B] Large Button :    <Canvas><Story id="component-buttoncomponent--large" /></Canvas>
 
 
 
  3] isBlock :
 
- We can set the conditional background Color for the Button. When the value is true background color get changes and the value is 
- false it remains default.   
-
-
+we can set isBlock to true if we need button in full width 
 <Canvas><Story id="component-buttoncomponent--is-block" /></Canvas>
 
+ 4] btnStyleType :
 
- 4] backgroundColor :
+we can set btnStyleType for different types of of buttons like primary, secondary, warning, error, success, info, light, dark 
+default btnStyleType is primary
 
- We can set a background color for an button by using the colour picker. Otherwise we can set the background color in HTML, use the style attribute, with the CSS property background-color inside the body tag of the HTML document.
+ A] Primary Button <Canvas><Story id="component-buttoncomponent--primary" /></Canvas>
+ B] Primary Button <Canvas><Story id="component-buttoncomponent--secondary" /></Canvas>
+ C] Primary Button <Canvas><Story id="component-buttoncomponent--warning" /></Canvas>
+ D] Primary Button <Canvas><Story id="component-buttoncomponent--error" /></Canvas>
+ E] Primary Button <Canvas><Story id="component-buttoncomponent--success" /></Canvas>
+ F] Primary Button <Canvas><Story id="component-buttoncomponent--info" /></Canvas>
+ G] Primary Button <Canvas><Story id="component-buttoncomponent--light" /></Canvas>
+ H] Primary Button <Canvas><Story id="component-buttoncomponent--dark" /></Canvas>
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+5] label:
+label for the button 
+
+6] type :
+
+button type-  defaut type is button
+
+
+ 
 
 
 
