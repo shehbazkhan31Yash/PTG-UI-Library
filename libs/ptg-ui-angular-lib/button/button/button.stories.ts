@@ -5,7 +5,6 @@ import { ButtonComponent } from './button.component';
 export default {
   title: 'Component/ButtonComponent',
   component: ButtonComponent,
-
   parameters: {
     backgroundColor: {
       default: 'red',
@@ -58,7 +57,6 @@ export default {
     }
 
   },
-
   decorators: [
     moduleMetadata({
       imports: [],
@@ -75,54 +73,36 @@ const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'secondary',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
-  btnStyleType: 'warning',
+    btnStyleType: 'warning',
 };
 
 export const Success = Template.bind({});
 Success.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'success',
 };
 
 export const Light = Template.bind({});
 Light.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'light',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'dark',
 };
 
@@ -130,50 +110,30 @@ Dark.args = {
 export const Danger = Template.bind({});
 Danger.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'danger',
 };
 
 export const Info = Template.bind({});
 Info.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   btnStyleType: 'info',
 };
 
 
-
-
-
-
-
 export const Small = Template.bind({});
 Small.args = {
-  type: 'button',
   label: 'Button',
-  isDisable: false,
-  isBlock: false,
   size: 'small',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-  type: 'button',
   label: 'Button',
-  isDisable: false,
-  isBlock: false,
   size: 'medium',
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  type: 'button',
-  isDisable: false,
-  isBlock: false,
   label: 'Button',
   size: 'large',
 };
@@ -181,18 +141,14 @@ Large.args = {
 
 export const isDisable = Template.bind({});
 isDisable.args = {
-  type: 'button',
   isDisable: true,
   label: 'Button',
-  isBlock: false,
 };
 
 
 export const isBlock = Template.bind({});
 isBlock.args = {
   label: 'Button',
-  type: 'button',
-  isDisable: false,
   isBlock: true,
 };
 
