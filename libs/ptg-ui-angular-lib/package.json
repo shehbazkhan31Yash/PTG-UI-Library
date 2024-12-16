@@ -1,6 +1,9 @@
 {
   "name": "@ptg-ui/angular",
   "version": "1.0.1",
+  "scripts": {
+     "compile:sass": "sass styles/index.scss styles/styles.css"
+  },
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"

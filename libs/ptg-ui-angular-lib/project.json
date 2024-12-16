@@ -6,6 +6,11 @@
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/ptg-ui-angular-lib"],
+      "styles": [
+          "libs/ptg-ui-angular-lib/styles.css",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+        ],
       "options": {
         "project": "libs/ptg-ui-angular-lib/ng-package.json"
       },

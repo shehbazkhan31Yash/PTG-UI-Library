@@ -1,0 +1,408 @@
+/*
+Override variables defined in boostrap
+*/
+/*
+Override variables defined in boostrap
+*/
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.ptg-ui-button {
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+.ptg-ui-button--small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.ptg-ui-button--medium {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.ptg-ui-button--large {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.ptg-ui-button--isDisable {
+  pointer-events: none;
+  opacity: 0.5;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+@media (min-width: 1921px) and (max-width: 2400px) {
+  .btn.btn-primary {
+    padding: 8px 20px;
+  }
+}
+.sbdocs {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+#imgStoryBook {
+  position: relative;
+  top: 10px;
+}
+
+.prismjs {
+  color: #dc3545;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+@media screen and (max-width: 500px) and (min-width: 320px) {
+  .ag-paging-page-summary-panel {
+    margin: 0px 1px !important;
+    font-size: 10px !important;
+  }
+  .ag-theme-alpine .ag-paging-panel > * {
+    margin: 0 0px;
+    font-size: 11px;
+  }
+  .ag-theme-alpine .ag-paging-button {
+    margin: 0 0px !important;
+  }
+}
+@media screen and (max-width: 585px) and (min-width: 501px) {
+  .ag-theme-alpine .ag-paging-panel > * {
+    margin: 0 0px;
+    font-size: 11px;
+  }
+}
+/* ngx datatable */
+@media screen and (max-width: 500px) and (min-width: 320px) {
+  .ngx-datatable .datatable-footer .datatable-footer-inner {
+    display: block !important;
+  }
+  .datatable.material .datatable-footer .datatable-pager .datatable-icon-prev {
+    font-size: 15px !important;
+    line-height: 17px !important;
+    padding: 0 0px !important;
+  }
+  .ngx-datatable.material .datatable-footer .datatable-pager {
+    margin: 0 0px !important;
+  }
+  .ngx-datatable.material .datatable-footer .datatable-pager a {
+    padding: 0px 0px !important;
+    margin: 4px 1px !important;
+  }
+}
+@media screen and (max-width: 755px) and (min-width: 500px) {
+  .ngx-datatable .datatable-footer .datatable-footer-inner {
+    display: block !important;
+  }
+  .datatable.material .datatable-footer .datatable-pager .datatable-icon-prev {
+    font-size: 15px !important;
+    line-height: 17px !important;
+    padding: 0 0px !important;
+  }
+  .ngx-datatable.material .datatable-footer .datatable-pager {
+    margin: 0 0px !important;
+  }
+  .ngx-datatable.material .datatable-footer .datatable-pager a {
+    padding: 0px 0px !important;
+    margin: 4px 1px !important;
+  }
+}
+/* mat datatable */
+@media screen and (max-width: 450px) and (min-width: 320px) {
+  .mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 39px !important;
+    height: 39px !important;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 50%;
+  }
+  .mat-paginator-range-actions {
+    display: block !important;
+    align-items: center !important;
+  }
+  .mat-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    text-align: center;
+    width: 100%;
+  }
+}
+.was-validated :invalid ~ .invalid-feedback, .was-validated :invalid ~ .invalid-tooltip, .is-invalid ~ .invalid-feedback, .is-invalid ~ .invalid-tooltip {
+  visibility: visible !important;
+  display: flex !important;
+}
+
+.invalid-feedback {
+  visibility: hidden !important;
+  display: block !important;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.errormsg {
+  height: 15px;
+}
+
+span.cdk-visually-hidden.ng-star-inserted {
+  background: #2196F3;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 24px;
+  background-image: url(./icons8-check.svg);
+  background-position: center;
+  background-size: 29px 18px;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 99999;
+  margin-left: 16px;
+}
+
+.mat-step-icon .mat-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  visibility: hidden !important;
+}
+
+.mat-step-icon {
+  background-color: #B8BABC;
+  width: 24px;
+  border-radius: 50%;
+  padding: 4px 0px 3px 10px;
+  color: white;
+}
+
+.my-stepper .mat-step-icon-selected {
+  width: 24px;
+  border-radius: 50%;
+  padding: 4px 0px 3px 10px;
+  color: white;
+  background-color: #2196F3 !important;
+}
+
+/* step form */
+@media screen and (max-width: 730px) and (min-width: 320px) {
+  .mat-step-label {
+    display: none !important;
+  }
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  border-bottom: 2px solid #2196F3 !important;
+}
+
+ul.nav.nav-tabs {
+  background: white !important;
+  border-radius: 5px;
+  padding-left: 1rem;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: none !important;
+  --bs-nav-tabs-border-color: none !important;
+  border-bottom: none !important;
+}
+
+@media screen and (max-width: 405px) {
+  ul.nav.nav-tabs {
+    background: white !important;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .nav-link {
+    display: table-cell;
+    padding: 8px !important;
+  }
+  a.nav-link span {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    display: flex;
+  }
+  .divlayout {
+    font-size: 12px;
+  }
+  .node-title {
+    font-size: 12px;
+  }
+  .example-box {
+    padding: 10px 6px !important;
+    font-size: 0.76rem !important;
+  }
+  button#r_add_manual_btn {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 790px) and (min-width: 405px) {
+  ul.nav.nav-tabs {
+    background: white !important;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .nav-link {
+    display: table-cell;
+    padding: 10px !important;
+  }
+  a.nav-link span {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    display: flex;
+  }
+  .divlayout {
+    font-size: 13px;
+  }
+  .node-title {
+    font-size: 13px;
+  }
+  .example-box {
+    padding: 12px 8px !important;
+    font-size: 0.8rem !important;
+  }
+}
+.input-group input {
+  border-radius: 5px !important;
+  padding-left: 15px;
+}
+
+ptg-ui-input.ng-invalid.ng-touched input {
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+}
+
+ptg-ui-checks.ng-invalid.ng-touched input {
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+}
+
+ptg-ui-calendar.ng-invalid.ng-touched input {
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+}
+
+ptg-ui-select.ng-invalid.ng-touched ng-select .ng-select-container {
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+}
+
+h3 {
+  font-size: 1.2rem !important;
+  margin-bottom: 0 !important;
+}
+
+.css-yasiti {
+  flex-shrink: 0;
+  border-width: 0px 0px thin;
+  border-style: solid;
+  border-color: #D5D9E0;
+  opacity: 1;
+  margin: 0;
+}
+
+label {
+  display: block;
+  font-size: 1rem !important;
+  margin-bottom: 0.4rem !important;
+  color: #212529;
+  font-family: sans-serif !important;
+}
+
+::placeholder {
+  font-size: 15px !important;
+  color: #999 !important;
+}
+
+.form-control:focus {
+  background-color: white !important;
+  border-color: #86b7fe !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.2509803922) !important;
+  border-radius: 5px;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  color: #999 !important;
+  font-size: 15px !important;
+}
+
+@media screen and (max-width: 405px) {
+  h3 {
+    font-size: 14px !important;
+    word-break: keep-all !important;
+    margin-bottom: 0;
+  }
+  label {
+    font-size: 13px !important;
+  }
+  h6 {
+    font-size: 14px !important;
+  }
+}
+.text-loader {
+  color: #c9a8f7 !important;
+}
+
+nav {
+  height: 10vh;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  z-index: 100 !important;
+}
+nav .logo img {
+  height: 30px;
+  margin-left: 20px !important;
+}
+
+@media (max-width: 540px) {
+  .navbar-brand.logo {
+    margin-left: 1rem !important;
+  }
+}
+@media (min-width: 540px) and (max-width: 599.98px) {
+  .sidenav-container .sidenav {
+    width: 45vw;
+  }
+  .navbar-brand.logo {
+    margin-left: 1rem !important;
+  }
+}
+@media (min-width: 600px) and (max-width: 959.98px) {
+  .navbar-brand.logo {
+    margin-left: 1rem !important;
+  }
+}
+@media (max-width: 959.98px) {
+  nav {
+    height: 10vh;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    z-index: 100 !important;
+  }
+  nav .logo img {
+    height: 30px;
+    margin-left: 10px !important;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

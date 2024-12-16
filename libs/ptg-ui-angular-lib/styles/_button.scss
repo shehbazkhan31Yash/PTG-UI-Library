@@ -1,3 +1,37 @@
+@import './variables';
+.ptg-ui-button {
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+.ptg-ui-button--small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.ptg-ui-button--medium {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.ptg-ui-button--large {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.ptg-ui-button--isDisable {
+  pointer-events: none;
+  opacity: 0.5;
+  color: $dark;
+  border: 1px solid $dark;
+}
+ 
+ 
+ 
  @media (min-width: 1921px) and (max-width: 2400px) {
     .btn.btn-primary {
      padding: 8px 20px;

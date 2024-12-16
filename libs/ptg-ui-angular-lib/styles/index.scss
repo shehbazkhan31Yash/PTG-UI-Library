@@ -1,7 +1,7 @@
 @import "./variables";
   @import "./button";
   @import "./_intro.scss";
-  @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+  // @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
   @import './pagination';
   @import './stepform';
   @import './tabs';
@@ -10,6 +10,7 @@
 
 // // // ng-select style
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 // // Ag-grid datatable
 @import "~ag-grid-community/dist/styles/ag-grid.css";
