@@ -12,7 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiSelect,
@@ -358,7 +358,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                       .
                     </label>
                   </div>
-                  <PtgUiButton
+                  <button
                     className="w-100"
                     type="button"
                     onClick={handleRegister}
@@ -366,7 +366,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     data-testid="register"
                   >
                     {t('SUBMIT')}
-                  </PtgUiButton>
+                  </button>
                 </div>
               </div>
             </form>

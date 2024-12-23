@@ -6,143 +6,64 @@
  */
 
 import React from 'react';
-import { useState, useEffect } from 'react';
 import './login.scss';
-import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
-import ForgotPassword from '../ForgotPassword/forgotPassword';
-import PtgUiAlert from '../../alert/alert';
+// import { Link } from 'react-router-dom';
+//import ForgotPassword from '../ForgotPassword/forgotPassword';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';
-import PtgUiLoading from '../../loading/loading';
 
-
-export interface PtgUiLoginProps {}
+interface PtgUiLoginProps {
+  emailLabel?: string;
+  passwordLabel?: string;
+  emailPlaceolder?: string;
+  passwordPlaceolder?: string;
+  loginButtonName?: string;
+  signupMsg?: string;
+  signupButtonName?: string;
+  msalButtonName?: string;
+  forgotPasswordLabel?: string;
+  imgPath?: string;
+  handleChange?: any;
+  user?: any;
+  emailType?: string;
+  passwordType?: string;
+  isEmailValid?: boolean;
+  onLoginClick?: any;
+  onMsalClick?: any;
+}
 
 export function PtgUiLogin(props: PtgUiLoginProps) {
-  const [showCode, setShowCode] = useState(false);
-
-  const { t } = useTranslation();
-  const [user, setUser]: any = useState({
-    isLoading: false,
-    isAlert: false,
-    email: '',
-    password: '',
-    error: null,
-    disable: true,
-  });
-
-  const [formErr, setFormErr] = useState({
-    email: false,
-    password: false,
-  });
-
-  const navigate = useNavigate();
-
-  const setState: any = (field: string, value: any) => {
-    setUser((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
-
-  const setErrState: any = (field: string, value: any) => {
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
-
-  const isDisabled: any = () => {
-    setState(
-      'disable',
-      !(
-        user.email.length > 0 &&
-        user.password.length > 0 &&
-        !formErr.email &&
-        !formErr.password
-      )
-    );
-  };
-  //validate email and password
-  const validate = (fieldName: string, value: any) => {
-    let formErr = false;
-    switch (fieldName) {
-      case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          if (!regexEmail.test(value)) {
-            formErr = true;
-          }
-        }
-        break;
-      case 'password':
-        if (value === '') {
-          formErr = true;
-        }
-        break;
-      default: {
-      }
-    }
-
-    setErrState(fieldName, formErr);
-  };
-
-  //generic function for all input field
-  const handleChange: any = (e: any) => {
-    const { name, value } = e.target;
-    validate(name, value);
-    setUser((preState: any) => {
-      return {
-        ...preState,
-        [name]: value,
-      };
-    });
-  };
-
-  //validate on focus out or blur input
-  const handleBlur: any = (e: any) => {
-    const { name } = e.target;
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [name]: true,
-      };
-    });
-  };
-
-  const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
-  };
-
-  useEffect(() => {
-    isDisabled();
-  }, [user.email, user.password]);
+  const {
+    emailLabel,
+    passwordLabel,
+    emailPlaceolder,
+    passwordPlaceolder,
+    loginButtonName,
+    signupMsg,
+    signupButtonName,
+    msalButtonName,
+    forgotPasswordLabel,
+    imgPath,
+    handleChange,
+    user,
+    emailType,
+    passwordType,
+    isEmailValid,
+    onLoginClick,
+    onMsalClick,
+  } = props;
 
   return (
     <>
-      {user.isLoading && <PtgUiLoading />}
-      <div className="login-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+      <div className="login-wrapper container-fluid p-0 d-flex justify-content-center">
         <div className="login-container">
           <div className="login-form-wrapper">
             <div className="form-group">
-              {user.isAlert && <PtgUiAlert message={t('ERROR_MSG')} />}
+              {/* {user.isAlert && <PtgUiAlert message={t('ERROR_MSG')} />} */}
             </div>
             <div className="form-group">
               <div className="login-logo text-center mb-3">
-                <img
-                  className="login-logo"
-                  src="assets/images/YashLogo.png"
-                  alt={t('IMG_WebsiteLOGO')}
-                />
+                <img className="login-logo" src={imgPath} />
               </div>
             </div>
             <form className="form-login">
@@ -153,23 +74,23 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                     aria-labelledby="inputEmail"
                     tabIndex={0}
                   >
-                    {t('LABEL_EMAIL')}
+                    {emailLabel}
                   </label>
-                  <div className="userid input-group flex-nowrap">
-                    <div className="input-group-prepend">
+                  <div className="userid flex-nowrap">
+                    {/* <div className="input-group-prepend">
                       <i className="login-user-icon"></i>
-                    </div>
+                    </div> */}
                     <PtgUiInput
-                      type="email"
+                      type={emailType || 'email'}
                       id="inputEmail"
-                      value={user.email}
+                      value={user?.email}
                       onChange={handleChange}
                       className={`"w-100 form-control bg_0 ${
-                        formErr.email === true ? 'border-danger' : ''
+                        isEmailValid === false ? 'border-danger' : ''
                       }`}
                       name="email"
-                      placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                      onBlur={user.email === '' ? handleBlur : null}
+                      placeholder={emailPlaceolder}
+                      //onBlur={user?.email === '' ? handleBlur : null}
                     />
                   </div>
                 </div>
@@ -179,50 +100,62 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                     aria-labelledby="inputPassword"
                     tabIndex={0}
                   >
-                    {t('LABEL_PASSWORD')}
+                    {passwordLabel}
                   </label>
                   <div className="forgot-password float-end" tabIndex={0}>
-                    <ForgotPassword />
+                    {/* <ForgotPassword /> */}
                   </div>
-                  <div className="userid input-group flex-nowrap">
-                    <div className="input-group-prepend">
+                  <div className="userid flex-nowrap">
+                    {/* <div className="input-group-prepend">
                       <i className="login-password-icon"></i>
-                    </div>
+                    </div> */}
                     <PtgUiInput
-                      type="password"
+                      type={passwordType || 'password'}
                       id="inputPassword"
+                      value={user?.password}
                       onChange={handleChange}
-                      value={user.password}
-                      className={`"w-100 form-control bg_0 ${
-                        formErr.password === true ? 'border-danger' : ''
-                      }`}
+                      // className={`"w-100 form-control bg_0 ${
+                      //   formErr.password === true ? 'border-danger' : ''
+                      // }`}
+                      className={'w-100 form-control bg_0'}
                       name="password"
-                      placeholder={t('INPUT_PLACEHOLDER_PASSWORD')}
-                      onBlur={user.password === '' ? handleBlur : null}
+                      placeholder={passwordPlaceolder}
+                      //onBlur={user.password === '' ? handleBlur : null}
                     />
                   </div>
                 </div>
               </div>
-              <div className="new_label text-center mb-3">
+              {/* <div className="new_label text-center mb-3">
                 <label tabIndex={0}>
-                  {t('LABEL_INFO_MSG')}{' '}
+                  {signupMsg}{' '}
                   <Link to="/auth-signup" className="signup-btn">
-                    {t('SIGN_UP')}
+                    {signupButtonName}
                   </Link>
                   .
                 </label>
-              </div>
+              </div> */}
               <PtgUiButton
                 className="w-100"
-                tabIndex={0}
-                disabled={user.disable}
+                disabled={
+                  user?.email && user?.password && isEmailValid ? false : true
+                }
                 data-testid="login"
+                width="100%"
+                border={'1px solid #000'}
+                backgroundColor="#ddd"
+                onClick={onLoginClick}
               >
-                {t('LOG_IN')}
+                {loginButtonName}
               </PtgUiButton>
-              <p className="text-center mx-3 mb-0">{t('OR')}</p>
-              <PtgUiButton className="w-100" tabIndex={0}>
-                {t('Msal')}
+              <p className="text-center mx-3 mb-0">{'OR'}</p>
+              <PtgUiButton
+                className="w-100"
+                width="100%"
+                border={'1px solid #000'}
+                backgroundColor="#ddd"
+                onClick={onMsalClick}
+              >
+                {msalButtonName}
               </PtgUiButton>
             </form>
           </div>

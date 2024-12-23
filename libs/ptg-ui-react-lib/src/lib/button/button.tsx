@@ -1,40 +1,81 @@
-/* eslint-disable jsx-a11y/no-access-key */
-import './button.scss';
-import { Button, ButtonProps } from 'react-bootstrap';
-/* eslint-disable-next-line */
 /**
  * @since Feb 2022
  * @author Ankit Patidar
  * @uses Reusable Component for Button
+ * @Updated Manish Patidar
  *
  */
+import React from 'react';
+import './button.scss';
 
-interface PtgUiButtonProps extends ButtonProps {  
+interface PtgUiButtonProps {
   variant?: string;
-  value?: string;
   active?: boolean;
-  disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
-  accessKey?: string;
-  // onClick?: () => void;
+  onClick?: any;
+  appearance?: any;
+  btnIconAlignment?: any;
+  hasbtnIconSlot?: any;
+  text?: string;
+  disabled?: boolean;
+  width?: string;
+  height?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  textColor?: string;
+  backgroundColor?: string;
+  type?: any;
+  border?: string;
 }
 
-const defaultProps: PtgUiButtonProps = {
-  variant: 'primary',
-  disabled: false,
-  active: false,
-  className: 'btn btn-primary btn-block',
-  type: 'button',
-};
+export function PtgUiButton(props: PtgUiButtonProps) {
+  const {
+    appearance,
+    btnIconAlignment,
+    text,
+    hasbtnIconSlot,
+    onClick,
+    width,
+    height,
+    fontSize,
+    fontWeight,
+    children,
+    textColor,
+    backgroundColor,
+    disabled,
+    type = 'button',
+    border,
+  } = props;
 
-export function PtgUiButton({ children, onClick, ...rest }: PtgUiButtonProps) {
+  const buttonStyle = {
+    width: width,
+    height: height,
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    textColor: textColor,
+    backgroundColor: backgroundColor,
+    border: border,
+  };
+
   return (
-    <button onClick={onClick} {...rest}>
-      {children}
+    <button
+      style={buttonStyle}
+      className={`btn ${appearance}`}
+      type={type}
+      onClick={() => onClick() || ''}
+      disabled={disabled}
+    >
+      {btnIconAlignment === 'left' && hasbtnIconSlot && (
+        <div className="showRight">{children}</div>
+      )}
+      <span style={{ color: textColor }}> {text}</span>
+      {btnIconAlignment === 'right' && hasbtnIconSlot && (
+        <div className="showLeft">{children}</div>
+      )}
+      {!btnIconAlignment && !text && children}
     </button>
   );
 }
 
-PtgUiButton.defaultProps = defaultProps;
 export default PtgUiButton;
