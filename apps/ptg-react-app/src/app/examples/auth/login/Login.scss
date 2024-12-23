@@ -46,7 +46,7 @@
 
     .login-user-icon,
     .login-password-icon {
-      background: url('/assets/user_icn.png');
+      //background: url('/assets/user_icn.png');
       width: 17px;
       height: 23px;
       display: block;
@@ -55,9 +55,9 @@
       background-repeat: no-repeat !important;
     }
 
-    .login-password-icon {
-      background: url('/assets/password_icn.png');
-    }
+    // .login-password-icon {
+    //   background: url('/assets/password_icn.png');
+    // }
   }
 }
 

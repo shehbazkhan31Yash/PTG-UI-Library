@@ -1,39 +1,25 @@
 /**
- * @since March 2022
- * @author Ankit patidar
+ * @since Oct 2024
+ * @author Manish patidar
  * @desc Reusable Login Component
  *
  */
 
-import './Login.scss';
-import { useState, useEffect } from 'react';
 import React from 'react';
+import { useState, useEffect } from 'react';
+import './login.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { authClass } from '../services/auth.service';
-import ForgotPassword from '../forgotpassword/ForgotPassword';
-import {
-  //PtgUiButton,
-  PtgUiInput,
-  PtgUiLoading,
-  PtgUiAlert,
-} from '@ptg-ui/react';
-import msalInstance from '../msal';
-import { acquireToken } from '../msal';
+import ForgotPassword from '../ForgotPassword/forgotPassword';
+import PtgUiAlert from '../../alert/alert';
+import PtgUiButton from '../../button/button';
+import PtgUiInput from '../../input/input';
+import PtgUiLoading from '../../loading/loading';
 
 export interface PtgUiLoginProps {}
 
 export function PtgUiLogin(props: PtgUiLoginProps) {
-  const loginMsal = async () => {
-    const loginRequest = {
-      scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
-    };
-    const response = await msalInstance.loginPopup(loginRequest);
-    const [error, tokenResponse] = await acquireToken(loginRequest);
-    console.log("Hello i'm in msal", tokenResponse);
-    authClass.setToken(JSON.stringify(response));
-    navigate('/calendar');
-  };
+  const [showCode, setShowCode] = useState(false);
 
   const { t } = useTranslation();
   const [user, setUser]: any = useState({
@@ -117,36 +103,6 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
     });
   };
 
-  const handleLogin = (event: any) => {
-    event.preventDefault();
-    setState('error', null);
-    //console.log(error);
-    setState('isLoading', true);
-    authClass
-      .login({
-        identifier: user.email,
-        password: user.password,
-      })
-      .then((response: any) => {
-        setState('isLoading', false);
-        if (response.statusCode && response.statusCode !== 200) {
-          throw new Error('Function not implemented.');
-        } else if (response.jwt !== '') {
-          navigate('/calendar');
-          authClass.setToken(JSON.stringify(response));
-          authClass.setRole(response.user.role.type);
-          if (response.user.role.type.trim() == 'admin') {
-            navigate('/admin-home');
-          } else {
-            navigate('/calendar');
-          }
-        }
-      })
-      .catch((error: any) => {
-        setState('isAlert', true);
-      });
-  };
-
   //validate on focus out or blur input
   const handleBlur: any = (e: any) => {
     const { name } = e.target;
@@ -158,12 +114,20 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
     });
   };
 
+  const ShowExampleCode = () => {
+    if (!showCode) {
+      setShowCode(true);
+    } else {
+      setShowCode(false);
+    }
+  };
+
   useEffect(() => {
     isDisabled();
   }, [user.email, user.password]);
 
   return (
-    <React.Fragment>
+    <>
       {user.isLoading && <PtgUiLoading />}
       <div className="login-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
         <div className="login-container">
@@ -241,36 +205,29 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
               <div className="new_label text-center mb-3">
                 <label tabIndex={0}>
                   {t('LABEL_INFO_MSG')}{' '}
-                  <Link to="/signup" className="signup-btn">
+                  <Link to="/auth-signup" className="signup-btn">
                     {t('SIGN_UP')}
                   </Link>
                   .
                 </label>
               </div>
-              <button
+              <PtgUiButton
                 className="w-100"
-                onClick={handleLogin}
                 tabIndex={0}
                 disabled={user.disable}
                 data-testid="login"
-                // accessKey="s"
               >
                 {t('LOG_IN')}
-              </button>
+              </PtgUiButton>
               <p className="text-center mx-3 mb-0">{t('OR')}</p>
-              <button
-                className="w-100"
-                onClick={loginMsal}
-                tabIndex={0}
-                // accessKey="s"
-              >
+              <PtgUiButton className="w-100" tabIndex={0}>
                 {t('Msal')}
-              </button>
+              </PtgUiButton>
             </form>
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

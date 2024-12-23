@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { FormGroup, FormLabel } from 'react-bootstrap';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiAlert,
@@ -213,14 +213,14 @@ export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
                   </div>
                 </div>
               </div>
-              <PtgUiButton
+              <button
                 className="w-100"
                 type="submit"
                 disabled={fields.disable}
                 data-testid="submitPassword"
               >
                 {t('SUBMIT')}
-              </PtgUiButton>
+              </button>
             </form>
           </div>
         </div>

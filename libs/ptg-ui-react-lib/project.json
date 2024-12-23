@@ -16,12 +16,11 @@
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
-          {
-            "glob": "libs/ptg-ui-react-lib/README.md",
-            "input": ".",
-            "output": "."
-          }
-        ]
+          "libs/ptg-ui-react-lib/src/assets/accordian-arrow.svg",
+          "libs/ptg-ui-react-lib/src/lib/styles/index.css"
+        ],
+        "styles": ["libs/ptg-ui-react-lib/src/lib/styles/index.css"],
+        "main": "libs/ptg-ui-react-lib/src/index.ts"
       }
     },
     "lint": {

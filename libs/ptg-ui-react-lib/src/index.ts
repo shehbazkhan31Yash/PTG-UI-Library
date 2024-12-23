@@ -1,5 +1,6 @@
 export * from './lib/ptg-ui-react-lib';
 export * from './lib/download-file/downloadFile';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export * from './lib/button/button';
 export * from './lib/input/input';
@@ -35,3 +36,4 @@ export * from './lib/hooks/useFetch';
 export * from './lib/pagination/pagination';
 export * from './lib/auth/Login/login';
 export * from './lib/auth/Signup/signup';
+export * from './lib/breadcrumbs/breadcrumbs';

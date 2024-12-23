@@ -9,9 +9,18 @@ import './Login.scss';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiLogin } from '@ptg-ui/react';
+import { useTranslation } from 'react-i18next';
 
 export function PtgLogin() {
+  const { t } = useTranslation();
+
+  const initialValue = {
+    email: '',
+    password: '',
+  };
   const [showCode, setShowCode] = useState(false);
+  const [user, setUser] = useState(initialValue);
+  const [isEmailValid, setIsEmailValid] = useState(true);
 
   const ShowExampleCode = () => {
     if (!showCode) {
@@ -21,21 +30,95 @@ export function PtgLogin() {
     }
   };
 
+  const validate = (value: string) => {
+    let formErr = true;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (value === '' || value ? true : false !== regexEmail.test(value)) {
+      if (!regexEmail.test(value)) {
+        formErr = false;
+      }
+    }
+    setIsEmailValid(formErr);
+  };
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    name === 'email' && validate(value);
+    setUser({ ...user, [name]: value });
+  };
+
+  const onLoginClick = () => {};
+  const onMsalClick = () => {};
+
   const componentCode = `
-    import {
-      PtgUiLogin,
-    } from '@ptg-ui/react';
+    import {PtgUiLogin} from '@ptg-ui/react';
+    import "@ptg-ui/react/lib/styles/index.css";
+
+    const initialValue = {
+      email: '',
+      password: '',
+    };
+    const [user, setUser] = useState(initialValue);
+    const [isEmailValid, setIsEmailValid] = useState(true);
+
+    const ShowExampleCode = () => {
+      if (!showCode) {
+        setShowCode(true);
+      } else {
+        setShowCode(false);
+      }
+    };
+
+    const validate = (value: string) => {
+      let formErr = true;
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (value === '' || value ? true : false !== regexEmail.test(value)) {
+        if (!regexEmail.test(value)) {
+          formErr = false;
+        }
+      }
+      setIsEmailValid(formErr);
+    };
+
+    const handleChange = (e: any) => {
+      const { name, value } = e.target;
+      name === 'email' && validate(value);
+      setUser({ ...user, [name]: value });
+    };
+
+    const onLoginClick = () => {};
+    const onMsalClick = () => {};
   `;
 
   const htmlCode = `
-    <PtgUiLogin />
+    <PtgUiLogin
+      emailLabel={'Email'}
+      passwordLabel={'Password'}
+      emailPlaceolder={'Enter Email'}
+      passwordPlaceolder={'Enter Password'}
+      loginButtonName={'LOG IN'}
+      signupMsg={"If you don't have an account click on"}
+      signupButtonName={'SIGN UP'}
+      msalButtonName={'MSAL'}
+      forgotPasswordLabel={'Forgot Password'}
+      imgPath={
+        'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg'
+      }
+      handleChange={(e: any) => handleChange(e)}
+      user={user}
+      emailType={'email'}
+      passwordType={'password'}
+      isEmailValid={isEmailValid}
+      onLoginClick={() => onLoginClick()}
+      onMsalClick={() => onMsalClick()}
+    />
   `;
 
   return (
     <>
       <div className="row">
         <div className="col-10 mt-1">
-          <h5 className="font-weight-bold example-heading">Login</h5>
+          <h5 className="font-weight-bold example-heading">{t('LOGIN')}</h5>
         </div>
         <div className="col-2 mr-5 mb-2">
           <CodeIcon
@@ -51,7 +134,27 @@ export function PtgLogin() {
             htmlCode={htmlCode}
           />
         )}
-        <PtgUiLogin />
+        <PtgUiLogin
+          emailLabel={t('LABEL_EMAIL')}
+          passwordLabel={t('LABEL_PASSWORD')}
+          emailPlaceolder={t('ENTER_EMAIL_PLACEHOLDER')}
+          passwordPlaceolder={t('ENTER_PASSWORD_PLACEHOLDER')}
+          loginButtonName={t('LOG_IN')}
+          signupMsg={t('LABEL_INFO_MSG')}
+          signupButtonName={t('SIGN_UP')}
+          msalButtonName={'MSAL'}
+          forgotPasswordLabel={t('FORGOT_PASSWORD')}
+          imgPath={
+            'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg'
+          }
+          handleChange={(e: any) => handleChange(e)}
+          user={user}
+          emailType={'email'}
+          passwordType={'password'}
+          isEmailValid={isEmailValid}
+          onLoginClick={() => onLoginClick()}
+          onMsalClick={() => onMsalClick()}
+        />
       </div>
     </>
   );
