@@ -11,11 +11,12 @@ import { TextareaModule } from '@ptg-ui/angular/textarea';
 import { FileDownloadsModule } from '@ptg-ui/angular/file-downloads';
 import { IndeterminateCheckboxesModule } from '@ptg-ui/angular/indeterminate-checkboxes';
 import { SidenavModule } from '@ptg-ui/angular/sidenav';
-import { AccordianModule } from '@ptg-ui/angular/accordian';
+import { AccordianModule } from '@ptg-ui/angular/accordion';
 import { AlertModule } from '@ptg-ui/angular/alert';
 import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
 import { CalendarModule } from '@ptg-ui/angular/calendar';
+import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 
 const modules = [
   SidenavModule,
@@ -34,7 +35,8 @@ const modules = [
   PtgNgxDatatableModule,
   FileDownloadsModule,
   IndeterminateCheckboxesModule,
-  CalendarModule
+  CalendarModule,
+  BreadcrumbsModule
 ];
 @NgModule({
   declarations: [],

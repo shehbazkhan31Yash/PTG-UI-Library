@@ -1,0 +1,14 @@
+<accordion [isAnimated]="isAnimated" [closeOthers]="oneAtATime" class="pb-2 mt-5">
+  <ng-container *ngIf="addAccordionGroup">
+    <accordion-group *ngFor="let item of listData" [isDisabled]="item.isDisabled" [ngClass]="classes"
+      [heading]="item.title" [isOpen]="item.isOpen" [panelClass]="item.panelClass"  (isOpenChange)="change($event)">
+      {{ item.description }}
+    </accordion-group>
+  </ng-container>
+  <ng-container *ngIf="!addAccordionGroup">
+    <accordion-panel  *ngFor="let item of listData" [isDisabled]="item.isDisabled" [ngClass]="classes"
+      [heading]="item.title" [isOpen]="item.isOpen" [panelClass]="item.panelClass" (isOpenChange)="change($event)">
+      {{ item.description }}
+    </accordion-panel>
+  </ng-container>
+</accordion>

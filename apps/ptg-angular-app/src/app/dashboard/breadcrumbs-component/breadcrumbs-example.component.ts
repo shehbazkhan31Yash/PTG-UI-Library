@@ -30,4 +30,14 @@ export class BreadcrumbsExampleComponent {
     ];
   }
   `;
+   data={
+    "name": "Home",
+    "child": {
+      "name": "Category",
+      "child": {
+        "name": "Alert",
+        "child": null
+      }
+    }
+  };
 }

@@ -1,0 +1,91 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as AccordionComponents from './accordion.stories.ts'
+
+import {AccordionComponent} from './accordion.component';
+
+ <Meta title="Component/AccordionComponent/AccordionComponentDocs" component={ AccordionComponent }    />
+
+
+
+ # Accordion Component
+ 
+ ---
+
+ The  accordion is a component that organizes content within collapsable items. 
+ 
+ Accordion allows the display of only one collapsed item at a time.
+
+
+ 
+ We can import the accordion tag using the following importation : 
+
+```
+    import { AccordionComponent } from ' @ptg-ui/angular'
+```    
+
+ Types of controls supported by button:
+
+ 
+ - isDisabled
+ - oneAtATime
+
+
+
+ ## Quick Start
+ 
+ we can create a accordion using the following HTML Tag: 
+
+
+```
+<ptg-ui-accordion
+  [listData]="listData"
+  [isAnimated]="false"
+  [addAccordionPanel]="true"
+  [addAccordionGroup]="true"
+  [oneAtATime]="false"
+></ptg-ui-accordion>
+```
+
+
+ Following are some controls with their explanation :
+ 
+ 1] listData :
+
+ listData contains data to display and control accordian group with provided properties 
+
+heading − string, Clickable text in accordion's group header
+
+isDisabled − boolean, enables/disables accordion group
+
+isOpen − boolean, Is accordion group open or closed. This property supports two-way binding
+
+panelClass − string, Provides an ability to use Bootstrap's contextual panel classes (panel-primary, panel-success, panel-info, etc...).
+
+
+
+ 1] isAnimated :
+
+ isAnimated control is used to transform the element. 
+
+ This property allows you to rotate the elements.
+
+
+<Canvas><Story id="component-accordioncomponent--is-animated" /></Canvas>
+
+
+ 2] addAccordionGroup :
+
+ The addAccordionGroup property sets or returns whether to use AccordionGroup or panel.
+
+ true - Default, Accrodion group is added within accordion
+
+ false -  Accrodion group is not added within accordion
+    
+
+
+3] oneAtATime :
+
+We can use oneAtATime control to show only one element at time.
+
+<Canvas><Story id="component-accordioncomponent--one-at-a-time" /></Canvas>

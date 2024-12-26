@@ -49,7 +49,7 @@ import { ActionButtonComponent } from './datatables/action-button/action-button.
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { TranslateModule } from '@ngx-translate/core';
-import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
+import { AccordionExampleComponent } from './accordion-example/accordion-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
 import { CardExampleComponent } from './card-component/card-example.component';
@@ -106,7 +106,7 @@ defineCustomElements();
     DownloadExampleComponent,
     GridlayoutexampleComponent,
     ActionButtonComponent,
-    AccordianExampleComponent,
+    AccordionExampleComponent,
     MultistepFormLayoutComponent,
     ToggleCodeComponent,
     DialogExampleComponent,

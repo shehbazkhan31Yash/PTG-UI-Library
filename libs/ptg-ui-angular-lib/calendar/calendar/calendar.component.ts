@@ -22,7 +22,7 @@ import {
   ViewEncapsulation,
   ChangeDetectorRef
 } from '@angular/core';
-import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerConfig, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
@@ -49,8 +49,9 @@ import {
 })
 export class CalendarComponent implements ControlValueAccessor {
   @ViewChild(BsDatepickerDirective, { static: false })
-  datepicker?: BsDatepickerDirective;
+  datepickerVal!: BsDatepickerDirective;
   @ViewChild('datePicker', { static: true }) datePicker!: ElementRef;
+  bsConfig?: Partial<BsDatepickerConfig> ;
 
   // @Input() parentForm!: FormGroup;
   // @Input() fieldname!: string;
@@ -63,6 +64,7 @@ export class CalendarComponent implements ControlValueAccessor {
   @Input() isReadOnly = false;
   @Input() aria_placeholder = 'MM-DD-YYYY';
   @Input() aria_label = 'given-name';
+  @Input() themeColor: 'theme-default'|'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
   @Output() calendarValueChange = new EventEmitter<any>();
   inputDate: any;
 
@@ -94,7 +96,15 @@ export class CalendarComponent implements ControlValueAccessor {
   onBlur() {
     this.onTouched();
   }
-
+  applyTheme(pop: BsDatepickerDirective) {
+    this.bsConfig = Object.assign({}, { containerClass: this.themeColor });
+    // setTimeout(() => {
+    //   pop.show();
+    // });
+  }
+  ngAfterViewInit() {
+    this.applyTheme(this.datepickerVal);
+  }
   @HostListener('window:scroll')
   onScrollEvent() {
   }
