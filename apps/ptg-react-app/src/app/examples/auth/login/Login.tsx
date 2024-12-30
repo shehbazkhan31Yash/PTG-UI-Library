@@ -61,14 +61,6 @@ export function PtgLogin() {
     const [user, setUser] = useState(initialValue);
     const [isEmailValid, setIsEmailValid] = useState(true);
 
-    const ShowExampleCode = () => {
-      if (!showCode) {
-        setShowCode(true);
-      } else {
-        setShowCode(false);
-      }
-    };
-
     const validate = (value: string) => {
       let formErr = true;
       const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
