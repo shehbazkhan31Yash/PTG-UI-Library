@@ -116,40 +116,17 @@ export function ExampleOne(props: ExampleOneProps) {
     };`;
 
   const htmlCode = `
-    <div className="container-fluid">
-      <div className="row mb-5">
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <div className="row mb-3">
-            <div className="col-12">
-              <label>{t('MIN_DATE')}</label>
-            </div>
-            <div className="col-12" id="sdo">
-              <PtgUiCalendar {...startDateProp} />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12">
-              <label>{t('MAX_DATE')}</label>
-            </div>
-            <div className="col-12" id="edo">
-              <PtgUiCalendar {...endDateProp} />
-            </div>
-          </div>
-        </div>
+    // -----------Manage Start Date--------
+    <label>Start Date</label>
+    <PtgUiCalendar {...startDateProp} />
 
-        <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <label>{t('DATE_VALIDATOR_TEXT')}</label>
-          <div className="row mb-3">
-            <div
-              className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-              id="react-datepicker_star-end"
-            >
-              <PtgUiCalendar {...dateRangeProp} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    // -----------Manage End Date--------
+    <label>End Date</label>
+    <PtgUiCalendar {...endDateProp} />
+
+    // -----------Manage Date Range--------
+    <label>Date Range</label>
+    <PtgUiCalendar {...dateRangeProp} />
   `;
 
   return (

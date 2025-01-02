@@ -119,31 +119,22 @@ const LocalDatetime = (props: ExampleOneProps) => {
   `;
 
   const htmlCode = `
-    <div className="container-fuild">
-      <div className="row ms-1 me-1">
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <label>en-US time zone</label>
-          <PtgUiCalendar {...startDateProp} />
-        </div>
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <label>Timezone</label>
-          <PtgUiMultiSelectbox
-            name="time"
-            list={timeZoneList}
-            onSelect={onSelect}
-            singleSelect={true}
-            className="single-select-field"
-            placeholder={t('SELECT_PLACEHOLDER')}
-          />
-        </div>
-      </div>
-      <div className="row mt-2 ms-1 me-1">
-        <div className="col-md-6 col-lg-6">
-          <label>Converted timezone</label>
-          <PtgUiCalendar {...startDatePropLocal} />
-        </div>
-      </div>
-    </div>
+    <label>en-US time zone</label>
+    <PtgUiCalendar {...startDateProp} />
+  
+    <label>Timezone</label>
+    <PtgUiMultiSelectbox
+      name="time"
+      list={timeZoneList}
+      onSelect={onSelect}
+      singleSelect={true}
+      className="single-select-field"
+      placeholder={'Select Time Zone'}
+    />
+  
+    <label>Converted timezone</label>
+    <PtgUiCalendar {...startDatePropLocal} />
+        
   `;
 
   return (

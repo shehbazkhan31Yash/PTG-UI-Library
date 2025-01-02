@@ -138,42 +138,17 @@ export function ExampleTwo(props: ExampleTwoProps) {
    `;
 
   const htmlCode = `
-    <div className="container-fluid">
-      <div className="row mb-5">
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <div className="row mb-3">
-            <div className="col-12">
-              <label>{t('MIN_DATE')}</label>
-            </div>
-            <div className="col-12" id="start-date">
-              <PtgUiCalendar {...startDateProp} />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12">
-              <label>{t('MAX_DATE')}</label>
-            </div>
-            <div className="col-12" id="end-date">
-              <PtgUiCalendar {...endDateProp} />
-            </div>
-          </div>
-        </div>
-        <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <label>{t('DATE_VALIDATOR_TEXT')}</label>
-          <div className="row mb-3">
-            <div
-              className="calender-component col-lg-12 col-md-12 col-sm-12 col-xs-12"
-              id="date-range-two"
-            >
-              <PtgUiCalendar {...dateRangeProp} />
-              {date.errorMsg && (
-                <p className="text-danger">{t('DATE_VALIDATOR_TEXT')}</p>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    // -----------Manage Start Date--------
+    <label>Start Date</label>
+    <PtgUiCalendar {...startDateProp} />
+  
+    // -----------Manage End Date--------
+    <label>End Date</label>
+    <PtgUiCalendar {...endDateProp} />
+  
+    // -----------Manage Date Range With Validation--------
+    <label>Date Range</label>
+    <PtgUiCalendar {...dateRangeProp} /> 
    `;
 
   return (

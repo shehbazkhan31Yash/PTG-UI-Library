@@ -37,3 +37,4 @@ export * from './lib/pagination/pagination';
 export * from './lib/auth/Login/login';
 export * from './lib/auth/Signup/signup';
 export * from './lib/breadcrumbs/breadcrumbs';
+export * from './lib/carousel/carousel';

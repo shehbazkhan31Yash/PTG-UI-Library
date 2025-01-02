@@ -25,19 +25,19 @@ export default function Button() {
     <PtgUiButton
       text="Primary"
       data-testid="openButton"
-      appearance="btn-primary"
+      appearance="primary"
       onClick={onClick}
       width="80px"
       fontSize="12px"
       disabled={false}>
     </PtgUiButton>
-    <PtgUiButton text="Secondary" appearance="btn-secondary" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Warning" appearance="btn-warning" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Success" appearance="btn-success" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Danger" appearance="btn-danger" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Info" appearance="btn-info" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Light" appearance="btn-light" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Dark" appearance="btn-dark" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Secondary" appearance="secondary" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Warning" appearance="warning" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Success" appearance="success" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Danger" appearance="danger" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Info" appearance="info" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Light" appearance="light" onClick={onClick}></PtgUiButton>
+    <PtgUiButton text="Dark" appearance="dark" onClick={onClick}></PtgUiButton>
  `;
 
   const componentCodeWithIcon = `
@@ -51,7 +51,7 @@ export default function Button() {
     <PtgUiButton
       text="Primary"
       data-testid="openButton"
-      appearance="btn-primary"
+      appearance="primary"
       btnIconAlignment="left"
       onClick={onClick}
       width="110px"
@@ -67,7 +67,7 @@ export default function Button() {
     <PtgUiButton
       text="Primary"
       data-testid="openButton"
-      appearance="btn-primary"
+      appearance="primary"
       btnIconAlignment="right"
       onClick={onClick}
       width="110px"
@@ -81,7 +81,7 @@ export default function Button() {
 
     <PtgUiButton
       data-testid="openButton"
-      appearance="btn-secondary"
+      appearance="secondary"
       onClick={onClick}
       width="60px"
       fontSize="12px"
