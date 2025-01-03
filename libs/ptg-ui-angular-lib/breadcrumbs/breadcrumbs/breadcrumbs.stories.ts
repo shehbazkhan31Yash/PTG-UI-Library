@@ -1,10 +1,10 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { ButtonComponent } from './button.component';
+import { BreadcrumbsComponent } from './breadcrumbs.component';
 
 
 export default {
-  title: 'Component/ButtonComponent',
-  component: ButtonComponent,
+  title: 'Component/BreadcrumbsComponent',
+  component: BreadcrumbsComponent,
   
   parameters: {
     backgroundColor: {
@@ -57,11 +57,11 @@ export default {
       imports: [],
     }),
   ],
-} as Meta<ButtonComponent>;
+} as Meta<BreadcrumbsComponent>;
 
-const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
+const Template: Story<BreadcrumbsComponent> = (args: BreadcrumbsComponent) => ({
   props: args,
-  component: ButtonComponent,
+  component: BreadcrumbsComponent,
 });
 
 
@@ -75,9 +75,6 @@ Primary.args = {
     
   };
 
-
-  
-  
 export const Small = Template.bind({});
   Small.args = {
     type: 'button',

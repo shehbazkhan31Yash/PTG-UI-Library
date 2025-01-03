@@ -1,8 +1,13 @@
-
 .breadcrumb-item::before {
-    content: none; /* Remove the default Bootstrap divider */
+    content: none;
+    /* Remove the default Bootstrap divider */
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-    content: none; /* Ensure no divider is added before the content */
+.breadcrumb-item+.breadcrumb-item::before {
+    content: none;
+    /* Ensure no divider is added before the content */
+}
+
+a {
+    cursor: pointer;
 }

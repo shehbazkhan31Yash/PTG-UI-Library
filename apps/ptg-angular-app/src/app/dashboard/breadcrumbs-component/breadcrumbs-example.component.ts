@@ -6,13 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./breadcrumbs-example.component.scss'],
 })
 export class BreadcrumbsExampleComponent {
-  dataList: any = [
-    { title: 'home', link: '#' },
-    { title: 'about', link: '#' },
-    { title: 'contact', link: '#' },
-  ];
+  data = {
+    "name": "Home",
+    "url": "home",
+    "child": {
+      "name": "Category",
+      "url": "#",
+      "child": {
+        "name": "Alert"
+      }
+    }
+  };
+
   htmlCode = `
-  <ptg-breadcrumbs [datalist]="dataList"></ptg-breadcrumbs>
+  <ptg-ui-breadcrumbs [data]="data"></ptg-ui-breadcrumbs>
   `;
 
   tsCode = `
@@ -23,21 +30,18 @@ export class BreadcrumbsExampleComponent {
     styleUrls: ['./breadcrumbs-example.component.scss'],
   })
   export class BreadcrumbsExampleComponent {
-    dataList: any = [
-      { title: 'home', link: '/home' },
-      { title: 'about', link: '/about' },
-      { title: 'contact', link: '/contact' },
-    ];
-  }
-  `;
-   data={
+    data = {
     "name": "Home",
+    "url" :"home",
     "child": {
       "name": "Category",
+      "url" :"#",
       "child": {
-        "name": "Alert",
-        "child": null
+        "name": "Alert"
       }
     }
   };
+
+  }
+  `;
 }
