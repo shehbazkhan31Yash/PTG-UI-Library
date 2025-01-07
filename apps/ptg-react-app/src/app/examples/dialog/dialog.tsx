@@ -6,10 +6,11 @@
 */
 
 import { useState } from 'react';
-import { PtgButton, PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { PtgUiButton, PtgUiModal } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+import './dialog.scss';
 
 const DialogExample = () => {
   const [showCode, setShowCode] = useState(false);
@@ -36,7 +37,7 @@ const DialogExample = () => {
   }
 
   const componentCode = `
-  import PtgModal from '@ptg-ui/ptg-ui-web-components-react';
+  import { PtgUiButton, PtgUiModal } from '@ptg-ui/libs/ptg-ui-react-lib/src';
   import AddCircleIcon from '@mui/icons-material/AddCircle';
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,20 +60,34 @@ const DialogExample = () => {
   import '@ptg-ui-web-components/src/global/global.css'`;
 
   const htmlCode = `
-      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
-        btnIconAlignment='left' >
-        <div slot="btnIcon">
-          <AddCircleIcon />
-        </div>
-      </PtgButton>
+         <PtgUiButton
+          text="Click Here"
+          data-testid="openButton"
+          appearance="primary"
+          btnIconAlignment="right"
+          onClick={openModal}
+          width="136px"
+          fontSize="13px"
+          hasbtnIconSlot={true}
+        >
+          <div slot="btnIcon">
+            <AddCircleIcon />
+          </div>
+      </PtgUiButton>
 
-      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
-        modal-size='lg' modal-header-name="Header Name Here"
-        confirm-button-name="Okay" onModalClose={modalClosed}>
-        <div slot="body-block">
+      <PtgUiModal
+        isOpen={isOpen}  
+        onConfirmed={confirmClicked}
+        modalSize='lg' 
+        modalHeaderName="Header Name Here"
+        confirmButtonName="Okay"
+        cancelButtonName="Cancel"
+        onModalClose={modalClosed}
+      >
+      <div slot="body-block">
           <h2>React Slot for Body</h2>
-        </div>
-      </PtgModal>`
+      </div>
+      </PtgUiModal>`
   return (
     <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
     <div className='row'>
@@ -88,21 +103,36 @@ const DialogExample = () => {
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
       <div className='ms-2'>
-      <PtgButton  text="Click Here" data-testid="openButton" appearance="primary" onClick={openModal}
-       >
-        <div slot="btnIcon">
-          <AddCircleIcon />
-        </div>
-      </PtgButton>
+        <PtgUiButton
+          text="Click Here"
+          data-testid="openButton"
+          appearance="primary"
+          btnIconAlignment="right"
+          onClick={openModal}
+          width="136px"
+          fontSize="13px"
+          hasbtnIconSlot={true}
+        >
+          <div slot="btnIcon">
+            <AddCircleIcon />
+          </div>
+      </PtgUiButton>
+
       </div>
 
-      <PtgModal isOpen={isOpen}  onConfirmClose={confirmClicked}
-        modal-size='lg' modal-header-name="Header Name Here"
-        confirm-button-name="Okay" onModalClose={modalClosed}>
-        <div slot="body-block">
+      <PtgUiModal
+        isOpen={isOpen}  
+        onConfirmed={confirmClicked}
+        modalSize='lg' 
+        modalHeaderName="Header Name Here"
+        confirmButtonName="Okay"
+        cancelButtonName="Cancel"
+        onModalClose={modalClosed}
+      >
+      <div slot="body-block">
           <h2>React Slot for Body</h2>
-        </div>
-      </PtgModal>
+      </div>
+      </PtgUiModal>
     </div>
     </section>
   );
