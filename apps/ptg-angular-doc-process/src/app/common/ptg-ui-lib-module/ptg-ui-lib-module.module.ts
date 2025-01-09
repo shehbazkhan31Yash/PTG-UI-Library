@@ -17,6 +17,7 @@ import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
 import { CalendarModule } from '@ptg-ui/angular/calendar';
 import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
+import { CardModule } from '@ptg-ui/angular/card';
 
 const modules = [
   SidenavModule,
@@ -36,7 +37,8 @@ const modules = [
   FileDownloadsModule,
   IndeterminateCheckboxesModule,
   CalendarModule,
-  BreadcrumbsModule
+  BreadcrumbsModule,
+  CardModule
 ];
 @NgModule({
   declarations: [],

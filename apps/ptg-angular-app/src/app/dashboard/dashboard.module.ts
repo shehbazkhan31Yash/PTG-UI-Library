@@ -138,7 +138,7 @@ defineCustomElements();
     MatInputModule,
     DemoPtgUiNgModule,
     MatSnackBarModule,
-    WebComponentsAngularModule
+    WebComponentsAngularModule,
   ],
 })
 export class DashboardModule {}
