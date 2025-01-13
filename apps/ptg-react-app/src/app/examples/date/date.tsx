@@ -14,7 +14,7 @@ import DateExampleThree from './dateExampleThree';
 import DateExampleFour from './dateExampleFour';
 import CodeIcon from '@mui/icons-material/Code';
 import LocalDatetime from './localDateTime';
-import { PtgUiMultiSelectbox, PtgUiCalendar, PtguseFetch } from '@ptg-ui/react';
+import { PtguseFetch } from '@ptg-ui/react';
 
 export interface PtgUiDateExampleProps {}
 

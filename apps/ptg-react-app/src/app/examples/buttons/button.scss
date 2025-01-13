@@ -3,8 +3,8 @@
 }
 
 .btn {
-  background: var(--mono-10);
-  color: var(--mono-70);
+  // background: var(--mono-10);
+  // color: var(--mono-70);
   border-radius: 7px;
   border: none;
   padding: 0 20px;
@@ -18,61 +18,61 @@
   justify-content: center;
   font-family: inherit;
 }
-.btn.primary {
-  background: var(--primary-50);
-  color: var(--white);
+.primary {
+  background: #2196f3 !important;
+  color: #ffffff;
 }
-.btn.primary:hover {
-  background: var(--primary-70);
+.primary:hover {
+  background: #0a58ca !important;
 }
-.btn.secondary {
+.secondary {
   background: gray;
-  color: var(--white);
+  color: #ffffff;
 }
-.btn.secondary:hover {
-  background: var(--mono-70);
+.secondary:hover {
+  background: #212529;
 }
-.btn.warning {
-  background: var(--warning-50);
-  color: var(--white);
+.warning {
+  background: #ffa942;
+  color: #ffffff;
 }
-.btn.warning:hover {
-  background: var(--warning-70);
+.warning:hover {
+  background: #e69c45;
 }
-.btn.success {
-  background: var(--success-50);
-  color: var(--white);
+.success {
+  background: #146c43;
+  color: #ffffff;
 }
-.btn.success:hover {
-  background: var(--success-70);
+.success:hover {
+  background: #198754;
 }
-.btn.danger {
-  background: var(--danger-50);
-  color: var(--white);
+.danger {
+  background: #dd3434;
+  color: #ffffff;
 }
-.btn.danger:hover {
-  background: var(--danger-70);
+.danger:hover {
+  background: #bd2c2c;
 }
-.btn.info {
-  background: var(--info-50);
-  color: var(--white);
+.info {
+  background: #25cff2;
+  color: #ffffff;
 }
-.btn.info:hover {
-  background: var(--info-70);
+.info:hover {
+  background: rgb(33, 150, 243);
 }
-.btn.light {
-  background: var(--light-50);
-  color: var(--black);
+.light {
+  background: #f9fafb;
+  color: #000000;
 }
-.btn.light:hover {
-  background: var(--light-70);
+.light:hover {
+  background: #f9fafb;
 }
-.btn.dark {
-  background: var(--dark-50);
-  color: var(--white);
+.dark {
+  background: #1a1e21;
+  color: #ffffff;
 }
-.btn.dark:hover {
-  background: var(--dark-70);
+.dark:hover {
+  background: #1c1f23;
 }
 .showLeft {
   width: 18px;
@@ -116,7 +116,7 @@ div[slot='btnIcon'] {
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border: 1px solid rgba(33, 150, 243, 0.5);
-  color: var(--primary-50);
+  color: #2196f3 !important;
   font-weight: 500;
   border-radius: 4px;
 }

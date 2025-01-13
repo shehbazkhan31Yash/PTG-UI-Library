@@ -5,7 +5,7 @@
  *
  */
 import './select.scss';
-import {Form} from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 //import Select from 'react-select';
 /* eslint-disable-next-line */
 export interface PtgUiSelectProps {
@@ -30,26 +30,27 @@ export function PtgUiSelect({
   htmlFor,
 }: PtgUiSelectProps) {
   return (
-      <Form.Group controlId="formBasicSelect" className={className}>
-        <Form.Control
-          as="select"
-          value={value}
-          onBlur={onBlur}
-          onChange={onChange}
-          className={className}
-          name={name}
-          data-testid={name}
-          id={id}>
-          <option value="" className="d-none" disabled selected>
-            Select
+    <Form.Group controlId="formBasicSelect" className={className}>
+      <Form.Control
+        as="select"
+        value={value}
+        onBlur={onBlur}
+        onChange={onChange}
+        className={className}
+        name={name}
+        data-testid={name}
+        id={id}
+      >
+        <option value="" className="d-none" disabled selected>
+          Select
+        </option>
+        {list?.map((item, key) => (
+          <option key={key} value={item.value}>
+            {item.label}
           </option>
-          {list?.map((item, key) => (
-            <option key={key} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
+        ))}
+      </Form.Control>
+    </Form.Group>
   );
 }
 

@@ -1,11 +1,10 @@
-@import '../styles/variables';
 :host {
   display: block;
 }
 
 .btn {
-  background: $mono-10;
-  color: $mono-70;
+  // background: var(--mono-10);
+  // color: var(--mono-70);
   border-radius: 7px;
   border: none;
   padding: 0 20px;
@@ -19,61 +18,61 @@
   justify-content: center;
   font-family: inherit;
 }
-.btn.primary {
-  background: $primary-50;
-  color: $white;
+.primary {
+  background: #2196f3 !important;
+  color: #ffffff;
 }
-.btn.primary:hover {
-  background: $primary-70;
+.primary:hover {
+  background: #0a58ca !important;
 }
-.btn.secondary {
+.secondary {
   background: gray;
-  color: $white;
+  color: #ffffff;
 }
-.btn.secondary:hover {
-  background: $mono-70;
+.secondary:hover {
+  background: #212529;
 }
-.btn.warning {
-  background: $warning-50;
-  color: $white;
+.warning {
+  background: #ffa942;
+  color: #ffffff;
 }
-.btn.warning:hover {
-  background: $warning-70;
+.warning:hover {
+  background: #e69c45;
 }
-.btn.success {
-  background: $success-50;
-  color: $white;
+.success {
+  background: #146c43;
+  color: #ffffff;
 }
-.btn.success:hover {
-  background: $success-70;
+.success:hover {
+  background: #198754;
 }
-.btn.danger {
-  background: $danger-50;
-  color: $white;
+.danger {
+  background: #dd3434;
+  color: #ffffff;
 }
-.btn.danger:hover {
-  background: $danger-70;
+.danger:hover {
+  background: #bd2c2c;
 }
-.btn.info {
-  background: $info-50;
-  color: $white;
+.info {
+  background: #25cff2;
+  color: #ffffff;
 }
-.btn.info:hover {
-  background: $info-70;
+.info:hover {
+  background: rgb(33, 150, 243);
 }
-.btn.light {
-  background: $light-50;
-  color: $black;
+.light {
+  background: #f9fafb;
+  color: #000000;
 }
-.btn.light:hover {
-  background: $light-70;
+.light:hover {
+  background: #f9fafb;
 }
-.btn.dark {
-  background: $dark-50;
-  color: $white;
+.dark {
+  background: #1a1e21;
+  color: #ffffff;
 }
-.btn.dark:hover {
-  background: $dark-70;
+.dark:hover {
+  background: #1c1f23;
 }
 .showLeft {
   width: 18px;
@@ -116,8 +115,8 @@ div[slot='btnIcon'] {
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border: 1px solid rgba(33, 150, 243, 0.5);
-  color: $primary-50;
+  border: 1px solid rgba(33, 150, 243, 0.5) !important;
+  color: #2196f3 !important;
   font-weight: 500;
   border-radius: 4px;
 }

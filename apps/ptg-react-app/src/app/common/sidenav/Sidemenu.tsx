@@ -163,13 +163,13 @@ export const NavigationData = [
   {
     path: '/pagination',
     icon: 'fa-solid fa-table-list',
-    label: 'Pagination',
+    label: 'PAGINATION',
     disabled: false,
   },
   {
     path: '/dialog',
     icon: 'fa fa-th',
-    label: 'Dialog',
+    label: 'DIALOG',
     disabled: false,
   },
   {
