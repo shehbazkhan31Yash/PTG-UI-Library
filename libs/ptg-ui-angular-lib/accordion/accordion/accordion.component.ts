@@ -38,9 +38,13 @@ export class AccordionComponent implements OnInit {
 
       const oneAtTimemode = this.oneAtATime
       ? 'ptg-ui-Accordion--oneAtATime'
+      : 'ptg-ui-Accordion--secondary'; 
+
+      const addAccordionGroupMode = this.addAccordionGroup
+      ? 'ptg-ui-Accordion--addAccordionGroup'
       : 'ptg-ui-Accordion--secondary';  
     
-    return [`ptg-ui-Accordion`, `ptg-ui-Accordion--${this.isAnimated}`, animatedmode  , oneAtTimemode];
+    return [`ptg-ui-Accordion`, `ptg-ui-Accordion--${this.isAnimated}`, animatedmode  , oneAtTimemode,addAccordionGroupMode];
   
  
  

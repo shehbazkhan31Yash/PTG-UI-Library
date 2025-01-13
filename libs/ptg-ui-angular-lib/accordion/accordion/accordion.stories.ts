@@ -24,7 +24,7 @@ Primary.args = {
   isAnimated: false,
   oneAtATime: false,
   listData : ACCORDIAN_DATA,
-  addAccordionGroup:true
+  addAccordionGroup:false
 };
 
 export const IsAnimated = Template.bind({});

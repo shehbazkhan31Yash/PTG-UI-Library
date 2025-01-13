@@ -4,7 +4,7 @@ import * as AccordionComponents from './accordion.stories.ts'
 
 import {AccordionComponent} from './accordion.component';
 
- <Meta title="Component/AccordionComponent/AccordionComponentDocs" component={ AccordionComponent }    />
+ <Meta title="Component/AccordionComponent/AccordionComponentDocs" component={ AccordionComponent }/>
 
 
 
@@ -21,16 +21,24 @@ import {AccordionComponent} from './accordion.component';
  We can import the accordion tag using the following importation : 
 
 ```
-    import { AccordionComponent } from ' @ptg-ui/angular'
+    import { AccordianModule } from '@ptg-ui/angular/accordion'
 ```    
 
- Types of controls supported by button:
+ Types of controls supported by accordion:
 
  
- - isDisabled
+ - isAnimated
  - oneAtATime
+ - addAccordionGroup
+
+Types of controls supported by accordion data:
 
 
+ - title
+ - description
+ - isDisabled
+ - isOpen
+ - panelClass
 
  ## Quick Start
  
@@ -41,7 +49,6 @@ import {AccordionComponent} from './accordion.component';
 <ptg-ui-accordion
   [listData]="listData"
   [isAnimated]="false"
-  [addAccordionPanel]="true"
   [addAccordionGroup]="true"
   [oneAtATime]="false"
 ></ptg-ui-accordion>
@@ -52,13 +59,15 @@ import {AccordionComponent} from './accordion.component';
  
  1] listData :
 
- listData contains data to display and control accordian group with provided properties 
+ listData contains data to display and control accordion group with provided properties 
 
-heading − string, Clickable text in accordion's group header
+title − string, heading text in accordion's group header
+
+description - string , accordion group description
 
 isDisabled − boolean, enables/disables accordion group
 
-isOpen − boolean, Is accordion group open or closed. This property supports two-way binding
+isOpen − boolean, keep accordion group open if true
 
 panelClass − string, Provides an ability to use Bootstrap's contextual panel classes (panel-primary, panel-success, panel-info, etc...).
 
@@ -71,18 +80,18 @@ panelClass − string, Provides an ability to use Bootstrap's contextual panel c
  This property allows you to rotate the elements.
 
 
-<Canvas><Story id="component-accordioncomponent--is-animated" /></Canvas>
+<Canvas><Story id="component-accordioncomponent--is-animated"/></Canvas>
 
 
  2] addAccordionGroup :
 
  The addAccordionGroup property sets or returns whether to use AccordionGroup or panel.
 
- true - Default, Accrodion group is added within accordion
+ true - Default, Accordion group is added within accordion
 
- false -  Accrodion group is not added within accordion
+ false -  Accordion group is not added within accordion
     
-
+<Canvas><Story id="component-accordioncomponent--add-accordion-group" /></Canvas>
 
 3] oneAtATime :
 
