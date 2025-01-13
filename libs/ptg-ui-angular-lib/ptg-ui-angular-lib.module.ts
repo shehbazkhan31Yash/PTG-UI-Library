@@ -31,6 +31,7 @@ import { TextareaModule } from "./textarea/textarea.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 import { CardModule } from './card/card.module';
+import { CarouselModule } from './carousel/carousel.module';
 
 @NgModule({
   declarations: [],
@@ -56,7 +57,8 @@ import { CardModule } from './card/card.module';
     AccordianModule,
     TextareaModule,
     BreadcrumbsModule,
-    CardModule
+    CardModule,
+    CarouselModule
     // SidenavModule
   ],
   exports: [

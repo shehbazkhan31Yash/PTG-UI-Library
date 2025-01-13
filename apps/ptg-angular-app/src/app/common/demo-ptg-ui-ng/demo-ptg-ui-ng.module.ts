@@ -18,6 +18,7 @@ import { InputModule } from '@ptg-ui/angular/input';
 import { CalendarModule } from '@ptg-ui/angular/calendar';
 import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 import { CardModule } from '@ptg-ui/angular/card';
+import { CarouselModule } from '@ptg-ui/angular/carousel';
 
 const modules = [
   SidenavModule,
@@ -38,7 +39,8 @@ const modules = [
   IndeterminateCheckboxesModule,
   CalendarModule,
   BreadcrumbsModule,
-  CardModule
+  CardModule,
+  CarouselModule
 ];
 @NgModule({
   declarations: [],

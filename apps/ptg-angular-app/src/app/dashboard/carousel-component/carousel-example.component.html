@@ -12,7 +12,7 @@
   
       <div class="p-3" *ngIf="sampleImages && sampleImages.length > 0; else elseNotDone">
         <div class="carouselClass">
-          <ptg-ui-carousel [images]="sampleImages"></ptg-ui-carousel>
+          <!-- <ptg-ui-carousel [images]="sampleImages"></ptg-ui-carousel> -->
         </div>
   
      </div>     
@@ -32,10 +32,11 @@
         <hr class="css-yasiti"/>
         <div class="p-3">     
           <div class="carouselClass">
-            <ptg-ui-carousel
+            <!-- <ptg-ui-carousel
             [images]="sampleImages"
             :show-indicators="false"
-          ></ptg-ui-carousel>
+          ></ptg-ui-carousel> -->
+          <ptg-ui-carousels></ptg-ui-carousels>
           </div>
       
       </div>
