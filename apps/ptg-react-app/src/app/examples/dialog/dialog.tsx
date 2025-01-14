@@ -37,7 +37,7 @@ const DialogExample = () => {
   }
 
   const componentCode = `
-  import { PtgUiButton, PtgUiModal } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+  import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
   import AddCircleIcon from '@mui/icons-material/AddCircle';
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,7 +57,7 @@ const DialogExample = () => {
   `
 
   const cssCode = `
-  import '@ptg-ui-web-components/src/global/global.css'`;
+  import "@ptg-ui/react/lib/styles/index.css"`;
 
   const htmlCode = `
          <PtgUiButton

@@ -1,3 +1,4 @@
+@import '../styles/variables';
 :host {
   display: block;
 }
@@ -30,7 +31,7 @@
 
 .modal-wrapper .modal {
   display: block;
-  background: var(--white);
+  background:#ffffff;
   border-radius: 5px;
   height: auto;
   left: 50%;
@@ -53,9 +54,9 @@
 
 
 .modal-wrapper .modal .header {
-  background-color: var(--white);
+  background-color:#ffffff;
   align-items: center;
-  border-bottom: 1px solid var(--mono-05);
+  border-bottom: 1px solid $mono-05;
   display: flex;
   font-size: 16px;
   justify-content: space-between;
@@ -82,7 +83,7 @@
 
 /* modal body */
 .modal-wrapper .modal .body{
-  color: var(--mono-50);
+  color: $mono-50;
   font-size: 14px;
   height: auto;
   line-height: 21px;
@@ -95,7 +96,7 @@
 /* modal footer */
 .modal-wrapper .modal .footer{
   align-items: center;
-  border-top: 1px solid var(--mono-05);
+  border-top: 1px solid $mono-05;
   display: flex;
   justify-content: flex-end;
   padding: 16px;
@@ -119,8 +120,8 @@
   font-size: 33px;
 }
 .btn {
-  background: var(--mono-10);
-  color: var(--mono-70);
+  background: $mono-10;
+  color: $mono-70;
   border-radius: 7px;
   border: none;
   padding: 0 20px;
@@ -144,19 +145,19 @@ div[slot='btnIcon'] {
   width: 18px;
   margin-left: 12px;
 }
-.btn.primary {
-  background: var(--primary-50);
-  color: var(--white);
+btn.primary {
+  background: $primary-50;
+  color: $white;
 }
 .btn.primary:hover {
-  background: var(--primary-70);
+  background: $primary-70;
 }
 .btn.danger {
-  background: var(--danger-50);
-  color: var(--white);
+  background: $danger-50;
+  color: $white;
 }
 .btn.danger:hover {
-  background: var(--danger-70);
+  background: $danger-70;
 }
 
 // .isOpen .modal{
