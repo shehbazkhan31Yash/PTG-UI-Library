@@ -35,55 +35,57 @@ export function PtgUiCarousel({
             {images.length
               ? images.map((imgPath, index) => {
                   return (
-                    <div>
-                      <input
-                        type="radio"
-                        name="radio-buttons"
-                        id={`img-${index}`}
-                        checked
-                      />
-                      <li className="slide-container">
-                        <div className="slide-image">
-                          <img src={imgPath} alt="Image" />
-                        </div>
-                        <div
-                          className="carousel-controls"
-                          style={{ lineHeight: imgHeight }}
-                        >
-                          <label
-                            htmlFor={`img-${
-                              index == 0 ? images.length - 1 : index - 1
-                            }`}
-                            className="prev-slide"
+                    <>
+                      <div key={index}>
+                        <input
+                          type="radio"
+                          name="radio-buttons"
+                          id={`img-${index}`}
+                          checked
+                        />
+                        <li className="slide-container">
+                          <div className="slide-image">
+                            <img src={imgPath} alt="Image" />
+                          </div>
+                          <div
+                            className="carousel-controls"
+                            style={{ lineHeight: imgHeight }}
                           >
-                            <span>&lsaquo;</span>
-                          </label>
-                          <label
-                            htmlFor={`img-${
-                              index == images.length - 1 ? 0 : index + 1
-                            }`}
-                            className="next-slide"
-                          >
-                            <span>&rsaquo;</span>
-                          </label>
+                            <label
+                              htmlFor={`img-${
+                                index == 0 ? images.length - 1 : index - 1
+                              }`}
+                              className="prev-slide"
+                            >
+                              <span>&lsaquo;</span>
+                            </label>
+                            <label
+                              htmlFor={`img-${
+                                index == images.length - 1 ? 0 : index + 1
+                              }`}
+                              className="next-slide"
+                            >
+                              <span>&rsaquo;</span>
+                            </label>
+                          </div>
+                        </li>
+                      </div>
+                      {showIndicators && (
+                        <div className="carousel-dots">
+                          {images.map((imgPath, dotIndex) => (
+                            <label
+                              htmlFor={`img-${index}`}
+                              className="carousel-dot"
+                              id={`img-dot-${index}`}
+                              key={dotIndex}
+                            ></label>
+                          ))}
                         </div>
-                      </li>
-                    </div>
+                      )}
+                    </>
                   );
                 })
               : null}
-            {showIndicators && (
-              <div className="carousel-dots">
-                {images.map((imgPath, index) => (
-                  <label
-                    htmlFor={`img-${index}`}
-                    className="carousel-dot"
-                    id={`img-dot-${index}`}
-                    key={imgPath}
-                  ></label>
-                ))}
-              </div>
-            )}
           </ul>
         </div>
       </div>

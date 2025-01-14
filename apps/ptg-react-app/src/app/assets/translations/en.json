@@ -153,5 +153,6 @@
   "CAROUSEL": "Carousel",
   "BUTTON_WITH_ICON": "Button with Icon",
   "ICON_ALIGNMENT_LEFT": "Icon Alignment Left",
-  "ICON_ALIGNMENT_RIGHT": "Icon Alignment Right"
+  "ICON_ALIGNMENT_RIGHT": "Icon Alignment Right",
+  "PAGINATION": "Pagination"
 }

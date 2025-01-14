@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { PtgUiMultiSelectbox, PtguseFetch } from '@ptg-ui/react';
+import { PtgUiSelectbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 export interface ExampleOneProps {
@@ -66,7 +66,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
   }, [timeZone, selectedDate]);
 
   const componentCode = `
-    import { PtgUiCalendar, PtgUiMultiSelectbox } from '@ptg-ui/react';
+    import { PtgUiCalendar, PtgUiSelectbox } from '@ptg-ui/react';
     import moment from 'moment';
 
     const [selectedDate, setSlectedDate] = useState(new Date());
@@ -123,7 +123,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
     <PtgUiCalendar {...startDateProp} />
   
     <label>Timezone</label>
-    <PtgUiMultiSelectbox
+    <PtgUiSelectbox
       name="time"
       list={timeZoneList}
       onSelect={onSelect}
@@ -151,7 +151,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <label>Timezone</label>
-            <PtgUiMultiSelectbox
+            <PtgUiSelectbox
               name="time"
               list={timeZoneList}
               onSelect={onSelect}

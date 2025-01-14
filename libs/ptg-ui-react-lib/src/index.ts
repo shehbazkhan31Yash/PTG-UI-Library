@@ -1,5 +1,4 @@
 export * from './lib/ptg-ui-react-lib';
-export * from './lib/download-file/downloadFile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export * from './lib/button/button';

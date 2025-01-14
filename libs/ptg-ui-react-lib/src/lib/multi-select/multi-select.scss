@@ -1,17 +1,4 @@
-@import "../styles/variables";
-
-
-.highlightOption, .multiSelectContainer li:hover, .multi-select .chip {
-    background: $multi-select-chip-bg-color !important;
-    color: $multi-select-chip-color !important;
-}
-  
-.multi-select .closeIcon {
-    background:$grey !important;
-    border-radius: 50%;
-}
-
-.singleSelect .chip {
-    margin-bottom: 0 !important;
-    font-size: 16px !important;
+.single-select {
+  padding: 5px;
+  border-radius: 5px;
 }
