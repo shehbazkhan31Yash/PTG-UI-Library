@@ -5,13 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './breadcrumbs-example.component.html',
   styleUrls: ['./breadcrumbs-example.component.scss'],
 })
+
 export class BreadcrumbsExampleComponent {
   data = {
     "name": "Home",
     "url": "home",
     "child": {
       "name": "Category",
-      "url": "#",
+      "url": "/category",
       "child": {
         "name": "Alert"
       }

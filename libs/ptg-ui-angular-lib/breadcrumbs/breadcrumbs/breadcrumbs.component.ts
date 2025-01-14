@@ -26,8 +26,8 @@ interface Breadcrumb {
   styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent implements OnInit {
-  @Input() data: any;
-  @Input() dividers = '/';
+  @Input() data: Breadcrumb;
+  @Input() dividers?: string = '/';
   breadcrumbs: Breadcrumb[] = [];
   constructor() { }
   ngOnInit(): void {
