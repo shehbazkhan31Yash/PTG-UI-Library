@@ -1,3 +1,5 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '@nosferatu500/react-sortable-tree/style.css';
 /*
 Override variables defined in boostrap
 */
@@ -8,8 +10,6 @@ Override variables defined in boostrap
  * @SCSS calendar SCSS;
  * @description This SCSS used for calendar custmization
 **/
-@import '~@fortawesome/fontawesome-free/css/all.css';
-@import '@nosferatu500/react-sortable-tree/style.css';
 .react-datepicker__day--keyboard-selected,
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
@@ -177,16 +177,11 @@ Override variables defined in boostrap
   padding-left: 8px;
 }
 
-/*
-Override variables defined in boostrap
-*/
 :host {
   display: block;
 }
 
 .btn {
-  background: #ececec;
-  color: #212529;
   border-radius: 7px;
   border: none;
   padding: 0 20px;
@@ -201,76 +196,84 @@ Override variables defined in boostrap
   font-family: inherit;
 }
 
-.btn.primary {
-  background: #2196f3;
+.primary {
+  background: #2196f3 !important;
   color: #ffffff;
 }
 
-.btn.primary:hover {
-  background: #0a58ca;
+.primary:hover {
+  background: #0a58ca !important;
+  color: #ffffff;
 }
 
-.btn.secondary {
+.secondary {
   background: gray;
   color: #ffffff;
 }
 
-.btn.secondary:hover {
-  background: #212529;
+.secondary:hover {
+  background: #585656;
+  color: #ffffff;
 }
 
-.btn.warning {
+.warning {
   background: #ffa942;
   color: #ffffff;
 }
 
-.btn.warning:hover {
+.warning:hover {
   background: #e69c45;
+  color: #ffffff;
 }
 
-.btn.success {
+.success {
   background: #146c43;
   color: #ffffff;
 }
 
-.btn.success:hover {
+.success:hover {
   background: #198754;
+  color: #ffffff;
 }
 
-.btn.danger {
+.danger {
   background: #dd3434;
   color: #ffffff;
 }
 
-.btn.danger:hover {
+.danger:hover {
   background: #bd2c2c;
+  color: #ffffff;
 }
 
-.btn.info {
+.info {
   background: #25cff2;
   color: #ffffff;
 }
 
-.btn.info:hover {
+.info:hover {
   background: rgb(33, 150, 243);
+  color: #ffffff;
 }
 
-.btn.light {
+.light {
   background: #f9fafb;
   color: #000000;
 }
 
-.btn.light:hover {
-  background: #f9fafb;
+.light:hover {
+  background: #eaecee;
+  color: #000000;
 }
 
-.btn.dark {
+.dark {
   background: #1a1e21;
   color: #ffffff;
 }
 
-.btn.dark:hover {
-  background: #1c1f23;
+.dark:hover {
+  color: #ffffff;
+  background: #4e4e4e;
 }
 
 .showLeft {
@@ -311,14 +314,11 @@ div[slot=btnIcon] svg {
   padding: 5px 15px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border: 1px solid rgba(33, 150, 243, 0.5);
-  color: #2196f3;
+  color: #2196f3 !important;
   font-weight: 500;
   border-radius: 4px;
 }
 
-/*
-Override variables defined in boostrap
-*/
 .login-wrapper {
   width: auto;
   height: auto;
@@ -390,9 +390,6 @@ Override variables defined in boostrap
     width: 95vw;
   }
 }
-/*
-Override variables defined in boostrap
-*/
 .signup-wrapper {
   width: auto;
   height: auto;
@@ -421,9 +418,6 @@ Override variables defined in boostrap
     width: 90vw;
   }
 }
-/*
-Override variables defined in boostrap
-*/
 .forgot-container {
   width: 65%;
   padding: 10% 0%;
@@ -594,6 +588,53 @@ input:checked + .slide-container .nav label {
   .page-item {
     margin: 0 3px; /* Reduce margin for smaller screens */
   }
+}
+.single-select {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 9px;
+  background: #2196f3;
+  border-radius: 50px;
+  margin: 2px 2px;
+  color: #ffffff;
+}
+
+.select-btn {
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+}
+
+.remove-item {
+  padding: 0px 4px;
+  margin: 0px 5px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  font-size: 8px;
+  text-align: center;
+}
+
+.selected-item {
+  font-size: 12px;
+}
+
+.items {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.checkboxs {
+  margin-right: 6px;
 }
 
 /*# sourceMappingURL=index.css.map */
