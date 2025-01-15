@@ -5,7 +5,6 @@
  * @Updated Manish Patidar
  *
  */
-import { ReactNode } from 'react';
 import { PtgUiButton } from '../button/button';
 import './modal.scss';
 
@@ -18,8 +17,11 @@ interface PtgUiModalProps {
   showFooter?: boolean;
   confirmButtonName?: string;
   cancelButtonName?: string;
-  children?: ReactNode;
   onModalClose?: any;
+  closeOutsideClick?: boolean;
+  dialogContentText?: string;
+  confirmButtonColor?: string;
+  cancelButtonColor?: string;
 }
 
 export function PtgUiModal(props: PtgUiModalProps) {
@@ -33,8 +35,16 @@ export function PtgUiModal(props: PtgUiModalProps) {
     onConfirmed,
     onModalClose,
     cancelButtonName,
-    children,
+    closeOutsideClick=true,
+    dialogContentText,
+    confirmButtonColor="#2196f3",
+    cancelButtonColor ="#dd3434",
   } = props;
+
+  const closeModule = () => {
+    if(closeOutsideClick)
+      onModalClose();
+  }
 
   return (
     <div>
@@ -62,23 +72,25 @@ export function PtgUiModal(props: PtgUiModalProps) {
             )}
             <div className="body">
               <slot name="body-block" />
-              {children}
+              <h2>{dialogContentText} </h2>
             </div>
             {showFooter && (
               <div className="footer">
                 {confirmButtonName && (
                   <PtgUiButton
                     text={confirmButtonName}
-                    appearance={'primary'}
                     onClick={onConfirmed}
+                    textColor="#fff"
+                    backgroundColor={confirmButtonColor}
                   ></PtgUiButton>
                 )}
                 {cancelButtonName && (
                   <div className="cancel">
                     <PtgUiButton
                       text={cancelButtonName}
-                      appearance={'danger'}
                       onClick={onModalClose}
+                      textColor="#fff"
+                      backgroundColor={cancelButtonColor}
                     ></PtgUiButton>
                   </div>
                 )}
@@ -87,7 +99,7 @@ export function PtgUiModal(props: PtgUiModalProps) {
           </div>
         </div>
       )}
-      {isOpen && <div className="modal-overlay1" onClick={onModalClose}></div>}
+      {isOpen && <div className="modal-overlay1" onClick={closeModule}></div>}
     </div>
   );
 }

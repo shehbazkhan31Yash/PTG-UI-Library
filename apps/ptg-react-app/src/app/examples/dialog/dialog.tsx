@@ -75,7 +75,7 @@ const DialogExample = () => {
           </div>
       </PtgUiButton>
 
-      <PtgUiModal
+     <PtgUiModal
         isOpen={isOpen}  
         onConfirmed={confirmClicked}
         modalSize='lg' 
@@ -83,11 +83,11 @@ const DialogExample = () => {
         confirmButtonName="Okay"
         cancelButtonName="Cancel"
         onModalClose={modalClosed}
-      >
-      <div slot="body-block">
-          <h2>React Slot for Body</h2>
-      </div>
-      </PtgUiModal>`
+        dialogContentText={'React Slot for Body'}
+        confirmButtonColor={"#2196f3"}
+        cancelButtonColor={'#dd3434'}
+        closeOutsideClick={true}
+      />`
   return (
     <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
     <div className='row'>
@@ -117,7 +117,6 @@ const DialogExample = () => {
             <AddCircleIcon />
           </div>
       </PtgUiButton>
-
       </div>
 
       <PtgUiModal
@@ -128,11 +127,11 @@ const DialogExample = () => {
         confirmButtonName="Okay"
         cancelButtonName="Cancel"
         onModalClose={modalClosed}
-      >
-      <div slot="body-block">
-          <h2>React Slot for Body</h2>
-      </div>
-      </PtgUiModal>
+        dialogContentText={'React Slot for Body'}
+        confirmButtonColor={"#2196f3"}
+        cancelButtonColor={'#dd3434'}
+        closeOutsideClick={true}
+      />
     </div>
     </section>
   );
