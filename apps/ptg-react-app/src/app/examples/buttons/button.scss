@@ -24,13 +24,15 @@
 }
 .primary:hover {
   background: #0a58ca !important;
+  color: #ffffff;
 }
 .secondary {
   background: gray;
   color: #ffffff;
 }
 .secondary:hover {
-  background: #212529;
+  background: #585656;
+  color: #ffffff;
 }
 .warning {
   background: #ffa942;
@@ -38,6 +40,7 @@
 }
 .warning:hover {
   background: #e69c45;
+  color: #ffffff;
 }
 .success {
   background: #146c43;
@@ -45,6 +48,7 @@
 }
 .success:hover {
   background: #198754;
+  color: #ffffff;
 }
 .danger {
   background: #dd3434;
@@ -52,6 +56,7 @@
 }
 .danger:hover {
   background: #bd2c2c;
+  color: #ffffff;
 }
 .info {
   background: #25cff2;
@@ -59,20 +64,23 @@
 }
 .info:hover {
   background: rgb(33, 150, 243);
+  color: #ffffff;
 }
 .light {
   background: #f9fafb;
   color: #000000;
 }
 .light:hover {
-  background: #f9fafb;
+  background: #eaecee;
+  color: #000000;
 }
 .dark {
   background: #1a1e21;
   color: #ffffff;
 }
 .dark:hover {
-  background: #1c1f23;
+  color: #ffffff;
+  background: #4e4e4e;
 }
 .showLeft {
   width: 18px;
