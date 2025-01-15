@@ -13,13 +13,13 @@ interface PtgUiModalProps {
   onConfirmed?: any;
   modalSize?: string;
   showHeader?: boolean;
-  modalHeaderName?: string;
+  header?: string;
   showFooter?: boolean;
-  confirmButtonName?: string;
-  cancelButtonName?: string;
+  confirmButton?: string;
+  cancelButton?: string;
   onModalClose?: any;
   closeOutsideClick?: boolean;
-  dialogContentText?: string;
+  content?: string;
   confirmButtonColor?: string;
   cancelButtonColor?: string;
 }
@@ -29,14 +29,14 @@ export function PtgUiModal(props: PtgUiModalProps) {
     isOpen,
     modalSize,
     showHeader = true,
-    modalHeaderName,
+    header,
     showFooter = true,
-    confirmButtonName,
+    confirmButton,
     onConfirmed,
     onModalClose,
-    cancelButtonName,
+    cancelButton,
     closeOutsideClick=true,
-    dialogContentText,
+    content,
     confirmButtonColor="#2196f3",
     cancelButtonColor ="#dd3434",
   } = props;
@@ -60,7 +60,7 @@ export function PtgUiModal(props: PtgUiModalProps) {
           >
             {showHeader && (
               <div className="header">
-                <h4>{modalHeaderName}</h4>
+                <h4>{header}</h4>
                 <div
                   className="close"
                   data-testid="closeButton"
@@ -72,22 +72,22 @@ export function PtgUiModal(props: PtgUiModalProps) {
             )}
             <div className="body">
               <slot name="body-block" />
-              <h2>{dialogContentText} </h2>
+              <p>{content} </p>
             </div>
             {showFooter && (
               <div className="footer">
-                {confirmButtonName && (
+                {confirmButton && (
                   <PtgUiButton
-                    text={confirmButtonName}
+                    text={confirmButton}
                     onClick={onConfirmed}
                     textColor="#fff"
                     backgroundColor={confirmButtonColor}
                   ></PtgUiButton>
                 )}
-                {cancelButtonName && (
+                {cancelButton && (
                   <div className="cancel">
                     <PtgUiButton
-                      text={cancelButtonName}
+                      text={cancelButton}
                       onClick={onModalClose}
                       textColor="#fff"
                       backgroundColor={cancelButtonColor}
