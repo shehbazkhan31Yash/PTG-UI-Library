@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 interface AccordionItem {
   isDisabled?: boolean;
   title: string;
@@ -38,7 +37,6 @@ export class AccordionExampleComponent {
 
   accordionData: Array<AccordionItem> = [];
   isLoaded = true;
-  constructor(private mocksApiService: mocksService) { }
 
   ngOnInit(): void {
     this.accordionData = [
@@ -48,8 +46,5 @@ export class AccordionExampleComponent {
       { title: 'Header 3', description: 'Content Description', isDisabled: true, isOpen: false, panelClass: 'panel-warning' },
       { title: 'Header 4', description: 'Content Description', isDisabled: false, isOpen: false, panelClass: 'panel-danger' }
     ];
-    // this.mocksApiService.getAccordionData().subscribe((response) => {
-    //   this.AccordionData = response?.data[0].attributes.data;
-    // });
   }
 }

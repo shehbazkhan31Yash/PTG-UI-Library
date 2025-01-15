@@ -6,7 +6,7 @@
  * @description This file for custom Validation
 **/
 
-import { FormGroup } from "@angular/forms";
+import { AbstractControl, FormGroup, ValidationErrors } from "@angular/forms";
 
 
 // custom validator for Confirm Password
@@ -29,28 +29,29 @@ export function ConfirmPasswordValidator(controlName: string, matchingControlNam
   }
 
   // custom validator for Calendar
-export function calendarValidator(startDate: any, endDate: any, matchingControlName: string) {
-  return (formGroup: FormGroup) => {
-    let control1:any = null;
-    if(startDate) {
-      control1 = formGroup.controls[startDate];
-    }
-    let control2:any = null;
-    if(endDate) {
-      control2 = formGroup.controls[endDate];
-    }
-    const matchingControl = formGroup.controls[matchingControlName]
-
-    if ( !control1?.value && !control1?.value
-    ) {
-      return;
-    }
-    if(!matchingControl.value || control1?.value > matchingControl.value || control2?.value < matchingControl.value){
-      matchingControl.setErrors({ calendarValidator: true }); 
-    } else {
-      matchingControl.setErrors(null);
-
-    }
-  };
-}
+  export function calendarValidator(startDateKey: string, endDateKey: string, matchingControlName: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const formGroup = control as any;
+      const control1 = formGroup.controls[startDateKey];
+      const control2 = formGroup.controls[endDateKey];
+      const matchingControl = formGroup.controls[matchingControlName];
+  
+      if (!control1?.value && !control2?.value) {
+        return null;
+      }
+  
+      if (!matchingControl.value) {
+        matchingControl.setErrors({ calendarValidator: true });
+        return { calendarValidator: true };
+      }
+  
+      if (control1?.value > matchingControl.value || control2?.value < matchingControl.value) {
+        matchingControl.setErrors({ calendarValidator: true });
+        return { calendarValidator: true };
+      } else {
+        matchingControl.setErrors(null);
+        return null;
+      }
+    };
+  }
 

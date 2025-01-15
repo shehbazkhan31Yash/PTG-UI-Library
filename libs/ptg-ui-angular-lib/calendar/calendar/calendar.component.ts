@@ -53,8 +53,6 @@ export class CalendarComponent implements ControlValueAccessor {
   @ViewChild('datePicker', { static: true }) datePicker!: ElementRef;
   bsConfig?: Partial<BsDatepickerConfig> ;
 
-  // @Input() parentForm!: FormGroup;
-  // @Input() fieldname!: string;
   @Input() placeholder?: string = '';
   @Input() className?: string = '';
   @Input() id?: string = '';
@@ -98,9 +96,6 @@ export class CalendarComponent implements ControlValueAccessor {
   }
   applyTheme(pop: BsDatepickerDirective) {
     this.bsConfig = Object.assign({}, { containerClass: this.themeColor });
-    // setTimeout(() => {
-    //   pop.show();
-    // });
   }
   ngAfterViewInit() {
     this.applyTheme(this.datepickerVal);

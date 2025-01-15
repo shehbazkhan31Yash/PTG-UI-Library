@@ -6,28 +6,28 @@
 **/
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+interface AccordionItem {
+  isDisabled?: boolean;
+  title: string;
+  isOpen?: boolean;
+  panelClass?: string;
+  description: string;
+}
 @Component({
   selector: 'ptg-ui-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-  @Input() listData: any;
-  @Input() isAnimated: boolean = false;
-  @Input() oneAtATime: boolean = false;
-  @Input() addAccordionGroup: boolean = true;
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.listData,"listData")
-  }
-
-
+  @Input() listData: AccordionItem [] = [];
+  @Input() isAnimated?: boolean = false;
+  @Input() oneAtATime?: boolean = false;
+  @Input() addAccordionGroup?: boolean = true;
+  @Output() handleChange: EventEmitter<any> = new EventEmitter();
+  
   // onAccordion change state 
   change(event:any){
-      this.onChange.emit(event);
+      this.handleChange.emit(event);
   }
 
   public get classes(): string[] {
