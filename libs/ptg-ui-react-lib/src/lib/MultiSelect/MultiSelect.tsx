@@ -94,7 +94,7 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
               </div>
               {dropdownOpen && (
                 <>
-                  <div className="items">
+                  <div className="items" style={{ width: width }}>
                     {list.map((option) => (
                       <div key={option.value}>
                         <label>
