@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { PtgUiSelectbox, PtguseFetch } from '@ptg-ui/react';
+import { PtgUiSelectbox } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 export interface ExampleOneProps {
@@ -13,10 +13,10 @@ export const timeZoneList = [
 ];
 const LocalDatetime = (props: ExampleOneProps) => {
   const { showCodeLocalDate } = props;
-  const [selectedDate, setSlectedDate] = useState(new Date());
+  const [selectedDate, setSlectedDate] = useState< Date  | string>(new Date());
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
-    Date | null | undefined
+    Date| string
   >(new Date());
   const { t } = useTranslation();
   //handle convert tine
@@ -28,11 +28,11 @@ const LocalDatetime = (props: ExampleOneProps) => {
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-
   const onSelect: any = (event: any) => {
     setTimeZone(event.target.value);
   };
-
+  //Note: get datepicker formate from new date 
+const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
   const handleTime = (e: any) => {
     let datePart: any = convertDateTime(new Date(e));
     datePart = moment(datePart).format('YYYY-MM-DD HH:mm');
@@ -40,7 +40,8 @@ const LocalDatetime = (props: ExampleOneProps) => {
   };
 
   const startDateProp = {
-    selected: selectedDate,
+    selected: splitDate(selectedDate),
+    value:selectedDate,
     className: 'form-control w-100',
     onChange: (d: any) => {
       setSlectedDate(d.target.value);
@@ -52,13 +53,13 @@ const LocalDatetime = (props: ExampleOneProps) => {
   };
 
   const startDatePropLocal = {
-    selected: dateTimeUSA,
+    selected: splitDate(dateTimeUSA),
+    value:dateTimeUSA,
     className: 'form-control w-100',
     disabled: false,
     showTimeSelect: true,
     isDateTime: true,
   };
-
   useEffect(() => {
     if (timeZone) {
       handleTime(selectedDate);
@@ -137,7 +138,6 @@ const LocalDatetime = (props: ExampleOneProps) => {
     <PtgUiCalendar {...startDatePropLocal} />
         
   `;
-
   return (
     <>
       {showCodeLocalDate && (
