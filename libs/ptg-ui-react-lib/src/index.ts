@@ -8,7 +8,7 @@ export * from './lib/calendar/calendar';
 export * from './lib/checks/checks';
 export * from './lib/radio/radio';
 export * from './lib/select/select';
-export * from './lib/multi-select/multi-select';
+export * from './lib/MultiSelect/MultiSelect';
 export * from './lib/loading/loading';
 export * from './lib/charts/highcharts/line/line';
 export * from './lib/charts/highcharts/linebar/linebar';

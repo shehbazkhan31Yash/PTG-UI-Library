@@ -30,7 +30,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
   };
 
   const onSelect: any = (event: any) => {
-    setTimeZone(event[0].value);
+    setTimeZone(event.target.value);
   };
 
   const handleTime = (e: any) => {
@@ -130,6 +130,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
       singleSelect={true}
       className="single-select-field"
       placeholder={'Select Time Zone'}
+      width="100%"
     />
   
     <label>Converted timezone</label>
@@ -158,6 +159,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
               singleSelect={true}
               className="single-select-field"
               placeholder={t('SELECT_PLACEHOLDER')}
+              width="100%"
             />
           </div>
         </div>
