@@ -18,7 +18,7 @@ interface PtgUiModalProps {
   confirmButton?: string;
   cancelButton?: string;
   onModalClose?: any;
-  closeOutsideClick?: boolean;
+  backdropClick?: boolean;
   content?: string;
   confirmButtonColor?: string;
   cancelButtonColor?: string;
@@ -27,7 +27,7 @@ interface PtgUiModalProps {
 export function PtgUiModal(props: PtgUiModalProps) {
   const {
     isOpen,
-    modalSize,
+    modalSize="sm",
     showHeader = true,
     header,
     showFooter = true,
@@ -35,14 +35,14 @@ export function PtgUiModal(props: PtgUiModalProps) {
     onConfirmed,
     onModalClose,
     cancelButton,
-    closeOutsideClick=true,
+    backdropClick=true,
     content,
     confirmButtonColor="#2196f3",
     cancelButtonColor ="#dd3434",
   } = props;
 
   const closeModule = () => {
-    if(closeOutsideClick)
+    if(backdropClick)
       onModalClose();
   }
 
@@ -50,13 +50,11 @@ export function PtgUiModal(props: PtgUiModalProps) {
     <div>
       {isOpen && (
         <div
-          className={isOpen ? 'modal-wrapper isOpen' : 'modal-wrapper'}
+          className={`modal-wrapper ${isOpen ? 'isOpen' : ''}`}
           data-backdrop="static"
         >
           <div
-            className={`modal-body modal ${
-              modalSize === 'lg' ? 'lg' : modalSize === 'sm' ? 'sm' : 'md'
-            }`}
+            className={`modal-body modal ${modalSize}`}
           >
             {showHeader && (
               <div className="header">
@@ -99,7 +97,7 @@ export function PtgUiModal(props: PtgUiModalProps) {
           </div>
         </div>
       )}
-      {isOpen && <div className="modal-overlay1" onClick={closeModule}></div>}
+      {isOpen && <div className="modal-overlay" onClick={closeModule}></div>}
     </div>
   );
 }

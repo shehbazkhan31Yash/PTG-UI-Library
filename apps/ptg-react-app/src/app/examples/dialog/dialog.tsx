@@ -62,7 +62,7 @@ const DialogExample = () => {
   const htmlCode = `
          <PtgUiButton
           text="Click Here"
-          data-testid="openButton"
+          data-testid="open-button"
           appearance="primary"
           btnIconAlignment="right"
           onClick={openModal}
@@ -86,8 +86,27 @@ const DialogExample = () => {
         content={'React Slot for Body'}
         confirmButtonColor={"#2196f3"}
         cancelButtonColor={'#dd3434'}
-        closeOutsideClick={true}
+        backdropClick={true}
+        showHeader={true}
+        showFooter={true}
       />`
+
+      const ModalProps = {
+        isOpen:isOpen,
+        onConfirmed:confirmClicked,
+        modalSize:'lg',
+        header:"Header Name Here",
+        confirmButton:"Okay",
+        cancelButton:"Cancel",
+        onModalClose:modalClosed,
+        content:'React Slot for Body',
+        confirmButtonColor:"#2196f3",
+        cancelButtonColor:'#dd3434',
+        backdropClick:true,
+        showHeader:true,
+        showFooter:true,
+      }
+
   return (
     <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
     <div className='row'>
@@ -105,7 +124,7 @@ const DialogExample = () => {
       <div className='ms-2'>
         <PtgUiButton
           text="Click Here"
-          data-testid="openButton"
+          data-testid="open-button"
           appearance="primary"
           btnIconAlignment="right"
           onClick={openModal}
@@ -119,19 +138,7 @@ const DialogExample = () => {
       </PtgUiButton>
       </div>
 
-      <PtgUiModal
-        isOpen={isOpen}  
-        onConfirmed={confirmClicked}
-        modalSize='lg' 
-        header="Header Name Here"
-        confirmButton="Okay"
-        cancelButton="Cancel"
-        onModalClose={modalClosed}
-        content={'React Slot for Body'}
-        confirmButtonColor={"#2196f3"}
-        cancelButtonColor={'#dd3434'}
-        closeOutsideClick={true}
-      />
+      <PtgUiModal {...ModalProps}  />
     </div>
     </section>
   );

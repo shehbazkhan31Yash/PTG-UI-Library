@@ -12,14 +12,7 @@
     visibility: hidden;
   }
   
-  /* modal-overlay */
   .modal-overlay{
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .modal-overlay1{
     background: rgba(0, 0, 0, 0.6);
     height: 100%;
     inset: 0px;
@@ -29,8 +22,9 @@
   }
   
   .modal-wrapper .modal {
+    padding: 2px;
     display: block;
-    background:#ffffff;
+    background:var(--white);
     border-radius: 5px;
     height: auto;
     left: 50%;
@@ -53,7 +47,7 @@
   
   
   .modal-wrapper .modal .header {
-    background-color:#ffffff;
+    background-color: var(--white);
     align-items: center;
     border-bottom: 1px solid var(--mono-05);
     display: flex;
@@ -158,9 +152,7 @@
     background: var(--danger-70);
   }
   
-  // .isOpen .modal{
-  //   transform: none !important;
-  // }
+ 
   
   
   
