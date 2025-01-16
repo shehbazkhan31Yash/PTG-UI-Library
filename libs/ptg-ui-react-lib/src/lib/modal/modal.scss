@@ -1,0 +1,157 @@
+@import '../styles/variables';
+:host {
+  display: block;
+}
+
+/* modal wrapper */
+.modal-wrapper{
+  display: block;
+  left: 0;
+  opacity: 0;
+  position:absolute;
+  right: 0;
+  visibility: hidden;
+}
+
+.modal-overlay{
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  inset: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+.modal-wrapper .modal {
+  padding: 2px;
+  display: block;
+  background: $white;
+  border-radius: 5px;
+  height: auto;
+  left: 50%;
+  position: fixed;
+  top:40%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  &.lg {
+    max-width: 800px;
+  }
+
+  &.md {
+    max-width: 600px;
+  }
+
+  &.sm {
+    max-width: 300px;
+  }
+}
+
+
+.modal-wrapper .modal .header {
+  background-color: $white;
+  align-items: center;
+  border-bottom: 1px solid $mono-05;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.modal-wrapper .modal .header h4{
+  font-size: 16px;
+  line-height: 1;
+  margin: 0px;
+}
+
+.modal-wrapper .modal .header .close{
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  height: 18px;
+  justify-content: center;
+  transition: 0.1s ease-in-out;
+  width: 18px;
+}
+
+
+/* modal body */
+.modal-wrapper .modal .body{
+  font-size: 14px;
+  height: auto;
+  line-height: 21px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+
+/* modal footer */
+.modal-wrapper .modal .footer{
+  align-items: center;
+  border-top: 1px solid $mono-05;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.modal-wrapper .modal .footer my-buttons{
+  margin: 0 6px;
+}
+.modal-wrapper .modal .footer .cancel{
+  margin-left: 8px;
+}
+
+.isOpen{
+  opacity: 1;
+  transition: visibility 0s linear 0.25s,opacity 0.25s 0s,tranform 0.25s;
+  visibility: visible;
+  z-index: 99999;
+
+}
+.close{
+  font-size: 33px;
+}
+.btn {
+  background: $mono-10;
+  color: $mono-70;
+  border-radius: 7px;
+  border: none;
+  padding: 0 20px;
+  height: 38px;
+  outline: none;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+div[slot='btnIcon'] {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.showLeft {
+  width: 18px;
+  margin-left: 12px;
+}
+.btn.primary {
+  background: $primary-50;
+  color: $white;
+}
+.btn.primary:hover {
+  background: $primary-70;
+}
+.btn.danger {
+  background: $danger-50;
+  color: $white;
+}
+.btn.danger:hover {
+  background: $danger-70;
+}
+
+
+
