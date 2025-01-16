@@ -654,14 +654,7 @@ Override variables defined in boostrap
   visibility: hidden;
 }
 
-/* modal-overlay */
 .modal-overlay {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-
-.modal-overlay1 {
   background: rgba(0, 0, 0, 0.6);
   height: 100%;
   inset: 0px;
@@ -671,6 +664,7 @@ Override variables defined in boostrap
 }
 
 .modal-wrapper .modal {
+  padding: 2px;
   display: block;
   background: #ffffff;
   border-radius: 5px;

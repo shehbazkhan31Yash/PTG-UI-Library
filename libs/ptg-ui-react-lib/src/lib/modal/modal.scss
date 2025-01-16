@@ -13,7 +13,7 @@
   visibility: hidden;
 }
 
-.modal-overlay1{
+.modal-overlay{
   background: rgba(0, 0, 0, 0.6);
   height: 100%;
   inset: 0px;
@@ -23,6 +23,7 @@
 }
 
 .modal-wrapper .modal {
+  padding: 2px;
   display: block;
   background: $white;
   border-radius: 5px;
