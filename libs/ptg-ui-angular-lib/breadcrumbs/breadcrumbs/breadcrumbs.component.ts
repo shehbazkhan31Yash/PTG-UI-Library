@@ -29,7 +29,7 @@ export class BreadcrumbsComponent implements OnInit {
   @Input() data: Breadcrumb;
   @Input() dividers?: string = '/';
   breadcrumbs: Breadcrumb[] = [];
-  constructor() { }
+  
   ngOnInit(): void {
     this.generateBreadcrumbs(this.data);
   }
