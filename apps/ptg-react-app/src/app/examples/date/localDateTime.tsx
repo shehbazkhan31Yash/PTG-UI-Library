@@ -13,10 +13,10 @@ export const timeZoneList = [
 ];
 const LocalDatetime = (props: ExampleOneProps) => {
   const { showCodeLocalDate } = props;
-  const [selectedDate, setSlectedDate] = useState< Date  | string>(new Date());
+  const [selectedDate, setSlectedDate] = useState<Date | null | undefined>(new Date());
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
-    Date| string
+  Date | null | undefined
   >(new Date());
   const { t } = useTranslation();
   //handle convert tine
@@ -32,7 +32,12 @@ const LocalDatetime = (props: ExampleOneProps) => {
     setTimeZone(event.target.value);
   };
   //Note: get datepicker formate from new Date()
-const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+const splitDate = (dateStr: Date | null | undefined) => {
+    if(!dateStr){
+     return ""
+    }
+    return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+  }
   const handleTime = (e: any) => {
     let datePart: any = convertDateTime(new Date(e));
     datePart = moment(datePart).format('YYYY-MM-DD HH:mm');
