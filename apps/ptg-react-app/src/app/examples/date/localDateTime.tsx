@@ -31,7 +31,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
   const onSelect: any = (event: any) => {
     setTimeZone(event.target.value);
   };
-  //Note: get datepicker formate from new date 
+  //Note: get datepicker formate from new Date()
 const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
   const handleTime = (e: any) => {
     let datePart: any = convertDateTime(new Date(e));
@@ -41,7 +41,6 @@ const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().sp
 
   const startDateProp = {
     selected: splitDate(selectedDate),
-    value:selectedDate,
     className: 'form-control w-100',
     onChange: (d: any) => {
       setSlectedDate(d.target.value);
@@ -54,8 +53,7 @@ const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().sp
 
   const startDatePropLocal = {
     selected: splitDate(dateTimeUSA),
-    value:dateTimeUSA,
-    className: 'form-control w-100',
+    className: 'form-contro l w-100',
     disabled: false,
     showTimeSelect: true,
     isDateTime: true,
