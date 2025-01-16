@@ -53,7 +53,7 @@ const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().sp
 
   const startDatePropLocal = {
     selected: splitDate(dateTimeUSA),
-    className: 'form-contro l w-100',
+    className: 'form-control w-100',
     disabled: false,
     showTimeSelect: true,
     isDateTime: true,
