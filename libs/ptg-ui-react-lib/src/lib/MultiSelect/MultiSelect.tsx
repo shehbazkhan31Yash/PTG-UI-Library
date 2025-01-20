@@ -57,10 +57,10 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
               style={{ width: width }}
             >
               <option value="">{placeholder}</option>
-              {list?.map((item, index) => {
+              {list?.map((item) => {
                 return (
-                  <option key={index} value={item.value}>
-                    {item.label}
+                  <option key={`index-${item?.value}`} value={item?.value}>
+                    {item?.label}
                   </option>
                 );
               })}
@@ -76,7 +76,7 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
               >
                 {multiSelectOptions?.length > 0
                   ? multiSelectOptions?.map((selected) => (
-                      <span className="item-content">
+                      <span className="item-content" key={`index-${selected}`}>
                         <span className="selected-item">{selected}</span>
                         <span
                           className="remove-item"
