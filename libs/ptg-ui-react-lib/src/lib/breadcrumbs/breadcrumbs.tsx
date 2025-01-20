@@ -1,5 +1,6 @@
 import React from 'react';
 import './breadcrumbs.scss';
+import { Link } from 'react-router-dom';
 
 export interface PtgUiBreadcrumbsProps {
   datalist: any;
@@ -13,7 +14,7 @@ export function PtgUiBreadcrumbs(props: PtgUiBreadcrumbsProps) {
         if (datalist.length - 1 > i) {
           return (
             <li>
-              <a href={`${item.link}`}>{item.title}</a>
+              <Link to={`${item.link}`}>{item.title}</Link>
             </li>
           );
         }
