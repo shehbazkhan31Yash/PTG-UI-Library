@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
-import { PtgUiBreadcrumbs } from '@ptg-ui/react';
-import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { useTranslation } from 'react-i18next';
 import './breadcrumbs.scss';
 
+import { BREADCRUMBS } from '../../mock/mocks';
+import CodeIcon from '@mui/icons-material/Code';
+import { PtgUiBreadcrumbs } from '@ptg-ui/react';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+interface BreadcrumbData {
+  title: string;
+  link: string;
+}
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState(false);
 
   const { t } = useTranslation();
 
-  const breadCrumbsDataArr: any = [
-    { title: `${t('HOME')}`, link: '/home' },
-    { title: `${t('ABOUT_US')}`, link: '/about' },
-    { title: `${t('CONTACT_US')}`, link: '/contact' },
-  ];
+  const breadCrumbsDataArr: BreadcrumbData[] = BREADCRUMBS;
   const componentCode = `
-    import { PtgUiBreadcrumbs } from '@ptg-ui/react';
-    import "@ptg-ui/react/lib/styles/index.css";
+    interface BreadcrumbData {
+      title: string;
+      link: string;
+    };
     
-    const breadCrumbsDataArr:any= [
+    const breadCrumbsDataArr:BreadcrumbData[]= [
       { title: 'home', link: '/home'},
       { title: 'about us', link: '/about'},
       { title: 'contact us', link: '/contact'},
     ];
   `;
   const htmlCode = `
+    import { PtgUiBreadcrumbs } from '@ptg-ui/react';
+    import "@ptg-ui/react/lib/styles/index.css";
+    
     <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
  `;
 

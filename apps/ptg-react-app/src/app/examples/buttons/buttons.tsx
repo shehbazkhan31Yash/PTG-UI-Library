@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { PtgUiButton } from '@ptg-ui/react';
-import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { useTranslation } from 'react-i18next';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import './button.scss';
+
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CodeIcon from '@mui/icons-material/Code';
+import { PtgUiButton } from '@ptg-ui/react';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Button() {
   const [showCode, setShowCode] = useState(false);

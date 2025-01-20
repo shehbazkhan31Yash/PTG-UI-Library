@@ -477,4 +477,28 @@ export const CARD_LIST = [
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
-//New mocks------------------------
+/*---- accordian------*/
+export const ACCORDION_DATA =  [
+  {
+    title: 'Accordion Item #1',
+    content:
+      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+  },
+  {
+    title: 'Accordion Item #2',
+    content:
+      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+  },
+  {
+    title: 'Accordion Item #3',
+    content:
+      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+  },
+];;
+
+/*--- breadcrumbs -----*/
+export const BREADCRUMBS = [
+  { title: 'Home', link: '/home' },
+  { title: 'About Us', link: '/about' },
+  { title: 'Contact Us', link: '/contact' },
+];

@@ -1,32 +1,26 @@
-import React, { useState } from 'react';
-import { PtgUiAccordian } from '@ptg-ui/react';
-import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import './accordion.scss';
+
+import { ACCORDION_DATA } from '../../mock/mocks';
+import CodeIcon from '@mui/icons-material/Code';
+import { PtgUiAccordian } from '@ptg-ui/react';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import  { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function Accordian() {
+interface AccordionData {
+  title: string;
+  content: string;
+}
+
+export default function Accordion() {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<any>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const accordionItems = [
-    {
-      title: `${t('ACCORDION_TITLE')} - #1`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #2`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #3`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-  ];
+  const accordionItems: AccordionData[] = ACCORDION_DATA;
 
   const handleToggle = (index) => {
-    if (index == activeIndex) {
+    if (index === activeIndex) {
       setActiveIndex(null);
     } else {
       setActiveIndex(index);
@@ -34,20 +28,22 @@ export default function Accordian() {
   };
 
   const componentCode = `
-    import { PtgUiAccordian } from '@ptg-ui/react';
-    import "@ptg-ui/react/lib/styles/index.css";
-
-    const [activeIndex, setActiveIndex] = useState<any>(0);
-
-    const handleToggle = (index) => {
-      if (index == activeIndex) {
+   interface AccordionData {
+     title: string;
+     content: string;
+   };
+   
+   const [activeIndex, setActiveIndex] = useState<any>(0);
+  
+   const handleToggle = (index) => {
+      if (index === activeIndex) {
         setActiveIndex(null);
       } else {
         setActiveIndex(index);
       }
     };
 
-    const accordionItems = [
+    const accordionItems: AccordionData[] = [
       {
         title: 'Accordion Item #1',
         content:
@@ -66,9 +62,12 @@ export default function Accordian() {
     ];
  `;
   const htmlCode = `
+  import { PtgUiAccordion } from '@ptg-ui/react';
+  import "@ptg-ui/react/lib/styles/index.css";
+    
     <PtgUiAccordian
       accordionItems={accordionItems}
-      handleToggle={(index) => handleToggle(index)}
+      handleToggle={handleToggle}
       activeIndex={activeIndex}
     />
  `;
@@ -95,7 +94,7 @@ export default function Accordian() {
         <div className="accordion-component col-md-11 col-sm-7 ms-3">
           <PtgUiAccordian
             accordionItems={accordionItems}
-            handleToggle={(index) => handleToggle(index)}
+            handleToggle={handleToggle}
             activeIndex={activeIndex}
           />
         </div>
