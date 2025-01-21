@@ -5,7 +5,7 @@
  * @description This component for Accordion;
 **/
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 interface AccordionItem {
   isDisabled?: boolean;
   title: string;
