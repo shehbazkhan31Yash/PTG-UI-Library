@@ -1,7 +1,3 @@
-:host {
-  display: block;
-}
-
 .btn {
   // background: var(--mono-10);
   // color: var(--mono-70);
@@ -133,4 +129,5 @@ div[slot='btnIcon'] {
   border-radius: 50%;
   color: #2196f3;
   font-size: 12px;
+  padding: 0px 4px;
 }

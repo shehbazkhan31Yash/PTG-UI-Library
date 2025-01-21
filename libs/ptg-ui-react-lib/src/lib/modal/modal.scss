@@ -1,8 +1,3 @@
-@import '../styles/variables';
-:host {
-  display: block;
-}
-
 /* modal wrapper */
 .modal-wrapper {
   display: block;
@@ -49,7 +44,7 @@
 .modal-wrapper .modal .header {
   background-color: #ffffff;
   align-items: center;
-  border-bottom: 1px solid $mono-05;
+  border-bottom: 1px solid #f1f2f3;
   display: flex;
   font-size: 16px;
   justify-content: space-between;
@@ -86,7 +81,7 @@
 /* modal footer */
 .modal-wrapper .modal .footer {
   align-items: center;
-  border-top: 1px solid $mono-05;
+  border-top: 1px solid #f1f2f3;
   display: flex;
   justify-content: flex-end;
   padding: 16px;
@@ -109,8 +104,8 @@
   font-size: 33px;
 }
 .btn {
-  background: $mono-10;
-  color: $mono-70;
+  background: #ececec;
+  color: #212529;
   border-radius: 7px;
   border: none;
   padding: 0 20px;
@@ -135,16 +130,24 @@ div[slot='btnIcon'] {
   margin-left: 12px;
 }
 .btn.primary {
-  background: $primary-50;
-  color: $white;
+  background: #2196f3;
+  color: #ffffff;
 }
 .btn.primary:hover {
-  background: $primary-70;
+  background: #0a58ca;
 }
 .btn.danger {
-  background: $danger-50;
-  color: $white;
+  background: #dd3434;
+  color: #ffffff;
 }
 .btn.danger:hover {
-  background: $danger-70;
+  background: #bd2c2c;
+}
+
+.btn-icon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #2196f3;
+  font-size: 12px;
+  padding: 0px 4px;
 }

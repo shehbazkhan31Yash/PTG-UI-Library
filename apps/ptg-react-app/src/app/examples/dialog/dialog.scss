@@ -1,7 +1,3 @@
-:host {
-  display: block;
-}
-
 /* modal wrapper */
 .modal-wrapper {
   display: block;
@@ -129,12 +125,15 @@ div[slot='btnIcon'] {
     height: 20px;
   }
 }
+
 .btn-icon {
   background-color: #ffffff;
   border-radius: 50%;
   color: #2196f3;
   font-size: 12px;
+  padding: 0px 4px;
 }
+
 .showLeft {
   width: 18px;
   margin-left: 12px;
