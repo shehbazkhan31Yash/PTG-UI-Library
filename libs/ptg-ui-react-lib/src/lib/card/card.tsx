@@ -1,5 +1,3 @@
-import React from 'react';
-// import './Card.css'; // Import the CSS file for styling
 import { PtgUiButton } from '../button/button';
 
 interface CardUiProps {
@@ -7,9 +5,13 @@ interface CardUiProps {
   title?: string;
   description?: string;
   buttonText?: string;
-  onClick?: any;
+  onClick?: () => void;
   buttonColor?: string;
   buttonWidth?: string;
+  children?: React.ReactNode; 
+  imageWidth?: string;
+  imageHeight?: string;
+  backgroundColor?: string;
 }
 
 export function PtgUiCard(props: CardUiProps) {
@@ -21,11 +23,15 @@ export function PtgUiCard(props: CardUiProps) {
     onClick,
     buttonColor = '#052982',
     buttonWidth='150px',
+    children,
+    imageWidth,
+    imageHeight,
+    backgroundColor='',
   } = props;
 
   return (
-    <div className="card">
-      {image && <img src={image} className="card-img-top" alt="..." />}
+    <div className="card m-2" style={{backgroundColor}}>
+      {image && <img src={image} className="card-img-top" alt="..." style={{ width: imageWidth, height: imageHeight, maxWidth: '100%', maxHeight: '200px'}} />}
       <div className="card-content">
         <div className="card-body">
           {title && <h5 className="card-title">{title}</h5>}
@@ -39,6 +45,7 @@ export function PtgUiCard(props: CardUiProps) {
             onClick={onClick}
           />
           }
+          {children}
         </div>
       </div>
     </div>
