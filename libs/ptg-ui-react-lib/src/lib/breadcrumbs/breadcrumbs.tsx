@@ -1,7 +1,7 @@
-import React from 'react';
 import './breadcrumbs.scss';
 import { Link } from 'react-router-dom';
 import { IPtgUiBreadcrumbsProps } from '../interfaces'; 
+import React from 'react';
 
 export class PtgUiBreadcrumbs extends React.Component<IPtgUiBreadcrumbsProps> {
   constructor(props:IPtgUiBreadcrumbsProps){
@@ -15,7 +15,7 @@ export class PtgUiBreadcrumbs extends React.Component<IPtgUiBreadcrumbsProps> {
         {datalist?.map((item, i) => {
           if (datalist.length-1>i) {
             return (
-              <li key={item.id}>
+              <li key={item.title}>
                 <Link to={`${item.link}`}>{item.title}</Link>
               </li>
             );

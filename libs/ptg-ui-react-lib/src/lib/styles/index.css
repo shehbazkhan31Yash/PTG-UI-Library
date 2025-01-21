@@ -177,14 +177,9 @@ Override variables defined in boostrap
   padding-left: 8px;
 }
 
-:host {
-  display: block;
-}
-
 .btn {
   border-radius: 7px;
   border: none;
-  padding: 0 20px;
   height: 38px;
   outline: none;
   transition: 0.1s ease-in-out;
@@ -319,6 +314,14 @@ div[slot=btnIcon] svg {
   border-radius: 4px;
 }
 
+.btn-icon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #2196f3;
+  font-size: 12px;
+  padding: 0px 4px;
+}
+
 .login-wrapper {
   width: auto;
   height: auto;
@@ -425,10 +428,6 @@ div[slot=btnIcon] svg {
 
 .modal-dialog {
   top: 80px;
-}
-
-:host {
-  display: block;
 }
 
 .d-block {
@@ -619,7 +618,7 @@ input:checked + .slide-container .nav label {
   margin: 0px 5px;
   border-radius: 50%;
   border: 2px solid #fff;
-  font-size: 8px;
+  font-size: 7px;
   text-align: center;
 }
 
@@ -635,13 +634,6 @@ input:checked + .slide-container .nav label {
 
 .checkboxs {
   margin-right: 6px;
-}
-
-/*
-Override variables defined in boostrap
-*/
-:host {
-  display: block;
 }
 
 /* modal wrapper */
@@ -793,6 +785,14 @@ div[slot=btnIcon] svg {
 
 .btn.danger:hover {
   background: #bd2c2c;
+}
+
+.btn-icon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #2196f3;
+  font-size: 12px;
+  padding: 0px 4px;
 }
 
 /*# sourceMappingURL=index.css.map */

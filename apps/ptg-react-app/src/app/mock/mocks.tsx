@@ -443,19 +443,16 @@ export const downloadFileData: any = {
 };
 
 export const SALUTATION_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Mr.', label: 'Mr', name: 'salutation' },
   { value: 'Mrs', label: 'Mrs', name: 'salutation' },
 ];
 
 export const GENDER_LIST_SELECT = [
-  // { value: '', label: 'Select' },
   { value: 'Male.', label: 'Male', name: 'Gender' },
   { value: 'Female', label: 'Female', name: 'Gender' },
   { value: 'Other', label: 'Other', name: 'Gender' },
 ];
 export const STATE_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Madhya Pradesh', label: 'Madhya Pradesh', name: 'state' },
   { value: 'Maharashtra', label: 'Maharashtra', name: 'state' },
   { value: 'Gujarat', label: 'Gujarat', name: 'state' },
@@ -463,7 +460,6 @@ export const STATE_LIST = [
   { value: 'goa', label: 'Goa', name: 'state' },
 ];
 export const COUNTRY_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'India', label: 'India', name: 'Country' },
   { value: 'Russia', label: 'Russia', name: 'Country' },
   { value: 'Israel', label: 'Israel', name: 'Country' },
@@ -471,10 +467,8 @@ export const COUNTRY_LIST = [
   { value: 'USA', label: 'USA', name: 'Country' },
 ];
 export const CARD_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Visa', label: 'Visa', name: 'card' },
   { value: 'Master Card', label: 'Master Card', name: 'card' },
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
-//New mocks------------------------

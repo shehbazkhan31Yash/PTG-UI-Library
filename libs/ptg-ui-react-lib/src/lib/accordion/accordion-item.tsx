@@ -1,5 +1,6 @@
+import './accordion.scss';
+
 import { useState } from 'react';
-import './accordian.scss';
 
 /* eslint-disable-next-line */
 export interface AccordionItemProps {

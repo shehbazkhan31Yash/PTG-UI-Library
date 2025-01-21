@@ -12,9 +12,9 @@ export default function Breadcrumb() {
   const { t } = useTranslation();
 
   const breadCrumbsDataArr: IBreadcrumbItem[] = [
-    { title: `${t('HOME')}`, link: '/home', id:1 },
-    { title: `${t('ABOUT_US')}`, link: '/about', id:2 },
-    { title: `${t('CONTACT_US')}`, link: '/contact', id:3 },
+    { title: `${t('HOME')}`, link: '/home'},
+    { title: `${t('ABOUT_US')}`, link: '/about' },
+    { title: `${t('CONTACT_US')}`, link: '/contact',},
     
   ];
   const handleShowCode = ()=>{
@@ -27,15 +27,17 @@ export default function Breadcrumb() {
     export interface IBreadcrumbItem {
     title: string;
     link: string;
-    id:number
   }
     const breadCrumbsDataArr:IBreadcrumbItem[]= [
-      { title: 'home', link: '/home', id:1},
-      { title: 'about us', link: '/about', id:2},
-      { title: 'contact us', link: '/contact', id;},
+      { title: 'home', link: '/home',},
+      { title: 'about us', link: '/about',},
+      { title: 'contact us', link: '/contact',},
     ];,
   `;
   const htmlCode = `
+    import { PtgUiBreadcrumbs } from '@ptg-ui/react';
+    import "@ptg-ui/react/lib/styles/index.css";
+    
     <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
  `;
 

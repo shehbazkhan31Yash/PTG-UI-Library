@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { PtgUiButton } from '@ptg-ui/react';
+import './button.scss';
+import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
+import { PtgUiButton } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import './button.scss';
 
 export default function Button() {
   const [showCode, setShowCode] = useState(false);
   const [showCodeForBtn, setShowCodeForBtn] = useState(false);
+
+  const handleShowCode = () => setShowCode((prev) => !prev);
+  const handleShowCodeForBtn = () => setShowCodeForBtn((prev) => !prev);
 
   const { t } = useTranslation();
 
@@ -59,9 +61,7 @@ export default function Button() {
       hasbtnIconSlot={true}
       disabled={false}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -74,9 +74,7 @@ export default function Button() {
       fontSize="12px"
       hasbtnIconSlot={true}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -87,9 +85,7 @@ export default function Button() {
       fontSize="12px"
       hasbtnIconSlot={true}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -110,7 +106,7 @@ export default function Button() {
           </div>
           <div className="col-2">
             <CodeIcon
-              onClick={() => setShowCode((prev) => !prev)}
+              onClick={handleShowCode}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
@@ -225,7 +221,7 @@ export default function Button() {
           </div>
           <div className="col-2">
             <CodeIcon
-              onClick={() => setShowCodeForBtn((prev) => !prev)}
+              onClick={handleShowCodeForBtn}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
@@ -239,7 +235,7 @@ export default function Button() {
           )}
           <div className="col-lg-12 col-md-12 col-sm-6 col-xs-4 ms-3 mt-2">
             <h6>{t('ICON_ALIGNMENT_LEFT')}</h6>
-            {/* <div className='row'> */}
+            {}
             <div className="col-2 mb-2">
               <PtgUiButton
                 text="Primary"
@@ -252,9 +248,7 @@ export default function Button() {
                 hasbtnIconSlot={true}
                 disabled={false}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
 
@@ -270,14 +264,12 @@ export default function Button() {
                 fontSize="12px"
                 hasbtnIconSlot={true}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
 
             <div className="col-2 mb-2">
-              <h6>Icon</h6>
+              <h6>{t('ICON')}</h6>
               <PtgUiButton
                 data-testid="openButton"
                 appearance="secondary"
@@ -286,13 +278,11 @@ export default function Button() {
                 fontSize="12px"
                 hasbtnIconSlot={true}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
-            <div className="col-2 mb-2">
-              <h6>Custom Button</h6>
+            <div className="col-5 mb-2">
+              <h6>{t('CUSTOM_BUTTON')}</h6>
               <PtgUiButton
                 text="Click Here"
                 textColor="#fff"
