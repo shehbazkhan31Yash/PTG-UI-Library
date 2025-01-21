@@ -1,10 +1,9 @@
 import './accordion.scss';
-
+import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import { IAccordion } from './accordion.interface';
 import { PtgUiAccordion } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function () {

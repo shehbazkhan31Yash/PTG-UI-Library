@@ -1,10 +1,8 @@
 import './button.scss';
-
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import { PtgUiButton } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Button() {
@@ -271,7 +269,7 @@ export default function Button() {
             </div>
 
             <div className="col-2 mb-2">
-              <h6>Icon</h6>
+              <h6>{t('ICON')}</h6>
               <PtgUiButton
                 data-testid="openButton"
                 appearance="secondary"
@@ -283,8 +281,8 @@ export default function Button() {
                 <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
-            <div className="col-2 mb-2">
-              <h6>Custom Button</h6>
+            <div className="col-5 mb-2">
+              <h6>{t('CUSTOM_BUTTON')}</h6>
               <PtgUiButton
                 text="Click Here"
                 textColor="#fff"
