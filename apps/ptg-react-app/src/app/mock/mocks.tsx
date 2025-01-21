@@ -443,19 +443,16 @@ export const downloadFileData: any = {
 };
 
 export const SALUTATION_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Mr.', label: 'Mr', name: 'salutation' },
   { value: 'Mrs', label: 'Mrs', name: 'salutation' },
 ];
 
 export const GENDER_LIST_SELECT = [
-  // { value: '', label: 'Select' },
   { value: 'Male.', label: 'Male', name: 'Gender' },
   { value: 'Female', label: 'Female', name: 'Gender' },
   { value: 'Other', label: 'Other', name: 'Gender' },
 ];
 export const STATE_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Madhya Pradesh', label: 'Madhya Pradesh', name: 'state' },
   { value: 'Maharashtra', label: 'Maharashtra', name: 'state' },
   { value: 'Gujarat', label: 'Gujarat', name: 'state' },
@@ -463,7 +460,6 @@ export const STATE_LIST = [
   { value: 'goa', label: 'Goa', name: 'state' },
 ];
 export const COUNTRY_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'India', label: 'India', name: 'Country' },
   { value: 'Russia', label: 'Russia', name: 'Country' },
   { value: 'Israel', label: 'Israel', name: 'Country' },
@@ -471,34 +467,30 @@ export const COUNTRY_LIST = [
   { value: 'USA', label: 'USA', name: 'Country' },
 ];
 export const CARD_LIST = [
-  // { value: '', label: 'Select' },
   { value: 'Visa', label: 'Visa', name: 'card' },
   { value: 'Master Card', label: 'Master Card', name: 'card' },
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
 /*---- accordian------*/
-export const ACCORDION_DATA =  [
+export const ACCORDION_DATA = [
   {
-    title: 'Accordion Item #1',
-    content:
-      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+    title: 'ACCORDION_TITLE_#1',
+    content: 'ACCORDION_CONTENT',
   },
   {
-    title: 'Accordion Item #2',
-    content:
-      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+    title: 'ACCORDION_TITLE_#2',
+    content: 'ACCORDION_CONTENT',
   },
   {
-    title: 'Accordion Item #3',
-    content:
-      'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+    title: 'ACCORDION_TITLE_#3',
+    content: 'ACCORDION_CONTENT',
   },
-];;
+];
 
 /*--- breadcrumbs -----*/
 export const BREADCRUMBS = [
-  { title: 'Home', link: '/home' },
-  { title: 'About Us', link: '/about' },
-  { title: 'Contact Us', link: '/contact' },
+  { title: 'HOME', link: '/home' },
+  { title: 'ABOUT_US', link: '/about' },
+  { title: 'CONTACT_US', link: '/contact' },
 ];

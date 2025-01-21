@@ -2,31 +2,28 @@ import './breadcrumbs.scss';
 
 import { BREADCRUMBS } from '../../mock/mocks';
 import CodeIcon from '@mui/icons-material/Code';
+import { IBreadcrumb } from './breadcrumbs.interface';
 import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface BreadcrumbData {
-  title: string;
-  link: string;
-}
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState(false);
-
+  const handleShodeCode = ()=>setShowCode((prev) => !prev)
   const { t } = useTranslation();
 
-  const breadCrumbsDataArr: BreadcrumbData[] = BREADCRUMBS;
+  const breadCrumbsDataArr: IBreadcrumb[] = BREADCRUMBS;
   const componentCode = `
-    interface BreadcrumbData {
+    interface IBreadcrumb {
       title: string;
       link: string;
     };
     
-    const breadCrumbsDataArr:BreadcrumbData[]= [
-      { title: 'home', link: '/home'},
-      { title: 'about us', link: '/about'},
-      { title: 'contact us', link: '/contact'},
+    const breadCrumbsDataArr:IBreadcrumb[]= [
+      { title: 'Home', link: '/home'},
+      { title: 'About Us', link: '/about'},
+      { title: 'Contact Us', link: '/contact'},
     ];
   `;
   const htmlCode = `
@@ -46,7 +43,7 @@ export default function Breadcrumb() {
         </div>
         <div className="col-2">
           <CodeIcon
-            onClick={() => setShowCode((prev) => !prev)}
+            onClick={handleShodeCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>

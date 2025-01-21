@@ -1,5 +1,7 @@
 import './accordian.scss';
 
+import { useTranslation } from 'react-i18next';
+
 /* eslint-disable-next-line */
 export interface PtgUiAccordianProps {
   accordionItems: any;
@@ -8,6 +10,7 @@ export interface PtgUiAccordianProps {
 }
 
 export function PtgUiAccordian(props: PtgUiAccordianProps) {
+  const { t } = useTranslation();
   const { accordionItems, handleToggle, activeIndex } = props;
 
   return (
@@ -26,7 +29,7 @@ export function PtgUiAccordian(props: PtgUiAccordianProps) {
               aria-controls={`collapse${index}`}
               onClick={() => handleToggle(index)}
             >
-              {item.title}
+              {t(item.title)}
             </button>
           </h2>
           <div
@@ -37,7 +40,7 @@ export function PtgUiAccordian(props: PtgUiAccordianProps) {
             aria-labelledby={`heading${index}`}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">{item.content}</div>
+            <div className="accordion-body">{t(item.content)}</div>
           </div>
         </div>
       ))}

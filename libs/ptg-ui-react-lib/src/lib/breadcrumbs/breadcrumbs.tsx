@@ -1,11 +1,13 @@
-import React from 'react';
 import './breadcrumbs.scss';
+
+import { useTranslation } from 'react-i18next';
 
 export interface PtgUiBreadcrumbsProps {
   datalist: any;
 }
 
 export function PtgUiBreadcrumbs(props: PtgUiBreadcrumbsProps) {
+  const { t } = useTranslation();
   const { datalist } = props;
   return (
     <ul className="breadcrumb">
@@ -13,11 +15,11 @@ export function PtgUiBreadcrumbs(props: PtgUiBreadcrumbsProps) {
         if (datalist.length - 1 > i) {
           return (
             <li>
-              <a href={`${item.link}`}>{item.title}</a>
+              <a href={`${item.link}`}>{t(item.title)}</a>
             </li>
           );
         }
-        return <li>{item.title}</li>;
+        return <li>{t(item.title)}</li>;
       })}
     </ul>
   );

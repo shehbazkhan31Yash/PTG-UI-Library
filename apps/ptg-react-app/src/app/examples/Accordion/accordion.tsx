@@ -2,24 +2,20 @@ import './accordion.scss';
 
 import { ACCORDION_DATA } from '../../mock/mocks';
 import CodeIcon from '@mui/icons-material/Code';
+import { IAccordion } from './accordion.interface';
 import { PtgUiAccordian } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface AccordionData {
-  title: string;
-  content: string;
-}
-
-export default function Accordion() {
+export default function () {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const handleShodeCode = () => setShowCode((prev) => !prev);
+  const accordionItems: IAccordion[] = ACCORDION_DATA;
 
-  const accordionItems: AccordionData[] = ACCORDION_DATA;
-
-  const handleToggle = (index) => {
+  const handleToggle = (index: number | null) => {
     if (index === activeIndex) {
       setActiveIndex(null);
     } else {
@@ -28,14 +24,14 @@ export default function Accordion() {
   };
 
   const componentCode = `
-   interface AccordionData {
+   interface IAccordion {
      title: string;
      content: string;
    };
    
-   const [activeIndex, setActiveIndex] = useState<any>(0);
+   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   
-   const handleToggle = (index) => {
+   const handleToggle = (index: number | null) => {
       if (index === activeIndex) {
         setActiveIndex(null);
       } else {
@@ -43,7 +39,7 @@ export default function Accordion() {
       }
     };
 
-    const accordionItems: AccordionData[] = [
+    const accordionItems: IAccordion[] = [
       {
         title: 'Accordion Item #1',
         content:
@@ -79,7 +75,7 @@ export default function Accordion() {
         </div>
         <div className="col-2 mb-2 mt-1">
           <CodeIcon
-            onClick={() => setShowCode((prev) => !prev)}
+            onClick={handleShodeCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
