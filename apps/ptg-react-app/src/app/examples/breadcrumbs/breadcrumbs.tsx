@@ -1,29 +1,39 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
 import './breadcrumbs.scss';
+import { IBreadcrumbItem } from '@ptg-react-app/interfaces';
+import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
 export default function Breadcrumb() {
-  const [showCode, setShowCode] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
-  const breadCrumbsDataArr: any = [
-    { title: `${t('HOME')}`, link: '/home' },
-    { title: `${t('ABOUT_US')}`, link: '/about' },
-    { title: `${t('CONTACT_US')}`, link: '/contact' },
+  const breadCrumbsDataArr: IBreadcrumbItem[] = [
+    { title: `${t('HOME')}`, link: '/home', id:1 },
+    { title: `${t('ABOUT_US')}`, link: '/about', id:2 },
+    { title: `${t('CONTACT_US')}`, link: '/contact', id:3 },
+    
   ];
+  const handleShowCode = ()=>{
+    setShowCode((prev) => !prev)
+  }
   const componentCode = `
     import { PtgUiBreadcrumbs } from '@ptg-ui/react';
     import "@ptg-ui/react/lib/styles/index.css";
-    
-    const breadCrumbsDataArr:any= [
-      { title: 'home', link: '/home'},
-      { title: 'about us', link: '/about'},
-      { title: 'contact us', link: '/contact'},
-    ];
+
+    export interface IBreadcrumbItem {
+    title: string;
+    link: string;
+    id:number
+  }
+    const breadCrumbsDataArr:IBreadcrumbItem[]= [
+      { title: 'home', link: '/home', id:1},
+      { title: 'about us', link: '/about', id:2},
+      { title: 'contact us', link: '/contact', id;},
+    ];,
   `;
   const htmlCode = `
     <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
@@ -39,7 +49,7 @@ export default function Breadcrumb() {
         </div>
         <div className="col-2">
           <CodeIcon
-            onClick={() => setShowCode((prev) => !prev)}
+            onClick={handleShowCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
