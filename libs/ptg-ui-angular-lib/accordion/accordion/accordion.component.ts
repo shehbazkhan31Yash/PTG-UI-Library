@@ -18,11 +18,11 @@ interface AccordionItem {
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss']
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent  {
   @Input() listData: AccordionItem [] = [];
-  @Input() isAnimated?: boolean = false;
-  @Input() oneAtATime?: boolean = false;
-  @Input() addAccordionGroup?: boolean = true;
+  @Input() isAnimated?: boolean;
+  @Input() oneAtATime?: boolean ;
+  @Input() addAccordionGroup?: boolean;
   @Output() handleChange: EventEmitter<any> = new EventEmitter();
   
   // onAccordion change state 

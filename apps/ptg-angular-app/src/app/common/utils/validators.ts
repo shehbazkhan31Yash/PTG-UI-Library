@@ -6,7 +6,7 @@
  * @description This file for custom Validation
 **/
 
-import { AbstractControl, FormGroup, ValidationErrors } from "@angular/forms";
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 
 // custom validator for Confirm Password

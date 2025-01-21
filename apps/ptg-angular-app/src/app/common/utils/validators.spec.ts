@@ -13,11 +13,11 @@ describe('calendarValidator check', () => {
             .compileComponents();
     });
     it('create an checks', () => {
-        let matchingControlName = "string";
+        const matchingControlName = "string";
        let form : FormGroup | any;
         const setSum = jest.fn().mockName("calendarValidator");
         setSum();
-        let matchingControl:any = form?.controls[matchingControlName];
+        const matchingControl:any = form?.controls[matchingControlName];
        matchingControl?.setErrors({ calendarValidator: true }); 
         matchingControl?.setErrors(null);
         expect(matchingControl?.setErrors).toBeUndefined()
