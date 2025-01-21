@@ -5,16 +5,18 @@
  */
 
 import './pipes.module.scss';
-import { useState } from 'react';
+
 import {
-  inrFormat,
-  capitalizeFirstLetter,
   PtgUiInput,
-  truncateString,
+  capitalizeFirstLetter,
+  inrFormat,
   phoneNumber,
+  truncateString,
 } from '@ptg-ui/react';
-import { useTranslation } from 'react-i18next';
+
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 /* eslint-disable-next-line */
 interface PipesProps {
@@ -46,15 +48,6 @@ export function Pipes(props: PipesProps) {
     });
   };
 
-  //  const cFLkeyUpHandler = (e:any)=> {
-  //     const {name} = e.target;
-  //     setOldValues((values)=>{
-  // return {...oldValue,[name]:oldValue.cname};
-  //     });
-  //     setValue((values)=> {
-  //       return {...values, [name]:capitalizeFirstLetter(value.cname)}
-  //     });
-  // }
   
   const componentCode = `
 import './pipes.module.scss';
