@@ -68,26 +68,26 @@ export function GridLayout() {
 
   <PtgUiRow>
     <PtgUiGridColumn
-        xl={3}
-        lg={6}
-        md={6}
-        sm={12}
-        className={'mb-8'}
-      >       
+      xl={3}
+      lg={6}
+      md={6}
+      sm={12}
+      className={'mb-8'}
+    >       
       <PtgUiCard
-         image={image}
-          title={title}
-          description={content}
-          buttonText={button}
-          onClick={onClick}
-          buttonColor={'#002144'}
-          buttonWidth={'165px'}
+        image={image}
+        title={title}
+        description={content}
+        buttonText={button}
+        onClick={onClick}
+        buttonColor={'#002144'}
+        buttonWidth={'165px'}
         imageWidth={'100%'}
         imageHeight={'100%'}
         backgroundColor={'#ffffff'}
       />
     </PtgUiGridColumn> 
- </PtgUiRow>`;
+  </PtgUiRow>`;
 
   return (
     <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 ">
