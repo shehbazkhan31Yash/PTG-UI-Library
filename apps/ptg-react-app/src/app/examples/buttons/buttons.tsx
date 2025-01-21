@@ -63,9 +63,7 @@ export default function Button() {
       hasbtnIconSlot={true}
       disabled={false}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -78,9 +76,7 @@ export default function Button() {
       fontSize="12px"
       hasbtnIconSlot={true}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -91,9 +87,7 @@ export default function Button() {
       fontSize="12px"
       hasbtnIconSlot={true}
     >
-      <div slot="btnIcon">
-        <AddCircleIcon />
-      </div>
+      <div className="btn-icon">+</div>
     </PtgUiButton>
 
     <PtgUiButton
@@ -256,9 +250,7 @@ export default function Button() {
                 hasbtnIconSlot={true}
                 disabled={false}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
 
@@ -274,9 +266,7 @@ export default function Button() {
                 fontSize="12px"
                 hasbtnIconSlot={true}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
 
@@ -290,9 +280,7 @@ export default function Button() {
                 fontSize="12px"
                 hasbtnIconSlot={true}
               >
-                <div slot="btnIcon">
-                  <AddCircleIcon />
-                </div>
+                <div className="btn-icon">+</div>
               </PtgUiButton>
             </div>
             <div className="col-2 mb-2">

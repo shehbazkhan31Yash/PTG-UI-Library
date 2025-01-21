@@ -1,6 +1,5 @@
 import './breadcrumbs.scss';
 
-import { BREADCRUMBS } from '../../mock/mocks';
 import CodeIcon from '@mui/icons-material/Code';
 import { IBreadcrumb } from './breadcrumbs.interface';
 import { PtgUiBreadcrumbs } from '@ptg-ui/react';
@@ -10,10 +9,14 @@ import { useTranslation } from 'react-i18next';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState(false);
-  const handleShowCode = ()=>setShowCode((prev) => !prev)
+  const handleShowCode = () => setShowCode((prev) => !prev);
   const { t } = useTranslation();
 
-  const breadCrumbsDataArr: IBreadcrumb[] = BREADCRUMBS;
+  const breadCrumbsDataArr: IBreadcrumb[] = [
+    { title: `${t('HOME')}`, link: '/home' },
+    { title: `${t('ABOUT_US')}`, link: '/about' },
+    { title: `${t('CONTACT_US')}`, link: '/contact' },
+  ];
   const componentCode = `
     interface IBreadcrumb {
       title: string;

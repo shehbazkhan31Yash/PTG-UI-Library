@@ -1,10 +1,9 @@
+import Accordion from './accordion';
 import { render } from '@testing-library/react';
 
-import Accordian from './accordian';
-
-describe('Accordian', () => {
+describe('Accordion', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Accordian />);
+    const { baseElement } = render(<Accordion />);
     expect(baseElement).toBeTruthy();
   });
 });

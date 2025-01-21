@@ -472,25 +472,3 @@ export const CARD_LIST = [
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
-/*---- accordian------*/
-export const ACCORDION_DATA = [
-  {
-    title: 'ACCORDION_TITLE_#1',
-    content: 'ACCORDION_CONTENT',
-  },
-  {
-    title: 'ACCORDION_TITLE_#2',
-    content: 'ACCORDION_CONTENT',
-  },
-  {
-    title: 'ACCORDION_TITLE_#3',
-    content: 'ACCORDION_CONTENT',
-  },
-];
-
-/*--- breadcrumbs -----*/
-export const BREADCRUMBS = [
-  { title: 'HOME', link: '/home' },
-  { title: 'ABOUT_US', link: '/about' },
-  { title: 'CONTACT_US', link: '/contact' },
-];

@@ -1,15 +1,15 @@
-import './accordian.scss';
+import './accordion.scss';
 
 import { useTranslation } from 'react-i18next';
 
 /* eslint-disable-next-line */
-export interface PtgUiAccordianProps {
+export interface PtgUiAccordionProps {
   accordionItems: any;
   handleToggle: any;
   activeIndex: any;
 }
 
-export function PtgUiAccordian(props: PtgUiAccordianProps) {
+export function PtgUiAccordion(props: PtgUiAccordionProps) {
   const { t } = useTranslation();
   const { accordionItems, handleToggle, activeIndex } = props;
 
@@ -48,4 +48,4 @@ export function PtgUiAccordian(props: PtgUiAccordianProps) {
   );
 }
 
-export default PtgUiAccordian;
+export default PtgUiAccordion;

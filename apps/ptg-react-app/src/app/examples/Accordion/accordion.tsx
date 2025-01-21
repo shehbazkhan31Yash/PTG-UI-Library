@@ -1,9 +1,8 @@
 import './accordion.scss';
 
-import { ACCORDION_DATA } from '../../mock/mocks';
 import CodeIcon from '@mui/icons-material/Code';
 import { IAccordion } from './accordion.interface';
-import { PtgUiAccordian } from '@ptg-ui/react';
+import { PtgUiAccordion } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +12,20 @@ export default function () {
   const [showCode, setShowCode] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleShowCode = () => setShowCode((prev) => !prev);
-  const accordionItems: IAccordion[] = ACCORDION_DATA;
+  const accordionItems: IAccordion[] =  [
+    {
+      title: `${t('ACCORDION_TITLE')} - #1`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+    {
+      title: `${t('ACCORDION_TITLE')} - #2`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+    {
+      title: `${t('ACCORDION_TITLE')} - #3`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+  ];
 
   const handleToggle = (index: number | null) => {
     if (index === activeIndex) {
