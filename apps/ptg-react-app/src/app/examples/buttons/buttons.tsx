@@ -11,6 +11,9 @@ export default function Button() {
   const [showCode, setShowCode] = useState(false);
   const [showCodeForBtn, setShowCodeForBtn] = useState(false);
 
+  const handleShowCode = () => setShowCode((prev) => !prev);
+  const handleShowCodeForBtn = () => setShowCodeForBtn((prev) => !prev);
+
   const { t } = useTranslation();
 
   const onClick = () => {};
@@ -111,7 +114,7 @@ export default function Button() {
           </div>
           <div className="col-2">
             <CodeIcon
-              onClick={() => setShowCode((prev) => !prev)}
+              onClick={handleShowCode}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
@@ -226,7 +229,7 @@ export default function Button() {
           </div>
           <div className="col-2">
             <CodeIcon
-              onClick={() => setShowCodeForBtn((prev) => !prev)}
+              onClick={handleShowCodeForBtn}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
@@ -240,7 +243,7 @@ export default function Button() {
           )}
           <div className="col-lg-12 col-md-12 col-sm-6 col-xs-4 ms-3 mt-2">
             <h6>{t('ICON_ALIGNMENT_LEFT')}</h6>
-            {/* <div className='row'> */}
+            {}
             <div className="col-2 mb-2">
               <PtgUiButton
                 text="Primary"

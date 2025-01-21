@@ -12,7 +12,7 @@ export default function () {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
-  const handleShodeCode = () => setShowCode((prev) => !prev);
+  const handleShowCode = () => setShowCode((prev) => !prev);
   const accordionItems: IAccordion[] = ACCORDION_DATA;
 
   const handleToggle = (index: number | null) => {
@@ -75,7 +75,7 @@ export default function () {
         </div>
         <div className="col-2 mb-2 mt-1">
           <CodeIcon
-            onClick={handleShodeCode}
+            onClick={handleShowCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>

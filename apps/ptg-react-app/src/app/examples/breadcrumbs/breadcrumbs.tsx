@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState(false);
-  const handleShodeCode = ()=>setShowCode((prev) => !prev)
+  const handleShowCode = ()=>setShowCode((prev) => !prev)
   const { t } = useTranslation();
 
   const breadCrumbsDataArr: IBreadcrumb[] = BREADCRUMBS;
@@ -43,7 +43,7 @@ export default function Breadcrumb() {
         </div>
         <div className="col-2">
           <CodeIcon
-            onClick={handleShodeCode}
+            onClick={handleShowCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
