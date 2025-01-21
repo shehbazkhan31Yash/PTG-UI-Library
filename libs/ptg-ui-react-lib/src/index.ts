@@ -1,4 +1,5 @@
 export * from './lib/ptg-ui-react-lib';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export * from './lib/button/button';
@@ -29,7 +30,6 @@ export * from './lib/date-picker/date-picker';
 export * from './lib/download-file/downloadFile';
 export * from './lib/indeterminate-checkbox/Tree/CheckboxTree';
 export * from './lib/data-table/react-table/react-table';
-export * from './lib/accordian/accordian';
 export * from './lib/textarea/textarea';
 export * from './lib/hooks/useFetch';
 export * from './lib/pagination/pagination';
@@ -41,3 +41,4 @@ export * from './lib/modal/modal';
 export * from './lib/card/card';
 export * from './lib/gridColumn/gridColumn';
 export * from './lib/row/row';
+export * from './lib/accordion/accordion';
