@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel-example.component.scss'],
 })
 export class CarouselExampleComponent {
-  isLoaded=true;
+  isLoaded = true;
   htmlCode = `
       <ptg-ui-carousel
         [images]="sampleImages">
@@ -30,9 +30,16 @@ export class CarouselExampleComponent {
     export class DemoCarouselComponent {
       sampleImages = ['https://picsum.photos/id/328/3264/2448', 'https://picsum.photos/id/84/1280/848'];
     }`;
-  sampleImages = [
-    'https://picsum.photos/id/328/3264/2448',
-    'https://picsum.photos/id/431/5000/3334',
-    'https://picsum.photos/id/5/5000/3334',
+    sampleImage =[{
+      image: 'https://picsum.photos/id/328/3264/2448', alt: "image1"
+    },
+    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2"},
+    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3" }
+    ];
+  sampleImages = [{
+    image: 'https://picsum.photos/id/328/3264/2448', alt: "image1", caption: "1"
+  },
+  { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2", caption: "2" },
+  { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3", caption: "3" }
   ];
 }

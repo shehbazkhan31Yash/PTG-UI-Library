@@ -10,8 +10,7 @@
 
 import {
   Component,
-  Input,
-  OnInit
+  Input
 } from '@angular/core';
 
 @Component({
@@ -20,12 +19,8 @@ import {
   styleUrls: ['./Carousel.component.scss'],
 })
 
-export class CarouselComponent implements OnInit {
-  @Input() CarouselObj:any;
-  
-  constructor() { }
-  ngOnInit(): void {
-
-  }
+export class CarouselComponent {
+  @Input() carouselItems:{image:string,alt:string,caption?:string}[]=[];
+  @Input() showControls?:boolean=false;
 
 }

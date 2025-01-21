@@ -1,12 +1,12 @@
-<div class="card" style="width: 18rem;" [ngClass]="cardObj.cardClass">
+<div class="card" style="width: 18rem;" [ngClass]="cardObj.cardClass || ''">
     <img *ngIf="cardObj.src" [src]="cardObj.src" class="card-img-top" alt="...">
-    <div class="card-header" [ngClass]="cardObj.cardHeaderClass">
+    <div class="card-header" [ngClass]="cardObj.cardHeaderClass || ''">
         <h5 class="card-title">{{cardObj.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{cardObj.subtitle}}</h6>
     </div>
-    <div class="card-body" [ngClass]="cardObj.cardBodyClass">
+    <div class="card-body" [ngClass]="cardObj.cardBodyClass || ''">
         <p class="card-text">{{cardObj.content}}</p>
         <ng-content></ng-content>
     </div>
-    <div class="card-footer text-muted" [ngClass]="cardObj.cardFooterClass">{{cardObj.footer}}</div>
+    <div class="card-footer text-muted" [ngClass]="cardObj.cardFooterClass || ''">{{cardObj.footer}}</div>
 </div>

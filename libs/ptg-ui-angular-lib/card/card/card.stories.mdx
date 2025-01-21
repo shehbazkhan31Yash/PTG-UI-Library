@@ -1,92 +1,92 @@
-import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as ButtonComponents from './button.stories.ts'
+import * as CardComponents from './card.stories.ts';
 
-import {ButtonComponent} from './button.component';
+import { CardComponent } from './card.component';
 
- <Meta title="Component/ButtonComponent/ButtonComponentDocs" component={ ButtonComponent }    />
+<Meta
+  title="Component/CardComponent/CardComponentDocs"
+  component={CardComponent}
+/>
 
+# Card Component
 
+---
 
- # Button Component
+A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
 
- ---
- The Button element is used to create an HTML button. Any text appearing between the opening and closing tags will appear as text on the button. No action takes place by default 
- when a button is clicked.
-
- We can import the button tag using the following importation : 
-
-```
-    import { ButtonComponent } from ' @ptg-ui/angular'
-```    
-
- Types of controls supported by button:
-
- - isDisable
- - size
- - isBlock
- - backgroundColor
- - accessKey
-
-
-
-
- ## Quick Start
- 
- we can create a button using the following HTML Tag: 
-
+We can import the button tag using the following importation :
 
 ```
-<ptg-ui-button
-  type="button"
-  [isDisable]="false"
-  [isBlock]="false"
-  accessKey=""
-  label="Button"
-></ptg-ui-button>
+    import { CardModule } from '@ptg-ui/angular/card'
+```
+
+Types of controls supported by card:
+
+- title
+- content
+- footer
+- src
+- cardClass
+- cardHeaderClass
+- cardBodyClass
+- cardFooterClass
+- Kitchen Sink
+
+## Quick Start
+
+we can create a button using the following HTML Tag:
+
+```
+<ptg-ui-card [cardObj]="cardObj">
+          </ptg-ui-card>
 
 ```
 
+Following are some controls with their explanation :
 
- Following are some controls with their explanation :
+1] title , subtitle ,content:
 
- 1] isDisable :
+The title , subtite and content are title ,subtitle and description of card respectively.
 
- The disabled property sets or returns whether a button is disabled, or not.
+A] title : <Canvas><Story id="component-cardcomponent--primary" /></Canvas>  
+B] subtitle : <Canvas><Story id="component-cardcomponent--subtitle"/></Canvas>
 
- A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+2] Image :
 
- true - The button is disabled
+To show image for the card user need to pass src of the image :
 
- false - Default. The button is not disabled
+<Canvas>
+  <Story id="component-cardcomponent--image" />
+</Canvas>
 
+3] Footer :
 
-<Canvas><Story id="component-buttoncomponent--is-disable" /></Canvas>
+Add footer within a card.
 
+<Canvas>
+  <Story id="component-cardcomponent--footer" />
+</Canvas>
 
- 2] size : 
+4] Classes :
 
- Some types of sizes in buttons are below :  
+User can pass classes to card, header,body and footer in the card.
 
-A] Primary Button :  <Canvas><Story id="component-buttoncomponent--primary" /></Canvas>   
-B] Small Button :    <Canvas><Story id="component-buttoncomponent--small" /></Canvas>
-C] Medium Button :   <Canvas><Story id="component-buttoncomponent--medium" /></Canvas>      
-D] Large Button :    <Canvas><Story id="component-buttoncomponent--large" /></Canvas>
+<Canvas>
+  <Story id="component-cardcomponent--classes" />
+</Canvas>
 
+4] Kitchen Sink :
+Mix and match multiple content types to create the card you need, or throw everything in there.
+For example user can write multiple button within card using their own html.
 
+```
+<ptg-ui-card [cardObj]="cardObj">
+ <ul class="list-group list-group-flush">
+   <li class="list-group-item">An item</li>
+   <li class="list-group-item">A second item</li>
+   <li class="list-group-item">A third item</li>
+ </ul>
+ </ptg-ui-card>
 
- 3] isBlock :
-
- We can set the conditional background Color for the Button. When the value is true background color get changes and the value is 
- false it remains default.   
-
-
-<Canvas><Story id="component-buttoncomponent--is-block" /></Canvas>
-
-
- 4] backgroundColor :
-
- We can set a background color for an button by using the colour picker. Otherwise we can set the background color in HTML, use the style attribute, with the CSS property background-color inside the body tag of the HTML document.
-
-
-
+```

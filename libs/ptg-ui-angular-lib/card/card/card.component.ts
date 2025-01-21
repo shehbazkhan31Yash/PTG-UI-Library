@@ -10,22 +10,27 @@
 
 import {
   Component,
-  Input,
-  OnInit
+  Input
 } from '@angular/core';
 
+interface Card {
+  title: string;
+  subtitle?: string;
+  content: string;
+  src?: string;
+  footer?: string;
+  cardClass?: string;
+  cardHeaderClass?: string;
+  cardBodyClass?: string;
+  cardFooterClass?: string;
+}
 @Component({
   selector: 'ptg-ui-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
 
-export class CardComponent implements OnInit {
-  @Input() cardObj:any;
+export class CardComponent {
+  @Input() cardObj:Card={title:"title",content:"content"};
   
-  constructor() { }
-  ngOnInit(): void {
-
-  }
-
 }

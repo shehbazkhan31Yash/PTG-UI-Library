@@ -1,48 +1,48 @@
 <ng-container *ngIf="isLoaded">
   <section class="px-2">
-      <div class="row carousel-parent bg-white rounded">
-        <div class="col-12 justify-content-between align-items-center">
-          <h3 class="p-3" [innerHTML]="'CAROUSEL_EXAMPLE_WITH_INDICATOR' | translate"></h3>
-          <ptg-ui-toggle-code
-            [htmlCode]="htmlCode"
-            [tsCode]="tsCode"
-          ></ptg-ui-toggle-code>
-        </div>
-        <hr class="css-yasiti"/>
-  
+    <div class="row carousel-parent bg-white rounded">
+      <div class="col-12 justify-content-between align-items-center">
+        <h3 class="p-3" [innerHTML]="'CAROUSEL_EXAMPLE_SLIDES_ONLY' | translate"></h3>
+        <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+      </div>
+      <hr class="css-yasiti" />
+
       <div class="p-3" *ngIf="sampleImages && sampleImages.length > 0; else elseNotDone">
         <div class="carouselClass">
-          <!-- <ptg-ui-carousel [images]="sampleImages"></ptg-ui-carousel> -->
+          <ptg-ui-carousels [carouselItems]="sampleImage"></ptg-ui-carousels>
         </div>
-  
-     </div>     
+
       </div>
-  
-      <div class="row carousel-parent mt-3 bg-white rounded">
-        <div class="col-12 justify-content-between align-items-center">
-          <h3
-            class="p-3"
-            [innerHTML]="'CAROUSEL_EXAMPLE' | translate"
-          ></h3>
-          <ptg-ui-toggle-code
-            [htmlCode]="htmlCodeWithIndicators"
-            [tsCode]="tsCode"
-          ></ptg-ui-toggle-code>
+    </div>
+    <div class="row carousel-parent bg-white rounded">
+      <div class="col-12 justify-content-between align-items-center">
+        <h3 class="p-3" [innerHTML]="'CAROUSEL_EXAMPLE' | translate"></h3>
+        <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+      </div>
+      <hr class="css-yasiti" />
+
+      <div class="p-3" *ngIf="sampleImages && sampleImages.length > 0; else elseNotDone">
+        <div class="carouselClass">
+          <ptg-ui-carousels [carouselItems]="sampleImage"></ptg-ui-carousels>
         </div>
-        <hr class="css-yasiti"/>
-        <div class="p-3">     
-          <div class="carouselClass">
-            <!-- <ptg-ui-carousel
-            [images]="sampleImages"
-            :show-indicators="false"
-          ></ptg-ui-carousel> -->
-          <ptg-ui-carousels></ptg-ui-carousels>
-          </div>
-      
+
       </div>
-   
-       
+    </div>
+    <div class="row carousel-parent mt-3 bg-white rounded">
+      <div class="col-12 justify-content-between align-items-center">
+        <h3 class="p-3" [innerHTML]="'CAROUSEL_EXAMPLE_WITH_INDICATOR' | translate"></h3>
+        <ptg-ui-toggle-code [htmlCode]="htmlCodeWithIndicators" [tsCode]="tsCode"></ptg-ui-toggle-code>
       </div>
+      <hr class="css-yasiti" />
+      <div class="p-3">
+        <div class="carouselClass">
+          <ptg-ui-carousels [carouselItems]="sampleImages"></ptg-ui-carousels>
+        </div>
+
+      </div>
+
+
+    </div>
   </section>
   <ng-template #elseNotDone>
     <div class="d-flex justify-content-center">
@@ -52,4 +52,3 @@
     </div>
   </ng-template>
 </ng-container>
-

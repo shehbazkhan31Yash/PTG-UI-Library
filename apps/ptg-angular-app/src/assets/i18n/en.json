@@ -175,6 +175,7 @@
   "CARDS": "Cards",
   "CAROUSEL_EXAMPLE": "Carousel Example",
   "CAROUSEL_EXAMPLE_WITH_INDICATOR": "Carousel example with indicator",
+  "CAROUSEL_EXAMPLE_SLIDES_ONLY": "Carousel example with slides only",
   "DRAG_DROP": "Drag Drop"
 
 }
