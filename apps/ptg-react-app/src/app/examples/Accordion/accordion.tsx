@@ -73,7 +73,7 @@ export default function () {
   import { PtgUiAccordion } from '@ptg-ui/react';
   import "@ptg-ui/react/lib/styles/index.css";
     
-    <PtgUiAccordian
+    <PtgUiAccordion
       accordionItems={accordionItems}
       handleToggle={handleToggle}
       activeIndex={activeIndex}
@@ -100,7 +100,7 @@ export default function () {
           />
         )}
         <div className="accordion-component col-md-11 col-sm-7 ms-3">
-          <PtgUiAccordian
+          <PtgUiAccordion
             accordionItems={accordionItems}
             handleToggle={handleToggle}
             activeIndex={activeIndex}
