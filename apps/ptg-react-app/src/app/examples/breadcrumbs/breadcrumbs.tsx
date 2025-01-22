@@ -3,43 +3,38 @@ import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useTranslation } from 'react-i18next';
 import './breadcrumbs.scss';
-import { IBreadcrumbItem } from '@ptg-react-app/interfaces';
+import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { breadCrumbsMockData } from '@ptg-react-app/mock/mocks';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
-  const breadCrumbsDataArr: IBreadcrumbItem[] = [
-    { title: `${t('HOME')}`, link: '/home'},
-    { title: `${t('ABOUT_US')}`, link: '/about' },
-    { title: `${t('CONTACT_US')}`, link: '/contact',},
-    
-  ];
-  const handleShowCode = ()=>{
-    setShowCode((prev) => !prev)
+  //Note: To get breadcrumbs data with translation
+  const breadCrumbsDataArr: IBreadcrumb[] = breadCrumbsMockData(t)
+
+  // Note: handle toggle to show/hide code 
+  const handleShowCode = () => {
+    setShowCode(!showCode)
   }
+
   const componentCode = `
     import { PtgUiBreadcrumbs } from '@ptg-ui/react';
     import "@ptg-ui/react/lib/styles/index.css";
 
-    export interface IBreadcrumbItem {
+    export interface IBreadcrumb {
     title: string;
     link: string;
   }
-    const breadCrumbsDataArr:IBreadcrumbItem[]= [
+    const breadCrumbsDataArr:IBreadcrumb[]= [
       { title: 'home', link: '/home',},
       { title: 'about us', link: '/about',},
       { title: 'contact us', link: '/contact',},
     ];,
   `;
-  const htmlCode = `
-    import { PtgUiBreadcrumbs } from '@ptg-ui/react';
-    import "@ptg-ui/react/lib/styles/index.css";
-    
-    <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
- `;
+  const htmlCode = `<PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />`;
 
   return (
     <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">

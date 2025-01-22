@@ -1,3 +1,5 @@
+
+
 export const CITY_LIST = [
   // { value: '', label: 'Select' },
   { value: 'pune', label: 'Pune', name: 'city' },
@@ -471,4 +473,17 @@ export const CARD_LIST = [
   { value: 'Master Card', label: 'Master Card', name: 'card' },
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
+
+// breadcrum mock data 
+  export const breadCrumbsMockData = (t:Function) =>{
+  return [
+    { title: `${t('HOME')}`, link: '/home'},
+    { title: `${t('ABOUT_US')}`, link: '/about' },
+    { title: `${t('CONTACT_US')}`, link: '/contact',},
+    
+  ]
+  }
+
+
+
 

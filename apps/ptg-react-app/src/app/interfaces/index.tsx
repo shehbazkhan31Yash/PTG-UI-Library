@@ -1,8 +1,11 @@
 // Pagination 
-export interface IBreadcrumbItem {
+export interface IBreadcrumb {
     title: string;
     link: string;
   }
+
+
+  
   
  
 
