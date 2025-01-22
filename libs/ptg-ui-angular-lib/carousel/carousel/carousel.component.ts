@@ -20,7 +20,8 @@ import {
 })
 
 export class CarouselComponent {
-  @Input() carouselItems:{image:string,alt:string,caption?:string}[]=[];
-  @Input() showControls?:boolean=false;
+  @Input() carouselItems: { image: string, alt: string, captionLabel?: string, captionContent?: string }[] = [];
+  @Input() showControls?: boolean = false;
+  @Input() showIndicators?: boolean = false;
 
 }
