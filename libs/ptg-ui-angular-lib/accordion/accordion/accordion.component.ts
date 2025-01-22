@@ -18,37 +18,37 @@ interface AccordionItem {
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss']
 })
-export class AccordionComponent  {
-  @Input() listData: AccordionItem [] = [];
+export class AccordionComponent {
+  @Input() listData: AccordionItem[] = [];
   @Input() isAnimated?: boolean;
-  @Input() oneAtATime?: boolean ;
-  @Input() addAccordionGroup?: boolean;
+  @Input() oneAtATime?: boolean;
+  @Input() addAccordionGroup?: boolean = true;
   @Output() handleChange: EventEmitter<any> = new EventEmitter();
-  
+
   // onAccordion change state 
-  change(event:any){
-      this.handleChange.emit(event);
+  change(event: any) {
+    this.handleChange.emit(event);
   }
 
   public get classes(): string[] {
-      
-      const animatedmode = this.isAnimated
+
+    const animatedmode = this.isAnimated
       ? 'ptg-ui-Accordion--isAnimated'
-      : 'ptg-ui-Accordion--secondary';  
+      : 'ptg-ui-Accordion--secondary';
 
-      const oneAtTimemode = this.oneAtATime
+    const oneAtTimemode = this.oneAtATime
       ? 'ptg-ui-Accordion--oneAtATime'
-      : 'ptg-ui-Accordion--secondary'; 
+      : 'ptg-ui-Accordion--secondary';
 
-      const addAccordionGroupMode = this.addAccordionGroup
+    const addAccordionGroupMode = this.addAccordionGroup
       ? 'ptg-ui-Accordion--addAccordionGroup'
-      : 'ptg-ui-Accordion--secondary';  
-    
-    return [`ptg-ui-Accordion`, `ptg-ui-Accordion--${this.isAnimated}`, animatedmode  , oneAtTimemode,addAccordionGroupMode];
-  
- 
- 
+      : 'ptg-ui-Accordion--secondary';
+
+    return [`ptg-ui-Accordion`, `ptg-ui-Accordion--${this.isAnimated}`, animatedmode, oneAtTimemode, addAccordionGroupMode];
+
+
+
   }
 
-  
+
 }
