@@ -4,7 +4,7 @@
  * @desc Grid Layout Example
  */
 
-import '@ptg-react-app/examples/grid-layout/./grid-layout.scss';
+import '@ptg-react-app/examples/grid-layout/./GridLayout.scss';
 import { useTranslation } from 'react-i18next';
 import { PtgUiCard, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
@@ -92,7 +92,7 @@ export function GridLayout() {
   </PtgUiRow>`;
 
   return (
-    <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 ">
+    <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 pb-4">
       <PtgUiRow>
         <PtgUiGridColumn md={10} className={'mt-1 mb-2'}>
           <h5 className="font-weight-bold example-heading">
