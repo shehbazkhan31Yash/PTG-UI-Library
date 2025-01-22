@@ -4,30 +4,24 @@
  * @desc Grid Layout Example
  */
 
-import './grid-layout.scss';
+import '@ptg-react-app/examples/grid-layout/./grid-layout.scss';
 import { useTranslation } from 'react-i18next';
-import {
-  PtgUiCard,
-  PtgUiGridColumn,
-  PtgUiRow,
-} from '@ptg-ui/libs/ptg-ui-react-lib/src';
+import { PtgUiCard, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
 /* eslint-disable-next-line */
+const BUTTON_COLOR = '#002144';
+const BUTTON_WIDTH = '165px';
 
 export function GridLayout() {
   const { t } = useTranslation();
-  const [showCode, setShowCode] = useState(false);
-  const onClick = () => {};
+  const [showCode, setShowCode] = useState<boolean>(false);
 
-  const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
+  const ShowExampleCode = (): void => {
+    if (!showCode) setShowCode(true);
+    else setShowCode(false);
   };
 
   const cardItems = [
@@ -61,7 +55,14 @@ export function GridLayout() {
     },
   ];
 
-  const componentCode = ` const onClick = () => {};`;
+  const componentCode = `
+    const BUTTON_TEXT_COLOR = "#fff"
+    const BUTTON_COLOR = '#002144',
+    const BUTTON_WIDTH = '165px';
+    const IMAGE_WIDTH='100%';
+    const IMAGE_HEIGHT='100%'; 
+    const onClick = () => {};`;
+
   const htmlCode = ` 
   import { PtgUiRow, PtgUiGridColumn, PtgUiCard } from '@ptg-ui/react';
   import "@ptg-ui/react/lib/styles/index.css";
@@ -75,16 +76,17 @@ export function GridLayout() {
       className={'mb-8'}
     >       
       <PtgUiCard
-        image={image}
-        title={title}
-        description={content}
-        buttonText={button}
+        image={"assets/images/img1.png"}
+        title={"Card title"}
+        description={"Card description"}
+        buttonText={"Go somewhere"}
         onClick={onClick}
-        buttonColor={'#002144'}
-        buttonWidth={'165px'}
-        imageWidth={'100%'}
-        imageHeight={'100%'}
-        backgroundColor={'#ffffff'}
+        buttonColor={BUTTON_COLOR}
+        buttonWidth={BUTTON_WIDTH}
+        imageWidth={IMAGE_WIDTH}
+        imageHeight={IMAGE_HEIGHT}
+        backgroundColor={BACKGROUND_COLOR}
+        buttonTextColor={BUTTON_TEXT_COLOR}
       />
     </PtgUiGridColumn> 
   </PtgUiRow>`;
@@ -102,7 +104,7 @@ export function GridLayout() {
             onClick={ShowExampleCode}
             fontSize="large"
             className="show-code-icon"
-          ></CodeIcon>
+          />
         </div>
         <hr className="horizontal-line" />
         {showCode && (
@@ -129,9 +131,8 @@ export function GridLayout() {
                     title={item.title}
                     description={item.content}
                     buttonText={item.button}
-                    onClick={onClick}
-                    buttonColor={'#002144'}
-                    buttonWidth={'165px'}
+                    buttonColor={BUTTON_COLOR}
+                    buttonWidth={BUTTON_WIDTH}
                   />
                 </PtgUiGridColumn>
               );
@@ -156,12 +157,11 @@ export function GridLayout() {
             >
               <PtgUiCard
                 image={'assets/images/img1.png'}
-                title={'New Card'}
+                title={t('CARD_TITLE_TEXT')}
                 description={t('ADD_SOME_QUICK_EX_TEXT')}
                 buttonText={t('GO_SOME_WHERE_TEXT')}
-                onClick={onClick}
-                buttonColor={'#002144'}
-                buttonWidth={'180px'}
+                buttonColor={BUTTON_COLOR}
+                buttonWidth={BUTTON_WIDTH}
               />
             </PtgUiGridColumn>
             <PtgUiGridColumn
@@ -174,12 +174,11 @@ export function GridLayout() {
             >
               <PtgUiCard
                 image={'assets/images/img1.png'}
-                title={'New Card'}
+                title={t('CARD_TITLE_TEXT')}
                 description={t('ADD_SOME_QUICK_EX_TEXT')}
                 buttonText={t('GO_SOME_WHERE_TEXT')}
-                onClick={onClick}
-                buttonColor={'#002144'}
-                buttonWidth={'180px'}
+                buttonColor={BUTTON_COLOR}
+                buttonWidth={BUTTON_WIDTH}
               />
             </PtgUiGridColumn>
           </PtgUiRow>

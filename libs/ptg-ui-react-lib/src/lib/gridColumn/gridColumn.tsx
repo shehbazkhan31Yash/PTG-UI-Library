@@ -1,4 +1,4 @@
-interface GridColumnUiProps {
+interface IGridColumnUiProps {
   children: React.ReactNode;
   xl?: number;
   lg?: number;
@@ -11,7 +11,7 @@ interface GridColumnUiProps {
   className?: string;
 }
 
-export function PtgUiGridColumn(props: GridColumnUiProps) {
+export function PtgUiGridColumn(props: IGridColumnUiProps) {
   const {
     xl = '',
     children = '',
@@ -23,6 +23,7 @@ export function PtgUiGridColumn(props: GridColumnUiProps) {
     offsetMd = '',
     offsetSm = '',
     className = '',
+    ...params
   } = props;
   // Construct the class names based on the props
   const classNames = [
@@ -37,7 +38,8 @@ export function PtgUiGridColumn(props: GridColumnUiProps) {
     className,
   ].join(' ');
 
-  return <div className={classNames}>{children}</div>;
+
+  return <div className={classNames} {...params}>{children}</div>;
 }
 
 export default PtgUiGridColumn;
