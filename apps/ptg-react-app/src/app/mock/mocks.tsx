@@ -472,3 +472,38 @@ export const CARD_LIST = [
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
+
+export const CARD_ITEMS = [
+  {
+    id: 1,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 2,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 3,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 4,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+];

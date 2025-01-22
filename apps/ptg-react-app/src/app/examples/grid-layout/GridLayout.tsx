@@ -6,52 +6,37 @@
 
 import '@ptg-react-app/examples/grid-layout/./GridLayout.scss';
 import { useTranslation } from 'react-i18next';
-import { PtgUiCard, PtgUiGridColumn, PtgUiRow, CARD_BUTTON } from '@ptg-ui/react';
+import {
+  PtgUiCard,
+  PtgUiGridColumn,
+  PtgUiRow,
+} from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { CARD_ITEMS } from '@ptg-react-app/mock/mocks';
+import { CARD_BUTTON } from '@ptg-react-app/constants/Constant';
 
 /* eslint-disable-next-line */
+
+interface ICardItems {
+  id: number;
+  image: string;
+  title: string;
+  content: string;
+  button: string;
+}
 
 export function GridLayout() {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState<boolean>(false);
 
-  const ShowExampleCode = (): void => {
+  const ShowExampleCode = () => {
     if (!showCode) setShowCode(true);
     else setShowCode(false);
   };
 
-  const cardItems = [
-    {
-      image: 'assets/images/img1.png',
-      title: 'Card title',
-      content:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      button: 'Go somewhere',
-    },
-    {
-      image: 'assets/images/img1.png',
-      title: 'Card title',
-      content:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      button: 'Go somewhere',
-    },
-    {
-      image: 'assets/images/img1.png',
-      title: 'Card title',
-      content:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      button: 'Go somewhere',
-    },
-    {
-      image: 'assets/images/img1.png',
-      title: 'Card title',
-      content:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      button: 'Go somewhere',
-    },
-  ];
+  const cardItems: ICardItems[] = CARD_ITEMS;
 
   const componentCode = `
     const BUTTON_TEXT_COLOR = "#fff"
@@ -123,6 +108,7 @@ export function GridLayout() {
                   md={6}
                   sm={12}
                   className={'grid-item mb-8'}
+                  key={item.id}
                 >
                   <PtgUiCard
                     image={item.image}
