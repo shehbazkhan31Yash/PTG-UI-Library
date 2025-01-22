@@ -1,8 +1,5 @@
 import { PtgUiButton } from '@ptg-ui/react';
-
-const BUTTON_TEXT_COLOR = '#fff';
-const BUTTON_COLOR = '#052982';
-const BUTTON_WIDTH = '165px';
+import  { CARD_BUTTON }  from '@ptg-ui/react';
 
 interface CardUiProps {
   image?: string;
@@ -28,13 +25,13 @@ export function PtgUiCard(props: CardUiProps) {
     onClick = () => {
       return;
     },
-    buttonColor = BUTTON_COLOR,
-    buttonWidth = BUTTON_WIDTH,
+    buttonColor = CARD_BUTTON.COLOR,
+    buttonWidth = CARD_BUTTON.WIDTH,
     children,
     imageWidth,
     imageHeight,
     backgroundColor = '',
-    buttonTextColor = BUTTON_TEXT_COLOR,
+    buttonTextColor = CARD_BUTTON.TEXT_COLOR,
   } = props;
 
   return (
@@ -48,7 +45,7 @@ export function PtgUiCard(props: CardUiProps) {
             width: imageWidth,
             height: imageHeight,
             maxWidth: '100%',
-            maxHeight: '200px',
+            maxHeight:'200px',
           }}
         />
       )}

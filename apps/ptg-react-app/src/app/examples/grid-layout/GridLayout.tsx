@@ -6,14 +6,12 @@
 
 import '@ptg-react-app/examples/grid-layout/./GridLayout.scss';
 import { useTranslation } from 'react-i18next';
-import { PtgUiCard, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
+import { PtgUiCard, PtgUiGridColumn, PtgUiRow, CARD_BUTTON } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
 /* eslint-disable-next-line */
-const BUTTON_COLOR = '#002144';
-const BUTTON_WIDTH = '165px';
 
 export function GridLayout() {
   const { t } = useTranslation();
@@ -131,8 +129,8 @@ export function GridLayout() {
                     title={item.title}
                     description={item.content}
                     buttonText={item.button}
-                    buttonColor={BUTTON_COLOR}
-                    buttonWidth={BUTTON_WIDTH}
+                    buttonColor={CARD_BUTTON.COLOR}
+                    buttonWidth={CARD_BUTTON.WIDTH}
                   />
                 </PtgUiGridColumn>
               );
@@ -160,8 +158,8 @@ export function GridLayout() {
                 title={t('CARD_TITLE_TEXT')}
                 description={t('ADD_SOME_QUICK_EX_TEXT')}
                 buttonText={t('GO_SOME_WHERE_TEXT')}
-                buttonColor={BUTTON_COLOR}
-                buttonWidth={BUTTON_WIDTH}
+                buttonColor={CARD_BUTTON.COLOR}
+                buttonWidth={CARD_BUTTON.WIDTH}
               />
             </PtgUiGridColumn>
             <PtgUiGridColumn
@@ -177,8 +175,8 @@ export function GridLayout() {
                 title={t('CARD_TITLE_TEXT')}
                 description={t('ADD_SOME_QUICK_EX_TEXT')}
                 buttonText={t('GO_SOME_WHERE_TEXT')}
-                buttonColor={BUTTON_COLOR}
-                buttonWidth={BUTTON_WIDTH}
+                buttonColor={CARD_BUTTON.COLOR}
+                buttonWidth={CARD_BUTTON.WIDTH}
               />
             </PtgUiGridColumn>
           </PtgUiRow>

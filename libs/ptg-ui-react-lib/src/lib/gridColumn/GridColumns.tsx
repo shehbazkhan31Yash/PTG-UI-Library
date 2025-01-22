@@ -22,7 +22,7 @@ export function PtgUiGridColumn(props: IGridColumnUiProps) {
     offsetLg = '',
     offsetMd = '',
     offsetSm = '',
-    className = '',
+    className= '',
     ...params
   } = props;
   // Construct the class names based on the props
