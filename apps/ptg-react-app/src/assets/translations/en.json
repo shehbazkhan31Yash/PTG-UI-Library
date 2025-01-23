@@ -157,6 +157,8 @@
   "BUTTONS": "Buttons",
   "CAROUSEL": "Carousel",
   "BUTTON_WITH_ICON": "Button with Icon",
+  "ICON": "Icon",
+  "CUSTOM_BUTTON": "Custom Button",
   "ICON_ALIGNMENT_LEFT": "Icon Alignment Left",
   "ICON_ALIGNMENT_RIGHT": "Icon Alignment Right",
   "PAGINATION": "Pagination",

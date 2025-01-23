@@ -4,14 +4,17 @@
  * @uses Example using AG Grid as reusable component.
  * 
 */
+
 import '../data-table.scss';
-import { PtgUiAgGrid, PtgUiAccordian, PtguseFetch } from '@ptg-ui/react';
+
+import { PtgUiAccordion, PtgUiAgGrid, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useMemo, useState } from 'react';
+
 import { AggridButton } from './aggrid-button';
-import { useTranslation } from 'react-i18next';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { authClass } from '@ptg-react-app/auth/services/auth.service';
+import { useTranslation } from 'react-i18next';
 
 /* eslint-disable-next-line */
 export interface PtgUiAgGridExampleProps {}
@@ -181,7 +184,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     paginationPageSize={8}
     customPagination={true}
   />
-  <PtgUiAccordian stories={accordian_array}/>
+  <PtgUiAccordion stories={accordian_array}/>
   `
 
   return (
@@ -212,7 +215,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           </div>
           {/* <h5 className='ms-4'>{t('DATATABLE_WITH_ACCORDIAN')}</h5>
           <div className='me-4 ms-4'>
-          <PtgUiAccordian stories={accordian_array}/> */}
+          <PtgUiAccordion stories={accordian_array}/> */}
           {/* </div> */}
         </>
       ):(

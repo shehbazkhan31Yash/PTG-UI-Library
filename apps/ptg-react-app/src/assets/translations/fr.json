@@ -158,6 +158,8 @@
   "BUTTONS": "Boutons",
   "CAROUSEL": "Carrousel",
   "BUTTON_WITH_ICON": "Bouton avec icône",
+  "ICON": "Icône",
+  "CUSTOM_BUTTON": "Bouton personnalisé",
   "ICON_ALIGNMENT_LEFT": "Alignement des icônes à gauche",
   "ICON_ALIGNMENT_RIGHT": "Alignement des icônes à droite",
   "PAGINATION": "Pagination",
