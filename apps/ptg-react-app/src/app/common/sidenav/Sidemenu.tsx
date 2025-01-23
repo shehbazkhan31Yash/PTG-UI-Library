@@ -205,7 +205,7 @@ export const NavigationData = [
   {
     path: '/pipes',
     icon: 'fa fa-solid fa-filter',
-    label: 'PIPES & FILTERS',
+    label: 'PIPES & UTILS',
     disabled: false,
   },
   {

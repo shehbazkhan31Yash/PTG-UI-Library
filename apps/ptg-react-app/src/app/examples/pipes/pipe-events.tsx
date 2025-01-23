@@ -4,8 +4,7 @@
  * @desc Filter Example using filter reusable component
  */
 
-import './pipes.module.scss';
-import { useState } from 'react';
+import { useState, FocusEvent, ChangeEvent } from 'react';
 import {
   inrFormat,
   capitalizeFirstLetter,
@@ -14,12 +13,10 @@ import {
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { PipeEventProps } from './pipes.interface';
 /* eslint-disable-next-line */
-interface PipeEventProps {
-  showEventCode : boolean
-}
 
-export function PipeEvent(props: PipeEventProps) {
+export function PipeEvent(props: Readonly<PipeEventProps>) {
   const { t } = useTranslation();
   const [value, setValue] = useState({
     cname: '',
@@ -36,14 +33,14 @@ export function PipeEvent(props: PipeEventProps) {
     truncateStr: '',
     phoneNumber: '',
   });
-  const handleChange: any = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValue((values) => {
       return { ...values, [name]: value };
     });
   };
 
-  const cFLkeyUpHandler = (e: any) => {
+  const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setOldValues((values) => {
       return { ...oldValue, [name]: oldValue.cname };
@@ -53,7 +50,7 @@ export function PipeEvent(props: PipeEventProps) {
     });
   };
 
-  const phoneOnBlur = (e: any) => {
+  const phoneOnBlur = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     setValue((values) => {
@@ -61,22 +58,20 @@ export function PipeEvent(props: PipeEventProps) {
     });
   };
 
-  const currentyOnBlur = (e: any) => {
+  const currencyOnBlur = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     let currencyValue = value.inr;
-    currencyValue = currencyValue.replace(/[,]/g, '');
-    if (currencyValue.slice(0, 1) === '₹') {
+    currencyValue = currencyValue.replace(/\,/g, '');
+    if (currencyValue.startsWith('₹')) {
       currencyValue = currencyValue.substring(1);
     }
 
     if (isNaN(parseInt(currencyValue))) {
-      console.log(currencyValue, parseInt(currencyValue));
       setValue((values) => {
         return { ...values, [name]: '' };
       });
     } else {
-      console.log(currencyValue, parseInt(currencyValue));
       setValue((values) => {
         return { ...values, [name]: inrFormat(parseInt(currencyValue)) };
       });
@@ -84,19 +79,11 @@ export function PipeEvent(props: PipeEventProps) {
   };
 
   const componentCode = `
-  
-import { useState } from 'react';
-import {
-  inrFormat,
-  capitalizeFirstLetter,
-  PtgUiInput,
-  convertIntoPhoneNumber,
-} from '@ptg-ui/react';
+   interface PipeEventProps {
+    showEventCode: boolean;
+  }
 
-
-interface PipeEventProps {}
-
-export function PipeEvent(props: PipeEventProps) {
+export function PipeEvent(props: Readonly<PipeEventProps>) {
 
   const [value, setValue] = useState({
     cname: '',
@@ -113,14 +100,14 @@ export function PipeEvent(props: PipeEventProps) {
     truncateStr: '',
     phoneNumber: '',
   });
-  const handleChange: any = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValue((values) => {
       return { ...values, [name]: value };
     });
   };
 
-  const cFLkeyUpHandler = (e: any) => {
+  const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setOldValues((values) => {
       return { ...oldValue, [name]: oldValue.cname };
@@ -130,7 +117,7 @@ export function PipeEvent(props: PipeEventProps) {
     });
   };
 
-  const phoneOnBlur = (e: any) => {
+  const phoneOnBlur = (e:  FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     setValue((values) => {
@@ -138,12 +125,12 @@ export function PipeEvent(props: PipeEventProps) {
     });
   };
 
-  const currentyOnBlur = (e: any) => {
+  const currencyOnBlur = (e:  FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     let currencyValue = value.inr;
-    currencyValue = currencyValue.replace(/[,]/g, '');
-    if (currencyValue.slice(0, 1) === '₹') {
+    currencyValue = currencyValue.replace(/\,/g, '');
+    if (currencyValue.startsWith('₹')) {
       currencyValue = currencyValue.substring(1);
     }
 
@@ -159,9 +146,17 @@ export function PipeEvent(props: PipeEventProps) {
       });
     }
   };
-export default PipeEvent; `
+export default PipeEvent; `;
 
-const htmlCode = `
+  const htmlCode = `
+   import { useState } from 'react';
+   import {
+    inrFormat,
+    capitalizeFirstLetter,
+    PtgUiInput,
+    convertIntoPhoneNumber,
+   } from '@ptg-ui/react';
+
     <PtgUiInput
       type="text"
       name="cname"
@@ -179,7 +174,7 @@ const htmlCode = `
       className={'form-control bg_0'}
       value={value.inr}
       onChange={handleChange}
-      onBlur={currentyOnBlur}
+      onBlur={currencyOnBlur}
     />
 
     <PtgUiInput
@@ -191,18 +186,17 @@ const htmlCode = `
       onChange={handleChange}
       maxlength="14"
       onBlur={phoneOnBlur}
-    />`
+    />`;
 
   return (
     <>
-    {!props.showEventCode ? (
+      {!props.showEventCode ? (
         <>
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="firstLetterCapitalTextEvent"
                 aria-labelledby="firstLetterCapitalTextEvent"
-                tabIndex={0}
               >
                 {t('FIRST_LETTER_CAPITAL_TEXT')}
               </label>
@@ -217,13 +211,12 @@ const htmlCode = `
               />
             </div>
           </div>
-  
+
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="inrFormatTextEvent"
                 aria-labelledby="inrFormatTextEvent"
-                tabIndex={0}
               >
                 {t('INR_FORMAT_TEXT')}
               </label>
@@ -234,19 +227,18 @@ const htmlCode = `
                 className={'form-control bg_0'}
                 value={value.inr}
                 onChange={handleChange}
-                onBlur={currentyOnBlur}
+                onBlur={currencyOnBlur}
               />
             </div>
           </div>
-  
+
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="phoneNumberPipesEvent"
                 aria-labelledby="phoneNumberPipesEvent"
-                tabIndex={0}
               >
-                Phone Number Pipes
+                {t('PHONE_NUMBER_PIPES_TEXT')}
               </label>
               <PtgUiInput
                 type="text"
@@ -261,9 +253,9 @@ const htmlCode = `
             </div>
           </div>
         </>
-    ):(
-      <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-    )}
+      ) : (
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+      )}
     </>
   );
 }

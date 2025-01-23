@@ -1,8 +1,4 @@
-
 import { render, fireEvent } from'@testing-library/react';
-
-
-
 import PipeEvent from './pipe-events';
 
 describe('Pipes', () => {
