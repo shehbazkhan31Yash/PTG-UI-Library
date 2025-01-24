@@ -4,6 +4,14 @@ export interface IBreadcrumb {
     link: string;
   }
 
+export interface ICardItems {
+  id: number;
+  image: string;
+  title: string;
+  content: string;
+  button: string;
+}
+
 
   
   
