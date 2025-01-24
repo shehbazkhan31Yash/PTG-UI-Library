@@ -1,27 +1,29 @@
 import './breadcrumbs.scss';
+import { IPtgUiBreadcrumbsProps } from '../interfaces';
+import React from 'react';
 
-export interface PtgUiBreadcrumbsProps {
-  datalist: any;
-}
+export class PtgUiBreadcrumbs extends React.Component<IPtgUiBreadcrumbsProps> {
+  constructor(props: IPtgUiBreadcrumbsProps) {
+    super(props)
+  }
 
-export function PtgUiBreadcrumbs(props: PtgUiBreadcrumbsProps) {
-  const { datalist } = props;
-  return (
-    <nav>
+  override render() {
+    const { datalist } = this.props;
+    return (
       <ul className="breadcrumb">
         {datalist?.map((item, i) => {
-          if (datalist.length - 1 > i) {
+          if (datalist?.length - 1 > i) {
             return (
-              <li key={item?.title}>
-                <a href={`${item.link}`}>{item.title}</a>
+              <li key={item.title}>
+                <a href={`${item?.link}`}>{item?.title}</a>
               </li>
             );
           }
-          return <li>{item.title}</li>;
+          return <li key={item?.title}>{item?.title}</li>;
         })}
       </ul>
-    </nav>
-  );
+    );
+  }
 }
 
 export default PtgUiBreadcrumbs;
