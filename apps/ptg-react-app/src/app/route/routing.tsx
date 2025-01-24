@@ -88,7 +88,7 @@ const Indeterminate = lazy(
 const PtgUiReactTable = lazy(
   () => import('../examples/data-table/react-table')
 );
-const Accordian = lazy(() => import('../examples/Accordion/accordion'));
+const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));

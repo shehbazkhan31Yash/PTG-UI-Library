@@ -1,4 +1,4 @@
-import './accordion.scss';
+import './Accordion.scss';
 import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import { IAccordion } from './accordion.interface';
