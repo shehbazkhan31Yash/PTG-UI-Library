@@ -26,7 +26,8 @@ export default function () {
     },
   ];
 
-  const handleToggle = (index: number | null) => {
+  // Note : handle toggle function is used to toggle the accordion item
+  const handleToggle = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
     } else {
@@ -34,6 +35,7 @@ export default function () {
     }
   };
 
+  // Note: TS code is used to show the code snippet of the component
   const componentCode = `
    interface IAccordion {
      title: string;
@@ -68,6 +70,7 @@ export default function () {
       },
     ];
  `;
+//  Note: HTML code is used to show the code snippet of the component
   const htmlCode = `
   import { PtgUiAccordion } from '@ptg-ui/react';
   import "@ptg-ui/react/lib/styles/index.css";

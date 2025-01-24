@@ -1,16 +1,8 @@
-import './accordion.scss';
-
-import { useTranslation } from 'react-i18next';
-
+import { PtgUiAccordionProps } from '../interfaces';
+import './Accordion.scss';
 /* eslint-disable-next-line */
-export interface PtgUiAccordionProps {
-  accordionItems: any;
-  handleToggle: any;
-  activeIndex: any;
-}
 
 export function PtgUiAccordion(props: PtgUiAccordionProps) {
-  const { t } = useTranslation();
   const { accordionItems, handleToggle, activeIndex } = props;
 
   return (
@@ -29,7 +21,7 @@ export function PtgUiAccordion(props: PtgUiAccordionProps) {
               aria-controls={`collapse${index}`}
               onClick={() => handleToggle(index)}
             >
-              {t(item.title)}
+              {item.title}
             </button>
           </h2>
           <div
@@ -40,7 +32,7 @@ export function PtgUiAccordion(props: PtgUiAccordionProps) {
             aria-labelledby={`heading${index}`}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">{t(item.content)}</div>
+            <div className="accordion-body">{item.content}</div>
           </div>
         </div>
       ))}
