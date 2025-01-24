@@ -13,6 +13,16 @@ export interface ICardItems {
 }
 
 
+
+// accordions
+
+
+export interface IAccordion {
+  title: string;
+  content: string;
+}
+
+
   
   
  

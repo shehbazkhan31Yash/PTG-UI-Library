@@ -1,30 +1,18 @@
 import './Accordion.scss';
 import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
-import { IAccordion } from './accordion.interface';
+import { IAccordion } from '../../interfaces';
 import { PtgUiAccordion } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
+import { accordionMockData } from '../../mock/mocks';
 
 export default function () {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleShowCode = () => setShowCode((prev) => !prev);
-  const accordionItems: IAccordion[] =  [
-    {
-      title: `${t('ACCORDION_TITLE')} - #1`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #2`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #3`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-  ];
+  const accordionItems:IAccordion[] = accordionMockData(t)
 
   // Note : handle toggle function is used to toggle the accordion item
   const handleToggle = (index: number) => {
