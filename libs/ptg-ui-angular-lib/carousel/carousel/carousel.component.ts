@@ -15,13 +15,13 @@ import {
 
 @Component({
   selector: 'ptg-ui-carousels',
-  templateUrl: './Carousel.component.html',
-  styleUrls: ['./Carousel.component.scss'],
+  templateUrl: './carousel.component.html'
 })
 
 export class CarouselComponent {
   @Input() carouselItems: { image: string, alt: string, captionLabel?: string, captionContent?: string }[] = [];
   @Input() showControls?: boolean = false;
   @Input() showIndicators?: boolean = false;
+  @Input() carouselId = '';
 
 }
