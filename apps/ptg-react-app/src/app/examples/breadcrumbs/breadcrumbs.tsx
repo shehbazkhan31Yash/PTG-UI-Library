@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useTranslation } from 'react-i18next';
-import './breadcrumbs.scss';
+import './Breadcrumbs.scss';
 import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { breadCrumbsMockData } from '@ptg-react-app/mock/mocks';

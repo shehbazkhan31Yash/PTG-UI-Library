@@ -16,16 +16,9 @@ import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { CARD_ITEMS } from '@ptg-react-app/mock/mocks';
 import { CARD_BUTTON } from '@ptg-react-app/constants/Constant';
+import { ICardItems } from '@ptg-react-app/interfaces';
 
 /* eslint-disable-next-line */
-
-interface ICardItems {
-  id: number;
-  image: string;
-  title: string;
-  content: string;
-  button: string;
-}
 
 export function GridLayout() {
   const { t } = useTranslation();
