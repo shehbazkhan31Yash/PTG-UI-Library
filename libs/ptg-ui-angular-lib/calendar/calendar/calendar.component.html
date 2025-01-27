@@ -8,7 +8,7 @@
     [placeholder]="placeholder"
     bsDatepicker
     (bsValueChange)="onDateChanged($event)"
-    [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true }"
+    [bsConfig]="bsConfig"
     #bd="bsDatepicker"
     [(ngModel)]="inputDate"
     autocomplete="off"

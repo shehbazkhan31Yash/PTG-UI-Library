@@ -26,8 +26,8 @@ export class Calendarexample1Component implements OnInit, AfterViewInit {
   startDate!: Date;
   endDate!: Date;
   endMinDate = new Date();
-  resources=resources
-  submitted = false
+  resources=resources;
+  submitted = false;
 
   get f() {
     return this.calendarForm.controls;

@@ -1,11 +1,11 @@
 @import '../../styles/variables';
-.ptg-ui-accordian--isDisable {
+.ptg-ui-Accordion--isDisable {
   pointer-events: none;
   opacity: 0.5;
   color: $dark;
 }
 
-.ptg-ui-accordian--isAnimated {
+.ptg-ui-Accordion--isAnimated {
   width: 250px;
   background-color: $warning;
   border: 1px solid $dark;
@@ -15,10 +15,4 @@
 }
 
 
-
-.ptg-ui-accordian--oneAtATime:nth-child(2),
-.ptg-ui-accordian--oneAtATime:nth-child(3),
-.ptg-ui-accordian--oneAtATime:nth-child(4) {
-  visibility: hidden;
-}
 

@@ -1,24 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 
-import { AccordianComponent } from './accordian.component';
+import { AccordionComponent } from './accordion.component';
 
-describe('AccordianComponent', () => {
-  let component: AccordianComponent;
-  let fixture: ComponentFixture<AccordianComponent>;
+describe('AccordionComponent', () => {
+  let component: AccordionComponent;
+  let fixture: ComponentFixture<AccordionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[
         AccordionModule.forRoot()
       ],
-      declarations: [ AccordianComponent ]
+      declarations: [ AccordionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccordianComponent);
+    fixture = TestBed.createComponent(AccordionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

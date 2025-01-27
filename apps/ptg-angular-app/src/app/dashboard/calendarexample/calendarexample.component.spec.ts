@@ -1,6 +1,6 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CalendarexampleComponent } from './calendarexample.component';
