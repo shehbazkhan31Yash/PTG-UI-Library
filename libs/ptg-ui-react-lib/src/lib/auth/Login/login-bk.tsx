@@ -11,10 +11,10 @@ import './login.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import ForgotPassword from '../ForgotPassword/forgotPassword';
-import PtgUiAlert from '../../alert/alert';
-import PtgUiButton from '../../button/button';
-import PtgUiInput from '../../input/input';
-import PtgUiLoading from '../../loading/loading';
+import PtgUiAlert from '../../Alert/Alert';
+import PtgUiButton from '../../Button/Button';
+import PtgUiInput from '../../Input/Input';
+import PtgUiLoading from '../../loading/Loading';
 
 export interface PtgUiLoginProps {}
 

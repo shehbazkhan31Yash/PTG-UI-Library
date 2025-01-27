@@ -1,5 +1,5 @@
 import { PtgUiButton, PtgUiInput, PtgUiSelect, PtguseFetch } from '@ptg-ui/react';
-import { CARD_LIST } from '@ptg-react-app/mock/mocks';
+import { CARD_LIST } from '@ptg-react-app/Mock/mocks';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
