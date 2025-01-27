@@ -116,10 +116,10 @@
   "DOWNLOAD": "Download",
   "GRID LAYOUT": "Grid Layout",
   "INDETERMINATE": "Indeterminate",
-  "PIPES & UTILS": "Pipes & Utils",
+  "PIPES_UTILS": "Pipes & Utils",
   "ROLE BASED": "Role Based",
   "SELECT": "Select",
-  "WEB ACCESSIBILTY": "Web Accessibility",
+  "WEB_ACCESSIBILTY": "Web Accessibility",
 
   "MULTI_STEP_FORM": "Multi Step Form Example",
   "MULTI_STEP_FORM_NAV": "Multi Step Form",

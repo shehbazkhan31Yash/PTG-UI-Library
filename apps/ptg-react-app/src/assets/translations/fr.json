@@ -115,11 +115,11 @@
   "DOWNLOAD": "Télécharger",
   "GRID LAYOUT": "Disposition de la grille",
   "INDETERMINATE": "Indéterminée",
-  "PIPES & UTILS": "Tuyaux et Utilitaires",
+  "PIPES_UTILS": "Tuyaux et Utilitaires",
   "PHONE_NUMBER_PIPES_TEXT": "Téléphoner numéro tuyaux",
   "ROLE BASED": "Basé sur les rôles",
   "SELECT": "Sélectionner",
-  "WEB ACCESSIBILTY": "Accessibilité Web",
+  "WEB_ACCESSIBILTY": "Accessibilité Web",
 
   "MULTI_STEP_FORM": "Exemple de formulaire en plusieurs étapes",
   "MULTI_STEP_FORM_NAV": "Formulaire en plusieurs étapes",
