@@ -29,6 +29,7 @@ import { AccordianModule } from './accordion/accordion.module';
 import { TextareaModule } from "./textarea/textarea.module";
 // import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 
 @NgModule({
   declarations: [],
@@ -52,7 +53,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     IndeterminateCheckboxesModule,
     FileDownloadsModule,
     AccordianModule,
-    TextareaModule
+    TextareaModule,
+    BreadcrumbsModule
     // SidenavModule
   ],
   exports: [
