@@ -89,7 +89,7 @@ export default function () {
             htmlCode={htmlCode}
           />
         )}
-        <div className="accordion-component col-md-11 col-sm-7 ms-3">
+        <div className="accordion-component col-md-12 px-4">
           <PtgUiAccordion
             accordionItems={accordionItems}
             handleToggle={handleToggle}
