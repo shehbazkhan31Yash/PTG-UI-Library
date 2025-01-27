@@ -20,7 +20,8 @@ import {
   ElementRef,
   ChangeDetectionStrategy,
   ViewEncapsulation,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  AfterViewInit
 } from '@angular/core';
 import { BsDatepickerConfig, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
 import {
@@ -47,14 +48,12 @@ import {
     },
   ],
 })
-export class CalendarComponent implements ControlValueAccessor {
+export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
   @ViewChild(BsDatepickerDirective, { static: false })
   datepickerVal!: BsDatepickerDirective;
   @ViewChild('datePicker', { static: true }) datePicker!: ElementRef;
-  bsConfig?: Partial<BsDatepickerConfig> ;
+  bsConfig?: Partial<BsDatepickerConfig>;
 
-  // @Input() parentForm!: FormGroup;
-  // @Input() fieldname!: string;
   @Input() placeholder?: string = '';
   @Input() className?: string = '';
   @Input() id?: string = '';
@@ -64,7 +63,7 @@ export class CalendarComponent implements ControlValueAccessor {
   @Input() isReadOnly = false;
   @Input() aria_placeholder = 'MM-DD-YYYY';
   @Input() aria_label = 'given-name';
-  @Input() themeColor: 'theme-default'|'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
+  @Input() themeColor: 'theme-default' | 'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
   @Output() calendarValueChange = new EventEmitter<any>();
   inputDate: any;
 
@@ -86,25 +85,22 @@ export class CalendarComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  onDateChanged(event: any) {
+  onDateChanged(event: any): void {
     this.onChange(event);
     this.calendarValueChange.emit(event);
   }
 
-  handleBlur() {
+  handleBlur(): void {
     this.onTouched();
   }
 
-  onBlur() {
+  onBlur(): void {
     this.onTouched();
   }
-  applyTheme(pop: BsDatepickerDirective) {
+  applyTheme(pop: BsDatepickerDirective): void {
     this.bsConfig = Object.assign({}, { containerClass: this.themeColor });
-    // setTimeout(() => {
-    //   pop.show();
-    // });
   }
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.applyTheme(this.datepickerVal);
   }
   @HostListener('window:scroll')
