@@ -9,8 +9,8 @@ import React from 'react';
 import './login.scss';
 // import { Link } from 'react-router-dom';
 //import ForgotPassword from '../ForgotPassword/forgotPassword';
-import PtgUiButton from '../../Button/Button';
-import PtgUiInput from '../../Input/Input';
+import PtgUiButton from '../../button/button';
+import PtgUiInput from '../../input/input';
 
 interface PtgUiLoginProps {
   emailLabel?: string;

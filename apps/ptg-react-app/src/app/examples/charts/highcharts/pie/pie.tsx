@@ -1,6 +1,6 @@
 import './pie.scss';
 import {PtgUiPie} from '@ptg-ui/react';
-import { highchartsPieData} from '@ptg-react-app/Mock/mocks';
+import { highchartsPieData} from '@ptg-react-app/mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHCPieProps {}
