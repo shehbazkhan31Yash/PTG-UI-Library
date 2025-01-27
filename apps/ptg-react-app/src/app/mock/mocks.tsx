@@ -1,3 +1,5 @@
+
+
 export const CITY_LIST = [
   // { value: '', label: 'Select' },
   { value: 'pune', label: 'Pune', name: 'city' },
@@ -471,4 +473,70 @@ export const CARD_LIST = [
   { value: 'Master Card', label: 'Master Card', name: 'card' },
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
+
+
+export const CARD_ITEMS = [
+  {
+    id: 1,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 2,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 3,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+  {
+    id: 4,
+    image: 'assets/images/img1.png',
+    title: 'Card title',
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button: 'Go somewhere',
+  },
+];
+// BreadCrumbs mock data
+  export const breadCrumbsMockData = (t:(key:string)=>string) =>{
+  return [
+    { title: `${t('HOME')}`, link: '/home'},
+    { title: `${t('ABOUT_US')}`, link: '/about' },
+    { title: `${t('CONTACT_US')}`, link: '/contact',},
+    
+  ]
+  }
+
+  // Accordion mock data
+  export const accordionMockData = (t: (key: string) => string) =>{
+    return [
+      {
+        title: `${t('ACCORDION_TITLE')} - #1`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+      {
+        title: `${t('ACCORDION_TITLE')} - #2`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+      {
+        title: `${t('ACCORDION_TITLE')} - #3`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+    ]
+    }
+
+
+
 
