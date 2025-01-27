@@ -11,18 +11,13 @@ interface IBreadcrumbItem {
 
 
   // Accordion
-  export interface AccordionItemProps {
+  export interface IAccordionItemProps {
     title?:string;
     content?:string;
 }
-  export interface PtgUiAccordionProps {
-    accordionItems: AccordionItemProps[];
+  export interface IPtgUiAccordionProps { 
+    accordionItems: IAccordionItemProps[];
     handleToggle:(index:number) => void;
     activeIndex: number | null;
   }
-
-  export interface data{
-    title:string;data:string
-  }
-
 
