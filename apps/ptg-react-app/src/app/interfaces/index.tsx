@@ -12,11 +12,7 @@ export interface ICardItems {
   button: string;
 }
 
-
-
 // accordions
-
-
 export interface IAccordion {
   title: string;
   content: string;
