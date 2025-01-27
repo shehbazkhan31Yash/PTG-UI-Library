@@ -10,12 +10,12 @@ import { useEffect, useState } from 'react';
 /* eslint-disable-next-line */
 export interface AlertProps {
   message?: any;
-  type?: any
+  type?: any;
 }
 
 const defaultProps: AlertProps = {
-  type: 'danger'
-}
+  type: 'danger',
+};
 export function PtgUiAlert({ type, message }: AlertProps) {
   const [show, setShow] = useState(true);
 
@@ -27,13 +27,15 @@ export function PtgUiAlert({ type, message }: AlertProps) {
 
   return (
     <div>
-      {
-        show &&
-        <div className={`alert alert-${type}`} role="alert">
+      {show && (
+        <div
+          className={`alert alert-${type}`}
+          role="alert"
+          style={{ padding: 5, fontSize: 14 }}
+        >
           {message}
         </div>
-      }
-
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 /**
  * @since December 2023
  * @author Nimish Jain
+ * @updatedby Ankita Keshri
  * @uses Example using dialog/modal as reusable component.
  *
  */
@@ -8,8 +9,7 @@
 import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { PtgUiButton, PtgUiModal } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
 import './dialog.scss';
 
 const DialogExample = () => {

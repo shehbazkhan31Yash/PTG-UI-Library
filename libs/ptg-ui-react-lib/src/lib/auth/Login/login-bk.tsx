@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import './login.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import ForgotPassword from '../ForgotPassword/forgotPassword';
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import PtgUiAlert from '../../alert/alert';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';

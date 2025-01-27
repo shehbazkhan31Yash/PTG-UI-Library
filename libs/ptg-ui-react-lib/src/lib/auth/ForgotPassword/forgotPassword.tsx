@@ -4,175 +4,184 @@
  * @author Anmol Mathur
  * @Updatedby Ankit Patidar
  * @Updatedby Harsha Zalawa
+ * @updatedby Manish Patidar
  * @desc Forgot Password Component
  *
  */
-import { useEffect, useState } from 'react';
+import { Component } from 'react';
 import './forgotPassword.scss';
-import { useTranslation } from 'react-i18next';
-
-import { Modal } from 'react-bootstrap';
-import PtgUiAlert from '../../alert/alert';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';
+import { PtgUiModal } from '../../modal/modal';
 
-export default function PtgUiForgotPassword() {
-  const { t } = useTranslation();
-  const intialState = {
-    show: false,
-    email: '',
-    btnDisable: false,
-    showMessage: { show: false, type: '', message: '' },
-  };
-  const [values, setValues] = useState(intialState);
-  const [formErr, setFormErr] = useState({
-    email: false,
-    password: false,
-  });
+interface IForgotPassword {
+  onForgotPasswordSubmit?: Function | undefined;
+  fPasswordEmail?: Function | undefined;
+  forgotPasswordLabel?: string | undefined;
+}
 
-  //common function to set specific state variable
-  const setState: any = (field: string, value: any) => {
-    setValues((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
+interface IValues {
+  show: boolean;
+  email: string;
+  btnDisable: boolean;
+  showMessage: { show: boolean; type: string; message: string };
+}
 
-  const setErrState: any = (field: string, value: any) => {
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
+interface IFormErr {
+  email: boolean;
+  password: boolean;
+}
 
-  const handleClose = () => {
-    setState('show', false);
-  };
+interface IState {
+  values: IValues;
+  formErr: IFormErr;
+}
 
-  const handleShow = () => {
-    setValues({ ...values, btnDisable: true, email: '' });
-    setState('show', true);
-  };
+export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
+  constructor(props: IForgotPassword) {
+    super(props);
+    this.state = {
+      values: {
+        show: false,
+        email: '',
+        btnDisable: true,
+        showMessage: { show: false, type: '', message: '' },
+      },
+      formErr: { email: false, password: false },
+    };
+  }
+  override render() {
+    const { onForgotPasswordSubmit, fPasswordEmail, forgotPasswordLabel } =
+      this.props;
+    const { values, formErr } = this.state;
 
-  //validate email and password
-  const validate = (fieldName: string, value: any) => {
-    let disabled = false;
-    let formErr = false;
-    switch (fieldName) {
-      case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
+    const handleClose = () => {
+      this.setState({
+        values: {
+          ...values,
+          show: false,
+        },
+        formErr: { email: false, password: false },
+      });
+    };
+
+    const handleShow = () => {
+      this.setState({
+        values: {
+          show: true,
+          email: '',
+          btnDisable: true,
+          showMessage: { show: false, type: '', message: '' },
+        },
+        formErr: { email: false, password: false },
+      });
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = event.target;
+      this.setState((prevState) => ({
+        values: {
+          ...prevState.values,
+          [name]: value,
+        },
+      }));
+      validate(name, value);
+    };
+
+    //validate email and password
+    const validate = (fieldName: string, value: string) => {
+      let disabled = true;
+      let formErr = false;
+      switch (fieldName) {
+        case 'email':
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+          if (value === '' || value ? true : false !== regexEmail.test(value)) {
+            if (!regexEmail.test(value)) {
+              formErr = true;
+            } else {
+              disabled = false;
+            }
           }
-        }
-        break;
-    }
+          break;
+      }
+      this.setState((prevState) => ({
+        values: {
+          ...prevState.values,
+          btnDisable: disabled,
+        },
+        formErr: {
+          ...prevState.formErr,
+          [fieldName]: formErr,
+        },
+      }));
+      fPasswordEmail?.(value);
+    };
 
-    setState('disable', disabled);
-    setErrState(fieldName, formErr);
-  };
-
-  //generic function for all input field
-  const handleChange: any = (e: any) => {
-    const { name, value } = e.target;
-    validate(name, value);
-    setValues((preState: any) => {
-      return {
-        ...preState,
-        [name]: value,
-      };
-    });
-  };
-  //validate on focus out or blur input
-  const handleBlur: any = (e: any) => {
-    const { name } = e.target;
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [name]: true,
-      };
-    });
-  };
-
-  useEffect(() => {
-    let btn = true;
-    if (formErr.email == false && values.email !== '') btn = false;
-    setState('btnDisable', btn);
-  }, [values.email]);
-
-  return (
-    <div>
-      <a
-        className="forgot-password float-end"
-        onClick={handleShow}
-        data-testid="linkForgotPassword"
-      >
-        Forgot Password?
-      </a>
-      <Modal show={values.show}>
-        {values.showMessage.show && (
-          <PtgUiAlert
-            type={values?.showMessage?.type}
-            message={values?.showMessage?.message}
-          />
-        )}
-        <div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
-          <div className="forgot-container">
-            <div className="forgot-form-wrapper">
-              <div className="form-group">
-                <div className="text-center mb-3">
-                  <h3>{t('FORGOT_PASSWORD')}</h3>
-                </div>
-              </div>
-              <div className="forgot-form">
-                <div className="form-group required mb-4">
-                  <label htmlFor="inputEmail">{t('LABEL_EMAIL')}</label>
-                  <PtgUiInput
-                    type="email"
-                    className={`w-100 form-control bg_0 ${
-                      formErr.email === true ? 'border-danger' : ''
-                    }`}
-                    name="email"
-                    data-testid="email"
-                    placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                    onChange={handleChange}
-                    value={values.email}
-                    onBlur={values.email === '' ? handleBlur : null}
-                  />
-                </div>
-                <div className="row">
-                  <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                    <PtgUiButton
-                      type="submit"
-                      variant="primary"
-                      data-testid="handleSubmit"
-                      disabled={values.btnDisable}
-                    >
-                      {t('FORGOT_PASSWORD')}
-                    </PtgUiButton>
+    return (
+      <div>
+        <a
+          className="forgot-password float-end"
+          onClick={() => handleShow()}
+          data-testid="linkForgotPassword"
+        >
+          {`${forgotPasswordLabel}?`}
+        </a>
+        <PtgUiModal
+          isOpen={values?.show}
+          modalSize={'lg'}
+          backdropClick={true}
+          onModalClose={handleClose}
+        >
+          <div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+            <div className="forgot-container">
+              <div className="forgot-form-wrapper">
+                <div className="form-group">
+                  <div className="text-center mb-3">
+                    <h3>Forgot Password</h3>
                   </div>
-                  <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
-                    <PtgUiButton
-                      type="submit"
-                      variant="secondary"
-                      data-testid="handleClose"
-                      onClick={handleClose}
-                    >
-                      {t('CANCEL')}
-                    </PtgUiButton>
+                </div>
+                <div className="forgot-form">
+                  <div className="form-group required mb-4">
+                    <label htmlFor="inputEmail">Email</label>
+                    <PtgUiInput
+                      type="email"
+                      className={`w-100 form-control bg_0 ${
+                        formErr.email === true ? 'border-danger' : ''
+                      }`}
+                      name="email"
+                      data-testid="email"
+                      placeholder="Enter Your Email"
+                      onChange={handleChange}
+                      value={values.email}
+                    />
+                  </div>
+                  <div className="row">
+                    <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
+                      <PtgUiButton
+                        data-testid="handleSubmit"
+                        textColor={'#fff'}
+                        backgroundColor={'#052982'}
+                        text="Forgot Password"
+                        onClick={onForgotPasswordSubmit}
+                        disabled={values.btnDisable}
+                      />
+                    </div>
+                    <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
+                      <PtgUiButton
+                        data-testid="handleClose"
+                        onClick={handleClose}
+                        textColor={'#fff'}
+                        backgroundColor={'gray'}
+                        text={'Cancel'}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </Modal>
-    </div>
-  );
+        </PtgUiModal>
+      </div>
+    );
+  }
 }

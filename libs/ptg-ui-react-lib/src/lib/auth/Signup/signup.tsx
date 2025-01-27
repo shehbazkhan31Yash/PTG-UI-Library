@@ -4,10 +4,8 @@
  * @desc Reusable Signup Component
  *
  */
-import { useState, useEffect } from 'react';
-import './signup.scss';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import './signup.scss';
 import { Link } from 'react-router-dom';
 import { CITY_LIST, GENDER_LIST } from './mocks';
 import PtgUiButton from '../../button/button';
@@ -18,153 +16,60 @@ import PtgUiLoading from '../../loading/loading';
 import PtgUiRadio from '../../radio/radio';
 import PtgUiSelect from '../../select/select';
 
+interface IUser {
+  username?: string;
+  email?: string;
+  gender?: string;
+  city?: string;
+  password?: string;
+  error?: string | undefined | null;
+  disable?: boolean;
+}
 
-export interface PtgUiSignupProps {}
+interface IFormErr {
+  username?: boolean;
+  email?: boolean;
+  gender?: boolean;
+  city?: boolean;
+  password?: boolean;
+}
 
-export function PtgUiSignup(props: PtgUiSignupProps) {
-  const { t } = useTranslation();
-  const [user, setUser]: any = useState({
-    isLoading: false,
-    username: '',
-    email: '',
-    gender: 'male',
-    city: '',
-    password: '',
-    selectedCheck: '',
-    error: null,
-    disable: true,
-  });
-  const [formErr, setFormErr] = useState({
-    username: false,
-    email: false,
-    gender: false,
-    city: false,
-    password: false,
-  });
-  const setState: any = (field: string, value: any) => {
-    setUser((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
-  const setErrState: any = (field: string, value: any) => {
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
-  const handleChange: any = (e: any) => {
-    const { name, value } = e.target;
-    console.log(e.target.value);
-    validate(name, value);
-    setUser((preState: any) => {
-      return {
-        ...preState,
-        [name]: value,
-      };
-    });
-  };
-  const [date, setDate] = useState(null);
-  const dateChange = (date: any) => {
-    setDate(date);
-  };
-  const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
-  const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedCheck(event.target.checked);
-  };
+interface PtgUiSignupProps {
+  handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  user?: IUser;
+  formErr?: IFormErr;
+  isDisabled: Function;
+  date?: Date | null | string;
+  selectedCheck?: boolean;
+  onSubmit?: Function;
+}
 
-  const isDisabled: any = () => {
-    setState(
-      'disable',
-      !(
-        user.email.length > 0 &&
-        user.password.length > 0 &&
-        !formErr.email &&
-        !formErr.password &&
-        user.username.length > 0 &&
-        user.city.length > 0 &&
-        user.gender.length > 0 &&
-        selectedCheck &&
-        date
-      )
-    );
-  };
-  const validate = (fieldName: string, value: any) => {
-    let disabled = false;
-    let formErr = false;
-    console.log(fieldName);
-    switch (fieldName) {
-      case 'username':
-        if (value !== '') {
-          disabled = true;
-        }
-        break;
-      case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
-          }
-        }
-        break;
-      case 'city':
-        if (value !== '') {
-          disabled = true;
-        }
-        break;
-      case 'gender':
-        if (value !== '') {
-          disabled = true;
-        }
-        break;
-      case 'password':
-        if (value !== '') {
-          disabled = true;
-        }
-        break;
-      default: {
-        disabled = true;
-      }
-    }
-    setErrState(fieldName, formErr);
-  };
-  useEffect(() => {
-    isDisabled();
-  }, [
-    user.username,
-    user.email,
-    date,
-    user.city,
-    user.gender,
-    user.password,
-    selectedCheck,
-  ]);
+export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
+  constructor(props: PtgUiSignupProps) {
+    super(props);
+  }
 
-  //validate on focus out or blur input
-  const handleBlur: any = (e: any) => {
-    const { name } = e.target;
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [name]: true,
-      };
-    });
-  };
+  override render() {
+    const {
+      user,
+      formErr,
+      selectedCheck,
+      date,
+      handleChange,
+      handleDateChange,
+      handleCheckChange,
+      onSubmit,
+    } = this.props;
 
-  return (
-    <React.Fragment>
-      <div>{user.isLoading && <PtgUiLoading />}</div>
+    return (
       <div className="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
         <div className="signup-container">
           <div className="signup-form-wrapper">
             <div className="form-group">
               <div className="text-center mb-3">
-                <h3>{t('REGISTRATION_TEXT')}</h3>
+                <h3>REGISTRATION</h3>
               </div>
             </div>
             <form className="form-login">
@@ -178,19 +83,19 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           tabIndex={0}
                           aria-label="User Name"
                         >
-                          {t('USER_NAME')}
+                          User Name
                         </label>
                         <PtgUiInput
                           type="text"
                           id="inputUsername"
-                          value={user.username}
+                          value={user?.username}
                           onChange={handleChange}
                           className={`w-100 form-control bg_0 ${
-                            formErr.username ? 'border-danger' : ''
+                            formErr?.username ? 'border-danger' : ''
                           }`}
                           name="username"
-                          placeholder={t('USER_NAME_PLACEHOLDER')}
-                          onBlur={user.username === '' ? handleBlur : null}
+                          placeholder="Enter User Name"
+                          //onBlur={user.username === '' ? handleBlur : null}
                         />
                       </div>
                     </div>
@@ -201,19 +106,19 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           tabIndex={0}
                           aria-label="Email"
                         >
-                          {t('LABEL_EMAIL')}
+                          Email
                         </label>
                         <PtgUiInput
                           type="email"
                           id="inputEmail"
-                          value={user.email}
+                          value={user?.email}
                           onChange={handleChange}
                           className={`w-100 form-control bg_0 ${
-                            formErr.email ? 'border-danger' : ''
+                            formErr?.email ? 'border-danger' : ''
                           }`}
                           name="email"
-                          placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                          onBlur={user.email === '' ? handleBlur : null}
+                          placeholder="Enter Your Email"
+                          //onBlur={user.email === '' ? handleBlur : null}
                         />
                       </div>
                     </div>
@@ -222,12 +127,12 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     <div className="col-sm-6">
                       <div className="form-group required mb-2" id="dob">
                         <label htmlFor="inputDOB" tabIndex={0} aria-label="DOB">
-                          {t('DOB')}
+                          DOB
                         </label>
                         <PtgUiCalendar
                           selected={date}
                           className={`form-control w-100`}
-                          onChange={dateChange}
+                          onChange={handleDateChange}
                           startDate={null}
                           endDate={new Date()}
                           // id="inputDOB"
@@ -241,18 +146,18 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           tabIndex={0}
                           aria-label="cityList"
                         >
-                          {t('CITY')}
+                          City
                         </label>
                         <PtgUiSelect
                           name="city"
                           id="city"
                           list={CITY_LIST}
                           className={`sel-placeholder w-100 ${
-                            formErr.city ? 'border-danger' : ''
+                            formErr?.city ? 'border-danger' : ''
                           }`}
                           onChange={handleChange}
-                          value={user.city}
-                          onBlur={user.city === '' ? handleBlur : null}
+                          value={user?.city}
+                          //onBlur={user.city === '' ? handleBlur : null}
                         />
                       </div>
                     </div>
@@ -264,7 +169,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                             tabIndex={0}
                             aria-label="gender"
                           >
-                            {t('GENDER')}
+                            Gender
                           </label>
                           <div className="d-flex">
                             <PtgUiRadio
@@ -272,7 +177,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                               onChange={handleChange}
                               id="inputGender"
                               list={GENDER_LIST}
-                              value={user.gender}
+                              value={user?.gender}
                             />
                           </div>
                         </div>
@@ -286,19 +191,19 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                             tabIndex={0}
                             aria-label="password"
                           >
-                            {t('LABEL_PASSWORD')}
+                            Password
                           </label>
                           <PtgUiInput
                             type="password"
                             onChange={handleChange}
-                            value={user.password}
+                            value={user?.password}
                             className={`w-100 form-control bg_0 ${
-                              formErr.password ? 'border-danger' : ''
+                              formErr?.password ? 'border-danger' : ''
                             }`}
                             id="password"
                             name="password"
-                            placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}
-                            onBlur={user.password === '' ? handleBlur : null}
+                            placeholder="Enter Password"
+                            //onBlur={user.password === '' ? handleBlur : null}
                           />
                         </div>
                       </div>
@@ -307,10 +212,10 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                       <div className="col-12">
                         <div className="form-group required mb-2">
                           <PtgUiCheckbox
-                            label={t('DECLARATION_REGISTRATION_TEXT')}
+                            label="I here by declare that all the information provided are true to my knowledge"
                             htmlFor="confirm"
                             checked={selectedCheck}
-                            onChange={checkHandler}
+                            onChange={handleCheckChange}
                             className={`form-check-input `}
                             name="confirm-registration"
                             id="confirm"
@@ -322,28 +227,31 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                   </div>
                   <div className="new_label text-center mt-3 mb-2">
                     <label>
-                      {t('REGISTRATION_LABEL_INFO_MSG')}{' '}
+                      If you already have an account please click on{' '}
                       <Link to="/auth-login" className="signup-btn">
-                        {t('LOG_IN')}
+                        LOG IN
                       </Link>
                       .
                     </label>
                   </div>
                   <PtgUiButton
+                    text={'Submit'}
                     className="w-100"
                     type="button"
-                    disabled={user.disable}
+                    disabled={user?.disable}
                     data-testid="register"
-                  >
-                    {t('SUBMIT')}
-                  </PtgUiButton>
+                    textColor="#000000"
+                    border={'1px solid #000'}
+                    backgroundColor="#ddd"
+                    width="100%"
+                    onClick={onSubmit}
+                  />
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-    </React.Fragment>
-  );
+    );
+  }
 }
-export default PtgUiSignup;
