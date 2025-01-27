@@ -1,6 +1,6 @@
 import './pie.scss';
 import {PtgUiD3Pie} from '@ptg-ui/react';
-import { d3PieData} from '@ptg-react-app/Mock/mocks';
+import { d3PieData} from '@ptg-react-app/mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUId3PieProps {}

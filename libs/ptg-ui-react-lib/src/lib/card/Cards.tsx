@@ -1,5 +1,5 @@
-import { PtgUiButton } from '../Button/Button';
-import  { CARD_BUTTON }  from '../constants';
+import { PtgUiButton } from '@ptg-ui/react';
+import  { CARD_BUTTON }  from '@ptg-ui/react';
 
 interface CardUiProps {
   image?: string;

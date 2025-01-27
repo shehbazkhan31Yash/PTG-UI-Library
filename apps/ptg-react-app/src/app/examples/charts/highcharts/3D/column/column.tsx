@@ -1,6 +1,6 @@
 import './column.scss';
 import {PtgUi3dColumn} from '@ptg-ui/react';
-import { column3DOptions} from '@ptg-react-app/Mock/mocks';
+import { column3DOptions} from '@ptg-react-app/mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHC3dColumnProps {}
