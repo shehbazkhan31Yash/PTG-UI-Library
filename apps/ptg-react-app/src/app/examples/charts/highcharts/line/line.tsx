@@ -1,7 +1,7 @@
 import './line.scss';
 import { PtgUiLine, PtguseFetch } from '@ptg-ui/react';
 import { useState, useEffect } from 'react';
-import { highchartsLineData, highchartsMultiLineData } from '@ptg-react-app/mock/mocks';
+import { highchartsLineData, highchartsMultiLineData } from '@ptg-react-app/Mock/mocks';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';

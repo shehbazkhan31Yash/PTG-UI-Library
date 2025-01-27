@@ -1,6 +1,6 @@
 import './column.scss';
 import {PtgUiColumn} from '@ptg-ui/react';
-import { highchartsColumnData} from '@ptg-react-app/mock/mocks';
+import { highchartsColumnData} from '@ptg-react-app/Mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHCColumnProps {}
