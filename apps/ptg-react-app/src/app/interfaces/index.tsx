@@ -12,6 +12,15 @@ export interface ICardItems {
   button: string;
 }
 
+export interface IPipesProps {
+  showPipeCode: boolean;
+}
+
+export interface IPipeEventProps {
+  showEventCode: boolean;
+}
+
+
 
   
   

@@ -14,11 +14,11 @@ import {
 } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import { PipesProps } from './pipes.interface';
+import { IPipesProps } from '../../interfaces/index';
 
 /* eslint-disable-next-line */
 
-export function Pipes(props: Readonly<PipesProps>) {
+export function Pipes(props: Readonly<IPipesProps>) {
   const { t } = useTranslation();
 
   const [value, setValue] = useState({

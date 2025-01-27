@@ -13,10 +13,10 @@ import {
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { PipeEventProps } from './pipes.interface';
+import { IPipeEventProps } from '../../interfaces/index';
 /* eslint-disable-next-line */
 
-export function PipeEvent(props: Readonly<PipeEventProps>) {
+export function PipeEvent(props: Readonly<IPipeEventProps>) {
   const { t } = useTranslation();
   const [value, setValue] = useState({
     cname: '',
@@ -33,7 +33,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     });
   };
 
-  const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
+  const keyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setValue((values) => {
       return { ...values, [name]: capitalizeFirstLetter(value.cname) };
@@ -85,7 +85,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     });
   };
 
-  const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
+  const keyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setValue((values) => {
       return { ...values, [name]: capitalizeFirstLetter(value.cname) };
@@ -136,7 +136,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
       id="firstLetterCapitalTextEvent"
       value={value.cname}
       className={'form-control bg_0'}
-      onBlur={cFLkeyUpHandler}
+      onBlur={keyUpHandler}
       onChange={handleChange}
     />
 
@@ -178,8 +178,8 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
                 name="cname"
                 id="firstLetterCapitalTextEvent"
                 value={value.cname}
-                className={'form-control bg_0'}
-                onBlur={cFLkeyUpHandler}
+                className="form-control bg_0"
+                onBlur={keyUpHandler}
                 onChange={handleChange}
               />
             </div>
@@ -197,7 +197,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
                 type="text"
                 name="inr"
                 id="inrFormatTextEvent"
-                className={'form-control bg_0'}
+                className="form-control bg_0"
                 value={value.inr}
                 onChange={handleChange}
                 onBlur={currencyOnBlur}
@@ -217,7 +217,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
                 type="text"
                 name="phoneNumber"
                 id="phoneNumberPipesEvent"
-                className={'form-control bg_0'}
+                className="form-control bg_0"
                 value={value.phoneNumber}
                 onChange={handleChange}
                 maxlength="14"

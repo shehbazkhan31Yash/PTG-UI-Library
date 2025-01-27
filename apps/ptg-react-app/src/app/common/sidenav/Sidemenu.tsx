@@ -35,7 +35,7 @@ export const NavigationChildData = [
     ],
   },
   {
-    label: 'DATA TABLE',
+    label: 'DATA_TABLE',
     icon: 'fa fa-table',
     pages: [
       {
@@ -127,7 +127,7 @@ export const NavigationData = [
     ],
   },
   {
-    label: 'DATA TABLE',
+    label: 'DATA_TABLE',
     icon: 'fa fa-table',
     pages: [
       {
@@ -187,7 +187,7 @@ export const NavigationData = [
   {
     path: '/gridLayout',
     icon: 'fa-solid fa-th',
-    label: 'GRID LAYOUT',
+    label: 'GRID_LAYOUT',
     disabled: false,
   },
   {
@@ -205,13 +205,13 @@ export const NavigationData = [
   {
     path: '/pipes',
     icon: 'fa fa-solid fa-filter',
-    label: 'PIPES & UTILS',
+    label: 'PIPES_UTILS',
     disabled: false,
   },
   {
     path: '/roleBased',
     icon: 'fa fa-lock',
-    label: 'ROLE BASED',
+    label: 'ROLE_BASED',
     disabled: false,
   },
   {
@@ -223,7 +223,7 @@ export const NavigationData = [
   {
     path: '/webAccessibility',
     icon: 'fa fa-lock',
-    label: 'WEB ACCESSIBILTY',
+    label: 'WEB_ACCESSIBILTY',
     disabled: false,
   },
 ];

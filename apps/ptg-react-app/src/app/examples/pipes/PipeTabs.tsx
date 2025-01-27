@@ -2,14 +2,10 @@
  * @since March 2022
  * @author Ankit Patidar
  * @updatedby Harsha Zalawa
- * @uses Example using 3D highcharts as reusable component.
+ * @desc Filter Example using filter reusable component
  *
  */
-/**
- * @since April 2022
- * @author Ankit patidar
- * @desc Filter Example using filter reusable component
- */
+
 import { useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -18,14 +14,13 @@ import PipeEvent from './PipeEvents';
 import CodeIcon from '@mui/icons-material/Code';
 
 /* eslint-disable-next-line */
-export interface PipeTabsProps {}
 
-export function PipeTabs(props: PipeTabsProps) {
+export function PipeTabs() {
   const { t } = useTranslation();
   const [showPipeCode, setShowPipeCode] = useState(false);
   const [showEventCode, setShowEventCode] = useState(false);
 
-  const ShowPipeCode = () => {
+  const onShowPipeCode = () => {
     if (!showPipeCode) {
       setShowPipeCode(true);
     } else {
@@ -33,7 +28,7 @@ export function PipeTabs(props: PipeTabsProps) {
     }
   };
 
-  const ShowEventCode = () => {
+  const onShowEventCode = () => {
     if (!showEventCode) {
       setShowEventCode(true);
     } else {
@@ -52,7 +47,7 @@ export function PipeTabs(props: PipeTabsProps) {
               </div>
               <div className="col-2 mr-5 mt-1 mb-2">
                 <CodeIcon
-                  onClick={ShowPipeCode}
+                  onClick={onShowPipeCode}
                   fontSize="large"
                   className="show-code-icon"
                 ></CodeIcon>
@@ -72,7 +67,7 @@ export function PipeTabs(props: PipeTabsProps) {
               </div>
               <div className="col-2 mr-5 mt-1 mb-2">
                 <CodeIcon
-                  onClick={ShowEventCode}
+                  onClick={onShowEventCode}
                   fontSize="large"
                   className="show-code-icon"
                 ></CodeIcon>

@@ -78,7 +78,7 @@ const PtgUiDownloadFile = lazy(
   () => import('@ptg-react-app/examples/downloadFile/downloadFile')
 );
 const PtgUiDialog = lazy(() => import('../examples/dialog/dialog'));
-const Breadcrumbs = lazy(() => import('@ptg-react-app/examples/breadcrumbs/BreadCrumbs'));
+const Breadcrumbs = lazy(() => import('@ptg-react-app/examples/breadcrumbs/breadcrumbs'));
 const Cards = lazy(() => import('../examples/cards/cards'));
 const PtgUiCarousel = lazy(() => import('../examples/carousel/carousel'));
 const GridLayout = lazy(() => import('@ptg-react-app/examples/grid-layout/./GridLayout'));
