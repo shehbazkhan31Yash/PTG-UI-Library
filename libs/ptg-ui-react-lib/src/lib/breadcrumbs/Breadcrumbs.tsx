@@ -1,12 +1,8 @@
-import './breadcrumbs.scss';
+import './Breadcrumbs.scss';
 import { IPtgUiBreadcrumbsProps } from '../interfaces';
 import React from 'react';
 
-export class PtgUiBreadcrumbs extends React.Component<IPtgUiBreadcrumbsProps> {
-  constructor(props: IPtgUiBreadcrumbsProps) {
-    super(props)
-  }
-
+export class PtgUiBreadcrumbs extends React.Component<IPtgUiBreadcrumbsProps> { 
   override render() {
     const { datalist } = this.props;
     return (

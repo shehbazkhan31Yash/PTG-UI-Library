@@ -1,32 +1,21 @@
-import './accordion.scss';
+import './Accordion.scss';
 import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
-import { IAccordion } from './accordion.interface';
+import { IAccordion } from '../../interfaces';
 import { PtgUiAccordion } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
+import { accordionMockData } from '../../mock/mocks';
 
 export default function () {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleShowCode = () => setShowCode((prev) => !prev);
-  const accordionItems: IAccordion[] =  [
-    {
-      title: `${t('ACCORDION_TITLE')} - #1`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #2`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-    {
-      title: `${t('ACCORDION_TITLE')} - #3`,
-      content: `${t('ACCORDION_CONTENT')}`,
-    },
-  ];
+  const accordionItems:IAccordion[] = accordionMockData(t)
 
-  const handleToggle = (index: number | null) => {
+  // Note : handle toggle function is used to toggle the accordion item
+  const handleToggle = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
     } else {
@@ -34,6 +23,7 @@ export default function () {
     }
   };
 
+  // Note: TS code is used to show the code snippet of the component
   const componentCode = `
    interface IAccordion {
      title: string;
@@ -68,6 +58,7 @@ export default function () {
       },
     ];
  `;
+//  Note: HTML code is used to show the code snippet of the component
   const htmlCode = `
   import { PtgUiAccordion } from '@ptg-ui/react';
   import "@ptg-ui/react/lib/styles/index.css";
@@ -98,7 +89,7 @@ export default function () {
             htmlCode={htmlCode}
           />
         )}
-        <div className="accordion-component col-md-11 col-sm-7 ms-3">
+        <div className="accordion-component col-md-12 px-4">
           <PtgUiAccordion
             accordionItems={accordionItems}
             handleToggle={handleToggle}
