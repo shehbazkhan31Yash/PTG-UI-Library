@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './Breadcrumbs.scss';
 import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { breadCrumbsMockData } from '@ptg-react-app/Mock/mocks';
+import { breadCrumbsMockData } from '@ptg-react-app/mock/mocks';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState<boolean>(false);
