@@ -36,7 +36,7 @@ export class BreadcrumbsExampleComponent {
     "url" :"home",
     "child": {
       "name": "Category",
-      "url" :"#",
+      "url" :"/home/category",
       "child": {
         "name": "Alert"
       }
