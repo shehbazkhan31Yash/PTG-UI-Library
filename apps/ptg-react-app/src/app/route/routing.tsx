@@ -58,9 +58,9 @@ const PtgUiMaterialTable = lazy(
   () =>
     import('@ptg-react-app/examples/data-table/material/material-table-tabs')
 );
-const PtgUiDate = lazy(() => import('@ptg-react-app/examples/Date/Date'));
+const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'));
 const PtgUiMultiSelectCheckbox = lazy(
-  () => import('@ptg-react-app/examples/Select/Select')
+  () => import('@ptg-react-app/examples/select/select')
 );
 const RoleBased = lazy(
   () => import('@ptg-react-app/examples/role-based/role-based')
@@ -72,15 +72,15 @@ const PtgUiDragnDrop = lazy(
   () => import('@ptg-react-app/examples/drag-n-drop/drag-n-drop')
 );
 const PtgUiPipes = lazy(
-  () => import('@ptg-react-app/examples/Pipes/PipeTabs')
+  () => import('@ptg-react-app/examples/pipes/pipe-tabs')
 );
 const PtgUiDownloadFile = lazy(
-  () => import('@ptg-react-app/examples/DownloadFile/DownloadFile')
+  () => import('@ptg-react-app/examples/downloadFile/downloadFile')
 );
-const PtgUiDialog = lazy(() => import('../examples/Dialog/Dialog'));
-const Breadcrumbs = lazy(() => import('../examples/Breadcrumbs/Breadcrumbs'));
-const Cards = lazy(() => import('../examples/Cards/Cards'));
-const PtgUiCarousel = lazy(() => import('../examples/Carousel/Carousel'));
+const PtgUiDialog = lazy(() => import('../examples/dialog/dialog'));
+const Breadcrumbs = lazy(() => import('../examples/breadcrumbs/Breadcrumbs'));
+const Cards = lazy(() => import('../examples/cards/cards'));
+const PtgUiCarousel = lazy(() => import('../examples/carousel/carousel'));
 const GridLayout = lazy(() => import('../examples/grid-layout/GridLayout'));
 const Indeterminate = lazy(
   () => import('../examples/indeterminate-checkbox/indeterminate-checkbox')
@@ -90,10 +90,10 @@ const PtgUiReactTable = lazy(
 );
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
-const Button = lazy(() => import('../examples/Buttons/Buttons'));
-const Authentication = lazy(() => import('../examples/auth/login/Login'));
-const signUp = lazy(() => import('../examples/auth/signup/signup'));
-const pagination = lazy(() => import('../examples/Pagination/Pagination'));
+const Button = lazy(() => import('../examples/buttons/buttons'));
+const Authentication = lazy(() => import('../examples/auth/Login/Login'));
+const signUp = lazy(() => import('../examples/auth/Signup/signup'));
+const pagination = lazy(() => import('../examples/pagination/pagination'));
 
 {
   /*--Declare routes and component for dynamic load--*/
