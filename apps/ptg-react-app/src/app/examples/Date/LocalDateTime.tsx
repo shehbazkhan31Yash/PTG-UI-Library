@@ -13,10 +13,17 @@ export const timeZoneList = [
 ];
 const LocalDatetime = (props: ExampleOneProps) => {
   const { showCodeLocalDate } = props;
+<<<<<<< Updated upstream:apps/ptg-react-app/src/app/examples/Date/LocalDateTime.tsx
   const [selectedDate, setSlectedDate] = useState<Date | null | undefined>(new Date());
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
   Date | null | undefined
+=======
+  const [selectedDate, setSlectedDate] = useState< Date  | string>(new Date());
+  const [timeZone, setTimeZone] = useState('');
+  const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
+    Date| string
+>>>>>>> Stashed changes:apps/ptg-react-app/src/app/examples/date/localDateTime.tsx
   >(new Date());
   const { t } = useTranslation();
   //handle convert tine
@@ -28,6 +35,7 @@ const LocalDatetime = (props: ExampleOneProps) => {
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
+<<<<<<< Updated upstream:apps/ptg-react-app/src/app/examples/Date/LocalDateTime.tsx
   const onSelect: any = (event: any) => {
     setTimeZone(event.target.value);
   };
@@ -38,6 +46,14 @@ const splitDate = (dateStr: Date | null | undefined) => {
     }
     return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
   }
+=======
+console.log("timeZone", timeZone)
+  const onSelect: any = (event: any) => {
+    console.log("event", event)
+    setTimeZone(event);
+  };
+const splitDate = (dateStr: Date | string) => new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+>>>>>>> Stashed changes:apps/ptg-react-app/src/app/examples/date/localDateTime.tsx
   const handleTime = (e: any) => {
     let datePart: any = convertDateTime(new Date(e));
     datePart = moment(datePart).format('YYYY-MM-DD HH:mm');
@@ -46,6 +62,10 @@ const splitDate = (dateStr: Date | null | undefined) => {
 
   const startDateProp = {
     selected: splitDate(selectedDate),
+<<<<<<< Updated upstream:apps/ptg-react-app/src/app/examples/Date/LocalDateTime.tsx
+=======
+    value:selectedDate,
+>>>>>>> Stashed changes:apps/ptg-react-app/src/app/examples/date/localDateTime.tsx
     className: 'form-control w-100',
     onChange: (d: any) => {
       setSlectedDate(d.target.value);
@@ -58,6 +78,10 @@ const splitDate = (dateStr: Date | null | undefined) => {
 
   const startDatePropLocal = {
     selected: splitDate(dateTimeUSA),
+<<<<<<< Updated upstream:apps/ptg-react-app/src/app/examples/Date/LocalDateTime.tsx
+=======
+    value:dateTimeUSA,
+>>>>>>> Stashed changes:apps/ptg-react-app/src/app/examples/date/localDateTime.tsx
     className: 'form-control w-100',
     disabled: false,
     showTimeSelect: true,
@@ -65,6 +89,7 @@ const splitDate = (dateStr: Date | null | undefined) => {
   };
   useEffect(() => {
     if (timeZone) {
+      console.log("onSelect", timeZone)
       handleTime(selectedDate);
     }
   }, [timeZone, selectedDate]);
