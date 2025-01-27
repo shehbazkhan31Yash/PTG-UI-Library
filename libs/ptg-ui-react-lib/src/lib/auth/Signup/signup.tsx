@@ -10,13 +10,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { CITY_LIST, GENDER_LIST } from './mocks';
-import PtgUiButton from '../../button/button';
-import PtgUiCalendar from '../../calendar/calendar';
+import PtgUiButton from '../../Button/Button';
+import PtgUiCalendar from '../../Calendar/Calendar';
 import PtgUiCheckbox from '../../checks/checks';
-import PtgUiInput from '../../input/input';
-import PtgUiLoading from '../../loading/loading';
-import PtgUiRadio from '../../radio/radio';
-import PtgUiSelect from '../../select/select';
+import PtgUiInput from '../../Input/Input';
+import PtgUiLoading from '../../loading/Loading';
+import PtgUiRadio from '../../Radio/Radio';
+import PtgUiSelect from '../../Select/Select';
 
 
 export interface PtgUiSignupProps {}

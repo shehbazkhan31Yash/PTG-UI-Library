@@ -18,7 +18,7 @@ import {
   GENDER_LIST_SELECT,
   SALUTATION_LIST,
   STATE_LIST,
-} from '@ptg-react-app/mock/mocks';
+} from '@ptg-react-app/Mock/mocks';
 
 export const StepTwo = ({
   showNext,
