@@ -10,7 +10,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
-import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
+import { CITY_LIST, GENDER_LIST } from '../../Mock/mocks';
 import {
   //PtgUiButton,
   PtgUiInput,

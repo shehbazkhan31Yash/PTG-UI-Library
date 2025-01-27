@@ -12,9 +12,9 @@ import './forgotPassword.scss';
 import { useTranslation } from 'react-i18next';
 
 import { Modal } from 'react-bootstrap';
-import PtgUiAlert from '../../alert/alert';
-import PtgUiButton from '../../button/button';
-import PtgUiInput from '../../input/input';
+import PtgUiAlert from '../../Alert/Alert';
+import PtgUiButton from '../../Button/Button';
+import PtgUiInput from '../../Input/Input';
 
 export default function PtgUiForgotPassword() {
   const { t } = useTranslation();

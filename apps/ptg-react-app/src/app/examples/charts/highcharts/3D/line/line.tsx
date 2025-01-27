@@ -1,6 +1,6 @@
 import './line.module.scss';
 import {PtgUi3dLine} from '@ptg-ui/react';
-import { line3DOptions} from '@ptg-react-app/mock/mocks';
+import { line3DOptions} from '@ptg-react-app/Mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHC3dLineProps {}

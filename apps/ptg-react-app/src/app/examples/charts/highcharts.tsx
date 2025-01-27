@@ -10,7 +10,7 @@ import PtgUiHCLine from './highcharts/line/line';
 import PtgUiHCLineBar from './highcharts/linebar/linebar';
 import PtgUiHCSColumn from './highcharts/stackedColumn/stackedColumn';
 import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie, PtguseFetch } from '@ptg-ui/react';
-import { highchartsLineData, highchartsPieData, highchartsColumnData, line3DOptions, column3DOptions, pie3dData } from '@ptg-react-app/mock/mocks';
+import { highchartsLineData, highchartsPieData, highchartsColumnData, line3DOptions, column3DOptions, pie3dData } from '@ptg-react-app/Mock/mocks';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';

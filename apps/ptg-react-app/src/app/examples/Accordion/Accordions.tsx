@@ -5,7 +5,7 @@ import { IAccordion } from '../../interfaces';
 import { PtgUiAccordion } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import { accordionMockData } from '../../mock/mocks';
+import { accordionMockData } from '../../Mock/mocks';
 
 export default function () {
   const { t } = useTranslation();

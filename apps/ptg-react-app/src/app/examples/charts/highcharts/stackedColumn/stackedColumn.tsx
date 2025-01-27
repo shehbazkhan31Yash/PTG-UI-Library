@@ -1,7 +1,7 @@
 import './stackedColumn.scss';
 import {PtgUiStackedColumn, PtguseFetch} from '@ptg-ui/react';
 import { useState, useEffect } from 'react';
-import { highchartStackedColumnData} from '@ptg-react-app/mock/mocks';
+import { highchartStackedColumnData} from '@ptg-react-app/Mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHCStackedColumnProps {}
