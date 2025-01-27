@@ -72,7 +72,7 @@ const PtgUiDragnDrop = lazy(
   () => import('@ptg-react-app/examples/drag-n-drop/drag-n-drop')
 );
 const PtgUiPipes = lazy(
-  () => import('@ptg-react-app/examples/pipes/pipe-tabs')
+  () => import('@ptg-react-app/examples/pipes/PipeTabs')
 );
 const PtgUiDownloadFile = lazy(
   () => import('@ptg-react-app/examples/downloadFile/downloadFile')

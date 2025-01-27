@@ -1,5 +1,5 @@
 import { render, fireEvent } from'@testing-library/react';
-import Pipes from './pipes';
+import Pipes from './Pipes';
 
 describe('Pipes', () => {
   it('should render successfully', () => {

@@ -13,8 +13,8 @@
 import { useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import Pipes from './pipes';
-import PipeEvent from './pipe-events';
+import Pipes from './Pipes';
+import PipeEvent from './PipeEvents';
 import CodeIcon from '@mui/icons-material/Code';
 
 /* eslint-disable-next-line */

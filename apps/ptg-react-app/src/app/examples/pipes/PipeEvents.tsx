@@ -26,13 +26,6 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     phoneNumber: '',
   });
 
-  const [oldValue, setOldValues] = useState({
-    cname: '',
-    inr: '',
-    dollar: '',
-    truncateStr: '',
-    phoneNumber: '',
-  });
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValue((values) => {
@@ -42,9 +35,6 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
 
   const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    setOldValues((values) => {
-      return { ...oldValue, [name]: oldValue.cname };
-    });
     setValue((values) => {
       return { ...values, [name]: capitalizeFirstLetter(value.cname) };
     });
@@ -62,7 +52,7 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     const { name } = e.target;
 
     let currencyValue = value.inr;
-    currencyValue = currencyValue.replace(/\,/g, '');
+    currencyValue = currencyValue.replace(/,/g, '');
     if (currencyValue.startsWith('₹')) {
       currencyValue = currencyValue.substring(1);
     }
@@ -79,11 +69,6 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
   };
 
   const componentCode = `
-   interface PipeEventProps {
-    showEventCode: boolean;
-  }
-
-export function PipeEvent(props: Readonly<PipeEventProps>) {
 
   const [value, setValue] = useState({
     cname: '',
@@ -93,13 +78,6 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     phoneNumber: '',
   });
 
-  const [oldValue, setOldValues] = useState({
-    cname: '',
-    inr: '',
-    dollar: '',
-    truncateStr: '',
-    phoneNumber: '',
-  });
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValue((values) => {
@@ -109,9 +87,6 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
 
   const cFLkeyUpHandler = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    setOldValues((values) => {
-      return { ...oldValue, [name]: oldValue.cname };
-    });
     setValue((values) => {
       return { ...values, [name]: capitalizeFirstLetter(value.cname) };
     });
@@ -129,24 +104,22 @@ export function PipeEvent(props: Readonly<PipeEventProps>) {
     const { name } = e.target;
 
     let currencyValue = value.inr;
-    currencyValue = currencyValue.replace(/\,/g, '');
+    currencyValue = currencyValue.replace(/,/g, '');
     if (currencyValue.startsWith('₹')) {
       currencyValue = currencyValue.substring(1);
     }
 
     if (isNaN(parseInt(currencyValue))) {
-      console.log(currencyValue, parseInt(currencyValue));
       setValue((values) => {
         return { ...values, [name]: '' };
       });
     } else {
-      console.log(currencyValue, parseInt(currencyValue));
       setValue((values) => {
         return { ...values, [name]: inrFormat(parseInt(currencyValue)) };
       });
     }
-  };
-export default PipeEvent; `;
+ 
+ `;
 
   const htmlCode = `
    import { useState } from 'react';
