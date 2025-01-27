@@ -68,7 +68,9 @@ export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
   inputDate: any;
 
   constructor(private _changeDetectorRef: ChangeDetectorRef) { }
-
+  ngOnInit(){
+    this.bsConfig = { dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true };
+  }
   onChange = (_: any) => { };
   onTouched = () => { };
 

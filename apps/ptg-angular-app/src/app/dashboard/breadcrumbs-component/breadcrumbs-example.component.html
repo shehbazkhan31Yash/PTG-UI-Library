@@ -2,16 +2,13 @@
   <div class="row pt-2 bg-white rounded">
     <div class="col-12 parent-block justify-content-between align-items-center">
       <h3 class="p-3" [innerHTML]="'BREADCRUMBS' | translate"></h3>
-      <ptg-ui-toggle-code
-        [htmlCode]="htmlCode"
-        [tsCode]="tsCode"
-      ></ptg-ui-toggle-code>
+      <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
     </div>
-    <hr class="css-yasiti"/>
-  
-      <div class="row p-3">
-        <ptg-breadcrumbs [datalist]="dataList"></ptg-breadcrumbs>
-      </div>
-  
+    <hr class="css-yasiti" />
+
+    <div class="row p-3">
+      <ptg-ui-breadcrumbs [data]="data"></ptg-ui-breadcrumbs>
+    </div>
+
   </div>
-  </div>
+</div>
