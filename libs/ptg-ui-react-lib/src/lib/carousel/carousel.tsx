@@ -5,91 +5,84 @@
  * @desc Reusable Calendar Component
  *
  */
+import { ICarouselProps } from '../interfaces';
 import './carousel.scss';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
-export interface CarouselProps {
-  imgHeight?: string;
-  imgWidth?: string;
-  images?: string[];
-  showIndicators?: boolean;
-}
+
 
 export function PtgUiCarousel({
   imgHeight,
   imgWidth,
   images = [],
   showIndicators = true,
-}: CarouselProps) {
+}: Readonly<ICarouselProps>) {
   return (
-    <>
-      <div className="parent-container">
-        <div className="carousel">
-          <ul
-            className="slides"
-            style={{
-              minHeight: `${imgHeight}`,
-              width: `${imgWidth}`,
-            }}
-          >
-            {images.length
-              ? images.map((imgPath, index) => {
-                  return (
-                    <>
-                      <div key={index}>
-                        <input
-                          type="radio"
-                          name="radio-buttons"
-                          id={`img-${index}`}
-                          checked
-                        />
-                        <li className="slide-container">
-                          <div className="slide-image">
-                            <img src={imgPath} alt="Image" />
-                          </div>
-                          <div
-                            className="carousel-controls"
-                            style={{ lineHeight: imgHeight }}
-                          >
-                            <label
-                              htmlFor={`img-${
-                                index == 0 ? images.length - 1 : index - 1
-                              }`}
-                              className="prev-slide"
-                            >
-                              <span>&lsaquo;</span>
-                            </label>
-                            <label
-                              htmlFor={`img-${
-                                index == images.length - 1 ? 0 : index + 1
-                              }`}
-                              className="next-slide"
-                            >
-                              <span>&rsaquo;</span>
-                            </label>
-                          </div>
-                        </li>
+
+    <div className="parent-container">
+      <div className="carousel">
+        <ul
+          className="slides"
+          style={{
+            minHeight: `${imgHeight}`,
+            width: `${imgWidth}`,
+          }}
+        >
+          {images.length
+            ? images.map((imgPath, index) => {
+              return (
+                <>
+                  <div key={imgPath}>
+                    <input
+                      type="radio"
+                      name="radio-buttons"
+                      id={`img-${index}`}
+                      checked
+                    />
+                    <li className="slide-container">
+                      <div className="slide-image">
+                        <img src={imgPath} alt="Carousal" />
                       </div>
-                      {showIndicators && (
-                        <div className="carousel-dots">
-                          {images.map((imgPath, dotIndex) => (
-                            <label
-                              htmlFor={`img-${index}`}
-                              className="carousel-dot"
-                              id={`img-dot-${index}`}
-                              key={dotIndex}
-                            ></label>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  );
-                })
-              : null}
-          </ul>
-        </div>
+                      <div
+                        className="carousel-controls"
+                        style={{ lineHeight: imgHeight }}
+                      >
+                        <label
+                          htmlFor={`img-${index === 0 ? images.length - 1 : index - 1
+                            }`}
+                          className="prev-slide"
+                          aria-label="Previous Slide"
+                        >
+                          <span>&lsaquo;</span>
+                        </label>
+                        <label
+                          htmlFor={`img-${index === images.length - 1 ? 0 : index + 1
+                            }`}
+                          className="next-slide"
+                          aria-label="Next Slide"
+                        >
+                          <span>&rsaquo;</span>
+                        </label>
+                      </div>
+                    </li>
+                  </div>
+                  {showIndicators && (
+                    <div className="carousel-dots">
+                      {images.map((imgPath, dotIndex) => (
+                        <label
+                          htmlFor={`img-${index}`}
+                          className="carousel-dot"
+                          id={`img-dot-${index}`}
+                          key={dotIndex}
+                        ></label>
+                      ))}
+                    </div>
+                  )}
+                </>
+              );
+            })
+            : null}
+        </ul>
       </div>
-    </>
+    </div>
   );
 }
 
