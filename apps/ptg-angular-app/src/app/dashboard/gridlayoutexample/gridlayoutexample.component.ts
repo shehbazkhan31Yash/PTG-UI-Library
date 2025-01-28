@@ -16,5 +16,6 @@ import { resources } from "../../../resource/resource";
   styleUrls: ['./gridlayoutexample.component.scss']
 })
 export class GridlayoutexampleComponent {
-  resources=resources;
+  resources = resources;
+  gridColData = { xl: 3 };
 }

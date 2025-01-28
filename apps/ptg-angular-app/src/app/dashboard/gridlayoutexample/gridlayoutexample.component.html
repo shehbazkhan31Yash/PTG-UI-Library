@@ -1,5 +1,39 @@
 <section class="bg-dark-primary rounded">
     <div class="container">
+        <ptg-ui-grid-row>
+            <ptg-ui-grid-column [gridData]="gridColData">
+                <div class="card">
+                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
+                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
+                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
+                    </div>
+                </div>
+            </ptg-ui-grid-column>
+            <ptg-ui-grid-column [gridData]="gridColData">
+                <div class="card">
+                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
+                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
+                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
+                    </div>
+                </div>
+            </ptg-ui-grid-column>
+            <ptg-ui-grid-column [gridData]="gridColData">
+                <div class="card">
+                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
+                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
+                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
+                    </div>
+                </div>
+            </ptg-ui-grid-column>
+        </ptg-ui-grid-row>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mb-5">
                 <h3 class="text-black" [innerHTML]="'GRID_LAYOUT_EXAMPLE_HEADING' | translate"></h3>

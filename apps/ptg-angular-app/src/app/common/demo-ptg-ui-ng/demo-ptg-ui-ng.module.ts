@@ -19,6 +19,7 @@ import { CalendarModule } from '@ptg-ui/angular/calendar';
 import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 import { CardModule } from '@ptg-ui/angular/card';
 import { CarouselModule } from '@ptg-ui/angular/carousel';
+import { GridModule } from '@ptg-ui/angular/grid';
 
 const modules = [
   SidenavModule,
@@ -40,7 +41,8 @@ const modules = [
   CalendarModule,
   BreadcrumbsModule,
   CardModule,
-  CarouselModule
+  CarouselModule,
+  GridModule
 ];
 @NgModule({
   declarations: [],

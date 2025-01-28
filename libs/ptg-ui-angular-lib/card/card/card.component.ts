@@ -4,8 +4,8 @@
 /**
  * @since March 2022
  * @author Priyanka Jain
- * @Component ptg-ui-breadcrumbs;
- * @description This component for breadcrumbs
+ * @Component ptg-ui-cards;
+ * @description This component for card
  **/
 
 import {
