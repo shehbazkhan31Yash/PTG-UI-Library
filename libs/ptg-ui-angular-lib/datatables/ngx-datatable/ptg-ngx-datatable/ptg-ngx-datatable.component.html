@@ -43,8 +43,7 @@ http://swimlane.github.io/ngx-datatable/
       [selectionType]="selectionType"
       (select)="onSelect($event)"
     >
-    <!-- [selectionType]="selectionType" -->
-    <!-- (select)="onSelect($event)" -->
+  
     <ngx-datatable-column *ngIf="selectionType === SelectionType.checkbox"
             [width]="30"
             [sortable]="false"

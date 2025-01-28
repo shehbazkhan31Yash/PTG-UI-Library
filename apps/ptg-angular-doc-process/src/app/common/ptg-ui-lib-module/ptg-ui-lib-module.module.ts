@@ -16,6 +16,7 @@ import { AlertModule } from '@ptg-ui/angular/alert';
 import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
 import { CalendarModule } from '@ptg-ui/angular/calendar';
+import { DialogModule } from '@ptg-ui/angular/dialog';
 
 const modules = [
   SidenavModule,
@@ -34,7 +35,8 @@ const modules = [
   PtgNgxDatatableModule,
   FileDownloadsModule,
   IndeterminateCheckboxesModule,
-  CalendarModule
+  CalendarModule,
+  DialogModule
 ];
 @NgModule({
   declarations: [],
