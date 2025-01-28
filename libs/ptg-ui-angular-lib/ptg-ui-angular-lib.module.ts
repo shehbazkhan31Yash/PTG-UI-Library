@@ -25,11 +25,12 @@ import { MatDatatableModule } from './datatables/mat-datatable/mat-datatable.mod
 import { PtgNgxDatatableModule } from './datatables/ngx-datatable/ptg-ngx-datatable.module';
 import { IndeterminateCheckboxesModule } from './indeterminate-checkboxes/indeterminate-checkboxes.module';
 import { FileDownloadsModule } from './file-downloads/file-downloads.module';
-import { AccordianModule } from './accordian/accordian.module';
+import { AccordianModule } from './accordion/accordion.module';
 import { TextareaModule } from "./textarea/textarea.module";
 // import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DialogModule } from './dialog/dialog.module';
+import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 
 @NgModule({
   declarations: [],
@@ -55,7 +56,9 @@ import { DialogModule } from './dialog/dialog.module';
     AccordianModule,
     TextareaModule,
     // SidenavModule,
-    DialogModule
+    DialogModule,
+    BreadcrumbsModule
+    // SidenavModule
   ],
   exports: [
     CommonModule,

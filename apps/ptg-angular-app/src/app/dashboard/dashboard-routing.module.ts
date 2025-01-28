@@ -25,7 +25,7 @@ import { PipeexamplesComponent } from './pipeexamples/pipeexamples.component';
 import { DownloadExampleComponent } from './download-example/download-example.component';
 import { CheckboxExamplesComponent } from './checkbox-examples/checkbox-examples.component';
 import { GridlayoutexampleComponent } from './gridlayoutexample/gridlayoutexample.component';
-import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
+import { AccordionExampleComponent } from './accordion-example/accordion-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
 import { CardExampleComponent } from './card-component/card-example.component';
@@ -130,7 +130,7 @@ const routes: Routes = [
   },
   {
     path:'accordian-example',
-    component: AccordianExampleComponent
+    component: AccordionExampleComponent
   },
   {
     path:'multistep-form',

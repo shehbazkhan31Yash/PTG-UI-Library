@@ -1,25 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
-import { AccordianComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/accordian/accordian/accordian.component';
+import { AccordionComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/accordion/accordion/accordion.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 
-import { AccordianExampleComponent } from './accordian-example.component';
+import { AccordionExampleComponent } from './accordion-example.component';
 
-describe('AccordianExampleComponent', () => {
-  let component: AccordianExampleComponent;
-  let fixture: ComponentFixture<AccordianExampleComponent>;
+describe('AccordionExampleComponent', () => {
+  let component: AccordionExampleComponent;
+  let fixture: ComponentFixture<AccordionExampleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[TranslateModule.forRoot(), AccordionModule.forRoot(), BrowserAnimationsModule],
-      declarations: [ AccordianExampleComponent, AccordianComponent ]
+      declarations: [ AccordionExampleComponent, AccordionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccordianExampleComponent);
+    fixture = TestBed.createComponent(AccordionExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

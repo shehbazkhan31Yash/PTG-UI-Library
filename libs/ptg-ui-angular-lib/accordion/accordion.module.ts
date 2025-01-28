@@ -1,26 +1,26 @@
 /**
  * @since May 2022
  * @author Aakash Patidar
- * @Module ptg-ui-accordian;
- * @description This module for accordian;
+ * @Module ptg-ui-accordion;
+ * @description This module for accordion;
 **/
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccordianComponent } from './accordian/accordian.component';
+import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 
 @NgModule({
   declarations: [
-    AccordianComponent
+    AccordionComponent
   ],
   imports: [
     CommonModule,
     AccordionModule.forRoot(),    
   ],
   exports:[
-    AccordianComponent
+    AccordionComponent
   ]
 })
 export class AccordianModule { }
