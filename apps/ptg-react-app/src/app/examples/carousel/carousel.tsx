@@ -16,13 +16,7 @@ const CarouselExample = () => {
   const { t } = useTranslation();
 
   // Note: Handle function to show code
-  const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
-  };
+  const ShowExampleCode = () => setShowCode(!showCode);
 
 //Note: Sample images for carousel
   const sampleImages:string[] = [
@@ -35,7 +29,7 @@ const CarouselExample = () => {
   const componentCode = `
   import {PtgUiCarousel} from '@ptg-ui/react';
 
-  const sampleImages:[] = [
+  const sampleImages:string[] = [
     'https://picsum.photos/id/328/3264/2448',
     'https://picsum.photos/id/431/5000/3334',
     'https://picsum.photos/id/5/5000/3334',
