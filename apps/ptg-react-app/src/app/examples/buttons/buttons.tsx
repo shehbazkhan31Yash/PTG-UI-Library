@@ -4,7 +4,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import { PtgUiButton } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import { BUTTON_VARIANT } from '@ptg-react-app/constants/Constant';
+import { BUTTON_WIDTH_110, BUTTON_WIDTH_200, BUTTON_BACKGROUND_COLOR, BUTTON_COLOR, BUTTON_FONT_SIZE, BUTTON_VARIANT, BUTTON_WIDTH_60} from '@ptg-react-app/constants/Constant';
 
 export default function Button() {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -21,16 +21,10 @@ export default function Button() {
 
   const { t } = useTranslation();
 
-  // Note Button click event code
-  const onClick = () => {
-    console.log('Button Clicked');
-  };
 
   // Note: Button component code
   const componentCode = `
-     const onClick = () => {
-       console.log('Button Clicked');
-  };
+    const onClick = () => {};
    export const  BUTTON_VARIANT= {
      PRIMARY: 'primary',
      SUCCESS: 'success',
@@ -41,7 +35,6 @@ export default function Button() {
      DARK: 'dark',
      LINK: 'link',     
 }
-    // Note Button variant code
     const buttonVariant: string[] = Object.values(BUTTON_VARIANT);
   `;
 
@@ -59,13 +52,11 @@ export default function Button() {
           fontSize="12px"
           disabled={false}>
       </PtgUiButton>
-)}
+))}
  `;
 
   const componentCodeWithIcon = `
-    const onClick = () => {
-       console.log('Button Clicked');
-    };
+    const onClick = () => {}
   `;
 
   const htmlCodeWithIcon = `
@@ -148,7 +139,6 @@ export default function Button() {
                     text={variant}
                     data-testid="openButton"
                     appearance={variant}
-                    onClick={onClick}
                   ></PtgUiButton>
                 </div>
               )
@@ -187,9 +177,8 @@ export default function Button() {
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="left"
-                onClick={onClick}
-                width="110px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_110}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
                 disabled={false}
               >
@@ -204,9 +193,8 @@ export default function Button() {
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="right"
-                onClick={onClick}
-                width="110px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_110}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -218,9 +206,8 @@ export default function Button() {
               <PtgUiButton
                 data-testid="openButton"
                 appearance="secondary"
-                onClick={onClick}
-                width="60px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_60}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -230,10 +217,9 @@ export default function Button() {
               <h6>{t('CUSTOM_BUTTON')}</h6>
               <PtgUiButton
                 text="Click Here"
-                textColor="#fff"
-                backgroundColor={'#052982'}
-                width="200px"
-                onClick={onClick}
+                textColor={BUTTON_COLOR}
+                backgroundColor={BUTTON_BACKGROUND_COLOR}
+                width={BUTTON_WIDTH_200}
               />
             </div>
           </div>

@@ -32,7 +32,7 @@ export default function Breadcrumb() {
       { title: 'home', link: '/home',},
       { title: 'about us', link: '/about',},
       { title: 'contact us', link: '/contact',},
-    ];,
+    ]
   `;
   const htmlCode = `<PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />`;
 

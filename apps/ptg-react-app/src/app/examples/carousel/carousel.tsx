@@ -25,7 +25,7 @@ const CarouselExample = () => {
   };
 
 //Note: Sample images for carousel
-  const sampleImages = [
+  const sampleImages:string[] = [
     'https://picsum.photos/id/328/3264/2448',
     'https://picsum.photos/id/431/5000/3334',
     'https://picsum.photos/id/5/5000/3334',
@@ -35,7 +35,7 @@ const CarouselExample = () => {
   const componentCode = `
   import {PtgUiCarousel} from '@ptg-ui/react';
 
-  const sampleImages = [
+  const sampleImages:[] = [
     'https://picsum.photos/id/328/3264/2448',
     'https://picsum.photos/id/431/5000/3334',
     'https://picsum.photos/id/5/5000/3334',

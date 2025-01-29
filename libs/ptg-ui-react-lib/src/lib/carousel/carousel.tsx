@@ -66,12 +66,13 @@ export function PtgUiCarousel({
                   </div>
                   {showIndicators && (
                     <div className="carousel-dots">
-                      {images.map((imgPath, dotIndex) => (
+                      {images.map((dotIndex) => (
                         <label
                           htmlFor={`img-${index}`}
                           className="carousel-dot"
                           id={`img-dot-${index}`}
                           key={dotIndex}
+                           aria-label="Slide dots"
                         ></label>
                       ))}
                     </div>
