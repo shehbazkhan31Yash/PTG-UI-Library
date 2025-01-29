@@ -9,7 +9,7 @@ import { accordionMockData } from '../../mock/mocks';
 
 export default function () {
   const { t } = useTranslation();
-  const [showCode, setShowCode] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleShowCode = () => setShowCode((prev) => !prev);
   const accordionItems:IAccordion[] = accordionMockData(t)
