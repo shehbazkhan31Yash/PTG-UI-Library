@@ -4,6 +4,11 @@
   "prefix": "ptg-ui-library",
   "targets": {
     "build": {
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        }
+      },
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/ptg-ui-angular-lib"],
       "options": {
