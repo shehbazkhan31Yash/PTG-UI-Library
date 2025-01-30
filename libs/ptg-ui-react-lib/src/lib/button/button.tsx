@@ -15,7 +15,9 @@ export function PtgUiButton(props: Readonly<IPtgUiButtonProps>) {
     btnIconAlignment,
     text,
     hasbtnIconSlot,
-    onClick,
+    onClick = () => {
+      return;
+    },
     width,
     height,
     fontSize,
@@ -27,7 +29,7 @@ export function PtgUiButton(props: Readonly<IPtgUiButtonProps>) {
     type = 'button',
     border,
   } = props;
-// Note that the buttonStyle object is defined in the function body.
+  // Note that the buttonStyle object is defined in the function body.
   const buttonStyle = {
     width: width,
     height: height,
