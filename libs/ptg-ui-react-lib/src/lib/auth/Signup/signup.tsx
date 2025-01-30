@@ -251,7 +251,7 @@ export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
                     border={'1px solid #000'}
                     backgroundColor="#ddd"
                     width="100%"
-                    onClick={onSubmit}
+                    onClick={(event) => onSubmit && onSubmit(event)}
                   />
                 </div>
               </div>

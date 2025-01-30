@@ -4,14 +4,16 @@ export interface ICardButton {
   WIDTH: string;
 }
 
-export const CARD_BUTTON: ICardButton = {
+export const CARD_BUTTON = {
   TEXT_COLOR: '#fff',
   COLOR: '#052982',
   WIDTH: '165px',
+  MAX_WIDTH: '100%',
+  MAX_HEIGHT: '200px',
 };
 
 export const FORGOT_PASSWORD_BTN_COLOR = {
   FORGOT_BTN_TEXT: '#fff',
   FORGOT_BTN_BACKGROUND: '#052982',
-  FORGOT_BTN_BACKGROUND_GRAY: '#052982',
+  FORGOT_BTN_BACKGROUND_GRAY: '#959393',
 };

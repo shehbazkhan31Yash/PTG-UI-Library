@@ -179,7 +179,7 @@ export function PtgLogin() {
           imgPath={
             'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg'
           } // login page image
-          handleChange={(e) => handleChange(e)} // handle change for login email and password
+          handleChange={handleChange} // handle change for login email and password
           user={user} // pass login email and password as object {email, password}
           emailType={'email'} // email type
           passwordType={'password'} // password type

@@ -19,6 +19,73 @@ export interface IPtgUiAccordionProps {
   activeIndex: number | null;
 }
 
+//Button
+export const enum BUTTON_TYPE {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset',
+}
+export interface IPtgUiButtonProps {
+  variant?: string;
+  active?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+  appearance?: string;
+  btnIconAlignment?: string;
+  hasbtnIconSlot?: boolean;
+  text?: string;
+  disabled?: boolean;
+  width?: string;
+  height?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  textColor?: string;
+  backgroundColor?: string;
+  type?: 'button' | 'submit' | 'reset';
+  border?: string;
+}
+
+//Cards
+export interface ICardUiProps {
+  image?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  onClick?: () => void;
+  buttonColor?: string;
+  buttonWidth?: string;
+  children?: React.ReactNode;
+  imageWidth?: string;
+  imageHeight?: string;
+  backgroundColor?: string;
+  buttonTextColor?: string;
+}
+
+// Carousel
+
+export interface ICarouselProps {
+  imgHeight?: string;
+  imgWidth?: string;
+  images?: string[];
+  showIndicators?: boolean;
+}
+
+export interface IPtgUiBreadcrumbsProps {
+  datalist: IBreadcrumbItem[];
+}
+
+// Accordion
+export interface IAccordionItemProps {
+  title?: string;
+  content?: string;
+}
+export interface IPtgUiAccordionProps {
+  accordionItems: IAccordionItemProps[];
+  handleToggle: (index: number) => void;
+  activeIndex: number | null;
+}
+
 export interface AlertProps {
   message?: string;
   type?: string;
@@ -26,9 +93,11 @@ export interface AlertProps {
 
 //forgot password
 export interface IForgotPassword {
-  onForgotPasswordSubmit?: Function | undefined;
-  fPasswordEmail?: Function | undefined;
-  forgotPasswordLabel?: string | undefined;
+  onForgotPasswordSubmit?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  fPasswordEmail?: (email: string) => void;
+  forgotPasswordLabel?: string;
 }
 
 export interface IValues {
@@ -65,16 +134,24 @@ export interface PtgUiLoginProps {
   msalButtonName?: string;
   forgotPasswordLabel?: string;
   imgPath?: string;
-  handleChange?: Function;
+  handleChange?: (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void | undefined;
   user?: IUserLogin;
   emailType?: string;
   passwordType?: string;
   isEmailValid?: boolean;
-  onLoginClick?: Function;
-  onMsalClick?: Function;
+  onLoginClick?: (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => void | undefined;
+  onMsalClick?: (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => void | undefined;
   isForgotPassword?: boolean;
-  onForgotPasswordSubmit?: Function;
-  getForgetEmail?: Function;
+  onForgotPasswordSubmit?: (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => void | undefined;
+  getForgetEmail?: (email: string) => void;
   errorMessage?: string;
   successMessage?: string;
 }

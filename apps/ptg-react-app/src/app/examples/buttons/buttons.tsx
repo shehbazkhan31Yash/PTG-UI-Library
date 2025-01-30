@@ -4,46 +4,59 @@ import CodeIcon from '@mui/icons-material/Code';
 import { PtgUiButton } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
+import { BUTTON_WIDTH_110, BUTTON_WIDTH_200, BUTTON_BACKGROUND_COLOR, BUTTON_COLOR, BUTTON_FONT_SIZE, BUTTON_VARIANT, BUTTON_WIDTH_60} from '@ptg-react-app/constants/Constant';
 
 export default function Button() {
-  const [showCode, setShowCode] = useState(false);
-  const [showCodeForBtn, setShowCodeForBtn] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
+  const [showCodeForBtn, setShowCodeForBtn] = useState<boolean>(false);
 
+  // Note HandleShowCode and handleShowCode button code
   const handleShowCode = () => setShowCode((prev) => !prev);
+
+  // Note HandleShowCode and handleShowCode button with icon code
   const handleShowCodeForBtn = () => setShowCodeForBtn((prev) => !prev);
+
+  // Note Button variant code
+  const buttonVariant: string[] = Object.values(BUTTON_VARIANT);
 
   const { t } = useTranslation();
 
-  const onClick = () => {};
 
+  // Note: Button component code
   const componentCode = `
     const onClick = () => {};
+   export const  BUTTON_VARIANT= {
+     PRIMARY: 'primary',
+     SUCCESS: 'success',
+     DANGER:'danger',
+     WARNING: 'warning',
+     INFO: 'info',
+     LIGHT: 'light',
+     DARK: 'dark',
+     LINK: 'link',     
+}
+    const buttonVariant: string[] = Object.values(BUTTON_VARIANT);
   `;
 
   const htmlCode = `
     import { PtgUiButton } from '@ptg-ui/react';
     import "@ptg-ui/react/lib/styles/index.css";
-
-    <PtgUiButton
-      text="Primary"
-      data-testid="openButton"
-      appearance="primary"
-      onClick={onClick}
-      width="80px"
-      fontSize="12px"
-      disabled={false}>
-    </PtgUiButton>
-    <PtgUiButton text="Secondary" appearance="secondary" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Warning" appearance="warning" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Success" appearance="success" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Danger" appearance="danger" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Info" appearance="info" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Light" appearance="light" onClick={onClick}></PtgUiButton>
-    <PtgUiButton text="Dark" appearance="dark" onClick={onClick}></PtgUiButton>
+    {buttonVariant?.map((variant: string) => (
+      <PtgUiButton
+          key={variant}
+          text={variant}
+          data-testid="openButton"
+          appearance={variant}
+          onClick={onClick}
+          width="80px"
+          fontSize="12px"
+          disabled={false}>
+      </PtgUiButton>
+))}
  `;
 
   const componentCodeWithIcon = `
-    const onClick = () => {};
+    const onClick = () => {}
   `;
 
   const htmlCodeWithIcon = `
@@ -120,93 +133,16 @@ export default function Button() {
           )}
           <div className="col-lg-12 col-md-12 col-sm-6 col-xs-2 ms-3 mt-2">
             <div className="row me-2">
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Primary"
-                  data-testid="openButton"
-                  appearance="primary"
-                  onClick={onClick}
-                  width="80px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Secondary"
-                  data-testid="openButton"
-                  appearance="secondary"
-                  onClick={onClick}
-                  width="100px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Warning"
-                  data-testid="openButton"
-                  appearance="warning"
-                  onClick={onClick}
-                  width="90px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Success"
-                  data-testid="openButton"
-                  appearance="success"
-                  onClick={onClick}
-                  width="90px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Danger"
-                  data-testid="openButton"
-                  appearance="danger"
-                  onClick={onClick}
-                  width="80px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Info"
-                  data-testid="openButton"
-                  appearance="info"
-                  onClick={onClick}
-                  width="80px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Light"
-                  data-testid="openButton"
-                  appearance="light"
-                  onClick={onClick}
-                  width="80px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
-
-              <div className="col mb-2">
-                <PtgUiButton
-                  text="Dark"
-                  data-testid="openButton"
-                  appearance="dark"
-                  onClick={onClick}
-                  width="80px"
-                  fontSize="12px"
-                ></PtgUiButton>
-              </div>
+              {buttonVariant?.map((variant: string) => (
+                <div className="col-auto mb-2" key={variant}>
+                  <PtgUiButton
+                    text={variant}
+                    data-testid="openButton"
+                    appearance={variant}
+                  ></PtgUiButton>
+                </div>
+              )
+              )}
             </div>
           </div>
         </div>
@@ -235,16 +171,14 @@ export default function Button() {
           )}
           <div className="col-lg-12 col-md-12 col-sm-6 col-xs-4 ms-3 mt-2">
             <h6>{t('ICON_ALIGNMENT_LEFT')}</h6>
-            {}
             <div className="col-2 mb-2">
               <PtgUiButton
                 text="Primary"
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="left"
-                onClick={onClick}
-                width="110px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_110}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
                 disabled={false}
               >
@@ -259,9 +193,8 @@ export default function Button() {
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="right"
-                onClick={onClick}
-                width="110px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_110}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -273,9 +206,8 @@ export default function Button() {
               <PtgUiButton
                 data-testid="openButton"
                 appearance="secondary"
-                onClick={onClick}
-                width="60px"
-                fontSize="12px"
+                width={BUTTON_WIDTH_60}
+                fontSize={BUTTON_FONT_SIZE}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -285,10 +217,9 @@ export default function Button() {
               <h6>{t('CUSTOM_BUTTON')}</h6>
               <PtgUiButton
                 text="Click Here"
-                textColor="#fff"
-                backgroundColor={'#052982'}
-                width="200px"
-                onClick={onClick}
+                textColor={BUTTON_COLOR}
+                backgroundColor={BUTTON_BACKGROUND_COLOR}
+                width={BUTTON_WIDTH_200}
               />
             </div>
           </div>

@@ -130,13 +130,13 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
                     <PtgUiInput
                       type="email"
                       className={`w-100 form-control bg_0 ${
-                        formErr.email === true ? 'border-danger' : ''
+                        formErr?.email ? 'border-danger' : ''
                       }`}
                       name="email"
                       data-testid="email"
                       placeholder="Enter Your Email"
                       onChange={handleChange}
-                      value={values.email}
+                      value={values?.email}
                     />
                   </div>
                   <div className="row">
@@ -147,7 +147,7 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
                         backgroundColor={FORGOT_BTN_BACKGROUND}
                         text="Forgot Password"
                         onClick={onForgotPasswordSubmit}
-                        disabled={values.btnDisable}
+                        disabled={values?.btnDisable}
                       />
                     </div>
                     <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
