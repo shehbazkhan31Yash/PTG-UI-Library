@@ -1,6 +1,7 @@
 /**
  * @since March 2022
  * @author Harsha Zalawa
+ * @updatedby Manish Patidar
  * @desc Reusable Select Component, we are using multiselect-react-dropdown package to achive the functionality.
  *https://www.npmjs.com/package/multiselect-react-dropdown
  */
