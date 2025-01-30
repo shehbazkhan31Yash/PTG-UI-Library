@@ -7,7 +7,7 @@
 
 import './date.scss';
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import DateExampleOne from './dateExampleOne';
 import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';
@@ -22,9 +22,10 @@ export function PtgUiDateExample() {
   const [showCodeThree, setShowCodeThree] = useState<boolean>(false);
   const [showCodeLocalDate, setShowCodeLocalDate] = useState<boolean>(false);
 
-  const ShowExampleCode = () => setShowCodeOne((prev) => !prev);
-  const ShowExampleCodeTwo = () => setShowCodeTwo((prev) => !prev);
-  const ShowExampleCodeThree = () => setShowCodeThree((prev) => !prev);
+  // Note: The following functions are used to show the codebase.
+  const showExampleCode = () => setShowCodeOne((prev) => !prev);
+  const showExampleCodeTwo = () => setShowCodeTwo((prev) => !prev);
+  const showExampleCodeThree = () => setShowCodeThree((prev) => !prev);
   const showCodeLocalDateTime = () => setShowCodeLocalDate((prev) => !prev);
 
   return (
@@ -38,14 +39,13 @@ export function PtgUiDateExample() {
           </div>
           <div className="col-2">
             <CodeIcon
-              onClick={ShowExampleCode}
+              onClick={showExampleCode}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
           </div>
           <hr className="horizontal-line" />
         </div>
-
         <DateExampleOne showCodeOne={showCodeOne} />
       </section>
 
@@ -57,7 +57,7 @@ export function PtgUiDateExample() {
 
           <div className="col-2">
             <CodeIcon
-              onClick={ShowExampleCodeTwo}
+              onClick={showExampleCodeTwo}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
@@ -75,7 +75,7 @@ export function PtgUiDateExample() {
 
           <div className="col-2">
             <CodeIcon
-              onClick={ShowExampleCodeThree}
+              onClick={showExampleCodeThree}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>

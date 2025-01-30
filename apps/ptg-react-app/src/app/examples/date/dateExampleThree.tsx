@@ -10,12 +10,12 @@ import './date.scss';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { IDatePickerProps, IExampleThreeProps } from '../../interfaces';
+import { END_DATE, START_DATE } from '../../constants/Constant';
 
-export interface ExampleThreeProps {
-  showCodeThree: boolean;
-}
 
-export function ExampleThree(props: ExampleThreeProps) {
+
+export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   const { t } = useTranslation();
   const today = new Date();
   const [date, setStartDate] = useState({
@@ -24,8 +24,8 @@ export function ExampleThree(props: ExampleThreeProps) {
   });
 
   /*-----Set date state-----*/
-  const setDateState: any = (date: any, field: string) => {
-    setStartDate((preState: any) => {
+  const setDateState = (date: Date | null, field: string) => {
+    setStartDate((preState) => {
       if (field === 'startDate') preState.endDate = null;
       return {
         ...preState,
@@ -34,20 +34,20 @@ export function ExampleThree(props: ExampleThreeProps) {
     });
   };
   /*-----props for start datepicker-----*/
-  const startDateProp = {
+  const startDateProp:IDatePickerProps = {
     selected: date.startDate,
     className: `form-control w-100`,
-    onChange: (d: any) => setDateState(d.target.value, 'startDate'),
+    onChange: (d) => setDateState(new Date(d.target.value), START_DATE),
     startDate: today,
     endDate: date.endDate || null,
     disabled: false,
   };
 
   /*-----props for end datepicker-----*/
-  const endDateProp = {
+  const endDateProp:IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
-    onChange: (d: any) => setDateState(d.target.value, 'endDate'),
+    onChange: (d) => setDateState(new Date(d.target.value), END_DATE),
     startDate: date.startDate || today,
     endDate: null,
     disabled: date.startDate === null,

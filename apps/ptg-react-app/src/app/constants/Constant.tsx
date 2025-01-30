@@ -29,3 +29,15 @@ export const BUTTON_COLOR = '#fff'
 export const START_DATE = "startDate"
 export const END_DATE = "endDate"
 export const DATE_RANGE = "dateRange"
+
+
+// timeZone 
+
+export const TIME_ZONE_NEW_YORK = 'America/New_York'
+export const TIME_ZONE_LONDON = 'Europe/London'
+export const TIME_ZONE_LABEL_NEW_YORK = 'New York'
+export const TIME_ZONE_LABEL_LONDON = 'London'
+
+export const LOCAL_TIME = 'en-US'
+export const YYYY_MM_DD_HH_MM = 'YYYY-MM-DD HH:mm'
+export const MMMM_D_YYYY_H_MM_AA = "MMMM d, yyyy h:mm aa"

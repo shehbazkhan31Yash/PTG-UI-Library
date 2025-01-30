@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { PtgUiSelectbox } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
-export interface ExampleOneProps {
-  showCodeLocalDate: boolean;
-}
+import { ITimeZoneProps } from '../../interfaces';
+import { LOCAL_TIME, MMMM_D_YYYY_H_MM_AA, TIME_ZONE_LABEL_LONDON, TIME_ZONE_LABEL_NEW_YORK, TIME_ZONE_LONDON, TIME_ZONE_NEW_YORK, YYYY_MM_DD_HH_MM } from '../../constants/Constant';
+
 export const timeZoneList = [
-  { value: 'America/New_York', label: 'New York', name: 'America/New_York' },
-  { value: 'Europe/London', label: 'London', name: 'Europe/London' },
+  { value: TIME_ZONE_NEW_YORK, label: TIME_ZONE_LABEL_NEW_YORK, name: TIME_ZONE_NEW_YORK },
+  { value: TIME_ZONE_LONDON, label: TIME_ZONE_LABEL_LONDON, name: TIME_ZONE_LONDON },
 ];
-const LocalDatetime = (props: ExampleOneProps) => {
+const LocalDatetime = (props: ITimeZoneProps) => {
   const { showCodeLocalDate } = props;
-  const [selectedDate, setSlectedDate] = useState<Date | null | undefined>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(new Date());
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
   Date | null | undefined
@@ -24,11 +24,11 @@ const LocalDatetime = (props: ExampleOneProps) => {
   const convertDateTime = (myDate: Date) => {
     const date = new Date(myDate);
     const options = { timeZone: timeZone };
-    const locale = 'en-US';
+    const locale = LOCAL_TIME;
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-  const onSelect: any = (event: any) => {
+  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTimeZone(event.target.value);
   };
   //Note: get datepicker formate from new Date()
@@ -38,21 +38,21 @@ const splitDate = (dateStr: Date | null | undefined) => {
     }
     return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
   }
-  const handleTime = (e: any) => {
-    let datePart: any = convertDateTime(new Date(e));
-    datePart = moment(datePart).format('YYYY-MM-DD HH:mm');
+  const handleTime = (e:Date|string) => {
+    let datePart = convertDateTime(new Date(e));
+    datePart = new Date(moment(datePart).format(YYYY_MM_DD_HH_MM));
     setDateTimeToOtherLocale(datePart);
-  };
+  }
 
   const startDateProp = {
     selected: splitDate(selectedDate),
     className: 'form-control w-100',
-    onChange: (d: any) => {
-      setSlectedDate(d.target.value);
+    onChange: (d) => {
+      setSelectedDate(d.target.value);
     },
     disabled: false,
     showTimeSelect: true,
-    dateFormat: 'MMMM d, yyyy h:mm aa',
+    dateFormat: MMMM_D_YYYY_H_MM_AA,
     isDateTime: true,
   };
 
@@ -65,7 +65,9 @@ const splitDate = (dateStr: Date | null | undefined) => {
   };
   useEffect(() => {
     if (timeZone) {
-      handleTime(selectedDate);
+      if (selectedDate) {
+        handleTime(selectedDate);
+      }
     }
   }, [timeZone, selectedDate]);
 
@@ -73,53 +75,63 @@ const splitDate = (dateStr: Date | null | undefined) => {
     import { PtgUiCalendar, PtgUiSelectbox } from '@ptg-ui/react';
     import moment from 'moment';
 
-    const [selectedDate, setSlectedDate] = useState(new Date());
-    const [timeZone, setTimeZone] = useState('');
-    const [dateTimeUSA, setDateTimeToOtherLocale] = useState<Date | null | undefined>(new Date());
+      const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(new Date());
+  const [timeZone, setTimeZone] = useState('');
+  const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
+  Date | null | undefined
+  >(new Date());
+  const { t } = useTranslation();
+  //handle convert tine
 
-    const convertDateTime = (myDate: Date) => {
-      const date = new Date(myDate);
-      const options = { timeZone: timeZone };
-      const locale = 'en-US';
-      const newDate = new Date(date.toLocaleString(locale, options));
-      return newDate;
-    };
+  const convertDateTime = (myDate: Date) => {
+    const date = new Date(myDate);
+    const options = { timeZone: timeZone };
+    const locale = LOCAL_TIME;
+    const newDate = new Date(date.toLocaleString(locale, options));
+    return newDate;
+  };
+  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTimeZone(event.target.value);
+  };
+  //Note: get datepicker formate from new Date()
+const splitDate = (dateStr: Date | null | undefined) => {
+    if(!dateStr){
+     return ""
+    }
+    return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+  }
+  const handleTime = (e:Date|string) => {
+    let datePart = convertDateTime(new Date(e));
+    datePart = new Date(moment(datePart).format(YYYY_MM_DD_HH_MM));
+    setDateTimeToOtherLocale(datePart);
+  });
 
-    const onSelect: any = (event: any) => {
-      setTimeZone(event[0].value);
-    };
+  const startDateProp = {
+    selected: splitDate(selectedDate),
+    className: 'form-control w-100',
+    onChange: (d) => {
+      setSelectedDate(d.target.value);
+    },
+    disabled: false,
+    showTimeSelect: true,
+    dateFormat: MMMM_D_YYYY_H_MM_AA,
+    isDateTime: true,
+  };
 
-    const handleTime = (e: any) => {
-      let datePart: any = convertDateTime(new Date(e));
-      datePart = moment(datePart).format('YYYY-MM-DD HH:mm');
-      setDateTimeToOtherLocale(datePart);
-    };
-
-    const startDateProp = {
-      selected: selectedDate,
-      className: 'form-control w-100',
-      onChange: (d: any) => {
-        setSlectedDate(d.target.value);
-      },
-      disabled: false,
-      showTimeSelect: true,
-      isDateTime: true,
-    };
-
-    const startDatePropLocal = {
-      selected: dateTimeUSA,
-      className: 'form-control w-100',
-      disabled: false,
-      showTimeSelect: true,
-      dateFormat: 'MMMM d, yyyy h:mm aa',
-      isDateTime: true,
-    };
-
-    useEffect(() => {
-      if (timeZone) {
+  const startDatePropLocal = {
+    selected: splitDate(dateTimeUSA),
+    className: 'form-control w-100',
+    disabled: false,
+    showTimeSelect: true,
+    isDateTime: true,
+  };
+  useEffect(() => {
+    if (timeZone) {
+      if (selectedDate) {
         handleTime(selectedDate);
       }
-    }, [timeZone, selectedDate]);
+    }
+  }, [timeZone, selectedDate]);
   `;
 
   const htmlCode = `
