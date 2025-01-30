@@ -1,30 +1,14 @@
-import { PtgUiButton } from '@ptg-ui/react';
-import  { CARD_BUTTON }  from '@ptg-ui/react';
+import { ICardUiProps } from '../interfaces';
+import { PtgUiButton, CARD_BUTTON } from '@ptg-ui/react';
 
-interface CardUiProps {
-  image?: string;
-  title?: string;
-  description?: string;
-  buttonText?: string;
-  onClick?: () => void;
-  buttonColor?: string;
-  buttonWidth?: string;
-  children?: React.ReactNode;
-  imageWidth?: string;
-  imageHeight?: string;
-  backgroundColor?: string;
-  buttonTextColor?: string;
-}
 
-export function PtgUiCard(props: CardUiProps) {
+export function PtgUiCard(props: Readonly<ICardUiProps>) {
   const {
     image,
     title,
     description,
     buttonText,
-    onClick = () => {
-      return;
-    },
+    onClick = () => {return;},
     buttonColor = CARD_BUTTON.COLOR,
     buttonWidth = CARD_BUTTON.WIDTH,
     children,
@@ -40,12 +24,12 @@ export function PtgUiCard(props: CardUiProps) {
         <img
           src={image}
           className="card-img-top"
-          alt="..."
+          alt="card"
           style={{
             width: imageWidth,
             height: imageHeight,
-            maxWidth: '100%',
-            maxHeight:'200px',
+            maxWidth: CARD_BUTTON.MAX_WIDTH,
+            maxHeight:CARD_BUTTON.MAX_HEIGHT,
           }}
         />
       )}

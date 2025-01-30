@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PtgCard } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import "./cards.scss";
 export default function Card() {
-  const [showCode, setShowCode] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
   const componentCode = `
   import {PtgCard} from "@ptg-ui/ptg-ui-web-components-react"
   const cardDataObj:any= [{

@@ -12,6 +12,40 @@ export interface ICardItems {
   button: string;
 }
 
+// accordions
+export interface IAccordion {
+  title: string;
+  content: string;
+}
+// Calender 
+export interface IExampleOneProps {
+  showCodeOne: boolean;
+}
+export interface IExampleTwoProps {
+  showCodeTwo: boolean;
+}
+
+
+export interface IDateState {
+  startDate?: Date | null;
+  endDate?: Date | null;
+  dateRange?: Date | null;
+  errorMsg?:boolean
+}
+
+
+
+export  interface IDatePickerProps {
+  selected?: Date | null | string;
+  className?: string;
+  onChange?: (d: React.ChangeEvent<HTMLInputElement>) => void;
+  startDate?: Date|string;
+  endDate?: Date | null;
+  disabled?: boolean;
+}
+
+
+
 
 export interface IUserDetails {
   firstName: string;

@@ -1,22 +1,13 @@
-import './accordion.scss';
-
-import { useTranslation } from 'react-i18next';
-
+import { IPtgUiAccordionProps } from '../interfaces';
+import './Accordion.scss';
 /* eslint-disable-next-line */
-export interface PtgUiAccordionProps {
-  accordionItems: any;
-  handleToggle: any;
-  activeIndex: any;
-}
 
-export function PtgUiAccordion(props: PtgUiAccordionProps) {
-  const { t } = useTranslation();
+export function PtgUiAccordion(props: Readonly<IPtgUiAccordionProps>) {
   const { accordionItems, handleToggle, activeIndex } = props;
-
   return (
     <div className="accordion">
-      {accordionItems.map((item, index) => (
-        <div key={index} className="accordion-item">
+      {accordionItems?.map((item, index) => (
+        <div key={item?.title} className="accordion-item">
           <h2 className="accordion-header">
             <button
               className={`accordion-button shadow-sm p-3 bg-white rounded ${
@@ -29,7 +20,7 @@ export function PtgUiAccordion(props: PtgUiAccordionProps) {
               aria-controls={`collapse${index}`}
               onClick={() => handleToggle(index)}
             >
-              {t(item.title)}
+              {item?.title}
             </button>
           </h2>
           <div
@@ -40,7 +31,7 @@ export function PtgUiAccordion(props: PtgUiAccordionProps) {
             aria-labelledby={`heading${index}`}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">{t(item.content)}</div>
+            <div className="accordion-body">{item?.content}</div>
           </div>
         </div>
       ))}

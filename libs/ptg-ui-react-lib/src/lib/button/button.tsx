@@ -5,31 +5,11 @@
  * @Updated Manish Patidar
  *
  */
-import React from 'react';
+
 import './button.scss';
+import { IPtgUiButtonProps } from '../interfaces';
 
-interface PtgUiButtonProps {
-  variant?: string;
-  active?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  onClick?: any;
-  appearance?: any;
-  btnIconAlignment?: any;
-  hasbtnIconSlot?: any;
-  text?: string;
-  disabled?: boolean;
-  width?: string;
-  height?: string;
-  fontSize?: string;
-  fontWeight?: string;
-  textColor?: string;
-  backgroundColor?: string;
-  type?: any;
-  border?: string;
-}
-
-export function PtgUiButton(props: PtgUiButtonProps) {
+export function PtgUiButton(props: Readonly<IPtgUiButtonProps>) {
   const {
     appearance,
     btnIconAlignment,
@@ -47,7 +27,7 @@ export function PtgUiButton(props: PtgUiButtonProps) {
     type = 'button',
     border,
   } = props;
-
+// Note that the buttonStyle object is defined in the function body.
   const buttonStyle = {
     width: width,
     height: height,
@@ -63,7 +43,7 @@ export function PtgUiButton(props: PtgUiButtonProps) {
       style={buttonStyle}
       className={`btn ${appearance}`}
       type={type}
-      onClick={() => onClick() || ''}
+      onClick={onClick}
       disabled={disabled}
     >
       {btnIconAlignment === 'left' && hasbtnIconSlot && (
