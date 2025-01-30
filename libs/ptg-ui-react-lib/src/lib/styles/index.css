@@ -795,4 +795,76 @@ div[slot=btnIcon] svg {
   padding: 0px 4px;
 }
 
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-weight: bold;
+  color: #333;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.circle.active {
+  border-color: #007bff;
+  background-color: #007bff;
+  color: white;
+}
+
+.label {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  background-color: #ccc;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.stepper.vertical {
+  flex-direction: column;
+}
+
+.step.vertical {
+  flex-direction: row;
+}
+
+.line.vertical {
+  width: 2px;
+  height: 100px;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
 /*# sourceMappingURL=index.css.map */

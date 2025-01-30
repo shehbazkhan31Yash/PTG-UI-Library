@@ -43,3 +43,4 @@ export * from './lib/gridColumn/GridColumns';
 export * from './lib/gridRow/GridRow';
 export * from './lib/accordion/accordion';
 export * from './lib/constants/Constants';
+export * from './lib/multiStepForms/MultiStep';
