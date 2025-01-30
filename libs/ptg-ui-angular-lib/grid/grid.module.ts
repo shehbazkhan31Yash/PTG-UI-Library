@@ -7,21 +7,19 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GridRowComponent,GridColumnComponent } from './grid/grid.component';
+import {GridComponent } from './grid/grid.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    GridRowComponent,
-    GridColumnComponent
+    GridComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    GridRowComponent,
-    GridColumnComponent
+    GridComponent
   ]
 })
 export class GridModule { }

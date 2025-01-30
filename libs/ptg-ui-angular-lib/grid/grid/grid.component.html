@@ -1,3 +1,7 @@
-<div [class]="gridClass" class="mb-4">
-    <ng-content></ng-content>
+<div class="row" [ngClass]="rowClass">
+    <ng-container *ngFor="let column of columns">
+        <div class="mb-4" [class]="column.class" [ngClass]="columnClass">
+            <ng-container *ngTemplateOutlet="column.template"></ng-container>
+        </div>
+    </ng-container>
 </div>

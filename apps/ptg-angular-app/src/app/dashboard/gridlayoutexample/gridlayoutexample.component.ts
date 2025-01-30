@@ -3,19 +3,41 @@
 
 /**
  * @since April 2022
- * @author Bhanu Prakash Sharma
+ * @author Priyanka Jain
  * @Component ptg-ui-gridlayoutexample;
  * @description This component for grid layput example
 **/
 
-import { Component, OnInit } from '@angular/core';
-import { resources } from "../../../resource/resource";
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'ptg-ui-gridlayoutexample',
   templateUrl: './gridlayoutexample.component.html',
   styleUrls: ['./gridlayoutexample.component.scss']
 })
+
 export class GridlayoutexampleComponent {
-  resources = resources;
-  gridColData = { xl: 3 };
+  gridHeadingColumnClass = [{ md: 12 }];
+  gridExampleColumnClass = [{ xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }];
+  gridOffsetExampleColumnClass = [{ lg: 4, md: 4, sm: 12, xs: 12 }, { lg: 4, md: 4, sm: 12, xs: 12, offsetMd: 4, offsetSm: 0 }];
+  htmlOffsetCode = `
+  <ptg-ui-grid [columnClasses]="gridOffsetExampleColumnClass">
+            <ng-template>Your Column Template</ng-template></ptg-ui-grid>
+  `;
+  htmlCode = `
+  <ptg-ui-grid [columnClasses]="gridExampleColumnClass">
+            <ng-template>Your Column Template</ng-template></ptg-ui-grid>
+  `;
+  tsCode = `
+  import { Component } from '@angular/core';
+  @Component({
+  selector: 'ptg-ui-gridlayoutexample',
+  templateUrl: './gridlayoutexample.component.html',
+  styleUrls: ['./gridlayoutexample.component.scss']
+  })
+  export class GridlayoutexampleComponent {
+  gridExampleColumnClass = [{ xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }];
+  gridOffsetExampleColumnClass = [{ lg: 4, md: 4, sm: 12, xs: 12 }, { lg: 4, md: 4, sm: 12, xs: 12, offsetMd: 4, offsetSm: 0 }];
+  }
+  `
 }

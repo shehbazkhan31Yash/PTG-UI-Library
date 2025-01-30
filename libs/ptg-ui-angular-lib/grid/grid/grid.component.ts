@@ -8,10 +8,7 @@
  * @description This component for grid
  **/
 
-import {
-  Component,
-  Input
-} from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, Input, QueryList, TemplateRef } from '@angular/core';
 
 interface Grid {
   col?: number;
@@ -20,34 +17,48 @@ interface Grid {
   md?: number;
   lg?: number;
   xl?: number;
-}
-@Component({
-  selector: 'ptg-ui-grid-column',
-  templateUrl: './grid.component.html'
-})
-
-export class GridColumnComponent {
-  @Input() gridData: Grid = {};
-  gridClass = '';
-  ngOnInit() {
-    const gridKeys: (keyof Grid)[] = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
-    gridKeys.forEach(key => {
-      if (key in this.gridData) {
-        this.gridClass += ` col-${key}-${this.gridData[key]} `;
-      }
-    });
-  }
+  offsetXs?: number;
+  offsetSm?: number;
+  offsetMd?: number;
+  offsetLg?: number;
+  offsetXl?: number;
 }
 
-// Grid Row component
 @Component({
-  selector: 'ptg-ui-grid-row',
-  template: `
-    <div class="row">
-        <ng-content></ng-content>
-    </div>
-  `,
+  selector: 'ptg-ui-grid',
+  templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss']
 })
-export class GridRowComponent { }
+export class GridComponent implements AfterContentInit {
+  @Input() columnClasses: Grid[] = [];
+  @Input() columnClass = '';
+  @Input() rowClass = '';
+  @ContentChildren(TemplateRef) templates!: QueryList<TemplateRef<any>>;
+
+  columns: { class: string, template: TemplateRef<any> }[] = [];
+
+  ngAfterContentInit(): void {
+    this.columns = this.templates.toArray().map((template, index) => ({
+      class: this.generateClass(this.columnClasses[index]) || 'col',
+      template
+    }));
+  }
+
+  generateClass(obj: Grid): string {
+    let gridClass = '';
+    const gridKeys: (keyof Grid)[] = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
+    const offsetGridKeys: (keyof Grid)[] = ['offsetXs','offsetSm', 'offsetMd', 'offsetLg', 'offsetLg'];
+    gridKeys.forEach(key => {
+      if (key in obj) {
+        gridClass += (key == 'col') ? `col-${obj[key]} ` : `col-${key}-${obj[key]} `;
+      }
+    });
+    offsetGridKeys.forEach(key => {
+      if (key in obj) {
+        gridClass += `offset-${key.slice(6).toLowerCase()}-${obj[key]} `;
+      }
+    });
+    return gridClass;
+  }
+}
 

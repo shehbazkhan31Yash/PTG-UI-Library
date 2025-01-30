@@ -1,46 +1,14 @@
 <section class="bg-dark-primary rounded">
     <div class="container">
-        <ptg-ui-grid-row>
-            <ptg-ui-grid-column [gridData]="gridColData">
-                <div class="card">
-                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
-                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
-                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
-                    </div>
-                </div>
-            </ptg-ui-grid-column>
-            <ptg-ui-grid-column [gridData]="gridColData">
-                <div class="card">
-                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
-                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
-                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
-                    </div>
-                </div>
-            </ptg-ui-grid-column>
-            <ptg-ui-grid-column [gridData]="gridColData">
-                <div class="card">
-                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
-                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
-                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
-                    </div>
-                </div>
-            </ptg-ui-grid-column>
-        </ptg-ui-grid-row>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center mb-5">
+        <ptg-ui-grid [columnClasses]="gridHeadingColumnClass">
+            <ng-template>
                 <h3 class="text-black" [innerHTML]="'GRID_LAYOUT_EXAMPLE_HEADING' | translate"></h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+                <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+            </ng-template>
+        </ptg-ui-grid>
+        <hr class="css-yasiti" />
+        <ptg-ui-grid [columnClasses]="gridExampleColumnClass">
+            <ng-template>
                 <div class="card">
                     <img src="assets/images/img1.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -49,8 +17,8 @@
                         <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+            </ng-template>
+            <ng-template>
                 <div class="card">
                     <img src="assets/images/img1.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -59,8 +27,8 @@
                         <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+            </ng-template>
+            <ng-template>
                 <div class="card">
                     <img src="assets/images/img1.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -69,39 +37,21 @@
                         <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card">
-                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
-                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
-                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </ng-template>
+        </ptg-ui-grid>
     </div>
 </section>
 <section class="bg-image rounded">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center mb-5">
+        <ptg-ui-grid [columnClasses]="gridHeadingColumnClass">
+            <ng-template>
                 <h2 class="text-white" [innerHTML]="'GRID_LAYOUT_OFFSET_HEADING' | translate"></h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  mb-4 mb-md-0">
-                <div class="card">
-                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h3>
-                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
-                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  offset-md-4 offset-sm-0">
+                <ptg-ui-toggle-code [htmlCode]="htmlOffsetCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+            </ng-template>
+        </ptg-ui-grid>
+        <hr class="css-yasiti" />
+        <ptg-ui-grid [columnClasses]="gridOffsetExampleColumnClass">
+            <ng-template>
                 <div class="card">
                     <img src="assets/images/img1.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -110,7 +60,17 @@
                         <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
                     </div>
                 </div>
-            </div>
-        </div>
+            </ng-template>
+            <ng-template>
+                <div class="card">
+                    <img src="assets/images/img1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" [innerHTML]="'CARD_TITLE_TEXT' | translate"></h5>
+                        <p class="card-text" [innerHTML]="'ADD_SOME_QUICK_EX_TEXT' | translate"></p>
+                        <a href="#" class="btn btn-primary">{{'GO_SOME_WHERE_TEXT' | translate}}</a>
+                    </div>
+                </div>
+            </ng-template>
+        </ptg-ui-grid>
     </div>
 </section>
