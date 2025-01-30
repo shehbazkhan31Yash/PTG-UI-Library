@@ -8,40 +8,11 @@
 import React from 'react';
 import './login.scss';
 import { Link } from 'react-router-dom';
-import { PtgUiForgotPassword } from '../ForgotPassword/ForgotPassword';
+import { PtgUiForgotPassword } from '../ForgotPassword/forgotPassword';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';
 import PtgUiAlert from '../../alert/alert';
-
-interface PtgUiLoginProps {
-  emailLabel?: string;
-  passwordLabel?: string;
-  emailPlaceholder?: string;
-  passwordPlaceholder?: string;
-  loginButtonName?: string;
-  signupMsg?: string;
-  signupButtonName?: string;
-  msalButtonName?: string;
-  forgotPasswordLabel?: string;
-  imgPath?: string;
-  handleChange?: Function;
-  user?: IUser;
-  emailType?: string;
-  passwordType?: string;
-  isEmailValid?: boolean;
-  onLoginClick?: Function;
-  onMsalClick?: Function;
-  isForgotPassword?: boolean;
-  onForgotPasswordSubmit?: Function;
-  getForgetEmail?: Function;
-  errorMessage?: string;
-  successMessage?: string;
-}
-
-interface IUser {
-  email: string;
-  password: string;
-}
+import { PtgUiLoginProps } from '../../interfaces';
 
 export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
   constructor(props: PtgUiLoginProps) {
@@ -110,7 +81,7 @@ export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
                         value={user?.email}
                         onChange={handleChange}
                         className={`"w-100 form-control bg_0 ${
-                          isEmailValid === false ? 'border-danger' : ''
+                          !isEmailValid ? 'border-danger' : ''
                         }`}
                         name="email"
                         placeholder={emailPlaceholder}

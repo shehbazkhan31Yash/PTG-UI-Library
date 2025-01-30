@@ -1,8 +1,8 @@
-// Pagination 
+// Pagination
 export interface IBreadcrumb {
-    title: string;
-    link: string;
-  }
+  title: string;
+  link: string;
+}
 
 export interface ICardItems {
   id: number;
@@ -18,9 +18,29 @@ export interface IAccordion {
   content: string;
 }
 
+// login
+export interface ILogin {
+  email: string;
+  password: string;
+}
 
-  
-  
- 
+//signup
+export interface IUser {
+  username?: string;
+  email?: string;
+  gender?: string;
+  city?: string;
+  password?: string;
+  confirmPassword?: string;
+  error?: string | undefined | null;
+  disable?: boolean;
+}
 
-
+export interface IFormError {
+  username?: boolean;
+  email?: boolean;
+  gender?: boolean;
+  city?: boolean;
+  password?: boolean;
+  confirmPassword?: boolean;
+}

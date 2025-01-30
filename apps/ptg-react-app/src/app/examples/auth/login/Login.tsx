@@ -10,11 +10,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiLogin } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-
-interface ILogin {
-  email: string;
-  password: string;
-}
+import { ILogin } from '../../../interfaces';
 
 export function PtgLogin() {
   const { t } = useTranslation();

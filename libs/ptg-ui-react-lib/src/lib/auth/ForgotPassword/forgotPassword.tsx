@@ -13,29 +13,8 @@ import './forgotPassword.scss';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';
 import { PtgUiModal } from '../../modal/modal';
-
-interface IForgotPassword {
-  onForgotPasswordSubmit?: Function | undefined;
-  fPasswordEmail?: Function | undefined;
-  forgotPasswordLabel?: string | undefined;
-}
-
-interface IValues {
-  show: boolean;
-  email: string;
-  btnDisable: boolean;
-  showMessage: { show: boolean; type: string; message: string };
-}
-
-interface IFormErr {
-  email: boolean;
-  password: boolean;
-}
-
-interface IState {
-  values: IValues;
-  formErr: IFormErr;
-}
+import { FORGOT_PASSWORD_BTN_COLOR } from '../../constants/Constants';
+import { IForgotPassword, IState } from '../../interfaces';
 
 export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
   constructor(props: IForgotPassword) {
@@ -51,6 +30,11 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
     };
   }
   override render() {
+    const {
+      FORGOT_BTN_TEXT,
+      FORGOT_BTN_BACKGROUND,
+      FORGOT_BTN_BACKGROUND_GRAY,
+    } = FORGOT_PASSWORD_BTN_COLOR;
     const { onForgotPasswordSubmit, fPasswordEmail, forgotPasswordLabel } =
       this.props;
     const { values, formErr } = this.state;
@@ -159,8 +143,8 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
                     <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
                       <PtgUiButton
                         data-testid="handleSubmit"
-                        textColor={'#fff'}
-                        backgroundColor={'#052982'}
+                        textColor={FORGOT_BTN_TEXT}
+                        backgroundColor={FORGOT_BTN_BACKGROUND}
                         text="Forgot Password"
                         onClick={onForgotPasswordSubmit}
                         disabled={values.btnDisable}
@@ -170,8 +154,8 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
                       <PtgUiButton
                         data-testid="handleClose"
                         onClick={handleClose}
-                        textColor={'#fff'}
-                        backgroundColor={'gray'}
+                        textColor={FORGOT_BTN_TEXT}
+                        backgroundColor={FORGOT_BTN_BACKGROUND_GRAY}
                         text={'Cancel'}
                       />
                     </div>

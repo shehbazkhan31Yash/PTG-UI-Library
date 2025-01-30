@@ -10,61 +10,47 @@ import React from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiSignup } from '@ptg-ui/react';
-
-export interface PtgSignupProps {}
-
-interface IUser {
-  username?: string;
-  email?: string;
-  gender?: string;
-  city?: string;
-  password?: string;
-  error?: string | undefined | null;
-  disable?: boolean;
-}
-
-interface IFormErr {
-  username?: boolean;
-  email?: boolean;
-  gender?: boolean;
-  city?: boolean;
-  password?: boolean;
-}
-
-export function PtgSignup(props: PtgSignupProps) {
+import { IUser, IFormError } from '../../../interfaces';
+export function PtgSignup() {
   const [showCode, setShowCode] = useState(false);
   const [date, setDate] = useState<Date | null | string>(null);
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const [user, setUser] = useState<IUser>({
     username: '',
     email: '',
     gender: 'male',
     city: '',
     password: '',
+    confirmPassword: '',
     error: '',
     disable: true,
   });
-  const [formErr, setFormErr] = useState<IFormErr>({
+  const [formErr, setFormErr] = useState<IFormError>({
     username: false,
     email: false,
     gender: false,
     city: false,
     password: false,
+    confirmPassword: false,
   });
 
   //handle submit button enable and disable validation
   const isDisabled = (
     user: IUser,
     date: Date | null | string,
-    selectedCheck: boolean
+    selectedCheck: boolean,
+    formErr: IFormError
   ) => {
     if (
-      user.username &&
-      user.email &&
+      user?.username &&
+      user?.email &&
+      !formErr?.email &&
       date &&
-      user.city &&
-      user.gender &&
-      user.password &&
+      user?.city &&
+      user?.gender &&
+      user?.password &&
+      user?.confirmPassword &&
       selectedCheck
     ) {
       setUser({ ...user, disable: false });
@@ -77,47 +63,47 @@ export function PtgSignup(props: PtgSignupProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e?.target;
     validate(name, value);
-    isDisabled(
-      {
-        ...user,
-        [name]: value,
-      },
-      date,
-      selectedCheck
-    );
   };
 
   //handle field validation
   const validate = (fieldName: string, value: string) => {
     let disabled = false;
-    let formErr = false;
+    const formValue = value.trim();
     switch (fieldName) {
       case 'username':
-        if (value !== '') {
+        if (formValue === '') {
           disabled = true;
         }
         break;
       case 'email':
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
+        if (
+          formValue === '' || formValue
+            ? true
+            : false !== regexEmail.test(formValue)
+        ) {
+          if (!regexEmail.test(formValue)) {
+            disabled = true;
           }
         }
         break;
       case 'city':
-        if (value !== '') {
+        if (formValue === '') {
           disabled = true;
         }
         break;
       case 'gender':
-        if (value !== '') {
+        if (formValue === '') {
           disabled = true;
         }
         break;
       case 'password':
-        if (value !== '') {
+        if (formValue === '') {
+          disabled = true;
+        }
+        break;
+      case 'confirmPassword':
+        if (formValue === '') {
           disabled = true;
         }
         break;
@@ -125,31 +111,80 @@ export function PtgSignup(props: PtgSignupProps) {
         disabled = true;
       }
     }
+
     setFormErr({
-      [fieldName]: formErr,
+      ...formErr,
+      [fieldName]: disabled,
     });
+
+    isDisabled(
+      {
+        ...user,
+        [fieldName]: formValue,
+      },
+      date,
+      selectedCheck,
+      {
+        ...formErr,
+        [fieldName]: disabled,
+      }
+    );
   };
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const dateString = event?.target?.value;
     setDate(dateString || null);
-    isDisabled(user, dateString, selectedCheck);
+    isDisabled(user, dateString, selectedCheck, formErr);
   };
 
   //handle check box events
   const handleCheckChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCheck(event.target.checked);
-    isDisabled(user, date, event.target.checked);
+    isDisabled(user, date, event.target.checked, formErr);
   };
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    if (user?.password && user?.confirmPassword) {
+      if (user?.password !== user?.confirmPassword) {
+        setErrorMessage('Password and Confirm Password should be the same');
+      } else {
+        const validationError = validatePassword(user?.password);
+        setErrorMessage(validationError);
+      }
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000);
+    }
+  };
+
+  const validatePassword = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigits = /\d/.test(password);
+    const hasSpecialChars = /[!@#$%^&*]/.test(password);
+
+    if (password.length < minLength) {
+      return 'Password must be at least 8 characters long.';
+    }
+    if (!hasUpperCase) {
+      return 'Password must contain at least one uppercase letter.';
+    }
+    if (!hasLowerCase) {
+      return 'Password must contain at least one lowercase letter.';
+    }
+    if (!hasDigits) {
+      return 'Password must contain at least one digit.';
+    }
+    if (!hasSpecialChars) {
+      return 'Password must contain at least one special character.';
+    }
+
+    return ''; // No errors
+  };
 
   const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
+    setShowCode(!showCode);
   };
 
   const componentCode = `
@@ -190,6 +225,8 @@ export function PtgSignup(props: PtgSignupProps) {
           date={date}
           selectedCheck={selectedCheck}
           onSubmit={onSubmit}
+          errorMessage={errorMessage}
+          successMessage={''}
         />
       </div>
     </React.Fragment>

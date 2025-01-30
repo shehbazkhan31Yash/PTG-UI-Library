@@ -1,11 +1,17 @@
 export interface ICardButton {
-    TEXT_COLOR: string;
-    COLOR: string;
-    WIDTH: string;
+  TEXT_COLOR: string;
+  COLOR: string;
+  WIDTH: string;
 }
 
 export const CARD_BUTTON: ICardButton = {
-     TEXT_COLOR: '#fff',
-     COLOR: '#052982',
-     WIDTH: '165px',
+  TEXT_COLOR: '#fff',
+  COLOR: '#052982',
+  WIDTH: '165px',
+};
+
+export const FORGOT_PASSWORD_BTN_COLOR = {
+  FORGOT_BTN_TEXT: '#fff',
+  FORGOT_BTN_BACKGROUND: '#052982',
+  FORGOT_BTN_BACKGROUND_GRAY: '#052982',
 };

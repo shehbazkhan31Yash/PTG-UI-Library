@@ -6,36 +6,21 @@
  */
 
 import './alert.module.scss';
-import { useEffect, useState } from 'react';
-/* eslint-disable-next-line */
-export interface AlertProps {
-  message?: any;
-  type?: any;
-}
+import { AlertProps } from '../interfaces';
 
 const defaultProps: AlertProps = {
   type: 'danger',
 };
 export function PtgUiAlert({ type, message }: AlertProps) {
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShow(false);
-    }, 4000);
-  }, []);
-
   return (
     <div>
-      {show && (
-        <div
-          className={`alert alert-${type}`}
-          role="alert"
-          style={{ padding: 5, fontSize: 14 }}
-        >
-          {message}
-        </div>
-      )}
+      <div
+        className={`alert alert-${type}`}
+        role="alert"
+        style={{ padding: 5, fontSize: 14 }}
+      >
+        {message}
+      </div>
     </div>
   );
 }

@@ -12,39 +12,10 @@ import PtgUiButton from '../../button/button';
 import PtgUiCalendar from '../../calendar/calendar';
 import PtgUiCheckbox from '../../checks/checks';
 import PtgUiInput from '../../input/input';
-import PtgUiLoading from '../../loading/loading';
 import PtgUiRadio from '../../radio/radio';
 import PtgUiSelect from '../../select/select';
-
-interface IUser {
-  username?: string;
-  email?: string;
-  gender?: string;
-  city?: string;
-  password?: string;
-  error?: string | undefined | null;
-  disable?: boolean;
-}
-
-interface IFormErr {
-  username?: boolean;
-  email?: boolean;
-  gender?: boolean;
-  city?: boolean;
-  password?: boolean;
-}
-
-interface PtgUiSignupProps {
-  handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  user?: IUser;
-  formErr?: IFormErr;
-  isDisabled: Function;
-  date?: Date | null | string;
-  selectedCheck?: boolean;
-  onSubmit?: Function;
-}
+import PtgUiAlert from '../../alert/alert';
+import { PtgUiSignupProps } from '../../interfaces';
 
 export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
   constructor(props: PtgUiSignupProps) {
@@ -61,12 +32,22 @@ export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
       handleDateChange,
       handleCheckChange,
       onSubmit,
+      errorMessage,
+      successMessage,
     } = this.props;
 
     return (
       <div className="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
         <div className="signup-container">
           <div className="signup-form-wrapper">
+            <div className="form-group">
+              {errorMessage && (
+                <PtgUiAlert type={'danger'} message={errorMessage} />
+              )}
+              {successMessage && (
+                <PtgUiAlert type={'success'} message={successMessage} />
+              )}
+            </div>
             <div className="form-group">
               <div className="text-center mb-3">
                 <h3>REGISTRATION</h3>
@@ -206,7 +187,33 @@ export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
                             //onBlur={user.password === '' ? handleBlur : null}
                           />
                         </div>
+                        <div className="form-group required mb-2">
+                          <label
+                            htmlFor="confirmPassword"
+                            tabIndex={0}
+                            aria-label="confirmPassword"
+                          >
+                            Confirm Password
+                          </label>
+                          <PtgUiInput
+                            type="password"
+                            onChange={handleChange}
+                            value={user?.confirmPassword}
+                            className={`w-100 form-control bg_0 ${
+                              formErr?.confirmPassword ? 'border-danger' : ''
+                            }`}
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Enter Confirm Password"
+                            //onBlur={user.password === '' ? handleBlur : null}
+                          />
+                        </div>
                       </div>
+                    </div>
+                    <div className="mb-2 pwd-warning">
+                      Password with at least 8 characters, including uppercase
+                      letters, lowercase letters, numbers, and special
+                      characters.
                     </div>
                     <div className="row">
                       <div className="col-12">
