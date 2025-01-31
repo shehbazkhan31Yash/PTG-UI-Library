@@ -4,7 +4,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import { PtgUiButton } from '@ptg-ui/react';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import { BUTTON_WIDTH_110, BUTTON_WIDTH_200, BUTTON_BACKGROUND_COLOR, BUTTON_COLOR, BUTTON_FONT_SIZE, BUTTON_VARIANT, BUTTON_WIDTH_60} from '@ptg-react-app/constants/Constant';
+import {WIDTH_110, WIDTH_200, BUTTON_BACKGROUND_COLOR, COLOR_WHITE, FONT_SIZE_12, BUTTON_VARIANT, WIDTH_60} from '@ptg-react-app/constants/Constant';
 
 export default function Button() {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -177,8 +177,8 @@ export default function Button() {
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="left"
-                width={BUTTON_WIDTH_110}
-                fontSize={BUTTON_FONT_SIZE}
+                width={WIDTH_110}
+                fontSize={FONT_SIZE_12}
                 hasbtnIconSlot={true}
                 disabled={false}
               >
@@ -193,8 +193,8 @@ export default function Button() {
                 data-testid="openButton"
                 appearance="primary"
                 btnIconAlignment="right"
-                width={BUTTON_WIDTH_110}
-                fontSize={BUTTON_FONT_SIZE}
+                width={WIDTH_110}
+                fontSize={FONT_SIZE_12}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -206,8 +206,8 @@ export default function Button() {
               <PtgUiButton
                 data-testid="openButton"
                 appearance="secondary"
-                width={BUTTON_WIDTH_60}
-                fontSize={BUTTON_FONT_SIZE}
+                width={WIDTH_60}
+                fontSize={FONT_SIZE_12}
                 hasbtnIconSlot={true}
               >
                 <div className="btn-icon">+</div>
@@ -217,9 +217,9 @@ export default function Button() {
               <h6>{t('CUSTOM_BUTTON')}</h6>
               <PtgUiButton
                 text="Click Here"
-                textColor={BUTTON_COLOR}
+                textColor={COLOR_WHITE}
                 backgroundColor={BUTTON_BACKGROUND_COLOR}
-                width={BUTTON_WIDTH_200}
+                width={WIDTH_200}
               />
             </div>
           </div>
