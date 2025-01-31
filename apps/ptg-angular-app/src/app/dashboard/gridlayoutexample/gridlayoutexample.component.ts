@@ -30,11 +30,13 @@ export class GridlayoutexampleComponent {
   `;
   tsCode = `
   import { Component } from '@angular/core';
+
   @Component({
   selector: 'ptg-ui-gridlayoutexample',
   templateUrl: './gridlayoutexample.component.html',
   styleUrls: ['./gridlayoutexample.component.scss']
   })
+  
   export class GridlayoutexampleComponent {
   gridExampleColumnClass = [{ xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }];
   gridOffsetExampleColumnClass = [{ lg: 4, md: 4, sm: 12, xs: 12 }, { lg: 4, md: 4, sm: 12, xs: 12, offsetMd: 4, offsetSm: 0 }];

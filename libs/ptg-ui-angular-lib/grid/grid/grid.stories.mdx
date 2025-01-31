@@ -1,92 +1,59 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as CardComponents from './card.stories.ts';
+import * as GridComponents from './grid.stories.ts';
 
-import { CardComponent } from './card.component';
+import { GridComponent } from './grid.component';
 
 <Meta
-  title="Component/CardComponent/CardComponentDocs"
-  component={CardComponent}
+  title="Component/GridComponent/GridComponentDocs"
+  component={GridComponent}
 />
 
-# Card Component
+# Grid Component
 
 ---
 
-A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+Grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth explanation for how the grid system comes together.
 
-We can import the button tag using the following importation :
+
+We can import the grid layout tag using the following importation :
 
 ```
-    import { CardModule } from '@ptg-ui/angular/card'
+    import { GridModule } from '@ptg-ui/angular/grid'
 ```
 
 Types of controls supported by card:
 
-- title
-- content
-- footer
-- src
-- cardClass
-- cardHeaderClass
-- cardBodyClass
-- cardFooterClass
-- Kitchen Sink
+- columnClasses
+- columnClass
+- rowClass
 
 ## Quick Start
 
-we can create a card using the following HTML Tag:
+we can create a grid layout using the following HTML Tag:
 
 ```
-<ptg-ui-card [cardObj]="cardObj">
-          </ptg-ui-card>
+<ptg-ui-grid [columnClasses]="gridOffsetExampleColumnClass">
+            <ng-template>Your Column Template</ng-template></ptg-ui-grid>
 
 ```
 
 Following are some controls with their explanation :
 
-1] title , subtitle ,content:
+1] columnClasses , columnClass ,rowClass:
 
-The title , subtite and content are title ,subtitle and description of card respectively.
+ A]columnClasses : grid system can adapt across all six default breakpoints, and any breakpoints you customize. The six default grid tiers are as follow:
 
-A] title : <Canvas><Story id="component-cardcomponent--primary" /></Canvas>  
-B] subtitle : <Canvas><Story id="component-cardcomponent--subtitle"/></Canvas>
+Extra small (xs)
+Small (sm)
+Medium (md)
+Large (lg)
+Extra large (xl)
 
-2] Image :
+User need to send count for all these breakpoints also can provide offset if require. 
+Number of template will be same as column count.
+B] columnClass :  User can send any custom class for column of grid.
 
-To show image for the card user need to pass src of the image :
+B] rowClass :  User can send any custom class for row of grid.
+<Canvas><Story id="component-gridcomponent--primary"/><ng-template>Your Column Template</ng-template></Canvas>  
 
-<Canvas>
-  <Story id="component-cardcomponent--image" />
-</Canvas>
-
-3] Footer :
-
-Add footer within a card.
-
-<Canvas>
-  <Story id="component-cardcomponent--footer" />
-</Canvas>
-
-4] Classes :
-
-User can pass classes to card, header,body and footer in the card.
-
-<Canvas>
-  <Story id="component-cardcomponent--classes" />
-</Canvas>
-
-5] Kitchen Sink :
-Mix and match multiple content types to create the card you need, or throw everything in there.
-For example user can write multiple button within card using their own html.
-
-```
-<ptg-ui-card [cardObj]="cardObj">
- <ul class="list-group list-group-flush">
-   <li class="list-group-item">An item</li>
-   <li class="list-group-item">A second item</li>
-   <li class="list-group-item">A third item</li>
- </ul>
- </ptg-ui-card>
-
-```

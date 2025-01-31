@@ -26,13 +26,13 @@ interface Grid {
 
 @Component({
   selector: 'ptg-ui-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  templateUrl: './grid.component.html'
 })
+
 export class GridComponent implements AfterContentInit {
   @Input() columnClasses: Grid[] = [];
-  @Input() columnClass = '';
-  @Input() rowClass = '';
+  @Input() columnClass?: string = '';
+  @Input() rowClass?: string = '';
   @ContentChildren(TemplateRef) templates!: QueryList<TemplateRef<any>>;
 
   columns: { class: string, template: TemplateRef<any> }[] = [];
@@ -47,7 +47,7 @@ export class GridComponent implements AfterContentInit {
   generateClass(obj: Grid): string {
     let gridClass = '';
     const gridKeys: (keyof Grid)[] = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
-    const offsetGridKeys: (keyof Grid)[] = ['offsetXs','offsetSm', 'offsetMd', 'offsetLg', 'offsetLg'];
+    const offsetGridKeys: (keyof Grid)[] = ['offsetXs', 'offsetSm', 'offsetMd', 'offsetLg', 'offsetLg'];
     gridKeys.forEach(key => {
       if (key in obj) {
         gridClass += (key == 'col') ? `col-${obj[key]} ` : `col-${key}-${obj[key]} `;
