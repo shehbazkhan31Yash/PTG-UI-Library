@@ -1,8 +1,8 @@
-// Pagination 
+// Pagination
 export interface IBreadcrumb {
-    title: string;
-    link: string;
-  }
+  title: string;
+  link: string;
+}
 
 export interface ICardItems {
   id: number;
@@ -44,9 +44,13 @@ export  interface IDatePickerProps {
   disabled?: boolean;
 }
 
+// login
+export interface ILogin {
+  email: string;
+  password: string;
+}
 
-
-
+//MultiStepForm
 export interface IUserDetails {
   firstName: string;
   lastName: string;
@@ -68,6 +72,7 @@ export interface IUserDetails {
   cardHolder: string;
 }
 
+//MultiStepForm
 export interface IUserErrors {
   firstName: boolean;
   lastName: boolean;
@@ -89,9 +94,23 @@ export interface IUserErrors {
   cardHolder: boolean;
 }
 
+//signup
+export interface IUser {
+  username?: string;
+  email?: string;
+  gender?: string;
+  city?: string;
+  password?: string;
+  confirmPassword?: string;
+  error?: string | undefined | null;
+  disable?: boolean;
+}
 
-  
-  
- 
-
-
+export interface IFormError {
+  username?: boolean;
+  email?: boolean;
+  gender?: boolean;
+  city?: boolean;
+  password?: boolean;
+  confirmPassword?: boolean;
+}

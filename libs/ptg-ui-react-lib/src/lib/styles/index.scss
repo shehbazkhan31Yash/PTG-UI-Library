@@ -1,19 +1,19 @@
-@use './variables';
-@use './react-datepicker';
-@use './react-web-datepicker';
-@use './tabs';
-@use '../accordion/accordion.scss';
-@use '../breadcrumbs/breadcrumbs.scss';
-@use '../button/button.scss';
-@use '../auth/Login/login.scss';
-@use '../auth/Signup/signup.scss';
-@use '../auth/ForgotPassword/forgotPassword.scss';
-@use '../carousel/carousel.scss';
-@use '../pagination/pagination.scss';
-@use '../MultiSelect/MultiSelect.scss';
-@use '../modal/modal.scss';
-@use '../../common/Stepper.scss';
+@import './variables';
+@import './react-datepicker';
+@import './react-web-datepicker';
+@import './tabs';
+@import '../accordion/accordion.scss';
+@import '../breadcrumbs/breadcrumbs.scss';
+@import '../button/button.scss';
+@import '../auth/Login/login.scss';
+@import '../auth/Signup/signup.scss';
+@import '../auth/ForgotPassword/forgotPassword.scss';
+@import '../carousel/carousel.scss';
+@import '../pagination/pagination.scss';
+@import '../MultiSelect/MultiSelect.scss';
+@import '../modal/modal.scss';
+@import '../../common/Stepper.scss';
 
 // fontawesome style
-@import '~@fortawesome/fontawesome-free/css/all.css';
-@import '@nosferatu500/react-sortable-tree/style.css';
+// @import '~@fortawesome/fontawesome-free/css/all.css';
+// @import '@nosferatu500/react-sortable-tree/style.css';
