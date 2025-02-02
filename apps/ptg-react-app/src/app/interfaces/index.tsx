@@ -114,3 +114,7 @@ export interface IFormError {
   password?: boolean;
   confirmPassword?: boolean;
 }
+
+export interface IStep {
+  label: string; 
+}

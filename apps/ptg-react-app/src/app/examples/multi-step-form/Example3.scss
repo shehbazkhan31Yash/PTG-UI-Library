@@ -1,97 +1,97 @@
 @import '../../styles/variables';
 
-.MuiStepIcon-completed,.MuiStepIcon-active{
-    color: $main !important;
+.MuiStepIcon-completed,
+.MuiStepIcon-active {
+  color: $main !important;
 }
 .MuiStepIcon-root.Mui-error {
-    color: $error !important;
+  color: $error !important;
 }
-.stepper-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
 .stepper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .step {
-    display: flex;
-    border-radius: 4px;
-    flex: 1;
-    text-align: center;
-    position: relative;
+  display: flex;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
+  position: relative;
 }
 
 .circle {
-margin: 1rem;
-width: 25px;
-height: 25px;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color:#000;
-color:white;
-transition: border-color 0.3s, background-color 0.3s;
+  margin: 1rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $second;
+  color: white;
+  transition: border-color 0.3s, background-color 0.3s;
 
-
-&.active {
+  &.active {
     border-color: #007bff; // Change this to your active color
-    background-color: #007bff; // Change this to your active color
+    background-color: #000;// Change this to your active color
     color: white;
-    }
+  }
 }
-  .label {
-    border-color: #bdbdbd;
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.875rem;
-    color:  #bdbdbd;
+.label {
+  border-color: #bdbdbd;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #bdbdbd;
 
-    &.active {
-        color: #000;
-    }
+  &.active {
+    color: #000;
   }
-  
-  .line {
-    color:#000;
-    position: absolute;
-    top: 40px; // Adjust to position the line correctly
-    left: 15%;
-    transform: translateX(-50%);
-  }
-  
-  // Vertical orientation styles
-  .stepper.vertical {
-    flex-direction: column; // Stack steps vertically
-  }
-  
-  .step.vertical {
-    flex-direction: row; // Align circle and label horizontally
-  }
-  
-  .line.vertical {
-    min-height: 24px;
-    border-left: 1px solid black;
-    width: 2px; // Make the line vertical
-    display: block;
-    border-color: #bdbdbd;
-    // height: 100px; // Adjust the height as needed
-    // top: 50%; // Center the line vertically
-    // left: 20px; // Position the line to the left of the circle
-    // transform: translateY(-50%); // Center the line vertically
-  }
+}
 
-  /* Styles for vertical orientation */
-  .stepper.vertical {
-    flex-direction: column;
-  }
-  
-  .step.vertical {
-    margin-bottom: 10px; /* Add some space between steps in vertical orientation */
-  }
+.line {
+  color: #000;
+  position: absolute;
+  top: 40px; // Adjust to position the line correctly
+  left: 15%;
+  transform: translateX(-50%);
+}
+
+// Vertical orientation styles
+.stepper.vertical {
+  flex-direction: column; // Stack steps vertically
+}
+
+.step.vertical {
+  flex-direction: row; // Align circle and label horizontally
+}
+
+.line.vertical {
+  min-height: 24px;
+  border-left: 1px solid black;
+  width: 2px; // Make the line vertical
+  display: block;
+  border-color: #bdbdbd;
+  // height: 100px; // Adjust the height as needed
+  // top: 50%; // Center the line vertically
+  // left: 20px; // Position the line to the left of the circle
+  // transform: translateY(-50%); // Center the line vertically
+}
+
+/* Styles for vertical orientation */
+.stepper.vertical {
+  flex-direction: column;
+}
+
+.step.vertical {
+  margin-bottom: 10px; /* Add some space between steps in vertical orientation */
+}

@@ -23,34 +23,34 @@ export class PtgUiThirdStep extends React.Component<
       isDisabled: true,
     };
   }
-  override componentDidMount(): void {
-    this.updateButtonState();
-  }
+  // override componentDidMount(): void {
+  //   this.updateButtonState();
+  // }
 
-  override componentDidUpdate(prevProps: IPtgUiThirdStepProps) {
-    if (
-      prevProps.details !== this.props.details ||
-      prevProps.error !== this.props.error
-    ) {
-      this.updateButtonState();
-    }
-  }
+  // override componentDidUpdate(prevProps: IPtgUiThirdStepProps) {
+  //   if (
+  //     prevProps.details !== this.props.details ||
+  //     prevProps.error !== this.props.error
+  //   ) {
+  //     this.updateButtonState();
+  //   }
+  // }
 
-  updateButtonState = () => {
-    const { details, error } = this.props;
-    if (details && error) {
-      const ButtonDisabled = !(
-        details.cardType &&
-        details.cardNumber &&
-        !error.cardNumber &&
-        details.cvc &&
-        !error.cvc &&
-        details.expiration &&
-        details.cardHolder
-      );
-      this.setState({ isDisabled: ButtonDisabled });
-    }
-  };
+  // updateButtonState = () => {
+  //   const { details, error } = this.props;
+  //   if (details && error) {
+  //     const ButtonDisabled = !(
+  //       details.cardType &&
+  //       details.cardNumber &&
+  //       !error.cardNumber &&
+  //       details.cvc &&
+  //       !error.cvc &&
+  //       details.expiration &&
+  //       details.cardHolder
+  //     );
+  //     this.setState({ isDisabled: ButtonDisabled });
+  //   }
+  // };
 
   override render() {
     const { showNext, handleChange, details, error, handleBlur, showPrevious } =
@@ -133,7 +133,7 @@ export class PtgUiThirdStep extends React.Component<
             onBlur={handleBlur}
           />
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6 col-sm-12 mt-2">
             <PtgUiButton
               className="w-100"
@@ -157,7 +157,7 @@ export class PtgUiThirdStep extends React.Component<
               {'NEXT'}
             </PtgUiButton>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -4,7 +4,7 @@ import './Example3.scss';
 import { PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { IUserDetails, IUserErrors } from '../../interfaces/index';
+import { IUserDetails, IUserErrors, IStep } from '../../interfaces/index';
 import { PtgUiMultiStep } from '@ptg-ui/react';
 import {
   SALUTATION_LIST,
@@ -12,9 +12,21 @@ import {
   STATE_LIST,
   COUNTRY_LIST,
 } from '../../mock/mocks';
+import { PtgUiFirstStep } from '@ptg-react-libs/multiStepForms/FirstStep';
+import { PtgUiSecondStep } from '@ptg-react-libs/multiStepForms/SecondStep';
+import { PtgUiThirdStep } from '@ptg-react-libs/multiStepForms/ThirdStep';
+import { PtgUiFinalStep } from '@ptg-react-libs/multiStepForms/FinalStep';
 const Example3 = () => {
   const { t } = useTranslation();
-  const [step, setStep] = useState(0);
+
+  interface IPtgUiMutliStepProps {
+    details?: IUserDetails;
+    error?: IUserDetails;
+    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; 
+    handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void; 
+    resetForm?: () => void; 
+    submitForm?: () => void;
+  }
   const [details, setDetails] = useState<IUserDetails>({
     firstName: '',
     lastName: '',
@@ -65,10 +77,9 @@ const Example3 = () => {
       setShowCodeOne(false);
     }
   };
-
   // reset Form
   const resetForm = () => {
-    setStep(0);
+    // setStepCount(0);
     setDetails({
       firstName: '',
       lastName: '',
@@ -90,13 +101,11 @@ const Example3 = () => {
       cardHolder: '',
     });
   };
-
   // submit form
   const submitForm = () => {
     console.log({ details });
     resetForm();
   };
-
   // on blur method
   const handleBlur = (event: any) => {
     const { name, value } = event.target;
@@ -105,7 +114,6 @@ const Example3 = () => {
     }
     validate(name, value);
   };
-
   // validating different fields
   const validate = (field: any, value: any) => {
     let formError = error;
@@ -185,16 +193,153 @@ const Example3 = () => {
     }
     setError(formError);
   };
-
   // handleChange
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setDetails({ ...details, [name]: value });
   };
 
-  const componentCode = ` `;
+  const componentCode = ` 
+   const [details, setDetails] = useState<IUserDetails>({
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    greeting: '',
+    gender: '',
+    phone: '',
+    zipCode: '',
+    state: '',
+    homeAddress: '',
+    country: '',
+    cardType: '',
+    cardNumber: '',
+    cvc: '',
+    expiration: '',
+    cardHolder: '',
+  });
+  const [error, setError] = useState<any>({
+    firstName: false,
+    lastName: false,
+    userName: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+    greeting: false,
+    gender: false,
+    phone: false,
+    zipCode: false,
+    state: false,
+    homeAddress: false,
+    country: false,
+    cardType: false,
+    cardNumber: false,
+    cvc: false,
+    expiration: false,
+    cardHolder: false,
+  });
 
-  const htmlCode = `  `;
+  const stepperSteps: IStep[] = [
+    { label: 'Account Info' },
+    { label: 'Personal Information' },
+    { label: 'Payment Details' },
+    { label: 'Confirm Your Details' },
+  ];
+  
+  const allSteps: React.ReactElement<IPtgUiMutliStepProps>[] = [
+    <PtgUiFirstStep
+      details={details}
+      handleChange={handleChange}
+      error={error}
+      handleBlur={handleBlur}
+    />,
+    <PtgUiSecondStep
+      details={details}
+      handleChange={handleChange}
+      error={error}
+      handleBlur={handleBlur}
+    />,
+    <PtgUiThirdStep
+      details={details}
+      error={error}
+      handleBlur={handleBlur}
+      handleChange={handleChange}
+    />,
+    <PtgUiFinalStep
+      details={details}
+    />,
+  ];
+
+  const submitForm = () => {
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setDetails({
+      firstName: '',
+      lastName: '',
+      userName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      greeting: '',
+      gender: '',
+      phone: '',
+      zipCode: '',
+      state: '',
+      homeAddress: '',
+      country: '',
+      cardType: '',
+      cardNumber: '',
+      cvc: '',
+      expiration: '',
+      cardHolder: '',
+    });
+  };
+`;
+
+  const htmlCode = ` 
+  <PtgUiMultiStep
+    allSteps={allSteps}
+    stepperSteps={stepperSteps}
+    details={details}
+    error={error}
+    resetForm={resetForm}
+    submitForm={submitForm}
+  /> `;
+  
+  const stepperSteps: IStep[] = [
+    { label: 'Account Info' },
+    { label: 'Personal Information' },
+    { label: 'Payment Details' },
+    { label: 'Confirm Your Details' },
+  ];
+
+  const allSteps: React.ReactElement<IPtgUiMutliStepProps>[] = [
+    <PtgUiFirstStep
+      details={details}
+      handleChange={handleChange}
+      error={error}
+      handleBlur={handleBlur}
+    />,
+    <PtgUiSecondStep
+      details={details}
+      handleChange={handleChange}
+      error={error}
+      handleBlur={handleBlur}
+    />,
+    <PtgUiThirdStep
+      details={details}
+      error={error}
+      handleBlur={handleBlur}
+      handleChange={handleChange}
+    />,
+    <PtgUiFinalStep
+      details={details}
+    />,
+  ];
 
   return (
     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
@@ -204,7 +349,7 @@ const Example3 = () => {
             {t('MULTI_STEP_FORM')}
           </h5>
         </PtgUiGridColumn>
-        <PtgUiGridColumn xl={2} lg={2} md={2} sm={2}  className={'mt-1 mb-2'}>
+        <PtgUiGridColumn xl={2} lg={2} md={2} sm={2} className={'mt-1 mb-2'}>
           <CodeIcon
             onClick={ShowExampleCode}
             fontSize="large"
@@ -215,10 +360,10 @@ const Example3 = () => {
       </PtgUiRow>
       {!showCodeOne ? (
         <PtgUiMultiStep
+          allSteps={allSteps}
+          stepperSteps={stepperSteps}
           details={details}
           error={error}
-          handleChange={handleChange}
-          handleBlur={handleBlur}
           resetForm={resetForm}
           submitForm={submitForm}
         />

@@ -30,39 +30,39 @@ export class PtgUiSecondStep extends React.Component<IPtgUiSecondStepProps, PtgU
     };
   }
 
-  override componentDidMount(): void {
-    this.updateButtonState();
-  }
+  // override componentDidMount(): void {
+  //   this.updateButtonState();
+  // }
 
-  override componentDidUpdate(prevProps: IPtgUiSecondStepProps) {
-    if (
-      prevProps.details !== this.props.details ||
-      prevProps.error !== this.props.error
-    ) {
-      this.updateButtonState();
-    }
-  }
+  // override componentDidUpdate(prevProps: IPtgUiSecondStepProps) {
+  //   if (
+  //     prevProps.details !== this.props.details ||
+  //     prevProps.error !== this.props.error
+  //   ) {
+  //     this.updateButtonState();
+  //   }
+  // }
 
-  updateButtonState = () => {
-    const { details, error } = this.props;
-    if (details && error) {
-      const ButtonDisabled =
-        !(details.greeting.length &&
-            details.gender.length &&
-            details.firstName &&
-            details.lastName &&
-            details.email &&
-            !error.email &&
-            details.phone &&
-            !error.phone &&
-            details.zipCode &&
-            !error.zipCode &&
-            details.state &&
-            details.homeAddress &&
-            details.country);
-      this.setState({isDisabled: ButtonDisabled});
-    }
-  };
+  // updateButtonState = () => {
+  //   const { details, error } = this.props;
+  //   if (details && error) {
+  //     const ButtonDisabled =
+  //       !(details.greeting.length &&
+  //           details.gender.length &&
+  //           details.firstName &&
+  //           details.lastName &&
+  //           details.email &&
+  //           !error.email &&
+  //           details.phone &&
+  //           !error.phone &&
+  //           details.zipCode &&
+  //           !error.zipCode &&
+  //           details.state &&
+  //           details.homeAddress &&
+  //           details.country);
+  //     this.setState({isDisabled: ButtonDisabled});
+  //   }
+  // };
   override render() {
     const { showNext, handleChange, details, error, handleBlur, showPrevious } = this.props;
     const { isDisabled } = this.state;
@@ -222,7 +222,7 @@ export class PtgUiSecondStep extends React.Component<IPtgUiSecondStepProps, PtgU
             onChange={handleChange}
           />
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6 col-sm-12 mt-2">
             <PtgUiButton
               className="w-100"
@@ -246,7 +246,7 @@ export class PtgUiSecondStep extends React.Component<IPtgUiSecondStepProps, PtgU
               {'NEXT'}
             </PtgUiButton>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

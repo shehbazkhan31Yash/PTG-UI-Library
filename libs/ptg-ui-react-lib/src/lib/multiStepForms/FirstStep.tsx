@@ -1,7 +1,7 @@
 import PtgUiButton from '../button/button';
 import {PtgUiInput} from '@ptg-react-libs/input/input';
 import React from 'react';
-import { IUserDetails, PtgUiMultiStepState } from '../interfaces/index';
+import { IUserDetails, PtgUiMultiStepState, IPtgUiMutliStepProps } from '../interfaces/index';
 
 interface PtgUiFirstStepProps {
   showNext?: () => void;
@@ -22,32 +22,32 @@ export class PtgUiFirstStep extends React.Component<
     };
   }
 
-  override componentDidMount(): void {
-    this.updateButtonState();
-  }
+  // override componentDidMount(): void {
+  //   this.updateButtonState();
+  // }
 
-  override componentDidUpdate(prevProps: PtgUiFirstStepProps) {
-    if (
-      prevProps.details !== this.props.details ||
-      prevProps.error !== this.props.error
-    ) {
-      this.updateButtonState();
-    }
-  }
+  // override componentDidUpdate(prevProps: PtgUiFirstStepProps) {
+  //   if (
+  //     prevProps.details !== this.props.details ||
+  //     prevProps.error !== this.props.error
+  //   ) {
+  //     // this.updateButtonState();
+  //   }
+  // }
 
-  updateButtonState = () => {
-    const { details, error } = this.props;
-    if (details) {
-      const ButtonDisabled =
-        !(details?.userName?.length > 0 &&
-        details?.password?.length > 0 &&
-        details?.confirmPassword?.length > 0 &&
-        !error?.userName &&
-        !error?.password &&
-        !error?.confirmPassword);
-      this.setState({isDisabled: ButtonDisabled});
-    }
-  };
+  // updateButtonState = () => {
+  //   const { details, error } = this.props;
+  //   if (details) {
+  //     const ButtonDisabled =
+  //       !(details?.userName?.length > 0 &&
+  //       details?.password?.length > 0 &&
+  //       details?.confirmPassword?.length > 0 &&
+  //       !error?.userName &&
+  //       !error?.password &&
+  //       !error?.confirmPassword);
+  //     this.setState({isDisabled: ButtonDisabled});
+  //   }
+  // };
 
   override render() {
     const { showNext, handleChange, details, error, handleBlur } = this.props;
@@ -101,17 +101,6 @@ export class PtgUiFirstStep extends React.Component<
             </span>
           )}
         </div>
-        <PtgUiButton
-          className="w-100 mt-2"
-          type="button"
-          onClick={showNext}
-          disabled={isDisabled}
-          // accessKey="s"
-          aria-label="next"
-          data-testid="next"
-        >
-          {'NEXT'}
-        </PtgUiButton>
       </div>
     );
   }

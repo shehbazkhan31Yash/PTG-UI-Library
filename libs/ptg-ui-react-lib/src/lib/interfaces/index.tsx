@@ -74,6 +74,15 @@ export interface ICarouselProps {
 
 //MultiStepForm
 
+ export interface IPtgUiMutliStepProps {
+  error?: IUserDetails;
+  details?: IUserDetails;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  resetForm?: () => void;
+  submitForm?: () => void;
+}
+
 export interface PtgUiMultiStepState {
   isDisabled: boolean;
 }
@@ -236,4 +245,23 @@ export interface PtgUiSignupProps {
   onSubmit?: Function;
   errorMessage?: string;
   successMessage?: string;
+}
+
+
+export interface IPtgUiMutliStepProps {
+  allSteps?: React.ReactElement<IPtgUiMutliStepProps>[];
+  stepCount?: number;
+  showNext?: () => void; // Optional function to show the next step
+  showPrevious?: () => void; // Optional function to show the previous step
+  details?: IUserDetails;
+  error?: IUserDetails;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; // Function to handle input changes
+  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void; // Optional function to handle input blur
+  resetForm?: () => void; // Optional function to reset the form
+  submitForm?: () => void;
+}
+
+
+export interface IStep {
+  label: string; 
 }
