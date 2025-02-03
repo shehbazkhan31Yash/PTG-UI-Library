@@ -74,9 +74,9 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   };
 
   const componentCode = `
-      import {PtgUiCalendar} from '@ptg-ui/react';
+  import {PtgUiCalendar} from '@ptg-ui/react';
 
-      const today = new Date();
+  const today = new Date();
   const [date, setStartDate] = useState<IDateState>({
     startDate: null,
     endDate: null,

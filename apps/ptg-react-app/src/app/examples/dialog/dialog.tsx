@@ -11,46 +11,40 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
 import './dialog.scss';
+import { FONT_SIZE_12, BUTTON_VARIANT, WIDTH_110, MODAL_CANCEL_BUTTON_COLOR, MODAL_CANCEL_BUTTON_TEXT, MODAL_CONFIRM_BUTTON_COLOR, MODAL_CONFIRM_BUTTON_TEXT, POSITIONS, WIDTH_200 } from '@ptg-react-app/constants/Constant';
 
 const DialogExample = () => {
-  const [showCode, setShowCode] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
-  };
+// Note: showExampleCode function show code 
+  const showExampleCode = () => setShowCode(!showCode);
+ 
+  // Note: Handle modal close 
+  const modalClosed = () => setIsOpen(false);
 
-  const modalClosed = (event) => {
-    setIsOpen(false);
-  };
+// Note: Handle confirm click
+  const confirmClicked = () => setIsOpen(false);
 
-  const confirmClicked = (event) => {
-    setIsOpen(false);
-  };
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
+// Note: Handle open modal
+  const openModal = () =>  setIsOpen(true);
+  
 
   const componentCode = `
-    
-    const [isOpen, setIsOpen] = useState(false);
+    const [showCode, setShowCode] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const modalClosed = (event) => {
-      setIsOpen(false);
-    }
+   // Note: showExampleCode function show code 
+   const showExampleCode = () => setShowCode(!showCode);
+ 
+  // Note: Handle modal close 
+  const modalClosed = () => setIsOpen(false);
 
-    const confirmClicked = (event) => {
-      setIsOpen(false);
-    }
+  // Note: Handle confirm click
+  const confirmClicked = () => setIsOpen(false);
 
-    const openModal = () => {
-      setIsOpen(true);
-    }
+  // Note: Handle open modal
+  const openModal = () =>  setIsOpen(true);
   `;
 
   const cssCode = `
@@ -94,12 +88,12 @@ const DialogExample = () => {
     onConfirmed: confirmClicked,
     modalSize: 'lg',
     header: 'Header Name Here',
-    confirmButton: 'Okay',
-    cancelButton: 'Cancel',
+    confirmButton: MODAL_CONFIRM_BUTTON_TEXT,
+    cancelButton: MODAL_CANCEL_BUTTON_TEXT,
     onModalClose: modalClosed,
     content: 'React Slot for Body',
-    confirmButtonColor: '#2196f3',
-    cancelButtonColor: '#dd3434',
+    confirmButtonColor: MODAL_CONFIRM_BUTTON_COLOR,
+    cancelButtonColor: MODAL_CANCEL_BUTTON_COLOR,
     backdropClick: true,
     showHeader: true,
     showFooter: true,
@@ -113,7 +107,7 @@ const DialogExample = () => {
         </div>
         <div className="col-2 mr-5 mb-2">
           <CodeIcon
-            onClick={ShowExampleCode}
+            onClick={showExampleCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
@@ -131,11 +125,11 @@ const DialogExample = () => {
           <PtgUiButton
             text="Click Here"
             data-testid="open-button"
-            appearance="primary"
-            btnIconAlignment="right"
+            appearance={BUTTON_VARIANT.PRIMARY}
+            btnIconAlignment={POSITIONS.RIGHT}
             onClick={openModal}
-            width="136px"
-            fontSize="13px"
+            width={WIDTH_200}
+            fontSize={FONT_SIZE_12}
             hasbtnIconSlot={true}
           >
             <div className="btn-icon">+</div>
