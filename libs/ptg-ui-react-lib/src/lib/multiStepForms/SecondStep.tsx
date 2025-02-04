@@ -1,71 +1,24 @@
 import React from 'react';
+import { PtgUiInput, PtgUiSelect, PtgUiTextArea } from '@ptg-ui/react';
 import {
-  PtgUiButton,
-  PtgUiInput,
-  PtgUiSelect,
-  PtgUiTextArea,
-} from '@ptg-ui/react';
-import {SALUTATION_LIST, GENDER_LIST_SELECT, STATE_LIST, COUNTRY_LIST} from '../mock/mock';
-import { IUserDetails, PtgUiMultiStepState } from '../interfaces/index';
+  SALUTATION_LIST,
+  GENDER_LIST_SELECT,
+  STATE_LIST,
+  COUNTRY_LIST,
+} from '../mock/mock';
+import { PtgUiCommonStepProps } from '../interfaces/index';
 
 const salutationList = SALUTATION_LIST;
 const genderList = GENDER_LIST_SELECT;
 const stateList = STATE_LIST;
 const contriesList = COUNTRY_LIST;
 
-interface IPtgUiSecondStepProps {
-  showPrevious?: () => void;
-  showNext?: () => void;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  details?: IUserDetails;
-  error?: IUserDetails;
-}
 
-export class PtgUiSecondStep extends React.Component<IPtgUiSecondStepProps, PtgUiMultiStepState> {
-  constructor(props: IPtgUiSecondStepProps) {
-    super(props);
-    this.state = {
-     isDisabled: false,
-    };
-  }
-
-  // override componentDidMount(): void {
-  //   this.updateButtonState();
-  // }
-
-  // override componentDidUpdate(prevProps: IPtgUiSecondStepProps) {
-  //   if (
-  //     prevProps.details !== this.props.details ||
-  //     prevProps.error !== this.props.error
-  //   ) {
-  //     this.updateButtonState();
-  //   }
-  // }
-
-  // updateButtonState = () => {
-  //   const { details, error } = this.props;
-  //   if (details && error) {
-  //     const ButtonDisabled =
-  //       !(details.greeting.length &&
-  //           details.gender.length &&
-  //           details.firstName &&
-  //           details.lastName &&
-  //           details.email &&
-  //           !error.email &&
-  //           details.phone &&
-  //           !error.phone &&
-  //           details.zipCode &&
-  //           !error.zipCode &&
-  //           details.state &&
-  //           details.homeAddress &&
-  //           details.country);
-  //     this.setState({isDisabled: ButtonDisabled});
-  //   }
-  // };
+export class PtgUiSecondStep extends React.Component<
+PtgUiCommonStepProps
+> {
   override render() {
-    const { showNext, handleChange, details, error, handleBlur, showPrevious } = this.props;
-    const { isDisabled } = this.state;
+    const { handleChange, details, error, handleBlur } = this.props;
     return (
       <div className="p-2">
         <div className="row">
@@ -222,31 +175,6 @@ export class PtgUiSecondStep extends React.Component<IPtgUiSecondStepProps, PtgU
             onChange={handleChange}
           />
         </div>
-        {/* <div className="row">
-          <div className="col-md-6 col-sm-12 mt-2">
-            <PtgUiButton
-              className="w-100"
-              type="button"
-              onClick={showPrevious}
-              aria-label="previous"
-              data-testid="previous"
-            >
-              {'PREVIOU'}
-            </PtgUiButton>
-          </div>
-          <div className="col-md-6 col-sm-12 col-xs-12 mt-2">
-            <PtgUiButton
-              className="w-100"
-              type="button"
-              onClick={showNext}
-              aria-label="next"
-              data-testid="next"
-              disabled={isDisabled}
-            >
-              {'NEXT'}
-            </PtgUiButton>
-          </div>
-        </div> */}
       </div>
     );
   }

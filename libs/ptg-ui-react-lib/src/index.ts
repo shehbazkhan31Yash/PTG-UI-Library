@@ -44,3 +44,7 @@ export * from './lib/gridRow/GridRow';
 export * from './lib/accordion/Accordion';
 export * from './lib/constants/Constants';
 export * from './lib/multiStepForms/MultiStep';
+export * from './lib/multiStepForms/FirstStep';
+export * from './lib/multiStepForms/SecondStep';
+export * from './lib/multiStepForms/ThirdStep';
+export * from './lib/multiStepForms/FinalStep';

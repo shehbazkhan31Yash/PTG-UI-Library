@@ -1,94 +1,55 @@
-// .stepper {
-//     display: flex;
-//     justify-content: space-between;
-//     margin-bottom: 20px;
-//   }
-  
-//   .step {
-//     padding: 10px;
-//     border: 1px solid #ccc;
-//     border-radius: 4px;
-//     flex: 1;
-//     text-align: center;
-//   }
-  
-//   .step.active {
-//     background-color: #007bff;
-//     color: white;
-//   }
-  
-//   .step-content {
-//     margin-top: 20px;
-//   }
-  
-//   button {
-//     margin: 5px;
-//   }
-  
-//   /* Styles for vertical orientation */
-//   .stepper.vertical {
-//     flex-direction: column;
-//   }
-  
-//   .step.vertical {
-//     margin-bottom: 10px; /* Add some space between steps in vertical orientation */
-//   }
-
-.stepper-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
+@import '../lib/styles/variables';
 
 .stepper {
   display: flex;
-  align-items: center;
-  position: relative;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .step {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
   position: relative;
 }
 
 .circle {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #ccc;
+  margin: 1rem;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  font-weight: bold;
-  color: #333;
+  background-color: $second;
+  color: white;
   transition: border-color 0.3s, background-color 0.3s;
 
   &.active {
     border-color: #007bff; // Change this to your active color
-    background-color: #007bff; // Change this to your active color
+    background-color: #000;// Change this to your active color
     color: white;
   }
 }
-
 .label {
-  margin-top: 8px;
+  border-color: #bdbdbd;
+  margin-top: 1rem;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
+  color: #bdbdbd;
+
+  &.active {
+    color: #000;
+  }
 }
 
 .line {
-  width: 100px; // Adjust the width as needed
-  height: 2px;
-  background-color: #ccc;
+  color: #000;
   position: absolute;
-  top: 20px; // Adjust to position the line correctly
-  left: 50%;
+  top: 40px; // Adjust to position the line correctly
+  left: 30px;
   transform: translateX(-50%);
-  z-index: -1; // Send the line behind the circles
 }
 
 // Vertical orientation styles
@@ -101,9 +62,22 @@
 }
 
 .line.vertical {
+  min-height: 24px;
+  border-left: 1px solid black;
   width: 2px; // Make the line vertical
-  height: 100px; // Adjust the height as needed
-  top: 50%; // Center the line vertically
-  left: 20px; // Position the line to the left of the circle
-  transform: translateY(-50%); // Center the line vertically
+  display: block;
+  border-color: #bdbdbd;
+  // height: 100px; // Adjust the height as needed
+  // top: 50%; // Center the line vertically
+  // left: 20px; // Position the line to the left of the circle
+  // transform: translateY(-50%); // Center the line vertically
+}
+
+/* Styles for vertical orientation */
+.stepper.vertical {
+  flex-direction: column;
+}
+
+.step.vertical {
+  margin-bottom: 10px; /* Add some space between steps in vertical orientation */
 }

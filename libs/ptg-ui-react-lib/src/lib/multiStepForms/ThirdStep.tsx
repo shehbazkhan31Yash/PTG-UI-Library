@@ -1,61 +1,15 @@
-import { PtgUiButton, PtgUiInput, PtgUiSelect } from '@ptg-ui/react';
+import { PtgUiInput, PtgUiSelect } from '@ptg-ui/react';
 import React from 'react';
 import { CARD_LIST } from '../mock/mock';
-import { IUserDetails, PtgUiMultiStepState } from '../interfaces/index';
+import { PtgUiCommonStepProps } from '../interfaces/index';
 
-interface IPtgUiThirdStepProps {
-  showPrevious?: () => void;
-  showNext?: () => void;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  details?: IUserDetails;
-  error?: IUserDetails;
-}
 const cardData = CARD_LIST;
 
 export class PtgUiThirdStep extends React.Component<
-  IPtgUiThirdStepProps,
-  PtgUiMultiStepState
+PtgUiCommonStepProps
 > {
-  constructor(props: IPtgUiThirdStepProps) {
-    super(props);
-    this.state = {
-      isDisabled: true,
-    };
-  }
-  // override componentDidMount(): void {
-  //   this.updateButtonState();
-  // }
-
-  // override componentDidUpdate(prevProps: IPtgUiThirdStepProps) {
-  //   if (
-  //     prevProps.details !== this.props.details ||
-  //     prevProps.error !== this.props.error
-  //   ) {
-  //     this.updateButtonState();
-  //   }
-  // }
-
-  // updateButtonState = () => {
-  //   const { details, error } = this.props;
-  //   if (details && error) {
-  //     const ButtonDisabled = !(
-  //       details.cardType &&
-  //       details.cardNumber &&
-  //       !error.cardNumber &&
-  //       details.cvc &&
-  //       !error.cvc &&
-  //       details.expiration &&
-  //       details.cardHolder
-  //     );
-  //     this.setState({ isDisabled: ButtonDisabled });
-  //   }
-  // };
-
   override render() {
-    const { showNext, handleChange, details, error, handleBlur, showPrevious } =
-      this.props;
-    const { isDisabled } = this.state;
+    const { handleChange, details, error, handleBlur } = this.props;
     return (
       <div className="p-2">
         <div className="col-md-12 mb-2">
@@ -133,31 +87,6 @@ export class PtgUiThirdStep extends React.Component<
             onBlur={handleBlur}
           />
         </div>
-        {/* <div className="row">
-          <div className="col-md-6 col-sm-12 mt-2">
-            <PtgUiButton
-              className="w-100"
-              type="button"
-              onClick={showPrevious}
-              aria-label="previous"
-              data-testid="previous"
-            >
-              {'PREVIOUS'}
-            </PtgUiButton>
-          </div>
-          <div className="col-md-6 col-sm-12 col-xs-12 mt-2">
-            <PtgUiButton
-              className="w-100"
-              type="button"
-              onClick={showNext}
-              disabled={isDisabled}
-              aria-label="next"
-              data-testid="next"
-            >
-              {'NEXT'}
-            </PtgUiButton>
-          </div>
-        </div> */}
       </div>
     );
   }

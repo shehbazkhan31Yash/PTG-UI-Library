@@ -1,123 +1,54 @@
 import React from 'react';
 import { Stepper } from '../../common/Stepper';
 import { PtgUiButton, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
-import {IUserDetails, IPtgUiMutliStepProps, IStep } from '../interfaces/index';
+import { IPtgUiMutliStepFormProps, IPtgUiMultiStepState } from '../interfaces/index';
 
-interface IPtgUiMultiStepState {
-  stepCount: number;
-  isDisabled: boolean;
-  showNext?: () => void;
-}
-interface IPtgUiMutliStepFormProps {
-  stepperSteps?: IStep[];
-  allSteps?: React.ReactElement<IPtgUiMutliStepProps>[];
-  error?: IUserDetails;
-  details?: IUserDetails;
-  resetForm?: () => void;
-  submitForm?: () => void;
-}
 
 export class PtgUiMultiStep extends React.Component<
   IPtgUiMutliStepFormProps,
   IPtgUiMultiStepState
 > {
-  constructor(props: IPtgUiMutliStepProps) {
+  constructor(props: IPtgUiMutliStepFormProps) {
     super(props);
     this.state = {
-      stepCount: 0,
-      isDisabled: true,
+      stepCount: 0
     };
   }
   showNext = () => {
-    console.log('shownext')
+    const { manageNextStepValidation } = this.props;
     this.setState((prevState) => ({
       stepCount: prevState.stepCount + 1
     }))
+    manageNextStepValidation?.(this.state.stepCount + 1)
   }
   showPrevious = () => {
+    const { manageNextStepValidation } = this.props;
    this.setState((prevState) => ({
      stepCount: prevState.stepCount - 1
    }))
+   manageNextStepValidation?.(this.state.stepCount -1)
   };
   resetFormDetails = () => {
+    const { resetForm, manageNextStepValidation} = this.props;
     this.setState({stepCount: 0 })
-    this.props.resetForm?.();
+    resetForm?.();
+    manageNextStepValidation?.(0)
   }
   submitFormDetails = () => {
+    const { submitForm, manageNextStepValidation} = this.props;
     this.setState({stepCount: 0})
-    this.props.submitForm?.();
+    submitForm?.();
+    manageNextStepValidation?.(0)
   }
-  override componentDidMount(): void {
-    this.updateButtonState();
-  }
-
-  override componentDidUpdate(
-    prevProps: IPtgUiMutliStepFormProps,
-    prevState: IPtgUiMultiStepState
-  ) {
-    if (
-      prevProps.details !== this.props.details ||
-      prevProps.error !== this.props.error ||
-      prevState.stepCount !== this.state.stepCount
-    ) {
-      this.updateButtonState();
-    }
-  }
-
-  updateButtonState = () => {
-    console.log('this', this.state.stepCount);
-    const { details, error } = this.props;
-    const {stepCount} = this.state;
-    if (details && error) {
-      let ButtonDisabled = true;
-      if (stepCount === 0) {
-        ButtonDisabled = !(
-          details?.userName?.length > 0 &&
-          details?.password?.length > 0 &&
-          details?.confirmPassword?.length > 0 &&
-          !error?.userName &&
-          !error?.password &&
-          !error?.confirmPassword
-        );
-      } else if (stepCount === 1) {
-        ButtonDisabled = !(
-          details.greeting.length &&
-          details.gender.length &&
-          details.firstName &&
-          details.lastName &&
-          details.email &&
-          !error.email &&
-          details.phone &&
-          !error.phone &&
-          details.zipCode &&
-          !error.zipCode &&
-          details.state &&
-          details.homeAddress &&
-          details.country
-        );
-      } else if (stepCount === 2) {
-        ButtonDisabled = !(
-          details.cardType &&
-          details.cardNumber &&
-          !error.cardNumber &&
-          details.cvc &&
-          !error.cvc &&
-          details.expiration &&
-          details.cardHolder
-        );
-      }
-      this.setState({ isDisabled: ButtonDisabled });
-    }
-  };
-
+  
   override render() {
-    const { stepCount, isDisabled } = this.state;
+    const { stepCount} = this.state;
     const {stepperSteps = []} = this.props;
     const {
       allSteps = [],
-      submitForm,
-      resetForm,
+      manageNextStepValidation,
     } = this.props;
+    const flag = manageNextStepValidation?.(stepCount)
     return (
       <>
         <PtgUiRow>
@@ -144,11 +75,11 @@ export class PtgUiMultiStep extends React.Component<
             className={'mr-5'}
           >
             {allSteps && allSteps[stepCount]}
-            <PtgUiRow>
+            <PtgUiRow className='p-2'>
               <div className="col-md-4 col-sm-12">
                 {stepCount !== 0 && (
                   <PtgUiButton
-                    text="PREVIOU"
+                    text="Previous"
                     textColor="#fff"
                     backgroundColor={'#052982'}
                     width="200px"
@@ -156,34 +87,24 @@ export class PtgUiMultiStep extends React.Component<
                   />
                 )}
               </div>
-              <div className="col-md-4 col-sm-12 col-xs-12">
+              <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-around">
                 {stepperSteps.length === stepCount + 1 && <PtgUiButton
-                  text="RESET"
+                  text="Reset"
                   textColor="#fff"
                   backgroundColor={'#052982'}
                   width="200px"
                   onClick={this.resetFormDetails}
                 />}
               </div>
-              <div className="col-md-4 col-sm-12 col-xs-12">
-                {stepperSteps.length !== stepCount + 1 ? (
+              <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-end">
                   <PtgUiButton
-                    text="NEXT"
+                    text={stepperSteps.length !== stepCount + 1 ? "Next" : "Submit"}
                     textColor="#fff"
                     backgroundColor={'#052982'}
                     width="200px"
-                    onClick={this.showNext}
-                    disabled={isDisabled}
+                    onClick={stepperSteps.length !== stepCount + 1 ? this.showNext : this.submitFormDetails}
+                    disabled={stepperSteps.length !== stepCount + 1 ? flag : false}
                   />
-                ) : (
-                  <PtgUiButton
-                    text="SUBMIT"
-                    textColor="#fff"
-                    backgroundColor={'#052982'}
-                    width="200px"
-                    onClick={this.submitFormDetails}
-                  />
-                )}
               </div>
             </PtgUiRow>
           </PtgUiGridColumn>

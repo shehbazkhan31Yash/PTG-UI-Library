@@ -116,5 +116,15 @@ export interface IFormError {
 }
 
 export interface IStep {
+  id: number;
   label: string; 
+}
+
+export interface IPtgUiMutliStep {
+  details?: IUserDetails;
+  error?: IUserDetails;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  resetForm?: () => void;
+  submitForm?: () => void;
 }

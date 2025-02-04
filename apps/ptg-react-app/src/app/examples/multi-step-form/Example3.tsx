@@ -4,29 +4,12 @@ import './Example3.scss';
 import { PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { IUserDetails, IUserErrors, IStep } from '../../interfaces/index';
-import { PtgUiMultiStep } from '@ptg-ui/react';
-import {
-  SALUTATION_LIST,
-  GENDER_LIST_SELECT,
-  STATE_LIST,
-  COUNTRY_LIST,
-} from '../../mock/mocks';
-import { PtgUiFirstStep } from '@ptg-react-libs/multiStepForms/FirstStep';
-import { PtgUiSecondStep } from '@ptg-react-libs/multiStepForms/SecondStep';
-import { PtgUiThirdStep } from '@ptg-react-libs/multiStepForms/ThirdStep';
-import { PtgUiFinalStep } from '@ptg-react-libs/multiStepForms/FinalStep';
+import { IUserDetails, IStep, IPtgUiMutliStep} from '../../interfaces/index';
+import { PtgUiMultiStep,PtgUiFirstStep, PtgUiSecondStep, PtgUiThirdStep, PtgUiFinalStep  } from '@ptg-ui/react';
+
 const Example3 = () => {
   const { t } = useTranslation();
 
-  interface IPtgUiMutliStepProps {
-    details?: IUserDetails;
-    error?: IUserDetails;
-    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; 
-    handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void; 
-    resetForm?: () => void; 
-    submitForm?: () => void;
-  }
   const [details, setDetails] = useState<IUserDetails>({
     firstName: '',
     lastName: '',
@@ -70,6 +53,46 @@ const Example3 = () => {
 
   const [showCodeOne, setShowCodeOne] = useState(false);
 
+  const manageNextStepValidation = (step: number) => {
+    let ButtonDisabled = true;
+    if (step === 0) {
+      ButtonDisabled = !(
+        details?.userName?.length > 0 &&
+        details?.password?.length > 0 &&
+        details?.confirmPassword?.length > 0 &&
+        !error?.userName &&
+        !error?.password &&
+        !error?.confirmPassword
+      );
+    } else if (step === 1) {
+      ButtonDisabled = !(
+        details.greeting.length &&
+        details.gender.length &&
+        details.firstName &&
+        details.lastName &&
+        details.email &&
+        !error.email &&
+        details.phone &&
+        !error.phone &&
+        details.zipCode &&
+        !error.zipCode &&
+        details.state &&
+        details.homeAddress &&
+        details.country
+      );
+    } else {
+      ButtonDisabled = !(
+        details.cardType &&
+        details.cardNumber &&
+        !error.cardNumber &&
+        details.cvc &&
+        !error.cvc &&
+        details.expiration &&
+        details.cardHolder
+      );
+    }
+    return ButtonDisabled;
+  };
   const ShowExampleCode = () => {
     if (!showCodeOne) {
       setShowCodeOne(true);
@@ -79,7 +102,6 @@ const Example3 = () => {
   };
   // reset Form
   const resetForm = () => {
-    // setStepCount(0);
     setDetails({
       firstName: '',
       lastName: '',
@@ -248,7 +270,7 @@ const Example3 = () => {
     { label: 'Confirm Your Details' },
   ];
   
-  const allSteps: React.ReactElement<IPtgUiMutliStepProps>[] = [
+  const allSteps: React.ReactElement<IPtgUiMutliStep>[] = [
     <PtgUiFirstStep
       details={details}
       handleChange={handleChange}
@@ -309,26 +331,26 @@ const Example3 = () => {
     resetForm={resetForm}
     submitForm={submitForm}
   /> `;
-  
+
   const stepperSteps: IStep[] = [
-    { label: 'Account Info' },
-    { label: 'Personal Information' },
-    { label: 'Payment Details' },
-    { label: 'Confirm Your Details' },
+    { id: 0, label: 'Account Info' },
+    { id: 1, label: 'Personal Information' },
+    { id: 2, label: 'Payment Details' },
+    { id: 3, label: 'Confirm Your Details' },
   ];
 
-  const allSteps: React.ReactElement<IPtgUiMutliStepProps>[] = [
+  const allSteps: React.ReactElement<IPtgUiMutliStep>[] = [
     <PtgUiFirstStep
       details={details}
-      handleChange={handleChange}
       error={error}
       handleBlur={handleBlur}
+      handleChange={handleChange}
     />,
     <PtgUiSecondStep
       details={details}
-      handleChange={handleChange}
       error={error}
       handleBlur={handleBlur}
+      handleChange={handleChange}
     />,
     <PtgUiThirdStep
       details={details}
@@ -336,9 +358,7 @@ const Example3 = () => {
       handleBlur={handleBlur}
       handleChange={handleChange}
     />,
-    <PtgUiFinalStep
-      details={details}
-    />,
+    <PtgUiFinalStep details={details} />,
   ];
 
   return (
@@ -362,10 +382,9 @@ const Example3 = () => {
         <PtgUiMultiStep
           allSteps={allSteps}
           stepperSteps={stepperSteps}
-          details={details}
-          error={error}
           resetForm={resetForm}
           submitForm={submitForm}
+          manageNextStepValidation={manageNextStepValidation}
         />
       ) : (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

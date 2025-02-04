@@ -1118,60 +1118,58 @@ div[slot=btnIcon] svg {
   padding: 0px 4px;
 }
 
-.stepper-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
+/*
+Override variables defined in boostrap
+*/
 .stepper {
   display: flex;
-  align-items: center;
-  position: relative;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .step {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
   position: relative;
 }
 
 .circle {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #ccc;
+  margin: 1rem;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  font-weight: bold;
-  color: #333;
+  background-color: #646464;
+  color: white;
   transition: border-color 0.3s, background-color 0.3s;
 }
 .circle.active {
   border-color: #007bff;
-  background-color: #007bff;
+  background-color: #000;
   color: white;
 }
 
 .label {
-  margin-top: 8px;
+  border-color: #bdbdbd;
+  margin-top: 1rem;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
+  color: #bdbdbd;
+}
+.label.active {
+  color: #000;
 }
 
 .line {
-  width: 100px;
-  height: 2px;
-  background-color: #ccc;
+  color: #000;
   position: absolute;
-  top: 20px;
-  left: 50%;
+  top: 40px;
+  left: 30px;
   transform: translateX(-50%);
-  z-index: -1;
 }
 
 .stepper.vertical {
@@ -1183,11 +1181,20 @@ div[slot=btnIcon] svg {
 }
 
 .line.vertical {
+  min-height: 24px;
+  border-left: 1px solid black;
   width: 2px;
-  height: 100px;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
+  display: block;
+  border-color: #bdbdbd;
+}
+
+/* Styles for vertical orientation */
+.stepper.vertical {
+  flex-direction: column;
+}
+
+.step.vertical {
+  margin-bottom: 10px; /* Add some space between steps in vertical orientation */
 }
 
 /*# sourceMappingURL=index.css.map */
