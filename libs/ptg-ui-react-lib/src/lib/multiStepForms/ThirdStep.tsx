@@ -13,7 +13,7 @@ PtgUiCommonStepProps
     return (
       <div className="p-2">
         <div className="col-md-12 mb-2">
-          <label htmlFor="inputCardType">{'CARD_TYPE'} </label>
+          <label htmlFor="inputCardType">{'Card Type'} </label>
           <PtgUiSelect
             name="cardType"
             list={cardData}
@@ -30,7 +30,7 @@ PtgUiCommonStepProps
         </div>
         <div className="row">
           <div className="col-md-6 mb-2">
-            <label htmlFor="inputCardNumber">{'CARD_NUMBER'} </label>
+            <label htmlFor="inputCardNumber">{'Card Number'} </label>
             <PtgUiInput
               className={`w-100 form-control bg_0 ${
                 error?.cardNumber ? 'border-danger' : ''
@@ -58,7 +58,7 @@ PtgUiCommonStepProps
             />
           </div>
           <div className="col-md-3 mb-2">
-            <label htmlFor="inputexpirationDate">{'EXPIRATION_DATE'} </label>
+            <label htmlFor="inputexpirationDate">{'Expiration'} </label>
             <PtgUiInput
               className={`w-100 form-control bg_0 ${
                 error?.expiration ? 'border-danger' : ''
@@ -74,7 +74,7 @@ PtgUiCommonStepProps
           </div>
         </div>
         <div className="col-md-12 form-group required mb-2">
-          <label htmlFor="inputCardHolderName">{'CARD_HOLDER_NAME'} </label>
+          <label htmlFor="inputCardHolderName">{'Card Holder Name'} </label>
           <PtgUiInput
             className={`w-100 form-control bg_0 ${
               error?.cardHolder ? 'border-danger' : ''

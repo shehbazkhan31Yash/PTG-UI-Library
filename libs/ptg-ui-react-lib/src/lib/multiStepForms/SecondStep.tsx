@@ -23,7 +23,7 @@ PtgUiCommonStepProps
       <div className="p-2">
         <div className="row">
           <div className="form-group required col-md-4 mb-2">
-            <label htmlFor="inputGreeting">{'GREETING'} </label>
+            <label htmlFor="inputGreeting">{'Greeting'} </label>
             <PtgUiSelect
               name="greeting"
               list={salutationList}
@@ -39,7 +39,7 @@ PtgUiCommonStepProps
             />
           </div>
           <div className="form-group required col-md-8 mb-2">
-            <label htmlFor="inputGender">{'GENDER'} </label>
+            <label htmlFor="inputGender">{'Gender'} </label>
             <PtgUiSelect
               name="gender"
               list={genderList}
@@ -57,7 +57,7 @@ PtgUiCommonStepProps
         </div>
         <div className="form-group required row">
           <div className="col-md-6 mb-2">
-            <label htmlFor="inputFirstName">{'FIRST_NAME'} </label>
+            <label htmlFor="inputFirstName">{'First Name'} </label>
             <PtgUiInput
               className={`w-100 form-control bg_0 ${
                 error?.firstName ? 'border-danger' : ''
@@ -71,7 +71,7 @@ PtgUiCommonStepProps
             />
           </div>
           <div className="col-md-6 mb-2">
-            <label htmlFor="inputLastName">{'LAST_NAME'} </label>
+            <label htmlFor="inputLastName">{'Last Name'} </label>
             <PtgUiInput
               className={`w-100 form-control bg_0 ${
                 error?.lastName ? 'border-danger' : ''
@@ -86,7 +86,7 @@ PtgUiCommonStepProps
           </div>
         </div>
         <div className="form-group required col-md-12 mb-2">
-          <label htmlFor="inputEmail">{'LABEL_EMAIL'} </label>
+          <label htmlFor="inputEmail">{'Email'} </label>
           <PtgUiInput
             className={`w-100 form-control bg_0 ${
               error?.email ? 'border-danger' : ''
@@ -100,7 +100,7 @@ PtgUiCommonStepProps
           />
         </div>
         <div className="form-group required col-md-12 mb-2">
-          <label htmlFor="inputPhone">{'PHONE'} </label>
+          <label htmlFor="inputPhone">{'Phone'} </label>
           <PtgUiInput
             className={`w-100 form-control bg_0 ${
               error?.phone ? 'border-danger' : ''
@@ -115,7 +115,7 @@ PtgUiCommonStepProps
         </div>
         <div className="form-group required vrow">
           <div className="col-md-4 mb-2">
-            <label htmlFor="inputZipCode">{'ZIP_CODE'}</label>
+            <label htmlFor="inputZipCode">{'Zip Code'}</label>
             <PtgUiInput
               className={`w-100 form-control bg_0 ${
                 error?.zipCode ? 'border-danger' : ''
@@ -129,7 +129,7 @@ PtgUiCommonStepProps
             />
           </div>
           <div className="form-group required col-md-8 mb-2">
-            <label htmlFor="inputState">{'STATE'} </label>
+            <label htmlFor="inputState">{'State'} </label>
             <PtgUiSelect
               name="state"
               list={stateList}
@@ -146,7 +146,7 @@ PtgUiCommonStepProps
           </div>
         </div>
         <div className="form-group required col-md-12 mb-2">
-          <label htmlFor="inputAddress">{'HOME_ADDRESS'} </label>
+          <label htmlFor="inputAddress">{'Home Address'} </label>
           <PtgUiTextArea
             className={`w-100 form-control bg_0 ${
               error?.homeAddress ? 'border-danger' : ''
@@ -160,7 +160,7 @@ PtgUiCommonStepProps
           />
         </div>
         <div className="form-group required col-md-12 mb-2">
-          <label htmlFor="inputContry">{'COUNTRY'} </label>
+          <label htmlFor="inputContry">{'Country'} </label>
           <PtgUiSelect
             name="country"
             list={contriesList}
