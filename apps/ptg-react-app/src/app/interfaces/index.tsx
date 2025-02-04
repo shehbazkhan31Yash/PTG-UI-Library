@@ -24,6 +24,13 @@ export interface IExampleOneProps {
 export interface IExampleTwoProps {
   showCodeTwo: boolean;
 }
+export interface IExampleThreeProps {
+  showCodeThree: boolean;
+}
+
+export interface ITimeZoneProps {
+  showCodeLocalDate: boolean;
+}
 
 
 export interface IDateState {

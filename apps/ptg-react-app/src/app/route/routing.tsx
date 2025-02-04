@@ -91,9 +91,9 @@ const PtgUiReactTable = lazy(
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
-const Authentication = lazy(() => import('../examples/auth/Login/Login'));
-const SignUp = lazy(() => import('../examples/auth/Signup/signup'));
-const pagination = lazy(() => import('../examples/pagination/pagination'));
+const Authentication = lazy(() => import('../examples/auth/login/Login'));
+const SignUp = lazy(() => import('../examples/auth/signup/signup'));
+const pagination = lazy(() => import('../examples/pagination/pagination')); 
 
 {
   /*--Declare routes and component for dynamic load--*/
