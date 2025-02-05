@@ -509,8 +509,8 @@ export const CARD_ITEMS = [
     button: 'Go somewhere',
   },
 ];
-// breadcrum mock data 
-  export const breadCrumbsMockData = (t:Function) =>{
+// BreadCrumbs mock data
+  export const breadCrumbsMockData = (t:(key:string)=>string) =>{
   return [
     { title: `${t('HOME')}`, link: '/home'},
     { title: `${t('ABOUT_US')}`, link: '/about' },
@@ -518,6 +518,24 @@ export const CARD_ITEMS = [
     
   ]
   }
+
+  // Accordion mock data
+  export const accordionMockData = (t: (key: string) => string) =>{
+    return [
+      {
+        title: `${t('ACCORDION_TITLE')} - #1`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+      {
+        title: `${t('ACCORDION_TITLE')} - #2`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+      {
+        title: `${t('ACCORDION_TITLE')} - #3`,
+        content: `${t('ACCORDION_CONTENT')}`,
+      },
+    ]
+    }
 
 
 

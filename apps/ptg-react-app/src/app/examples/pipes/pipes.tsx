@@ -7,12 +7,11 @@ import CodeIcon from '@mui/icons-material/Code';
 export function Pipes() {
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState<boolean>(false);
-  const [capitalizedStringValue, setCapitalizedStringValue] = useState('');
-  const [truncateValue, setTruncateValue] = useState('');
-  const [currencyValue, setCurrencyValue] = useState('');
-  const [phoneNumberValue, setPhoneNumberValue] = useState('');
-  const [capitalizedTruncatedValue, setcapitalizedTruncatedValue] =
-    useState('');
+  const [capitalizedStringValue, setCapitalizedStringValue] = useState<string>('');
+  const [truncateValue, setTruncateValue] = useState<string>('');
+  const [currencyValue, setCurrencyValue] = useState<string>('');
+  const [phoneNumberValue, setPhoneNumberValue] = useState<string>('');
+  const [capitalizedTruncatedValue, setcapitalizedTruncatedValue] =useState<string>('');
 
   const handleCapitalizedFirstLetterInputChange = (capitalizedStringValue:string) => {
     setCapitalizedStringValue(capitalizedStringValue);

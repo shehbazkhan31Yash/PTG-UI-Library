@@ -76,26 +76,22 @@ const PtgUiDownloadFile = lazy(
   () => import('@ptg-react-app/examples/downloadFile/downloadFile')
 );
 const PtgUiDialog = lazy(() => import('../examples/dialog/dialog'));
-const Breadcrumbs = lazy(
-  () => import('@ptg-react-app/examples/breadcrumbs/breadcrumbs')
-);
+const Breadcrumbs = lazy(() => import('../examples/breadcrumbs/Breadcrumbs'));
 const Cards = lazy(() => import('../examples/cards/cards'));
 const PtgUiCarousel = lazy(() => import('../examples/carousel/carousel'));
-const GridLayout = lazy(
-  () => import('@ptg-react-app/examples/grid-layout/./GridLayout')
-);
+const GridLayout = lazy(() => import('../examples/grid-layout/GridLayout'));
 const Indeterminate = lazy(
   () => import('../examples/indeterminate-checkbox/indeterminate-checkbox')
 );
 const PtgUiReactTable = lazy(
   () => import('../examples/data-table/react-table')
 );
-const Accordian = lazy(() => import('../examples/Accordion/accordion'));
+const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
-const signUp = lazy(() => import('../examples/auth/signup/signup'));
-const pagination = lazy(() => import('../examples/pagination/pagination'));
+const SignUp = lazy(() => import('../examples/auth/signup/signup'));
+const pagination = lazy(() => import('../examples/pagination/pagination')); 
 
 {
   /*--Declare routes and component for dynamic load--*/
@@ -239,7 +235,7 @@ const routing = [
   },
   {
     path: '/auth-signup',
-    component: signUp,
+    component: SignUp,
   },
   {
     path: '/pagination',

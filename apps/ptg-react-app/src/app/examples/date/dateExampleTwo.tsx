@@ -9,16 +9,15 @@ import { useState } from 'react';
 import './date.scss';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { IDatePickerProps, IDateState, IExampleTwoProps } from '../../interfaces';
+import { DATE_RANGE, END_DATE, START_DATE } from '../../constants/Constant';
 
-export interface ExampleTwoProps {
-  showCodeTwo: boolean;
-}
 
-export function ExampleTwo(props: ExampleTwoProps) {
+export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   const { t } = useTranslation();
   const today = new Date();
-  const [date, setStartDate] = useState({
+  const [date, setStartDate] = useState<IDateState>({
     startDate: null,
     endDate: null,
     dateRange: null,
@@ -26,14 +25,13 @@ export function ExampleTwo(props: ExampleTwoProps) {
   });
 
   /*-----Set date state-----*/
-  const setDateState: any = (d: any, field: string) => {
-    setStartDate((preState: any) => {
+  const setDateState = (d: Date|string, field: string) => {
+    setStartDate((preState) => {
       if (
-        field === 'dateRange' &&
-        date &&
-        date.startDate &&
-        date.endDate &&
-        (d < date.startDate || d > date.endDate)
+        field === DATE_RANGE &&
+        date?.startDate &&
+        date?.endDate &&
+        (d < date?.startDate || d > date?.endDate)
       ) {
         date.errorMsg = true;
       } else {
@@ -46,94 +44,94 @@ export function ExampleTwo(props: ExampleTwoProps) {
     });
   };
   /*-----props for start datepicker-----*/
-  const startDateProp = {
-    selected: date.startDate,
+  const startDateProp:IDatePickerProps = {
+    selected: date?.startDate,
     className: `form-control w-100`,
-    onChange: (d: any) => setDateState(d.target.value, 'startDate'),
+    onChange: (d) => setDateState(d.target.value, START_DATE),
     startDate: today,
     endDate: null,
     disabled: false,
   };
 
   /*-----props for end datepicker-----*/
-  const endDateProp = {
+  const endDateProp:IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
-    onChange: (d: any) => setDateState(d.target.value, 'endDate'),
+    onChange: (d) => setDateState(d.target.value, END_DATE),
     startDate: date.startDate || today,
     endDate: null,
     disabled: date.startDate === null,
   };
 
   /*-----props for date range picker-----*/
-  const dateRangeProp = {
+  const dateRangeProp:IDatePickerProps = {
     selected: date.dateRange,
     className: `form-control w-100`,
-    onChange: (d: any) => setDateState(d.target.value, 'dateRange'),
+    onChange: (d) => setDateState(d.target.value, DATE_RANGE),
     disabled: date.startDate === null || date.endDate === null,
     // startDate: date.startDate,
     // endDate: date.endDate,
   };
 
   const componentCode = `
-      import {PtgUiCalendar} from '@ptg-ui/react';
+  import {PtgUiCalendar} from '@ptg-ui/react';
 
-      const today = new Date();
-      const [date, setStartDate] = useState({
-        startDate: null,
-        endDate: null,
-        dateRange: null,
-        errorMsg: false,
-      });
+  const today = new Date();
+  const [date, setStartDate] = useState<IDateState>({
+    startDate: null,
+    endDate: null,
+    dateRange: null,
+    errorMsg: false,
+  });
 
-      /*-----Set date state-----*/
-      const setDateState: any = (d: any, field: string) => {
-        setStartDate((preState: any) => {
-          if (
-            field === 'dateRange' &&
-            date &&
-            date.startDate &&
-            date.endDate &&
-            (d < date.startDate || d > date.endDate)
-          ) {
-            date.errorMsg = true;
-          } else {
-            date.errorMsg = false;
-          }
-          return {
-            ...preState,
-            [field]: d,
-          };
-        });
+  /*-----Set date state-----*/
+  const setDateState = (d: Date|string, field: string) => {
+    setStartDate((preState) => {
+      if (
+        field === DATE_RANGE &&
+        date?.startDate &&
+        date?.endDate &&
+        (d < date?.startDate || d > date?.endDate)
+      ) {
+        date.errorMsg = true;
+      } else {
+        date.errorMsg = false;
+      }
+      return {
+        ...preState,
+        [field]: d,
       };
-      /*-----props for start datepicker-----*/
-      const startDateProp = {
-        selected: date.startDate,
-        className: 'form-control w-100',
-        onChange: (d: any) => setDateState(d.target.value, 'startDate'),
-        startDate: today,
-        endDate: null,
-        disabled: false,
-      };
+    });
+  };
+  /*-----props for start datepicker-----*/
+  const startDateProp:IDatePickerProps = {
+    selected: date?.startDate,
+    className: 'form-control w-100',
+    onChange: (d) => setDateState(d.target.value, START_DATE),
+    startDate: today,
+    endDate: null,
+    disabled: false,
+  };
 
-      /*-----props for end datepicker-----*/
-      const endDateProp = {
-        selected: date.endDate,
-        className: 'form-control w-100',
-        onChange: (d: any) => setDateState(d.target.value, 'endDate'),
-        startDate: date.startDate || today,
-        endDate: null,
-        disabled: date.startDate === null,
-      };
+  /*-----props for end datepicker-----*/
+  const endDateProp:IDatePickerProps = {
+    selected: date.endDate,
+    className: 'form-control w-100',
+    onChange: (d) => setDateState(d.target.value, END_DATE),
+    startDate: date.startDate || today,
+    endDate: null,
+    disabled: date.startDate === null,
+  };
 
-      /*-----props for date range picker-----*/
-      const dateRangeProp = {
-        selected: date.dateRange,
-        className: 'form-control w-100',
-        onChange: (d: any) => setDateState(d.target.value, 'dateRange'),
-        // startDate: date.startDate,
-        // endDate: date.endDate,
-      };
+  /*-----props for date range picker-----*/
+  const dateRangeProp:IDatePickerProps = {
+    selected: date.dateRange,
+    className: 'form-control w-100',
+    onChange: (d) => setDateState(d.target.value, DATE_RANGE),
+    disabled: date.startDate === null || date.endDate === null,
+    // startDate: date.startDate,
+    // endDate: date.endDate,
+  };
     
    `;
 
