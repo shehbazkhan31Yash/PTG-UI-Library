@@ -28,7 +28,6 @@ PtgUiCommonStepProps
               name="greeting"
               list={salutationList}
               id="inputGreeting"
-              data-testid="city"
               className={`sel-placeholder w-100 bg_0 ${
                 error?.greeting ? 'border-danger' : ''
               }`}
@@ -44,7 +43,6 @@ PtgUiCommonStepProps
               name="gender"
               list={genderList}
               id="inputGender"
-              data-testid="city"
               className={`sel-placeholder w-100 bg_0 ${
                 error?.gender ? 'border-danger' : ''
               }`}
@@ -112,6 +110,11 @@ PtgUiCommonStepProps
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          {error?.phone && (
+            <span className="form-text text-danger">
+              {error.phone}
+            </span>
+          )}
         </div>
         <div className="form-group required vrow">
           <div className="col-md-4 mb-2">
@@ -134,7 +137,6 @@ PtgUiCommonStepProps
               name="state"
               list={stateList}
               id="inputState"
-              data-testid="city"
               className={`sel-placeholder w-100 bg_0 ${
                 error?.state ? 'border-danger' : ''
               }`}
@@ -165,7 +167,6 @@ PtgUiCommonStepProps
             name="country"
             list={contriesList}
             id="inputContry"
-            data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
               error?.country ? 'border-danger' : ''
             }`}

@@ -259,6 +259,7 @@ export interface IPtgUiMutliStepFormProps {
   resetForm?: () => void;
   submitForm?: () => void;
   manageNextStepValidation?: (step: number) => boolean;
+  orientation?: string;
 }
 
 export interface PtgUiCommonStepProps {

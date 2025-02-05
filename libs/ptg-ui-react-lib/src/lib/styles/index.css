@@ -1121,6 +1121,12 @@ div[slot=btnIcon] svg {
 /*
 Override variables defined in boostrap
 */
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .stepper {
   display: flex;
   justify-content: space-between;
@@ -1130,7 +1136,6 @@ Override variables defined in boostrap
 .step {
   display: flex;
   border-radius: 4px;
-  flex: 1;
   text-align: center;
   position: relative;
 }
@@ -1143,13 +1148,13 @@ Override variables defined in boostrap
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #646464;
+  background-color: #bdbdbd;
   color: white;
   transition: border-color 0.3s, background-color 0.3s;
 }
 .circle.active {
-  border-color: #007bff;
-  background-color: #000;
+  border-color: #002144;
+  background-color: #002144;
   color: white;
 }
 
@@ -1157,35 +1162,45 @@ Override variables defined in boostrap
   border-color: #bdbdbd;
   margin-top: 1rem;
   text-align: center;
-  font-size: 0.875rem;
   color: #bdbdbd;
 }
 .label.active {
-  color: #000;
+  color: black;
 }
 
 .line {
-  color: #000;
+  color: black;
   position: absolute;
   top: 40px;
   left: 30px;
   transform: translateX(-50%);
 }
-
-.stepper.vertical {
-  flex-direction: column;
-}
-
-.step.vertical {
-  flex-direction: row;
+.line.active {
+  border-color: black;
 }
 
 .line.vertical {
   min-height: 24px;
-  border-left: 1px solid black;
+  border-left: 1px solid #bdbdbd;
   width: 2px;
   display: block;
   border-color: #bdbdbd;
+}
+.line.vertical.active {
+  border-color: black;
+}
+
+.line.horizontal {
+  top: 28px;
+  left: 50px;
+  min-width: 24px;
+  border-top: 1px solid black;
+  width: 2px;
+  display: block;
+  border-color: #bdbdbd;
+}
+.line.horizontal.active {
+  border-color: black;
 }
 
 /* Styles for vertical orientation */
@@ -1195,6 +1210,18 @@ Override variables defined in boostrap
 
 .step.vertical {
   margin-bottom: 10px; /* Add some space between steps in vertical orientation */
+}
+
+.stepper-container.horizontal {
+  justify-content: flex-start;
+}
+
+.label.horizontal {
+  margin-left: 10px;
+}
+
+.circle.horizontal {
+  padding: 8px;
 }
 
 /*# sourceMappingURL=index.css.map */

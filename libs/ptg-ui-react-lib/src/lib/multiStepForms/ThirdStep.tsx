@@ -18,7 +18,6 @@ PtgUiCommonStepProps
             name="cardType"
             list={cardData}
             id="inputCardType"
-            data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
               error?.cardType ? 'border-danger' : ''
             }`}

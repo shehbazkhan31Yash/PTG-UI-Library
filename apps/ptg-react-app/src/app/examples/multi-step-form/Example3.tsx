@@ -3,7 +3,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import './Example3.scss';
 import { PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { IUserDetails, IStep, IPtgUiMutliStep} from '../../interfaces/index';
 import { PtgUiMultiStep,PtgUiFirstStep, PtgUiSecondStep, PtgUiThirdStep, PtgUiFinalStep  } from '@ptg-ui/react';
 
@@ -134,6 +134,9 @@ const Example3 = () => {
     if (!value) {
       setError({ ...error, [name]: true });
     }
+    else{
+      setError({ ...error, [name]: false });
+    }
     validate(name, value);
   };
   // validating different fields
@@ -143,7 +146,6 @@ const Example3 = () => {
       formError = { ...formError, [field]: 'field is required' };
     } else {
       formError = { ...formError, [field]: false };
-
       // password validation
       if (
         (field === 'confirmPassword' && details.password !== value) ||
@@ -162,7 +164,6 @@ const Example3 = () => {
       ) {
         formError = { ...formError, password: false, confirmPassword: false };
       }
-
       // email validation
       else if (field === 'email') {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -172,17 +173,21 @@ const Example3 = () => {
           }
         }
       }
-
       // phone validation
       else if (field === 'phone') {
         const regexPhone = /^\d{10}$/;
+        
         if (value === '' || value ? true : false !== regexPhone.test(value)) {
           if (!regexPhone.test(value)) {
             formError = { ...formError, [field]: true };
+            formError = {...formError, [field]: "Invalid input"}
+            console.log('feild', !regexPhone.test(value));
+          }
+          else{
+          formError = { ...formError, [field]: "" };
           }
         }
       }
-
       // card validaion
       else if (field === 'cardNumber') {
         const regexCardNumber = /^\d{16}$/;
@@ -218,6 +223,7 @@ const Example3 = () => {
   // handleChange
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    validate(name, value);
     setDetails({ ...details, [name]: value });
   };
 
@@ -385,6 +391,7 @@ const Example3 = () => {
           resetForm={resetForm}
           submitForm={submitForm}
           manageNextStepValidation={manageNextStepValidation}
+          orientation="horizontal"
         />
       ) : (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

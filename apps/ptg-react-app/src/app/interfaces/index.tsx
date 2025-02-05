@@ -134,4 +134,5 @@ export interface IPtgUiMutliStep {
   handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   resetForm?: () => void;
   submitForm?: () => void;
+  orientation?: string;
 }

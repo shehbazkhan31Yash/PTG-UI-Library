@@ -5,10 +5,7 @@ import {
   IPtgUiMutliStepFormProps,
   IPtgUiMultiStepState,
 } from '../interfaces/index';
-
-const COLOR = "#fff";
-const BACKGROUND ='#052982'
-const WIDTH = '200px'
+import { BACKGROUND_COLOR, COLOR, WIDTH } from '../constants/Constants';
 
 export class PtgUiMultiStep extends React.Component<
   IPtgUiMutliStepFormProps,
@@ -53,33 +50,20 @@ export class PtgUiMultiStep extends React.Component<
       stepperSteps = [],
       allSteps = [],
       manageNextStepValidation,
+      orientation,
     } = this.props;
     const flag = manageNextStepValidation?.(stepCount);
     return (
       <>
-        <PtgUiRow>
-          <PtgUiGridColumn
-            xl={3}
-            lg={4}
-            md={4}
-            sm={12}
-            xs={12}
-            className={'mr-5'}
-          >
+        <div className={`'row ${orientation ==='horizontal'? 'flex-column':'d-flex'} `}>
+          <div className='col-md-4'>
             <Stepper
               activeStep={stepCount}
               steps={stepperSteps}
-              orientation="vertical"
+              orientation = {orientation}
             />
-          </PtgUiGridColumn>
-          <PtgUiGridColumn
-            xl={8}
-            lg={8}
-            md={8}
-            sm={12}
-            xs={12}
-            className={'mr-5'}
-          >
+          </div>
+          <div className='col-md-7'>
             {allSteps && allSteps[stepCount]}
             <PtgUiRow className="p-2">
               <div className="col-md-4 col-sm-12">
@@ -87,7 +71,7 @@ export class PtgUiMultiStep extends React.Component<
                   <PtgUiButton
                     text="Previous"
                     textColor={COLOR}
-                    backgroundColor={BACKGROUND}
+                    backgroundColor={BACKGROUND_COLOR}
                     width={WIDTH}
                     onClick={this.showPrevious}
                   />
@@ -98,7 +82,7 @@ export class PtgUiMultiStep extends React.Component<
                   <PtgUiButton
                     text="Reset"
                     textColor={COLOR}
-                    backgroundColor={BACKGROUND}
+                    backgroundColor={BACKGROUND_COLOR}
                     width={WIDTH}
                     onClick={this.resetFormDetails}
                   />
@@ -110,7 +94,7 @@ export class PtgUiMultiStep extends React.Component<
                     stepperSteps.length !== stepCount + 1 ? 'Next' : 'Submit'
                   }
                   textColor={COLOR}
-                  backgroundColor={BACKGROUND}
+                  backgroundColor={BACKGROUND_COLOR}
                   width={WIDTH}
                   onClick={
                     stepperSteps.length !== stepCount + 1
@@ -123,8 +107,8 @@ export class PtgUiMultiStep extends React.Component<
                 />
               </div>
             </PtgUiRow>
-          </PtgUiGridColumn>
-        </PtgUiRow>
+          </div>
+        </div>
       </>
     );
   }
