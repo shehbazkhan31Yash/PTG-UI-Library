@@ -1,214 +1,232 @@
-/**
- * @since April 2022
- * @author Ankit patidar
- * @desc Filter Example using filter reusable component
- */
-
-import { ChangeEvent, useState } from 'react';
-import {
-  PtgUiInput,
-  capitalizeFirstLetter,
-  inrFormat,
-  phoneNumber,
-  truncateString,
-} from '@ptg-ui/react';
+import { useState } from 'react';
+import { PtgUiPipe } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
-import { IPipesProps } from '../../interfaces/index';
+import CodeIcon from '@mui/icons-material/Code';
 
-/* eslint-disable-next-line */
-
-export function Pipes(props: Readonly<IPipesProps>) {
+export function Pipes() {
   const { t } = useTranslation();
+  const [showCode, setShowCode] = useState<boolean>(false);
+  const [capitalizedStringValue, setCapitalizedStringValue] = useState('');
+  const [truncateValue, setTruncateValue] = useState('');
+  const [currencyValue, setCurrencyValue] = useState('');
+  const [phoneNumberValue, setPhoneNumberValue] = useState('');
+  const [capitalizedTruncatedValue, setcapitalizedTruncatedValue] =
+    useState('');
 
-  const [value, setValue] = useState({
-    cname: '',
-    inr: '',
-    dollar: '',
-    truncateStr: '',
-    phoneNumber: '',
-  });
+  const handleCapitalizedFirstLetterInputChange = (capitalizedStringValue:string) => {
+    setCapitalizedStringValue(capitalizedStringValue);
+  };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setValue((values) => {
-      return { ...values, [name]: value };
-    });
+  const handleTruncateStringInputChange = (truncateValue:string) => {
+    setTruncateValue(truncateValue);
+  };
+
+  const handleCapitalizedAndTruncateInputChange = (
+    capitalizedTruncatedValue:string
+  ) => {
+    setcapitalizedTruncatedValue(capitalizedTruncatedValue);
+  };
+
+  const handleFormatINRInputChange = (currencyValue:string) => {
+    setCurrencyValue(currencyValue);
+  };
+
+  const handlePhoneNumberInputChange = (phoneNumberValue:string) => {
+    setPhoneNumberValue(phoneNumberValue);
+  };
+
+  const handleShowCode = () => {
+    setShowCode(!showCode);
   };
 
   const componentCode = `
-  interface PipesProps {
-    showPipeCode: boolean;
-  }
+  export function Pipes() {
 
-  export function Pipes(props: Readonly<PipesProps>) {
+  const [capitalizedStringValue, setCapitalizedStringValue] = useState('');
+  const [truncateValue, setTruncateValue] = useState('');
+  const [currencyValue, setCurrencyValue] = useState('');
+  const [phoneNumberValue, setPhoneNumberValue] = useState('');
+  const [capitalizedTruncatedValue, setcapitalizedTruncatedValue] = useState('');
 
-  const [value, setValue] = useState({
-    cname: '',
-    inr: '',
-    dollar: '',
-    truncateStr: '',
-    phoneNumber: '',
-  });
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setValue((values) => {
-      return { ...values, [name]: value };
-    });
+  const handleCapitalizedFirstLetterInputChange = (capitalizedStringValue) => {
+    setCapitalizedStringValue(capitalizedStringValue);
   };
-export default Pipes;`;
 
+  const handleTruncateStringInputChange = (truncateValue) => {
+    setTruncateValue(truncateValue);
+  };
+
+  const handleCapitalizedAndTruncateInputChange = (
+    capitalizedTruncatedValue
+  ) => {
+    setcapitalizedTruncatedValue(capitalizedTruncatedValue);
+  };
+
+  const handleFormatINRInputChange = (currencyValue) => {
+    setCurrencyValue(currencyValue);
+  };
+
+  const handlePhoneNumberInputChange = (phoneNumberValue) => {
+    setPhoneNumberValue(phoneNumberValue);
+  };
+}
+export default Pipes;
+  `;
   const htmlCode = `
-   import './pipes.module.scss';
-   import {
-     inrFormat,
-     capitalizeFirstLetter,
-     PtgUiInput,
-     truncateString,
-     phoneNumber,
-   } from '@ptg-ui/react';
+  import { PtgUiPipe } from '@ptg-ui/react';
+        
+  <div> Capitalize First Letter </div>
+  <PtgUiPipe
+    isCapitalizedFirstLetter={true}
+    onChange={handleCapitalizedFirstLetterInputChange}
+  />
+  <div>Output: {capitalizedStringValue} </div>
 
-    <PtgUiInput
-      type="text"
-      id="firstLetterCapital"
-      name="cname"
-      value={value.cname}
-      className={'form-control bg_0'}
-      onChange={handleChange}
-    />
-    <div>Output: {capitalizeFirstLetter(value.cname)}</div>
-    
-    <PtgUiInput
-      type="number"
-      name="inr"
-      id="inrFormatText"
-      className={'form-control bg_0'}
-      value={value.inr}
-      onChange={handleChange}
-    />
-    <div>Output: {inrFormat(value.inr)}</div>
+  <div> Truncate </div>
+  <PtgUiPipe
+    isTruncate={true}
+    onChange={handleTruncateStringInputChange}
+  />
+  <div> Output:{truncateValue}</div>
 
-    <PtgUiInput
-      type="text"
-      name="truncateStr"
-      id="truncatePipeText"
-      className={'form-control bg_0'}
-      value={value.truncateStr}
-      onChange={handleChange}
-    />
-    <div>Output: {truncateString(value.truncateStr)}</div>
+  <div> Capitalize and Truncate </div>
+  <PtgUiPipe
+    isCapitalizedFirstLetter={true}
+    isTruncate={true}
+    onChange={handleCapitalizedAndTruncateInputChange}
+  />
+  <div> Output:{capitalizedTruncatedValue}</div>
 
-    <PtgUiInput
-      type="text"
-      name="phoneNumber"
-      id="phoneNumberPipes"
-      className={'form-control bg_0'}
-      value={value.phoneNumber}
-      onChange={handleChange}
-      maxlength="10"
-    />
-    <div>Output: {phoneNumber(value.phoneNumber)}</div>
+  <div> Format INR </div>
+  <PtgUiPipe isFormatINR={true} onChange={handleFormatINRInputChange} />
+  <div>Output: {currencyValue}</div>
 
-`;
+  <div> Phone Number </div>
+  <PtgUiPipe
+    isFormatPhoneNumber={true}
+    onChange={handlePhoneNumberInputChange}
+  />
+  <div>Output: {phoneNumberValue}</div>      
+  `;
   return (
-    <>
-      {!props.showPipeCode ? (
-        <div className="wrapper">
+    <section className="card-section-two bg-white rounded pt-2 pb-8 mt-2">
+      <div className="row">
+        <div className="col-10 mb-2 mt-2">
+          <h5 className="font-weight-bold example-heading">{t('PIPE')}</h5>
+        </div>
+        <div className="col-2 mb-2 mt-1">
+          <CodeIcon
+            onClick={handleShowCode}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
+        </div>
+        <hr className="horizontal-line" />
+        {showCode && (
+          <ShowCodeComponent
+            componentCode={componentCode}
+            htmlCode={htmlCode}
+          />
+        )}
+        <div className="wrapper col-md-11 col-sm-7 ms-3">
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
-              <label
-                htmlFor="firstLetterCapital"
-                aria-labelledby="firstLetterCapital"
-              >
-                {t('FIRST_LETTER_CAPITAL_TEXT')}
-              </label>
-              <PtgUiInput
-                type="text"
-                id="firstLetterCapital"
-                name="cname"
-                value={value.cname}
-                className={'form-control bg_0'}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              {t('OUTPUT_TEXT')}
-              {capitalizeFirstLetter(value.cname)}
+            <div className="col-lg-4 col-sm-6 col-xs-12 w-50">
+              <div>
+                <label
+                  htmlFor="firstLetterCapital"
+                  aria-labelledby="firstLetterCapital"
+                >
+                  {t('FIRST_LETTER_CAPITAL_TEXT')}
+                </label>
+                <PtgUiPipe
+                  isCapitalizedFirstLetter={true}
+                  onChange={handleCapitalizedFirstLetterInputChange}
+                />
+              </div>
+              <div className="mb-4 mt-1">
+                {t('OUTPUT_TEXT')}
+                {capitalizedStringValue}
+              </div>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
-              <label htmlFor="inrFormatText" aria-labelledby="inrFormatText">
-                {t('INR_FORMAT_TEXT')}
-              </label>
-              <PtgUiInput
-                type="number"
-                name="inr"
-                id="inrFormatText"
-                className={'form-control bg_0'}
-                value={value.inr}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              {t('OUTPUT_TEXT')}
-              {inrFormat(value.inr)}
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
+            <div className="col-lg-4  col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="truncatePipeText"
                 aria-labelledby="truncatePipeText"
               >
                 {t('TRUNCATE_PIPE_TEXT')}
               </label>
-              <PtgUiInput
-                type="text"
-                name="truncateStr"
-                id="truncatePipeText"
-                className={'form-control bg_0'}
-                value={value.truncateStr}
-                onChange={handleChange}
+              <PtgUiPipe
+                isTruncate={true}
+                onChange={handleTruncateStringInputChange}
               />
-              <div className="mt-3 mb-4">
+              <div className="mb-4 mt-1">
                 {t('OUTPUT_TEXT')}
-                {truncateString(value.truncateStr)}
+                {truncateValue}
               </div>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
+            <div className="col-lg-4 col-sm-6 col-xs-12 w-50">
+              <label
+                htmlFor="truncatePipeText"
+                aria-labelledby="truncatePipeText"
+              >
+                {t('FIRST_LETTER_CAPITAL_TEXT')} and
+                {t('TRUNCATE_PIPE_TEXT')}
+              </label>
+              <PtgUiPipe
+                isCapitalizedFirstLetter={true}
+                isTruncate={true}
+                onChange={handleCapitalizedAndTruncateInputChange}
+              />
+              <div className="mb-4 mt-1">
+                {t('OUTPUT_TEXT')}
+                {capitalizedTruncatedValue}
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-4 col-sm-6 col-xs-12 w-50">
+              <label htmlFor="inrFormatText" aria-labelledby="inrFormatText">
+                {t('INR_FORMAT_TEXT')}
+              </label>
+              <PtgUiPipe
+                isFormatINR={true}
+                onChange={handleFormatINRInputChange}
+              />
+            </div>
+            <div className="mb-4 mt-1">
+              {t('OUTPUT_TEXT')}
+              {currencyValue}
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-4 col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="phoneNumberPipes"
                 aria-labelledby="phoneNumberPipes"
               >
                 {t('PHONE_NUMBER_PIPES_TEXT')}
               </label>
-              <PtgUiInput
-                type="text"
-                name="phoneNumber"
-                id="phoneNumberPipes"
-                className={'form-control bg_0'}
-                value={value.phoneNumber}
-                onChange={handleChange}
-                maxlength="10"
+              <PtgUiPipe
+                isFormatPhoneNumber={true}
+                onChange={handlePhoneNumberInputChange}
               />
-              <div className="mt-3 mb-4">
-                {t('OUTPUT_TEXT')}: {phoneNumber(value.phoneNumber)}
+              <div className="mb-4 mt-1">
+                {t('OUTPUT_TEXT')} {phoneNumberValue}
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-      )}
-    </>
+      </div>
+    </section>
   );
 }
-
 export default Pipes;

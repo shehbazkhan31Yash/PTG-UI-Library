@@ -25,7 +25,7 @@ export * from './lib/charts/d3/pie/pie';
 export * from './lib/data-table/ag-grid/ag-grid';
 export * from './lib/data-table/react-data-grid/react-data-grid';
 export * from './lib/data-table/material-table/material-table';
-export * from './lib/pipes/pipes';
+export * from './lib/pipes/Pipes';
 export * from './lib/date-picker/date-picker';
 export * from './lib/download-file/downloadFile';
 export * from './lib/indeterminate-checkbox/Tree/CheckboxTree';

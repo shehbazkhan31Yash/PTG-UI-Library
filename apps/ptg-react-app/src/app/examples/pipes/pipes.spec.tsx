@@ -1,9 +1,9 @@
-import { render, fireEvent } from'@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Pipes from './Pipes';
 
 describe('Pipes', () => {
   it('should render successfully', () => {
-    const { baseElement,getByTestId} = render(<Pipes showPipeCode />);
+    const { baseElement, getByTestId } = render(<Pipes />);
     expect(baseElement).toBeTruthy();
     fireEvent.change(getByTestId('cname'), {
       target: { value: 'test@test.com' },
@@ -18,10 +18,7 @@ describe('Pipes', () => {
       target: { value: '9131229005' },
     });
     fireEvent.change(getByTestId('truncateStr'), {
-
       target: { value: 'ItsAVeryLongTest' },
-
     });
   });
-
 });
