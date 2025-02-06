@@ -1,4 +1,4 @@
-import { PtgUiInput } from '@ptg-ui/react';
+import { PtgUiInput } from '../input/input';
 import React from 'react';
 import {PtgUiCommonStepProps } from '../interfaces/index';
 

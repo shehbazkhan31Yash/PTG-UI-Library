@@ -1,4 +1,5 @@
-import { PtgUiInput, PtgUiSelect } from '@ptg-ui/react';
+import { PtgUiInput } from '../input/input';
+import { PtgUiSelect} from '../select/select';
 import React from 'react';
 import { CARD_LIST } from '../mock/mock';
 import { PtgUiCommonStepProps } from '../interfaces/index';

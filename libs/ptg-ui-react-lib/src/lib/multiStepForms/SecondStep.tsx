@@ -1,5 +1,7 @@
 import React from 'react';
-import { PtgUiInput, PtgUiSelect, PtgUiTextArea } from '@ptg-ui/react';
+import { PtgUiInput } from '../input/input';
+import { PtgUiSelect} from '../select/select';
+import {PtgUiTextArea } from '../textarea/textarea';
 import {
   SALUTATION_LIST,
   GENDER_LIST_SELECT,

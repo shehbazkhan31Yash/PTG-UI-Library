@@ -1,6 +1,7 @@
 import React from 'react';
 import { Stepper } from '../../common/Stepper';
-import { PtgUiButton, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
+import { PtgUiButton } from '../button/button';
+import { PtgUiRow } from '../gridRow/GridRow';
 import {
   IPtgUiMutliStepFormProps,
   IPtgUiMultiStepState,
@@ -54,62 +55,60 @@ export class PtgUiMultiStep extends React.Component<
     } = this.props;
     const flag = manageNextStepValidation?.(stepCount);
     return (
-      <>
-        <div className={`'row ${orientation ==='horizontal'? 'flex-column':'d-flex'} `}>
-          <div className='col-md-4'>
-            <Stepper
-              activeStep={stepCount}
-              steps={stepperSteps}
-              orientation = {orientation}
-            />
-          </div>
-          <div className='col-md-7'>
-            {allSteps && allSteps[stepCount]}
-            <PtgUiRow className="p-2">
-              <div className="col-md-4 col-sm-12">
-                {stepCount !== 0 && (
-                  <PtgUiButton
-                    text="Previous"
-                    textColor={COLOR}
-                    backgroundColor={BACKGROUND_COLOR}
-                    width={WIDTH}
-                    onClick={this.showPrevious}
-                  />
-                )}
-              </div>
-              <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-around">
-                {stepperSteps.length === stepCount + 1 && (
-                  <PtgUiButton
-                    text="Reset"
-                    textColor={COLOR}
-                    backgroundColor={BACKGROUND_COLOR}
-                    width={WIDTH}
-                    onClick={this.resetFormDetails}
-                  />
-                )}
-              </div>
-              <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-end">
+      <div
+        className={`'row p-2 ${
+          orientation === 'horizontal' ? 'flex-column' : 'd-flex'
+        } `}
+      >
+        <div className="col-md-4">
+          <Stepper
+            activeStep={stepCount}
+            steps={stepperSteps}
+            orientation={orientation}
+          />
+        </div>
+        <div className="col-md-7">
+          {allSteps && allSteps[stepCount]}
+          <PtgUiRow className="p-2">
+            <div className="col-md-4 col-sm-12">
+              {stepCount !== 0 && (
                 <PtgUiButton
-                  text={
-                    stepperSteps.length !== stepCount + 1 ? 'Next' : 'Submit'
-                  }
+                  text="Previous"
                   textColor={COLOR}
                   backgroundColor={BACKGROUND_COLOR}
                   width={WIDTH}
-                  onClick={
-                    stepperSteps.length !== stepCount + 1
-                      ? this.showNext
-                      : this.submitFormDetails
-                  }
-                  disabled={
-                    stepperSteps.length !== stepCount + 1 ? flag : false
-                  }
+                  onClick={this.showPrevious}
                 />
-              </div>
-            </PtgUiRow>
-          </div>
+              )}
+            </div>
+            <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-around">
+              {stepperSteps.length === stepCount + 1 && (
+                <PtgUiButton
+                  text="Reset"
+                  textColor={COLOR}
+                  backgroundColor={BACKGROUND_COLOR}
+                  width={WIDTH}
+                  onClick={this.resetFormDetails}
+                />
+              )}
+            </div>
+            <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-end">
+              <PtgUiButton
+                text={stepperSteps.length !== stepCount + 1 ? 'Next' : 'Submit'}
+                textColor={COLOR}
+                backgroundColor={BACKGROUND_COLOR}
+                width={WIDTH}
+                onClick={
+                  stepperSteps.length !== stepCount + 1
+                    ? this.showNext
+                    : this.submitFormDetails
+                }
+                disabled={stepperSteps.length !== stepCount + 1 ? flag : false}
+              />
+            </div>
+          </PtgUiRow>
         </div>
-      </>
+      </div>
     );
   }
 }

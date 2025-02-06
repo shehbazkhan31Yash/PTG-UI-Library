@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import './Example3.scss';
-import { PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { IUserDetails, IStep, IPtgUiMutliStep} from '../../interfaces/index';
-import { PtgUiMultiStep,PtgUiFirstStep, PtgUiSecondStep, PtgUiThirdStep, PtgUiFinalStep  } from '@ptg-ui/react';
+import { IUserDetails, IStep, IPtgUiMutliStep } from '../../interfaces/index';
+import {
+  PtgUiGridColumn,
+  PtgUiRow,
+  PtgUiMultiStep,
+  PtgUiFirstStep,
+  PtgUiSecondStep,
+  PtgUiThirdStep,
+  PtgUiFinalStep,
+} from '@ptg-ui/react';
 
 const Example3 = () => {
   const { t } = useTranslation();
@@ -133,8 +140,7 @@ const Example3 = () => {
     const { name, value } = event.target;
     if (!value) {
       setError({ ...error, [name]: true });
-    }
-    else{
+    } else {
       setError({ ...error, [name]: false });
     }
     validate(name, value);
@@ -176,15 +182,14 @@ const Example3 = () => {
       // phone validation
       else if (field === 'phone') {
         const regexPhone = /^\d{10}$/;
-        
+
         if (value === '' || value ? true : false !== regexPhone.test(value)) {
           if (!regexPhone.test(value)) {
             formError = { ...formError, [field]: true };
-            formError = {...formError, [field]: "Invalid input"}
+            formError = { ...formError, [field]: 'Invalid input' };
             console.log('feild', !regexPhone.test(value));
-          }
-          else{
-          formError = { ...formError, [field]: "" };
+          } else {
+            formError = { ...formError, [field]: '' };
           }
         }
       }
@@ -299,7 +304,46 @@ const Example3 = () => {
       details={details}
     />,
   ];
-
+  const manageNextStepValidation = (step: number) => {
+    let ButtonDisabled = true;
+    if (step === 0) {
+      ButtonDisabled = !(
+        details?.userName?.length > 0 &&
+        details?.password?.length > 0 &&
+        details?.confirmPassword?.length > 0 &&
+        !error?.userName &&
+        !error?.password &&
+        !error?.confirmPassword
+      );
+    } else if (step === 1) {
+      ButtonDisabled = !(
+        details.greeting.length &&
+        details.gender.length &&
+        details.firstName &&
+        details.lastName &&
+        details.email &&
+        !error.email &&
+        details.phone &&
+        !error.phone &&
+        details.zipCode &&
+        !error.zipCode &&
+        details.state &&
+        details.homeAddress &&
+        details.country
+      );
+    } else {
+      ButtonDisabled = !(
+        details.cardType &&
+        details.cardNumber &&
+        !error.cardNumber &&
+        details.cvc &&
+        !error.cvc &&
+        details.expiration &&
+        details.cardHolder
+      );
+    }
+    return ButtonDisabled;
+  };
   const submitForm = () => {
     resetForm();
   };
@@ -329,14 +373,14 @@ const Example3 = () => {
 `;
 
   const htmlCode = ` 
-  <PtgUiMultiStep
-    allSteps={allSteps}
-    stepperSteps={stepperSteps}
-    details={details}
-    error={error}
-    resetForm={resetForm}
-    submitForm={submitForm}
-  /> `;
+   <PtgUiMultiStep
+      allSteps={allSteps}
+      stepperSteps={stepperSteps}
+      resetForm={resetForm}
+      submitForm={submitForm}
+      manageNextStepValidation={manageNextStepValidation}
+      orientation="horizontal"
+    />`;
 
   const stepperSteps: IStep[] = [
     { id: 0, label: 'Account Info' },
@@ -391,7 +435,6 @@ const Example3 = () => {
           resetForm={resetForm}
           submitForm={submitForm}
           manageNextStepValidation={manageNextStepValidation}
-          orientation="horizontal"
         />
       ) : (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
