@@ -1,7 +1,9 @@
 {
+  "name": "ptg-react-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-react-app/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
@@ -73,12 +75,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-react-app"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-react-app"],
       "options": {
         "jestConfig": "apps/ptg-react-app/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

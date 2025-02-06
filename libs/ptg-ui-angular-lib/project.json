@@ -1,7 +1,10 @@
 {
+  "name": "ptg-ui-angular-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/ptg-ui-angular-lib",
   "prefix": "ptg-ui-library",
+  "tags": [],
   "targets": {
     "build": {
       "schematics": {
@@ -9,8 +12,8 @@
           "standalone": false
         }
       },
-      "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/ptg-ui-angular-lib"],
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "outputs": ["{workspaceRoot}/dist/libs/ptg-ui-angular-lib"],
       "options": {
         "project": "libs/ptg-ui-angular-lib/ng-package.json"
       },
@@ -26,7 +29,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ptg-ui-angular-lib"],
+      "outputs": ["{workspaceRoot}/coverage/libs/ptg-ui-angular-lib"],
       "options": {
         "jestConfig": "libs/ptg-ui-angular-lib/jest.config.ts",
         "passWithNoTests": true
@@ -77,6 +80,5 @@
         }
       }
     }
-  },
-  "tags": []
+  }
 }
