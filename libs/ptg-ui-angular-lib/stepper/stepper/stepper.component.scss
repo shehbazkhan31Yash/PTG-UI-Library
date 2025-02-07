@@ -1,0 +1,210 @@
+// .horizontalStepper {
+//     display: flex;
+//     justify-content: space-between;
+//     position: relative;
+//     width: 100%;
+// }
+
+// .horizontalStep {
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     flex: 1;
+//     text-align: center;
+//     padding: 20px 0;
+// }
+
+// .horizontalStep::after {
+//     content: '';
+//     position: absolute;
+//     top: 35%;
+//     /* Center the line vertically */
+//     left: 9%;
+//     /* Position the line to the right of the step */
+//     width: 100%;
+//     /* Adjust width based on the step number size */
+//     height: 2px;
+//     background-color: #ccc;
+//     transform: translateY(-50%);
+// }
+
+// .step-number {
+//     background-color: #007bff;
+//     color: white;
+//     border-radius: 50%;
+//     width: 30px;
+//     height: 30px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-bottom: 10px;
+//     z-index: 1;
+//     /* Ensure the step number is above the line */
+// }
+
+// .step-title {
+//     display: inline-block;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     min-width: 50px;
+//     vertical-align: middle;
+// }
+
+// .step-content {
+//     width: 100%;
+//     /* Ensure the content takes the full width */
+//     padding: 10px;
+//     /* Add padding to ensure content doesn't touch the edges */
+//     box-sizing: border-box;
+//     /* Include padding in the element's total width and height */
+// }
+
+// .step.active .step-number {
+//     background-color: #28a745;
+// }
+
+// .stepper-navigation {
+//     margin-top: 20px;
+//     justify-content: space-between;
+//     width: 100%;
+// }
+
+// .verticalStepper {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     position: relative;
+//     width: 100%;
+// }
+
+
+// .verticalStep {
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     width: 100%;
+//     text-align: center;
+//     padding: 20px 0;
+
+// }
+
+// .verticalStep::after {
+//     content: '';
+//     position: absolute;
+//     top: 50%;
+//     left: 1.5%;
+//     width: 2px;
+//     height: calc(100% - 40px);
+//     /* Adjust height based on padding */
+//     background-color: #ccc;
+//     transform: translateX(-50%);
+// }
+
+// .step:last-child::after {
+//     display: none;
+// }
+
+  .horizontalStepper{
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+  }
+  .verticalStepper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+   
+  }
+  .horizontalStep-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .verticalStep-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .horizontalStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: grey;
+  }
+  .verticalStep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: grey;
+  }
+  .step-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-number {
+    background-color: #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.step-label{
+  font-size: 14px;
+}
+.horizontalLine{
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+.verticalLine{
+  width: 2px;
+  height: 40px;
+  background-color: #ccc;
+  position: absolute;
+  left: 15px;
+  top: 35px;
+}
+.active .step-number{
+    background-color: black;
+    color: white;
+}
+.active{
+    color: black;
+}
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.buttons{
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.stepper-container{
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+}
+  .form-container{
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+  }

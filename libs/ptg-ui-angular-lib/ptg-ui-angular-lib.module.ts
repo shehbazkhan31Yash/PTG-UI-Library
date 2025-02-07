@@ -32,6 +32,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
+import { StepperModule } from '@ptg-ui/angular/stepper';
 
 @NgModule({
   declarations: [],
@@ -58,7 +59,8 @@ import { CarouselModule } from './carousel/carousel.module';
     TextareaModule,
     BreadcrumbsModule,
     CardModule,
-    CarouselModule
+    CarouselModule,
+    StepperModule
     // SidenavModule
   ],
   exports: [

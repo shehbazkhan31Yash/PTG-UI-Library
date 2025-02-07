@@ -1,0 +1,53 @@
+<!-- <div class="horizontalStepper" *ngIf="!showVertical">
+  <div class="horizontalStep step" *ngFor="let step of steps.toArray(); let i = index" [class.active]="i === currentStep">
+    <span class="step-number">{{ i + 1 }}</span>
+    <span class="step-title">{{ stepperSteps[i]['label'] }}</span>
+  </div>
+</div>
+<div class="step-content" *ngIf="!showVertical">
+  <ng-container *ngIf="getStepContent(currentStep)">
+    <ng-container *ngTemplateOutlet="getStepContent(currentStep)"></ng-container>
+  </ng-container>
+</div>
+<div class="stepper-navigation" *ngIf="!showVertical">
+  <button *ngIf="currentStep !== 0"  class="btn btn-secondary border-none" (click)="previousStep()">Previous</button>
+  <button class="btn btn-primary border-none" (click)="nextStep()">{{ currentStep === steps.length - 1 ? 'Submit' : 'Next' }}</button>
+</div>
+<div class="verticalStepper" *ngIf="showVertical">
+  <div class="verticalStep step" *ngFor="let step of steps.toArray(); let i = index" [class.active]="i === currentStep">
+    <div class="step-number">{{ i + 1 }}</div>
+    <div class="step-title">{{ step.title }}</div>
+    <div class="step-content" *ngIf="i === currentStep">
+      <ng-container *ngTemplateOutlet="getStepContent(currentStep)"></ng-container>
+    </div>
+  </div>
+</div>
+<div class="stepper-navigation" *ngIf="showVertical">
+  <button *ngIf="currentStep !== 0" class="btn btn-secondary" (click)="previousStep()">Previous</button>
+  <button class="btn btn-primary" (click)="nextStep()">{{ currentStep === steps.length - 1 ? 'Submit' : 'Next' }}</button>
+</div> -->
+<div [ngClass]="showVertical?'':'stepper-container'">
+  <div [ngClass]="showVertical?'horizontalStepper':'verticalStepper'">
+    <div [ngClass]="showVertical?'horizontalStep-wrapper':'verticalStep-wrapper'"
+      *ngFor="let step of steps; let i = index">
+      <div [ngClass]="showVertical?'horizontalStep':'verticalStep'" [class.active]="i <= currentStep">
+        <div class="step-content">
+          <div class="step-number">{{ i + 1 }}</div>
+          <span class="step-label">{{ step }}</span>
+        </div>
+      </div>
+      <div *ngIf="i<steps.length-1" [ngClass]="showVertical?'horizontalLine':'verticalLine'"></div>
+    </div>
+  </div>
+  <div [ngClass]="showVertical?'':'form-container'">
+    <form *ngIf="formGroups && formGroups[currentStep]" [formGroup]="formGroups[currentStep]">
+      <ng-container *ngIf="stepTemplates && stepTemplates.toArray()[currentStep]"
+        [ngTemplateOutlet]="stepTemplates.toArray()[currentStep]"></ng-container>
+    </form>
+    <div class="buttons">
+      <button *ngIf="currentStep !== 0" class="btn btn-secondary border-none" (click)="previousStep()">Previous</button>
+      <button class="btn btn-primary border-none" (click)="nextStep()">{{ currentStep === steps.length - 1 ? 'Submit' :
+        'Next' }}</button>
+    </div>
+  </div>
+</div>
