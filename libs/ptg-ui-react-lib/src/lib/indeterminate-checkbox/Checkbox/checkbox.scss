@@ -1,23 +1,23 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .checkbox {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-  position: relative;
-  line-height: 17px;
-  margin-right: 5px;
-  accent-color:$main;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	position: relative;
+	line-height: 17px;
+	margin-right: 5px;
+	accent-color: $main;
 
-  &.isIndeterminate {
-    &::after {
-      content: "\2212";
-    }
-  }
+	&.isIndeterminate {
+		&::after {
+			content: '\2212';
+		}
+	}
 }
 
-.indeterminatespan{
-  visibility:hidden;
+.indeterminatespan {
+	visibility: hidden;
 }
