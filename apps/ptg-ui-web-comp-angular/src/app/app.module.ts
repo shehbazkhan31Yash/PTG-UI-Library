@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'select', component: SelectComponent },
   { path: 'table', component: TableComponent },
   { path: 'toast', component: ToastComponent },
-  { path: 'textarea', component: TextareaComponent },\
+  { path: 'textarea', component: TextareaComponent },
   { path: '**', component: ButtonsComponent },
 ];
 
