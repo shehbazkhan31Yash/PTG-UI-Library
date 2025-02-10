@@ -1,0 +1,3 @@
+# Ignore artifacts:
+.scannerwork
+node_modules

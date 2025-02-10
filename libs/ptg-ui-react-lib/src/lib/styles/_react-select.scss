@@ -9,14 +9,13 @@
 // select new styles
 
 .multiSelectContainer .option:hover {
-    background-color: $react-datepicker_star-end !important ;
-    color: $main !important;
+	background-color: $react-datepicker_star-end !important ;
+	color: $main !important;
 }
-.singleChip{
-   color: $main !important;
-}
-
-#intermediate-checkbox .multiSelectContainer input{
-background-color: $main !important;
+.singleChip {
+	color: $main !important;
 }
 
+#intermediate-checkbox .multiSelectContainer input {
+	background-color: $main !important;
+}

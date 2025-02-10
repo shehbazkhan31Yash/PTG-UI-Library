@@ -1,103 +1,103 @@
 @import '../lib/styles/variables';
 .stepper-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .stepper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
 .step {
-  display: flex;
-  border-radius: 4px;
-  text-align: center;
-  position: relative;
+	display: flex;
+	border-radius: 4px;
+	text-align: center;
+	position: relative;
 }
 
 .circle {
-  margin: 1rem;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $light-grey;
-  color: white;
-  transition: border-color 0.3s, background-color 0.3s;
+	margin: 1rem;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $light-grey;
+	color: white;
+	transition: border-color 0.3s, background-color 0.3s;
 
-  &.active {
-    border-color: $main; // Change this to your active color
-    background-color: $main;// Change this to your active color
-    color: white;
-  }
+	&.active {
+		border-color: $main; // Change this to your active color
+		background-color: $main; // Change this to your active color
+		color: white;
+	}
 }
 .label {
-  border-color: $light-grey;
-  margin-top: 1rem;
-  text-align: center;
-  color: $light-grey;
+	border-color: $light-grey;
+	margin-top: 1rem;
+	text-align: center;
+	color: $light-grey;
 
-  &.active {
-    color: black;
-  }
+	&.active {
+		color: black;
+	}
 }
 
 .line {
-  color: black;
-  position: absolute;
-  top: 40px; // Adjust to position the line correctly
-  left: 30px;
-  transform: translateX(-50%);
+	color: black;
+	position: absolute;
+	top: 40px; // Adjust to position the line correctly
+	left: 30px;
+	transform: translateX(-50%);
 
-  &.active {
-    border-color: black 
-  }
+	&.active {
+		border-color: black;
+	}
 }
 
 // Vertical orientation styles
 .line.vertical {
-  min-height: 24px;
-  border-left: 1px solid  $light-grey;
-  width: 2px; // Make the line vertical
-  display: block;
-  border-color: $light-grey;
-  &.active {
-    border-color: black 
-  }
+	min-height: 24px;
+	border-left: 1px solid $light-grey;
+	width: 2px; // Make the line vertical
+	display: block;
+	border-color: $light-grey;
+	&.active {
+		border-color: black;
+	}
 }
-.line.horizontal{
-  top: 28px; // Adjust to position the line correctly
-  left: 50px;
-  min-width: 24px;
-  border-top: 1px solid black;
-  width: 2px; // Make the line vertical
-  display: block;
-  border-color: $light-grey;
-  &.active {
-    border-color: black 
-  }
+.line.horizontal {
+	top: 28px; // Adjust to position the line correctly
+	left: 50px;
+	min-width: 24px;
+	border-top: 1px solid black;
+	width: 2px; // Make the line vertical
+	display: block;
+	border-color: $light-grey;
+	&.active {
+		border-color: black;
+	}
 }
 /* Styles for vertical orientation */
 .stepper.vertical {
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .step.vertical {
-  margin-bottom: 10px; /* Add some space between steps in vertical orientation */
+	margin-bottom: 10px; /* Add some space between steps in vertical orientation */
 }
 
-.stepper-container.horizontal{
-  justify-content: flex-start;
+.stepper-container.horizontal {
+	justify-content: flex-start;
 }
 
-.label.horizontal{
-  margin-left: 10px;
+.label.horizontal {
+	margin-left: 10px;
 }
-.circle.horizontal{
-  padding: 8px;
+.circle.horizontal {
+	padding: 8px;
 }

@@ -1,270 +1,259 @@
 // Pagination
 interface IBreadcrumbItem {
-  title: string;
-  link: string;
+	title: string;
+	link: string;
 }
 
 //Breadcrumb
 export interface IPtgUiBreadcrumbsProps {
-  datalist: IBreadcrumbItem[];
+	datalist: IBreadcrumbItem[];
 }
 
 // Accordion
 export interface IAccordionItemProps {
-  title?: string;
-  content?: string;
+	title?: string;
+	content?: string;
 }
 export interface IPtgUiAccordionProps {
-  accordionItems: IAccordionItemProps[];
-  handleToggle: (index: number) => void;
-  activeIndex: number | null;
+	accordionItems: IAccordionItemProps[];
+	handleToggle: (index: number) => void;
+	activeIndex: number | null;
 }
 
 //Button
 export const enum BUTTON_TYPE {
-  BUTTON = 'button',
-  SUBMIT = 'submit',
-  RESET = 'reset',
+	BUTTON = 'button',
+	SUBMIT = 'submit',
+	RESET = 'reset',
 }
 export interface IPtgUiButtonProps {
-  variant?: string;
-  active?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
-  appearance?: string;
-  btnIconAlignment?: string;
-  hasbtnIconSlot?: boolean;
-  text?: string;
-  disabled?: boolean;
-  width?: string;
-  height?: string;
-  fontSize?: string;
-  fontWeight?: string;
-  textColor?: string;
-  backgroundColor?: string;
-  type?: 'button' | 'submit' | 'reset';
-  border?: string;
+	variant?: string;
+	active?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	appearance?: string;
+	btnIconAlignment?: string;
+	hasbtnIconSlot?: boolean;
+	text?: string;
+	disabled?: boolean;
+	width?: string;
+	height?: string;
+	fontSize?: string;
+	fontWeight?: string;
+	textColor?: string;
+	backgroundColor?: string;
+	type?: 'button' | 'submit' | 'reset';
+	border?: string;
 }
 
 //Cards
 export interface ICardUiProps {
-  image?: string;
-  title?: string;
-  description?: string;
-  buttonText?: string;
-  onClick?: () => void;
-  buttonColor?: string;
-  buttonWidth?: string;
-  children?: React.ReactNode;
-  imageWidth?: string;
-  imageHeight?: string;
-  backgroundColor?: string;
-  buttonTextColor?: string;
+	image?: string;
+	title?: string;
+	description?: string;
+	buttonText?: string;
+	onClick?: () => void;
+	buttonColor?: string;
+	buttonWidth?: string;
+	children?: React.ReactNode;
+	imageWidth?: string;
+	imageHeight?: string;
+	backgroundColor?: string;
+	buttonTextColor?: string;
 }
 
 // Carousel
 
 export interface ICarouselProps {
-  imgHeight?: string;
-  imgWidth?: string;
-  images?: string[];
-  showIndicators?: boolean;
+	imgHeight?: string;
+	imgWidth?: string;
+	images?: string[];
+	showIndicators?: boolean;
 }
 
 //MultiStepForm
 
- export interface IPtgUiBreadcrumbsProps {
-  datalist: IBreadcrumbItem[];
+export interface IPtgUiBreadcrumbsProps {
+	datalist: IBreadcrumbItem[];
 }
 
 // Accordion
 export interface IAccordionItemProps {
-  title?: string;
-  content?: string;
+	title?: string;
+	content?: string;
 }
 export interface IPtgUiAccordionProps {
-  accordionItems: IAccordionItemProps[];
-  handleToggle: (index: number) => void;
-  activeIndex: number | null;
+	accordionItems: IAccordionItemProps[];
+	handleToggle: (index: number) => void;
+	activeIndex: number | null;
 }
 
 export interface AlertProps {
-  message?: string;
-  type?: string;
+	message?: string;
+	type?: string;
 }
 
 //forgot password
 export interface IForgotPassword {
-  onForgotPasswordSubmit?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
-  fPasswordEmail?: (email: string) => void;
-  forgotPasswordLabel?: string;
+	onForgotPasswordSubmit?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	fPasswordEmail?: (email: string) => void;
+	forgotPasswordLabel?: string;
 }
 
 export interface IValues {
-  show: boolean;
-  email: string;
-  btnDisable: boolean;
-  showMessage: { show: boolean; type: string; message: string };
+	show: boolean;
+	email: string;
+	btnDisable: boolean;
+	showMessage: { show: boolean; type: string; message: string };
 }
 
 export interface IFormErrorForgotPWD {
-  email: boolean;
-  password: boolean;
+	email: boolean;
+	password: boolean;
 }
 
 export interface IState {
-  values: IValues;
-  formErr: IFormErrorForgotPWD;
+	values: IValues;
+	formErr: IFormErrorForgotPWD;
 }
 
 //login
 export interface IUserLogin {
-  email: string;
-  password: string;
+	email: string;
+	password: string;
 }
 
 export interface PtgUiLoginProps {
-  emailLabel?: string;
-  passwordLabel?: string;
-  emailPlaceholder?: string;
-  passwordPlaceholder?: string;
-  loginButtonName?: string;
-  signupMsg?: string;
-  signupButtonName?: string;
-  msalButtonName?: string;
-  forgotPasswordLabel?: string;
-  imgPath?: string;
-  handleChange?: (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => void | undefined;
-  user?: IUserLogin;
-  emailType?: string;
-  passwordType?: string;
-  isEmailValid?: boolean;
-  onLoginClick?: (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => void | undefined;
-  onMsalClick?: (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => void | undefined;
-  isForgotPassword?: boolean;
-  onForgotPasswordSubmit?: (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => void | undefined;
-  getForgetEmail?: (email: string) => void;
-  errorMessage?: string;
-  successMessage?: string;
+	emailLabel?: string;
+	passwordLabel?: string;
+	emailPlaceholder?: string;
+	passwordPlaceholder?: string;
+	loginButtonName?: string;
+	signupMsg?: string;
+	signupButtonName?: string;
+	msalButtonName?: string;
+	forgotPasswordLabel?: string;
+	imgPath?: string;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void | undefined;
+	user?: IUserLogin;
+	emailType?: string;
+	passwordType?: string;
+	isEmailValid?: boolean;
+	onLoginClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	onMsalClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	isForgotPassword?: boolean;
+	onForgotPasswordSubmit?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	getForgetEmail?: (email: string) => void;
+	errorMessage?: string;
+	successMessage?: string;
 }
 
 export interface IUserSignup {
-  username?: string;
-  email?: string;
-  gender?: string;
-  city?: string;
-  password?: string;
-  confirmPassword?: string;
-  error?: string | undefined | null;
-  disable?: boolean;
+	username?: string;
+	email?: string;
+	gender?: string;
+	city?: string;
+	password?: string;
+	confirmPassword?: string;
+	error?: string | undefined | null;
+	disable?: boolean;
 }
 
 export interface IFormErr {
-  username?: boolean;
-  email?: boolean;
-  gender?: boolean;
-  city?: boolean;
-  password?: boolean;
-  confirmPassword?: boolean;
+	username?: boolean;
+	email?: boolean;
+	gender?: boolean;
+	city?: boolean;
+	password?: boolean;
+	confirmPassword?: boolean;
 }
 
 export interface PtgUiSignupProps {
-  handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  user?: IUserSignup;
-  formErr?: IFormErr;
-  isDisabled: Function;
-  date?: Date | null | string;
-  selectedCheck?: boolean;
-  onSubmit?: Function;
-  errorMessage?: string;
-  successMessage?: string;
+	handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	user?: IUserSignup;
+	formErr?: IFormErr;
+	isDisabled: Function;
+	date?: Date | null | string;
+	selectedCheck?: boolean;
+	onSubmit?: Function;
+	errorMessage?: string;
+	successMessage?: string;
 }
 export interface IUserDetails {
-  firstName: string;
-  lastName: string;
-  userName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  greeting: string;
-  gender: string;
-  phone: string;
-  zipCode: string;
-  state: string;
-  homeAddress: string;
-  country: string;
-  cardType: string;
-  cardNumber: string;
-  cvc: string;
-  expiration: string;
-  cardHolder: string;
+	firstName: string;
+	lastName: string;
+	userName: string;
+	email: string;
+	password: string;
+	confirmPassword: string;
+	greeting: string;
+	gender: string;
+	phone: string;
+	zipCode: string;
+	state: string;
+	homeAddress: string;
+	country: string;
+	cardType: string;
+	cardNumber: string;
+	cvc: string;
+	expiration: string;
+	cardHolder: string;
 }
 
 export interface IUserErrors {
-  firstName: boolean;
-  lastName: boolean;
-  userName: boolean;
-  email: boolean;
-  password: boolean;
-  confirmPassword: boolean;
-  greeting: boolean;
-  gender: boolean;
-  phone: boolean;
-  zipCode: boolean;
-  state: boolean;
-  homeAddress: boolean;
-  country: boolean;
-  cardType: boolean;
-  cardNumber: boolean;
-  cvc: boolean;
-  expiration: boolean;
-  cardHolder: boolean;
+	firstName: boolean;
+	lastName: boolean;
+	userName: boolean;
+	email: boolean;
+	password: boolean;
+	confirmPassword: boolean;
+	greeting: boolean;
+	gender: boolean;
+	phone: boolean;
+	zipCode: boolean;
+	state: boolean;
+	homeAddress: boolean;
+	country: boolean;
+	cardType: boolean;
+	cardNumber: boolean;
+	cvc: boolean;
+	expiration: boolean;
+	cardHolder: boolean;
 }
 
-
 export interface IPtgUiMultiStepState {
-  stepCount: number;
-  showNext?: () => void;
+	stepCount: number;
+	showNext?: () => void;
 }
 
 export interface IStep {
-  id: number;
-  label: string; 
+	id: number;
+	label: string;
 }
 export interface IPtgUiMutliStepProps {
-  error?: IUserDetails;
-  details?: IUserDetails;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  resetForm?: () => void;
-  submitForm?: () => void;
+	error?: IUserDetails;
+	details?: IUserDetails;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	resetForm?: () => void;
+	submitForm?: () => void;
 }
 
 export interface IPtgUiMutliStepFormProps {
-  stepperSteps?: IStep[];
-  allSteps?: React.ReactElement<IPtgUiMutliStepProps>[];
-  resetForm?: () => void;
-  submitForm?: () => void;
-  manageNextStepValidation?: (step: number) => boolean;
-  orientation?: string;
+	stepperSteps?: IStep[];
+	allSteps?: React.ReactElement<IPtgUiMutliStepProps>[];
+	resetForm?: () => void;
+	submitForm?: () => void;
+	manageNextStepValidation?: (step: number) => boolean;
+	orientation?: string;
 }
 
 export interface PtgUiCommonStepProps {
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  details?: IUserDetails;
-  error?: IUserDetails;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	details?: IUserDetails;
+	error?: IUserDetails;
 }

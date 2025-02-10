@@ -1,41 +1,41 @@
 .single-select {
-  padding: 5px;
-  border-radius: 5px;
+	padding: 5px;
+	border-radius: 5px;
 }
 .item-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 9px;
-  background: #2196f3;
-  border-radius: 50px;
-  margin: 2px 2px;
-  color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 9px;
+	background: #2196f3;
+	border-radius: 50px;
+	margin: 2px 2px;
+	color: #ffffff;
 }
 .select-btn {
-  padding: 4px;
-  cursor: pointer;
-  border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid #000;
+	padding: 4px;
+	cursor: pointer;
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid #000;
 }
 .remove-item {
-  padding: 0px 4px;
-  margin: 0px 5px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  font-size: 7px;
-  text-align: center;
+	padding: 0px 4px;
+	margin: 0px 5px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	font-size: 7px;
+	text-align: center;
 }
 .selected-item {
-  font-size: 12px;
+	font-size: 12px;
 }
 .items {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
 }
 .checkboxs {
-  margin-right: 6px;
+	margin-right: 6px;
 }
