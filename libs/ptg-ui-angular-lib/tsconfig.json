@@ -18,7 +18,7 @@
   ],
   "compilerOptions": {
     "strictPropertyInitialization": false,
-    "target": "es2022",
+    "target": "es2020",
     "module": "esnext",
     "lib": ["es2020", "dom"],
     "forceConsistentCasingInFileNames": true,
