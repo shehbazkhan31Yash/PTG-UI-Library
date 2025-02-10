@@ -29,6 +29,7 @@ import { AccordianModule } from './accordion/accordion.module';
 import { TextareaModule } from "./textarea/textarea.module";
 // import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DialogModule } from './dialog/dialog.module';
 import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 
 @NgModule({
@@ -54,6 +55,8 @@ import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
+    // SidenavModule,
+    DialogModule,
     BreadcrumbsModule
     // SidenavModule
   ],
@@ -77,7 +80,8 @@ import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    // SidenavModule
+    // SidenavModule,
+    DialogModule
   ],
 })
 export class PtgUiAngularLibModule {}

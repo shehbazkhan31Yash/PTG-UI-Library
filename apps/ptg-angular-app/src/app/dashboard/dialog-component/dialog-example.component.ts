@@ -1,39 +1,40 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ptg-ui-dialog-component',
+  selector: 'ptg-ui-dialog-example',
   templateUrl: './dialog-example.component.html',
   styleUrls: ['./dialog-example.component.scss'],
 })
 export class DialogExampleComponent {
   isOpen: boolean = false;
   isFooterOpen: boolean = false;
+  isStaticBackdrop = "static";
+  isKeyboardEnabled = "false";
+  hideModal = false;
+  headerTitle = "Modal Header";
+  isModalPopover = true;
+  btnLabel = "Launch Modal";
+  btnClass = "btn-primary";
+  isCloseIconReq = true;
+  isCloseBtnReq = true;
+  closeBtnLabel = "close";
+  modalBodyContent = "<p>Modal body text goes here.</p>";
+  modalId = "dialog-test";
+
+  // Modal Features base on input
+  isScrollable = false;
+  isCenter = true;
+  modalSize = "";
+  fullScreenmodalSize = "";
 
   htmlCode = `
-  <ptg-button text="Open Modal" data-testid="openButton" appearance="primary" (click)="openFooterModal()"
-  btnIconAlignment='left'>
-  <div slot="btnIcon">
-    <i class="fas fa-window-maximize"></i>
-  </div>
-</ptg-button>
-<ptg-modal [isOpen]="isFooterOpen" modal-size="lg" confirm-button-name="Okay" :closeOutsideClick="true"
-  (modalClose)="modalFooterClosed()" (confirmClose)="confirmFooterClicked()">
-  <div slot="body-block">
-    <h2>Angular Slot for Body</h2>
-  </div>
-</ptg-modal>
+  <ptg-ui-dialog [isStaticBackdrop]="isStaticBackdrop" [isKeyboardEnabled]="isKeyboardEnabled" 
+    [hideModal]="hideModal" [isFooterOpen]="isFooterOpen"></ptg-ui-dialog>
   `;
 
   htmlCodeToHideFooter = `
-  <ptg-button text="Open Modal" data-testid="openButton" appearance="primary" (click)="openModal()">
-  </ptg-button>
-
-<ptg-modal [isOpen]="isOpen" :show-footer="false" btn-name="Hide Footer in Modal" modal-size="md"
-  confirm-button-name="Okay" (modalClose)="modalClosed()" (confirmClose)="confirmClicked()">
-  <div slot="body-block">
-    <h2>In Angular</h2>
-  </div>
-</ptg-modal>
+  <ptg-ui-dialog [isStaticBackdrop]="isStaticBackdrop" [isKeyboardEnabled]="isKeyboardEnabled" 
+    [hideModal]="hideModal" [isFooterOpen]="isFooterOpen"></ptg-ui-dialog>
   `;
 
   tsCode = `
@@ -110,5 +111,9 @@ export class DialogExampleComponent {
 
   confirmFooterClicked() {
     this.isFooterOpen = false;
+  }
+
+  updateModalStatus() {
+    this.hideModal = false;
   }
 }

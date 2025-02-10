@@ -1,6 +1,6 @@
 export const BAR_CHART_D3:any = {
-    height:330,
-    width:550,
+    height:"100%",
+    width:"100%",
     title:"My Charts",
     source:'Trending languages',
     x_title:'Languages',
