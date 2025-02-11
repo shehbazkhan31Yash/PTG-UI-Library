@@ -18,25 +18,28 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./stepper.component.scss']
 })
 
-export class StepperComponent {
+export class StepperComponent implements AfterContentInit {
   @ContentChildren(TemplateRef) stepTemplates!: QueryList<TemplateRef<any>>;
-  @Input() showVertical?: boolean = false;
-  @Input() formGroups: FormGroup[]=[];
-  @Output() formSubmit = new EventEmitter<void>(); 
-  @Input() steps:string[]=[];
-  currentStep=0;
-  previousStep() {
+  @Input() showVertical?: boolean = true;
+  @Input() formGroups: FormGroup[] = [];
+  @Output() formSubmit = new EventEmitter<void>();
+  @Output() formReset = new EventEmitter<void>();
+  @Input() steps: string[] = [];
+  currentStep = 0;
+
+  previousStep(): void {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
   }
-  ngAfterContentInit() {
-    // Ensure stepTemplates is defined after content initialization
+
+  ngAfterContentInit(): void {
     if (!this.stepTemplates) {
       this.stepTemplates = new QueryList<TemplateRef<any>>();
     }
   }
-  nextStep() {
+
+  nextStep(): void {
     if (this.formGroups[this.currentStep].valid) {
       if (this.currentStep < this.steps.length - 1) {
         this.currentStep++;
@@ -45,29 +48,15 @@ export class StepperComponent {
       }
     } else {
       this.formGroups[this.currentStep].markAllAsTouched();
-      console.log('',this.formGroups[this.currentStep])
+      console.log('', this.formGroups[this.currentStep])
     }
   }
-
-  // previousStep() {
-  //   if (this.currentStep > 0) {
-  //     this.currentStep--;
-  //   }
-  // }
-
-  // getStepContent(index: number): TemplateRef<any> | null {
-  //   return this.steps.toArray()[index] || null;
-  // }
- 
-    // if (this.formGroups[this.currentStep].valid) {
-    //   if (this.currentStep < this.steps.length - 1) {
-    //     this.currentStep++;
-    //   } else {
-    //     this.formSubmit.emit();
-    //   }
-    // } else {
-    //   this.formGroups[this.currentStep].markAllAsTouched();
-    //   console.log('',this.formGroups[this.currentStep])
-    // }
+  resetForm(): void {
+    this.formGroups.forEach(item => {
+      item.reset();
+    });
+    this.currentStep = 0;
+    this.formReset.emit();
   }
+}
 
