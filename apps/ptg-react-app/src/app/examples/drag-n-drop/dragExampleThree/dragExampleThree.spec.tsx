@@ -1,28 +1,17 @@
 import { render, fireEvent } from '@testing-library/react';
-import { SetStateAction } from 'react';
 import DragExampleThree from './dragExampleThree';
-import SingleTodo, { Todo } from './SingleTodo';
 import TodoList from './TodoList';
 import { DragDropContext } from 'react-beautiful-dnd';
 import userEvent from '@testing-library/user-event';
-import { Droppable } from 'react-beautiful-dnd';
 
 //test case for DragExampleThree
 describe('DragExampleThree', () => {
-  let container: any;
   let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
   it('enter the todo in inpute', () => {
     const component = render(<DragExampleThree />);
-
-    container = component.container;
     getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByLabelText = component.getByLabelText;
     expect(component.baseElement).toBeTruthy();
     const input = getByTestId('entername');
-
     fireEvent.change(input, {
       target: { value: 'testtodo' },
     });
@@ -37,9 +26,6 @@ describe('DragExampleThree', () => {
 //test case for TodoList
 describe('TodoList', () => {
   let container: any;
-  let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
   it('enter the todo in inpute', () => {
     const component = render(
       <DragDropContext onDragEnd={() => jest.fn()}>
@@ -48,10 +34,10 @@ describe('TodoList', () => {
             { id: 1, todo: 'test', isDone: true },
             { id: 2, todo: 'test', isDone: true },
           ]}
-          setTodos={function (value: SetStateAction<Todo[]>): void {
+          setTodos={function (): void {
             throw new Error('Function not implemented.');
           }}
-          setCompletedTodos={function (value: SetStateAction<Todo[]>): void {
+          setCompletedTodos={function (): void {
             throw new Error('Function not implemented.');
           }}
           CompletedTodos={[]}
@@ -60,9 +46,7 @@ describe('TodoList', () => {
     );
 
     container = component.container;
-    getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByLabelText = component.getByLabelText;
+
     expect(component.baseElement).toBeTruthy();
     fireEvent.click(container.querySelectorAll('.drag-icon')[2]);
     fireEvent.click(container.querySelectorAll('.drag-icon')[1]);

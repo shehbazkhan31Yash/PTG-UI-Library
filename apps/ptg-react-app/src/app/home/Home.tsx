@@ -9,9 +9,7 @@ export interface PtgUiHomeProps { }
 export function PtgUiHome(props: PtgUiHomeProps) {
   return (
     /*--Content goes here--*/
-    <>
-      <p>Home works!</p>   
-    </>
+    <p>Home works!</p>
   );
 }
 

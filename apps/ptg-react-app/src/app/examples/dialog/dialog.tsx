@@ -11,7 +11,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
 import './dialog.scss';
-import { FONT_SIZE_12, BUTTON_VARIANT, WIDTH_110, MODAL_CANCEL_BUTTON_COLOR, MODAL_CANCEL_BUTTON_TEXT, MODAL_CONFIRM_BUTTON_COLOR, MODAL_CONFIRM_BUTTON_TEXT, POSITIONS, WIDTH_200 } from '@ptg-react-app/constants/Constant';
+import { FONT_SIZE_12, BUTTON_VARIANT, MODAL_CANCEL_BUTTON_COLOR, MODAL_CANCEL_BUTTON_TEXT, MODAL_CONFIRM_BUTTON_COLOR, MODAL_CONFIRM_BUTTON_TEXT, POSITIONS, WIDTH_200 } from '@ptg-react-app/constants/Constant';
 
 const DialogExample = () => {
   const [showCode, setShowCode] = useState<boolean>(false);

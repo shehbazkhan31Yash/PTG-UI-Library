@@ -7,9 +7,7 @@
 import { authClass } from '../../auth/services/auth.service';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Reset from '../reset/Reset';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './UserProfile.scss';
 
