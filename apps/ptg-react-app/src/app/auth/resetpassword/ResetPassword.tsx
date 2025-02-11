@@ -2,7 +2,6 @@ import './ResetPassword.scss';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { FormGroup, FormLabel } from 'react-bootstrap';
 import {
   //PtgUiButton,
   PtgUiInput,
@@ -13,7 +12,7 @@ import { authClass } from '../services/auth.service';
 /* eslint-disable-next-line */
 export interface PtgUiResetPasswordProps {}
 
-export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
+export function PtgUiResetPassword(_props: PtgUiResetPasswordProps) {
   const { t } = useTranslation();
   const [fields, handleFieldChange] = useState({
     code: '',

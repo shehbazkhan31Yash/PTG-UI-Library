@@ -22,9 +22,6 @@ jest.mock('react-i18next', () => ({
 
 describe('MultiLang', () => {
   let container: any;
-  let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
   let getAllByText: any;
 
   it('should render successfully', async () => {
@@ -35,10 +32,7 @@ describe('MultiLang', () => {
     );
 
     container = component.container;
-    getByTestId = component.getByTestId;
-    getByText = component.getByText;
     getAllByText = component.getAllByText;
-    getByLabelText = component.getByLabelText;
     fireEvent.click(container.querySelector('.searchBox '));
     fireEvent.click(getAllByText('French')[0]);
   });

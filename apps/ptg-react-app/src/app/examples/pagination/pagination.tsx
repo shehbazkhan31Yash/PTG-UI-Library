@@ -4,10 +4,9 @@
  * @desc Reusable Pagination Component
  *
  */
-import { useState, useEffect } from 'react';
-import React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiPagination } from '@ptg-ui/react';

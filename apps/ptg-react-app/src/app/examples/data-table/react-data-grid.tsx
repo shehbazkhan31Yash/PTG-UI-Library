@@ -4,21 +4,20 @@
  * @uses Example using React Data Grid as reusable component.
  *
 */
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import './data-table.scss';
-import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
+import { PtgUiReactDataGrid, PtguseFetch } from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { authClass } from '../../auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 /* eslint-disable-next-line */
 export interface PtgUiReactDataGridExampleProps {}
  
-export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps) {
+export function PtgUiReactDataGridExample(_props: PtgUiReactDataGridExampleProps) {
   const { t } = useTranslation();
   /* istanbul ignore next */
-  const onClick = (event: any) => {
+  const onClick = (_event: any) => {
       alert("Button Clicked")
   }
   const [gridData, setGridData] = useState([]);
@@ -33,7 +32,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     }
   };
  
-  const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
+  const { data: apiData } = PtguseFetch('table-lists') as any
 
   useEffect(() => {
     if(apiData[0]?.attributes?.grid){

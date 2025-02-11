@@ -3,18 +3,14 @@
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
  */
+import { lazy } from 'react';
 {
   /*--Import Components for routing using lazy loading--*/
 }
-import { lazy } from 'react';
 const Example3 = lazy(
   () => import('@ptg-react-app/examples/multi-step-form/Example3')
 );
-const PtgUiHome = lazy(() => import('@ptg-react-app/home/Home'));
 const PtgUiAdminHome = lazy(() => import('@ptg-react-app/admin/AdminHome'));
-const PtgUiResetPassword = lazy(
-  () => import('@ptg-react-app/auth/resetpassword/ResetPassword')
-);
 const PtgUiPie = lazy(
   () => import('@ptg-react-app/examples/charts/highcharts/pie/pie')
 );

@@ -4,10 +4,10 @@
  * @uses Example using 3D charts as reusable component.
  * 
 */
-import {useState, useEffect} from  'react'
+import { useState, useEffect } from 'react';
 import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 

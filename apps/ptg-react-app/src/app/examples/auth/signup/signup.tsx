@@ -196,8 +196,7 @@ export function PtgSignup() {
   `;
 
   return (
-    <React.Fragment>
-      <div className="row">
+    <div className="row">
         <div className="col-10 mt-1">
           <h5 className="font-weight-bold example-heading">Signup</h5>
         </div>
@@ -229,7 +228,6 @@ export function PtgSignup() {
           successMessage={''}
         />
       </div>
-    </React.Fragment>
   );
 }
 export default PtgSignup;

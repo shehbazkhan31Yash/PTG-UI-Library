@@ -1,6 +1,6 @@
 import './bar.scss';
-import {PtgUiD3Bar, PtguseFetch} from '@ptg-ui/react';
-import { d3BarData} from '@ptg-react-app/mock/mocks';
+import { PtgUiD3Bar } from '@ptg-ui/react';
+import { d3BarData } from '@ptg-react-app/mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUId3BarProps {}

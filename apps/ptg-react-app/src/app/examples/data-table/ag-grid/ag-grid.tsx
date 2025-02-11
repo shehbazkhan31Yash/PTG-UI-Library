@@ -7,7 +7,7 @@
 
 import '../data-table.scss';
 
-import { PtgUiAccordion, PtgUiAgGrid, PtguseFetch } from '@ptg-ui/react';
+import { PtgUiAgGrid, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { AggridButton } from './aggrid-button';
@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
 /* eslint-disable-next-line */
 export interface PtgUiAgGridExampleProps {}
 
-export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
+export function PtgUiAgGridExample(_props: PtgUiAgGridExampleProps) {
   const [gridData, setGridData] = useState([]);
   const [showCode, setShowCode] = useState(false);
   

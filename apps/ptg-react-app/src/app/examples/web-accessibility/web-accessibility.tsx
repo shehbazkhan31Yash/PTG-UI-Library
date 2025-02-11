@@ -7,10 +7,9 @@
 
 /* eslint-disable jsx-a11y/no-access-key */
 import './web-accessibility.scss';
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  PtgUiButton,
   PtgUiInput,
   PtgUiSelect,
   PtgUiCheckbox,
@@ -20,7 +19,6 @@ import {
 } from '@ptg-ui/react';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
-import { resources } from '../../resource/resource';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
@@ -51,10 +49,7 @@ export function WebAccessibility(props: WebAccessibilityProps) {
 
   const [showCode, setShowCode] = useState(false);
   const {data:apiData} = PtguseFetch('city-lists') as any
-  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
-  
-  const startRef: any = useRef();
-
+  const { data: apiDataGender } = PtguseFetch('gender-lists') as any
   const { t } = useTranslation();
   
   useEffect(() => {
