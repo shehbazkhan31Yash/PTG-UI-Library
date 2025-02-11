@@ -11,6 +11,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { useTranslation } from 'react-i18next';
 import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
+import MaterialTable from '@material-table/core';
 
 
 /* eslint-disable-next-line */
