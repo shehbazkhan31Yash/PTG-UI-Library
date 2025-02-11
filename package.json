@@ -29,7 +29,9 @@
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
     "start:ng-storybook:": "nx storybook ptg-ui-angular-lib",
     "scss": "libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css",
-    "scss-watch": "node-sass libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css --watch"
+    "scss-watch": "node-sass libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css --watch",
+    "lint": "eslint apps/ptg-react-app/src --ext .js,.jsx,.ts,.tsx",
+    "fix:lint": "eslint apps/ptg-react-app/src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "private": true,
   "dependencies": {

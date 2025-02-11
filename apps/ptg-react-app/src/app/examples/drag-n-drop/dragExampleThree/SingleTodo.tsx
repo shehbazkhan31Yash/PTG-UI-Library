@@ -9,7 +9,6 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { MdDone } from 'react-icons/md';
-import { GrPowerReset } from 'react-icons/gr';
 import { Draggable } from 'react-beautiful-dnd';
 import { PtgUiInput } from '@ptg-ui/react';
 

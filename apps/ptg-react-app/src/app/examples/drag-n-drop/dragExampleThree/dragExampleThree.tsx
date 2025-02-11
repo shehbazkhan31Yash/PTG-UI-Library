@@ -61,8 +61,7 @@ export function DragExampleThree(props: DragExampleThreeProps) {
 
 
   return (
-  <>
-    <DragDropContext onDragEnd={onDragEnd}>
+  <DragDropContext onDragEnd={onDragEnd}>
       <form
         className="m-3"
         onSubmit={(e) => {
@@ -97,8 +96,6 @@ export function DragExampleThree(props: DragExampleThreeProps) {
         setCompletedTodos={setCompletedTodos}
       />
     </DragDropContext>
- 
-  </>
   );
 }
 export default DragExampleThree;

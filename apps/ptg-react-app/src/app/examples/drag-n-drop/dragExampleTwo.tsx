@@ -7,7 +7,6 @@
 
 import { useState, useEffect } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { PtguseFetch } from '@ptg-ui/react';
 import './drag-n-drop.scss';
  
@@ -50,12 +49,10 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
   }
 };
  
-export function DragExampleTwo(props: DragExampleTwoProps) {
+export function DragExampleTwo(_props: DragExampleTwoProps) {
   const [data, setData] = useState<any>([]);
   const {
     data: apiData,
-    isLoading,
-    error,
   } = PtguseFetch('todo-lists') as any;
   const columnsFromBackend = {
     right: {
@@ -80,13 +77,13 @@ export function DragExampleTwo(props: DragExampleTwoProps) {
       <DragDropContext
         onDragEnd={(result: any) => onDragEnd(result, columns, setColumns)}
       >
-        {Object.entries(columns).map(([columnId, column], index) => {
+        {Object.entries(columns).map(([columnId, column], _index) => {
           return (
             <div key={columnId} className="forMobileView">
               <h4 className="todoHeading">{column.name}</h4>
               <div className="forMobileView-2 m-1">
                 <Droppable droppableId={columnId} key={columnId}>
-                  {(provided: any, snapshot: any) => {
+                  {(provided: any, _snapshot: any) => {
                     return (
                       <div
                         className="exampleTwoDroppable"

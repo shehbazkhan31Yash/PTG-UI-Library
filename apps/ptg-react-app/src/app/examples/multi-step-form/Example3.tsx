@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Stepper, Step, StepLabel, Typography } from '@material-ui/core';
+import { useState } from 'react';
+import { Stepper, Step, StepLabel } from '@material-ui/core';
 import CodeIcon from '@mui/icons-material/Code';
 import { StepOne } from './stepOne';
 import { StepTwo } from './stepTwo';
 import './Example3.scss';
 
-import { PtgUiButton } from '@ptg-ui/react';
 import { StepThree } from './stepThree';
 import { useTranslation } from 'react-i18next';
 import { StepFour } from './stepFour';

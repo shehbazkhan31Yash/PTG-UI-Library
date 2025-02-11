@@ -5,12 +5,11 @@
  * @uses Example using 3D highcharts as reusable component.
  * 
 */
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 import PtgUiHCLine from './highcharts/line/line';
 import PtgUiHCLineBar from './highcharts/linebar/linebar';
 import PtgUiHCSColumn from './highcharts/stackedColumn/stackedColumn';
 import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie, PtguseFetch } from '@ptg-ui/react';
-import { highchartsLineData, highchartsPieData, highchartsColumnData, line3DOptions, column3DOptions, pie3dData } from '@ptg-react-app/mock/mocks';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
@@ -23,7 +22,7 @@ export interface PtgUiD3BarProps {
   data?:[],
   series?:[]
 }
-export function Highcharts(props: HighchartsProps) {
+export function Highcharts(_props: HighchartsProps) {
 const [highchartsPieDataList, setHighchartsPieDataList] = useState<PtgUiD3BarProps>()
 const [high2DBarData, setHigh2DBarData] = useState<any[]>([]);
 const [high3DBarData, setHigh3DBarData] = useState<any[]>([]);
@@ -31,7 +30,7 @@ const [high3DPieData, setHigh3DPieData] = useState<any[]>([]);
 const [high3DPieDataTitle, setHigh3DPieDataTitle] = useState<any[]>([]);
 const [high3DLineData, setHigh3DLineData] = useState<any[]>([]);
 const [high3DLineCat, setHigh3DLineCat] = useState<any[]>([]);
-const [high3DLineName, setHigh3DLineName] = useState<any[]>([]);
+  const [high3DLineName] = useState<any[]>([]);
 const [high2DSingleLineChart, setHigh2DSingleLineChart] = useState<any[]>([]);
 
 const {data:apiDataPieChart} = PtguseFetch('higher-charts-pie-lists') as any

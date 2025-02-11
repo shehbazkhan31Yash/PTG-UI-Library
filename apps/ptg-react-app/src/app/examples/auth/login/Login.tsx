@@ -147,8 +147,7 @@ export function PtgLogin() {
   `;
 
   return (
-    <>
-      <div className="row">
+    <div className="row">
         <div className="col-10 mt-1">
           <h5 className="font-weight-bold example-heading">{t('LOGIN')}</h5>
         </div>
@@ -193,7 +192,6 @@ export function PtgLogin() {
           successMessage={''}
         />
       </div>
-    </>
   );
 }
 

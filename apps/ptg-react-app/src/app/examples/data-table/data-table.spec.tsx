@@ -1,13 +1,11 @@
 import DataTable from './react-data-grid';
 import { render, fireEvent } from '@testing-library/react';
-import { ICellRendererParams } from 'ag-grid-community';
 import PtgUiAgGridExample from './ag-grid/ag-grid';
-import AggridButton from './ag-grid/aggrid-button';
 import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import PtgUiReactTableExample from './react-table';
 describe('DataTable', () => {
   it('should render successfully', () => {
-    const { baseElement, container, getByText, getAllByText, getAllByTestId } =
+    const { baseElement } =
       render(<DataTable {...GRID_Data}/>);
     expect(baseElement).toBeTruthy();
     // fireEvent.click(getByText('Petria Thomas'));
@@ -18,7 +16,7 @@ describe('DataTable', () => {
 // ag Grid table
 describe('ag Grid', () => {
   it('should render successfully', () => {
-    const { baseElement, getAllByText, getByText, container } = render(
+    const { baseElement, getByText, container } = render(
       <PtgUiAgGridExample />
     );
     expect(baseElement).toBeTruthy();
@@ -35,7 +33,7 @@ describe('ag Grid', () => {
 // react table
 describe('React Table', () => {
   it('should render successfully', () => {
-    const { baseElement, getAllByText, getByText, container } = render(
+    const { baseElement, getByText, container } = render(
       <PtgUiReactTableExample />
     );
     expect(baseElement).toBeTruthy();

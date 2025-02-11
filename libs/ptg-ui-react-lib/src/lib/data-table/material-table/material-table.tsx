@@ -7,7 +7,6 @@
 */
 import './material-table.scss';
 import MaterialTable from "@material-table/core";
-import { ExportCsv, ExportPdf } from '@material-table/exporters';
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableProps {

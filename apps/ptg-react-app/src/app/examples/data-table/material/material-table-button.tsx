@@ -5,20 +5,19 @@
  * 
 */
 import '../data-table.scss';
-import MaterialTable from "@material-table/core";
-import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
-import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
+import { PtguseFetch } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { useTranslation } from 'react-i18next';
+import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableButtonExampleProps {
 }
 
-export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonExampleProps) {
+export function PtgUiMaterialTableButtonExample(_props: PtgUiMaterialTableButtonExampleProps) {
   const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
   const [showCode, setShowCode] = useState(false);
