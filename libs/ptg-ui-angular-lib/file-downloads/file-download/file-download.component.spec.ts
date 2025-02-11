@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 describe('FileDownloadComponent', () => {
   let component: FileDownloadComponent;
   let fixture: ComponentFixture<FileDownloadComponent>;
-  let spy;
   global.URL.createObjectURL = jest.fn();
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -36,7 +35,6 @@ describe('FileDownloadComponent', () => {
         [10, 'Yogita', 'QA', 'Testing'],
       ]
     }
-    spy = jest.spyOn(document, 'getElementById');
     component.tableData = tableData;
     fixture.detectChanges();
   });
@@ -114,7 +112,6 @@ describe('FileDownloadComponent', () => {
 
   it('should file type is PDF',async() =>{
     component.downloadPdfFile();
-    const table = component.b_download.nativeElement;
   });
 
 });

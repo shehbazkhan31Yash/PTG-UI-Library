@@ -32,6 +32,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
+import { DialogModule } from './dialog/dialog.module';
 
 @NgModule({
   declarations: [],
@@ -58,8 +59,9 @@ import { CarouselModule } from './carousel/carousel.module';
     TextareaModule,
     BreadcrumbsModule,
     CardModule,
-    CarouselModule
-    // SidenavModule
+    CarouselModule,
+    // SidenavModule,
+    DialogModule
   ],
   exports: [
     CommonModule,
@@ -81,7 +83,8 @@ import { CarouselModule } from './carousel/carousel.module';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    // SidenavModule
+    // SidenavModule,
+    DialogModule
   ],
 })
 export class PtgUiAngularLibModule {}
