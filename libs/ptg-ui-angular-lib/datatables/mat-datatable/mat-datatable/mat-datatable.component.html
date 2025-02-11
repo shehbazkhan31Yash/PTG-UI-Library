@@ -15,7 +15,6 @@ Sort - https://material.angular.io/components/sort/overview -->
     <div class="table-responsive">
       <table mat-table class="mb-4 table table-bordered " [dataSource]="dataSource" >
         <!-- show columns in upcoming order -->
-        <!-- <mat-text-column *ngFor="let columnName of columns;" [name]="columnName"></mat-text-column> -->
         <ng-container *ngFor="let columnName of columns;">
           <mat-text-column [name]="columnName"></mat-text-column>
         </ng-container>

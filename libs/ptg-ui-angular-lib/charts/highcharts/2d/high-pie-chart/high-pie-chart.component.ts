@@ -8,15 +8,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
+interface pieData1 {
+  name: string, selected: boolean,sliced: boolean, y: number
+}
+
 @Component({
   selector: 'ptg-ui-high-pie-chart',
   templateUrl: './high-pie-chart.component.html',
   styleUrls: ['./high-pie-chart.component.scss']
 })
 export class HighPieChartComponent implements OnInit {
-@Input() data:any;
-@Input() colors:any = ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'];
-
+@Input() data:pieData1[] | [string, string] = [];
+@Input() colors: string[] = ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'];
+@Input() id = "chart-pie";
+@Input() isCreditEnabled = false;
 
   ngOnInit(): void {
     this.createChartPie();
@@ -24,7 +29,7 @@ export class HighPieChartComponent implements OnInit {
 
   // Creating chart 
   private createChartPie(): void {
-    const chart = Highcharts.chart('chart-pie', {
+    Highcharts.chart(this.id, {
       chart: {
         type: 'pie',
       },
@@ -36,7 +41,9 @@ export class HighPieChartComponent implements OnInit {
         pointFormat: '<span>Amount: {point.y}</span>',
         useHTML: true,
       },
-
+      credits: {
+        enabled: this.isCreditEnabled,
+      },
       series: [{
         name: null,
         innerSize: '30%',

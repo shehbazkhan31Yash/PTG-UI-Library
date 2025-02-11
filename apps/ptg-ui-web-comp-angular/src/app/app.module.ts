@@ -22,7 +22,7 @@ import{TextareaComponent} from './componets/textarea/textarea.component'
 import { ToastComponent } from './componets/toast/toast.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './componets/header/header.component';
-import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
+import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader'; 
 
 defineCustomElements();
 

@@ -16,6 +16,7 @@ import { AlertModule } from '@ptg-ui/angular/alert';
 import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
 import { CalendarModule } from '@ptg-ui/angular/calendar';
+import { DialogModule } from '@ptg-ui/angular/dialog';
 import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
 import { CardModule } from '@ptg-ui/angular/card';
 import { CarouselModule } from '@ptg-ui/angular/carousel';
@@ -40,7 +41,8 @@ const modules = [
   CalendarModule,
   BreadcrumbsModule,
   CardModule,
-  CarouselModule
+  CarouselModule,
+  DialogModule
 ];
 @NgModule({
   declarations: [],

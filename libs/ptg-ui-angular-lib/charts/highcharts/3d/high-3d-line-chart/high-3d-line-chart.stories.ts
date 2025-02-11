@@ -27,7 +27,7 @@ Primary.args = {
   title: 'LINE_CHART_3D',
   xTitle: 'Categories',
   yTitle: 'Values',
-  chartId: 'chart-line-3d',
+  id: 'chart-line-3d',
 };
 
 
@@ -39,7 +39,7 @@ Title.args = {
   title: 'LINE_CHART_3D',
   xTitle: 'Categories',
   yTitle: 'Values',
-  chartId: 'chart-line-3d',
+  id: 'chart-line-3d',
 };
 
 export const xTitle = Template.bind({});
@@ -50,7 +50,7 @@ xTitle.args = {
   title: 'LINE_CHART_3D',
   xTitle: 'Categories',
   yTitle: 'Values',
-  chartId: 'chart-line-3d',
+  id: 'chart-line-3d',
 };
 
 export const yTitle = Template.bind({});
@@ -61,7 +61,7 @@ yTitle.args = {
   title: 'LINE_CHART_3D',
   xTitle: 'Categories',
   yTitle: 'Values',
-  chartId: 'chart-line-3d',
+  id: 'chart-line-3d',
 };
 
 
@@ -73,5 +73,5 @@ chart.args = {
   title: 'LINE_CHART_3D',
   xTitle: 'Categories',
   yTitle: 'Values',
-  chartId: 'chart-line-3d',
+  id: 'chart-line-3d',
 };
