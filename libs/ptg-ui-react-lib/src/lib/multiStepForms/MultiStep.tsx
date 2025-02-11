@@ -3,16 +3,16 @@ import { Stepper } from '../../common/Stepper';
 import { PtgUiButton } from '../button/button';
 import { PtgUiRow } from '../gridRow/GridRow';
 import {
-  IPtgUiMutliStepFormProps,
+  IPtgUiMultiStepFormProps,
   IPtgUiMultiStepState,
 } from '../interfaces/index';
 import { BACKGROUND_COLOR, COLOR, WIDTH } from '../constants/Constants';
 
 export class PtgUiMultiStep extends React.Component<
-  IPtgUiMutliStepFormProps,
+  IPtgUiMultiStepFormProps,
   IPtgUiMultiStepState
 > {
-  constructor(props: IPtgUiMutliStepFormProps) {
+  constructor(props: IPtgUiMultiStepFormProps) {
     super(props);
     this.state = {
       stepCount: 0,
@@ -81,7 +81,7 @@ export class PtgUiMultiStep extends React.Component<
                 />
               )}
             </div>
-            <div className="col-md-4 col-sm-12 col-xs-12 d-flex justify-content-around">
+            <div className="col-md-4 col-sm-12 col-xs-12">
               {stepperSteps.length === stepCount + 1 && (
                 <PtgUiButton
                   text="Reset"

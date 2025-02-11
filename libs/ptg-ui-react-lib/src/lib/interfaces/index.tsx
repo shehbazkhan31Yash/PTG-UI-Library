@@ -232,7 +232,7 @@ export interface IStep {
   id: number;
   label: string; 
 }
-export interface IPtgUiMutliStepProps {
+export interface IPtgUiMultiStepProps {
   error?: IUserDetails;
   details?: IUserDetails;
   handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -241,9 +241,9 @@ export interface IPtgUiMutliStepProps {
   submitForm?: () => void;
 }
 
-export interface IPtgUiMutliStepFormProps {
+export interface IPtgUiMultiStepFormProps {
   stepperSteps?: IStep[];
-  allSteps?: React.ReactElement<IPtgUiMutliStepProps>[];
+  allSteps?: React.ReactElement<IPtgUiMultiStepProps>[];
   resetForm?: () => void;
   submitForm?: () => void;
   manageNextStepValidation?: (step: number) => boolean;

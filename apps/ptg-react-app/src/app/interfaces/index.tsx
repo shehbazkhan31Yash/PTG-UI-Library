@@ -81,24 +81,24 @@ export interface IUserDetails {
 
 //MultiStepForm
 export interface IUserErrors {
-  firstName: boolean;
-  lastName: boolean;
-  userName: boolean;
-  email: boolean;
-  password: boolean;
-  confirmPassword: boolean;
-  greeting: boolean;
-  gender: boolean;
-  phone: boolean;
-  zipCode: boolean;
-  state: boolean;
-  homeAddress: boolean;
-  country: boolean;
-  cardType: boolean;
-  cardNumber: boolean;
-  cvc: boolean;
-  expiration: boolean;
-  cardHolder: boolean;
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  greeting: string;
+  gender: string;
+  phone: string;
+  zipCode: string;
+  state: string;
+  homeAddress: string;
+  country: string;
+  cardType: string;
+  cardNumber: string;
+  cvc: string;
+  expiration: string;
+  cardHolder: string;
 }
 
 //signup
@@ -127,7 +127,7 @@ export interface IStep {
   label: string; 
 }
 
-export interface IPtgUiMutliStep {
+export interface IPtgUiMultiStep {
   details?: IUserDetails;
   error?: IUserDetails;
   handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

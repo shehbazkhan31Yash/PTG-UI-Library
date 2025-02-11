@@ -3,7 +3,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import './Example3.scss';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { IUserDetails, IStep, IPtgUiMutliStep } from '../../interfaces/index';
+import { IUserDetails, IStep, IPtgUiMultiStep } from '../../interfaces/index';
 import {
   PtgUiGridColumn,
   PtgUiRow,
@@ -13,130 +13,70 @@ import {
   PtgUiThirdStep,
   PtgUiFinalStep,
 } from '@ptg-ui/react';
+import {USERDETAILS, USERINPUTERROR} from '../../constants/Constant';
+import {MULTISTEPCOMPONENT, MULTISTEPHTMLCODE} from '../stringLiteral/MultiStepsLiteral'
 
 const Example3 = () => {
   const { t } = useTranslation();
+  const initialDetailsState: IUserDetails = USERDETAILS;
 
-  const [details, setDetails] = useState<IUserDetails>({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    greeting: '',
-    gender: '',
-    phone: '',
-    zipCode: '',
-    state: '',
-    homeAddress: '',
-    country: '',
-    cardType: '',
-    cardNumber: '',
-    cvc: '',
-    expiration: '',
-    cardHolder: '',
-  });
-  const [error, setError] = useState<any>({
-    firstName: false,
-    lastName: false,
-    userName: false,
-    email: false,
-    password: false,
-    confirmPassword: false,
-    greeting: false,
-    gender: false,
-    phone: false,
-    zipCode: false,
-    state: false,
-    homeAddress: false,
-    country: false,
-    cardType: false,
-    cardNumber: false,
-    cvc: false,
-    expiration: false,
-    cardHolder: false,
-  });
+  const initialErrorState: IUserDetails = USERINPUTERROR;
+
+  const [details, setDetails] = useState(initialDetailsState);
+  const [error, setError] = useState(initialErrorState);
 
   const [showCodeOne, setShowCodeOne] = useState(false);
+  const toggleShowCode = () => setShowCodeOne((prev) => !prev);
 
   const manageNextStepValidation = (step: number) => {
-    let ButtonDisabled = true;
-    if (step === 0) {
-      ButtonDisabled = !(
-        details?.userName?.length > 0 &&
-        details?.password?.length > 0 &&
-        details?.confirmPassword?.length > 0 &&
-        !error?.userName &&
-        !error?.password &&
-        !error?.confirmPassword
-      );
-    } else if (step === 1) {
-      ButtonDisabled = !(
-        details.greeting.length &&
-        details.gender.length &&
-        details.firstName &&
-        details.lastName &&
-        details.email &&
-        !error.email &&
-        details.phone &&
-        !error.phone &&
-        details.zipCode &&
-        !error.zipCode &&
-        details.state &&
-        details.homeAddress &&
-        details.country
-      );
-    } else {
-      ButtonDisabled = !(
-        details.cardType &&
-        details.cardNumber &&
-        !error.cardNumber &&
-        details.cvc &&
-        !error.cvc &&
-        details.expiration &&
-        details.cardHolder
-      );
-    }
-    return ButtonDisabled;
-  };
-  const ShowExampleCode = () => {
-    if (!showCodeOne) {
-      setShowCodeOne(true);
-    } else {
-      setShowCodeOne(false);
+    switch (step) {
+      case 0:
+        return !(
+          details?.userName?.length > 0 &&
+          details?.password?.length > 0 &&
+          details?.confirmPassword?.length > 0 &&
+          !error?.userName &&
+          !error?.password &&
+          !error?.confirmPassword
+        );
+      case 1:
+        return !(
+          details.greeting.length &&
+          details.gender.length &&
+          details.firstName &&
+          details.lastName &&
+          details.email &&
+          !error.email &&
+          details.phone &&
+          !error.phone &&
+          details.zipCode &&
+          !error.zipCode &&
+          details.state &&
+          details.homeAddress &&
+          details.country
+        );
+      case 2:
+        return !(
+          details.cardType &&
+          details.cardNumber &&
+          !error.cardNumber &&
+          details.cvc &&
+          !error.cvc &&
+          details.expiration &&
+          details.cardHolder
+        );
+      default:
+        return true;
     }
   };
   // reset Form
-  const resetForm = () => {
-    setDetails({
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      greeting: '',
-      gender: '',
-      phone: '',
-      zipCode: '',
-      state: '',
-      homeAddress: '',
-      country: '',
-      cardType: '',
-      cardNumber: '',
-      cvc: '',
-      expiration: '',
-      cardHolder: '',
-    });
-  };
+  const resetForm = () => setDetails(initialDetailsState);
   // submit form
   const submitForm = () => {
-    console.log({ details });
     resetForm();
   };
   // on blur method
-  const handleBlur = (event: any) => {
+  const handleBlur = (event) => {
     const { name, value } = event.target;
     if (!value) {
       setError({ ...error, [name]: true });
@@ -146,241 +86,71 @@ const Example3 = () => {
     validate(name, value);
   };
   // validating different fields
-  const validate = (field: any, value: any) => {
-    let formError = error;
-    if (!value) {
-      formError = { ...formError, [field]: 'field is required' };
-    } else {
-      formError = { ...formError, [field]: false };
-      // password validation
-      if (
-        (field === 'confirmPassword' && details.password !== value) ||
-        (field === 'password' &&
-          details.confirmPassword !== value &&
-          details.confirmPassword)
-      ) {
-        formError = {
-          ...formError,
-          password: true,
-          confirmPassword: "passwords don't match",
-        };
-      } else if (
-        (field === 'confirmPassword' && details.password === value) ||
-        (field === 'password' && details.confirmPassword === value)
-      ) {
-        formError = { ...formError, password: false, confirmPassword: false };
-      }
-      // email validation
-      else if (field === 'email') {
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          if (!regexEmail.test(value)) {
-            formError = { ...formError, [field]: true };
-          }
-        }
-      }
-      // phone validation
-      else if (field === 'phone') {
-        const regexPhone = /^\d{10}$/;
+  const validate = (field: string, value: string) => {
+    const newError = { ...error };
 
-        if (value === '' || value ? true : false !== regexPhone.test(value)) {
-          if (!regexPhone.test(value)) {
-            formError = { ...formError, [field]: true };
-            formError = { ...formError, [field]: 'Invalid input' };
-            console.log('feild', !regexPhone.test(value));
-          } else {
-            formError = { ...formError, [field]: '' };
-          }
+    if (!value) {
+      newError[field] = 'Field is required';
+    } else {
+      newError[field] = '';
+      switch (field) {
+        case 'email': {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+          newError[field] = regexEmail.test(value) ? '' : 'Invalid email';
+          break;
         }
-      }
-      // card validaion
-      else if (field === 'cardNumber') {
-        const regexCardNumber = /^\d{16}$/;
-        if (
-          value === '' || value ? true : false !== regexCardNumber.test(value)
-        ) {
-          if (!regexCardNumber.test(value)) {
-            formError = { ...formError, [field]: true };
-          }
+        case 'phone': {
+          const regexPhone = /^\d{10}$/;
+          newError[field] = regexPhone.test(value) ? '' : 'Invalid input';
+          break;
         }
-      }
-      // cvc validation
-      else if (field === 'cvc') {
-        const regexCvc = /^\d{3}$/;
-        if (value === '' || value ? true : false !== regexCvc.test(value)) {
-          if (!regexCvc.test(value)) {
-            formError = { ...formError, [field]: true };
+        case 'cardNumber':
+          {
+            const regexCardNumber = /^\d{16}$/;
+            newError[field] = regexCardNumber.test(value)
+              ? ''
+              : 'Invalid card number';
           }
-        }
-      }
-      // pincode validation
-      else if (field === 'zipCode') {
-        const regexZipCode = /^\d{6}$/;
-        if (value === '' || value ? true : false !== regexZipCode.test(value)) {
-          if (!regexZipCode.test(value)) {
-            formError = { ...formError, [field]: true };
+          break;
+        case 'cvc':
+          {
+            const regexCvc = /^\d{3}$/;
+            newError[field] = regexCvc.test(value) ? '' : 'Invalid cvc';
           }
-        }
+          break;
+        case 'zipCode':
+          {
+            const regexZipCode = /^\d{6}$/;
+            newError[field] = regexZipCode.test(value)
+              ? ''
+              : 'Invalid zip code';
+          }
+          break;
+        case 'confirmPassword':
+          newError[field] =
+            details.password !== value ? "Passwords don't match" : '';
+          break;
+        case 'password':
+          newError[field] =
+            details.confirmPassword && details.confirmPassword !== value
+              ? "Passwords don't match"
+              : '';
+          break;
+        default:
+          break;
       }
     }
-    setError(formError);
+    setError(newError);
   };
   // handleChange
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     validate(name, value);
-    setDetails({ ...details, [name]: value });
+    setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
 
-  const componentCode = ` 
-   const [details, setDetails] = useState<IUserDetails>({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    greeting: '',
-    gender: '',
-    phone: '',
-    zipCode: '',
-    state: '',
-    homeAddress: '',
-    country: '',
-    cardType: '',
-    cardNumber: '',
-    cvc: '',
-    expiration: '',
-    cardHolder: '',
-  });
-  const [error, setError] = useState<any>({
-    firstName: false,
-    lastName: false,
-    userName: false,
-    email: false,
-    password: false,
-    confirmPassword: false,
-    greeting: false,
-    gender: false,
-    phone: false,
-    zipCode: false,
-    state: false,
-    homeAddress: false,
-    country: false,
-    cardType: false,
-    cardNumber: false,
-    cvc: false,
-    expiration: false,
-    cardHolder: false,
-  });
-
-  const stepperSteps: IStep[] = [
-    { label: 'Account Info' },
-    { label: 'Personal Information' },
-    { label: 'Payment Details' },
-    { label: 'Confirm Your Details' },
-  ];
-  
-  const allSteps: React.ReactElement<IPtgUiMutliStep>[] = [
-    <PtgUiFirstStep
-      details={details}
-      handleChange={handleChange}
-      error={error}
-      handleBlur={handleBlur}
-    />,
-    <PtgUiSecondStep
-      details={details}
-      handleChange={handleChange}
-      error={error}
-      handleBlur={handleBlur}
-    />,
-    <PtgUiThirdStep
-      details={details}
-      error={error}
-      handleBlur={handleBlur}
-      handleChange={handleChange}
-    />,
-    <PtgUiFinalStep
-      details={details}
-    />,
-  ];
-  const manageNextStepValidation = (step: number) => {
-    let ButtonDisabled = true;
-    if (step === 0) {
-      ButtonDisabled = !(
-        details?.userName?.length > 0 &&
-        details?.password?.length > 0 &&
-        details?.confirmPassword?.length > 0 &&
-        !error?.userName &&
-        !error?.password &&
-        !error?.confirmPassword
-      );
-    } else if (step === 1) {
-      ButtonDisabled = !(
-        details.greeting.length &&
-        details.gender.length &&
-        details.firstName &&
-        details.lastName &&
-        details.email &&
-        !error.email &&
-        details.phone &&
-        !error.phone &&
-        details.zipCode &&
-        !error.zipCode &&
-        details.state &&
-        details.homeAddress &&
-        details.country
-      );
-    } else {
-      ButtonDisabled = !(
-        details.cardType &&
-        details.cardNumber &&
-        !error.cardNumber &&
-        details.cvc &&
-        !error.cvc &&
-        details.expiration &&
-        details.cardHolder
-      );
-    }
-    return ButtonDisabled;
-  };
-  const submitForm = () => {
-    resetForm();
-  };
-
-  const resetForm = () => {
-    setDetails({
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      greeting: '',
-      gender: '',
-      phone: '',
-      zipCode: '',
-      state: '',
-      homeAddress: '',
-      country: '',
-      cardType: '',
-      cardNumber: '',
-      cvc: '',
-      expiration: '',
-      cardHolder: '',
-    });
-  };
-`;
-
-  const htmlCode = ` 
-   <PtgUiMultiStep
-      allSteps={allSteps}
-      stepperSteps={stepperSteps}
-      resetForm={resetForm}
-      submitForm={submitForm}
-      manageNextStepValidation={manageNextStepValidation}
-      orientation="horizontal"
-    />`;
+  const componentCode = MULTISTEPCOMPONENT;
+  const htmlCode = MULTISTEPHTMLCODE; 
 
   const stepperSteps: IStep[] = [
     { id: 0, label: 'Account Info' },
@@ -389,7 +159,7 @@ const Example3 = () => {
     { id: 3, label: 'Confirm Your Details' },
   ];
 
-  const allSteps: React.ReactElement<IPtgUiMutliStep>[] = [
+  const allSteps: React.ReactElement<IPtgUiMultiStep>[] = [
     <PtgUiFirstStep
       details={details}
       error={error}
@@ -421,7 +191,7 @@ const Example3 = () => {
         </PtgUiGridColumn>
         <PtgUiGridColumn xl={2} lg={2} md={2} sm={2} className={'mt-1 mb-2'}>
           <CodeIcon
-            onClick={ShowExampleCode}
+            onClick={toggleShowCode}
             fontSize="large"
             className="show-code-icon"
           ></CodeIcon>

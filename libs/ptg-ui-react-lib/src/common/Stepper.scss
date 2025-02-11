@@ -1,14 +1,23 @@
 @import '../lib/styles/variables';
+
 .stepper-container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.horizontal {
+    justify-content: flex-start;
+  }
 }
 
 .stepper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+
+  &.vertical {
+    flex-direction: column;
+  }
 }
 
 .step {
@@ -16,6 +25,11 @@
   border-radius: 4px;
   text-align: center;
   position: relative;
+
+  &.vertical {
+    margin-bottom: 10px;
+    /* Add some space between steps in vertical orientation */
+  }
 }
 
 .circle {
@@ -32,10 +46,15 @@
 
   &.active {
     border-color: $main; // Change this to your active color
-    background-color: $main;// Change this to your active color
+    background-color: $main; // Change this to your active color
     color: white;
   }
+
+  &.horizontal {
+    padding: 8px;
+  }
 }
+
 .label {
   border-color: $light-grey;
   margin-top: 1rem;
@@ -44,6 +63,10 @@
 
   &.active {
     color: black;
+  }
+
+  &.horizontal {
+    margin-left: 7px;
   }
 }
 
@@ -55,49 +78,32 @@
   transform: translateX(-50%);
 
   &.active {
-    border-color: black 
+    border-color: black;
   }
-}
 
-// Vertical orientation styles
-.line.vertical {
-  min-height: 24px;
-  border-left: 1px solid  $light-grey;
-  width: 2px; // Make the line vertical
-  display: block;
-  border-color: $light-grey;
-  &.active {
-    border-color: black 
+  &.vertical {
+    min-height: 24px;
+    border-left: 1px solid $light-grey;
+    width: 2px; // Make the line vertical
+    display: block;
+    border-color: $light-grey;
+
+    &.active {
+      border-color: black;
+    }
   }
-}
-.line.horizontal{
-  top: 28px; // Adjust to position the line correctly
-  left: 50px;
-  min-width: 24px;
-  border-top: 1px solid black;
-  width: 2px; // Make the line vertical
-  display: block;
-  border-color: $light-grey;
-  &.active {
-    border-color: black 
+
+  &.horizontal {
+    top: 28px; // Adjust to position the line correctly
+    left: 50px;
+    min-width: 24px;
+    border-top: 1px solid black;
+    width: 2px; // Make the line vertical
+    display: block;
+    border-color: $light-grey;
+
+    &.active {
+      border-color: black;
+    }
   }
-}
-/* Styles for vertical orientation */
-.stepper.vertical {
-  flex-direction: column;
-}
-
-.step.vertical {
-  margin-bottom: 10px; /* Add some space between steps in vertical orientation */
-}
-
-.stepper-container.horizontal{
-  justify-content: flex-start;
-}
-
-.label.horizontal{
-  margin-left: 10px;
-}
-.circle.horizontal{
-  padding: 8px;
 }
