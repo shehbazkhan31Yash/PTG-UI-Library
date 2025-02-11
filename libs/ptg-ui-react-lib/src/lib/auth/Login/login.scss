@@ -1,254 +1,254 @@
 .login-wrapper {
-  width: auto;
-  height: auto;
-  background: none;
-  overflow: hidden;
+	width: auto;
+	height: auto;
+	background: none;
+	overflow: hidden;
 
-  .login-form-wrapper {
-    background: white;
-    padding: 8% 10%;
-    width: 35vw;
-    .login-logo {
-      img {
-        width: 80%;
-      }
-    }
-    .signup-btn,
-    .forgot-password {
-      font-size: 0.875rem;
-      color: #002144;
-      text-decoration: none;
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+	.login-form-wrapper {
+		background: white;
+		padding: 8% 10%;
+		width: 35vw;
+		.login-logo {
+			img {
+				width: 80%;
+			}
+		}
+		.signup-btn,
+		.forgot-password {
+			font-size: 0.875rem;
+			color: #002144;
+			text-decoration: none;
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 
-    .input-group {
-      ::ng-deep {
-        input {
-          border-radius: 2px !important;
-          padding-left: 40px !important;
-        }
-      }
-    }
+		.input-group {
+			::ng-deep {
+				input {
+					border-radius: 2px !important;
+					padding-left: 40px !important;
+				}
+			}
+		}
 
-    .input-group-prepend {
-      display: flex;
-      position: absolute;
-      z-index: 100;
-      top: 50%;
-      left: 10px;
-      transform: translatey(-50%);
-    }
+		.input-group-prepend {
+			display: flex;
+			position: absolute;
+			z-index: 100;
+			top: 50%;
+			left: 10px;
+			transform: translatey(-50%);
+		}
 
-    .login-user-icon,
-    .login-password-icon {
-      //background: url('/assets/user_icn.png');
-      width: 17px;
-      height: 23px;
-      display: block;
-      background-size: 100% !important;
-      background-position: center center !important;
-      background-repeat: no-repeat !important;
-    }
+		.login-user-icon,
+		.login-password-icon {
+			//background: url('/assets/user_icn.png');
+			width: 17px;
+			height: 23px;
+			display: block;
+			background-size: 100% !important;
+			background-position: center center !important;
+			background-repeat: no-repeat !important;
+		}
 
-    // .login-password-icon {
-    //   background: url('/assets/password_icn.png');
-    // }
-  }
+		// .login-password-icon {
+		//   background: url('/assets/password_icn.png');
+		// }
+	}
 }
 
 .login-logo {
-  width: 70%;
-  height: 80px;
-  margin-left: 12%;
+	width: 70%;
+	height: 80px;
+	margin-left: 12%;
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .login-wrapper {
-    .login-form-wrapper {
-      width: 80vw;
-      .login-logo {
-        img {
-          width: 70%;
-        }
-      }
-    }
-  }
+	.login-wrapper {
+		.login-form-wrapper {
+			width: 80vw;
+			.login-logo {
+				img {
+					width: 70%;
+				}
+			}
+		}
+	}
 }
 @media (min-width: 361px) and (max-width: 768px) {
-  .login-wrapper {
-    .login-form-wrapper {
-      width: 90vw;
-    }
-  }
+	.login-wrapper {
+		.login-form-wrapper {
+			width: 90vw;
+		}
+	}
 }
 @media (max-width: 360px) {
-  .login-wrapper {
-    .login-form-wrapper {
-      width: 95vw;
-    }
-  }
+	.login-wrapper {
+		.login-form-wrapper {
+			width: 95vw;
+		}
+	}
 }
 
 ////////////////////////
 ///
 /// /* modal wrapper */
 .modal-wrapper {
-  display: block;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  visibility: hidden;
+	display: block;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	visibility: hidden;
 }
 
 .modal-overlay {
-  background: rgba(0, 0, 0, 0.6);
-  height: 100%;
-  inset: 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+	height: 100%;
+	inset: 0px;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
 }
 
 .pwd-warning {
-  font-size: 12px;
-  color: #ffb300;
+	font-size: 12px;
+	color: #ffb300;
 }
 
 .modal-wrapper .modal {
-  padding: 2px;
-  display: block;
-  background: #ffffff;
-  border-radius: 5px;
-  height: auto;
-  left: 50%;
-  position: fixed;
-  top: 40%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  &.lg {
-    max-width: 480px;
-  }
+	padding: 2px;
+	display: block;
+	background: #ffffff;
+	border-radius: 5px;
+	height: auto;
+	left: 50%;
+	position: fixed;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	&.lg {
+		max-width: 480px;
+	}
 
-  &.md {
-    max-width: 600px;
-  }
+	&.md {
+		max-width: 600px;
+	}
 
-  &.sm {
-    max-width: 300px;
-  }
+	&.sm {
+		max-width: 300px;
+	}
 }
 
 .modal-wrapper .modal .header {
-  background-color: #ffffff;
-  align-items: center;
-  border-bottom: 1px solid #f1f2f3;
-  display: flex;
-  font-size: 16px;
-  justify-content: space-between;
-  padding: 16px;
+	background-color: #ffffff;
+	align-items: center;
+	border-bottom: 1px solid #f1f2f3;
+	display: flex;
+	font-size: 16px;
+	justify-content: space-between;
+	padding: 16px;
 }
 
 .modal-wrapper .modal .header h4 {
-  font-size: 16px;
-  line-height: 1;
-  margin: 0px;
+	font-size: 16px;
+	line-height: 1;
+	margin: 0px;
 }
 
 .modal-wrapper .modal .header .close {
-  align-items: center;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  height: 18px;
-  justify-content: center;
-  transition: 0.1s ease-in-out;
-  width: 18px;
+	align-items: center;
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	height: 18px;
+	justify-content: center;
+	transition: 0.1s ease-in-out;
+	width: 18px;
 }
 
 /* modal body */
 .modal-wrapper .modal .body {
-  font-size: 14px;
-  height: auto;
-  line-height: 21px;
-  max-height: 320px;
-  overflow-y: auto;
-  padding: 16px;
+	font-size: 14px;
+	height: auto;
+	line-height: 21px;
+	max-height: 320px;
+	overflow-y: auto;
+	padding: 16px;
 }
 
 /* modal footer */
 .modal-wrapper .modal .footer {
-  align-items: center;
-  border-top: 1px solid #f1f2f3;
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px;
+	align-items: center;
+	border-top: 1px solid #f1f2f3;
+	display: flex;
+	justify-content: flex-end;
+	padding: 16px;
 }
 
 .modal-wrapper .modal .footer my-buttons {
-  margin: 0 6px;
+	margin: 0 6px;
 }
 .modal-wrapper .modal .footer .cancel {
-  margin-left: 8px;
+	margin-left: 8px;
 }
 
 .isOpen {
-  opacity: 1;
-  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, tranform 0.25s;
-  visibility: visible;
-  z-index: 99999;
+	opacity: 1;
+	transition: visibility 0s linear 0.25s, opacity 0.25s 0s, tranform 0.25s;
+	visibility: visible;
+	z-index: 99999;
 }
 .close {
-  font-size: 33px;
+	font-size: 33px;
 }
 .btn {
-  background: #ececec;
-  color: #212529;
-  border-radius: 7px;
-  border: none;
-  padding: 0 20px;
-  height: 38px;
-  outline: none;
-  transition: 0.1s ease-in-out;
-  cursor: pointer;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: inherit;
+	background: #ececec;
+	color: #212529;
+	border-radius: 7px;
+	border: none;
+	padding: 0 20px;
+	height: 38px;
+	outline: none;
+	transition: 0.1s ease-in-out;
+	cursor: pointer;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: inherit;
 }
 div[slot='btnIcon'] {
-  svg {
-    width: 20px;
-    height: 20px;
-  }
+	svg {
+		width: 20px;
+		height: 20px;
+	}
 }
 .showLeft {
-  width: 18px;
-  margin-left: 12px;
+	width: 18px;
+	margin-left: 12px;
 }
 .btn.primary {
-  background: #2196f3;
-  color: #ffffff;
+	background: #2196f3;
+	color: #ffffff;
 }
 .btn.primary:hover {
-  background: #0a58ca;
+	background: #0a58ca;
 }
 .btn.danger {
-  background: #dd3434;
-  color: #ffffff;
+	background: #dd3434;
+	color: #ffffff;
 }
 .btn.danger:hover {
-  background: #bd2c2c;
+	background: #bd2c2c;
 }
 
 .btn-icon {
-  background-color: #ffffff;
-  border-radius: 50%;
-  color: #2196f3;
-  font-size: 12px;
-  padding: 0px 4px;
+	background-color: #ffffff;
+	border-radius: 50%;
+	color: #2196f3;
+	font-size: 12px;
+	padding: 0px 4px;
 }

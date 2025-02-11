@@ -1,17 +1,16 @@
-export interface Item  {
-  id: number;
-  name: string;
-  parentId: number;
-};
-
+export interface Item {
+	id: number;
+	name: string;
+	parentId: number;
+}
 
 export enum CheckboxState {
-  UNCHECKED,
-  CHECKED,
-  INDETERMINATE,
+	UNCHECKED,
+	CHECKED,
+	INDETERMINATE,
 }
 
 export type ItemState = {
-  id?: number;
-  state?: CheckboxState;
+	id?: number;
+	state?: CheckboxState;
 };

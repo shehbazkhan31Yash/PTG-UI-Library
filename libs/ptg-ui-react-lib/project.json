@@ -1,42 +1,42 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ptg-ui-react-lib/src",
-  "projectType": "library",
-  "tags": [],
-  "targets": {
-    "build": {
-      "executor": "@nrwl/web:rollup",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/ptg-ui-react-lib",
-        "tsConfig": "libs/ptg-ui-react-lib/tsconfig.lib.json",
-        "project": "libs/ptg-ui-react-lib/package.json",
-        "entryFile": "libs/ptg-ui-react-lib/src/index.ts",
-        "external": ["react/jsx-runtime"],
-        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "babel",
-        "assets": [
-          "libs/ptg-ui-react-lib/src/assets/accordian-arrow.svg",
-          "libs/ptg-ui-react-lib/src/lib/styles/index.css"
-        ],
-        "styles": ["libs/ptg-ui-react-lib/src/lib/styles/index.css"],
-        "main": "libs/ptg-ui-react-lib/src/index.ts"
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/ptg-ui-react-lib/**/*.{ts,tsx,js,jsx}"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ptg-ui-react-lib"],
-      "options": {
-        "jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
-        "passWithNoTests": true
-      }
-    }
-  }
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/ptg-ui-react-lib/src",
+	"projectType": "library",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "@nrwl/web:rollup",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/ptg-ui-react-lib",
+				"tsConfig": "libs/ptg-ui-react-lib/tsconfig.lib.json",
+				"project": "libs/ptg-ui-react-lib/package.json",
+				"entryFile": "libs/ptg-ui-react-lib/src/index.ts",
+				"external": ["react/jsx-runtime"],
+				"rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+				"compiler": "babel",
+				"assets": [
+					"libs/ptg-ui-react-lib/src/assets/accordian-arrow.svg",
+					"libs/ptg-ui-react-lib/src/lib/styles/index.css"
+				],
+				"styles": ["libs/ptg-ui-react-lib/src/lib/styles/index.css"],
+				"main": "libs/ptg-ui-react-lib/src/index.ts"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/ptg-ui-react-lib/**/*.{ts,tsx,js,jsx}"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/ptg-ui-react-lib"],
+			"options": {
+				"jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	}
 }

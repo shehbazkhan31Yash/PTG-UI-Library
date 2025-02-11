@@ -1,26 +1,26 @@
 .page-link {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .pagination {
-  display: flex;
-  justify-content: center; /* Center the pagination */
-  list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
-  --bs-pagination-color: #000;
+	display: flex;
+	justify-content: center; /* Center the pagination */
+	list-style: none; /* Remove default list styles */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+	--bs-pagination-color: #000;
 
-  //flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+	//flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 /* Media Queries for Smaller Screens */
 @media (max-width: 375px) {
-  .page-link {
-    padding: 8px 10px; /* Reduce padding for smaller screens */
-    font-size: 12px; /* Smaller font size */
-  }
+	.page-link {
+		padding: 8px 10px; /* Reduce padding for smaller screens */
+		font-size: 12px; /* Smaller font size */
+	}
 
-  .page-item {
-    margin: 0 3px; /* Reduce margin for smaller screens */
-  }
+	.page-item {
+		margin: 0 3px; /* Reduce margin for smaller screens */
+	}
 }
