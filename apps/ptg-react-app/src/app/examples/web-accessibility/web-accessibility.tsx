@@ -25,7 +25,7 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 
 /* eslint-disable-next-line */
 export interface WebAccessibilityProps {}
-export function WebAccessibility(props: WebAccessibilityProps) {
+export function WebAccessibility(_props: WebAccessibilityProps) {
   const [cityList, setCityList]= useState([])
   const [genders, setGenders]= useState([])
   const [user, setUser]: any = useState({

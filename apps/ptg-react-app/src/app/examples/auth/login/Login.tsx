@@ -63,6 +63,7 @@ export function PtgLogin() {
   };
   const getForgetEmail = (email: string) => {
     //your code
+    console.log(email);
   };
 
   const componentCode = `
@@ -85,6 +86,7 @@ export function PtgLogin() {
     //handle validate
     const validate = (value: string) => {
       let formErr = true;
+      /* eslint-disable no-useless-escape */
       const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
       if (value === '' || value ? true : false !== regexEmail.test(value)) {
         if (!regexEmail.test(value)) {

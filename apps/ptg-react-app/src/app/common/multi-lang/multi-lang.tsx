@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './multi-lang.scss';
 
-export interface MultiLangProps {}
-export function MultiLang({}: MultiLangProps) {
+export function MultiLang() {
 
   const [languages, setLanguages] = useState([])
   const [selectedLang, setSelectedLang] = useState('en');

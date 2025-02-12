@@ -4,9 +4,8 @@
  * @desc Admin dashboard
 */
 import './AdminHome.scss';
-export interface PtgUiAdminHomeProps { }
 
-export function PtgUiAdminHome(props: PtgUiAdminHomeProps) {
+export function PtgUiAdminHome() {
   return (
     /*--Content goes here--*/
     <p>Admin Home works!</p>

@@ -13,9 +13,7 @@ import PrivateRoute from '../../route/private-route';
 import routing from '../../route/routing';
 import { PtgSpinner } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 
-export interface LayoutProps { }
-
-export function Layout({ }: LayoutProps) {
+export function Layout() {
   return (
     <div className="wrapper">
       {/*--Import Header--*/}

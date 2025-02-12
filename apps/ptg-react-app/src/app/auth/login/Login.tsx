@@ -21,15 +21,16 @@ import {
 import msalInstance from '../msal';
 import { acquireToken } from '../msal';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PtgUiLoginProps {}
 
-export function PtgUiLogin(props: PtgUiLoginProps) {
+export function PtgUiLogin(__props: PtgUiLoginProps) {
   const loginMsal = async () => {
     const loginRequest = {
       scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
     };
     const response = await msalInstance.loginPopup(loginRequest);
-    const [error, tokenResponse] = await acquireToken(loginRequest);
+    const [, tokenResponse] = await acquireToken(loginRequest);
     console.log("Hello i'm in msal", tokenResponse);
     authClass.setToken(JSON.stringify(response));
     navigate('/calendar');
@@ -86,11 +87,13 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
     let formErr = false;
     switch (fieldName) {
       case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           if (!regexEmail.test(value)) {
             formErr = true;
           }
+        }
         }
         break;
       case 'password':
@@ -135,14 +138,14 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
           navigate('/calendar');
           authClass.setToken(JSON.stringify(response));
           authClass.setRole(response.user.role.type);
-          if (response.user.role.type.trim() == 'admin') {
+          if (response.user.role.type.trim() === 'admin') {
             navigate('/admin-home');
           } else {
             navigate('/calendar');
           }
         }
       })
-      .catch((error: any) => {
+      .catch((_error: any) => {
         setState('isAlert', true);
       });
   };

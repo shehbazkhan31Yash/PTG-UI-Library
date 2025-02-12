@@ -16,9 +16,10 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 export interface PtgUiD3BarProps {
   data?:[],
 }
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface D3ChartsProps { }
 
-export function D3Charts(props: D3ChartsProps) {
+export function D3Charts(_props: D3ChartsProps) {
   const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
   const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
   const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();

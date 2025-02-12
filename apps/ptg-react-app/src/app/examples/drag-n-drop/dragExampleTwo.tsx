@@ -9,9 +9,7 @@ import { useState, useEffect } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { PtguseFetch } from '@ptg-ui/react';
 import './drag-n-drop.scss';
- 
-export interface DragExampleTwoProps {}
- 
+
 /* istanbul ignore next */
 const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
@@ -49,7 +47,7 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
   }
 };
  
-export function DragExampleTwo(_props: DragExampleTwoProps) {
+export function DragExampleTwo() {
   const [data, setData] = useState<any>([]);
   const {
     data: apiData,
