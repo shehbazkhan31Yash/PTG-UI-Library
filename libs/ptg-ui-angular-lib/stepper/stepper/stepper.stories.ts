@@ -1,28 +1,31 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { GridComponent } from './grid.component';
-
+import { StepperComponent } from './stepper.component';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 export default {
-  title: 'Component/GridComponent',
-  component: GridComponent,
-
+  title: 'Component/StepperComponent',
+  component: StepperComponent,
 
   decorators: [
     moduleMetadata({
-      imports: [],
-    }),
-  ],
-} as Meta<GridComponent>;
-
-const Template: Story<GridComponent> = (args: GridComponent) => ({
+      imports: [ReactiveFormsModule]
+    })
+  ]
+} as Meta<StepperComponent>;
+const Template: Story<StepperComponent> = (args: StepperComponent) => ({
   props: args
 });
 
-
 export const Primary = Template.bind({});
 Primary.args = {
-  columnClasses:[{ lg: 4, md: 4, sm: 12, xs: 12 }, { lg: 4, md: 4, sm: 12, xs: 12, offsetMd: 4, offsetSm: 0 }] ,
-  columnClass:'text-center',
-  rowClass:'mb-4',
-};
+  formGroups: [],
+  steps: ['Account Info', 'Personal Information', 'Payment Details']
+ };
+
+ export const Orientation = Template.bind({});
+ Orientation.args = {
+  formGroups: [],
+  steps: ['Account Info', 'Personal Information', 'Payment Details'],
+  orientation:'vertical'
+ };
 

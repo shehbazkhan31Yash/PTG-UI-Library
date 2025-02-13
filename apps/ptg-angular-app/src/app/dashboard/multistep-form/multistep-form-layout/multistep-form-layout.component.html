@@ -7,7 +7,7 @@
         <hr class="css-yasiti" />
 
         <ptg-ui-stepper [steps]="stepLabels" [formGroups]="[formGroup1, formGroup2, formGroup3]" (formReset)="onReset()"
-            (formReset)="onSubmit()">
+            (formSubmit)="onSubmit()">
             <ng-template>
                 <div [formGroup]="formGroup1">
                     <div class="col-md-6">

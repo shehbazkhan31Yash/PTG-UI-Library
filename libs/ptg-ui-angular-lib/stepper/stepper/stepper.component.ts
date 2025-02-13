@@ -4,8 +4,8 @@
 /**
  * @since March 2022
  * @author Priyanka Jain
- * @Component ptg-ui-grid;
- * @description This component for grid
+ * @Component ptg-ui-stepper;
+ * @description This component for stepper
  **/
 
 
@@ -20,7 +20,7 @@ import { FormGroup } from '@angular/forms';
 
 export class StepperComponent implements AfterContentInit {
   @ContentChildren(TemplateRef) stepTemplates!: QueryList<TemplateRef<any>>;
-  @Input() showVertical?: boolean = true;
+  @Input() orientation?: string = '';
   @Input() formGroups: FormGroup[] = [];
   @Output() formSubmit = new EventEmitter<void>();
   @Output() formReset = new EventEmitter<void>();

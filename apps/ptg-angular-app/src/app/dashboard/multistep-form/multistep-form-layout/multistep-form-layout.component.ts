@@ -13,7 +13,7 @@ import { ConfirmPasswordValidator } from '@ptg-angular-app/common/utils/validato
 export class MultistepFormLayoutComponent {
   htmlCode = `
   <ptg-ui-stepper [steps]="stepLabels" [formGroups]="[formGroup1, formGroup2, formGroup3]" (formReset)="onReset()"
-        (formReset)="onSubmit">
+        (formSubmit)="onSubmit()">
             <ng-template>Your form group1 template</ng-template>
              <ng-template>Your form group2 template</ng-template>
               <ng-template>Your form group3 template</ng-template></ptg-ui-stepper>
@@ -93,9 +93,7 @@ export class MultistepFormLayoutComponent {
   submitted2 = false;
   cardList = ['Visa', 'MasterCard', 'American Express'];
   expMonthList = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-  stepLabels = ['Account Info', 'Personal Information', 'Payment Details'
-
-  ];
+  stepLabels = ['Account Info', 'Personal Information', 'Payment Details'];
   constructor(private fb: FormBuilder) {
 
     this.formGroup1 = this.fb.group({
