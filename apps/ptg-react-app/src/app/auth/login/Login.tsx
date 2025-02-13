@@ -102,6 +102,7 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
         }
         break;
       default: {
+        formErr = false;
       }
     }
 

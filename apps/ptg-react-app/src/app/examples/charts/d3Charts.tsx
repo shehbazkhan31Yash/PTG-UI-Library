@@ -16,10 +16,7 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 export interface PtgUiD3BarProps {
   data?:[],
 }
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface D3ChartsProps { }
-
-export function D3Charts(_props: D3ChartsProps) {
+export function D3Charts() {
   const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
   const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
   const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();
@@ -116,14 +113,9 @@ export function D3Charts(_props: D3ChartsProps) {
  
   import {  PtgUiD3Bar } from '@ptg-ui/react';
   import { d3BarData } from '@ptg-react-app/mock/mocks';
-
-  export interface D3ChartsProps { }
-  
-  export function D3Charts(props: D3ChartsProps) {
+  export function D3Charts() {
    
-  
   export default D3Charts;
-  
   `
   const htmlCodeBarChart = `
     <PtgUiD3Bar {...d3BarData} />
@@ -148,14 +140,9 @@ export function D3Charts(_props: D3ChartsProps) {
   import {PtgUiD3Pie } from '@ptg-ui/react';
   import { d3PieData } from '@ptg-react-app/mock/mocks';
 
-  export interface D3ChartsProps { }
-  export function D3Charts(props: D3ChartsProps) {
-   
-  
+  export function D3Charts() {
   export default D3Charts;
-
 `
-
   const htmlCodePieChart = `
     <PtgUiD3Pie {...d3PieData} />
   `
@@ -172,9 +159,7 @@ export function D3Charts(_props: D3ChartsProps) {
   import { PtgUiD3Line } from '@ptg-ui/react';
   import { d3LineData } from '@ptg-react-app/mock/mocks';
 
-  export interface D3ChartsProps { }
-  export function D3Charts(props: D3ChartsProps) {
-   
+  export function D3Charts() {
   
   export default D3Charts;`
 

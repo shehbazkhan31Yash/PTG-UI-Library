@@ -23,9 +23,7 @@ import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
-/* eslint-disable-next-line */
-export interface WebAccessibilityProps {}
-export function WebAccessibility(_props: WebAccessibilityProps) {
+export function WebAccessibility() {
   const [cityList, setCityList]= useState([])
   const [genders, setGenders]= useState([])
   const [user, setUser]: any = useState({
@@ -243,12 +241,8 @@ export function WebAccessibility(_props: WebAccessibilityProps) {
     
     import { authClass } from '@ptg-react-app/auth/services/auth.service';
     import { resources } from '../../resource/resource';
-    
-    /* eslint-disable-next-line */
-    export interface WebAccessibilityProps {}
-    export function WebAccessibility(props: WebAccessibilityProps) {
-    
-    
+
+    export function WebAccessibility() {
       const [user, setUser]: any = useState({
         isLoading: false,
         username: '',
@@ -329,7 +323,6 @@ export function WebAccessibility(_props: WebAccessibilityProps) {
             }
             break;
           case 'email':
-            // eslint-disable-next-line no-case-declarations
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
             if (value === '' || value ? true : false !== regexEmail.test(value)) {
               disabled = true;

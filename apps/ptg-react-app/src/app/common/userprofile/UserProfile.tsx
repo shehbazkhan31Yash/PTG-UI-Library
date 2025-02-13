@@ -28,9 +28,9 @@ export default function UserProfile() {
     navigate('/login');
   };
 
-  {
+
     /*--Start set logged in user data--*/
-  }
+
   const getUserData = JSON.parse(authClass.getToken());
 
   useEffect(() => {
