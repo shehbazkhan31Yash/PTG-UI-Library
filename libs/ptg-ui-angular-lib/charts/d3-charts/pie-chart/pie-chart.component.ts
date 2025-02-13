@@ -7,6 +7,10 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
+interface pieData {
+  Framework: string, Stars: string, Released: string, color: string
+}
+
 
 @Component({
   selector: 'ptg-ui-pie-chart',
@@ -15,12 +19,13 @@ import * as d3 from 'd3';
 })
 
 export class PieChartComponent implements OnInit {
-  @Input() data: any;
+  @Input() data: pieData[] | [string, number] = [];
   @Input() svg: any;
-  @Input() margin: any = 50;
-  @Input() width: any = 750;
-  @Input() height: any = 600;
-  @Input() colorsArray: any = ['#8D8741', '#659DBD', '#DAAD86', '#BC986A', '#FBEEC1', '#242582'];
+  @Input() margin: number = 50;
+  @Input() width: number = 750;
+  @Input() height: number = 600;
+  @Input() colorsArray: string[] = ['#8D8741', '#659DBD', '#DAAD86', '#BC986A', '#FBEEC1', '#242582'];
+  @Input() id = "pie";
 
   // The radius of the pie chart is half the smallest side
   //  private radius = Math.min(this.width, this.height) / 2 - this.margin;
@@ -32,7 +37,7 @@ export class PieChartComponent implements OnInit {
     this.radius = Math.min(this.width, this.height) / 2 - this.margin;
 
     this.svg = d3
-      .select('figure#pie')
+      .select('figure#' + this.id)
       .append('svg')
       .attr('width', this.width)
       .attr('height', this.height)

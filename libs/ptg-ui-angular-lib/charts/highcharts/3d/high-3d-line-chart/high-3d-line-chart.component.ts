@@ -7,6 +7,9 @@
 
 import { AfterViewInit, Component, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
+interface linebar3dData {
+  name: string, data: number[]
+}
 
 @Component({
   selector: 'ptg-ui-high-3d-line-chart',
@@ -14,14 +17,15 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./high-3d-line-chart.component.scss']
 })
 export class High3dLineChartComponent implements AfterViewInit {
-  @Input() data: any = [];
+  @Input() data: linebar3dData[] = [];
   @Input() remainingOptions:any = {};
   @Input() highcharts?:any;
-  @Input() title?:any = null;
+  @Input() title?:string = "";
   @Input() categories?:any;
-  @Input() xTitle?:any = null;
-  @Input() yTitle?:any = null;
-  @Input() chartId = 'chart-line-3d';
+  @Input() xTitle?:string = "";
+  @Input() yTitle?:string = "null";
+  @Input() id = 'chart-line-3d';
+  @Input() isCreditEnabled = false;
 
   // We have used ngAfterViewInit becauce of chart dynamic Id
   ngAfterViewInit(){
@@ -30,8 +34,7 @@ export class High3dLineChartComponent implements AfterViewInit {
 
   // Chart configuration 
   private createChartLine(): void {
-    let date = new Date();
-    const chart = Highcharts.chart(this.chartId, {
+    Highcharts.chart(this.id, {
       title:{
         text:this.title
       },
@@ -49,6 +52,9 @@ export class High3dLineChartComponent implements AfterViewInit {
         column: {
             depth: 5
         }
+    },
+    credits: {
+      enabled: this.isCreditEnabled,
     },
     xAxis: {
       categories: this.categories,

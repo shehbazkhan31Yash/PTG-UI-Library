@@ -33,6 +33,7 @@ import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { StepperModule } from '@ptg-ui/angular/stepper';
+import { DialogModule } from './dialog/dialog.module';
 
 @NgModule({
   declarations: [],
@@ -60,8 +61,8 @@ import { StepperModule } from '@ptg-ui/angular/stepper';
     BreadcrumbsModule,
     CardModule,
     CarouselModule,
-    StepperModule
-    // SidenavModule
+    StepperModule,
+    DialogModule
   ],
   exports: [
     CommonModule,
@@ -83,7 +84,8 @@ import { StepperModule } from '@ptg-ui/angular/stepper';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    // SidenavModule
+    // SidenavModule,
+    DialogModule
   ],
 })
 export class PtgUiAngularLibModule {}

@@ -46,7 +46,6 @@ export class MatDatatableComponent implements OnInit{
   // get event of filter and do filtering
   @Output() getFilterEvent: EventEmitter<any> = new EventEmitter();
   
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   constructor(private cd: ChangeDetectorRef) {
   }
   
