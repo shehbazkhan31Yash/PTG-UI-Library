@@ -130,13 +130,14 @@ export function WebAccessibility() {
         }
         break;
       case 'email':
-        // eslint-disable-next-line no-case-declarations
+        {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           disabled = true;
           if (!regexEmail.test(value)) {
             formErr = true;
           }
+        }
         }
         break;
       case 'city':
@@ -323,7 +324,7 @@ export function WebAccessibility() {
             }
             break;
           case 'email':
-            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+            const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/i;
             if (value === '' || value ? true : false !== regexEmail.test(value)) {
               disabled = true;
               if (!regexEmail.test(value)) {

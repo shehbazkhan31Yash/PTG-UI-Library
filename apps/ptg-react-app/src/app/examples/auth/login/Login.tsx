@@ -85,7 +85,7 @@ export function PtgLogin() {
     //handle validate
     const validate = (value: string) => {
       let formErr = true;
-      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/i;
       if (value === '' || value ? true : false !== regexEmail.test(value)) {
         if (!regexEmail.test(value)) {
           formErr = false;

@@ -61,7 +61,7 @@ export function PtgSignup() {
 
   //handle text field change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e?.target;
+    const { name, value } = e?.target || undefined;
     validate(name, value);
   };
 

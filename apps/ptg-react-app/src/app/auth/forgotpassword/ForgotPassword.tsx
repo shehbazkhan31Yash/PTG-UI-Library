@@ -96,7 +96,6 @@ export default function ForgotPassword() {
     let btn = true;
     if (formErr.email === false && values.email !== '') btn = false;
     setState('btnDisable', btn);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.email]);
 
   const handleSubmit = (event: any) => {

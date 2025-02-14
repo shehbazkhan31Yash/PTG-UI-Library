@@ -20,9 +20,7 @@ import {
 } from '@ptg-ui/react';
 import msalInstance from '../msal';
 import { acquireToken } from '../msal';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface PtgUiLoginProps {}
+import { PtgUiLoginProps } from '@ptg-react-libs/interfaces';
 
 export function PtgUiLogin(__props: PtgUiLoginProps) {
   const loginMsal = async () => {
