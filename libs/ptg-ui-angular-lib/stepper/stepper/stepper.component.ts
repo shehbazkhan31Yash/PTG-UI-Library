@@ -48,9 +48,9 @@ export class StepperComponent implements AfterContentInit {
       }
     } else {
       this.formGroups[this.currentStep].markAllAsTouched();
-      console.log('', this.formGroups[this.currentStep])
     }
   }
+  
   resetForm(): void {
     this.formGroups.forEach(item => {
       item.reset();

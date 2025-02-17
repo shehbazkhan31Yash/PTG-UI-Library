@@ -62,6 +62,7 @@ import { DialogModule } from './dialog/dialog.module';
     CardModule,
     CarouselModule,
     StepperModule,
+    // SidenavModule,
     DialogModule
   ],
   exports: [
