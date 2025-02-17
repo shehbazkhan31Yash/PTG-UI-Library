@@ -11,8 +11,7 @@
 import './header.scss';
 import UserProfile from '../userprofile/UserProfile';
 import MultiLang from '../multi-lang/multi-lang';
-export interface HeaderProps {}
-export function Header({}: HeaderProps) {
+export function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

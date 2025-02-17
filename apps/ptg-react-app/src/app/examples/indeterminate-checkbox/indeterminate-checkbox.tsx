@@ -4,8 +4,8 @@
  * @desc Indeterminate checkbox example using indeterminate checkbox reusable component
  */
 
-import {useState, useEffect} from 'react'
-import  style from './indeterminate-checkbox.module.scss';
+import { useState, useEffect } from 'react';
+import style from './indeterminate-checkbox.module.scss';
 import { PtgUiIndeterminateCheckbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
@@ -17,7 +17,7 @@ type Data = {
   id:string|number,
   parentId:string|number,
 }
-export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
+export function IndeterminateCheckbox(_props: IndeterminateCheckboxProps) {
   const [checkBoxData, setCheckBoxData]= useState<Data[]>([])
   const {data:apiData } = PtguseFetch('checkbox-lists') as any
 

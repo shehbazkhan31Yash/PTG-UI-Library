@@ -4,9 +4,8 @@
  * @desc Layout and Routing for reusable components
  */
 import { lazy } from 'react';
-{
-  /*--Import Components for routing using lazy loading--*/
-}
+
+/*--Import Components for routing using lazy loading--*/
 const Example3 = lazy(
   () => import('@ptg-react-app/examples/multi-step-form/Example3')
 );
@@ -91,9 +90,9 @@ const Authentication = lazy(() => import('../examples/auth/login/Login'));
 const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination')); 
 
-{
+
   /*--Declare routes and component for dynamic load--*/
-}
+
 const routing = [
   {
     path: '/admin-home',

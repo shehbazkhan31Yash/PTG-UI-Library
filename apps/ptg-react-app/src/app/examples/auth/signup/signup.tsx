@@ -61,7 +61,7 @@ export function PtgSignup() {
 
   //handle text field change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e?.target;
+    const { name, value } = e?.target || undefined;
     validate(name, value);
   };
 
@@ -76,7 +76,8 @@ export function PtgSignup() {
         }
         break;
       case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (
           formValue === '' || formValue
             ? true
@@ -85,6 +86,7 @@ export function PtgSignup() {
           if (!regexEmail.test(formValue)) {
             disabled = true;
           }
+        }
         }
         break;
       case 'city':

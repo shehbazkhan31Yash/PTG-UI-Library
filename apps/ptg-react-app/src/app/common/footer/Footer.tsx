@@ -6,10 +6,9 @@
 */
 import './Footer.scss';
 import { useTranslation } from 'react-i18next';
-export interface FooterProps {}
 
 // eslint-disable-next-line no-empty-pattern
-export function Footer({}: FooterProps) {
+export function Footer() {
   const { t } = useTranslation();
   return (
     <footer className="d-flex justify-content-center align-items-center fixed-bottom">
