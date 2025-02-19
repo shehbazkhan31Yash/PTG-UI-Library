@@ -1,33 +1,4 @@
-/* Delete these base styles before copying and pasting into your CSS */
-body { font-size: 21px; font-family: Roboto; margin: 30px 30px; } *, *:before, *:after { box-sizing: border-box; }
-
-/* Stepper Titles */
-.title {
-  line-height: 1.5em;
-  font-weight: bold;
-}
-.caption {
-  font-size: 0.8em;
-}
-
-.legend-tag {
-  float: none;
-  margin-bottom: 0.5rem;
-  font-size: 1.0rem;
-  line-height: inherit;
-}
-
-dl {
-  margin-bottom:50px;
-}
-dl dt {
-  float:left; 
-  font-weight:bold; 
-  margin-right:10px; 
-  padding:5px;  
-  width:200px; 
-}
-dl dd {
-  margin:2px 0; 
-  padding:5px 0;
+// 
+.parent-block {
+  position: relative;
 }

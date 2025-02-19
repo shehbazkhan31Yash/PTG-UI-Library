@@ -1,7 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
 
-
 export default {
   title: 'Component/BreadcrumbsComponent',
   component: BreadcrumbsComponent,
@@ -32,7 +31,6 @@ const Template: Story<BreadcrumbsComponent> = (args: BreadcrumbsComponent) => ({
   props: args,
   component: BreadcrumbsComponent,
 });
-
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -66,39 +64,3 @@ divider.args = {
   }
     
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
