@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../lib/styles/variables';
 
 .stepper-container {
   display: flex;
@@ -49,10 +49,12 @@
     background-color: $main; // Change this to your active color
     color: white;
   }
+
   &.horizontal {
     padding: 8px;
   }
 }
+
 .label {
   border-color: $light-grey;
   margin-top: 1rem;
@@ -62,6 +64,7 @@
   &.active {
     color: black;
   }
+
   &.horizontal {
     margin-left: 7px;
   }

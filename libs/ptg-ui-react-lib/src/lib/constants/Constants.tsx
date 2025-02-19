@@ -17,3 +17,7 @@ export const FORGOT_PASSWORD_BTN_COLOR = {
 	FORGOT_BTN_BACKGROUND: '#052982',
 	FORGOT_BTN_BACKGROUND_GRAY: '#959393',
 };
+
+export const COLOR = "#fff";
+export const BACKGROUND_COLOR ='#052982'
+export const WIDTH = '200px'

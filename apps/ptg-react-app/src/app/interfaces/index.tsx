@@ -51,12 +51,54 @@ export  interface IDatePickerProps {
   disabled?: boolean;
 }
 
-
-
 // login
 export interface ILogin {
   email: string;
   password: string;
+}
+
+//MultiStepForm
+export interface IUserDetails {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  greeting: string;
+  gender: string;
+  phone: string;
+  zipCode: string;
+  state: string;
+  homeAddress: string;
+  country: string;
+  cardType: string;
+  cardNumber: string;
+  cvc: string;
+  expiration: string;
+  cardHolder: string;
+}
+
+//MultiStepForm
+export interface IUserErrors {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  greeting: string;
+  gender: string;
+  phone: string;
+  zipCode: string;
+  state: string;
+  homeAddress: string;
+  country: string;
+  cardType: string;
+  cardNumber: string;
+  cvc: string;
+  expiration: string;
+  cardHolder: string;
 }
 
 //signup
@@ -78,4 +120,19 @@ export interface IFormError {
   city?: boolean;
   password?: boolean;
   confirmPassword?: boolean;
+}
+
+export interface IStep {
+  id: number;
+  label: string; 
+}
+
+export interface IPtgUiMultiStep {
+  details?: IUserDetails;
+  error?: IUserDetails;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  resetForm?: () => void;
+  submitForm?: () => void;
+  orientation?: string;
 }
