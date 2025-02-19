@@ -12,10 +12,7 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { PtgUiInput } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 
-
-export interface DragExampleThreeProps {}
-
-export function DragExampleThree(props: DragExampleThreeProps) {
+export function DragExampleThree() {
   const { t } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
   const [todo, setTodo] = useState<string>('');

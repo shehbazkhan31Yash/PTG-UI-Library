@@ -11,9 +11,8 @@ import { useEffect, useState } from 'react';
 import './ForgotPassword.scss';
 import { useTranslation } from 'react-i18next';
 import { PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
-import { Modal } from 'react-bootstrap';
 import { authClass } from '../services/auth.service';
-import { useNavigate } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 
 export default function ForgotPassword() {
   const { t } = useTranslation();
@@ -55,7 +54,7 @@ export default function ForgotPassword() {
     let disabled = false;
     let formErr = false;
     switch (fieldName) {
-      case 'email':
+      case 'email': {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           disabled = true;
@@ -63,6 +62,7 @@ export default function ForgotPassword() {
             formErr = true;
           }
         }
+      }
         break;
     }
 
@@ -94,7 +94,7 @@ export default function ForgotPassword() {
 
   useEffect(() => {
     let btn = true;
-    if (formErr.email == false && values.email !== '') btn = false;
+    if (formErr.email === false && values.email !== '') btn = false;
     setState('btnDisable', btn);
   }, [values.email]);
 

@@ -8,11 +8,7 @@ import { useEffect, useState } from 'react';
 import { Tree } from '@minoru/react-dnd-treeview';
 import { PtguseFetch } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
-
-
-export interface DragExampleFourProps {}
-
-function DragExampleFour(_props: DragExampleFourProps) {
+function DragExampleFour() {
   
   const [dataList, setDataList] = useState<any[]>([]);
   
