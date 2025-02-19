@@ -1,44 +1,28 @@
 export const MULTISTEPCOMPONENT =` 
- const [details, setDetails] = useState<IUserDetails>({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    greeting: '',
-    gender: '',
-    phone: '',
-    zipCode: '',
-    state: '',
-    homeAddress: '',
-    country: '',
-    cardType: '',
-    cardNumber: '',
-    cvc: '',
-    expiration: '',
-    cardHolder: '',
-  });
-  const [error, setError] = useState<IUserDetails>({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    greeting: '',
-    gender: '',
-    phone: '',
-    zipCode: '',
-    state: '',
-    homeAddress: '',
-    country: '',
-    cardType: '',
-    cardNumber: '',
-    cvc: '',
-    expiration: '',
-    cardHolder: '',
-  });
+ export interface IUserDetails {
+    firstName: string;
+    lastName: string;
+    userName: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    greeting: string;
+    gender: string;
+    phone: string;
+    zipCode: string;
+    state: string;
+    homeAddress: string;
+    country: string;
+    cardType: string;
+    cardNumber: string;
+    cvc: string;
+    expiration: string;
+    cardHolder: string;
+  }
+  const initialDetailsState: IUserDetails = USERDETAILS;
+  const initialErrorState: IUserDetails = USERINPUTERROR;
+  const [details, setDetails] = useState(initialDetailsState);
+  const [error, setError] = useState(initialErrorState)
   
   // on blur method
   const handleBlur = (event) => {
