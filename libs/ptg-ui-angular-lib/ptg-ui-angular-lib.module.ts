@@ -89,4 +89,4 @@ import { DialogModule } from './dialog/dialog.module';
     DialogModule
   ],
 })
-export class PtgUiAngularLibModule {}
+export class PtgUiAngularLibModule { }

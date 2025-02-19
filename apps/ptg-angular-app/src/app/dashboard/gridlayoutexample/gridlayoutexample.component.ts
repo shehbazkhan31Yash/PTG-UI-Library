@@ -9,6 +9,7 @@
 **/
 
 import { Component } from '@angular/core';
+import { gridExampleColumnClassData, gridHeadingColumnClassData, gridOffsetExampleColumnClassData } from './grid';
 
 @Component({
   selector: 'ptg-ui-gridlayoutexample',
@@ -17,9 +18,9 @@ import { Component } from '@angular/core';
 })
 
 export class GridlayoutexampleComponent {
-  gridHeadingColumnClass = [{ md: 12 }];
-  gridExampleColumnClass = [{ xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }, { xl: 3, lg: 6, md: 6, sm: 12 }];
-  gridOffsetExampleColumnClass = [{ lg: 4, md: 4, sm: 12, xs: 12 }, { lg: 4, md: 4, sm: 12, xs: 12, offsetMd: 4, offsetSm: 0 }];
+  gridHeadingColumnClass = gridHeadingColumnClassData;
+  gridExampleColumnClass = gridExampleColumnClassData;
+  gridOffsetExampleColumnClass = gridOffsetExampleColumnClassData;
   htmlOffsetCode = `
   <ptg-ui-grid [columnClasses]="gridOffsetExampleColumnClass">
             <ng-template>Your Column Template</ng-template></ptg-ui-grid>
