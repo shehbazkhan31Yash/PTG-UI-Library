@@ -144,9 +144,7 @@ export function PtgUiD3Pie({ data, height, width, innerRadius, outerRadius, colo
 	}, []);
 
 	return (
-		<>
-			<div className="d3_pie"></div>
-		</>
+		<div className="d3_pie"></div>
 	);
 }
 

@@ -68,8 +68,7 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 						</select>
 					</form>
 				) : (
-					<>
-						<div>
+					<div>
 							<div onClick={toggleDropdown} className="select-btn" style={{ width: width }}>
 								{multiSelectOptions?.length > 0
 									? multiSelectOptions?.map((selected) => (
@@ -90,8 +89,7 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 								<span></span>
 							</div>
 							{dropdownOpen && (
-								<>
-									<div className="items" style={{ width: width }}>
+								<div className="items" style={{ width: width }}>
 										{list.map((option) => (
 											<div key={option.value}>
 												<label>
@@ -107,10 +105,8 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 											</div>
 										))}
 									</div>
-								</>
 							)}
 						</div>
-					</>
 				)}
 			</>
 		);

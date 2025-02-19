@@ -40,7 +40,7 @@ export class PtgUiPagination extends React.Component<PtgUiPaginationProps> {
 		} = this.props;
 		const { currentPage }: any = this.state;
 
-		const paginationRange = () => {
+		const PaginationRange = () => {
 			return usePagination({
 				currentPage: currentPage,
 				dataCount: dataCount,
@@ -70,14 +70,13 @@ export class PtgUiPagination extends React.Component<PtgUiPaginationProps> {
 		};
 
 		return (
-			<>
-				<ul className="pagination  justify-content-center mt-3">
+			<ul className="pagination  justify-content-center mt-3">
 					<li className={`page-item ${pageNumber === 1 ? 'disabled' : ''}`}>
 						<a className="page-link" onClick={() => previousPage()}>
 							{previousBtnText}
 						</a>
 					</li>
-					{paginationRange()?.map((num) => {
+				{PaginationRange()?.map((num) => {
 						if (num === DOTS) {
 							return (
 								<li className="pagination-item dots">
@@ -104,8 +103,7 @@ export class PtgUiPagination extends React.Component<PtgUiPaginationProps> {
 							{nextBtnText}
 						</a>
 					</li>
-				</ul>
-			</>
+			</ul>
 		);
 	}
 }

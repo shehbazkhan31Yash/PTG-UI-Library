@@ -8,7 +8,7 @@ export const capitalizeFirstLetter: any = (string: any) => string.charAt(0).toUp
  */
 
 export const inrFormat = (number: any) => {
-	let rupeeFormat: any = new Intl.NumberFormat('en-US', {
+	const rupeeFormat: any = new Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'INR',
 	}).format(number);
@@ -22,7 +22,7 @@ export const inrFormat = (number: any) => {
  * @uses function for trucate string
  *
  */
-export const truncateString: any = (str: string, num: number = 10) => {
+export const truncateString: any = (str: string, num = 10) => {
 	if (str.length > num) {
 		return str.slice(0, num) + '...';
 	} else {
@@ -31,9 +31,9 @@ export const truncateString: any = (str: string, num: number = 10) => {
 };
 
 export const phoneNumber: any = (tel: any) => {
-	var value = tel.toString().trim().replace(/^\+/, '');
+	const value = tel.toString().trim().replace(/^\+/, '');
 
-	var city, number;
+	let city, number;
 
 	switch (value.length) {
 		case 10: // +1PPP####### -> C (PPP) ###-####

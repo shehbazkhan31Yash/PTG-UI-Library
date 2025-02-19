@@ -73,7 +73,8 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
 			let formErr = false;
 			switch (fieldName) {
 				case 'email':
-					const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+					{
+						const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 					if (value === '' || value ? true : false !== regexEmail.test(value)) {
 						if (!regexEmail.test(value)) {
 							formErr = true;
@@ -81,6 +82,8 @@ export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
 							disabled = false;
 						}
 					}
+					}
+
 					break;
 			}
 			this.setState((prevState) => ({

@@ -134,9 +134,7 @@ export function PtgUiD3Bar({ data, height, width, source, title, x_title, y_titl
 	}, []);
 
 	return (
-		<>
-			<div className="d3_bar"></div>
-		</>
+		<div className="d3_bar"></div>
 	);
 }
 PtgUiD3Bar.defaultProps = defaultProps;

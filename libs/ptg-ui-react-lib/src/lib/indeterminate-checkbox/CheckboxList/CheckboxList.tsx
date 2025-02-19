@@ -21,7 +21,7 @@ function CheckboxList({
 	getStateForId,
 	idsToRender = [],
 	indentLevel = 0,
-	onClick = () => {},
+	onClick = () => undefined,
 }: CheckboxListProps) {
 	if (!idsToRender.length) {
 		idsToRender = items.filter((i) => !i.parentId).map((i) => i.id);
