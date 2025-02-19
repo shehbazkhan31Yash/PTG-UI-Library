@@ -25,7 +25,7 @@ const defaultProps: PtgUiLineProps = {
 };
 
 export function PtgUiLine({ title, data, remainingOptions, ...rest }: PtgUiLineProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		title: title,
 		series: [
 			{

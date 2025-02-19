@@ -30,7 +30,7 @@ const defaultProps: PtgUi3dLineProps = {
 };
 
 export function PtgUi3dLine({ title, xTitle, yTitle, data, categories, remainingOptions, ...rest }: PtgUi3dLineProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		title: {
 			text: title,
 		},

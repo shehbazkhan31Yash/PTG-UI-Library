@@ -44,13 +44,13 @@ const tableOptions = {
 	defaultOrderByCollection: [],
 };
 
-export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
+export function PtgUiMaterialTable(_props: PtgUiMaterialTableProps) {
 	return (
 		<MaterialTable
 			style={{
 				fontSize: '14px',
 			}}
-			{...props}
+			{..._props}
 			options={tableOptions}
 		/>
 	);
