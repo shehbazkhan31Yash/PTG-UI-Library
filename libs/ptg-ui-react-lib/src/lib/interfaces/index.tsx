@@ -181,45 +181,45 @@ export interface PtgUiSignupProps {
 	successMessage?: string;
 }
 export interface IUserDetails {
-  firstName: string;
-  lastName: string;
-  userName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  greeting: string;
-  gender: string;
-  phone: string;
-  zipCode: string;
-  state: string;
-  homeAddress: string;
-  country: string;
-  cardType: string;
-  cardNumber: string;
-  cvc: string;
-  expiration: string;
-  cardHolder: string;
+	firstName: string;
+	lastName: string;
+	userName: string;
+	email: string;
+	password: string;
+	confirmPassword: string;
+	greeting: string;
+	gender: string;
+	phone: string;
+	zipCode: string;
+	state: string;
+	homeAddress: string;
+	country: string;
+	cardType: string;
+	cardNumber: string;
+	cvc: string;
+	expiration: string;
+	cardHolder: string;
 }
 
 export interface IUserErrors {
-  firstName: boolean;
-  lastName: boolean;
-  userName: boolean;
-  email: boolean;
-  password: boolean;
-  confirmPassword: boolean;
-  greeting: boolean;
-  gender: boolean;
-  phone: boolean;
-  zipCode: boolean;
-  state: boolean;
-  homeAddress: boolean;
-  country: boolean;
-  cardType: boolean;
-  cardNumber: boolean;
-  cvc: boolean;
-  expiration: boolean;
-  cardHolder: boolean;
+	firstName: boolean;
+	lastName: boolean;
+	userName: boolean;
+	email: boolean;
+	password: boolean;
+	confirmPassword: boolean;
+	greeting: boolean;
+	gender: boolean;
+	phone: boolean;
+	zipCode: boolean;
+	state: boolean;
+	homeAddress: boolean;
+	country: boolean;
+	cardType: boolean;
+	cardNumber: boolean;
+	cvc: boolean;
+	expiration: boolean;
+	cardHolder: boolean;
 }
 
 
@@ -229,30 +229,36 @@ export interface IPtgUiMultiStepState {
 }
 
 export interface IStep {
-  id: number;
-  label: string; 
+	id: number;
+	label: string;
 }
 export interface IPtgUiMultiStepProps {
-  error?: IUserDetails;
-  details?: IUserDetails;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  resetForm?: () => void;
-  submitForm?: () => void;
+	error?: IUserDetails;
+	details?: IUserDetails;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	resetForm?: () => void;
+	submitForm?: () => void;
 }
 
 export interface IPtgUiMultiStepFormProps {
-  stepperSteps?: IStep[];
-  allSteps?: React.ReactElement<IPtgUiMultiStepProps>[];
-  resetForm?: () => void;
-  submitForm?: () => void;
-  manageNextStepValidation?: (step: number) => boolean;
-  orientation?: string;
+	stepperSteps?: IStep[];
+	allSteps?: React.ReactElement<IPtgUiMultiStepProps>[];
+	resetForm?: () => void;
+	submitForm?: () => void;
+	manageNextStepValidation?: (step: number) => boolean;
+	orientation?: string;
 }
 
 export interface PtgUiCommonStepProps {
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  details?: IUserDetails;
-  error?: IUserDetails;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	details?: IUserDetails;
+	error?: IUserDetails;
+}
+
+export interface IStepperProps {
+	steps?: IStep[];
+	activeStep?: number;
+	orientation?: string;
 }
