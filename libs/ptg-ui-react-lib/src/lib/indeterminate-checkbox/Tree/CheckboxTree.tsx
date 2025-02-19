@@ -41,7 +41,7 @@ export function PtgUiIndeterminateCheckbox({ items }: PtgUiIndeterminateCheckbox
 		setItemStates(defaultItemStates);
 	}, [items]);
 
-	useLayoutEffect(() => {}, [itemStates]);
+	useLayoutEffect(() => undefined as void, [itemStates]);
 
 	return <CheckboxList items={items} onClick={clickHandler} getStateForId={getStateForId} />;
 }

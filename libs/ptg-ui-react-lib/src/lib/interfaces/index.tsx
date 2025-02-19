@@ -173,10 +173,10 @@ export interface PtgUiSignupProps {
 	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	user?: IUserSignup;
 	formErr?: IFormErr;
-	isDisabled: Function;
+	isDisabled: (user: IUserSignup, date: Date | null | string, selectedCheck: boolean, formErr: IFormErr) => void;
 	date?: Date | null | string;
 	selectedCheck?: boolean;
-	onSubmit?: Function;
+	onSubmit?: () => void;
 	errorMessage?: string;
 	successMessage?: string;
 }

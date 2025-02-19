@@ -28,7 +28,7 @@ const defaultProps: PtgUiLineBarProps = {
 };
 
 export function PtgUiLineBar({ title, subtitle, categories, remainingOptions, ...rest }: PtgUiLineBarProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		chart: {
 			zoomType: 'xy',
 		},

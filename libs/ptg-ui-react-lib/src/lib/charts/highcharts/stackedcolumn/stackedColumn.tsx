@@ -36,7 +36,7 @@ export function PtgUiStackedColumn({
 	remainingOptions,
 	...rest
 }: PtgUiStackedColumnProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		chart: {
 			type: 'column',
 		},

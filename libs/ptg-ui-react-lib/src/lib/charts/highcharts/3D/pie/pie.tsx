@@ -27,7 +27,7 @@ const defaultProps: PtgUi3dPieProps = {
 };
 
 export function PtgUi3dPie({ title, data, categories, seriesName, remainingOptions, ...rest }: PtgUi3dPieProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		chart: {
 			type: 'pie',
 			backgroundColor: null,

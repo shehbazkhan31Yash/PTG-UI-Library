@@ -10,7 +10,7 @@ export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId
 	const newState = oldState.map((i) => ({ ...i }));
 	// getters
 	const getItemState = (id: number) => {
-		let temp: any = newState.find((i) => i.id === id);
+		const temp: any = newState.find((i) => i.id === id);
 		return temp.state;
 	};
 	// setters
@@ -21,7 +21,7 @@ export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId
 		const childIds = items.filter((i) => i.parentId === parent.id).map((i) => i.id);
 		const childStates = childIds.map((childId) => getItemState(childId));
 
-		let tempNewState: any = newState.find((i: any) => i.id === parent.id);
+		const tempNewState: any = newState.find((i: any) => i.id === parent.id);
 		if (childStates.length === childStates.filter((s: any) => s === CheckboxState.CHECKED).length) {
 			tempNewState.state = CheckboxState.CHECKED;
 		} else if (childStates.length === childStates.filter((s) => s === CheckboxState.UNCHECKED).length) {
@@ -32,7 +32,7 @@ export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId
 		updateParent(parent.id);
 	};
 	const setUnchecked = (id: number) => {
-		let tempNewState: any = newState.find((i: any) => i.id === id);
+		const tempNewState: any = newState.find((i: any) => i.id === id);
 		tempNewState.state = CheckboxState.UNCHECKED;
 		items
 			.filter((i) => i.parentId === id)
@@ -41,7 +41,7 @@ export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId
 		updateParent(id);
 	};
 	const setChecked = (id: number) => {
-		let tempNewState: any = newState.find((i: any) => i.id === id);
+		const tempNewState: any = newState.find((i: any) => i.id === id);
 		tempNewState.state = CheckboxState.CHECKED;
 		items
 			.filter((i) => i.parentId === id)

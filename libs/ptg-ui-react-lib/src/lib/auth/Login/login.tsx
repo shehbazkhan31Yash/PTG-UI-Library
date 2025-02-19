@@ -47,8 +47,7 @@ export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
 		} = this.props;
 
 		return (
-			<>
-				<div className="login-wrapper container-fluid p-0 d-flex justify-content-center">
+			<div className="login-wrapper container-fluid p-0 d-flex justify-content-center">
 					<div className="login-container">
 						<div className="login-form-wrapper">
 							<div className="form-group">
@@ -137,7 +136,6 @@ export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
 						</div>
 					</div>
 				</div>
-			</>
 		);
 	}
 }

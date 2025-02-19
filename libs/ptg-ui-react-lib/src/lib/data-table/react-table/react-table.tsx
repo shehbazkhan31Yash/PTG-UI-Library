@@ -56,7 +56,7 @@ export function PtgUiReactTable({ columns, data }: PtgUiReactTableProps) {
 	}, [pageIndex]);
 
 	function range(start: number, end: number) {
-		let arr: any = Array(end - start + 1);
+		const arr: any = Array(end - start + 1);
 		return arr.fill().map((_: any, idx: any) => start + idx);
 	}
 

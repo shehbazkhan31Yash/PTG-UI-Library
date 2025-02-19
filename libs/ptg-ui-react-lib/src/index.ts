@@ -1,6 +1,6 @@
-export * from './lib/ptg-ui-react-lib';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+export * from './lib/ptg-ui-react-lib';
 
 export * from './lib/button/button';
 export * from './lib/input/input';

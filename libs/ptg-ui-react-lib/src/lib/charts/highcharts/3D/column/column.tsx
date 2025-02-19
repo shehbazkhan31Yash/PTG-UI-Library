@@ -40,7 +40,7 @@ export function PtgUi3dColumn({
 	remainingOptions,
 	...rest
 }: PtgUi3dColumnProps) {
-	let graphOptions: any = {
+	const graphOptions: any = {
 		title: {
 			text: title,
 		},
