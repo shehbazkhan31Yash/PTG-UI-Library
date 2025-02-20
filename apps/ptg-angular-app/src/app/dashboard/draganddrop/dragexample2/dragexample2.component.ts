@@ -1,107 +1,117 @@
-
 /**
- * @since March 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-dragexample2;
- * @description This component for drag and drop example2
+ * @since Feb 2025
+ * @author Prasad Londhe
+ * @Component ptg-ui-dragexample1;
+ * @description This component for drag and drop example1
  **/
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '@ptg-angular-app/auth/services/auth.service';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
-import { Subject, takeUntil } from 'rxjs';
-import { resources } from '../../../../resource/resource';
-import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
-
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ptg-ui-dragexample2',
   templateUrl: './dragexample2.component.html',
   styleUrls: ['./dragexample2.component.scss'],
 })
-export class Dragexample2Component implements OnInit, OnDestroy {
-  public personaldetails: any = [];
-  loading = false;
-  unsubscribe: Subject<any> = new Subject();
-  resources = resources;
-  USERSDATA: any = [];
-
+export class Dragexample2Component implements OnInit{
+  items: string[] = [];
+  gridItems: string[] = []; 
+  loading = true;
   dragAndDropHtmlCode = `
-  <div cdkDropList #personList="cdkDropList" [cdkDropListData]="userDetails"
-       (cdkDropListDropped)="onDrop($event)">
-    <div *ngFor="let item of userDetails; let i = index" cdkDrag>
-      <p cdkDragHandle class="px-2"><i class="fa-solid fa-bars"></i></p>
-      <p>{{i+1}} - {{item.username}}</p>
-      <p cdkDragHandle class="px-2">
-        <i class="fa-solid fa-bars"></i>
-      </p>
-    </div>
-  </div>
-  `;
+  <h3>Drag and Drop List</h3>
+  <ul class="list-group mt-5">
+    <li
+      *ngFor="let item of items; let i = index"
+      class="list-group-item"
+      draggable="true"
+      (dragstart)="onDragStart($event, i)"
+      (dragover)="allowDrop($event)"
+      (drop)="onDrop($event)"
+      [attr.data-index]="i"
+    >
+      {{ item }}
+    </li>
+  </ul> 
+`;
   dragAndDropTsCode = `
-  import { Component } from '@angular/core';
-  import {
-    CdkDragDrop,
-    moveItemInArray,
-    transferArrayItem,
-  } from '@angular/cdk/drag-drop';
-
-  @Component({
-    selector: 'drag-and-drop-component',
-    templateUrl: './drag-and-drop-component.html'
-  })
-  export class DragAndDropComponent {
-    // Data required to drag and drop the box/element
-    userDetails = [
-      {username: 'nimish.yash', name: 'Nimish'},
-      {username: 'kumar.yash', name: 'Raj Kumar'},
-    ]
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'ptg-ui-dragexample2',
+  templateUrl: './dragexample2.component.html',
+  styleUrls: ['./dragexample2.component.scss'],
+})
+export class Dragexample2Component implements OnInit{
+  items: string[] = [];
+  gridItems: string[] = []; 
+  loading = true;
+  ngOnInit() {
+    this.setItemCount(4); // Pass the count directly 
+    
   }
-  `;
-
-  constructor(
-    private authService: AuthService,
-    private mocksApiService: mocksService
-  ) {}
-
-  ngOnInit(): void {
-    this.loading = true;
-
+  generateItems(count: number) {
     this.loading = false;
-    this.mocksApiService.getUserList().subscribe((response) => {
-      this.USERSDATA = response?.data[0].attributes.users.filter((res: any) => {
-        if (res.role.type === 'admin') {
-          return res;
-        }
-      });
-      this.personaldetails = this.USERSDATA;
-    });
+    this.items = Array.from({ length: count }, (_, i) =>
+    'Item' +(i + 1));
   }
 
+  setItemCount(count: number) {
+    this.generateItems(count);
+  }
 
-  // Drop method for example 1
-  onDrop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+  onDragStart(event: DragEvent, index: number) {
+    event.dataTransfer?.setData('text/plain', index.toString());
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault(); 
+
+    const fromIndex = Number(event.dataTransfer?.getData('text/plain'));
+    const toIndex = Number((event.currentTarget as HTMLElement).getAttribute('data-index'));
+
+    if (fromIndex !== toIndex) {
+      const movedItem = this.items[fromIndex];
+      this.items.splice(fromIndex, 1);
+      this.items.splice(toIndex, 0, movedItem);
     }
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe.next(0);
-    this.unsubscribe.complete();
+  allowDrop(event: DragEvent) {
+    event.preventDefault();
   }
+
+}`;
+
+  ngOnInit() {
+    this.setItemCount(4); // Pass the count directly 
+    
+  }
+
+  generateItems(count: number) {
+    this.loading = false;
+    this.items = Array.from({ length: count }, (_, i) => 'Item' + (i + 1));
+  }
+
+  setItemCount(count: number) {
+    this.generateItems(count);
+  }
+
+  onDragStart(event: DragEvent, index: number) {
+    event.dataTransfer?.setData('text/plain', index.toString());
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault(); 
+
+    const fromIndex = Number(event.dataTransfer?.getData('text/plain'));
+    const toIndex = Number((event.currentTarget as HTMLElement).getAttribute('data-index'));
+
+    if (fromIndex !== toIndex) {
+      const movedItem = this.items[fromIndex];
+      this.items.splice(fromIndex, 1);
+      this.items.splice(toIndex, 0, movedItem);
+    }
+  }
+
+  allowDrop(event: DragEvent) {
+    event.preventDefault();
+  }
+
 }

@@ -1,72 +1,21 @@
-<!-- <ng-template #tmplNode let-node="node"  class="bg-white rounded">
-  <div class="node-item bg-white" [attr.data-id]="node.id" [attr.id]="'node-' + node.id">
-    <div class="node-title" (click)="node.isExpanded = !node.isExpanded">
-      {{
-        node.children.length
-          ? node.isExpanded
-            ? '-&nbsp;'
-            : '+'
-          : '&nbsp;&nbsp;&nbsp;'
-      }}
-      &nbsp;&nbsp;&nbsp; {{ node.id }}
-      <span class="item-notes">
-        ({{ node.children.length
-        }}{{
-          node.children.length ? ', expanded: ' + !!node.isExpanded : ''
-        }})</span
-      >
-    </div>
-
-    <div
-      *ngIf="node.isExpanded && node.children.length"
-      class="node-children"
-      cdkDropList
-      [cdkDropListData]="node.children"
-      [id]="node.id"
-      [cdkDropListConnectedTo]="dropTargetIds"
-      (cdkDropListDropped)="drop($event)"
-      [cdkDropListSortingDisabled]="true"
-    >
-      <div
-        *ngFor="let child of node.children"
-        cdkDrag
-        [cdkDragData]="child.id"
-        (cdkDragMoved)="dragMoved($event)"
-      >
-        <ng-container
-          *ngTemplateOutlet="tmplNode; context: { node: child }"
-        ></ng-container>
-      </div>
-    </div>
-  </div>
-</ng-template>
-
-<div class="wrapper3 mt-2 p-2 parent-block d-flex">
-  <ptg-ui-toggle-code
-    [htmlCode]="dragAndDropHtmlCode"
-    [tsCode]="dragAndDropTsCode"
-  >
-  </ptg-ui-toggle-code>
-  <div
-    cdkDropList
-    [cdkDropListData]="nodes"
-    [id]="'main'"
-    [cdkDropListConnectedTo]="dropTargetIds"
-    (cdkDropListDropped)="drop($event)"
-    [cdkDropListSortingDisabled]="true"
-  >
-    <div
-      *ngFor="let node of nodes"
-      cdkDrag
-      [cdkDragData]="node.id"
-      (cdkDragMoved)="dragMoved($event)"
-    >
-      <ng-container
-        *ngTemplateOutlet="tmplNode; context: { node: node }"
-      ></ng-container>
-    </div>
-  </div>
-</div> -->
-
-<!-- <p class="p-2"><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
-<pre>{{ dropActionTodo | json }}</pre> -->
+<div class="container mt-5">
+  <h2>Drag and Drop Table</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index"
+          draggable="true"
+          (dragstart)="onDragStart(i)"
+          (dragover)="onDragOver($event)"
+          (drop)="onDrop(i)">
+        <td>{{ item.name }}</td>
+        <td>{{ item.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

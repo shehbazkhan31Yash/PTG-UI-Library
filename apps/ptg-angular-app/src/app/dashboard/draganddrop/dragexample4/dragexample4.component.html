@@ -1,6 +1,11 @@
+
 <div class="wrapper3 mt-2 p-2 bg-white rounded">
   <div class="row pb-2 text-center">
-
+    <ptg-ui-toggle-code
+    [htmlCode]="dragAndDropHtmlCode"
+    [tsCode]="dragAndDropTsCode"
+  >
+  </ptg-ui-toggle-code>
     <div>
       <button
         id="r_add_manual_btn"
@@ -16,32 +21,34 @@
     class="drag-box-wrapper"
     [ngClass]="{ 'commitment-scroll': collectionArray.length > 0 }"
     [formGroup]="collectionForm"
-    cdkDropList
-    (cdkDropListDropped)="drop1($event)"
   >
     <ng-container formArrayName="collection">
       <ng-container
         *ngFor="let requirement of collectionArray.controls; let i = index"
         [formGroupName]="i"
       >
-        <div class="drag-box d-flex justify-content-between" cdkDrag>
+        <div
+          class="drag-box d-flex justify-content-between"
+          draggable="true"
+          (dragstart)="onDragStart(i)"
+          (dragover)="onDragOver($event)"
+          (drop)="onDrop(i)"
+        >
           <div class="d-flex">
             <div class="r-code-section">
-              <!-- <span>{{ i + 1 }}.</span> -->
               <input
                 #code
                 id="{{ codeKey }}_{{ i }}"
                 [formControlName]="codeKey"
                 class="item-name item-desc"
                 [ngClass]="{
-                  'is-invalid': collectionArray.at(i).get(codeKey).errors
+                  'is-invalid': collectionArray.at(i).get(codeKey)?.errors
                 }"
               />
-
               <span
                 class="invalid-feedback"
                 *ngIf="
-                  collectionArray.at(i).get(codeKey).errors.invalidCode as error
+                  collectionArray.at(i).get(codeKey)?.errors?.invalidCode as error
                 "
               >
                 {{ error }}
@@ -49,10 +56,9 @@
             </div>
           </div>
           <div class="d-flex r-code-section">
-            <!-- TODO: Add Switch button -->
             <button
               id="r_reset_{{ i }}"
-              class="icon-btn mx-1 "
+              class="icon-btn mx-1"
               (click)="resetCollection(i)"
             >
               <i class="fa-solid fa-arrow-rotate-right"></i>
@@ -64,7 +70,7 @@
             >
               <i class="fa-solid fa-trash-can"></i>
             </button>
-            <button id="r_drag_{{ i }}" class="icon-btn mx-1" cdkDragHandle>
+            <button id="r_drag_{{ i }}" class="icon-btn mx-1">
               <i class="fa-solid fa-bars"></i>
             </button>
           </div>
