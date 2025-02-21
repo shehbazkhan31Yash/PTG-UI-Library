@@ -56,7 +56,7 @@ export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
 							</div>
 							<div className="form-group">
 								<div className="login-logo text-center mb-3">
-									<img className="login-logo" src={imgPath} />
+								<img alt='Login Logo' className="login-logo" src={imgPath} />
 								</div>
 							</div>
 							<form className="form-login">
