@@ -13,6 +13,7 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AgGridModule } from 'ag-grid-angular';
 import {GridOptions, CellValueChangedEvent, ColDef, FilterChangedEvent, FilterModifiedEvent, FilterOpenedEvent, GridApi, GridReadyEvent } from 'ag-grid-community';
 
 @Component({

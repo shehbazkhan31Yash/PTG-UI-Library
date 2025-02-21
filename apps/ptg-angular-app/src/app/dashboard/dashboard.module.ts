@@ -75,6 +75,7 @@ import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
+import { AgGridModule } from 'ag-grid-angular';
 defineCustomElements();
 
 @NgModule({
@@ -143,6 +144,7 @@ defineCustomElements();
     MatSnackBarModule,
     WebComponentsAngularModule,
     NgSelectModule
+    AgGridModule
   ],
 })
 export class DashboardModule {}

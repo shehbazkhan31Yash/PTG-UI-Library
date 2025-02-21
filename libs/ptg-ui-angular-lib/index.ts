@@ -32,8 +32,8 @@ export const PtgUiAngularLibModule = true
 // export * from './textarea/textarea/textarea.component';
 // export * from './datatables/mat-datatable/mat-datatable.module';
 // export * from './datatables/mat-datatable/mat-datatable/mat-datatable.component';
-// export * from './accordian/accordian.module';
-// export * from './accordian/accordian/accordian.component';
+export * from './accordian/accordian.module';
+export * from './accordian/accordian/accordian.component';
 // export * from './indeterminate-checkboxes/indeterminate-checkboxes.module';
 // export * from './indeterminate-checkboxes/indeterminate-checkboxes/indeterminate-checkboxes.component';
 // export * from './select/select.module';

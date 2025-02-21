@@ -3,6 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-ui-web-comp-react-e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["ptg-ui-web-comp-react"],
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
@@ -24,7 +26,5 @@
         "lintFilePatterns": ["apps/ptg-ui-web-comp-react-e2e/**/*.{js,ts}"]
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["ptg-ui-web-comp-react"]
+  }
 }

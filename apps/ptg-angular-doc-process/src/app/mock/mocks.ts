@@ -5,7 +5,7 @@
  * @description This file for mock data 
 **/
 
-import { TreeviewItem } from "ngx-treeview";
+// import { TreeviewItem } from "ngx-treeview";
 
 export const GENDER_LIST = [
   {

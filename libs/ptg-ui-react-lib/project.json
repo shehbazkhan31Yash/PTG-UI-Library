@@ -1,4 +1,5 @@
 {
+  "name": "ptg-ui-react-lib",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ptg-ui-react-lib/src",
   "projectType": "library",
@@ -33,7 +34,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ptg-ui-react-lib"],
+      "outputs": ["{workspaceRoot}/coverage/libs/ptg-ui-react-lib"],
       "options": {
         "jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
         "passWithNoTests": true
