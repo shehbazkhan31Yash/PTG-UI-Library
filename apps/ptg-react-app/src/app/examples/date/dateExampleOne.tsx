@@ -24,7 +24,7 @@ export function ExampleOne(props: IExampleOneProps) {
   });
 
   /*-----Set date state-----*/
-  const setDateState = (date: Date | null, field: string) => {
+  const setDateState = (date: Date | string, field: string) => {
     setStartDate((preState) => {
       if (field === START_DATE) preState.endDate = null;
       return {
@@ -38,7 +38,7 @@ export function ExampleOne(props: IExampleOneProps) {
   const startDateProp: IDatePickerProps = {
     selected: date.startDate,
     className: `form-control w-100`,
-    onChange: (d) => setDateState(new Date(d.target.value), START_DATE),
+    onChange: (d) => setDateState(d.target.value, START_DATE),
     startDate: today,
     endDate: null,
     disabled: false,
@@ -48,7 +48,7 @@ export function ExampleOne(props: IExampleOneProps) {
   const endDateProp: IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
-    onChange: (d) => setDateState(new Date(d.target.value), END_DATE),
+    onChange: (d) => setDateState(d.target.value, END_DATE),
     startDate: date.startDate || today,
     endDate: null,
     disabled: date.startDate === null,
@@ -58,9 +58,9 @@ export function ExampleOne(props: IExampleOneProps) {
   const dateRangeProp: IDatePickerProps = {
     selected: date.dateRange,
     className: `form-control w-100`,
-    onChange: (d) => setDateState(new Date(d.target.value), DATE_RANGE),
-    startDate: date.startDate ? new Date(date.startDate) : '',
-    endDate: date.endDate ? new Date(date.endDate) : null,
+    onChange: (d) => setDateState(d.target.value, DATE_RANGE),
+    startDate: date.startDate ? date.startDate : '',
+    endDate: date.endDate ? date.endDate : null,
     disabled: date.startDate === null,
   };
 
@@ -75,9 +75,9 @@ export function ExampleOne(props: IExampleOneProps) {
     });
 
     /*-----Set date state-----*/
-    const setDateState: any = (date: any, field: string) => {
-      setStartDate((preState: any) => {
-        if (field === 'startDate') preState.endDate = null;
+    const setDateState = (date: Date | string, field: string) => {
+      setStartDate((preState) => {
+        if (field === START_DATE) preState.endDate = null;
         return {
           ...preState,
           [field]: date,
