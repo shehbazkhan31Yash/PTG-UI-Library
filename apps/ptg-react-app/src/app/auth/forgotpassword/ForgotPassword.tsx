@@ -10,13 +10,12 @@
 import { useEffect, useState } from 'react';
 import './ForgotPassword.scss';
 import { useTranslation } from 'react-i18next';
-import { PtgUiButton, PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
-import { Modal } from 'react-bootstrap';
+import { PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
 import { authClass } from '../services/auth.service';
-import { useNavigate } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 
 export default function ForgotPassword() {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const intialState = {
     show: false,
     email: '',
@@ -55,7 +54,7 @@ export default function ForgotPassword() {
     let disabled = false;
     let formErr = false;
     switch (fieldName) {
-      case 'email':
+      case 'email': {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           disabled = true;
@@ -63,6 +62,7 @@ export default function ForgotPassword() {
             formErr = true;
           }
         }
+      }
         break;
     }
 
@@ -94,7 +94,7 @@ export default function ForgotPassword() {
 
   useEffect(() => {
     let btn = true;
-    if (formErr.email == false && values.email !== '') btn = false;
+    if (formErr.email === false && values.email !== '') btn = false;
     setState('btnDisable', btn);
   }, [values.email]);
 
@@ -169,26 +169,26 @@ export default function ForgotPassword() {
                   </div>
                   <div className="row">
                     <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                      <PtgUiButton
+                      <button
                         type="submit"
-                        variant="primary"
+                        className="primary"
                         data-testid="handleSubmit"
                         onClick={handleSubmit}
                         // data-testid="forgotButton"
                         disabled={values.btnDisable}
                       >
                         {t('FORGOT_PASSWORD')}
-                      </PtgUiButton>
+                      </button>
                     </div>
                     <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
-                      <PtgUiButton
+                      <button
                         type="submit"
-                        variant="secondary"
+                        className="secondary"
                         data-testid="handleClose"
                         onClick={handleClose}
                       >
                         {t('CANCEL')}
-                      </PtgUiButton>
+                      </button>
                     </div>
                   </div>
                 </div>

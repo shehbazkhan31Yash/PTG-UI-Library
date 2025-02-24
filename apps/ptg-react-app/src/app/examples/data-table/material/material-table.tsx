@@ -7,7 +7,6 @@
 import '../data-table.scss';
 import { PtgUiMaterialTable, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useState } from 'react';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 /* eslint-disable-next-line */

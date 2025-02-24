@@ -13,23 +13,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import ForgotPassword from '../forgotpassword/ForgotPassword';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiAlert,
 } from '@ptg-ui/react';
 import msalInstance from '../msal';
 import { acquireToken } from '../msal';
+import { PtgUiLoginProps } from '@ptg-react-libs/interfaces';
 
-export interface PtgUiLoginProps {}
-
-export function PtgUiLogin(props: PtgUiLoginProps) {
+export function PtgUiLogin(__props: PtgUiLoginProps) {
   const loginMsal = async () => {
     const loginRequest = {
       scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
     };
     const response = await msalInstance.loginPopup(loginRequest);
-    const [error, tokenResponse] = await acquireToken(loginRequest);
+    const [, tokenResponse] = await acquireToken(loginRequest);
     console.log("Hello i'm in msal", tokenResponse);
     authClass.setToken(JSON.stringify(response));
     navigate('/calendar');
@@ -86,11 +85,13 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
     let formErr = false;
     switch (fieldName) {
       case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           if (!regexEmail.test(value)) {
             formErr = true;
           }
+        }
         }
         break;
       case 'password':
@@ -99,6 +100,7 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
         }
         break;
       default: {
+        formErr = false;
       }
     }
 
@@ -135,14 +137,14 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
           navigate('/calendar');
           authClass.setToken(JSON.stringify(response));
           authClass.setRole(response.user.role.type);
-          if (response.user.role.type.trim() == 'admin') {
+          if (response.user.role.type.trim() === 'admin') {
             navigate('/admin-home');
           } else {
             navigate('/calendar');
           }
         }
       })
-      .catch((error: any) => {
+      .catch((_error: any) => {
         setState('isAlert', true);
       });
   };
@@ -247,7 +249,7 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                   .
                 </label>
               </div>
-              <PtgUiButton
+              <button
                 className="w-100"
                 onClick={handleLogin}
                 tabIndex={0}
@@ -256,16 +258,16 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                 // accessKey="s"
               >
                 {t('LOG_IN')}
-              </PtgUiButton>
+              </button>
               <p className="text-center mx-3 mb-0">{t('OR')}</p>
-              <PtgUiButton
+              <button
                 className="w-100"
                 onClick={loginMsal}
                 tabIndex={0}
                 // accessKey="s"
               >
                 {t('Msal')}
-              </PtgUiButton>
+              </button>
             </form>
           </div>
         </div>

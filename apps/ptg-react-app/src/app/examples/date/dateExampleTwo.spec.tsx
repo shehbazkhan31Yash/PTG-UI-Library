@@ -4,9 +4,6 @@ import DateExampleTwo from './dateExampleTwo';
 
 describe('Date Example Two', () => {
   let container: any;
-  let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
   it('date Example Two', () => {
     const component = render(
       <BrowserRouter>
@@ -14,9 +11,6 @@ describe('Date Example Two', () => {
       </BrowserRouter>
     );
     container = component.container;
-    getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByLabelText = component.getByLabelText;
 
     // start date
     const startDate = container.querySelector('#start-date input');

@@ -1,12 +1,19 @@
 @import './variables';
 @import './react-datepicker';
 @import './react-web-datepicker';
-@import "./button";
-@import "./tabs";
-
+@import './tabs';
+@import '../accordion/accordion.scss';
+@import '../breadcrumbs/breadcrumbs.scss';
+@import '../button/button.scss';
+@import '../auth/Login/login.scss';
+@import '../auth/Signup/signup.scss';
+@import '../auth/ForgotPassword/forgotPassword.scss';
+@import '../carousel/carousel.scss';
+@import '../pagination/pagination.scss';
+@import '../MultiSelect/MultiSelect.scss';
+@import '../modal/modal.scss';
+@import '../../common/Stepper.scss';
 
 // fontawesome style
-@import "~@fortawesome/fontawesome-free/css/all.css";
-@import '@nosferatu500/react-sortable-tree/style.css';
-
-
+// @import '~@fortawesome/fontawesome-free/css/all.css';
+// @import '@nosferatu500/react-sortable-tree/style.css';

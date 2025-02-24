@@ -3,7 +3,6 @@ import { Configuration } from 'msal';
 import { environment } from '../../../environments/environment';
 // import { Configuration } from 'msal';
 // const msalConfig :
-const envVar :any = process.env
 // const configValue: string = process.env.REACT_APP_SOME_CONFIGURATION 
 const msalConfig:Configuration  = {
   auth: {

@@ -12,7 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiSelect,
@@ -21,9 +21,7 @@ import {
   PtgUiRadio,
 } from '@ptg-ui/react';
 
-export interface PtgUiSignupProps {}
-
-export function PtgUiSignup(props: PtgUiSignupProps) {
+export function PtgUiSignup() {
   const { t } = useTranslation();
   const [user, setUser]: any = useState({
     isLoading: false,
@@ -108,13 +106,16 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
         }
         break;
       case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           disabled = true;
           if (!regexEmail.test(value)) {
             formErr = true;
           }
         }
+        }
+
         break;
       case 'city':
         if (value !== '') {
@@ -358,7 +359,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                       .
                     </label>
                   </div>
-                  <PtgUiButton
+                  <button
                     className="w-100"
                     type="button"
                     onClick={handleRegister}
@@ -366,7 +367,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     data-testid="register"
                   >
                     {t('SUBMIT')}
-                  </PtgUiButton>
+                  </button>
                 </div>
               </div>
             </form>

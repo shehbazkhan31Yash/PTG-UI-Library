@@ -5,10 +5,7 @@ import PtgUiLogin from './Login';
 import renderer from 'react-test-renderer';
 
 describe('PtgUiLogin', () => {
-  let container: any;
   let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
 
   it('Should match Login Snapshot', () => {
     const tree = renderer
@@ -47,10 +44,7 @@ describe('PtgUiLogin', () => {
           <PtgUiLogin />
         </BrowserRouter>
       );
-    container = component.container;
     getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByLabelText = component.getByLabelText;
 
     // text-inputs
     fireEvent.change(getByTestId('email'), {
