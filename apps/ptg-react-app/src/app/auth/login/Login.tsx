@@ -31,7 +31,7 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
     const [, tokenResponse] = await acquireToken(loginRequest);
     console.log("Hello i'm in msal", tokenResponse);
     authClass.setToken(JSON.stringify(response));
-    navigate('/ptg-react-app/calendar');
+    navigate('/calendar');
   };
 
   const { t } = useTranslation();
@@ -134,13 +134,13 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
         if (response.statusCode && response.statusCode !== 200) {
           throw new Error('Function not implemented.');
         } else if (response.jwt !== '') {
-          navigate('/ptg-react-app/calendar');
+          navigate('/calendar');
           authClass.setToken(JSON.stringify(response));
           authClass.setRole(response.user.role.type);
           if (response.user.role.type.trim() === 'admin') {
             navigate('/admin-home');
           } else {
-            navigate('/ptg-react-app/calendar');
+            navigate('/calendar');
           }
         }
       })
