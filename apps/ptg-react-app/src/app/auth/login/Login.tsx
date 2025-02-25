@@ -31,7 +31,7 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
     const [, tokenResponse] = await acquireToken(loginRequest);
     console.log("Hello i'm in msal", tokenResponse);
     authClass.setToken(JSON.stringify(response));
-    navigate('/calendar');
+    navigate('/ptg-react-app/calendar');
   };
 
   const { t } = useTranslation();
@@ -87,11 +87,11 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
       case 'email':
         {
           const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          if (!regexEmail.test(value)) {
-            formErr = true;
+          if (value === '' || value ? true : false !== regexEmail.test(value)) {
+            if (!regexEmail.test(value)) {
+              formErr = true;
+            }
           }
-        }
         }
         break;
       case 'password':
