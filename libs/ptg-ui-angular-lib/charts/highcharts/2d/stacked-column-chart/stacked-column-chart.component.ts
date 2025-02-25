@@ -12,6 +12,8 @@ export class StackedColumnChartComponent implements OnInit {
   @Input() subtitle?:any;
   @Input() categories?:any;
   @Input() yTitle?:any;
+  @Input() id = "stacked-chart";
+  @Input() isCreditEnabled = false;
   
   ngOnInit(): void {
   // Call function to create chart 
@@ -20,7 +22,7 @@ export class StackedColumnChartComponent implements OnInit {
 
   // Function for create chart 
   createChartColumn(): void {
-    const chart = Highcharts.chart('stacked-chart' as any, {
+    Highcharts.chart(this.id as any, {
       chart: {
         type: 'column'
     },
@@ -29,6 +31,9 @@ export class StackedColumnChartComponent implements OnInit {
     },
     xAxis: {
         categories:this.categories 
+    },
+    credits: {
+      enabled: this.isCreditEnabled,
     },
     yAxis: {
       min: 0,

@@ -45,7 +45,7 @@ export class Calendarexample2Component implements OnInit {
       calendar1Value: [null, [Validators.required]],
       calendar2Value: [null, Validators.required]
     },{
-      validator: calendarValidator("startDate","endDate", "calendar2Value")
+      validators: calendarValidator("startDate","endDate", "calendar2Value")
     });
   }
 

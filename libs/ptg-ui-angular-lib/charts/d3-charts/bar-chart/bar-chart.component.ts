@@ -8,23 +8,27 @@
  * @description This module used for reusable D3 bar chart
  */
 
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import * as d3 from 'd3';
 
+interface barData {
+  Framework: string, Stars: string, Released: string, color: string
+}
 
 @Component({
   selector: 'ptg-ui-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss']
 })
-export class BarChartComponent implements OnInit,OnChanges {
+export class BarChartComponent implements OnChanges {
   // Basic inputs
-  @Input() data: any;
-  @Input() margin: any;
-  @Input() width :any;
-  @Input() height : any;
-  @Input() start: any;
-  @Input() end: any;
+  @Input() data: barData[] = [];
+  @Input() margin: number = 20;
+  @Input() width: string | number | any = "0";
+  @Input() height: string | number | any = "0";
+  @Input() start: number = 0;
+  @Input() end: number = 0;
+  @Input() id = "bar";
  // Mock data for 3d bar chart
  public BAR_CHART_3D = {
   data: [
@@ -41,14 +45,14 @@ export class BarChartComponent implements OnInit,OnChanges {
   svg: any;
 
   ngOnChanges() {
-    d3.select('figure#bar').selectAll('*').remove();
+    d3.select('figure#' + this.id).selectAll('*').remove();
     this.svg = d3
-      .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
+      .select('figure#' + this.id) //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
-      .attr('width', this.width) //Sets the attribute with the specified name to the specified value on the selected elements and returns this selection
-      .attr('height', this.height)
+      .attr('width', parseInt(this.width, this.margin)) //Sets the attribute with the specified name to the specified value on the selected elements and returns this selection
+      .attr('height', parseInt(this.height, this.margin))
       .attr("viewBox", [0, 0, this.width, this.height])
-      .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+      // .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .append('g')
       .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
 
@@ -100,7 +104,7 @@ export class BarChartComponent implements OnInit,OnChanges {
       });
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.drawBars(this.data);
   }
 

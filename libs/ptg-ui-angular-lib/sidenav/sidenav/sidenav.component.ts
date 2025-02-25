@@ -64,7 +64,7 @@ export class SidenavComponent {
         id: '1',
         path: '/accordian-example',
         icon: 'fa-solid fa-chevron-down',
-        label: 'ACCORDIAN',
+        label: 'ACCORDION',
         disabled: false,
       },
       {

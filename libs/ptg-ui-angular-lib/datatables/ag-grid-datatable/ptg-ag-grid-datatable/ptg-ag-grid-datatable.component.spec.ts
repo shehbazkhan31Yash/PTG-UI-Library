@@ -72,7 +72,7 @@ describe('PtgAgGridDatatableComponent', () => {
 
 
   it('onBtFirst button',fakeAsync(async()=>{
-   const api:any=  gridOptions.api
+    // const api:any=  gridOptions.api
     const spyCloseDialog = jest.spyOn(component, 'onBtFirst');
     await fixture.whenStable()
     component.onBtFirst();

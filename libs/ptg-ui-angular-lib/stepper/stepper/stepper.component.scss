@@ -1,0 +1,116 @@
+
+
+.horizontalStepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.verticalStepper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+
+}
+
+.horizontalStepWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.verticalStepWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.horizontalStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: grey;
+}
+
+.verticalStep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: grey;
+}
+
+.stepContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepNumber {
+  background-color: #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.horizontalLine {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #ccc;
+  margin: 0 10px;
+}
+
+.verticalLine {
+  width: 2px;
+  height: 40px;
+  background-color: #ccc;
+  position: absolute;
+  left: 15px;
+  top: 35px;
+}
+
+.active .stepNumber {
+  background-color: black;
+  color: white;
+}
+
+.active {
+  color: black;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.stepperContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+}
+
+.formContainer {
+  flex: 1;
+  padding: 0px 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+}

@@ -11,8 +11,14 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import { toPng } from 'html-to-image';
-
 import html2canvas from 'html2canvas';
+
+interface fileDataType {
+    id: string,
+    name: string,
+    value: string
+}
+
 enum FileType {
   PDF = 'PDF',
   EXCEL = 'EXCEL',
@@ -50,11 +56,16 @@ export class FileDownloadComponent implements OnInit {
       value: 'PNG',
     },
   ];
+  rowData: (string | number)[][] = []; 
+  columnData: string[] = [];
 
  
-  fileTypeList: any
+  fileTypeList: fileDataType[] = []
   @ViewChild('b_download') b_download!: ElementRef;
-  @Input() tableData: any;
+  @Input() tableData = {
+    "columnsData": this.columnData,
+    "rowsData": this.rowData
+  };
   fileType: string = '';
 
   ngOnInit(): void {

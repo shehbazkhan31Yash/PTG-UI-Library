@@ -1,0 +1,25 @@
+/**
+ * @since March 2022
+ * @author Bhanu Prakash Sharma
+ * @Module ButtonModule;
+ * @description This module for button
+**/
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CardComponent } from './card/card.component';
+import { RouterModule } from '@angular/router';
+
+@NgModule({
+  declarations: [
+    CardComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
+  exports: [
+    CardComponent
+  ]
+})
+export class CardModule { }

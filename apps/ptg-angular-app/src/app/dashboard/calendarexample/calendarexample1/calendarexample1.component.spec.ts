@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CalendarComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/calendar/calendar/calendar.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
@@ -49,7 +49,7 @@ describe('Calendarexample1Component', () => {
     
   })
   it('Should get onFormSubmit', ()=>{
-    let event:any
+    let event:any;
     let submitBtn = jest.spyOn(component, 'onFormSubmit');
     component.onFormSubmit(event);
     expect(submitBtn).toHaveBeenCalled()
@@ -57,6 +57,7 @@ describe('Calendarexample1Component', () => {
   })
 
   it('onStartDateChange button', ()=>{
+    let event:any
     let date = jest.spyOn(component, 'onStartDateChange');
     component.onStartDateChange(event);
     expect(date).toHaveBeenCalled()
