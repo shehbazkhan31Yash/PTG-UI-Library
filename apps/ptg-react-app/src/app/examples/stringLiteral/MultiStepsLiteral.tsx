@@ -45,18 +45,18 @@ export const MULTISTEPCOMPONENT =`
       newError[field] = '';
       switch (field) {
         case 'email': {
-          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+          const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/i;
           newError[field] = regexEmail.test(value) ? '' : 'Invalid email';
           break;
         }
         case 'phone': {
-          const regexPhone = /^\d{10}$/;
+          const regexPhone = /^\\d{10}$/;
           newError[field] = regexPhone.test(value) ? '' : 'Invalid input';
           break;
         }
         case 'cardNumber':
           {
-            const regexCardNumber = /^\d{16}$/;
+            const regexCardNumber = /^\\d{16}$/;
             newError[field] = regexCardNumber.test(value)
               ? ''
               : 'Invalid card number';
@@ -64,13 +64,13 @@ export const MULTISTEPCOMPONENT =`
           break;
         case 'cvc':
           {
-            const regexCvc = /^\d{3}$/;
+            const regexCvc = /^\\d{3}$/;
             newError[field] = regexCvc.test(value) ? '' : 'Invalid cvc';
           }
           break;
         case 'zipCode':
           {
-            const regexZipCode = /^\d{6}$/;
+            const regexZipCode = /^\\d{6}$/;
             newError[field] = regexZipCode.test(value)
               ? ''
               : 'Invalid zip code';

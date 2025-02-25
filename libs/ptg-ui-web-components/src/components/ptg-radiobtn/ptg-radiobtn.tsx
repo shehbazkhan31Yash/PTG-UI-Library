@@ -19,7 +19,6 @@ export class PtgRadiobtn {
   @Prop() type: string;
 
   render() {
-    console.log(this.name, this.sender);
     return (
       <div>
       <label>

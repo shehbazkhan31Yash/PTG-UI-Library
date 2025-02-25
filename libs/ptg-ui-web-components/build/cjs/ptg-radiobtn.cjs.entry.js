@@ -16,7 +16,6 @@ const PtgRadiobtn = class {
     this.type = undefined;
   }
   render() {
-    console.log(this.name, this.sender);
     return (index.h("div", null, index.h("label", null, index.h("input", { type: this.type, id: this.ids, name: this.name, value: this.value }, " "), " ", this.sender)));
   }
 };

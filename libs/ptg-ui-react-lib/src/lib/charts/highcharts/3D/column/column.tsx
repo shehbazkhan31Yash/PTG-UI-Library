@@ -6,11 +6,8 @@
  */
 
 import './column.scss';
-import * as React from 'react';
-import { useState, useEffect } from 'react';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import PtguseFetch from '../../../../hooks/useFetch';
 
 /* eslint-disable-next-line */
 export interface PtgUi3dColumnProps {

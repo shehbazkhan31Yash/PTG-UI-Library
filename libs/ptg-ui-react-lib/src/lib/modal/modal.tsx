@@ -27,9 +27,6 @@ interface PtgUiModalProps {
 }
 
 export class PtgUiModal extends React.Component<PtgUiModalProps> {
-	constructor(props) {
-		super(props);
-	}
 
 	override render() {
 		const {

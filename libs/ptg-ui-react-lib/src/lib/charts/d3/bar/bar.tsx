@@ -120,7 +120,6 @@ export function PtgUiD3Bar({ data, height, width, source, title, x_title, y_titl
 			.attr('height', (d: any) => height - y(d.Stars))
 
 			.attr('fill', (d: any, i: any) => {
-				console.log('color', d.color);
 				return d.color;
 			});
 	};

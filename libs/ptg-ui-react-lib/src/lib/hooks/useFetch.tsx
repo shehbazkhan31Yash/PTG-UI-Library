@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function PtguseFetch(url: any) {
 	const [data, setData] = useState([]);
@@ -17,7 +17,6 @@ export function PtguseFetch(url: any) {
 			setIsLoading(false);
 			setError('');
 		} catch (error) {
-			console.log(error);
 			setIsLoading(false);
 			setData([]);
 		}

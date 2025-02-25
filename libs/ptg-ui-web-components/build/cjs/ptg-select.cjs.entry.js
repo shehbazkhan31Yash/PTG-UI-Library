@@ -17,7 +17,6 @@ const PtgSelect = class {
     this.expanded = false;
   }
   render() {
-    console.log(this.multiSelect);
     return (index.h("div", null, !this.multiSelect && (index.h("select", { id: "optionValue" }, index.h("option", { selected: true }, "select"), this.selectData.map((option) => {
       return index.h("option", { value: option.caption }, option.caption);
     }))), this.multiSelect && (index.h("div", { class: "multiselect" }, index.h("div", { class: "selectBox", onClick: () => this.showCheckboxes() }, index.h("div", { class: "overSelect" }, "Select")), this.expanded && (index.h("ul", null, index.h("li", null, index.h("label", { htmlfor: "one" }, index.h("input", { type: "checkbox", id: "one" }), "First checkbox")), index.h("li", null, index.h("label", { htmlfor: "two" }, index.h("input", { type: "checkbox", id: "two" }), "Second checkbox")), index.h("li", null, index.h("label", { htmlfor: "three" }, index.h("input", { type: "checkbox", id: "three" }), "Third checkbox"))))))));
