@@ -33,10 +33,7 @@ export function PtgUiReactTable({ columns, data }: PtgUiReactTableProps) {
 		previousPage,
 		setPageSize,
 		state: { pageIndex, pageSize },
-	} = useTable({
-			columns,
-			data,
-	}, usePagination) as PaginationTableInstance<object>;
+	} = useTable<object>({ columns, data, }, usePagination) as PaginationTableInstance<object>;
 
 	useEffect(() => {
 		setcurrentPage(pageIndex);
