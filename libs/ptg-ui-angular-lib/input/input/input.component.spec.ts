@@ -1,12 +1,8 @@
+import { forwardRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA, forwardRef } from '@angular/core';
 import {
-  FormsModule,
-  ReactiveFormsModule,
   ControlContainer,
   FormGroupDirective,
-  FormGroup,
-  FormControl,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
 import { InputComponent } from './input.component';
@@ -68,44 +64,44 @@ describe('InputComponent', () => {
 
   it('registerOnChange  on change is called', () => {
     const registerOnChange = jest.spyOn(component, 'registerOnChange');
-    let mockFn  = jest.fn();
+    const mockFn  = jest.fn();
     component.registerOnChange(mockFn);
     expect(registerOnChange).toHaveBeenCalledTimes(1);
   });
 
   it('registerOnTouched  on change is called', () => {
     const registerOnTouched = jest.spyOn(component, 'registerOnTouched');
-    let mockFn  = jest.fn();
+    const mockFn  = jest.fn();
     component.registerOnTouched(mockFn);
     expect(registerOnTouched).toHaveBeenCalledTimes(1);
   });
 
   it('ariaValueText event', () => {
-    let btn = jest.spyOn(component, 'ariaValueText');
+    const btn = jest.spyOn(component, 'ariaValueText');
     component.ariaValueText();
     expect(btn).toHaveBeenCalled();
   });
 
   it('isInteractive event', () => {
-    let btn = jest.spyOn(component, 'isInteractive');
+    const btn = jest.spyOn(component, 'isInteractive');
     component.isInteractive();
     expect(btn).toHaveBeenCalled();
   });
 
   it('writeValue event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'writeValue');
+    const evt = {target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'writeValue');
     component.writeValue(evt);
     expect(btn).toHaveBeenCalled();
   });
   it('onChange event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'onChange');
+    const evt = {target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'onChange');
     component.onChange(evt);
     expect(btn).toBeDefined();
   });
   it('onTouched event', () => {
-    let btn = jest.spyOn(component, 'onTouched');
+    const btn = jest.spyOn(component, 'onTouched');
     component.onTouched();
     expect(btn).toBeDefined();
   });

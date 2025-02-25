@@ -11,8 +11,7 @@
 import {
   Component,
   ElementRef,
-  Input,
-  OnInit, 
+  Input, 
   ViewChild,
   Output,
   EventEmitter,
@@ -27,7 +26,7 @@ import {
     '(keydown)': 'handleKeyDown($event)',
   },
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent  {
   @Input() type: any = 'button';
   @Input() isDisable = false;
   @Input() isBlock = false;
@@ -40,9 +39,7 @@ export class ButtonComponent implements OnInit {
   @Input() label = 'Button';
   @Input() backgroundColor?: string;
 
-  ngOnInit(): void {
-    // this.button.nativeElement.accessKey = this.accessKey;
-  }
+  
 
   handleKeyDown(event: KeyboardEvent) {
     switch (event.which) {

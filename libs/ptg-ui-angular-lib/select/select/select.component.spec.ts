@@ -71,7 +71,7 @@ describe('SelectComponent', () => {
   });
   it('registerOnChange  on change is called', () => {
     const registerOnChange = jest.spyOn(component, 'registerOnChange');
-    let mockFn  = jest.fn();
+    const mockFn  = jest.fn();
     component.registerOnChange(mockFn);
     expect(registerOnChange).toHaveBeenCalledTimes(1);
    // expect(component.onChange).toHaveBeenCalled();

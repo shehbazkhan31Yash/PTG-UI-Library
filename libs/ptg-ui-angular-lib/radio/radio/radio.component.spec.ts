@@ -60,14 +60,14 @@ describe('RadioComponent', () => {
 
   it('registerOnChange  on change is called', () => {
     const registerOnChange = jest.spyOn(component, 'registerOnChange');
-    let mockFn  = jest.fn();
+    const mockFn  = jest.fn();
     component.registerOnChange(mockFn);
     expect(registerOnChange).toHaveBeenCalledTimes(1);
   });
 
   it('registerOnTouched  on change is called', () => {
     const registerOnTouched = jest.spyOn(component, 'registerOnTouched');
-    let mockFn  = jest.fn();
+    const mockFn  = jest.fn();
     component.registerOnTouched(mockFn);
     expect(registerOnTouched).toHaveBeenCalledTimes(1);
   });
