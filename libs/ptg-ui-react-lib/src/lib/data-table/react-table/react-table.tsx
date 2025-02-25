@@ -39,7 +39,6 @@ export function PtgUiReactTable({ columns, data }: PtgUiReactTableProps) {
 	}, usePagination) as PaginationTableInstance<object>;
 
 	useEffect(() => {
-		console.log('page:', pageIndex, pageCount);
 		setcurrentPage(pageIndex);
 	}, [pageIndex]);
 

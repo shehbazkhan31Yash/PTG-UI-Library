@@ -17,7 +17,6 @@ export function PtguseFetch(url: any) {
 			setIsLoading(false);
 			setError('');
 		} catch (error) {
-			console.log(error);
 			setIsLoading(false);
 			setData([]);
 		}

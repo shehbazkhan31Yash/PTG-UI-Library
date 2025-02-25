@@ -55,7 +55,6 @@ export function PtgUiD3Line({ data, height, width }: PtgUiD3LineProps) {
 		const xdomain: any = d3.extent(data, (d: any) => {
 			return d.date;
 		});
-		console.log('xdomain:', xdomain);
 		const ydomain: any = d3.max(data, (d: any) => {
 			return d.value;
 		});
@@ -99,7 +98,6 @@ export function PtgUiD3Line({ data, height, width }: PtgUiD3LineProps) {
 			.y((d: any) => {
 				return y(d.value);
 			});
-		console.log('valueLine:', valueLine);
 		svg
 			.append('path')
 			.data([data])
