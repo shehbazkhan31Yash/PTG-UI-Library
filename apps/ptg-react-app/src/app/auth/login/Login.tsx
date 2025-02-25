@@ -134,13 +134,13 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
         if (response.statusCode && response.statusCode !== 200) {
           throw new Error('Function not implemented.');
         } else if (response.jwt !== '') {
-          navigate('/calendar');
+          navigate('/ptg-react-app/calendar');
           authClass.setToken(JSON.stringify(response));
           authClass.setRole(response.user.role.type);
           if (response.user.role.type.trim() === 'admin') {
             navigate('/admin-home');
           } else {
-            navigate('/calendar');
+            navigate('/ptg-react-app/calendar');
           }
         }
       })
