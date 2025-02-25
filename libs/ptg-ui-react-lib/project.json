@@ -13,6 +13,7 @@
 				"project": "libs/ptg-ui-react-lib/package.json",
 				"entryFile": "libs/ptg-ui-react-lib/src/index.ts",
 				"external": ["react/jsx-runtime"],
+				"sourcemap": true,
 				"rollupConfig": "@nrwl/react/plugins/bundle-rollup",
 				"compiler": "babel",
 				"assets": [
