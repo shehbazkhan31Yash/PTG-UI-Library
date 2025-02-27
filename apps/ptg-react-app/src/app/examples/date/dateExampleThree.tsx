@@ -24,7 +24,7 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   });
 
   /*-----Set date state-----*/
-  const setDateState = (date: Date | null, field: string) => {
+  const setDateState = (date: Date | string, field: string) => {
     setStartDate((preState) => {
       if (field === 'startDate') preState.endDate = null;
       return {
@@ -37,7 +37,7 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   const startDateProp:IDatePickerProps = {
     selected: date.startDate,
     className: `form-control w-100`,
-    onChange: (d) => setDateState(new Date(d.target.value), START_DATE),
+    onChange: (d) => setDateState(d.target.value, START_DATE),
     startDate: today,
     endDate: date.endDate || null,
     disabled: false,
@@ -47,7 +47,7 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   const endDateProp:IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
-    onChange: (d) => setDateState(new Date(d.target.value), END_DATE),
+    onChange: (d) => setDateState(d.target.value, END_DATE),
     startDate: date.startDate || today,
     endDate: null,
     disabled: date.startDate === null,
@@ -73,8 +73,8 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
     });
 
     /*-----Set date state-----*/
-    const setDateState: any = (date: any, field: string) => {
-      setStartDate((preState: any) => {
+    const setDateState = (date: Date | string, field: string) => {
+      setStartDate((preState) => {
         if (field === 'startDate') preState.endDate = null;
         return {
           ...preState,
