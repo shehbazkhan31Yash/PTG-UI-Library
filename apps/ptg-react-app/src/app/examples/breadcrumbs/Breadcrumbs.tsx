@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useTranslation } from 'react-i18next';
-// import './Breadcrumbs.scss';
 import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { breadCrumbsMockData } from '@ptg-react-app/mock/mocks';
+import classNames from 'classnames';
+import styles from './Breadcrumbs.module.scss';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState<boolean>(false);
-
+  const breadcrumbWrapper = classNames(styles['breadcrumb'], 'breadcrumbs-component col-md-12')
   const { t } = useTranslation();
 
   //Note: To get breadcrumbs data with translation
@@ -58,8 +59,10 @@ export default function Breadcrumb() {
             htmlCode={htmlCode}
           />
         )}
-        <div className="breadcrumbs-component col-md-12">
-          <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
+        <div className="row">
+          <div className={breadcrumbWrapper}>
+            <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
+          </div>
         </div>
       </div>
     </section>

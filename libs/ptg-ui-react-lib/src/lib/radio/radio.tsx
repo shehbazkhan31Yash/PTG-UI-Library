@@ -21,7 +21,7 @@ export interface PtgUiRadioProps {
 
 export function PtgUiRadio({ name, value, id, onChange, list, htmlFor, accessKey }: PtgUiRadioProps) {
 	return (
-		<>
+		<div>
 			{list?.map((item) => (
 				<div className="form-check mx-1" key={item.id}>
 					<input
@@ -40,7 +40,7 @@ export function PtgUiRadio({ name, value, id, onChange, list, htmlFor, accessKey
 					</label>
 				</div>
 			))}
-		</>
+		</div>
 	);
 }
 

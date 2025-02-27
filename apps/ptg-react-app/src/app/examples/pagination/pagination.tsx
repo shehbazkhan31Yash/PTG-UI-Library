@@ -5,8 +5,6 @@
  *
  */
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiPagination } from '@ptg-ui/react';
@@ -15,10 +13,6 @@ export function PtgPagination() {
   const [showCode, setShowCode] = useState(false);
   const [dataCount, setDataCount] = useState(80);
   const [pageNumber, setPageNumber] = useState(1);
-
-  const { t } = useTranslation();
-
-  const navigate = useNavigate();
 
   const ShowExampleCode = () => {
     if (!showCode) {
@@ -46,7 +40,6 @@ export function PtgPagination() {
 
   const htmlCode = `
     <PtgUiPagination
-      data={[]}
       dataCount={dataCount}
       pageNumber={pageNumber}
       pageIndex={(num) => pageIndex(num)}
@@ -80,7 +73,6 @@ export function PtgPagination() {
         )}
         <div className="ms-2">
           <PtgUiPagination
-            data={[]}
             dataCount={dataCount}
             pageNumber={pageNumber}
             pageIndex={(num) => pageIndex(num)}

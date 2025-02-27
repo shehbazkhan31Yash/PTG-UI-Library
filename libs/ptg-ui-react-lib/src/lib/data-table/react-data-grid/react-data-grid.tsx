@@ -66,7 +66,7 @@ export function PtgUiReactDataGrid({
 	}, [data]);
 
 	const enableSelection = true;
-	const [selected, setSelected] = useState(null);
+	const [, setSelected] = useState(null);
 	/* istanbul ignore next */
 	const onSelectionChange = useCallback(({ selected }: { selected: any }) => {
 		setSelected(selected);
