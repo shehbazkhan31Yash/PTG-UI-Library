@@ -1,16 +1,14 @@
-import { useState } from 'react';
-import { PtgUiBreadcrumbs } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
-import { useTranslation } from 'react-i18next';
-import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { IBreadcrumb } from '@ptg-react-app/interfaces';
 import { breadCrumbsMockData } from '@ptg-react-app/mock/mocks';
-import classNames from 'classnames';
-import styles from './Breadcrumbs.module.scss';
+import { PtgUiBreadcrumbs } from '@ptg-ui/react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import './breadcrumbs.scss';
 
 export default function Breadcrumb() {
   const [showCode, setShowCode] = useState<boolean>(false);
-  const breadcrumbWrapper = classNames(styles['breadcrumb'], 'breadcrumbs-component col-md-12')
   const { t } = useTranslation();
 
   //Note: To get breadcrumbs data with translation
@@ -60,7 +58,7 @@ export default function Breadcrumb() {
           />
         )}
         <div className="row">
-          <div className={breadcrumbWrapper}>
+          <div className="breadcrumbs-component col-md-12">
             <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
           </div>
         </div>
