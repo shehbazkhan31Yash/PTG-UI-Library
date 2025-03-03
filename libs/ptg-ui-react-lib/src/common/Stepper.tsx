@@ -1,6 +1,5 @@
 import './Stepper.scss';
 import { IStepperProps } from '../lib/interfaces/index';
-import CheckIcon from '@mui/icons-material/Check';
 import classNames from 'classnames';
 
 export function Stepper(props: IStepperProps) {
@@ -16,7 +15,7 @@ export function Stepper(props: IStepperProps) {
 					const lineClass = classNames('line', { active: isActive }, orientation);
 					return (
 						<div key={step.id} className={stepClass}>
-							<div className={circleClass}>{index < activeStep ? <CheckIcon fontSize="small" /> : index + 1}</div>
+							<div className={circleClass}>{index < activeStep ? "ToDo" : index + 1}</div>
 							<div className={labelClass}>{step.label}</div>
 							{index < steps.length - 1 && <div className={lineClass} />}
 							{orientation === 'vertical'
