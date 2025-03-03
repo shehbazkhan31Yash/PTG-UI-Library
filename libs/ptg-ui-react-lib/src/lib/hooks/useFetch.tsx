@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function PtguseFetch(url: any) {
+export function PtguseFetch(url: string) {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('') as any;

@@ -1,4 +1,4 @@
-export const capitalizeFirstLetter: any = (string: any) => string.charAt(0).toUpperCase() + string.slice(1);
+export const capitalizeFirstLetter = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 /**
  * @author Anmol
@@ -22,7 +22,7 @@ export const inrFormat = (number: any) => {
  * @uses function for trucate string
  *
  */
-export const truncateString: any = (str: string, num = 10) => {
+export const truncateString = (str: string, num = 10) => {
 	if (str.length > num) {
 		return str.slice(0, num) + '...';
 	} else {
@@ -30,7 +30,7 @@ export const truncateString: any = (str: string, num = 10) => {
 	}
 };
 
-export const phoneNumber: any = (tel: any) => {
+export const phoneNumber = (tel: any) => {
 	const value = tel.toString().trim().replace(/^\+/, '');
 
 	let city, number;

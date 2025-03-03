@@ -10,7 +10,6 @@ import { usePagination, DOTS } from './usePagination';
 import './pagination.scss';
 
 interface PtgUiPaginationProps {
-	data?: any;
 	pageNumber?: number;
 	dataCount?: number;
 	pageIndex?: any;
@@ -29,7 +28,6 @@ export class PtgUiPagination extends React.Component<PtgUiPaginationProps> {
 
 	override render() {
 		const {
-			data = [],
 			dataCount = 1,
 			pageNumber = 1,
 			pageIndex,
