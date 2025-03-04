@@ -59,9 +59,6 @@ export function PtgUiSignup() {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    // console.log('name' + name);
-    // console.log('value' + value);
-    console.log(e.target.value);
     validate(name, value);
     setUser((preState: any) => {
       return {
