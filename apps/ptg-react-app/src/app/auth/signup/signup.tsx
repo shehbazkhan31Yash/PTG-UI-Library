@@ -72,7 +72,7 @@ export function PtgUiSignup() {
   };
   const [date, setDate] = useState(null);
   const dateChange = (date: any) => {
-    setDate(date);
+    setDate(date.target.value);
   };
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
   const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,12 +108,12 @@ export function PtgUiSignup() {
       case 'email':
         {
           const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
+          if (value === '' || value ? true : false !== regexEmail.test(value)) {
+            disabled = true;
+            if (!regexEmail.test(value)) {
+              formErr = true;
+            }
           }
-        }
         }
 
         break;
@@ -215,9 +215,8 @@ export function PtgUiSignup() {
                           id="inputUsername"
                           value={user.username}
                           onChange={handleChange}
-                          className={`w-100 form-control bg_0 ${
-                            formErr.username ? 'border-danger' : ''
-                          }`}
+                          className={`w-100 form-control bg_0 ${formErr.username ? 'border-danger' : ''
+                            }`}
                           name="username"
                           placeholder={t('USER_NAME_PLACEHOLDER')}
                           onBlur={user.username === '' ? handleBlur : null}
@@ -238,9 +237,8 @@ export function PtgUiSignup() {
                           id="inputEmail"
                           value={user.email}
                           onChange={handleChange}
-                          className={`w-100 form-control bg_0 ${
-                            formErr.email ? 'border-danger' : ''
-                          }`}
+                          className={`w-100 form-control bg_0 ${formErr.email ? 'border-danger' : ''
+                            }`}
                           name="email"
                           placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
                           onBlur={user.email === '' ? handleBlur : null}
@@ -260,7 +258,7 @@ export function PtgUiSignup() {
                           onChange={dateChange}
                           startDate={null}
                           endDate={new Date()}
-                          // id="inputDOB"
+                        // id="inputDOB"
                         />
                       </div>
                     </div>
@@ -277,9 +275,8 @@ export function PtgUiSignup() {
                           name="city"
                           id="city"
                           list={CITY_LIST}
-                          className={`sel-placeholder w-100 ${
-                            formErr.city ? 'border-danger' : ''
-                          }`}
+                          className={`sel-placeholder w-100 ${formErr.city ? 'border-danger' : ''
+                            }`}
                           onChange={handleChange}
                           value={user.city}
                           onBlur={user.city === '' ? handleBlur : null}
@@ -322,9 +319,8 @@ export function PtgUiSignup() {
                             type="password"
                             onChange={handleChange}
                             value={user.password}
-                            className={`w-100 form-control bg_0 ${
-                              formErr.password ? 'border-danger' : ''
-                            }`}
+                            className={`w-100 form-control bg_0 ${formErr.password ? 'border-danger' : ''
+                              }`}
                             id="password"
                             name="password"
                             placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}

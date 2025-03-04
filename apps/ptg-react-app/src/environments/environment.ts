@@ -10,7 +10,7 @@ export const environment = {
   login: `${baseUrl}auth/local`,
   signup: `${baseUrl}auth/local/register`,
   msal_postLogoutRedirectUri: 'http://localhost:4200',
-  msal_redirectUri: 'http://localhost:8080',
+  msal_redirectUri: 'http://localhost:4200/',
   msal_clientId: '688a4bcc-30fe-44ce-88ca-9e9750714b92',
   msal_authority:
     'https://login.microsoftonline.com/yashtechnologies841.onmicrosoft.com',
