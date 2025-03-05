@@ -127,9 +127,9 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	return (
 		<div>
-			<span className="forgot-password float-end" onClick={handleShow} data-testid="linkForgotPassword">
+			<a className="forgot-password float-end" onClick={handleShow} id="linkForgotPassword" href='#'>
 				{`${forgotPasswordLabel}?`}
-			</span>
+			</a>
 			<PtgUiModal isOpen={values.show} modalSize={MODAL_SIZE_LARGE} backdropClick={true} onModalClose={handleClose}>
 				<div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
 					<div className="forgot-container">
@@ -146,7 +146,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 										type="email"
 										className={getInputClassName()}
 										name="email"
-										data-testid="email"
+										id="email"
 										placeholder="Enter Your Email"
 										onChange={handleChange}
 										value={values.email}
