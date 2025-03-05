@@ -127,9 +127,9 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	return (
 		<div>
-			<label className="forgot-password float-end" onClick={handleShow} data-testid="linkForgotPassword">
+			<span className="forgot-password float-end" onClick={handleShow} data-testid="linkForgotPassword">
 				{`${forgotPasswordLabel}?`}
-			</label>
+			</span>
 			<PtgUiModal isOpen={values.show} modalSize={MODAL_SIZE_LARGE} backdropClick={true} onModalClose={handleClose}>
 				<div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
 					<div className="forgot-container">
