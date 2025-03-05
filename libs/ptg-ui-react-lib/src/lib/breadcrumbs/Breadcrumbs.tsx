@@ -1,6 +1,7 @@
-import './breadcrumbs.css';
+import { IPtgUiBreadcrumbsProps } from '@ptg-react-libs/interfaces';
+import './Breadcrumbs.css';
 
-export const PtgUiBreadcrumbs = ({ datalist }) => {
+export const PtgUiBreadcrumbs = ({ datalist }: IPtgUiBreadcrumbsProps) => {
 	return (
 		<ul className="breadcrumb">
 			{datalist?.map((item, i) => {
