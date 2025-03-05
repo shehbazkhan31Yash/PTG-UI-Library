@@ -222,10 +222,9 @@ export interface IUserErrors {
 	cardHolder: boolean;
 }
 
-
 export interface IPtgUiMultiStepState {
-  stepCount: number;
-  showNext?: () => void;
+	stepCount: number;
+	showNext?: () => void;
 }
 
 export interface IStep {
@@ -261,4 +260,30 @@ export interface IStepperProps {
 	steps?: IStep[];
 	activeStep?: number;
 	orientation?: string;
+}
+//Formik
+export interface IFormValues {
+	firstName?: string;
+	lastName?: string;
+	email?: string;
+	password?: string;
+	confirmPassword?: string;
+	birthDate?:  string;
+	subscribe?: boolean;
+	hobbies?: string;
+	notificationsPreferences?: string;
+}
+
+export interface ICustomeFormProps {
+	label?: string;
+	name?: string;
+	options?: { value: string; label: string }[];
+	values?: IFormValues;
+}
+export interface IPtgUiFormikProps {
+	initialValues?: IFormValues;
+	validate: (values: IFormValues) => void;
+	CustomForm: React.FC<ICustomeFormProps>;
+	image?: string;
+	onSubmit?: (values: IFormValues) => void;
 }

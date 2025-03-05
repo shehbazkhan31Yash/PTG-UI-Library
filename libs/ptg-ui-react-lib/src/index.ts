@@ -48,3 +48,4 @@ export * from './lib/multiStepForms/FirstStep';
 export * from './lib/multiStepForms/SecondStep';
 export * from './lib/multiStepForms/ThirdStep';
 export * from './lib/multiStepForms/FinalStep';
+export * from './lib/formik/Formik';

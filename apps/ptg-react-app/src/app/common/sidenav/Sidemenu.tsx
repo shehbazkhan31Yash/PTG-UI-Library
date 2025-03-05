@@ -185,6 +185,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/formik',
+    icon: 'fa-solid fa-wpforms',
+    label: 'FORMIK',
+    disabled: false,
+  },
+  {
     path: '/gridLayout',
     icon: 'fa-solid fa-th',
     label: 'GRID LAYOUT',

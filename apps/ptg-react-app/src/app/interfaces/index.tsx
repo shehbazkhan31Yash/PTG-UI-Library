@@ -17,7 +17,7 @@ export interface IAccordion {
   title: string;
   content: string;
 }
-// Calender 
+// Calender
 export interface IExampleOneProps {
   showCodeOne: boolean;
 }
@@ -32,21 +32,18 @@ export interface ITimeZoneProps {
   showCodeLocalDate: boolean;
 }
 
-
 export interface IDateState {
   startDate?: Date | null;
   endDate?: Date | null;
   dateRange?: Date | null;
-  errorMsg?:boolean
+  errorMsg?: boolean;
 }
 
-
-
-export  interface IDatePickerProps {
+export interface IDatePickerProps {
   selected?: Date | null | string;
   className?: string;
   onChange?: (d: React.ChangeEvent<HTMLInputElement>) => void;
-  startDate?: Date|string;
+  startDate?: Date | string;
   endDate?: Date | null;
   disabled?: boolean;
 }
@@ -124,7 +121,7 @@ export interface IFormError {
 
 export interface IStep {
   id: number;
-  label: string; 
+  label: string;
 }
 
 export interface IPtgUiMultiStep {
@@ -135,4 +132,25 @@ export interface IPtgUiMultiStep {
   resetForm?: () => void;
   submitForm?: () => void;
   orientation?: string;
+}
+
+export interface IFormValues {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  birthDate?: string;
+  subscribe?: boolean;
+  hobbies?: string;
+  notificationsPreferences?: string;
+}
+
+export interface ICustomeFormProps {
+  label?: string;
+  name?: string;
+  options?: { value: string; label: string }[];
+  values?: IFormValues;
+  image?: string;
+  onSubmit?: (values: IFormValues) => void;
 }
