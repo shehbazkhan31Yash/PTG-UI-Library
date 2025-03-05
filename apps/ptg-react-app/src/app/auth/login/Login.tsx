@@ -1,10 +1,3 @@
-/**
- * @since March 2022
- * @author Ankit patidar
- * @desc Reusable Login Component
- *
- */
-
 import './Login.scss';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -13,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import ForgotPassword from '../forgotpassword/ForgotPassword';
 import {
-  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiAlert,
@@ -21,6 +13,7 @@ import {
 import msalInstance from '../msal';
 import { acquireToken } from '../msal';
 import { PtgUiLoginProps } from '@ptg-react-libs/interfaces';
+import { UserState } from '../interface/authInterface';
 
 export function PtgUiLogin(__props: PtgUiLoginProps) {
   const loginMsal = async () => {
@@ -28,14 +21,15 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
       scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
     };
     const response = await msalInstance.loginPopup(loginRequest);
-    const [, tokenResponse] = await acquireToken(loginRequest);
-    console.log("Hello i'm in msal", tokenResponse);
+    await acquireToken(loginRequest);
     authClass.setToken(JSON.stringify(response));
     navigate('/calendar');
   };
 
   const { t } = useTranslation();
-  const [user, setUser]: any = useState({
+
+
+  const [user, setUser] = useState<UserState>({
     isLoading: false,
     isAlert: false,
     email: '',
@@ -201,9 +195,8 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputEmail"
                       value={user.email}
                       onChange={handleChange}
-                      className={`"w-100 form-control bg_0 ${
-                        formErr.email === true ? 'border-danger' : ''
-                      }`}
+                      className={`"w-100 form-control bg_0 ${formErr.email === true ? 'border-danger' : ''
+                        }`}
                       name="email"
                       placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
                       onBlur={user.email === '' ? handleBlur : null}
@@ -230,9 +223,8 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputPassword"
                       onChange={handleChange}
                       value={user.password}
-                      className={`"w-100 form-control bg_0 ${
-                        formErr.password === true ? 'border-danger' : ''
-                      }`}
+                      className={`"w-100 form-control bg_0 ${formErr.password === true ? 'border-danger' : ''
+                        }`}
                       name="password"
                       placeholder={t('INPUT_PLACEHOLDER_PASSWORD')}
                       onBlur={user.password === '' ? handleBlur : null}
@@ -255,7 +247,6 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                 tabIndex={0}
                 disabled={user.disable}
                 data-testid="login"
-                // accessKey="s"
               >
                 {t('LOG_IN')}
               </button>
@@ -264,7 +255,6 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                 className="w-100"
                 onClick={loginMsal}
                 tabIndex={0}
-                // accessKey="s"
               >
                 {t('Msal')}
               </button>

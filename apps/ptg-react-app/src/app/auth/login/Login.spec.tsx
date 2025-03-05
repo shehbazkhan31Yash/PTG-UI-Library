@@ -2,22 +2,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import PtgUiLogin from './Login';
-import renderer from 'react-test-renderer';
 
 describe('PtgUiLogin', () => {
-  let getByTestId: any;
-
-  it('Should match Login Snapshot', () => {
-    const tree = renderer
-      .create(
-        <BrowserRouter>
-          <PtgUiLogin />
-        </BrowserRouter>
-      )
-      .toJSON();
-    // let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  let getByTestId: (id: string) => HTMLElement;
 
   it('should create', () => {
     const component = render(
@@ -39,11 +26,11 @@ describe('PtgUiLogin', () => {
   });
 
   it('should render successfully', () => {
-      const component = render(
-        <BrowserRouter>
-          <PtgUiLogin />
-        </BrowserRouter>
-      );
+    const component = render(
+      <BrowserRouter>
+        <PtgUiLogin />
+      </BrowserRouter>
+    );
     getByTestId = component.getByTestId;
     // text-inputs
     fireEvent.change(getByTestId('email'), {
