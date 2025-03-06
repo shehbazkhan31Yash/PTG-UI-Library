@@ -2,8 +2,8 @@ import { fireEvent, render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import ForgotPassword from './ForgotPassword';
 
-describe('PtgUiForgotPassword', () => {
-  let getByTestId: any;
+describe('PtgUIForgotPassword', () => {
+  let getByTestId: (id: string) => HTMLElement;
 
   it('should render successfully', () => {
     const component = render(
