@@ -9,12 +9,12 @@
  *
  */
 import { Component } from 'react';
-import './forgotPassword.scss';
-import PtgUiButton from '../../button/button';
-import PtgUiInput from '../../input/input';
-import { PtgUiModal } from '../../modal/modal';
+import { PtgUiButton } from '../../button/button';
 import { FORGOT_PASSWORD_BTN_COLOR } from '../../constants/Constants';
+import PtgUiInput from '../../input/input';
 import { IForgotPassword, IState } from '../../interfaces';
+import { PtgUiModal } from '../../modal/modal';
+import './forgotPassword.scss';
 
 export class PtgUiForgotPassword extends Component<IForgotPassword, IState> {
 	constructor(props: IForgotPassword) {

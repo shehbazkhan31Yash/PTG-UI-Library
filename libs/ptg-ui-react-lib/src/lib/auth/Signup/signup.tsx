@@ -5,17 +5,17 @@
  *
  */
 import React from 'react';
-import './signup.scss';
 import { Link } from 'react-router-dom';
-import { CITY_LIST, GENDER_LIST } from './mocks';
-import PtgUiButton from '../../button/button';
+import PtgUiAlert from '../../alert/alert';
+import { PtgUiButton } from '../../button/button';
 import PtgUiCalendar from '../../calendar/calendar';
 import PtgUiCheckbox from '../../checks/checks';
 import PtgUiInput from '../../input/input';
+import { PtgUiSignupProps } from '../../interfaces';
 import PtgUiRadio from '../../radio/radio';
 import PtgUiSelect from '../../select/select';
-import PtgUiAlert from '../../alert/alert';
-import { PtgUiSignupProps } from '../../interfaces';
+import { CITY_LIST, GENDER_LIST } from './mocks';
+import './signup.scss';
 
 export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
 

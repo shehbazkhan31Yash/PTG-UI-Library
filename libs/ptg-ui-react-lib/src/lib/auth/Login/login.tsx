@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import './login.scss';
 import { Link } from 'react-router-dom';
-import { PtgUiForgotPassword } from '../ForgotPassword/forgotPassword';
-import PtgUiButton from '../../button/button';
-import PtgUiInput from '../../input/input';
 import PtgUiAlert from '../../alert/alert';
+import { PtgUiButton } from '../../button/button';
+import PtgUiInput from '../../input/input';
 import { PtgUiLoginProps } from '../../interfaces';
+import { PtgUiForgotPassword } from '../ForgotPassword/forgotPassword';
+import './login.scss';
 
 export class PtgUiLogin extends React.Component<PtgUiLoginProps> {
 	constructor(props: PtgUiLoginProps) {
