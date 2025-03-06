@@ -19,5 +19,8 @@ export const FORGOT_PASSWORD_BTN_COLOR = {
 };
 
 export const COLOR = "#fff";
-export const BACKGROUND_COLOR ='#052982'
-export const WIDTH = '200px'
+export const BACKGROUND_COLOR = '#052982';
+export const WIDTH = '200px';
+
+export const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
+export const MODAL_SIZE_LARGE = 'lg';
