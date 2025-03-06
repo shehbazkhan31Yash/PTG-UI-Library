@@ -8,19 +8,34 @@
 		background: white;
 		padding: 8% 10%;
 		width: 35vw;
+
 		.login-logo {
 			img {
 				width: 80%;
 			}
 		}
+
 		.signup-btn,
 		.forgot-password {
 			font-size: 0.875rem;
 			color: #002144;
-			text-decoration: none;
+			text-decoration: underline;
 			cursor: pointer;
+			background: none;
+			border: none;
+			padding: 0;
+			font-family: inherit;
+			font-weight: inherit;
+			font-style: inherit;
+			display: inline;
+
 			&:hover {
 				text-decoration: underline;
+				color: darkblue;
+			}
+
+			&:focus {
+				outline: none;
 			}
 		}
 
@@ -69,6 +84,7 @@
 	.login-wrapper {
 		.login-form-wrapper {
 			width: 80vw;
+
 			.login-logo {
 				img {
 					width: 70%;
@@ -77,6 +93,7 @@
 		}
 	}
 }
+
 @media (min-width: 361px) and (max-width: 768px) {
 	.login-wrapper {
 		.login-form-wrapper {
@@ -84,6 +101,7 @@
 		}
 	}
 }
+
 @media (max-width: 360px) {
 	.login-wrapper {
 		.login-form-wrapper {
@@ -129,6 +147,7 @@
 	top: 40%;
 	transform: translate(-50%, -50%);
 	width: 100%;
+
 	&.lg {
 		max-width: 480px;
 	}
@@ -191,6 +210,7 @@
 .modal-wrapper .modal .footer my-buttons {
 	margin: 0 6px;
 }
+
 .modal-wrapper .modal .footer .cancel {
 	margin-left: 8px;
 }
@@ -201,9 +221,11 @@
 	visibility: visible;
 	z-index: 99999;
 }
+
 .close {
 	font-size: 33px;
 }
+
 .btn {
 	background: #ececec;
 	color: #212529;
@@ -220,27 +242,33 @@
 	justify-content: center;
 	font-family: inherit;
 }
+
 div[slot='btnIcon'] {
 	svg {
 		width: 20px;
 		height: 20px;
 	}
 }
+
 .showLeft {
 	width: 18px;
 	margin-left: 12px;
 }
+
 .btn.primary {
 	background: #2196f3;
 	color: #ffffff;
 }
+
 .btn.primary:hover {
 	background: #0a58ca;
 }
+
 .btn.danger {
 	background: #dd3434;
 	color: #ffffff;
 }
+
 .btn.danger:hover {
 	background: #bd2c2c;
 }
