@@ -9,7 +9,7 @@ describe('PtgAgGridDatatableComponent', () => {
   let component: PtgAgGridDatatableComponent;
   let fixture: ComponentFixture<PtgAgGridDatatableComponent>;
   let gridApi:GridApi | any;
-  let gridOptions: GridOptions = <GridOptions>{};
+  const gridOptions: GridOptions = <GridOptions>{};
   let currentPage:any;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -110,7 +110,7 @@ describe('PtgAgGridDatatableComponent', () => {
   }));
 
   it('onBtPage button',fakeAsync( async()=>{
-    let num:any = '1'
+    const num:any = '1'
     const spyCloseDialog = jest.spyOn(component, 'onBtPage');
     await fixture.whenStable()
     component.onBtPage(num);

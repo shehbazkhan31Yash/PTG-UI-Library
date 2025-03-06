@@ -55,7 +55,7 @@
           *ngIf="item.pages"
           class="d-flex ms-auto"
           [ngClass]="[
-            !isCollapsed && getMenuId == item.id
+            !isCollapsed && getMenuId === item.id
               ? 'fa-solid fa-angle-up'
               : 'fa-solid fa-angle-down'
           ]"

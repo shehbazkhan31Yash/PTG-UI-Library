@@ -23,11 +23,11 @@ interface barData {
 export class BarChartComponent implements OnChanges {
   // Basic inputs
   @Input() data: barData[] = [];
-  @Input() margin: number = 20;
+  @Input() margin = 20;
   @Input() width: string | number | any = "0";
   @Input() height: string | number | any = "0";
-  @Input() start: number = 0;
-  @Input() end: number = 0;
+  @Input() start = 0;
+  @Input() end = 0;
   @Input() id = "bar";
  // Mock data for 3d bar chart
  public BAR_CHART_3D = {

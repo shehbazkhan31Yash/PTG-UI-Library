@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /**
  * @since March 2022
  * @author Akshay
@@ -66,7 +67,7 @@ export class FileDownloadComponent implements OnInit {
     "columnsData": this.columnData,
     "rowsData": this.rowData
   };
-  fileType: string = '';
+  fileType = '';
 
   ngOnInit(): void {
     this.fileTypeList = this.FILE_TYPE;
@@ -102,12 +103,12 @@ export class FileDownloadComponent implements OnInit {
   }
 
   createTable() {
-    let table: any = <HTMLFormElement>this.b_download.nativeElement;
+    const table: any = <HTMLFormElement>this.b_download.nativeElement;
     return table.outerHTML.toString();
   }
 
   getElementAndAsignBlob(blob: Blob, fileName: string) {
-    let element = document.createElement('a');
+    const element = document.createElement('a');
     element.href = URL.createObjectURL(blob);
     element.download = fileName;
     element.click();
@@ -136,13 +137,13 @@ export class FileDownloadComponent implements OnInit {
 
   // PDF downloading functionlity 
   downloadPdfFile(): void {
-    let DATA: any = this.b_download.nativeElement;
+    const DATA: any = this.b_download.nativeElement;
     html2canvas(DATA).then((canvas: any) => {
-      let fileWidth = 208;
-      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const fileWidth = 208;
+      const fileHeight = (canvas.height * fileWidth) / canvas.width;
       const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
+      const PDF = new jsPDF('p', 'mm', 'a4');
+      const position = 0;
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       PDF.save('example.pdf');
     });
@@ -153,7 +154,7 @@ export class FileDownloadComponent implements OnInit {
     const myTable: any = <HTMLFormElement>this.b_download.nativeElement;
     toPng(myTable)
       .then((dataUrl: any) => {
-        let link = document.createElement('a');
+        const link = document.createElement('a');
         link.href = dataUrl;
         link.download = 'example.png';
         link.click();

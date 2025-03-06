@@ -20,7 +20,7 @@ describe('FileDownloadComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FileDownloadComponent);
     component = fixture.componentInstance;
-    let tableData = {
+    const tableData = {
       columnsData:['SN', 'NAME', 'DESIGNATION', 'DEPARTMENT'],
       rowsData: [
         [1, 'Astik', 'Manager', 'Engineering and MBA'],
@@ -58,9 +58,9 @@ describe('FileDownloadComponent', () => {
     expect(component.generateBlob(data, type)).toBeTruthy();
   })
   it('should getElementAndAsignBlob called', ()=>{
-    let blob = new Blob([""], { type: 'text/html' });;
+    const blob = new Blob([""], { type: 'text/html' });;
     component.getElementAndAsignBlob(blob, 'type');
-     let mockElement = document.createElement('a');
+     const mockElement = document.createElement('a');
      mockElement.download = 'file';
      global.URL.createObjectURL = jest.fn(() => 'fileurl');
      expect(mockElement.download).toBe('file');
@@ -83,7 +83,7 @@ describe('FileDownloadComponent', () => {
     component.fileType = 'PNG';
     expect(component.fileType).toBe('PNG');
     expect(component.downloadimage()).toBeCalled;
-    let mockElement = document.createElement('a');
+    const mockElement = document.createElement('a');
     mockElement.download = 'file';
     global.URL.createObjectURL = jest.fn(() => 'fileurl');
     expect(mockElement.download).toBe('file');

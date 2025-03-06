@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-output-on-prefix */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-empty-function */
@@ -184,8 +185,8 @@ export class PtgAgGridDatatableComponent implements OnInit {
 
   // Get selected row by chekbox 
   getSelectedRow(event:any){ 
-    let selectedRows = this.gridApi.getSelectedRows();
-    let selectedNodes = this.gridApi.getSelectedNodes();
+    const selectedRows = this.gridApi.getSelectedRows();
+    const selectedNodes = this.gridApi.getSelectedNodes();
     this.onrowSelect.emit({
       'rows': selectedRows,
       'nodes': selectedNodes

@@ -8,7 +8,6 @@
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TreeviewItem, TreeviewConfig } from 'ngx-treeview';
-import {IndeterminateCheckboxesModule } from '../indeterminate-checkboxes.module'
 
 @Component({
   selector: 'ptg-ui-indeterminate-checkboxes',

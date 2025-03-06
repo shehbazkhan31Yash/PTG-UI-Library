@@ -25,7 +25,7 @@ describe('ChecksComponent', () => {
     expect(component).toBeTruthy();
   });
   it('writeValue button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'writeValue');
     component.writeValue(obj);
     component.isChecked = obj
@@ -34,7 +34,7 @@ describe('ChecksComponent', () => {
   }));
 
   it('registerOnChange button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'registerOnChange');
     component.registerOnChange(obj);
     component.onChange = obj;
@@ -43,7 +43,7 @@ describe('ChecksComponent', () => {
   }));
 
   it('registerOnTouched button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'registerOnTouched');
     component.registerOnTouched(obj);
     component.onTouched = obj;
