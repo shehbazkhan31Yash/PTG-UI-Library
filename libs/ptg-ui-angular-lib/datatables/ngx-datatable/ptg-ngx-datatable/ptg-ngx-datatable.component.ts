@@ -51,6 +51,8 @@ ColumnMode = ColumnMode;
 @Input() showFiter = true;
 // get event of filter and do filtering
 @Output() getFilterEvent: EventEmitter<any> = new EventEmitter();
+// get event of Pagination change event
+@Output() getPageChangeEvent: EventEmitter<any> = new EventEmitter();
 
 // Row Selection functionality 
 @Input() selected: any = [];
@@ -84,18 +86,12 @@ ngOnInit() {
 
   // filter functionlity 
   updateFilter(event: any){
-    // const val = event.target.value.toLowerCase();
-    // const temp = this.temp.filter(function (d:any) {
-    //   return d.athlete.toLowerCase().indexOf(val) !== -1 || !val;
-    // });
-    // this.rows = temp;
-
     this.getFilterEvent.emit(event);
   }
 
   // Pagination
   onPageChange(event:any){
-    // this.getFilterEvent.emit(event);
+    this.getPageChangeEvent.emit(event);
   }
   // onscroll get event
   // eslint-disable-next-line @typescript-eslint/no-empty-function

@@ -23,6 +23,11 @@ We can import the LineChart  using the following importation :
 
 ```    
 
+Types of controls supported by High2DLinerChart:
+
+ - data
+ - id
+ - isCreditEnabled
 
 
  ## Quick Start
@@ -32,18 +37,26 @@ We can import the LineChart  using the following importation :
 ```
 <ptg-ui-high-line-chart
   [data]="data"
-  chartId="line-chart"
+  id="line-chart"
 ></ptg-ui-high-line-chart>
 
 ```
 
 Following control is supported by Checkbox: 
 
-chartId : 
+1] id : 
 
-The chartId attribute specifies a unique id for an chart . The value of the id attribute must be unique.
+The id attribute specifies a unique id for an chart . The value of the id attribute must be unique.
 
 The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
 
 
 <Canvas><Story id="component-highlinechartcomponent--chart-id" /></Canvas>
+
+2] isCreditEnabled:
+
+this property will enable / disable the High charts credits base on user input.
+
+by default the value is false.
+
+<Canvas><Story id="component-high3dlinechartcomponent--chart-isCreditEnabled" /></Canvas>

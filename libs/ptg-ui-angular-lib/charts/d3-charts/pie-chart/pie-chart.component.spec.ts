@@ -26,7 +26,6 @@ describe('PieChartComponent', () => {
 
   it('tests private function', () => {
     // Arrange
-    const module = new PieChartComponent()
     const myPrivateFunc = jest.spyOn(PieChartComponent.prototype as any, 'createSvg');
     myPrivateFunc.mockImplementation(() => {
     expect(myPrivateFunc).toHaveBeenCalled();

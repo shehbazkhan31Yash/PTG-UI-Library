@@ -10,7 +10,9 @@ export class LinebarChartComponent implements OnInit, OnChanges {
   @Input() remainingOptions:any;
   @Input() title?:any;
   @Input() subtitle?:any;
-  @Input() categories?:any;
+  @Input() categories?: string[] = [];
+  @Input() id?:string = "linebar-3d-chart";
+  @Input() isCreditEnabled = false;
 
   ngOnInit(): void {
   // Call function to create chart 
@@ -26,13 +28,16 @@ export class LinebarChartComponent implements OnInit, OnChanges {
 
   // Function for create chart 
   createChartColumn(): void {
-    const chart = Highcharts.chart('linebar-chart' as any, {
+    Highcharts.chart(this.id as any, {
        chart: {
         zoomType: 'xy'
     },
     
     subtitle:{
         text:this.subtitle 
+    },
+    credits: {
+      enabled: this.isCreditEnabled,
     },
     title:{
         text:this.title

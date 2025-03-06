@@ -1,0 +1,21 @@
+<button type="button" class="{{'btn ' + btnClass }}" data-bs-toggle="modal" [attr.data-bs-target]="'#' + modalId" 
+*ngIf="isModalPopover" (click)="updateModalStatus()">
+    {{ btnLabel }}
+</button>
+
+<div class="modal fade" id="{{ modalId }}"
+    [attr.data-bs-backdrop]="isStaticBackdrop" [attr.data-bs-keyboard]="isKeyboardEnabled"
+    [ngClass]="{'d-none': hideModal}" aria-hidden="true" [attr.aria-labelledby]="modalId">
+    <div class="modal-dialog {{ modalSize }} {{ fullScreenmodalSize}}" [ngClass]="{'modal-dialog-scrollable': isScrollable, 'modal-dialog-centered': isCenter}">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{headerTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" *ngIf="isCloseIconReq"></button>
+        </div>
+        <div class="modal-body" [innerHTML]="modalBodyContent"></div>
+        <div class="modal-footer" *ngIf="isFooterOpen">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" *ngIf="isCloseBtnReq">{{ closeBtnLabel }}</button>
+        </div>
+      </div>
+    </div>
+</div>

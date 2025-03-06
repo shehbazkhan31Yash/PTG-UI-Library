@@ -1,0 +1,26 @@
+<div [ngClass]="orientation==='vertical'?'stepperContainer':''" class="mt-4 m-3">
+  <div [ngClass]="orientation==='vertical'?'verticalStepper':'horizontalStepper'">
+    <div [ngClass]="orientation==='vertical'?'verticalStepWrapper':'horizontalStepWrapper'"
+      *ngFor="let step of steps; let i = index">
+      <div [ngClass]="orientation==='vertical'?'verticalStep':'horizontalStep'" [class.active]="i === currentStep">
+        <div class="stepContent">
+          <div class="stepNumber">{{ i + 1 }}</div>
+          <span class="stepLabel">{{ step }}</span>
+        </div>
+      </div>
+      <div *ngIf="i<steps.length-1" [ngClass]="orientation==='vertical'?'verticalLine':'horizontalLine'"></div>
+    </div>
+  </div>
+  <div [ngClass]="orientation==='vertical'?'formContainer':'mt-2'">
+    <form *ngIf="formGroups && formGroups[currentStep]" [formGroup]="formGroups[currentStep]">
+      <ng-container *ngIf="stepTemplates && stepTemplates.toArray()[currentStep]"
+        [ngTemplateOutlet]="stepTemplates.toArray()[currentStep]"></ng-container>
+    </form>
+    <div class="buttons">
+      <button *ngIf="currentStep !== 0" class="btn btn-light" (click)="previousStep()">Previous</button>
+      <button class="btn btn-light" (click)="nextStep()">{{ currentStep === steps.length - 1 ? 'Submit' :
+        'Next' }}</button>
+      <button *ngIf="currentStep === steps.length - 1" class="btn btn-light" (click)="resetForm()">Reset</button>
+    </div>
+  </div>
+</div>

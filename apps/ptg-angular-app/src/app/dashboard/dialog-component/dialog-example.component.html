@@ -9,18 +9,8 @@
     </div>
     <hr class="m-0 css-yasiti"  />
     <div class="pb-3 p-3">
-      <ptg-modal
-      modal-size="md"
-      btn-name="Open Modal"
-      confirm-button-name="Okay"
-      primary-btn-="primary"
-      cancel-btn="secondary"
-      (modalClose)="modalClosed()"
-    >
-      <div slot="body-block">
-        <p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
-      </div>
-    </ptg-modal>
+      <ptg-ui-dialog [isStaticBackdrop]="isStaticBackdrop" [isKeyboardEnabled]="isKeyboardEnabled" 
+      [hideModal]="hideModal"></ptg-ui-dialog>
      </div>
   </div>
   <div class="col-12 parent-block bg-white p-0 rounded">
@@ -33,17 +23,8 @@
     </div>
     <hr class="m-0 css-yasiti" />
     <div class="pb-3 p-3">
-      <ptg-modal
-      :show-footer="false"
-      btn-name="Hide Footer in Modal"
-      modal-size="md"
-      confirm-button-name="Okay"
-      (modalClose)="modalClosed()"
-    >
-      <div slot="body-block">
-        <h6>In Angular</h6>
-      </div>
-    </ptg-modal>
+      <ptg-ui-dialog [isStaticBackdrop]="isStaticBackdrop" [isKeyboardEnabled]="isKeyboardEnabled" 
+          [hideModal]="hideModal" [isFooterOpen]="isFooterOpen" [modalId]="modalId"></ptg-ui-dialog>
     </div>
   </div>
 </div>

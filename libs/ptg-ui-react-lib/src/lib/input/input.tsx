@@ -8,19 +8,19 @@ import './input.scss';
 
 interface PtgUiInputProps {
 	type: string;
-	value?: any;
-	onChange?: any;
+	value?: string;
+	onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void);
 	placeholder?: string;
 	disabled?: boolean;
 	required?: boolean;
 	className?: string;
 	inputsize?: string;
 	name?: string;
-	onBlur?: any;
+	onBlur?: ((event: React.FocusEvent<HTMLInputElement>) => void);
 	ref?: any;
 	// accessKey?: string;
 	maxlength?: any;
-	onKeyUp?: any;
+	onKeyUp?: ((event: React.KeyboardEvent<HTMLInputElement>) => void);
 	id?: string;
 }
 

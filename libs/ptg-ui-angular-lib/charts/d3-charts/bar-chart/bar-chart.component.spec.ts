@@ -27,7 +27,6 @@ describe('BarChartComponent', () => {
 
   it('tests private function', () => {
     // Arrange
-    const module = new BarChartComponent()
     const myPrivateFunc = jest.spyOn(BarChartComponent.prototype as any, 'createSvg');
     myPrivateFunc.mockImplementation(() => {
     expect(myPrivateFunc).toHaveBeenCalled();

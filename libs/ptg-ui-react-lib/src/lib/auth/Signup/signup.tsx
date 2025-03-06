@@ -18,9 +18,6 @@ import PtgUiAlert from '../../alert/alert';
 import { PtgUiSignupProps } from '../../interfaces';
 
 export class PtgUiSignup extends React.Component<PtgUiSignupProps> {
-	constructor(props: PtgUiSignupProps) {
-		super(props);
-	}
 
 	override render() {
 		const {

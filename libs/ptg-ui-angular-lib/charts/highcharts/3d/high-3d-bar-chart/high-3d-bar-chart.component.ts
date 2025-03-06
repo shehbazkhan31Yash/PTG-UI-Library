@@ -10,19 +10,23 @@ import * as Highcharts from 'highcharts';
 import Highcharts3d from 'highcharts/highcharts-3d';
 Highcharts3d(Highcharts);
 
+interface bar3dData {
+   name: string, data: number[]
+}
 @Component({
   selector: 'ptg-ui-high-3d-bar-chart',
   templateUrl: './high-3d-bar-chart.component.html',
   styleUrls: ['./high-3d-bar-chart.component.scss']
 })
 export class High3dBarChartComponent implements OnInit {
-  @Input() data: any = [];
+  @Input() data: bar3dData[] = [];
   @Input() remainingOptions:any = {};
   @Input() highcharts?:any;
-  @Input() title?:any = null;
-  @Input() categories?:any;
-  @Input() xTitle?:any = null;
-  @Input() yTitle?:any = null;
+  @Input() title?:string = "";
+  @Input() categories?: string[];
+  @Input() xTitle?:string = "";
+  @Input() yTitle?:string = "";
+  @Input() isCreditEnabled = false;
 
 
   ngOnInit(): void {
@@ -32,7 +36,7 @@ export class High3dBarChartComponent implements OnInit {
 
   // Function for create chart 
   createChartColumn(): void {
-    const chart = Highcharts.chart('bar-chart-3d' as any, {
+    Highcharts.chart('bar-chart-3d' as any, {
       title:{
         text:this.title
       },
@@ -61,6 +65,9 @@ export class High3dBarChartComponent implements OnInit {
       title:{
         text:this.yTitle
       }
+    },
+    credits: {
+      enabled: this.isCreditEnabled,
     },
     series:this.data,
     ... this.remainingOptions

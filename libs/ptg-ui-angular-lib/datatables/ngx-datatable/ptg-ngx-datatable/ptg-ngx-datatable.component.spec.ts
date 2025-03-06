@@ -24,42 +24,42 @@ describe('PtgNgxDatatableComponent', () => {
   });
 
   it('onSort event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'onSort');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'onSort');
     component.onSort(evt);
     expect(btn).toHaveBeenCalled();
   });
   
   it('updateFilter event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'updateFilter');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'updateFilter');
     component.updateFilter(evt);
     expect(btn).toHaveBeenCalled();
   });
 
   it('onPageChange event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'onPageChange');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'onPageChange');
     component.onPageChange(evt);
     expect(btn).toHaveBeenCalled();
   });
 
   it('onScroll event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'onScroll');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'onScroll');
     component.onScroll(evt);
     expect(btn).toHaveBeenCalled();
   });
 
   it('onSelect event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'onSelect');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'onSelect');
     component.onSelect(evt);
     expect(btn).toHaveBeenCalled();
   });
 
   it('getAction event', () => {
-    let btn = jest.spyOn(component, 'getAction');
+    const btn = jest.spyOn(component, 'getAction');
     component.getAction();
     expect(btn).toHaveBeenCalled();
   });

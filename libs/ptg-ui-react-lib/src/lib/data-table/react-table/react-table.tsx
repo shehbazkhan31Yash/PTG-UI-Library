@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './react-table.scss';
 import { useEffect, useState } from 'react';
-import { useTable, usePagination } from 'react-table';
+import { useTable, usePagination, TableInstance, UseTableInstanceProps, UsePaginationInstanceProps, UsePaginationState } from 'react-table';
 //import "./react-table-config.d.ts";
 import './react-table.scss';
 
@@ -9,7 +9,10 @@ export interface PtgUiReactTableProps {
 	data?: any;
 	columns?: any;
 }
-
+export type PaginationTableInstance<T extends object> = TableInstance<T> &
+	UsePaginationInstanceProps<T> & UseTableInstanceProps<T> & {
+		state: UsePaginationState<T>;
+	};
 export function PtgUiReactTable({ columns, data }: PtgUiReactTableProps) {
 	const [currentPage, setcurrentPage] = useState(0);
 	const [totalPages, setTotalPages] = useState([]);
@@ -19,39 +22,20 @@ export function PtgUiReactTable({ columns, data }: PtgUiReactTableProps) {
 		headerGroups,
 		//rows,
 		prepareRow,
-		// @ts-ignore
 		page, // Instead of using 'rows', we'll use page,
 		// which has only the rows for the active page
-
-		// The rest of these things are super handy, too ;)
-		// @ts-ignore
 		canPreviousPage,
-		// @ts-ignore
 		canNextPage,
-		// @ts-ignore
 		pageOptions,
-		// @ts-ignore
 		pageCount,
-		// @ts-ignore
 		gotoPage,
-		// @ts-ignore
 		nextPage,
-		// @ts-ignore
 		previousPage,
-		// @ts-ignore
 		setPageSize,
-		// @ts-ignore
 		state: { pageIndex, pageSize },
-	} = useTable(
-		{
-			columns,
-			data,
-		},
-		usePagination
-	);
+	} = useTable<object>({ columns, data, }, usePagination) as PaginationTableInstance<object>;
 
 	useEffect(() => {
-		console.log('page:', pageIndex, pageCount);
 		setcurrentPage(pageIndex);
 	}, [pageIndex]);
 

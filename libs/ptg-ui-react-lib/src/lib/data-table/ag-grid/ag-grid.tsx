@@ -56,7 +56,6 @@ export function PtgUiAgGrid({
 
 	useEffect(() => {
 		setRowData(data);
-		console.log({ data });
 	}, [data]);
 
 	const onBtPrevious = useCallback(() => {

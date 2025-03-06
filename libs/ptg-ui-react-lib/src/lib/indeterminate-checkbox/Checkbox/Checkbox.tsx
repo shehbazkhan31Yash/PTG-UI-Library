@@ -8,7 +8,7 @@ import './checkbox.scss';
 
 interface checkboxProps {
 	isChecked?: boolean;
-	indeterminate?: any;
+	indeterminate?: boolean;
 	onClick?: () => void;
 	labelId: string;
 }

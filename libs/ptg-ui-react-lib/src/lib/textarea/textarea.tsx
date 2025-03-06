@@ -6,38 +6,23 @@
  */
 
 interface PtgUiTextAreaProps {
-	value?: any;
-	onChange?: any;
 	placeholder?: string;
-	disabled?: boolean;
-	hasError?: boolean;
-	onFocus?: any;
-	dataTest?: string;
-	required?: boolean;
 	className?: string;
-	inputsize?: string;
-	name?: string;
-	onBlur?: any;
-	ref?: any;
 	rows?: any;
-	cols?: any;
-	form?: any;
-	maxlength?: any;
-	onKeyUp?: any;
+	name?: string;
 	id?: string;
-	// accessKey?: string;
-	//   isReadOnly?: boolean;
+	value?: string;
+	onChange?: (event: any) => void | undefined;
+	onBlur?: (event: any) => void | undefined;
 }
 
 const defaultProps: PtgUiTextAreaProps = {
 	rows: '4',
 	value: '',
 	placeholder: '',
-	disabled: false,
-	required: true,
-	inputsize: 'lg',
-	// accessKey: '',
 	id: '',
+	className: '',
+	name: ''
 };
 
 export function PtgUiTextArea({ ...rest }: PtgUiTextAreaProps) {

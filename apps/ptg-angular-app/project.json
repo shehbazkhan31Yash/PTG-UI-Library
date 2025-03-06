@@ -21,7 +21,7 @@
           "includePaths": ["libs/ptg-ui-angular-lib/styles"]
         },
         "styles": ["apps/ptg-angular-app/src/styles.scss"],
-        "scripts": []
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
       },
       "configurations": {
         "production": {

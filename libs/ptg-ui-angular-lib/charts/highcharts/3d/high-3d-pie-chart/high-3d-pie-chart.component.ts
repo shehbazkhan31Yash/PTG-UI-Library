@@ -8,20 +8,25 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
+interface pieData {
+  Framework: string, Stars: string, Released: string, color: string
+}
+
 @Component({
   selector: 'ptg-ui-high-3d-pie-chart',
   templateUrl: './high-3d-pie-chart.component.html',
   styleUrls: ['./high-3d-pie-chart.component.scss']
 })
 export class High3dPieChartComponent implements OnInit {
-  @Input() data: any = [];
+  @Input() data: pieData[] | [string, number] = [];
   @Input() remainingOptions:any = {};
   @Input() highcharts?:any;
-  @Input() title?:any = null;
-  @Input() categories?:any;
-  @Input() xTitle?:any = null;
-  @Input() yTitle?:any = null;
-  @Input() seriesName?:any = '';
+  @Input() title?:string = "";
+  @Input() categories?:string[] = [];
+  @Input() xTitle?:string = "";
+  @Input() yTitle?:string = "";
+  @Input() seriesName?:string = '';
+  @Input() isCreditEnabled = false;
   
     
     ngOnInit(): void {
@@ -30,7 +35,7 @@ export class High3dPieChartComponent implements OnInit {
   
     // Creating chart 
     private createChartPie(): void {
-      const chart = Highcharts.chart('chart-pie-3d', {
+      Highcharts.chart('chart-pie-3d', {
         chart: {
           type: 'pie',
           backgroundColor: null,
@@ -50,6 +55,9 @@ export class High3dPieChartComponent implements OnInit {
           point: {
               valueSuffix: '%'
           }
+      },
+      credits: {
+        enabled: this.isCreditEnabled,
       },
       tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

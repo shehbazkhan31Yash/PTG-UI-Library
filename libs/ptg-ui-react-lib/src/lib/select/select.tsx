@@ -13,8 +13,8 @@ export interface PtgUiSelectProps {
 	value?: string;
 	id?: string;
 	className?: string;
-	list: { label: any; value: any }[];
-	onBlur?: any;
+	list: { label: string; value: string }[];
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	htmlFor?: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

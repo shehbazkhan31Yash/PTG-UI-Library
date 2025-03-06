@@ -1,0 +1,62 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import * as DialogComponents from './dialog.stories.ts';
+
+import DialogComponent from './dialog.component.ts';
+
+<Meta
+  title="Component/DialogComponent/DialogComponentDocs"
+  component={DialogComponent}
+/>
+
+# Dialog Component
+
+---
+
+The dialog method displays an dialog box with a message .
+
+Dialog is available for any length of text, as well as an optional dismiss button.
+
+The dialog method is used when you want information to come through to the user.
+
+We can import the alert using the following importation :
+
+```
+    For Standalone Component
+    import { DialogComponent } from ' @ptg-ui/angular';
+
+    FOR Version < 17 OR Non Standalone Component
+    import { DialogModule } from '@ptg-ui/angular/dialog';
+
+    Also 
+    Add bootstrap.min.js path in the script and bootstrap.min.css in the style to render bootstrap modal
+```
+
+Types of controls supported by Dialog:
+
+- headerTitle
+- modalBodyContent
+- btnLabel
+- btnClass
+- isModalPopover
+- isCloseIconReq
+- isCloseBtnReq
+- closeBtnLabel
+- modalId
+- hideModal
+- isFooterOpen
+- isScrollable
+- isCenter
+- isStaticBackdrop
+- isKeyboardEnabled
+- modalSize
+- fullScreenmodalSize
+
+## Quick Start
+
+we can create a alert using the following HTML Tag:
+
+```
+<ptg-ui-dialog [headerTitle]="Header Title" [modalBodyContent]="<p>Test</p>"></ptg-ui-dialog>
+
+```

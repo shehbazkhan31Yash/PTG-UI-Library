@@ -10,7 +10,7 @@
                                 </div>
                                 <div class="col-12">
                                     <ptg-ui-calendar class="w-100" [id]="'startDate'" [placeholder]="resources.DATE_PLACEHOLDER" formControlName='startDate'
-                                        (calendarValueChange)="onStartDateChange($event)">
+                                        (calendarValueChange)="onStartDateChange($event)" [themeColor]="'theme-blue'">
                                     </ptg-ui-calendar>
                                 </div>
                             </div>
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col-12">
                                     <ptg-ui-calendar [minDate]="endMinDate" [placeholder]="resources.DATE_PLACEHOLDER" class="w-100"
-                                        formControlName='endDate' [id]="'endDate'" (calendarValueChange)="onEndDateChange($event)">
+                                        formControlName='endDate' [id]="'endDate'" (calendarValueChange)="onEndDateChange($event)" [themeColor]="'theme-blue'">
                                     </ptg-ui-calendar>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                             <div class="row mb-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <ptg-ui-calendar [minDate]="startDate" [placeholder]="resources.DATE_PLACEHOLDER" [maxDate]="endDate" class=""
-                                        formControlName='calendar1Value' [id]="'maxEndDate'">
+                                        formControlName='calendar1Value' [id]="'maxEndDate'" [themeColor]="'theme-blue'">
                                     </ptg-ui-calendar>
                                 </div>
                             </div>
