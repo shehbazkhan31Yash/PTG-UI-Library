@@ -21,9 +21,9 @@ interface pieData {
 export class PieChartComponent implements OnInit {
   @Input() data: pieData[] | [string, number] = [];
   @Input() svg: any;
-  @Input() margin: number = 50;
-  @Input() width: number = 750;
-  @Input() height: number = 600;
+  @Input() margin = 50;
+  @Input() width = 750;
+  @Input() height = 600;
   @Input() colorsArray: string[] = ['#8D8741', '#659DBD', '#DAAD86', '#BC986A', '#FBEEC1', '#242582'];
   @Input() id = "pie";
 

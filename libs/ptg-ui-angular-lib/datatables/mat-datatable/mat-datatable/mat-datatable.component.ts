@@ -32,17 +32,17 @@ export class MatDatatableComponent implements OnInit{
   // get row value for do any action of specific row 
   @Output() getRowValue: EventEmitter<any> = new EventEmitter();
   // Show empty screen message 
-  @Input() emptyStateMessage: string = 'No data matching the filter';
+  @Input() emptyStateMessage = 'No data matching the filter';
 
   // Paginaiton
-  @Input() totalCount: number = 20;
-  @Input() offset: number = 0;
-  @Input() limit: number = 10;
+  @Input() totalCount = 20;
+  @Input() offset = 0;
+  @Input() limit = 10;
   @Output() paginationData: EventEmitter<any> = new EventEmitter(); 
 
   // Filter functionlity 
   // show hide filter input 
-  @Input() showFiter: boolean = false;
+  @Input() showFiter = false;
   // get event of filter and do filtering
   @Output() getFilterEvent: EventEmitter<any> = new EventEmitter();
   

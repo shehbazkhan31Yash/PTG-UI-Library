@@ -22,10 +22,10 @@ export class LineChartComponent  {
   // Here is some inputs that create chart 
   @Input() data: lineData[] = [];
   @Input() margin = { top: 10, right: 10, bottom: 10, left: 10 };
-  @Input() width: number = 0;
-  @Input() height: number = 0;
+  @Input() width = 0;
+  @Input() height = 0;
   @Input() id = "line";
-  @Input() color: string = "steelblue";
+  @Input() color = "steelblue";
   @Input() coordinateDataTypes = {
     "xData": "number",
     "yData": "number"
@@ -39,11 +39,11 @@ export class LineChartComponent  {
   // Chart creation function 
   createGraph(){
     // set the dimensions and margins of the graph
-   let margin = this.margin,
+   const margin = this.margin,
    d3width : number= this.width - margin.left - margin.right,
    d3height:number = this.height  - margin.top - margin.bottom;
    // append the svg object to the body of the page
-   let svg = d3.select("figure#" + this.id).append("svg")
+   const svg = d3.select("figure#" + this.id).append("svg")
    .attr("width", d3width)
    .attr("height", d3height)
    .attr("viewBox", [0, 0, this.width, this.height])
@@ -52,11 +52,11 @@ export class LineChartComponent  {
    .attr("transform", `translate(${margin.left},     ${margin.top})`);
    
     // Add X axis and Y axis
-   let x = d3.scaleTime().range([0, d3width]);
-   let y = d3.scaleLinear().range([d3height, 0]);
+   const x = d3.scaleTime().range([0, d3width]);
+   const y = d3.scaleLinear().range([d3height, 0]);
    // modify the xDomain & yDomain to date base and number base
-   let xdomain:any = d3.extent(this.data, (d:any) => { return (this.coordinateDataTypes['x-axis'] == "date") ? Date.parse(d.date) : d.date; });
-   let ydomain: any = d3.max(this.data, (d:any) => { return (this.coordinateDataTypes['y-axis'] == "date") ? Date.parse(d.value) : d.value; });
+   const xdomain:any = d3.extent(this.data, (d:any) => { return (this.coordinateDataTypes['x-axis'] == "date") ? Date.parse(d.date) : d.date; });
+   const ydomain: any = d3.max(this.data, (d:any) => { return (this.coordinateDataTypes['y-axis'] == "date") ? Date.parse(d.value) : d.value; });
    x.domain(xdomain);
    y.domain([0, ydomain]);
    svg.append("g")
@@ -66,7 +66,7 @@ export class LineChartComponent  {
    .call(d3.axisLeft(y).ticks(6));
 
     // add the Line
-    let valueLine: any = d3.line()
+    const valueLine: any = d3.line()
       .x((d:any) => { return x(d.date); })
       .y((d:any) => { return y(d.value); });
     svg.append("path")

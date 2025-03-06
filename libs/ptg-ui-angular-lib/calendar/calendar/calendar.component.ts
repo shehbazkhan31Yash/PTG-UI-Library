@@ -67,7 +67,7 @@ export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
   @Output() calendarValueChange = new EventEmitter<any>();
   inputDate: any;
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private readonly _changeDetectorRef: ChangeDetectorRef) { }
   ngOnInit(){
     this.bsConfig = { dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true };
   }
@@ -97,9 +97,10 @@ export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
   onBlur(): void {
     this.onTouched();
   }
+
   applyTheme(pop: BsDatepickerDirective): void {
-    this.bsConfig = Object.assign({}, { containerClass: this.themeColor });
-  }
+    this.bsConfig = { ...{ containerClass: this.themeColor } };
+}
   ngAfterViewInit(): void {
     this.applyTheme(this.datepickerVal);
   }
