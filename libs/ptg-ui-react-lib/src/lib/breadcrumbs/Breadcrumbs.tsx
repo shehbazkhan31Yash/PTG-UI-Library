@@ -29,5 +29,3 @@ export const PtgUiBreadcrumbs = ({ datalist }: IPtgUiBreadcrumbsProps) => {
 		</ul>
 	);
 };
-
-export default PtgUiBreadcrumbs;
