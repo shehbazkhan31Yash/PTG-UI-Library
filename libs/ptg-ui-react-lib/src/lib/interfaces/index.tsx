@@ -275,15 +275,14 @@ export interface IFormValues {
 }
 
 export interface ICustomeFormProps {
-	label?: string;
-	name?: string;
-	options?: { value: string; label: string }[];
-	values?: IFormValues;
+	values?: object;
+    setFieldValue?: (field?: string, value?: any, shouldValidate?: boolean) => Promise<void | object>;
 }
 export interface IPtgUiFormikProps {
-	initialValues?: IFormValues;
-	validate: (values: IFormValues) => void;
+	children?: React.ReactNode;
+	initialValues?: object;
+	validate: (values: object) => void;
 	CustomForm: React.FC<ICustomeFormProps>;
 	image?: string;
-	onSubmit?: (values: IFormValues) => void;
+	onSubmit?: (values: object) => void;
 }

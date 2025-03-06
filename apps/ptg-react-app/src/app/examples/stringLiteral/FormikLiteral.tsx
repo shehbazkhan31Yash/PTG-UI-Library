@@ -1,29 +1,35 @@
-import { PtgUiGridColumn, PtgUiFormik } from '@ptg-ui/react';
-import CodeIcon from '@mui/icons-material/Code';
-import { useState } from 'react';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import './formik.scss';
-import { Form, Field, ErrorMessage } from 'formik';
-import {
-  required,
-  lengthCheck,
-} from '../../common/formValidation/FormValidation';
-import {
-  IFormValues,
-  ICustomeFormProps,
-  IFormValuesNested,
-} from '../../interfaces/index';
-import { IMAGE_PATH, COUNTRIES } from '../../constants/Constant';
-import Autocomplete from '../../common/autocomplete/AutoComplete';
-import {FORMIK_HTML_CODE, FORMIK_COMPONENET} from '../stringLiteral/FormikLiteral';
+export const FORMIK_COMPONENET = `
+  const COUNTRIES = [
+   'United States',
+   'Canada',
+   'Mexico',
+  ]
+ 
+  const IMAGE_PATH = 'image_path';
+  
+  export interface IFormValues {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+    birthDate?: string;
+    subscribe?: boolean;
+    hobbies?: string;
+    notificationsPreferences?: string;
+  }
 
-const countries = COUNTRIES; 
-
-const Formik = () => {
-  const [showCode, setShowCode] = useState<boolean>(false);
-  const toggleShowCode = () => setShowCode((prev) => !prev);
-  const componentCode = FORMIK_COMPONENET;
-  const htmlCode = FORMIK_HTML_CODE;
+  export interface IFormValuesNested {
+    address?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+    country?: string;
+  }
+    
+  export interface ICustomeFormProps {
+    values?: IFormValues;
+  }
 
   const initialValues: IFormValues = {
     firstName: '',
@@ -36,6 +42,7 @@ const Formik = () => {
     hobbies: '',
     notificationsPreferences: '',
   };
+
   const initialValuesNested: IFormValuesNested = {
     address: '',
     city: '',
@@ -43,6 +50,7 @@ const Formik = () => {
     zip: '',
     country: '',
   };
+
   const validateNested = (values: IFormValuesNested) => {
     const errors: IFormValuesNested = {};
     required(values?.address, 'address', errors);
@@ -61,6 +69,7 @@ const Formik = () => {
     required(values?.country, 'country', errors);
     return errors;
   };
+
   const CustomFormNested: React.FC<ICustomeFormProps> = () => {
     return (
       <div>
@@ -214,6 +223,7 @@ const Formik = () => {
       </Form>
     );
   };
+
  const validate = (values: IFormValues) => {
     const errors: IFormValues = {};
     required(values?.firstName, 'firstName', errors);
@@ -240,44 +250,27 @@ const Formik = () => {
     required(values?.hobbies, 'hobbies', errors);
     return errors;
   };
+
   const onSubmit = (values: IFormValues) => {
     return;
   };
+`;
 
-  return (
-    <div className="row">
-      <PtgUiGridColumn md={10} className={'mt-1 mb-2'}>
-        <h5 className="font-weight-bold example-heading">{'Formik'}</h5>
-      </PtgUiGridColumn>
-      <div className="col-2 mr-5 mb-2">
-        <CodeIcon
-          onClick={toggleShowCode}
-          fontSize="large"
-          className="show-code-icon"
-        />
-      </div>
-      <hr className="horizontal-line" />
-      {showCode && (
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-      )}
-      <div className="container">
-        <PtgUiFormik
-          initialValues={initialValues}
-          validate={validate}
-          CustomForm={CustomForm}
-          image={IMAGE_PATH}
-          onSubmit={onSubmit}
-        >
-          <PtgUiFormik
-            initialValues={initialValuesNested}
-            validate={validateNested}
-            CustomForm={CustomFormNested}
-            onSubmit={onSubmit}
-          ></PtgUiFormik>
-        </PtgUiFormik>
-      </div>
-    </div>
-  );
-};
+export const FORMIK_HTML_CODE = `
+  <PtgUiFormik
+    initialValues={initialValues}
+    validate={validate}
+    CustomForm={CustomForm}
+    image={IMAGE_PATH}
+    onSubmit={onSubmit}
+  >
+    //Nested Form
+    <PtgUiFormik
+      initialValues={initialValuesNested}
+      validate={validateNested}
+      CustomForm={CustomFormNested}
+      onSubmit={onSubmit}
+    ></PtgUiFormik>
+  </PtgUiFormik>
+`;
 
-export default Formik;

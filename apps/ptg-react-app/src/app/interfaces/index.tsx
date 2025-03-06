@@ -145,12 +145,13 @@ export interface IFormValues {
   hobbies?: string;
   notificationsPreferences?: string;
 }
-
 export interface ICustomeFormProps {
-  label?: string;
-  name?: string;
-  options?: { value: string; label: string }[];
   values?: IFormValues;
-  image?: string;
-  onSubmit?: (values: IFormValues) => void;
+}
+export interface IFormValuesNested {
+  address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
+  country?: string;
 }

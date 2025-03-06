@@ -99,3 +99,16 @@ export const USERINPUTERROR = {
 
 
 export const IMAGE_PATH = 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg';
+
+export const COUNTRIES = [
+  'United States',
+  'Canada',
+  'Mexico',
+  'United Kingdom',
+  'Germany',
+  'France',
+  'Italy',
+  'Spain',
+  'Australia',
+  'India',
+];

@@ -3,7 +3,7 @@ import './Formik.scss';
 import { IPtgUiFormikProps } from '../interfaces/index';
 
 export function PtgUiFormik(props: IPtgUiFormikProps) {
-	const { initialValues = {}, validate, CustomForm, image = '', onSubmit } = props;
+	const { initialValues = {}, validate, CustomForm, children = '', image = '', onSubmit } = props;
 
 	return (
 		<div className="login-wrapper container-fluid p-0 d-flex justify-content-center">
@@ -26,7 +26,14 @@ export function PtgUiFormik(props: IPtgUiFormikProps) {
 							}, 400);
 						}}
 					>
-						{({ values }) => <CustomForm values={values} />}
+						{({ values }) => {
+							return (
+							<>
+								<CustomForm values={values}/>
+								{children && children}
+							</>
+							)
+						}}
 					</Formik>
 				</div>
 			</div>

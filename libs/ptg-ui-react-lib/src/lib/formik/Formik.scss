@@ -4,6 +4,12 @@ div {
 	margin-bottom: 10px;
 }
 
+.address-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+
 .form-label {
 	display: block;
 	margin-bottom: 5px;
@@ -16,12 +22,23 @@ div {
 	margin-left: 2%;
 }
 
+.address-label {
+	margin-right: 10%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.address-input {
+	margin-right: 5%;
+	width: 45%
+}
+
 .form-input {
 	width: 100%;
-	padding: 8px;
+	padding: 0.375rem 0.75rem;
 	margin-bottom: 5px;
 	border: 1px solid $grey;
-	border-radius: 4px;
+	border-radius: 0.375rem;
 }
 
 button {
@@ -31,7 +48,7 @@ button {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	&:hover {
+	&:hover{
 		background-color: $main;
 	}
 }
@@ -59,3 +76,7 @@ button {
 		}
 	}
 }
+
+
+
+
