@@ -16,7 +16,6 @@ import {
   ElementRef,
   forwardRef,
   Input,
-  OnInit,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -40,7 +39,7 @@ import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class ChecksComponent implements OnInit {
+export class ChecksComponent  {
   // @Input() parentForm!: FormGroup;
   // @Input() fieldname!: string;
   @Input() label: string | undefined | null = '';
@@ -70,9 +69,7 @@ export class ChecksComponent implements OnInit {
     this.onTouched = fn;
   }
 
-  ngOnInit(): void {
-    // this.check.nativeElement.accessKey = this.accessKey;
-  }
+  
 
   onCheck() {
     this.onChange(this.isChecked);
