@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
+import { BUTTON_CLASS } from '../constants/Constants';
 import { IPtgUiButtonProps } from '../interfaces';
 import './button.css';
-
 /**
  * PtgUiButton Component
  * 
@@ -55,8 +55,6 @@ export const PtgUiButton = (props: Readonly<IPtgUiButtonProps>) => {
 		backgroundColor: backgroundColor,
 		border: border,
 	}), [textColor, width, height, fontSize, fontWeight, backgroundColor, border]);
-
-	const BUTTON_CLASS = 'btn';
 
 	return (
 		<button
