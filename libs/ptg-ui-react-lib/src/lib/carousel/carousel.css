@@ -1,6 +1,7 @@
 .d-block {
 	display: block;
 }
+
 .parent-container {
 	width: 100%;
 }
@@ -13,8 +14,6 @@ ul.slides {
 	display: block;
 	list-style: none;
 	margin: 0;
-	//   min-height: 150px;
-	//   min-width: 100px;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
@@ -74,7 +73,7 @@ ul.slides input {
 	transition: opacity 0.2s;
 }
 
-.slide-image:hover + .carousel-controls label {
+.slide-image:hover+.carousel-controls label {
 	opacity: 0.5;
 }
 
@@ -115,26 +114,17 @@ ul.slides input {
 	width: 10px;
 }
 
-input:checked + .slide-container .slide-image {
+input:checked+.slide-container .slide-image {
 	opacity: 1;
 	transform: scale(1);
 	transition: opacity 1s ease-in-out;
 }
 
-input:checked + .slide-container .carousel-controls label {
+input:checked+.slide-container .carousel-controls label {
 	display: block;
 }
 
-// input#img-1:checked ~ .carousel-dots label#img-dot-1,
-// input#img-2:checked ~ .carousel-dots label#img-dot-2,
-// input#img-3:checked ~ .carousel-dots label#img-dot-3,
-// input#img-4:checked ~ .carousel-dots label#img-dot-4,
-// input#img-5:checked ~ .carousel-dots label#img-dot-5,
-// input#img-6:checked ~ .carousel-dots label#img-dot-6 {
-//   opacity: 1;
-// }
-
-input:checked + .slide-container .nav label {
+input:checked+.slide-container .nav label {
 	display: block;
 }
 
