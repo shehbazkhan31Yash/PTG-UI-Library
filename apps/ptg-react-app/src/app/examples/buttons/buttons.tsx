@@ -1,10 +1,10 @@
-import './button.scss';
-import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
+import { BUTTON_BACKGROUND_COLOR, BUTTON_VARIANT, COLOR_WHITE, FONT_SIZE_12, WIDTH_110, WIDTH_200, WIDTH_60 } from '@ptg-react-app/constants/Constant';
 import { PtgUiButton } from '@ptg-ui/react';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {WIDTH_110, WIDTH_200, BUTTON_BACKGROUND_COLOR, COLOR_WHITE, FONT_SIZE_12, BUTTON_VARIANT, WIDTH_60} from '@ptg-react-app/constants/Constant';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import './button.css';
 
 export default function Button() {
   const [showCode, setShowCode] = useState<boolean>(false);

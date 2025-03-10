@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './forgotPassword.scss';
-import PtgUiButton from '../../button/button';
-import PtgUiInput from '../../input/input';
-import { PtgUiModal } from '../../modal/modal';
+import { PtgUiButton } from '../../button/button';
 import { EMAIL_REGEX, FORGOT_PASSWORD_BTN_COLOR, MODAL_SIZE_LARGE } from '../../constants/Constants';
+import PtgUiInput from '../../input/input';
 import { IForgotPassword } from '../../interfaces';
+import { PtgUiModal } from '../../modal/modal';
+import './forgotPassword.scss';
 
 // Destructure button color constants for easier access
 const { FORGOT_BTN_TEXT, FORGOT_BTN_BACKGROUND, FORGOT_BTN_BACKGROUND_GRAY } = FORGOT_PASSWORD_BTN_COLOR;
