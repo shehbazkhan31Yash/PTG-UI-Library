@@ -13,7 +13,7 @@ import {
   ICustomeFormProps,
   IFormValuesNested,
 } from '../../interfaces/index';
-import { IMAGE_PATH, COUNTRIES } from '../../constants/Constant';
+import { IMAGE_PATH, COUNTRIES, EMAIL_REGEX } from '../../constants/Constant';
 import Autocomplete from '../../common/autocomplete/AutoComplete';
 import {FORMIK_HTML_CODE, FORMIK_COMPONENET} from '../stringLiteral/FormikLiteral';
 
@@ -225,7 +225,7 @@ const Formik = () => {
       lengthCheck(values.lastName, 'lastName', 0, 20, errors);
     }
     required(values?.email, 'email', errors);
-    if (values?.email && !/\S+@\S+\.\S+/.test(values.email)) {
+    if (values?.email && !EMAIL_REGEX.test(values.email)) {
       errors.email = 'Email is invalid';
     }
     required(values?.password, 'password', errors);
