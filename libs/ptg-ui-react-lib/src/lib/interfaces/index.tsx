@@ -1,7 +1,7 @@
 // Pagination
 interface IBreadcrumbItem {
 	title: string;
-	link: string;
+	link?: string;
 }
 
 //Breadcrumb
