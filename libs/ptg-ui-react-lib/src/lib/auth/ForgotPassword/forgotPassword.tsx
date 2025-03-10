@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './forgotPassword.scss';
+import './forgotPassword.css';
 import PtgUiButton from '../../button/button';
 import PtgUiInput from '../../input/input';
 import { PtgUiModal } from '../../modal/modal';
@@ -11,14 +11,17 @@ const { FORGOT_BTN_TEXT, FORGOT_BTN_BACKGROUND, FORGOT_BTN_BACKGROUND_GRAY } = F
 
 /**
  * PtgUIForgotPassword component allows users to request a password reset.
- * 
+ *
  * @param {Object} props - The component props
  * @param {function} props.onForgotPasswordSubmit - Function to handle the forgot password submission
  * @param {function} props.fPasswordEmail - Function to handle the email input change
  * @param {string} props.forgotPasswordLabel - Label for the forgot password link
  */
-export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswordSubmit, fPasswordEmail, forgotPasswordLabel }) => {
-
+export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
+	onForgotPasswordSubmit,
+	fPasswordEmail,
+	forgotPasswordLabel,
+}) => {
 	const [values, setValues] = useState({
 		show: false,
 		email: '',
@@ -48,7 +51,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Handles changes to the input fields and validates the input.
-	 * 
+	 *
 	 * @param {React.ChangeEvent<HTMLInputElement>} event - The change event from the input
 	 */
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +65,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Validates the email format using a regular expression.
-	 * 
+	 *
 	 * @param {string} value - The email value to validate
 	 * @returns {boolean} - True if the email is valid, false otherwise
 	 */
@@ -70,7 +73,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Determines if the submit button should be disabled based on input validity.
-	 * 
+	 *
 	 * @param {boolean} isInvalid - Indicates if the input is invalid
 	 * @param {string} value - The current input value
 	 * @returns {boolean} - True if the button should be disabled, false otherwise
@@ -79,7 +82,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Updates the state for button disable status and form errors.
-	 * 
+	 *
 	 * @param {string} fieldName - The name of the field being validated
 	 * @param {boolean} isInvalid - Indicates if the field is invalid
 	 * @param {string} value - The current value of the field
@@ -104,7 +107,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Validates the input fields based on their names and values.
-	 * 
+	 *
 	 * @param {string} fieldName - The name of the field being validated
 	 * @param {string} value - The current value of the field
 	 */
@@ -120,14 +123,14 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({ onForgotPasswor
 
 	/**
 	 * Generates the class name for the email input field based on validation state.
-	 * 
+	 *
 	 * @returns {string} - The class name for the input field
 	 */
 	const getInputClassName = () => `w-100 form-control bg_0 ${formErr.email ? 'border-danger' : ''}`;
 
 	return (
 		<div>
-			<button className="forgot-password float-end" onClick={handleShow} id="linkForgotPassword" >
+			<button className="forgot-password float-end" onClick={handleShow} id="linkForgotPassword">
 				{`${forgotPasswordLabel}?`}
 			</button>
 			<PtgUiModal isOpen={values.show} modalSize={MODAL_SIZE_LARGE} backdropClick={true} onModalClose={handleClose}>
