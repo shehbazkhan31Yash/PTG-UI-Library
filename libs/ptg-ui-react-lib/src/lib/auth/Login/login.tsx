@@ -2,7 +2,7 @@ import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import { PtgUIForgotPassword } from '../ForgotPassword/forgotPassword';
-import PtgUiButton from '../../button/button';
+import { PtgUiButton } from '../../button/button';
 import PtgUiInput from '../../input/input';
 import { PtgUiLoginProps } from '../../interfaces';
 import { MessageDisplay } from '../Common/common';
