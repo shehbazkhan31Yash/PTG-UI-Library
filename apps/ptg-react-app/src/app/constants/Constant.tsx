@@ -112,5 +112,5 @@ export const COUNTRIES = [
   'Australia',
   'India',
 ];
-
-export const EMAIL_REGEX = /\S+@\S+\.\S+/;
+                           
+export const EMAIL_REGEX =  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

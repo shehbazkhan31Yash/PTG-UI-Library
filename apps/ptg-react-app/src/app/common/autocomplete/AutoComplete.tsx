@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PtgUiButton from '@ptg-react-libs/button/button';
 
 const AutocompleteInput = ({ field, form, items, inputClassName }) => {
   const [suggestions, setSuggestions] = useState([]);
@@ -41,12 +42,12 @@ const AutocompleteInput = ({ field, form, items, inputClassName }) => {
           }}
         >
           {suggestions.map((item, index) => (
-            <li
-              key={index}
-              onClick={() => handleSelect(item)}
-              style={{ cursor: 'pointer' }}
-            >
-              {item}
+            <li key={item}>
+              <PtgUiButton
+                text={item}
+                appearance={'link'}
+                onClick={() => handleSelect(item)}
+              ></PtgUiButton>
             </li>
           ))}
         </ul>

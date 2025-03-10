@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import './Formik.scss';
 import { IPtgUiFormikProps } from '../interfaces/index';
 
-export function PtgUiFormik(props: IPtgUiFormikProps) {
+export function PtgUiFormik(props: Readonly<IPtgUiFormikProps>) {
 	const { initialValues = {}, validate, CustomForm, children = '', image = '', onSubmit } = props;
 
 	return (
@@ -30,7 +30,7 @@ export function PtgUiFormik(props: IPtgUiFormikProps) {
 							return (
 							<>
 								<CustomForm values={values}/>
-								{children && children}
+								{children}
 							</>
 							)
 						}}
