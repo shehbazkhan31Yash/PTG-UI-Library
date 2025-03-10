@@ -73,7 +73,7 @@ ul.slides input {
 	transition: opacity 0.2s;
 }
 
-.slide-image:hover+.carousel-controls label {
+.slide-image:hover + .carousel-controls label {
 	opacity: 0.5;
 }
 
@@ -114,17 +114,17 @@ ul.slides input {
 	width: 10px;
 }
 
-input:checked+.slide-container .slide-image {
+input:checked + .slide-container .slide-image {
 	opacity: 1;
 	transform: scale(1);
 	transition: opacity 1s ease-in-out;
 }
 
-input:checked+.slide-container .carousel-controls label {
+input:checked + .slide-container .carousel-controls label {
 	display: block;
 }
 
-input:checked+.slide-container .nav label {
+input:checked + .slide-container .nav label {
 	display: block;
 }
 

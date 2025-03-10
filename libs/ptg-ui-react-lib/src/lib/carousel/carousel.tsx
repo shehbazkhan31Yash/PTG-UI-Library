@@ -27,8 +27,8 @@ export const PtgUiCarousel = ({
 				<ul
 					className="slides"
 					style={{
-						minHeight: `${imgHeight}`,
-						width: `${imgWidth}`,
+						minHeight: imgHeight ? `${imgHeight}` : '400px',
+						width: imgWidth ? `${imgWidth}` : '600px',
 					}}
 				>
 					{images.length ? (
@@ -40,7 +40,7 @@ export const PtgUiCarousel = ({
 											type="radio"
 											name="radio-buttons"
 											id={`img-${index}`}
-											checked
+											defaultChecked={index === 0}
 										/>
 										<li className="slide-container">
 											<div className="slide-image">
@@ -71,7 +71,7 @@ export const PtgUiCarousel = ({
 													htmlFor={`img-${dotIndex}`}
 													className="carousel-dot"
 													id={`img-dot-${dotIndex}`}
-													key={dotIndex}
+													key={`dot-${imgPath}-${dotIndex}`}
 													aria-label="Slide dots"
 												></label>
 											))}
@@ -85,4 +85,4 @@ export const PtgUiCarousel = ({
 			</div>
 		</div>
 	);
-}
+};
