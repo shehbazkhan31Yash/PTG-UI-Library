@@ -50,6 +50,18 @@ export const FORMIK_COMPONENET = `
     zip: '',
     country: '',
   };
+  const required = (value, fieldName, errors) => {
+   if (!value) {
+     errors[fieldName] = fieldName is required;
+    }
+  };
+  const lengthCheck = (value, fieldName, min, max, errors) => {
+    if (value.length < min) {
+      errors[fieldName] = fieldName must be at least min characters;
+    } else if (value.length > max) {
+      errors[fieldName] = fieldName must be max characters or less;
+    }
+  };
 
   const validateNested = (values: IFormValuesNested) => {
     const errors: IFormValuesNested = {};

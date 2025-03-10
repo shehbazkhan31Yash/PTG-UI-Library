@@ -262,18 +262,6 @@ export interface IStepperProps {
 	orientation?: string;
 }
 //Formik
-export interface IFormValues {
-	firstName?: string;
-	lastName?: string;
-	email?: string;
-	password?: string;
-	confirmPassword?: string;
-	birthDate?:  string;
-	subscribe?: boolean;
-	hobbies?: string;
-	notificationsPreferences?: string;
-}
-
 export interface ICustomeFormProps {
 	values?: object;
     setFieldValue?: (field?: string, value?: any, shouldValidate?: boolean) => Promise<void | object>;
