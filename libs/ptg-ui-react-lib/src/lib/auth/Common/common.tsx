@@ -1,5 +1,6 @@
 import '../Login/login.css';
 import PtgUiAlert from '../../alert/alert';
+//File contains common components used in the auth module.
 
 /**
  * Component to display error and success messages.
