@@ -4,6 +4,13 @@ interface IBreadcrumbItem {
 	link: string;
 }
 
+//FormGroup
+export interface IFormGroupProps {
+	label?: string;
+	required?: boolean;
+	children?: React.ReactNode;
+}
+
 //Breadcrumb
 export interface IPtgUiBreadcrumbsProps {
 	datalist: IBreadcrumbItem[];
@@ -166,6 +173,17 @@ export interface IFormErr {
 	password?: boolean;
 	confirmPassword?: boolean;
 }
+interface ICityOption {
+	value: string; // The value associated with the city
+	label: string; // The display label for the city
+	name: string; // The name of the field (in this case, it seems to be 'city')
+}
+
+interface IGenderOption {
+	value: string; // The value associated
+	id: string; // The display label
+	name: string; // The name of the field
+}
 
 export interface PtgUiSignupProps {
 	handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -179,6 +197,8 @@ export interface PtgUiSignupProps {
 	onSubmit?: () => void;
 	errorMessage?: string;
 	successMessage?: string;
+	cityList?: ICityOption[];
+	genderList?: IGenderOption[];
 }
 export interface IUserDetails {
 	firstName: string;
@@ -222,10 +242,9 @@ export interface IUserErrors {
 	cardHolder: boolean;
 }
 
-
 export interface IPtgUiMultiStepState {
-  stepCount: number;
-  showNext?: () => void;
+	stepCount: number;
+	showNext?: () => void;
 }
 
 export interface IStep {
