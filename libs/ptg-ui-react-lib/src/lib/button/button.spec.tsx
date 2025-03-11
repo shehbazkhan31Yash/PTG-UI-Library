@@ -17,7 +17,6 @@ describe('PtgUiButton', () => {
 		textColor: '#fff',
 		backgroundColor: '#007bff',
 		disabled: false,
-		type: 'button',
 		border: '1px solid #007bff',
 	};
 
