@@ -1,13 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, forwardRef } from '@angular/core';
 import {
-  FormsModule,
-  ReactiveFormsModule,
   ControlContainer,
   FormGroupDirective,
-  FormGroup,
-  FormControl,
-  NG_VALUE_ACCESSOR
+  NG_VALUE_ACCESSOR,
+  sNG_VALUE_ACCESSOR
 } from '@angular/forms';
 import { InputComponent } from './input.component';
 
