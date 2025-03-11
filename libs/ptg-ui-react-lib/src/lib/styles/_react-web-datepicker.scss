@@ -8,14 +8,14 @@
 
 // Web Accessibility calender new styles
 .MuiPickersDay-daySelected {
-    color: #fff;
-    background-color: $main !important;
+	color: #fff;
+	background-color: #002144 !important;
 }
 
-.MuiPickersDay-current{
-    color:#84abd6 !important;
+.MuiPickersDay-current {
+	color: #84abd6 !important;
 }
 
 .MuiPickersCalendarHeader-dayLabel {
-    color: $react-datepicker__day !important;
+	color: #54708b !important;
 }

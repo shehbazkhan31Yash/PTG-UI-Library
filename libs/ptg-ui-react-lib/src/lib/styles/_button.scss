@@ -1,14 +1,15 @@
 .btn.btn-primary {
-    &:hover, &:focus {
-      &:not(:disabled) {
-        background-color: #1c5189;
-      }
-    }
-  }
+	&:hover,
+	&:focus {
+		&:not(:disabled) {
+			background-color: #1c5189;
+		}
+	}
+}
 
-  @media (min-width: 1921px) and (max-width: 2400px) {
-    .btn.btn-primary {
-     // height: 40px;
-     padding: 8px 20px;
-    }
-  }
+@media (min-width: 1921px) and (max-width: 2400px) {
+	.btn.btn-primary {
+		// height: 40px;
+		padding: 8px 20px;
+	}
+}

@@ -3,9 +3,9 @@
  * @author Sunil Bhawsar
  * @desc Side bar/navigation list
  */
-{
+
   /*--List of sidebar/side navigation--*/
-}
+
 
 export const NavigationChildData = [
   {
@@ -73,13 +73,13 @@ export const NavigationData = [
   {
     path: '/auth-login',
     icon: 'fa fa-lock',
-    label: 'Auth', 
+    label: 'Auth',
     disabled: false,
   },
   {
     path: '/accordian',
     icon: 'fa fa-lock',
-    label: 'Accordion',
+    label: 'ACCORDION',
     disabled: false,
   },
   {
@@ -91,7 +91,7 @@ export const NavigationData = [
   {
     path: '/button',
     icon: 'fa-solid fa-mobile-button',
-    label: 'Buttons',
+    label: 'BUTTONS',
     disabled: false,
   },
   {
@@ -103,7 +103,7 @@ export const NavigationData = [
   {
     path: '/carousel',
     icon: 'fa fa-lock',
-    label: 'Carousel',
+    label: 'CAROUSEL',
     disabled: false,
   },
   {
@@ -163,13 +163,13 @@ export const NavigationData = [
   {
     path: '/pagination',
     icon: 'fa-solid fa-table-list',
-    label: 'Pagination',
+    label: 'PAGINATION',
     disabled: false,
   },
   {
     path: '/dialog',
     icon: 'fa fa-th',
-    label: 'Dialog',
+    label: 'DIALOG',
     disabled: false,
   },
   {

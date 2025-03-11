@@ -6,8 +6,6 @@ import PtgUiResetPassword from './ResetPassword';
 
 describe('PtgUiResetPassword', () => {
   let getByTestId: any;
-  let getByText: any;
-  let getByRole: any;
   let container: any;
 
   it('should render successfully', () => {
@@ -17,8 +15,6 @@ describe('PtgUiResetPassword', () => {
       </BrowserRouter>
     );
     getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByRole = component.getByRole;
     container = component.container;
 
     fireEvent.click(getByTestId('submitPassword'));

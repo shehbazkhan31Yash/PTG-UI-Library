@@ -7,7 +7,6 @@
 import './role-based.scss';
 import { useState } from 'react';
 import { PtgUiButton } from '@ptg-ui/react';
-import { authClass } from '../../auth/services/auth.service';
 import { Role } from './role';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';

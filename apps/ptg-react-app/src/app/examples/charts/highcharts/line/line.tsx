@@ -9,7 +9,7 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 /* eslint-disable-next-line */
 export interface PtgUiHCLineProps { }
 
-export function PtgUiHCLine(props: PtgUiHCLineProps) {
+export function PtgUiHCLine(_props: PtgUiHCLineProps) {
   const { t } = useTranslation();
 
   
@@ -45,44 +45,6 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
       setShowMultiLineChartCode(false);
     }
   };
-
-  const singleLineChartComponentCode = `
-    
-    export const highchartsLineData:any = {
-      title:'my Charts',
-      data: [],
-      remainingOptions:{
-        xAxis: {
-          lineColor: 'transparent',
-          tickLength: 0
-      },
-      
-        plotOptions: {
-          series: {
-              pointStart: 2010
-          }
-      },
-      series:[{
-        name: 'Installation',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-    }],
-      }
-    }
-
-  
-  import { PtgUiLine } from '@ptg-ui/react';
-  import { highchartsLineData } from '@ptg-react-app/mock/mocks';
-
-  export interface PtgUiHCLineProps { }
-  
-  export function PtgUiHCLine(props: PtgUiHCLineProps) {
-  
-
-  export default PtgUiHCLine;`
-
-  const singleLineChartHtmlCode = `
-    <PtgUiLine {...highchartsLineData} />
-  `
 
   const mutlipleLineChartComponentCode = `
 

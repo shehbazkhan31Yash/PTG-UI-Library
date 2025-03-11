@@ -4,24 +4,15 @@
  * @desc Reusable Pagination Component
  *
  */
-import { useState, useEffect } from 'react';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiPagination } from '@ptg-ui/react';
 
-export interface PtgPaginationProps {}
-
-export function PtgPagination(props: PtgPaginationProps) {
+export function PtgPagination() {
   const [showCode, setShowCode] = useState(false);
   const [dataCount, setDataCount] = useState(80);
   const [pageNumber, setPageNumber] = useState(1);
-
-  const { t } = useTranslation();
-
-  const navigate = useNavigate();
 
   const ShowExampleCode = () => {
     if (!showCode) {
@@ -37,6 +28,7 @@ export function PtgPagination(props: PtgPaginationProps) {
 
   const componentCode = `
     import { PtgUiPagination } from '@ptg-ui/react';
+    import "@ptg-ui/react/lib/styles/index.css";
 
     const [dataCount, setdataCount] = useState(60);
     const [pageNumber, setPageNumber] = useState(1);
@@ -48,11 +40,13 @@ export function PtgPagination(props: PtgPaginationProps) {
 
   const htmlCode = `
     <PtgUiPagination
-      data={[]}
       dataCount={dataCount}
       pageNumber={pageNumber}
       pageIndex={(num) => pageIndex(num)}
-      siblingCount={1}
+      pageSize={5}
+      siblingCount={0}
+      previousBtnText={'Previous'}
+      nextBtnText={'Next'}
     />
   `;
 
@@ -79,12 +73,13 @@ export function PtgPagination(props: PtgPaginationProps) {
         )}
         <div className="ms-2">
           <PtgUiPagination
-            data={[]}
             dataCount={dataCount}
             pageNumber={pageNumber}
             pageIndex={(num) => pageIndex(num)}
+            pageSize={5}
             siblingCount={1}
-            pageSize={7}
+            previousBtnText={'Previous'}
+            nextBtnText={'Next'}
           />
         </div>
       </div>
