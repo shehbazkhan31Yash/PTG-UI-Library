@@ -43,7 +43,7 @@ export interface IPtgUiButtonProps {
 	fontWeight?: string;
 	textColor?: string;
 	backgroundColor?: string;
-	type?: 'button' | 'submit' | 'reset';
+	type?: string;
 	border?: string;
 }
 
