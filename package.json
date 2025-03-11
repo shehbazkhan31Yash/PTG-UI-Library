@@ -23,11 +23,10 @@
     "build:all:app": "npm run build:backend && npm run build:react-app -- --verbose && npm run build:ng-app && npm run build:ng-docprocess && npm run build:ng-storybook && npm run build:ng-googlemap && npm run build:ng-animations && nx build ptg-ui-web-components && npm run build:ptg-ui-web-comp-react && npm run build:ptg-ui-web-comp-angular && npm run build:ptg-metaverse-comp-react",
     "build:ng-lib": "nx build ptg-ui-angular-lib",
     "build:react-lib": "nx build ptg-ui-react-lib",
-    "build:ng-stencil": "nx build ptg-ui-web-components",
+    "build:ng-stencil": "nx build ptg-ui-web-components --verbose",
     "test": "nx test",
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
-    "start:ng-storybook:": "nx storybook ptg-ui-angular-lib",
-    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points"
+    "start:ng-storybook:": "nx storybook ptg-ui-angular-lib"
   },
   "private": true,
   "dependencies": {
@@ -165,9 +164,9 @@
     "@nrwl/storybook": "18.3.5",
     "@nrwl/web": "18.3.5",
     "@nrwl/workspace": "19.8.4",
-    "@nxext/stencil": "18.0.0",
-    "@stencil/angular-output-target": "^0.8.3",
-    "@stencil/core": "^4.7.0",
+    "@nxext/stencil": "^20.0.6",
+    "@stencil/angular-output-target": "^0.10.2",
+    "@stencil/core": "^4.27.2",
     "@stencil/react-output-target": "^0.8.2",
     "@stencil/sass": "3.0.8",
     "@storybook/addon-essentials": "8.5.0",
@@ -178,7 +177,7 @@
     "@testing-library/react": "13.3.0",
     "@types/d3": "^7.4.0",
     "@types/express": "4.17.13",
-    "@types/jest": "27.4.1",
+    "@types/jest": "^27.4.1",
     "@types/jest-axe": "^3.5.3",
     "@types/node": "16.11.7",
     "@types/react": "18.0.20",
@@ -204,6 +203,7 @@
     "jest-preset-angular": "~11.1.2",
     "ng-packagr": "18.2.0",
     "nx": "18.3.5",
+    "nx-cloud": "latest",
     "postcss": "^8.4.5",
     "postcss-import": "16.1.0",
     "postcss-preset-env": "~7.5.0",
@@ -215,7 +215,7 @@
     "ts-node": "10.9.1",
     "typescript": "~5.5.2",
     "webpack": "^5.64.0",
-    "nx-cloud": "latest"
+    "workbox-build": "^4.3.1"
   },
   "description": "This project was generated using [Nx](https://nx.dev).",
   "main": "decorate-angular-cli.js",

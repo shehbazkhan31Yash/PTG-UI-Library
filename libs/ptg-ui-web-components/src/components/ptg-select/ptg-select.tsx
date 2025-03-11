@@ -38,19 +38,19 @@ export class PtgSelect implements selectInterface {
             {this.expanded && (
               <ul>
                 <li>
-                  <label htmlfor="one">
+                  <label htmlFor="one">
                     <input type="checkbox" id="one" />
                     First checkbox
                   </label>
                 </li>
                 <li>
-                  <label htmlfor="two">
+                  <label htmlFor="two">
                     <input type="checkbox" id="two" />
                     Second checkbox
                   </label>
                 </li>
                 <li>
-                  <label htmlfor="three">
+                  <label htmlFor="three">
                     <input type="checkbox" id="three" />
                     Third checkbox
                   </label>
