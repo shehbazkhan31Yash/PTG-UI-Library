@@ -23,9 +23,7 @@ export function PtgUiHCLineBar(props: PtgUiHCLineBarProps) {
   },[apiDataLineChart])
 
   return (
-    <>
-      <PtgUiLineBar {...highchartsLineBar} />
-    </>
+    <PtgUiLineBar {...highchartsLineBar} />
   
   );
 }

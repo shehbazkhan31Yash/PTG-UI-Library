@@ -26,7 +26,7 @@ jobs:
           npm install -f
       - name: npm build
         run: |
-          npm run build:all:app --if-present
+          npm run build:ui:current --if-present
       - name: npm install in dist
         run: |
           cd dist/apps/ptg-ui-apps-backend

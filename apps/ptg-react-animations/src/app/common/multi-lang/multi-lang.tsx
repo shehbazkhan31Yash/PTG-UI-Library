@@ -1,5 +1,4 @@
-
-import { PtgUiMultiSelectbox, PtgUiSelect } from 'libs/ptg-ui-react-lib/src/index';
+import { PtgUiSelect } from 'libs/ptg-ui-react-lib/src/index';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Lang_LIST } from '../../mock/mocks';
@@ -10,14 +9,16 @@ export function MultiLang({}: MultiLangProps) {
   const { i18n } = useTranslation();
   const [selectedLang, setSelectedLang] = useState('en');
 
-  const changeLanguage = (event:any) => {
+  const changeLanguage = (event: any) => {
     setSelectedLang(event.target.value);
     i18n.changeLanguage(event.target.value);
-  }
+  };
 
   return (
     <div className="form-group me-2">
-      <label htmlFor="multiLang" tabIndex={0} aria-label="multi" hidden>Select Lang</label>
+      <label htmlFor="multiLang" tabIndex={0} aria-label="multi" hidden>
+        Select Lang
+      </label>
       <PtgUiSelect
         name="multiLang"
         list={Lang_LIST}
@@ -29,7 +30,7 @@ export function MultiLang({}: MultiLangProps) {
         value={selectedLang}
         aria-label="multiLang"
       />
-  </div>
+    </div>
   );
 }
 

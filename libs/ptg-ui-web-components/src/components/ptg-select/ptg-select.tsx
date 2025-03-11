@@ -19,7 +19,6 @@ export class PtgSelect implements selectInterface {
   };
 
   render() {
-    console.log(this.multiSelect);
     return (
       <div>
         {!this.multiSelect && (

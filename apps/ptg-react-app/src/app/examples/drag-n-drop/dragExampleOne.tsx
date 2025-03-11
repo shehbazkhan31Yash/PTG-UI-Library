@@ -4,7 +4,7 @@
  * @desc Drag and Drop example using react-beautiful-dnd library
  */
  
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   DragDropContext,
   Draggable,
@@ -14,10 +14,7 @@ import {
 import { PtguseFetch } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import './drag-n-drop.scss';
  
-export interface DragExampleOneProps {
-}
- 
-export function DragExampleOne(props: DragExampleOneProps) {
+export function DragExampleOne() {
   // const [user, setUser] = useState(USERS);
   const [dataList, setDataList] = useState(null || []);
   const { data:apiData } = PtguseFetch('drag-drop-lists') as any

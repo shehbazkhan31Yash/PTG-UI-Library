@@ -12,7 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiSelect,
@@ -21,9 +21,7 @@ import {
   PtgUiRadio,
 } from '@ptg-ui/react';
 
-export interface PtgUiSignupProps {}
-
-export function PtgUiSignup(props: PtgUiSignupProps) {
+export function PtgUiSignup() {
   const { t } = useTranslation();
   const [user, setUser]: any = useState({
     isLoading: false,
@@ -61,9 +59,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    // console.log('name' + name);
-    // console.log('value' + value);
-    console.log(e.target.value);
     validate(name, value);
     setUser((preState: any) => {
       return {
@@ -74,7 +69,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
   };
   const [date, setDate] = useState(null);
   const dateChange = (date: any) => {
-    setDate(date);
+    setDate(date.target.value);
   };
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
   const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,13 +103,16 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
         }
         break;
       case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
+        {
+          const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+          if (value === '' || value ? true : false !== regexEmail.test(value)) {
+            disabled = true;
+            if (!regexEmail.test(value)) {
+              formErr = true;
+            }
           }
         }
+
         break;
       case 'city':
         if (value !== '') {
@@ -214,9 +212,8 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           id="inputUsername"
                           value={user.username}
                           onChange={handleChange}
-                          className={`w-100 form-control bg_0 ${
-                            formErr.username ? 'border-danger' : ''
-                          }`}
+                          className={`w-100 form-control bg_0 ${formErr.username ? 'border-danger' : ''
+                            }`}
                           name="username"
                           placeholder={t('USER_NAME_PLACEHOLDER')}
                           onBlur={user.username === '' ? handleBlur : null}
@@ -237,9 +234,8 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           id="inputEmail"
                           value={user.email}
                           onChange={handleChange}
-                          className={`w-100 form-control bg_0 ${
-                            formErr.email ? 'border-danger' : ''
-                          }`}
+                          className={`w-100 form-control bg_0 ${formErr.email ? 'border-danger' : ''
+                            }`}
                           name="email"
                           placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
                           onBlur={user.email === '' ? handleBlur : null}
@@ -259,7 +255,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           onChange={dateChange}
                           startDate={null}
                           endDate={new Date()}
-                          // id="inputDOB"
+                        // id="inputDOB"
                         />
                       </div>
                     </div>
@@ -276,9 +272,8 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                           name="city"
                           id="city"
                           list={CITY_LIST}
-                          className={`sel-placeholder w-100 ${
-                            formErr.city ? 'border-danger' : ''
-                          }`}
+                          className={`sel-placeholder w-100 ${formErr.city ? 'border-danger' : ''
+                            }`}
                           onChange={handleChange}
                           value={user.city}
                           onBlur={user.city === '' ? handleBlur : null}
@@ -321,9 +316,8 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                             type="password"
                             onChange={handleChange}
                             value={user.password}
-                            className={`w-100 form-control bg_0 ${
-                              formErr.password ? 'border-danger' : ''
-                            }`}
+                            className={`w-100 form-control bg_0 ${formErr.password ? 'border-danger' : ''
+                              }`}
                             id="password"
                             name="password"
                             placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}
@@ -358,7 +352,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                       .
                     </label>
                   </div>
-                  <PtgUiButton
+                  <button
                     className="w-100"
                     type="button"
                     onClick={handleRegister}
@@ -366,7 +360,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     data-testid="register"
                   >
                     {t('SUBMIT')}
-                  </PtgUiButton>
+                  </button>
                 </div>
               </div>
             </form>

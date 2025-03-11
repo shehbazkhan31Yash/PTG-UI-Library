@@ -8,11 +8,7 @@ import { useEffect, useState } from 'react';
 import { Tree } from '@minoru/react-dnd-treeview';
 import { PtguseFetch } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
-
-
-export interface DragExampleFourProps {}
-
-function DragExampleFour(props : DragExampleFourProps) {
+function DragExampleFour() {
   
   const [dataList, setDataList] = useState<any[]>([]);
   
@@ -27,7 +23,7 @@ function DragExampleFour(props : DragExampleFourProps) {
   const handleDrop = (newTreeData: any) => setDataList(newTreeData);
 
   const checkChildExists = (id:any)=>{
-    let arr = dataList?.filter((item,index)=>{
+    const arr = dataList?.filter((item, _index) => {
       return id === item.parent;
     });
     return arr?.length> 0 ? true : false;
