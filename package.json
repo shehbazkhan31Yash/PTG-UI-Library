@@ -27,10 +27,7 @@
     "build:ng-stencil": "nx build ptg-ui-web-components",
     "test": "nx test",
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
-    "start:ng-storybook": "nx storybook ptg-ui-angular-lib",
-    "lint:angular-app": "eslint apps/ptg-angular-app/src --ext .js,.jsx,.ts,.tsx",
-    "lint:angular-lib": "eslint libs/ptg-ui-angular-lib/src --ext .js,.jsx,.ts,.tsx"
- 
+    "start:ng-storybook": "nx storybook ptg-ui-angular-lib"
   },
   "private": true,
   "dependencies": {
