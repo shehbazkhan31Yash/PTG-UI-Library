@@ -3,19 +3,17 @@ import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import './formik.scss';
+import { IFormValues, IFormValuesNested } from '../../interfaces/index';
+import { IMAGE_PATH, EMAIL_REGEX } from '../../constants/Constant';
 import {
-  IFormValues,
-  IFormValuesNested,
-} from '../../interfaces/index';
-import { IMAGE_PATH } from '../../constants/Constant';
-import {FORMIK_HTML_CODE, FORMIK_COMPONENET} from '../stringLiteral/FormikLiteral';
-import {CustomFormNested, CustomForm} from './formComponent';
+  FORMIK_HTML_CODE,
+  FORMIK_COMPONENET,
+} from '../stringLiteral/FormikLiteral';
+import { CustomFormNested, CustomForm } from './formComponent';
 import {
   required,
   lengthCheck,
 } from '../../common/formValidation/FormValidation';
-import { EMAIL_REGEX, } from '../../constants/Constant';
-
 
 const Formik = () => {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -59,7 +57,7 @@ const Formik = () => {
     required(values?.country, 'country', errors);
     return errors;
   };
- const validate = (values: IFormValues) => {
+  const validate = (values: IFormValues) => {
     const errors: IFormValues = {};
     required(values?.firstName, 'firstName', errors);
     if (values?.firstName) {

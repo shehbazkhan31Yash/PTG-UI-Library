@@ -4,7 +4,7 @@ div {
   margin-bottom: 10px;
 }
 
-.address-container{
+.address-container {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
@@ -28,9 +28,9 @@ div {
   font-weight: bold;
 }
 
-.address-input{
+.address-input {
   margin-right: 5%;
-  width: 45%
+  width: 45%;
 }
 
 .form-input {
@@ -48,10 +48,9 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: $main;
+  &:hover {
+      background-color: $main;
+    }
 }
 
 .error {
@@ -76,4 +75,8 @@ button:hover {
       }
     }
   }
+}
+
+.btn {
+  border: none;
 }

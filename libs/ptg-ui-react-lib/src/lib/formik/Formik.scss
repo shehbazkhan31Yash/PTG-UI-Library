@@ -30,7 +30,7 @@ div {
 
 .address-input {
 	margin-right: 5%;
-	width: 45%
+	width: 45%;
 }
 
 .form-input {
@@ -48,7 +48,7 @@ button {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	&:hover{
+	&:hover {
 		background-color: $main;
 	}
 }
@@ -77,6 +77,6 @@ button {
 	}
 }
 
-
-
-
+.btn {
+	border: none;
+}
