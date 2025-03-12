@@ -138,6 +138,7 @@ export interface PtgUiLoginProps {
 	signupMsg?: string;
 	signupButtonName?: string;
 	msalButtonName?: string;
+	oktaButtonName?: string;
 	forgotPasswordLabel?: string;
 	imgPath?: string;
 	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void | undefined;
@@ -147,6 +148,7 @@ export interface PtgUiLoginProps {
 	isEmailValid?: boolean;
 	onLoginClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	onMsalClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	onOktaClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	isForgotPassword?: boolean;
 	onForgotPasswordSubmit?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	getForgetEmail?: (email: string) => void;

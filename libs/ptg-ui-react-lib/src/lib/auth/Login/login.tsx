@@ -59,6 +59,7 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 	signupMsg,
 	signupButtonName,
 	msalButtonName,
+	oktaButtonName,
 	forgotPasswordLabel,
 	imgPath,
 	handleChange,
@@ -68,6 +69,7 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 	isEmailValid,
 	onLoginClick,
 	onMsalClick,
+	onOktaClick,
 	isForgotPassword,
 	onForgotPasswordSubmit,
 	getForgetEmail,
@@ -157,6 +159,21 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 						>
 							{msalButtonName}
 						</PtgUiButton>
+						{/* OKTA button for alternative login method */}
+						{oktaButtonName && (
+							<>
+								<p className="text-center mx-3 mb-0">OR</p>
+								<PtgUiButton
+									className="w-100"
+									width="100%"
+									border={'1px solid #000'}
+									backgroundColor="#ddd"
+									onClick={onOktaClick}
+								>
+									{oktaButtonName}
+								</PtgUiButton>
+							</>
+						)}
 					</form>
 				</div>
 			</div>
