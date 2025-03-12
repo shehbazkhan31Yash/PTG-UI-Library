@@ -257,7 +257,6 @@ export class SidenavComponent {
     if (typeof menuItem === 'object') {
       if (menuItem && menuItem.disabled === false) {
         this.selectedPath = menuItem.path;
-        console.log(this.selectedPath)
         this.selectMenu.emit(menuItem);
         this.router.navigate([this.selectedPath], { relativeTo: this.route });
       }

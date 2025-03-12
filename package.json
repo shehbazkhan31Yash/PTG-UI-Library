@@ -21,12 +21,17 @@
     "build:ptg-metaverse-comp-react": "nx build ptg-metaverse-comp-react --baseHref /ptg-metaverse-comp-react/",
     "build:backend": "nx build ptg-ui-apps-backend --prod --skip-nx-cache",
     "build:all:app": "npm run build:backend && npm run build:react-app -- --verbose && npm run build:ng-app && npm run build:ng-docprocess && npm run build:ng-storybook && npm run build:ng-googlemap && npm run build:ng-animations && nx build ptg-ui-web-components && npm run build:ptg-ui-web-comp-react && npm run build:ptg-ui-web-comp-angular && npm run build:ptg-metaverse-comp-react",
-    "build:ng-lib": "nx build ptg-ui-angular-lib",
+    "build:ui:current": "npm run build:react-app -- --verbose",
+    "build:ng-lib": "nx build ptg-ui-angular-lib --verbose",
     "build:react-lib": "nx build ptg-ui-react-lib",
     "build:ng-stencil": "nx build ptg-ui-web-components --verbose",
     "test": "nx test",
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
-    "start:ng-storybook:": "nx storybook ptg-ui-angular-lib"
+    "start:ng-storybook:": "nx storybook ptg-ui-angular-lib",
+    "scss": "libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css",
+    "scss-watch": "node-sass libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css --watch",
+    "lint:react-app": "eslint apps/ptg-react-app/src --ext .js,.jsx,.ts,.tsx",
+    "lint:react-lib": "eslint libs/ptg-ui-react-lib/src --ext .js,.jsx,.ts,.tsx"
   },
   "private": true,
   "dependencies": {
@@ -141,6 +146,8 @@
     "react-text": "^3.2.5",
     "regenerator-runtime": "0.13.7",
     "rxjs": "~7.5.0",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
     "socket.io": "^4.3.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

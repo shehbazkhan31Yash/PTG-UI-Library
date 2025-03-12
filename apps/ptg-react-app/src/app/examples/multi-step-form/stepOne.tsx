@@ -29,7 +29,6 @@ export const StepOne = ({ showNext, handleChange, details, error, handleBlur }: 
     error.confirmPassword,
   ]);
   return (
-    <>
     <div className="p-2">
       <div className="form-group required col-md-12 mb-2">
         <label htmlFor="inputUsername">{t('USER_NAME')} </label>
@@ -88,6 +87,5 @@ export const StepOne = ({ showNext, handleChange, details, error, handleBlur }: 
         {t('NEXT')}
       </PtgUiButton>
     </div>
-    </>
   );
 };

@@ -16,7 +16,6 @@
   ElementRef,
   forwardRef,
   Input,
-  OnInit,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -44,7 +43,7 @@ import {
     },
   ],
 })
-export class TextareaComponent implements  OnInit, ControlValueAccessor {
+export class TextareaComponent implements   ControlValueAccessor {
   // @Input() parentForm!: FormGroup;
   // @Input() fieldname!: string;
   @Input() placeholder: string | undefined | null = '';
@@ -91,9 +90,7 @@ export class TextareaComponent implements  OnInit, ControlValueAccessor {
     this.onChange(event.value);
   }
 
-  ngOnInit(): void {
-    // this.input.nativeElement.accessKey = this.accessKey;
-  }
+  
 
   handleBlur() {
     this.onTouched();

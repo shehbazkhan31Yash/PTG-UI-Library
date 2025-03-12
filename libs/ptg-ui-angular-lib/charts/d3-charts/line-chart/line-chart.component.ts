@@ -5,35 +5,45 @@
  * @description This module used for reusable D3 line chart
  */
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as d3 from "d3";
+
+interface lineData {
+  date: string, value: string
+}
 
 @Component({
   selector: 'ptg-ui-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent  {
   
   // Here is some inputs that create chart 
-  @Input() data: any;
-  @Input() margin: any;
-  @Input() width: any;
-  @Input() height: any;
+  @Input() data: lineData[] = [];
+  @Input() margin = { top: 10, right: 10, bottom: 10, left: 10 };
+  @Input() width = 0;
+  @Input() height = 0;
+  @Input() id = "line";
+  @Input() color = "steelblue";
+  @Input() coordinateDataTypes = {
+    "xData": "number",
+    "yData": "number"
+  };
 
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.createGraph();
   }
 
   // Chart creation function 
   createGraph(){
     // set the dimensions and margins of the graph
-   let margin = this.margin,
+   const margin = this.margin,
    d3width : number= this.width - margin.left - margin.right,
    d3height:number = this.height  - margin.top - margin.bottom;
    // append the svg object to the body of the page
-   let svg = d3.select("figure#line").append("svg")
+   const svg = d3.select("figure#" + this.id).append("svg")
    .attr("width", d3width)
    .attr("height", d3height)
    .attr("viewBox", [0, 0, this.width, this.height])
@@ -42,10 +52,11 @@ export class LineChartComponent implements OnInit {
    .attr("transform", `translate(${margin.left},     ${margin.top})`);
    
     // Add X axis and Y axis
-   var x = d3.scaleTime().range([0, d3width]);
-   var y = d3.scaleLinear().range([d3height, 0]);
-   let xdomain:any = d3.extent(this.data, (d:any) => { return d.date; });
-   let ydomain: any = d3.max(this.data, (d:any) => { return d.value; });
+   const x = d3.scaleTime().range([0, d3width]);
+   const y = d3.scaleLinear().range([d3height, 0]);
+   // modify the xDomain & yDomain to date base and number base
+   const xdomain:any = d3.extent(this.data, (d:any) => { return (this.coordinateDataTypes['x-axis'] == "date") ? Date.parse(d.date) : d.date; });
+   const ydomain: any = d3.max(this.data, (d:any) => { return (this.coordinateDataTypes['y-axis'] == "date") ? Date.parse(d.value) : d.value; });
    x.domain(xdomain);
    y.domain([0, ydomain]);
    svg.append("g")
@@ -54,16 +65,16 @@ export class LineChartComponent implements OnInit {
    svg.append("g")
    .call(d3.axisLeft(y).ticks(6));
 
- // add the Line
-     let valueLine: any = d3.line()
+    // add the Line
+    const valueLine: any = d3.line()
       .x((d:any) => { return x(d.date); })
       .y((d:any) => { return y(d.value); });
-     svg.append("path")
+    svg.append("path")
      .data([this.data])
      .attr("class", "line")
      .attr("fill", "none")
-     .attr("stroke", "steelblue")
+     .attr("stroke", this.color)
      .attr("stroke-width", 1.5)
      .attr("d", valueLine)
-}
+  }
 }

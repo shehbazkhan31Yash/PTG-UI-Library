@@ -1,4 +1,4 @@
-<ng-select *ngIf="isMultiple==false" [items]="items" class="textBox pb-2" [multiple]="false" bindLabel="name" [selectableGroup]="false"
+<ng-select *ngIf="isMultiple===false" [items]="items" class="textBox pb-2" [multiple]="false" bindLabel="name" [selectableGroup]="false"
   [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
   (change)="onchangeSelection($event)" (blur)="onBlur()">
   <ng-template  ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
@@ -8,7 +8,7 @@
 </ng-select>
 
   
-  <ng-select *ngIf="isMultiple==true" [items]="items" class="textBox pb-2" [multiple]="true" bindLabel="name" [selectableGroup]="false"
+  <ng-select *ngIf="isMultiple===true" [items]="items" class="textBox pb-2" [multiple]="true" bindLabel="name" [selectableGroup]="false"
     [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
     (change)="onchangeSelection($event)" (blur)="onBlur()">
     <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">

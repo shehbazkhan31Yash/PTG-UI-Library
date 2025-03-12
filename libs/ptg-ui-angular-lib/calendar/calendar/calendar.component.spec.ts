@@ -36,14 +36,14 @@ describe('CalendarComponent', () => {
     expect(component).toBeTruthy();
   });
   it('writeValue button',fakeAsync(()=>{
-    let obj = {}
+    const obj = {}
     const spyCloseDialog = jest.spyOn(component, 'writeValue');
     component.writeValue(obj);
     tick(50);
     expect(spyCloseDialog).toHaveBeenCalledTimes(1);
   }));
   it('registerOnChange button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'registerOnChange');
     component.registerOnChange(obj);
     component.onChange = obj
@@ -51,7 +51,7 @@ describe('CalendarComponent', () => {
     expect(spyCloseDialog).toHaveBeenCalledTimes(1);
   }));
   it('registerOnTouched button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'registerOnTouched');
     component.registerOnTouched(obj);
     component.onTouched = obj
@@ -73,7 +73,7 @@ describe('CalendarComponent', () => {
     expect(spyCloseDialog).toHaveBeenCalledTimes(1);
   }));
   it('onDateChanged button',fakeAsync(()=>{
-    let obj:any = {}
+    const obj:any = {}
     const spyCloseDialog = jest.spyOn(component, 'onDateChanged');
     component.onDateChanged(obj);
     component.onChange(obj);

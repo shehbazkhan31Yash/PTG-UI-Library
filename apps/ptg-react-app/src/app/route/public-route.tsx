@@ -1,11 +1,11 @@
 import {
-    Navigate
-  } from 'react-router-dom';
-  import { authClass } from '@ptg-react-app/auth/services/auth.service';
+  Navigate
+} from 'react-router-dom';
+import { authClass } from '@ptg-react-app/auth/services/auth.service';
   
   const PublicRoute=({ children}:{children:JSX.Element})=> {
 
-      let auth = authClass.getToken();
+    const auth = authClass.getToken();
       console.log('props:',auth);
     return (
         auth

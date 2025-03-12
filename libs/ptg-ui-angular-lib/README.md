@@ -507,11 +507,11 @@ If any dependencies issue came, please install this with force
 
             * data: any = [];
             * categories?: any;
-            * chartId? = 'line-chart';
+            * id? = 'line-chart';
 
             > USE
                 
-                <ptg-ui-high-line-chart [data]="lineChart3d.data" chartId="single-line" [categories]="lineChart3d.categories"></ptg-ui-high-line-chart>
+                <ptg-ui-high-line-chart [data]="lineChart3d.data" id="single-line" [categories]="lineChart3d.categories"></ptg-ui-high-line-chart>
 
         3.  High-pie-chart
             _Properties_
@@ -583,11 +583,11 @@ If any dependencies issue came, please install this with force
           * categories?:any;
           * xTitle?:any = null;
           * yTitle?:any = null;
-          * chartId = 'chart-line-3d';
+          * id = 'chart-line-3d';
 
             > USE
 
-                <ptg-ui-high-3d-line-chart [data]="lineChart3d.data" [categories]="lineChart3d.categories" chartId="single-line-chart"></ptg-ui-high-3d-line-chart>
+                <ptg-ui-high-3d-line-chart [data]="lineChart3d.data" [categories]="lineChart3d.categories" id="single-line-chart"></ptg-ui-high-3d-line-chart>
 
           3. High-3d-pie-chart
              _Properties_

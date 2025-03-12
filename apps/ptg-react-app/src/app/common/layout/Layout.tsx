@@ -5,20 +5,15 @@
 */
 import { Suspense } from 'react';
 import './Layout.scss';
-import { useTranslation } from 'react-i18next';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../header/header';
 import Sidenav from '../sidenav/Sidenav';
 import Footer from '../footer/Footer';
 import PrivateRoute from '../../route/private-route';
-import PublicRoute from '../../route/public-route';
 import routing from '../../route/routing';
 import { PtgSpinner } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 
-export interface LayoutProps { }
-
-export function Layout({ }: LayoutProps) {
-  const { t } = useTranslation();
+export function Layout() {
   return (
     <div className="wrapper">
       {/*--Import Header--*/}

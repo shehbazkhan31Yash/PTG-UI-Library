@@ -94,11 +94,9 @@ const PtgTable = class {
     const start = this.page * this.pageSize;
     const end = this.page * this.pageSize + this.pageSize;
     this.tablelist = this.tabledata.slice(start, end);
-    console.log(end);
   }
   render() {
     var _a, _b, _c;
-    console.log('data', this.tabledata);
     return (h("div", { class: "ptg-table-wrapper" }, this.searchable && (h("div", { class: "table-search" }, h("ptg-input", { placeholder: "Records.." }))), h("table", { class: {
         'ptg-table': true,
         [`ptg-table-${this.themeColor}`]: !!this.themeColor,

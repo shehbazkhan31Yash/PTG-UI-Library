@@ -1,39 +1,43 @@
-<ng-container *ngIf="isLoaded">
-<div class="bg-white rounded">
-    <h3
-    class="p-3"
-    [innerHTML]="'MULTI_FORMS' | translate"
-  ></h3>
-  <hr class="css-yasiti" />
-<mat-stepper class="my-stepper" orientation="horizontal" [linear]="isLinear" #stepper *ngIf="stateList && stateList.length > 0; else elseNotDone">
-    <mat-step [stepControl]="firstFormGroup">
-        <ng-template matStepLabel>Account Information</ng-template>
+<div class="px-2">
+    <div class="row bg-white rounded">
+        <div class="col-12 parent-block  justify-content-between align-items-center">
+            <h3 class="p-3" [innerHTML]="'MULTI_FORMS' | translate"></h3>
+            <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+        </div>
+        <hr class="css-yasiti" />
 
-     <div class="pt-2" #stepper>
-        <form [formGroup]="firstFormGroup" (ngSubmit)="firstFormSubmit()">
-            <div class="col-md-6">
-                <div class="pt-2" #stepper>
+        <ptg-ui-stepper [steps]="stepLabels" [formGroups]="[formGroup1, formGroup2, formGroup3]" (formReset)="onReset()"
+            (formSubmit)="onSubmit()">
+            <ng-template>
+                <div [formGroup]="formGroup1">
+                    <div class="col-md-6">
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="user_name" aria-label="User Name"
                                 [innerHTML]="'USER_NAME' | translate"></label>
                             <ptg-ui-input [id]="'user_name'" class="w-100" type="text" formControlName='userName'
                                 className="form-control bg-red" [placeholder]="'USER_NAME_PLACEHOLDER' | translate"
-                                aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid':submitted || firstForm.userName.touched}">
+                                aria_placeholder="Enter User Name"
+                                [ngClass]="{ 'is-invalid':submitted || formGroup1.get('userName')?.touched}">
                             </ptg-ui-input>
-                            <div class=" invalid-feedback errormsg">
-                                <div *ngIf="firstForm.userName?.errors?.['required']">User Name is required</div>
+                            <div class="invalid-feedback errormsg">
+                                <div *ngIf="formGroup1.get('userName')?.errors?.['required']">User Name is required
+                                </div>
                             </div>
                         </div>
+
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="email" aria-label="User Name"
                                 [innerHTML]="'LABEL_EMAIL' | translate"></label>
                             <ptg-ui-input [id]="'email'" class="w-100" type="text" formControlName='email'
                                 className="form-control bg_0" [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate"
-                                aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid': submitted || firstForm.email.touched}">
+                                aria_placeholder="Enter User Name"
+                                [ngClass]="{ 'is-invalid': submitted || formGroup1.get('email')?.touched}">
                             </ptg-ui-input>
-                            <div class=" invalid-feedback errormsg">
-                                <div *ngIf="firstForm.email?.errors?.['required']">Email is required</div>
-                                <div *ngIf="firstForm.email?.errors?.email">Email must be a valid email address</div>
+
+                            <div class="invalid-feedback errormsg">
+                                <div *ngIf="formGroup1.get('email')?.errors?.['required']">Email is required</div>
+                                <div *ngIf="formGroup1.get('email')?.errors?.email">Email must be a valid email address
+                                </div>
                             </div>
                         </div>
                         <div class="form-group required mb-2">
@@ -41,11 +45,13 @@
                                 [innerHTML]="'LABEL_PASSWORD' | translate"></label>
                             <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password"
                                 formControlName='password' className="form-control bg_0"
-                                [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate" [ngClass]="{ 'is-invalid': submitted || firstForm.password.touched }">
+                                [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate"
+                                [ngClass]="{ 'is-invalid': submitted || formGroup1.get('password')?.touched }">
                             </ptg-ui-input>
-                            <div class=" invalid-feedback errormsg">
-                                <div *ngIf="firstForm.password.errors?.['required']">Password required</div>
-                                <div *ngIf="firstForm.password.errors?.minlength">Password must be at least 6 characters</div>
+                            <div class="invalid-feedback errormsg">
+                                <div *ngIf="formGroup1.get('password')?.errors?.['required']">Password required</div>
+                                <div *ngIf="formGroup1.get('password')?.errors?.minlength">Password must be at least 6
+                                    characters</div>
                             </div>
                         </div>
                         <div class="form-group required mb-2">
@@ -53,359 +59,316 @@
                                 [innerHTML]="'CONFIRM_PASSWORD_LABEL' | translate"></label>
                             <ptg-ui-input class="w-100" [id]="'inputConfirmPassword'" type="password"
                                 formControlName='confirm' className="form-control bg_0"
-                                [placeholder]="'CONFIRM_PASSWORD_PLACEHOLDERE' | translate" [ngClass]="{ 'is-invalid': submitted || firstForm.confirm.touched }">
+                                [placeholder]="'CONFIRM_PASSWORD_PLACEHOLDERE' | translate"
+                                [ngClass]="{ 'is-invalid': submitted || formGroup1.get('confirm')?.touched }">
                             </ptg-ui-input>
-                            <div class=" invalid-feedback errormsg">
-                                <div *ngIf="firstForm.confirm.errors?.['required']"> Confirm password required</div>
-                                  <div *ngIf="firstForm.confirm?.errors?.['confirmPasswordValidator']">
-                                    Passwords did not match
-                                  </div>
-                            </div>
-                        </div>
-                        </div>
-                    
-                    </div>
-
-            <div>
-                <button mat-button matStepperNext  class="btn btn-primary me-2"style="float: right;">Next</button>
-            </div>
-        </form>
-     </div>
-
-
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel>Personal Information</ng-template>
-        <div #stepper class="pt-2">
-            <form [formGroup]="secondFormGroup" (ngSubmit)="secondFormSubmit()">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" aria-label="title" [innerHTML]="'TITLE' | translate"></label>
-                                <ptg-ui-select class="w-100" formControlName='title' [items]='titleArray'
-                                    [isMultiple]="false" [closeOnSelect]="true"
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1 || secondForm.title.touched }">
-                                </ptg-ui-select>
-                                <div *ngIf="secondForm.title?.touched || submitted1 && !secondForm.title.valid || secondForm.title?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.title?.errors?.['required']">Title is required</div>
+                            <div class="invalid-feedback errormsg">
+                                <div *ngIf="formGroup1.get('confirm')?.errors?.['required']">Confirm password required
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 ">
-                            <div class="form-group required mb-2">
-                                <fieldset>
-                                    <legend tabindex="0" [innerHTML]="'GENDER' | translate" class="legend-tag">
-                                    </legend>
-                                    <ptg-ui-radio formControlName='gender' [items]='genderList'
-                                        [name]="'gender-radio-btn'">
-                                    </ptg-ui-radio>
-                                </fieldset>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="firstname" aria-label="First Name"
-                                    [innerHTML]="'LABEL_FIRST_NAME' | translate"></label>
-                                <ptg-ui-input [id]="'firstname'" formControlName='firstName' class="w-100" type="text"
-                                    className="form-control bg_0" [placeholder]="'FIRSTNAME_PLACEHOLDER' | translate"
-                                    aria_placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted1 || secondForm.firstName.touched }">
-                                </ptg-ui-input>
-                                <div *ngIf="secondForm.firstName?.touched || submitted1 && !secondForm.firstName.valid || secondForm.firstName?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.firstName.errors?.['required']">First Name is required</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 ">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="lastname" aria-label="Last Name"
-                                    [innerHTML]="'LABEL_LAST_NAME' | translate"></label>
-                                <ptg-ui-input [id]="'lastname'" formControlName='lastName' class="w-100" type="text"
-                                    className="form-control bg_0" [placeholder]="'LASTNAME_PLACEHOLDER' | translate"
-                                    aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid': submitted1 || secondForm.lastName.touched }">
-                                </ptg-ui-input>
-                                <div *ngIf="secondForm.lastName?.touched || submitted1 && !secondForm.lastName.valid || secondForm.lastName?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.lastName.errors?.['required']">Last Name is required</div>
-                                </div>
+                                <div *ngIf="formGroup1.get('confirm')?.errors?.['confirmPasswordValidator']">Passwords
+                                    did not match</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="email" aria-label="Password"
-                                    [innerHTML]="'LABEL_EMAIL' | translate"></label>
-                                <ptg-ui-input class="w-100" [id]="'email'" formControlName='email' type="email"
-                                    className="form-control bg_0" [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate" [ngClass]="{ 'is-invalid': submitted1  || secondForm.email.touched }">
-                                </ptg-ui-input>
-                                <div *ngIf="secondForm.email?.touched || submitted1 && !secondForm.email.valid || secondForm.email?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.email.errors?.['required']">email is required</div>
-                                    <div *ngIf="secondForm.email?.errors?.email">Email must be a valid email address</div>
-
+            </ng-template>
+            <ng-template>
+                <div [formGroup]="formGroup2">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" aria-label="title" [innerHTML]="'TITLE' | translate"></label>
+                                    <ng-select class="w-100" formControlName='title' [items]='titleArray'
+                                        [multiple]="false" [closeOnSelect]="true"
+                                        [placeholder]="'SELECT_PLACEHOLDER' | translate"
+                                        [ngClass]="{ 'is-invalid': submitted1 || formGroup2.get('title')?.touched }">
+                                    </ng-select>
+                                    <div *ngIf="(formGroup2.get('title')?.touched || submitted1) && formGroup2.get('title')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup2.get('title')?.errors?.['required']">Title is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group required mb-2">
+                                            <label tabindex="0" for="firstname" aria-label="First Name"
+                                                [innerHTML]="'LABEL_FIRST_NAME' | translate"></label>
+                                            <ptg-ui-input [id]="'firstname'" formControlName='firstName' class="w-100"
+                                                type="text" className="form-control bg_0"
+                                                [placeholder]="'FIRSTNAME_PLACEHOLDER' | translate"
+                                                aria_placeholder="Enter First Name"
+                                                [ngClass]="{ 'is-invalid': submitted1 || formGroup2.get('firstName')?.touched }">
+                                            </ptg-ui-input>
+                                            <div *ngIf="(formGroup2.get('firstName')?.touched || submitted1) && formGroup2.get('firstName')?.errors"
+                                                class="invalid-feedback errormsg">
+                                                <div *ngIf="formGroup2.get('firstName')?.errors?.['required']">First
+                                                    Name is
+                                                    required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <div class="form-group required mb-2">
+                                            <label tabindex="0" for="lastname" aria-label="Last Name"
+                                                [innerHTML]="'LABEL_LAST_NAME' | translate"></label>
+                                            <ptg-ui-input [id]="'lastname'" formControlName='lastName' class="w-100"
+                                                type="text" className="form-control bg_0"
+                                                [placeholder]="'LASTNAME_PLACEHOLDER' | translate"
+                                                aria_placeholder="Enter User Name"
+                                                [ngClass]="{ 'is-invalid': submitted1 || formGroup2.get('lastName')?.touched }">
+                                            </ptg-ui-input>
+                                            <div *ngIf="(formGroup2.get('lastName')?.touched || submitted1) && formGroup2.get('lastName')?.errors"
+                                                class="invalid-feedback errormsg">
+                                                <div *ngIf="formGroup2.get('lastName')?.errors?.['required']">Last Name
+                                                    is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group required mb-2">
+                                            <label tabindex="0" for="email" aria-label="Password"
+                                                [innerHTML]="'LABEL_EMAIL' | translate"></label>
+                                            <ptg-ui-input class="w-100" [id]="'email'" formControlName='email'
+                                                type="email" className="form-control bg_0"
+                                                [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate"
+                                                [ngClass]="{ 'is-invalid': submitted1  || formGroup2.get('email')?.touched }">
+                                            </ptg-ui-input>
+                                        </div>
+                                        <div *ngIf="(formGroup2.get('email')?.touched || submitted1) && formGroup2.get('email')?.errors"
+                                            class="invalid-feedback errormsg">
+                                            <div *ngIf="formGroup2.get('email')?.errors?.['required']">Email is required
+                                            </div>
+                                            <div *ngIf="formGroup2.get('email')?.errors?.email">Email must be a valid
+                                                email
+                                                address</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group required mb-2">
+                                        <label tabindex="0" for="phone" aria-label="phonno"
+                                            [innerHTML]="'LABEL_PHONE' | translate"></label>
+                                        <ptg-ui-input class="w-100" [id]="'phone'" formControlName='phoneNo' type="text"
+                                            required pattern="[- +()0-9]{10,12}" className="form-control bg_0"
+                                            [placeholder]="'PHONE_PLACEHOLDER' | translate"
+                                            [ngClass]="{ 'is-invalid': submitted1 || formGroup2.get('phoneNo')?.touched}">
+                                        </ptg-ui-input>
+                                        <div *ngIf="(formGroup2.get('phoneNo')?.touched || submitted1) && formGroup2.get('phoneNo')?.errors"
+                                            class="invalid-feedback errormsg">
+                                            <div *ngIf="formGroup2.get('phoneNo')?.errors?.['required']">Phone number is
+                                                required</div>
+                                            <div *ngIf="formGroup2.get('phoneNo')?.errors?.['pattern']">Invalid phone
+                                                number
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="phone" aria-label="phonno"
-                                    [innerHTML]="'LABEL_PHONE' | translate"></label>
-                                <ptg-ui-input class="w-100" [id]="'phone'" formControlName='phoneNo' type="text"
-                                required pattern="[- +()0-9]{10,12}"   className="form-control bg_0" [placeholder]="'PHONE_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1 || secondForm.phoneNo.touched}">
-                                </ptg-ui-input>
-                                <div *ngIf="secondForm.phoneNo?.touched || submitted1 && !secondForm.phoneNo.valid || secondForm.phoneNo?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.phoneNo.errors?.['required']">Phone no is required</div>
-                                    <div *ngIf="secondForm.phoneNo.errors?.['pattern']">Invalid phone number.</div>
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group required mb-2">
+                                        <label tabindex="0" for="zipCode" aria-label="Zip Code"
+                                            [innerHTML]="'LABEL_ZIP_CODE' | translate"></label>
+                                        <ptg-ui-input [id]="'zipCode'" class="w-100" type="text"
+                                            className="form-control bg_0" required formControlName='zipCode'
+                                            [placeholder]="'LABEL_ZIP_CODE' | translate"
+                                            aria_placeholder="Enter Zip Code"
+                                            [class.is-invalid]=" submitted1 || formGroup2.get('zipCode')?.touched">
+                                        </ptg-ui-input>
+                                        <div *ngIf="(formGroup2.get('zipCode')?.touched || submitted1) && formGroup2.get('zipCode')?.errors"
+                                            class="invalid-feedback errormsg">
+                                            <div *ngIf="formGroup2.get('zipCode')?.errors?.['required']">Zip code is
+                                                required
+                                            </div>
+                                            <div *ngIf="formGroup2.get('zipCode')?.errors?.['pattern']">Invalid zip code
+                                                number
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group required mb-2">
+                                        <label tabindex="0" aria-label="City"
+                                            [innerHTML]="'LABEL_STATE' | translate"></label>
+                                        <ng-select class="w-100" [items]="stateList" bindLabel="name" bindValue="id"
+                                            formControlName="state" [placeholder]="'SELECT_PLACEHOLDER' | translate"
+                                            [ngClass]="{ 'is-invalid': (formGroup2.get('state')?.touched || submitted1) }">
+                                        </ng-select>
+                                        <div *ngIf="(submitted1 || formGroup2.get('state')?.touched) && formGroup2.get('state')?.errors"
+                                            class="invalid-feedback errormsg">
+                                            <div *ngIf="formGroup2.get('state')?.errors?.['required']">State is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group required mb-2">
+                                        <label tabindex="0" aria-label="City"
+                                            [innerHTML]="'LABEL_COUNTRY' | translate"></label>
+                                        <ng-select class="w-100" [items]='countryList' formControlName='country'
+                                            [multiple]="false" [closeOnSelect]="true"
+                                            [placeholder]="'SELECT_PLACEHOLDER' | translate"
+                                            [ngClass]="{ 'is-invalid':(formGroup2.get('country')?.touched || submitted1 )  }">
+                                        </ng-select>
+                                        <div *ngIf="(formGroup2.get('country')?.touched || submitted1) && formGroup2.get('country')?.errors"
+                                            class="invalid-feedback errormsg">
+                                            <div *ngIf="formGroup2.get('country')?.errors?.['required']">Country is
+                                                required
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group required mb-2">
-                                <label tabindex="0" for="zipCode" aria-label="Zip Code"
-                                    [innerHTML]="'LABEL_ZIP_CODE' | translate"></label>
-                                <ptg-ui-input [id]="'zipCode'" class="w-100" type="text" className="form-control bg_0" required
-                                    formControlName='zipCode' [placeholder]="'LABEL_ZIP_CODE' | translate"
-                                    aria_placeholder="Enter Zip Code" [class.is-invalid]=" submitted1 || secondForm.zipCode.touched">
-                                </ptg-ui-input>
-                                <div *ngIf="secondForm.zipCode?.touched || submitted1 && !secondForm.zipCode.valid || secondForm.zipCode?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.zipCode.errors?.['required']">Zip code is required</div>
-                                    <div *ngIf="secondForm.zipCode.errors?.['pattern']">Invalid zip code number.</div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" aria-label="City" [innerHTML]="'LABEL_STATE' | translate"></label>
-                                <ptg-ui-select class="w-100" [items]='stateList' [isMultiple]="false"
-                                    [closeOnSelect]="true" formControlName='state'
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1  || secondForm.state.touched }">
-                                </ptg-ui-select>
-                                <div *ngIf="secondForm.state?.touched || submitted1 && !secondForm.state.valid || secondForm.state?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.state.errors?.['required']">State is required</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" aria-label="City" [innerHTML]="'LABEL_COUNTRY' | translate"></label>
-                                <ptg-ui-select class="w-100" [items]='countryList' formControlName='country'
-                                    [isMultiple]="false" [closeOnSelect]="true"
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate"  [ngClass]="{ 'is-invalid': submitted1 || secondForm.country.touched }">
-                                </ptg-ui-select>
-                                <div *ngIf="secondForm.country?.touched || submitted1 && !secondForm.country.valid || secondForm.country?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="secondForm.country.errors?.['required']">Country is required</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group required mb-2">
-                        <label tabindex="0" for="address" aria-label="Address"
-                            [innerHTML]="'LABEL_ADDRESS' | translate"></label>
-                        <ptg-ui-textarea class="w-100" [id]="'address'" type="text" formControlName='address'
-                            className="form-control bg_0" [placeholder]="'LABEL_ADDRESS' | translate" [placeholder]="'LABEL_ADDRESS' | translate"  [ngClass]="{ 'is-invalid': submitted1  || secondForm.address.touched }">
-
-                        </ptg-ui-textarea>
-                        <div *ngIf="secondForm.address?.touched || submitted1 && !secondForm.address.valid || secondForm.address?.errors" class=" invalid-feedback errormsg">
-                            <div *ngIf="secondForm.address.errors?.['required']">Address is required</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
-                        </div>
-                        <div class="col-6 text-end">
-                            <button mat-button class="btn btn-primary" matStepperNext>Next</button>
-                        </div>
-                    </div>
-                </div>
-
-            </form>
-
-        </div>
-    </mat-step>
-    <mat-step [stepControl]="thirdFormGroup">
-        <ng-template matStepLabel>Payment Information</ng-template>
-        <div #stepper class="pt-2">
-            <form [formGroup]="thirdFormGroup" (ngSubmit)="thirdFormsubmit()">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" aria-label="CARD_TYPE"
-                                    [innerHTML]="'LABEL_CARD_TYPE' | translate"></label>
-                                <ptg-ui-select class="w-100" [items]='cardList' formControlName='cardType'
-                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"  [ngClass]="{ 'is-invalid': submitted2 || thirdForm.cardType.touched }">
-                                </ptg-ui-select>
-                                <div *ngIf="thirdForm.cardType?.touched || submitted2 && !thirdForm.cardType.valid || thirdForm.cardType?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.cardType.errors?.['required']">Card type is required</div>
+                                <label tabindex="0" for="address" aria-label="Address"
+                                    [innerHTML]="'LABEL_ADDRESS' | translate"></label>
+                                <ptg-ui-textarea class="w-100" [id]="'address'" type="text" formControlName='address'
+                                    className="form-control bg_0" [placeholder]="'LABEL_ADDRESS' | translate"
+                                    [placeholder]="'LABEL_ADDRESS' | translate"
+                                    [ngClass]="{ 'is-invalid': submitted1  || formGroup2.get('address')?.touched }">
+                                </ptg-ui-textarea>
+                                <div *ngIf="(formGroup2.get('address')?.touched || submitted1) && formGroup2.get('address')?.errors"
+                                    class="invalid-feedback errormsg">
+                                    <div *ngIf="formGroup2.get('address')?.errors?.['required']">Address is required
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="Card_Number" aria-label="Card Number"
-                                    [innerHTML]="'LABEL_CARD_NUMBER' | translate"></label>
-                                <ptg-ui-input [id]="'Card_Number'" class="w-100" formControlName='cardNo' type="text"
-                                    className="form-control bg_0" [placeholder]="'LABEL_CARD_NUMBER' | translate"
-                                    aria_placeholder="Enter card number" [ngClass]="{ 'is-invalid': submitted2  || thirdForm.cardNo.touched }">
-                                </ptg-ui-input>
-                                <div *ngIf="thirdForm.cardNo?.touched || submitted2 && !thirdForm.cardNo.valid || thirdForm.cardNo?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.cardNo.errors?.['required']">Card no is required</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="cvv" aria-label="cvv"
-                                    [innerHTML]="'LABEL_CVV' | translate"></label>
-                                <ptg-ui-input [id]="'cvv'" class="w-100" formControlName='cvv' type="text"
-                                    className="form-control bg_0" [placeholder]="'LABEL_CVV' | translate"
-                                    aria_placeholder="cvv"  [ngClass]="{ 'is-invalid': submitted2  || thirdForm.cvv.touched }" >
-                                </ptg-ui-input>
-                                <div *ngIf="thirdForm.cvv?.touched || submitted2 && !thirdForm.cvv.valid || thirdForm.cvv?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.cvv.errors?.['required']">Cvv is required</div>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="holder_name" aria-label="card holder name"
-                                    [innerHTML]="'LABEL_CARD_HOLDER_NAME' | translate"></label>
-                                <ptg-ui-input class="w-100" formControlName='name' [id]="'holder_name'" type="text"
-                                    className="form-control bg_0" [placeholder]="'LABEL_CARD_HOLDER_NAME' | translate"
-                                    [ngClass]="{ 'is-invalid': submitted2  || thirdForm.name.touched }" >
-                                </ptg-ui-input>
-                                <div *ngIf="thirdForm.name?.touched || submitted2 && !thirdForm.name.valid || thirdForm.name?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.name.errors?.['required']">Card holder name required</div>
+            </ng-template>
+            <ng-template>
+                <div [formGroup]="formGroup3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" aria-label="CARD_TYPE"
+                                        [innerHTML]="'LABEL_CARD_TYPE' | translate"></label>
+                                    <ng-select class="w-100" [items]='cardList' formControlName='cardType'
+                                        [multiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('cardType')?.touched }">
+                                    </ng-select>
+                                    <div *ngIf="(formGroup3.get('cardType')?.touched || submitted2) && formGroup3.get('cardType')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('cardType')?.errors?.['required']">Card type is
+                                            required
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="exp_month" aria-label="EXPIRY MONTH"
-                                    [innerHTML]="'LABEL_EXPIRY_MONTH' | translate"></label>
-                                <ptg-ui-select class="w-100" formControlName='expMonth' [items]='expMonthList'
-                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"
-                                    [ngClass]="{ 'is-invalid': submitted2  || thirdForm.expMonth.touched }">
-                                </ptg-ui-select>
-                                <div *ngIf="thirdForm.expMonth?.touched || submitted2 && !thirdForm.expMonth.valid || thirdForm.expMonth?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.expMonth.errors?.['required']">Exp month is required</div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" for="Card_Number" aria-label="Card Number"
+                                        [innerHTML]="'LABEL_CARD_NUMBER' | translate"></label>
+                                    <ptg-ui-input [id]="'Card_Number'" class="w-100" formControlName='cardNo'
+                                        type="text" className="form-control bg_0"
+                                        [placeholder]="'LABEL_CARD_NUMBER' | translate"
+                                        aria_placeholder="Enter card number"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('cardNo')?.touched }">
+                                    </ptg-ui-input>
+                                    <div *ngIf="(formGroup3.get('cardNo')?.touched || submitted2) && formGroup3.get('cardNo')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('cardNo')?.errors?.['required']">Card number is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" for="cvv" aria-label="cvv"
+                                        [innerHTML]="'LABEL_CVV' | translate"></label>
+                                    <ptg-ui-input [id]="'cvv'" class="w-100" formControlName='cvv' type="text"
+                                        className="form-control bg_0" [placeholder]="'LABEL_CVV' | translate"
+                                        aria_placeholder="cvv"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('cvv')?.touched }">
+                                    </ptg-ui-input>
+                                    <div *ngIf="(formGroup3.get('cvv')?.touched || submitted2) && formGroup3.get('cvv')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('cvv')?.errors?.['required']">CVV is required</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <div class="form-group required mb-2">
-                                <label tabindex="0" for="exp_year" aria-label="EXPIRY YEAR'"
-                                    [innerHTML]="'LABEL_EXPIRY_YEAR' | translate"></label>
-                                <ptg-ui-input [id]="'exp_year'" class="w-100" formControlName='expyear' type="text"
-                                    className="form-control bg_0" [placeholder]="'LABEL_EXPIRY_YEAR' | translate"
-                                    aria_placeholder="Enter expiry year" [ngClass]="{ 'is-invalid': submitted2  || thirdForm.expyear.touched }">
-                                </ptg-ui-input>
-                                <div *ngIf="thirdForm.expyear?.touched || submitted2 && !thirdForm.expyear.valid || thirdForm.expyear?.errors" class=" invalid-feedback errormsg">
-                                    <div *ngIf="thirdForm.expyear.errors?.['required']">Exp year is required</div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" for="holder_name" aria-label="card holder name"
+                                        [innerHTML]="'LABEL_CARD_HOLDER_NAME' | translate"></label>
+                                    <ptg-ui-input class="w-100" formControlName='name' [id]="'holder_name'" type="text"
+                                        className="form-control bg_0"
+                                        [placeholder]="'LABEL_CARD_HOLDER_NAME' | translate"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('name')?.touched }">
+                                    </ptg-ui-input>
+                                    <div *ngIf="(formGroup3.get('name')?.touched || submitted2) && formGroup3.get('name')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('name')?.errors?.['required']">Card holder name is
+                                            required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" for="exp_month" aria-label="EXPIRY MONTH"
+                                        [innerHTML]="'LABEL_EXPIRY_MONTH' | translate"></label>
+                                    <ng-select class="w-100" formControlName='expMonth' [items]='expMonthList'
+                                        [multiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('expMonth')?.touched }">
+                                    </ng-select>
+                                    <div *ngIf="(formGroup3.get('expMonth')?.touched || submitted2) && formGroup3.get('expMonth')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('expMonth')?.errors?.['required']">Exp month is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group required mb-2">
+                                    <label tabindex="0" for="exp_year" aria-label="EXPIRY YEAR"
+                                        [innerHTML]="'LABEL_EXPIRY_YEAR' | translate"></label>
+                                    <ptg-ui-input [id]="'exp_year'" class="w-100" formControlName='expyear' type="text"
+                                        className="form-control bg_0" [placeholder]="'LABEL_EXPIRY_YEAR' | translate"
+                                        aria_placeholder="Enter expiry year"
+                                        [ngClass]="{ 'is-invalid': submitted2 || formGroup3.get('expyear')?.touched }">
+                                    </ptg-ui-input>
+                                    <div *ngIf="(formGroup3.get('expyear')?.touched || submitted2) && formGroup3.get('expyear')?.errors"
+                                        class="invalid-feedback errormsg">
+                                        <div *ngIf="formGroup3.get('expyear')?.errors?.['required']">Exp year is
+                                            required
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
-                        </div>
-                        <div class="col-6 text-end">
-                            <button mat-button class="btn btn-primary" matStepperNext>Next</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel matStepperIcon="phone">Confirm Details</ng-template>
-        <div class="pt-2">
-            <dl>
-                <dt>Username: </dt>
-                <dd>John_503in</dd>
-
-                <dt>Email ID: </dt>
-                <dd>john_doe&#64;gmail.com</dd>
-
-                <dt>Full Name: </dt>
-                <dd>John Doe</dd>
-
-                <dt>Gender:</dt>
-                <dd>Male</dd>
-
-                <dt>Telephone NO.:</dt>
-                <dd>325-555-1234</dd>
-
-                <dt>Address:</dt>
-                <dd>111 W.App Ave. Suite 123, Sunway, CA</dd>
-
-                <dt>Zip Code:</dt>
-                <dd>94086</dd>
-
-                <dt>Country:</dt>
-                <dd>USA</dd>
-
-                <dt>Card Type:</dt>
-                <dd>Visa</dd>
-
-                <dt>Telephone NO.:</dt>
-                <dd>4519-1235-9869-4321</dd>
-
-            </dl>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
-                    </div>
-                    <div class="col-6 text-end">
-                        <button mat-button class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </div> 
+            </ng-template>
+        </ptg-ui-stepper>
     </div>
-    </mat-step>
-</mat-stepper>
 </div>
-<ng-template #elseNotDone>
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border text-loader m-5" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  </ng-template>
-</ng-container>

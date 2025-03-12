@@ -1,15 +1,11 @@
 import { BrowserRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import selectEvent from 'react-select-event';
 
 import PtgUiSignup from './signup';
 
 describe('PtgUiSignup', () => {
   let container: any;
   let getByTestId: any;
-  let getByText: any;
-  let getByLabelText: any;
   it('should render successfully', async () => {
     const component = render(
       <BrowserRouter>
@@ -18,8 +14,6 @@ describe('PtgUiSignup', () => {
     );
     container = component.container;
     getByTestId = component.getByTestId;
-    getByText = component.getByText;
-    getByLabelText = component.getByLabelText;
     // Radio
     fireEvent.click(getByTestId('Female'));
 

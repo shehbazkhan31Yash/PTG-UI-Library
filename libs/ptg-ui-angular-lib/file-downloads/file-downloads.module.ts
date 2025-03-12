@@ -8,9 +8,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileDownloadComponent } from './file-download/file-download.component';
-import { SelectModule } from '@ptg-ui/angular/select';
-// import { RadioModule } from "../radio/radio.module";
-
+import { SelectModule } from '../select/select.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +16,6 @@ import { SelectModule } from '@ptg-ui/angular/select';
   ],
   imports: [
     CommonModule,
-    // RadioModule
     SelectModule
   ],
   exports:[

@@ -1,109 +1,143 @@
 /**
  * @since December 2023
  * @author Nimish Jain
+ * @updatedby Ankita Keshri
  * @uses Example using dialog/modal as reusable component.
  *
-*/
+ */
 
 import { useState } from 'react';
-import { PtgButton, PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
+import './dialog.scss';
+import { FONT_SIZE_12, BUTTON_VARIANT, MODAL_CANCEL_BUTTON_COLOR, MODAL_CANCEL_BUTTON_TEXT, MODAL_CONFIRM_BUTTON_COLOR, MODAL_CONFIRM_BUTTON_TEXT, POSITIONS, WIDTH_200 } from '@ptg-react-app/constants/Constant';
 
 const DialogExample = () => {
-  const [showCode, setShowCode] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [showCode, setShowCode] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const ShowExampleCode = () => {
-    if (!showCode) {
-      setShowCode(true);
-    } else {
-      setShowCode(false);
-    }
-  };
+// Note: showExampleCode function show code 
+  const showExampleCode = () => setShowCode(!showCode);
+ 
+  // Note: Handle modal close 
+  const modalClosed = () => setIsOpen(false);
 
-  const modalClosed = (event) => {
-    setIsOpen(false);
-  }
+// Note: Handle confirm click
+  const confirmClicked = () => setIsOpen(false);
 
-  const confirmClicked = (event) => {
-    setIsOpen(false);
-  }
-
-  const openModal = () => {
-    setIsOpen(true);
-  }
+// Note: Handle open modal
+  const openModal = () =>  setIsOpen(true);
+  
 
   const componentCode = `
-  import PtgModal from '@ptg-ui/ptg-ui-web-components-react';
-  import AddCircleIcon from '@mui/icons-material/AddCircle';
-  const [isOpen, setIsOpen] = useState(false);
+    const [showCode, setShowCode] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const modalClosed = (event) => {
-    setIsOpen(false);
-  }
+   // Note: showExampleCode function show code 
+   const showExampleCode = () => setShowCode(!showCode);
+ 
+  // Note: Handle modal close 
+  const modalClosed = () => setIsOpen(false);
 
-  const confirmClicked = (event) => {
-    setIsOpen(false);
-  }
+  // Note: Handle confirm click
+  const confirmClicked = () => setIsOpen(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  }
-
-  export default DialogExample;
-  `
+  // Note: Handle open modal
+  const openModal = () =>  setIsOpen(true);
+  `;
 
   const cssCode = `
-  import '@ptg-ui-web-components/src/global/global.css'`;
+  import "@ptg-ui/react/lib/styles/index.css"`;
 
   const htmlCode = `
-      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
-        btnIconAlignment='left' >
-        <div slot="btnIcon">
-          <AddCircleIcon />
-        </div>
-      </PtgButton>
+    import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
 
-      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
-        modal-size='lg' modal-header-name="Header Name Here"
-        confirm-button-name="Okay" onModalClose={modalClosed}>
-        <div slot="body-block">
-          <h2>React Slot for Body</h2>
-        </div>
-      </PtgModal>`
+    <PtgUiButton
+      text="Click Here"
+      data-testid="open-button"
+      appearance="primary"
+      btnIconAlignment="right"
+      onClick={openModal}
+      width="136px"
+      fontSize="13px"
+      hasbtnIconSlot={true}
+    >
+      // You can use Icon here
+      <div className="btn-icon">+</div>
+    </PtgUiButton>
+
+     <PtgUiModal
+      isOpen={isOpen}  
+      onConfirmed={confirmClicked}
+      modalSize='lg' 
+      header="Header Name Here"
+      confirmButton="Okay"
+      cancelButton="Cancel"
+      onModalClose={modalClosed}
+      content={'React Slot for Body'}
+      confirmButtonColor={"#2196f3"}
+      cancelButtonColor={'#dd3434'}
+      backdropClick={true}
+      showHeader={true}
+      showFooter={true}
+    />`;
+
+  const ModalProps = {
+    isOpen: isOpen,
+    onConfirmed: confirmClicked,
+    modalSize: 'lg',
+    header: 'Header Name Here',
+    confirmButton: MODAL_CONFIRM_BUTTON_TEXT,
+    cancelButton: MODAL_CANCEL_BUTTON_TEXT,
+    onModalClose: modalClosed,
+    content: 'React Slot for Body',
+    confirmButtonColor: MODAL_CONFIRM_BUTTON_COLOR,
+    cancelButtonColor: MODAL_CANCEL_BUTTON_COLOR,
+    backdropClick: true,
+    showHeader: true,
+    showFooter: true,
+  };
+
   return (
-    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
-    <div className='row'>
-      <div className="col-10 mt-1">
-        <h5 className="font-weight-bold example-heading">Dialog/Modal</h5>
-      </div>
-      <div className='col-2 mr-5 mb-2'>
-        <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
-      </div>
-      <hr className='horizontal-line'/>
-
-      {showCode && (
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
-      )}
-      <div className='ms-2'>
-      <PtgButton  text="Click Here" data-testid="openButton" appearance="primary" onClick={openModal}
-       >
-        <div slot="btnIcon">
-          <AddCircleIcon />
+    <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <div className="row">
+        <div className="col-10 mt-1">
+          <h5 className="font-weight-bold example-heading">Dialog/Modal</h5>
         </div>
-      </PtgButton>
-      </div>
-
-      <PtgModal isOpen={isOpen}  onConfirmClose={confirmClicked}
-        modal-size='lg' modal-header-name="Header Name Here"
-        confirm-button-name="Okay" onModalClose={modalClosed}>
-        <div slot="body-block">
-          <h2>React Slot for Body</h2>
+        <div className="col-2 mr-5 mb-2">
+          <CodeIcon
+            onClick={showExampleCode}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
         </div>
-      </PtgModal>
-    </div>
+        <hr className="horizontal-line" />
+
+        {showCode && (
+          <ShowCodeComponent
+            componentCode={componentCode}
+            htmlCode={htmlCode}
+            cssCode={cssCode}
+          />
+        )}
+        <div className="ms-2">
+          <PtgUiButton
+            text="Click Here"
+            data-testid="open-button"
+            appearance={BUTTON_VARIANT.PRIMARY}
+            btnIconAlignment={POSITIONS.RIGHT}
+            onClick={openModal}
+            width={WIDTH_200}
+            fontSize={FONT_SIZE_12}
+            hasbtnIconSlot={true}
+          >
+            <div className="btn-icon">+</div>
+          </PtgUiButton>
+        </div>
+
+        <PtgUiModal {...ModalProps} />
+      </div>
     </section>
   );
 };

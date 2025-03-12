@@ -13,7 +13,6 @@ const PtgSelect = class {
     this.expanded = false;
   }
   render() {
-    console.log(this.multiSelect);
     return (h("div", null, !this.multiSelect && (h("select", { id: "optionValue" }, h("option", { selected: true }, "select"), this.selectData.map((option) => {
       return h("option", { value: option.caption }, option.caption);
     }))), this.multiSelect && (h("div", { class: "multiselect" }, h("div", { class: "selectBox", onClick: () => this.showCheckboxes() }, h("div", { class: "overSelect" }, "Select")), this.expanded && (h("ul", null, h("li", null, h("label", { htmlfor: "one" }, h("input", { type: "checkbox", id: "one" }), "First checkbox")), h("li", null, h("label", { htmlfor: "two" }, h("input", { type: "checkbox", id: "two" }), "Second checkbox")), h("li", null, h("label", { htmlfor: "three" }, h("input", { type: "checkbox", id: "three" }), "Third checkbox"))))))));

@@ -8,13 +8,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
+interface bar2dData {
+  name: string; data: number[];
+}
+
 @Component({
   selector: 'ptg-ui-high-bar-chart',
   templateUrl: './high-bar-chart.component.html',
   styleUrls: ['./high-bar-chart.component.scss']
 })
+
 export class HighBarChartComponent implements OnInit {
-  @Input() data: any = [];
+  @Input() data: bar2dData[]  = [];
+  @Input() id = "chart-column";
+  @Input() isCreditEnabled = false;
   
   ngOnInit(): void {
     
@@ -24,7 +31,7 @@ export class HighBarChartComponent implements OnInit {
 
   // Function for create chart 
   createChartColumn(): void {
-    const chart = Highcharts.chart('chart-column' as any, {
+    Highcharts.chart(this.id as any, {
       chart: {
         type: 'column',
       },
@@ -32,7 +39,7 @@ export class HighBarChartComponent implements OnInit {
         text: undefined,
       },
       credits: {
-        enabled: false,
+        enabled: this.isCreditEnabled,
       },
       legend: {
         enabled: false,

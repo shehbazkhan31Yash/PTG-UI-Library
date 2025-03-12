@@ -9,6 +9,11 @@ import { AfterViewInit, Component, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 
+interface lineData2d  {
+  name: string,
+  data: number[]
+}
+
 HighchartsMore(Highcharts);
 
 @Component({
@@ -17,9 +22,10 @@ HighchartsMore(Highcharts);
   styleUrls: ['./high-line-chart.component.scss']
 })
 export class HighLineChartComponent implements AfterViewInit {
-  @Input() data: any = [];
-  @Input() categories: any;
-  @Input() chartId = 'line-chart';
+  @Input() data: lineData2d[] = [];
+  @Input() categories: string[] = [];
+  @Input() id = 'line-chart';
+  @Input() isCreditEnabled = false;
   // We have used ngAfterViewInit becauce of chart dynamic Id
   ngAfterViewInit(){
     this.createChartLine();
@@ -27,7 +33,7 @@ export class HighLineChartComponent implements AfterViewInit {
 
   // Chart configuration 
   private createChartLine(): void {
-    const chart = Highcharts.chart(this.chartId, {
+    Highcharts.chart(this.id, {
       chart: {
         type: 'line',
       },
@@ -35,7 +41,7 @@ export class HighLineChartComponent implements AfterViewInit {
         text: undefined,
       },
       credits: {
-        enabled: false,
+        enabled: this.isCreditEnabled,
       },
       legend: {
         enabled: false,

@@ -7,10 +7,9 @@
 
 /* eslint-disable jsx-a11y/no-access-key */
 import './web-accessibility.scss';
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  PtgUiButton,
   PtgUiInput,
   PtgUiSelect,
   PtgUiCheckbox,
@@ -20,14 +19,11 @@ import {
 } from '@ptg-ui/react';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
-import { resources } from '../../resource/resource';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
-/* eslint-disable-next-line */
-export interface WebAccessibilityProps {}
-export function WebAccessibility(props: WebAccessibilityProps) {
+export function WebAccessibility() {
   const [cityList, setCityList]= useState([])
   const [genders, setGenders]= useState([])
   const [user, setUser]: any = useState({
@@ -51,10 +47,7 @@ export function WebAccessibility(props: WebAccessibilityProps) {
 
   const [showCode, setShowCode] = useState(false);
   const {data:apiData} = PtguseFetch('city-lists') as any
-  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
-  
-  const startRef: any = useRef();
-
+  const { data: apiDataGender } = PtguseFetch('gender-lists') as any
   const { t } = useTranslation();
   
   useEffect(() => {
@@ -137,13 +130,14 @@ export function WebAccessibility(props: WebAccessibilityProps) {
         }
         break;
       case 'email':
-        // eslint-disable-next-line no-case-declarations
+        {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (value === '' || value ? true : false !== regexEmail.test(value)) {
           disabled = true;
           if (!regexEmail.test(value)) {
             formErr = true;
           }
+        }
         }
         break;
       case 'city':
@@ -248,12 +242,8 @@ export function WebAccessibility(props: WebAccessibilityProps) {
     
     import { authClass } from '@ptg-react-app/auth/services/auth.service';
     import { resources } from '../../resource/resource';
-    
-    /* eslint-disable-next-line */
-    export interface WebAccessibilityProps {}
-    export function WebAccessibility(props: WebAccessibilityProps) {
-    
-    
+
+    export function WebAccessibility() {
       const [user, setUser]: any = useState({
         isLoading: false,
         username: '',
@@ -334,8 +324,7 @@ export function WebAccessibility(props: WebAccessibilityProps) {
             }
             break;
           case 'email':
-            // eslint-disable-next-line no-case-declarations
-            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+            const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/i;
             if (value === '' || value ? true : false !== regexEmail.test(value)) {
               disabled = true;
               if (!regexEmail.test(value)) {

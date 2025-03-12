@@ -4,14 +4,11 @@
  * @desc Layout and Routing for reusable components
 */
 import './Home.scss';
-export interface PtgUiHomeProps { }
 
-export function PtgUiHome(props: PtgUiHomeProps) {
+export function PtgUiHome() {
   return (
     /*--Content goes here--*/
-    <>
-      <p>Home works!</p>   
-    </>
+    <p>Home works!</p>
   );
 }
 

@@ -16,7 +16,6 @@ import {
   EventEmitter,
   forwardRef,
   Input,
-  OnInit,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -44,7 +43,7 @@ import {
     },
   ],
 })
-export class SelectComponent implements OnInit, ControlValueAccessor {
+export class SelectComponent implements  ControlValueAccessor {
   @Input() id!: string;
   @Input() parentForm: any;
   @Input() fieldname!: string;
@@ -76,9 +75,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  ngOnInit(): void {
-
-  }
+  
 
   onchangeSelection(event: any) {
     this.change.emit(event);
@@ -90,7 +87,9 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
       this.onChange(selected);
     }
   }
-  inputChange() {}
+  inputChange() {
+     // Placeholder for future input change logic
+  }
 
   selectUnselectAll(
     isChecked: any,
