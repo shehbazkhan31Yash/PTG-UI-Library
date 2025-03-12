@@ -5,17 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { authClass } from '../services/auth.service';
 import ForgotPassword from '../forgotpassword/ForgotPassword';
-import {
-  PtgUiInput,
-  PtgUiLoading,
-  PtgUiAlert,
-} from '@ptg-ui/react';
+import { PtgUiInput, PtgUiLoading, PtgUiAlert } from '@ptg-ui/react';
 import msalInstance from '../msal';
 import { acquireToken } from '../msal';
 import { PtgUiLoginProps } from '@ptg-react-libs/interfaces';
 import { UserState } from '../interface/authInterface';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export function PtgUiLogin(__props: PtgUiLoginProps) {
+  const { loginWithRedirect } = useAuth0();
+
   const loginMsal = async () => {
     const loginRequest = {
       scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
@@ -26,8 +25,11 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
     navigate('/calendar');
   };
 
-  const { t } = useTranslation();
+  const loginOkta = async () => {
+    loginWithRedirect();
+  };
 
+  const { t } = useTranslation();
 
   const [user, setUser] = useState<UserState>({
     isLoading: false,
@@ -116,7 +118,6 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
   const handleLogin = (event: any) => {
     event.preventDefault();
     setState('error', null);
-    //console.log(error);
     setState('isLoading', true);
     authClass
       .login({
@@ -195,8 +196,9 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputEmail"
                       value={user.email}
                       onChange={handleChange}
-                      className={`"w-100 form-control bg_0 ${formErr.email === true ? 'border-danger' : ''
-                        }`}
+                      className={`"w-100 form-control bg_0 ${
+                        formErr.email === true ? 'border-danger' : ''
+                      }`}
                       name="email"
                       placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
                       onBlur={user.email === '' ? handleBlur : null}
@@ -223,8 +225,9 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputPassword"
                       onChange={handleChange}
                       value={user.password}
-                      className={`"w-100 form-control bg_0 ${formErr.password === true ? 'border-danger' : ''
-                        }`}
+                      className={`"w-100 form-control bg_0 ${
+                        formErr.password === true ? 'border-danger' : ''
+                      }`}
                       name="password"
                       placeholder={t('INPUT_PLACEHOLDER_PASSWORD')}
                       onBlur={user.password === '' ? handleBlur : null}
@@ -251,12 +254,12 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                 {t('LOG_IN')}
               </button>
               <p className="text-center mx-3 mb-0">{t('OR')}</p>
-              <button
-                className="w-100"
-                onClick={loginMsal}
-                tabIndex={0}
-              >
+              <button className="w-100" onClick={loginMsal} tabIndex={0}>
                 {t('Msal')}
+              </button>
+              <p className="text-center mx-3 mb-0">{t('OR')}</p>
+              <button className="w-100" onClick={loginOkta} tabIndex={0}>
+                {t('Okta SignIn')}
               </button>
             </form>
           </div>
