@@ -240,19 +240,53 @@ declare global {
         prototype: HTMLPtgButtonElement;
         new (): HTMLPtgButtonElement;
     };
+    interface HTMLPtgCalenderElementEventMap {
+        "dayChanged": any;
+        "monthChanged": any;
+    }
     interface HTMLPtgCalenderElement extends Components.PtgCalender, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCalenderElementEventMap>(type: K, listener: (this: HTMLPtgCalenderElement, ev: PtgCalenderCustomEvent<HTMLPtgCalenderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCalenderElementEventMap>(type: K, listener: (this: HTMLPtgCalenderElement, ev: PtgCalenderCustomEvent<HTMLPtgCalenderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCalenderElement: {
         prototype: HTMLPtgCalenderElement;
         new (): HTMLPtgCalenderElement;
     };
+    interface HTMLPtgCardElementEventMap {
+        "handleClick": any;
+    }
     interface HTMLPtgCardElement extends Components.PtgCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCardElementEventMap>(type: K, listener: (this: HTMLPtgCardElement, ev: PtgCardCustomEvent<HTMLPtgCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCardElementEventMap>(type: K, listener: (this: HTMLPtgCardElement, ev: PtgCardCustomEvent<HTMLPtgCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCardElement: {
         prototype: HTMLPtgCardElement;
         new (): HTMLPtgCardElement;
     };
+    interface HTMLPtgCheckboxElementEventMap {
+        "valueChanged": string;
+    }
     interface HTMLPtgCheckboxElement extends Components.PtgCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCheckboxElementEventMap>(type: K, listener: (this: HTMLPtgCheckboxElement, ev: PtgCheckboxCustomEvent<HTMLPtgCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCheckboxElementEventMap>(type: K, listener: (this: HTMLPtgCheckboxElement, ev: PtgCheckboxCustomEvent<HTMLPtgCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCheckboxElement: {
         prototype: HTMLPtgCheckboxElement;
@@ -270,19 +304,54 @@ declare global {
         prototype: HTMLPtgHeaderElement;
         new (): HTMLPtgHeaderElement;
     };
+    interface HTMLPtgInputElementEventMap {
+        "valueChanged": string;
+    }
     interface HTMLPtgInputElement extends Components.PtgInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgInputElementEventMap>(type: K, listener: (this: HTMLPtgInputElement, ev: PtgInputCustomEvent<HTMLPtgInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgInputElementEventMap>(type: K, listener: (this: HTMLPtgInputElement, ev: PtgInputCustomEvent<HTMLPtgInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgInputElement: {
         prototype: HTMLPtgInputElement;
         new (): HTMLPtgInputElement;
     };
+    interface HTMLPtgModalElementEventMap {
+        "modalClose": boolean;
+        "confirmClose": boolean;
+    }
     interface HTMLPtgModalElement extends Components.PtgModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgModalElementEventMap>(type: K, listener: (this: HTMLPtgModalElement, ev: PtgModalCustomEvent<HTMLPtgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgModalElementEventMap>(type: K, listener: (this: HTMLPtgModalElement, ev: PtgModalCustomEvent<HTMLPtgModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgModalElement: {
         prototype: HTMLPtgModalElement;
         new (): HTMLPtgModalElement;
     };
+    interface HTMLPtgPaginationElementEventMap {
+        "pageChanged": any;
+        "sizeChanged": any;
+    }
     interface HTMLPtgPaginationElement extends Components.PtgPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgPaginationElementEventMap>(type: K, listener: (this: HTMLPtgPaginationElement, ev: PtgPaginationCustomEvent<HTMLPtgPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgPaginationElementEventMap>(type: K, listener: (this: HTMLPtgPaginationElement, ev: PtgPaginationCustomEvent<HTMLPtgPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgPaginationElement: {
         prototype: HTMLPtgPaginationElement;
