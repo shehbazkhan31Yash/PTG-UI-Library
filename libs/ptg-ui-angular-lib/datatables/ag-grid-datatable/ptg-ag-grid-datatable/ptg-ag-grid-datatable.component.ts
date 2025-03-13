@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-output-on-prefix */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-empty-function */
@@ -57,6 +58,7 @@ export class PtgAgGridDatatableComponent implements OnInit {
   @Output() onNavigateToNext: EventEmitter<any> = new EventEmitter();
   @Output() onNavigateToPrevious: EventEmitter<any> = new EventEmitter();
   @Output() onNavigateToPage: EventEmitter<any> = new EventEmitter();
+  @Output() onrowSelect: EventEmitter<any> = new EventEmitter();
 
   @Input() frameworkComponents: any;
 
@@ -71,8 +73,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
   offset: number = 0;
   totalRowCount: number = 0;
   pageArray: any = [];
-  constructor(
-  ) { }
 
   ngOnInit(): void {
     // configuration for default functionlity for table(this works for each row and column) 
@@ -83,9 +83,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
       editable: this.editable,
       resizable: true,
     }
-    // flex: 1,
-    // this.rowStyle = {background:'#ff0000'};
-    // this.rowClass = 'row-class-custom';
     this.columnDef = this.columnData;
   }
 
@@ -113,7 +110,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
   paginationChanged() {
     // Workaround for bug in events order
     if (this.gridApi!) {
-      // this.setText('#lbLastPageFound', this.gridApi.paginationIsLastPageFound());
       this.offset = this.gridApi.paginationGetPageSize();
       this.totalPage = this.gridApi.paginationGetTotalPages();
       // we +1 to current page, as pages are zero based
@@ -136,7 +132,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
   onBtNext(event:any) {
     // function used for navigate to next page 
     this.gridApi.paginationGoToNextPage();
-    // this.onNavigateToNext.emit({total:this.totalPage, currentPage: this.currentPage+1, totalRowCount: this.totalRowCount});
   }
 
   onBtPrevious() {
@@ -191,7 +186,11 @@ export class PtgAgGridDatatableComponent implements OnInit {
 
   // Get selected row by chekbox 
   getSelectedRow(event:any){ 
-    var selectedRows = this.gridApi.getSelectedRows();
-    var selectedNodes = this.gridApi.getSelectedNodes();
+    const selectedRows = this.gridApi.getSelectedRows();
+    const selectedNodes = this.gridApi.getSelectedNodes();
+    this.onrowSelect.emit({
+      'rows': selectedRows,
+      'nodes': selectedNodes
+    })
   }
 }

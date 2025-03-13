@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 import { PtgNgxDatatableComponent } from './ptg-ngx-datatable/ptg-ngx-datatable.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { InputModule } from '@ptg-ui/angular/input';
-
 @NgModule({
   declarations: [
     PtgNgxDatatableComponent

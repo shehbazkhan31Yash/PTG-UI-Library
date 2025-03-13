@@ -71,21 +71,16 @@ export class NgxDatatableComponent implements OnInit {
  
     ngOnInit() {
       this.columnData = [
-        {headerName: 'Athlete', field: 'athlete'},
-        {headerName: 'Age', field: 'age'},
-        {headerName: 'Country', field: 'country'},
-        {headerName: 'Year', field: 'year'},
-        {headerName: 'Date', field: 'date'},
-        {headerName: 'Sport', field: 'sport'},
-        {headerName: 'Silver', field: 'silver'},
-        {headerName: 'Total', field: 'total'},
-        {
-          headerName: '',
-          cellRenderer: 'buttonRenderer',
-          cellRendererParams: {
-          label: 'Click Here'
-        },
-      ]
+			{ name: "Athlete", field: "athlete", frozenLeft: true},
+			{ name: "Age",field: "age",filtering: true },
+			{ name: "Country" ,field: "country",filtering: false},
+			{ name: "Year",field: "year",filtering: false },
+			{ name: "Date",field: "date" ,filtering: false},
+			{ name: "Sport",field: "sport" ,filtering: false},
+			{ name: "Gold",field: "gold" ,filtering: false},
+			{ name: "Silver",field: "silver" ,filtering: false},
+			{ name: "Total",field: "total" ,filtering: false},
+		  ]
     }
  
  

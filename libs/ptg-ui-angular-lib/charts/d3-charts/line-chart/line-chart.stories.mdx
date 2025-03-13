@@ -30,6 +30,8 @@ We can import the LineChart  using the following importation :
 
  - height
  - width
+ - margin
+ - color
 
 ## Quick Start
 
@@ -41,6 +43,7 @@ we can create a linechart using the following HTML Tag:
   [margin]="margin"
   [width]="860"
   [height]="400"
+  [color]="red"
 ></ptg-ui-line-chart>
 
 ```
@@ -65,4 +68,38 @@ width control sets the Chart width to any given value in Pixels.
 If the Width is not set for the chart container, it takes the default width.
 
 <Canvas><Story id="component-linechartcomponent--width" /></Canvas>
+
+3] margin :
+
+Margin controls sets the chart margin from all section.
+
+If the Margin is not set for the chart container, it takes the default Margin.
+
+<Canvas><Story id="component-linechartcomponent--margin" /></Canvas>
+
+4] color :
+
+color controls sets the chart color.
+
+If the color is not set for the chart container, it takes the default color.
+
+Color attribute can be hexcode, color code etc.
+
+<Canvas><Story id="component-linechartcomponent--color" /></Canvas>
+
+5] id: 
+Id controls sets the multiple chart on all section.
+
+If the id is not set for the chart container, it takes the default id.
+
+<Canvas><Story id="component-linechartcomponent--id" /></Canvas>
+
+6] coordinateDataTypes:
+
+coordinateDataTypes controls sets the chart x & y co-ordinate type wheather it's number or date.
+
+If the coordinateDataTypes is not set for the chart container, it takes the default coordinateDataTypes.
+
+<Canvas><Story id="component-linechartcomponent--coordinateDataTypes" /></Canvas>
+
 

@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 describe('FileDownloadComponent', () => {
   let component: FileDownloadComponent;
   let fixture: ComponentFixture<FileDownloadComponent>;
-  let spy;
   global.URL.createObjectURL = jest.fn();
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,7 +20,7 @@ describe('FileDownloadComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FileDownloadComponent);
     component = fixture.componentInstance;
-    let tableData = {
+    const tableData = {
       columnsData:['SN', 'NAME', 'DESIGNATION', 'DEPARTMENT'],
       rowsData: [
         [1, 'Astik', 'Manager', 'Engineering and MBA'],
@@ -36,7 +35,6 @@ describe('FileDownloadComponent', () => {
         [10, 'Yogita', 'QA', 'Testing'],
       ]
     }
-    spy = jest.spyOn(document, 'getElementById');
     component.tableData = tableData;
     fixture.detectChanges();
   });
@@ -60,9 +58,9 @@ describe('FileDownloadComponent', () => {
     expect(component.generateBlob(data, type)).toBeTruthy();
   })
   it('should getElementAndAsignBlob called', ()=>{
-    let blob = new Blob([""], { type: 'text/html' });;
+    const blob = new Blob([""], { type: 'text/html' });;
     component.getElementAndAsignBlob(blob, 'type');
-     let mockElement = document.createElement('a');
+     const mockElement = document.createElement('a');
      mockElement.download = 'file';
      global.URL.createObjectURL = jest.fn(() => 'fileurl');
      expect(mockElement.download).toBe('file');
@@ -85,7 +83,7 @@ describe('FileDownloadComponent', () => {
     component.fileType = 'PNG';
     expect(component.fileType).toBe('PNG');
     expect(component.downloadimage()).toBeCalled;
-    let mockElement = document.createElement('a');
+    const mockElement = document.createElement('a');
     mockElement.download = 'file';
     global.URL.createObjectURL = jest.fn(() => 'fileurl');
     expect(mockElement.download).toBe('file');
@@ -114,7 +112,6 @@ describe('FileDownloadComponent', () => {
 
   it('should file type is PDF',async() =>{
     component.downloadPdfFile();
-    const table = component.b_download.nativeElement;
   });
 
 });

@@ -2,9 +2,9 @@
  * @since March 2022
  * @author Anmol Mathur
  * @desc Reset Component
- * 
-*/
-import {PtgUiButton,PtgUiInput} from '@ptg-ui/react';
+ *
+ */
+import { PtgUiInput } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
@@ -102,18 +102,18 @@ export default function Reset() {
                   </div>
                   <div className="row">
                     <div className="col-7">
-                      <PtgUiButton
+                      <button
                         className=""
                         type="submit"
                         disabled={resetDisable}
                       >
                         {t('RESET_PASSWORD_TEXT')}
-                      </PtgUiButton>
+                      </button>
                     </div>
                     <div className="col-5">
-                      <PtgUiButton variant="secondary" onClick={handleClose}>
+                      <button className="secondary" onClick={handleClose}>
                         {t('CANCEL')}
-                      </PtgUiButton>
+                      </button>
                     </div>
                   </div>
                 </div>

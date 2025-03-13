@@ -1,148 +1,190 @@
 import { useState, useEffect } from 'react';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { PtgUiMultiSelectbox, PtguseFetch } from '@ptg-ui/react';
+import { PtgUiSelectbox } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-export interface ExampleOneProps {
-  showCodeLocalDate: boolean;
-}
+import moment from 'moment';
+import { ITimeZoneProps } from '../../interfaces';
+import { LOCAL_TIME, MMMM_D_YYYY_H_MM_AA, TIME_ZONE_LABEL_LONDON, TIME_ZONE_LABEL_NEW_YORK, TIME_ZONE_LONDON, TIME_ZONE_NEW_YORK, YYYY_MM_DD_HH_MM } from '../../constants/Constant';
+
 export const timeZoneList = [
-  { value: 'America/New_York', label: 'New York', name: 'America/New_York' },
-  { value: 'Europe/London', label: 'London', name: 'Europe/London' },
+  { value: TIME_ZONE_NEW_YORK, label: TIME_ZONE_LABEL_NEW_YORK, name: TIME_ZONE_NEW_YORK },
+  { value: TIME_ZONE_LONDON, label: TIME_ZONE_LABEL_LONDON, name: TIME_ZONE_LONDON },
 ];
-const LocalDatetime = (props: ExampleOneProps) => {
+const LocalDatetime = (props: ITimeZoneProps) => {
   const { showCodeLocalDate } = props;
-  const [selectedDate, setSlectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(new Date());
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
-    Date | null | undefined
+  Date | null | undefined
   >(new Date());
   const { t } = useTranslation();
   //handle convert tine
+
   const convertDateTime = (myDate: Date) => {
     const date = new Date(myDate);
     const options = { timeZone: timeZone };
-    const locale = 'en-US';
+    const locale = LOCAL_TIME;
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-  const onSelect: any = (event: any) => {
-    setTimeZone(event[0].value);
+  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTimeZone(event.target.value);
   };
-  const handleTime = (e: any) => {
-    setDateTimeToOtherLocale(convertDateTime(new Date(e.toISOString())));
-  };
+  //Note: get datepicker formate from new Date()
+const splitDate = (dateStr: Date | null | undefined) => {
+    if(!dateStr){
+     return ""
+    }
+    return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+  }
+  const handleTime = (e:Date|string) => {
+    let datePart = convertDateTime(new Date(e));
+    datePart = new Date(moment(datePart).format(YYYY_MM_DD_HH_MM));
+    setDateTimeToOtherLocale(datePart);
+  }
+
   const startDateProp = {
-    selected: selectedDate,
+    selected: splitDate(selectedDate),
     className: 'form-control w-100',
-    onChange: (d: any) => {
-      setSlectedDate(d);
+    onChange: (d) => {
+      setSelectedDate(d.target.value);
     },
     disabled: false,
     showTimeSelect: true,
-    dateFormat: 'MMMM d, yyyy h:mm aa',
+    dateFormat: MMMM_D_YYYY_H_MM_AA,
+    isDateTime: true,
   };
+
   const startDatePropLocal = {
-    selected: dateTimeUSA,
+    selected: splitDate(dateTimeUSA),
     className: 'form-control w-100',
     disabled: false,
     showTimeSelect: true,
-    dateFormat: 'MMMM d, yyyy h:mm aa',
+    isDateTime: true,
   };
   useEffect(() => {
-    if(timeZone){
-    handleTime(selectedDate);
+    if (timeZone) {
+      if (selectedDate) {
+        handleTime(selectedDate);
+      }
     }
   }, [timeZone, selectedDate]);
-  const componentCode = `
-  import { useState } from 'react';
-import { PtgUiCalendar } from '@ptg-ui/react';
-export interface ExampleOneProps {
-  showCodeLocalDate : boolean
-}
-export const timeZoneList = [
-  { value: 'America/New_York', label: 'New York', name: 'America/New_York' },
-  { value: 'Europe/London', label: 'London', name: 'Europe/London'},
-];
-const LocalDatetime = () => {
-  const [selectedDate, setSlectedDate] = useState(new Date());
-  const [datetime24h, setDateTime24h] = useState<Date | null | undefined>( new Date()
-  );
-  const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
-    Date | null | undefined
-  >(new Date());
-  const [time, setTime] = useState<Date | null | undefined>(new Date());
 
+  const componentCode = `
+    import { PtgUiCalendar, PtgUiSelectbox } from '@ptg-ui/react';
+    import moment from 'moment';
+
+      const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(new Date());
+  const [timeZone, setTimeZone] = useState('');
+  const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
+  Date | null | undefined
+  >(new Date());
+  const { t } = useTranslation();
   //handle convert tine
+
   const convertDateTime = (myDate: Date) => {
     const date = new Date(myDate);
-    const locale = 'en-US';
+    const options = { timeZone: timeZone };
+    const locale = LOCAL_TIME;
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-  const handleTime = (e: any) => {
-    setDateTime24h(e);
-    setDateTimeToOtherLocale(convertDateTime(new Date(e.toISOString())));
+  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTimeZone(event.target.value);
   };
+  //Note: get datepicker formate from new Date()
+const splitDate = (dateStr: Date | null | undefined) => {
+    if(!dateStr){
+     return ""
+    }
+    return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
+  }
+  const handleTime = (e:Date|string) => {
+    let datePart = convertDateTime(new Date(e));
+    datePart = new Date(moment(datePart).format(YYYY_MM_DD_HH_MM));
+    setDateTimeToOtherLocale(datePart);
+  });
+
   const startDateProp = {
-    selected: selectedDate,
-    onChange: (d: any) => {
-      handleTime(d);
+    selected: splitDate(selectedDate),
+    className: 'form-control w-100',
+    onChange: (d) => {
+      setSelectedDate(d.target.value);
     },
     disabled: false,
     showTimeSelect: true,
-    dateFormat: 'MMMM d, yyyy h:mm aa',
+    dateFormat: MMMM_D_YYYY_H_MM_AA,
+    isDateTime: true,
   };
+
   const startDatePropLocal = {
-    selected: dateTimeUSA,
+    selected: splitDate(dateTimeUSA),
+    className: 'form-control w-100',
     disabled: false,
     showTimeSelect: true,
-    dateFormat: 'MMMM d, yyyy h:mm aa',
-  };`;
-
-  const htmlCode = `
-  <PtgUiCalendar {...startDateProp} />
-  <PtgUiMultiSelectbox
-    name="time"
-    list={timeZoneList}
-    onSelect={onSelect}
-    singleSelect={true}
-    placeholder={t('SELECT_PLACEHOLDER')}
-   />
-  <PtgUiCalendar {...startDatePropLocal} />
+    isDateTime: true,
+  };
+  useEffect(() => {
+    if (timeZone) {
+      if (selectedDate) {
+        handleTime(selectedDate);
+      }
+    }
+  }, [timeZone, selectedDate]);
   `;
 
+  const htmlCode = `
+    <label>en-US time zone</label>
+    <PtgUiCalendar {...startDateProp} />
+  
+    <label>Timezone</label>
+    <PtgUiSelectbox
+      name="time"
+      list={timeZoneList}
+      onSelect={onSelect}
+      singleSelect={true}
+      className="single-select-field"
+      placeholder={'Select Time Zone'}
+      width="100%"
+    />
+  
+    <label>Converted timezone</label>
+    <PtgUiCalendar {...startDatePropLocal} />
+        
+  `;
   return (
     <>
-      {!showCodeLocalDate ? (
-        <div className="container-fuild">
-          <div className="row ms-1 me-1">
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label>en-US time zone</label>
-              <PtgUiCalendar {...startDateProp} />
-            </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <label>Timezone</label>
-              <PtgUiMultiSelectbox
-                name="time"
-                list={timeZoneList}
-                onSelect={onSelect}
-                singleSelect={true}
-                className='single-select-field'
-                placeholder={t('SELECT_PLACEHOLDER')}
-              />
-            </div>
-          </div>
-          <div className="row mt-2 ms-1 me-1">
-            <div className="col-md-6 col-lg-6">
-            <label>Converted timezone</label>
-              <PtgUiCalendar {...startDatePropLocal} />
-            </div>
-          </div>
-        </div>
-      ) : (
+      {showCodeLocalDate && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
+
+      <div className="container-fuild">
+        <div className="row ms-1 me-1">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <label>en-US time zone</label>
+            <PtgUiCalendar {...startDateProp} />
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <label>Timezone</label>
+            <PtgUiSelectbox
+              name="time"
+              list={timeZoneList}
+              onSelect={onSelect}
+              singleSelect={true}
+              className="single-select-field"
+              placeholder={t('SELECT_PLACEHOLDER')}
+              width="100%"
+            />
+          </div>
+        </div>
+        <div className="row mt-2 ms-1 me-1">
+          <div className="col-md-6 col-lg-6">
+            <label>Converted timezone</label>
+            <PtgUiCalendar {...startDatePropLocal} />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

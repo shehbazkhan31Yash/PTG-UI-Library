@@ -29,7 +29,11 @@ import { AccordianModule } from './accordion/accordion.module';
 import { TextareaModule } from "./textarea/textarea.module";
 // import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
+import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
+import { CardModule } from './card/card.module';
+import { CarouselModule } from './carousel/carousel.module';
+import { StepperModule } from '@ptg-ui/angular/stepper';
+import { DialogModule } from './dialog/dialog.module';
 
 @NgModule({
   declarations: [],
@@ -54,8 +58,12 @@ import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    BreadcrumbsModule
-    // SidenavModule
+    BreadcrumbsModule,
+    CardModule,
+    CarouselModule,
+    StepperModule,
+    // SidenavModule,
+    DialogModule
   ],
   exports: [
     CommonModule,
@@ -77,7 +85,8 @@ import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    // SidenavModule
+    // SidenavModule,
+    DialogModule
   ],
 })
-export class PtgUiAngularLibModule {}
+export class PtgUiAngularLibModule { }

@@ -12,54 +12,54 @@ import './date-picker.scss';
 
 /* eslint-disable-next-line */
 export interface PtgUiDatePickerProps {
-  variant?: any;
-  format?: string;
-  id?: string;
-  placeholder?: string;
-  value?: any;
-  onChange?: any;
-  className?: string;
-  inputVariant?: any;
-  ariaLabel?: any;
-  // accessKey?: any,
-  disableRipple?: boolean;
-  disableTouchRipple?: boolean;
+	variant?: any;
+	format?: string;
+	id?: string;
+	placeholder?: string;
+	value?: any;
+	onChange?: any;
+	className?: string;
+	inputVariant?: any;
+	ariaLabel?: any;
+	// accessKey?: any,
+	disableRipple?: boolean;
+	disableTouchRipple?: boolean;
 }
 
 export function PtgUiDatePicker({
-  variant,
-  className = 'toolbarNone',
-  format,
-  id,
-  placeholder,
-  value,
-  inputVariant = 'outlined',
-  onChange,
-  ariaLabel = 'date',
-  // accessKey = 'c',
-  disableRipple,
-  disableTouchRipple,
+	variant,
+	className = 'toolbarNone',
+	format,
+	id,
+	placeholder,
+	value,
+	inputVariant = 'outlined',
+	onChange,
+	ariaLabel = 'date',
+	// accessKey = 'c',
+	disableRipple,
+	disableTouchRipple,
 }: PtgUiDatePickerProps) {
-  return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        variant={variant}
-        className={className}
-        format={format}
-        id={id}
-        placeholder={placeholder}
-        inputVariant={inputVariant}
-        value={value}
-        onChange={onChange}
-        KeyboardButtonProps={{
-          'aria-label': ariaLabel,
-          // 'accessKey':accessKey,
-          disableRipple: disableRipple,
-          disableTouchRipple: disableTouchRipple,
-        }}
-      />
-    </MuiPickersUtilsProvider>
-  );
+	return (
+		<MuiPickersUtilsProvider utils={DateFnsUtils}>
+			<KeyboardDatePicker
+				variant={variant}
+				className={className}
+				format={format}
+				id={id}
+				placeholder={placeholder}
+				inputVariant={inputVariant}
+				value={value}
+				onChange={onChange}
+				KeyboardButtonProps={{
+					'aria-label': ariaLabel,
+					// 'accessKey':accessKey,
+					disableRipple: disableRipple,
+					disableTouchRipple: disableTouchRipple,
+				}}
+			/>
+		</MuiPickersUtilsProvider>
+	);
 }
 
 export default PtgUiDatePicker;

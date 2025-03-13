@@ -1,6 +1,5 @@
  import Layout from './Layout';
 import { render } from "react-dom";
-import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from "react-router-dom";
 
 it("Should render Layout", () => {

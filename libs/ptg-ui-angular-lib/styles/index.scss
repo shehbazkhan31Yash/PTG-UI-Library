@@ -35,6 +35,10 @@ nav {
   }
 }
 
+.highcharts-title, .highcharts-credits {
+  display: none !important;
+}
+
 @media (max-width: 540px) {
   .navbar-brand.logo{
     margin-left: 1rem !important;

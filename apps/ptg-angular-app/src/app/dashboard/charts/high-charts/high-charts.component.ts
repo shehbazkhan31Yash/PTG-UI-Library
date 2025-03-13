@@ -75,7 +75,7 @@ export class HighChartsComponent implements OnInit {
   }`;
 
   sLineChart2dHtmlCode = `
-  <ptg-ui-high-line-chart [data]="sLineData" chartId="single-line" [categories]="categories">
+  <ptg-ui-high-line-chart [data]="sLineData" id="single-line" [categories]="categories">
   </ptg-ui-high-line-chart>`;
 
   sLineChart2dTsCode = `
@@ -97,7 +97,7 @@ export class HighChartsComponent implements OnInit {
   }`;
 
   mLineChart2dHtmlCode = `
-  <ptg-ui-high-line-chart [data]="mLineData" chartId="single-line" [categories]="categories">
+  <ptg-ui-high-line-chart [data]="mLineData" id="single-line" [categories]="categories">
   </ptg-ui-high-line-chart>`;
 
   mLineChart2dTsCode = `
@@ -218,12 +218,12 @@ export class HighChartsComponent implements OnInit {
   }`;
 
   sLineChart3dHtmlCode = `
-  <ptg-ui-high-3d-line-chart [data]="sLineData" [categories]="categories" chartId="single-line-chart">
+  <ptg-ui-high-3d-line-chart [data]="sLineData" [categories]="categories" id="single-line-chart">
   </ptg-ui-high-3d-line-chart>
   `;
 
   mLineChart3dHtmlCode = `
-  <ptg-ui-high-3d-line-chart [data]="mLineData" [categories]="categories" chartId="multi-line-chart">
+  <ptg-ui-high-3d-line-chart [data]="mLineData" [categories]="categories" id="multi-line-chart">
   </ptg-ui-high-3d-line-chart>`;
 
   pieChart3dHtmlCode = `

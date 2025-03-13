@@ -43,8 +43,8 @@ describe('IndeterminateCheckboxesComponent', () => {
   });
 
   it('getAction event', () => {
-    let evt:any={target:{value:'Test'}}
-    let btn = jest.spyOn(component, 'getValue');
+    const evt:any={target:{value:'Test'}}
+    const btn = jest.spyOn(component, 'getValue');
     component.getValue(evt);
     expect(btn).toHaveBeenCalled();
   });

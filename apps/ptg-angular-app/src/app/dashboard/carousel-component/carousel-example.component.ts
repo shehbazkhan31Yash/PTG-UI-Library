@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { sampleImagesData, sampleImagesWithCaptionData, sampleImageWithControlsData } from './carousel';
 
 @Component({
   selector: 'ptg-ui-carousel-example',
@@ -6,19 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel-example.component.scss'],
 })
 export class CarouselExampleComponent {
-  isLoaded=true;
+  isLoaded = true;
   htmlCode = `
-      <ptg-ui-carousel
-        [images]="sampleImages">
-      </ptg-ui-carousel>`;
+      <ptg-ui-carousels [carouselItems]="sampleImageWithControls" [showControls]="true"></ptg-ui-carousels>`;
 
   htmlCodeWithIndicators = `
-      <ptg-ui-carousel
-        [images]="sampleImages"
-        :show-indicators="false"
-        imgWidth="400"
-        imgHeight="300">
-      </ptg-ui-carousel>`;
+      <ptg-ui-carousels [carouselItems]="sampleImages" [showIndicators]="true"></ptg-ui-carousels>`;
+
+  htmlCodeWithCaption = `
+  <ptg-ui-carousels [carouselItems]="sampleImagesWithCaption" [showIndicators]="true"></ptg-ui-carousels>`;
 
   tsCode = `
     import { Component } from '@angular/core';
@@ -28,11 +25,23 @@ export class CarouselExampleComponent {
       templateUrl: './demo-carousel.component.html'
     })
     export class DemoCarouselComponent {
-      sampleImages = ['https://picsum.photos/id/328/3264/2448', 'https://picsum.photos/id/84/1280/848'];
-    }`;
-  sampleImages = [
-    'https://picsum.photos/id/328/3264/2448',
-    'https://picsum.photos/id/431/5000/3334',
-    'https://picsum.photos/id/5/5000/3334',
+     sampleImageWithControls = [
+    { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1" },
+    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2" },
+    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3" }
   ];
+  sampleImages = [
+    { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1" },
+    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2" },
+    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3" }
+  ];
+  sampleImagesWithCaption = [
+    { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1", captionLabel: 'First slide label', captionContent: 'Some representative placeholder content for the first slide.' },
+    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2", captionLabel: 'Second slide label', captionContent: 'Some representative placeholder content for the second slide.' },
+    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3", captionLabel: 'Third slide label', captionContent: 'Some representative placeholder content for the third slide.' }
+  ];
+    }`;
+  sampleImageWithControls = sampleImageWithControlsData;
+  sampleImages = sampleImagesData;
+  sampleImagesWithCaption = sampleImagesWithCaptionData;
 }

@@ -1,4 +1,4 @@
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import WebAccessibility from './web-accessibility';

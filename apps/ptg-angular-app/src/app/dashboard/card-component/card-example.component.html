@@ -9,17 +9,9 @@
     </div>
     <hr class="css-yasiti"/>
      <div class="row p-3">
-        <div class="col-md-4" *ngFor="let card of cardDataObj">
-          <ptg-card
-            [cardContent]="card.cardContent"
-            [cardId]="card.cardId"
-            [cardTitle]="card.cardTitle"
-            [src]="card.src"
-            [cardContentLength]="150"
-            cardButtonText="Select"
-            isCardAction="true"
-            (handleClick)="handleClick($event)"
-          ></ptg-card>
+        <div class="col-md-4">
+          <ptg-ui-card [cardObj]="cardObj">
+          </ptg-ui-card>
         </div>
       </div>
   

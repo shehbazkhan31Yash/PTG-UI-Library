@@ -1,5 +1,28 @@
 # PtgUiLibrary
 
+--------React---------
+
+Step 1 : npm i --f
+
+Step 2 : npm run start:ptg-react //(For start react app)
+
+Step 3 : npm run build:ng-lib //(For build react lib)
+
+Step 4 : file:../../FOLDER_NAME/dist/libs/ptg-ui-react-lib //(For install react library in another project locally)
+
+React lib folder path : lib/pgt-ui-react-lib/src/lib
+
+React app example folder path : app/ptg-react-app/src/app/examples
+.
+.
+.
+
+---------Angular---------
+
+Step 1 :
+Step 2 :
+Stem 3 :
+
 This project was generated using [Nx](https://nx.dev).
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
@@ -105,12 +128,11 @@ Teams using Nx gain the advantage of building full-stack applications with their
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
 
-
 # Commit Message Guidelines
 
-
 ### Commit Message Format
-Each commit message consists of a **header** and **body** .  The header has a special
+
+Each commit message consists of a **header** and **body** . The header has a special
 format that includes a **type**, a **scope** and a **subject**:
 
 ```
@@ -127,52 +149,57 @@ Any line of the commit message cannot be longer 100 characters! This allows the 
 to read on GitHub as well as in various git tools.
 
 ### Revert
+
 If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ### Type
+
 Must be one of the following:
 
-* **build**: Changes to local repository build system and tooling
-* **ci**: Changes to CI configuration and CI specific tooling [2]
-* **docs**: Changes which exclusively affects documentation.
-* **feat**: Creates a new feature [1]
-* **fix**: Fixes a previously discovered failure/bug [1]
-* **perf**: Improves performance without any change in functionality or API [1]
-* **refactor**: Refactor without any change in functionality or API (includes style changes)
-* **release**: A release point in the repository [2]
-* **test**: Improvements or corrections made to the project's test suite
-
+- **build**: Changes to local repository build system and tooling
+- **ci**: Changes to CI configuration and CI specific tooling [2]
+- **docs**: Changes which exclusively affects documentation.
+- **feat**: Creates a new feature [1]
+- **fix**: Fixes a previously discovered failure/bug [1]
+- **perf**: Improves performance without any change in functionality or API [1]
+- **refactor**: Refactor without any change in functionality or API (includes style changes)
+- **release**: A release point in the repository [2]
+- **test**: Improvements or corrections made to the project's test suite
 
 <sup>[1] This type MUST have a scope. See the next section for more information.</sup><br/>
 <sup>[2] This type MUST NOT have a scope. It only applies to general scripts and tooling.</sup>
 
 ### Scope
+
 The scope should be the name of the feature affected.
 
-
 ### Subject
+
 The subject contains succinct description of the change:
 
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize first letter
-* be concise and direct
-* no dot (.) at the end
+- use the imperative, present tense: "change" not "changed" nor "changes"
+- don't capitalize first letter
+- be concise and direct
+- no dot (.) at the end
 
 ### Examples
+
 Examples of valid commit messages:
 
-* `fix(waf): add html template for waf form`
-* `refactor(HA): Add datatable with integration`
+- `fix(waf): add html template for waf form`
+- `refactor(HA): Add datatable with integration`
 
 Examples of invalid commit messages:
-* `fix(waf): add a new XYZ command`
+
+- `fix(waf): add a new XYZ command`
 
   This is a feature, not a fix.
-* `ci(HA): fix publishing workflow`
+
+- `ci(HA): fix publishing workflow`
 
   The `ci` type cannot have a scope.
 
 ### Body
+
 Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
 The body should include the motivation for the change and contrast this with previous behavior.
-

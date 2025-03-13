@@ -59,7 +59,6 @@ const PtgPagination = class {
     this.sizeChanged.emit(Number(event.currentTarget.value));
   }
   render() {
-    console.log(this.pageSizeOptions);
     if (this.itemCount) {
       let pages = [];
       const start = this.page * this.pageSize + 1;

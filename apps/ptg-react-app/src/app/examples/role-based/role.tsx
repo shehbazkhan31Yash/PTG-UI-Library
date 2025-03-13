@@ -11,7 +11,7 @@ const allowdRoles:any = ['admin','supervisor'];
 export const Role:any = () => {
 
   //get login user role
-   let role = authClass.getRole();
+  const role = authClass.getRole();
    if(allowdRoles.indexOf(role) > -1)
    {
        return true;

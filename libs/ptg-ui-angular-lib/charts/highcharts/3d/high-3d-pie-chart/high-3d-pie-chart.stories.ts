@@ -1,7 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { High3dPieChartComponent } from './high-3d-pie-chart.component';
-import {ChartModule} from '../../../chart.module';
-import {PIE_CHART_3D} from './high-3d-pie-chart'
+import {PIE_CHART_3D} from './high-3d-pie-chart';
 
 export default {
   title: 'Component/High3dPieChartComponent',

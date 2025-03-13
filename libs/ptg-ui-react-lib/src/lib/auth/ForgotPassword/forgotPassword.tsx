@@ -1,178 +1,186 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/**
- * @since March 2022
- * @author Anmol Mathur
- * @Updatedby Ankit Patidar
- * @Updatedby Harsha Zalawa
- * @desc Forgot Password Component
- *
- */
-import { useEffect, useState } from 'react';
-import './forgotPassword.scss';
-import { useTranslation } from 'react-i18next';
-
-import { Modal } from 'react-bootstrap';
-import PtgUiAlert from '../../alert/alert';
-import PtgUiButton from '../../button/button';
+import React, { useState } from 'react';
+import { PtgUiButton } from '../../button/button';
+import { EMAIL_REGEX, FORGOT_PASSWORD_BTN_COLOR, MODAL_SIZE_LARGE } from '../../constants/Constants';
 import PtgUiInput from '../../input/input';
+import { IForgotPassword } from '../../interfaces';
+import { PtgUiModal } from '../../modal/modal';
+import './forgotPassword.css';
 
-export default function PtgUiForgotPassword() {
-  const { t } = useTranslation();
-  const intialState = {
-    show: false,
-    email: '',
-    btnDisable: false,
-    showMessage: { show: false, type: '', message: '' },
-  };
-  const [values, setValues] = useState(intialState);
-  const [formErr, setFormErr] = useState({
-    email: false,
-    password: false,
-  });
+// Destructure button color constants for easier access
+const { FORGOT_BTN_TEXT, FORGOT_BTN_BACKGROUND, FORGOT_BTN_BACKGROUND_GRAY } = FORGOT_PASSWORD_BTN_COLOR;
 
-  //common function to set specific state variable
-  const setState: any = (field: string, value: any) => {
-    setValues((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
+/**
+ * PtgUIForgotPassword component allows users to request a password reset.
+ *
+ * @param {Object} props - The component props
+ * @param {function} props.onForgotPasswordSubmit - Function to handle the forgot password submission
+ * @param {function} props.fPasswordEmail - Function to handle the email input change
+ * @param {string} props.forgotPasswordLabel - Label for the forgot password link
+ */
+export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
+	onForgotPasswordSubmit,
+	fPasswordEmail,
+	forgotPasswordLabel,
+}) => {
+	const [values, setValues] = useState({
+		show: false,
+		email: '',
+		btnDisable: true,
+		showMessage: { show: false, type: '', message: '' },
+	});
 
-  const setErrState: any = (field: string, value: any) => {
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [field]: value,
-      };
-    });
-  };
+	const [formErr, setFormErr] = useState({ email: false });
 
-  const handleClose = () => {
-    setState('show', false);
-  };
+	const handleClose = () => {
+		setValues((prevValues) => ({
+			...prevValues,
+			show: false,
+		}));
+		setFormErr({ email: false });
+	};
 
-  const handleShow = () => {
-    setValues({ ...values, btnDisable: true, email: '' });
-    setState('show', true);
-  };
+	const handleShow = () => {
+		setValues({
+			show: true,
+			email: '',
+			btnDisable: true,
+			showMessage: { show: false, type: '', message: '' },
+		});
+		setFormErr({ email: false });
+	};
 
-  //validate email and password
-  const validate = (fieldName: string, value: any) => {
-    let disabled = false;
-    let formErr = false;
-    switch (fieldName) {
-      case 'email':
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (value === '' || value ? true : false !== regexEmail.test(value)) {
-          disabled = true;
-          if (!regexEmail.test(value)) {
-            formErr = true;
-          }
-        }
-        break;
-    }
+	/**
+	 * Handles changes to the input fields and validates the input.
+	 *
+	 * @param {React.ChangeEvent<HTMLInputElement>} event - The change event from the input
+	 */
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.target;
+		setValues((prevValues) => ({
+			...prevValues,
+			[name]: value,
+		}));
+		validate(name, value);
+	};
 
-    setState('disable', disabled);
-    setErrState(fieldName, formErr);
-  };
+	/**
+	 * Validates the email format using a regular expression.
+	 *
+	 * @param {string} value - The email value to validate
+	 * @returns {boolean} - True if the email is valid, false otherwise
+	 */
+	const isEmailValid = (value: string): boolean => EMAIL_REGEX.test(value);
 
-  //generic function for all input field
-  const handleChange: any = (e: any) => {
-    const { name, value } = e.target;
-    validate(name, value);
-    setValues((preState: any) => {
-      return {
-        ...preState,
-        [name]: value,
-      };
-    });
-  };
-  //validate on focus out or blur input
-  const handleBlur: any = (e: any) => {
-    const { name } = e.target;
-    setFormErr((preState: any) => {
-      return {
-        ...preState,
-        [name]: true,
-      };
-    });
-  };
+	/**
+	 * Determines if the submit button should be disabled based on input validity.
+	 *
+	 * @param {boolean} isInvalid - Indicates if the input is invalid
+	 * @param {string} value - The current input value
+	 * @returns {boolean} - True if the button should be disabled, false otherwise
+	 */
+	const shouldDisableButton = (isInvalid: boolean, value: string): boolean => isInvalid || value === '';
 
-  useEffect(() => {
-    let btn = true;
-    if (formErr.email == false && values.email !== '') btn = false;
-    setState('btnDisable', btn);
-  }, [values.email]);
+	/**
+	 * Updates the state for button disable status and form errors.
+	 *
+	 * @param {string} fieldName - The name of the field being validated
+	 * @param {boolean} isInvalid - Indicates if the field is invalid
+	 * @param {string} value - The current value of the field
+	 */
+	const updateState = (fieldName: string, isInvalid: boolean, value: string) => {
+		const btnDisable = shouldDisableButton(isInvalid, value);
 
-  return (
-    <div>
-      <a
-        className="forgot-password float-end"
-        onClick={handleShow}
-        data-testid="linkForgotPassword"
-      >
-        Forgot Password?
-      </a>
-      <Modal show={values.show}>
-        {values.showMessage.show && (
-          <PtgUiAlert
-            type={values?.showMessage?.type}
-            message={values?.showMessage?.message}
-          />
-        )}
-        <div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
-          <div className="forgot-container">
-            <div className="forgot-form-wrapper">
-              <div className="form-group">
-                <div className="text-center mb-3">
-                  <h3>{t('FORGOT_PASSWORD')}</h3>
-                </div>
-              </div>
-              <div className="forgot-form">
-                <div className="form-group required mb-4">
-                  <label htmlFor="inputEmail">{t('LABEL_EMAIL')}</label>
-                  <PtgUiInput
-                    type="email"
-                    className={`w-100 form-control bg_0 ${
-                      formErr.email === true ? 'border-danger' : ''
-                    }`}
-                    name="email"
-                    data-testid="email"
-                    placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                    onChange={handleChange}
-                    value={values.email}
-                    onBlur={values.email === '' ? handleBlur : null}
-                  />
-                </div>
-                <div className="row">
-                  <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                    <PtgUiButton
-                      type="submit"
-                      variant="primary"
-                      data-testid="handleSubmit"
-                      disabled={values.btnDisable}
-                    >
-                      {t('FORGOT_PASSWORD')}
-                    </PtgUiButton>
-                  </div>
-                  <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
-                    <PtgUiButton
-                      type="submit"
-                      variant="secondary"
-                      data-testid="handleClose"
-                      onClick={handleClose}
-                    >
-                      {t('CANCEL')}
-                    </PtgUiButton>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Modal>
-    </div>
-  );
-}
+		setValues((prevValues) => ({
+			...prevValues,
+			btnDisable,
+		}));
+
+		setFormErr((prevErr) => ({
+			...prevErr,
+			[fieldName]: isInvalid,
+		}));
+
+		if (fieldName === 'email') {
+			fPasswordEmail?.(value);
+		}
+	};
+
+	/**
+	 * Validates the input fields based on their names and values.
+	 *
+	 * @param {string} fieldName - The name of the field being validated
+	 * @param {string} value - The current value of the field
+	 */
+	const validate = (fieldName: string, value: string) => {
+		let isInvalid = false;
+
+		if (fieldName === 'email') {
+			isInvalid = !isEmailValid(value);
+		}
+
+		updateState(fieldName, isInvalid, value);
+	};
+
+	/**
+	 * Generates the class name for the email input field based on validation state.
+	 *
+	 * @returns {string} - The class name for the input field
+	 */
+	const getInputClassName = () => `w-100 form-control bg_0 ${formErr.email ? 'border-danger' : ''}`;
+
+	return (
+		<div>
+			<button className="forgot-password float-end" onClick={handleShow} id="linkForgotPassword">
+				{`${forgotPasswordLabel}?`}
+			</button>
+			<PtgUiModal isOpen={values.show} modalSize={MODAL_SIZE_LARGE} backdropClick={true} onModalClose={handleClose}>
+				<div className="forgot-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+					<div className="forgot-container">
+						<div className="forgot-form-wrapper">
+							<div className="form-group">
+								<div className="text-center mb-3">
+									<h3>Forgot Password</h3>
+								</div>
+							</div>
+							<div className="forgot-form">
+								<div className="form-group required mb-4">
+									<label htmlFor="inputEmail">Email</label>
+									<PtgUiInput
+										type="email"
+										className={getInputClassName()}
+										name="email"
+										id="email"
+										placeholder="Enter Your Email"
+										onChange={handleChange}
+										value={values.email}
+									/>
+								</div>
+								<div className="row">
+									<div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
+										<PtgUiButton
+											data-testid="handleSubmit"
+											textColor={FORGOT_BTN_TEXT}
+											backgroundColor={FORGOT_BTN_BACKGROUND}
+											text="Forgot Password"
+											onClick={onForgotPasswordSubmit}
+											disabled={values.btnDisable}
+										/>
+									</div>
+									<div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
+										<PtgUiButton
+											data-testid="handleClose"
+											onClick={handleClose}
+											textColor={FORGOT_BTN_TEXT}
+											backgroundColor={FORGOT_BTN_BACKGROUND_GRAY}
+											text="Cancel"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</PtgUiModal>
+		</div>
+	);
+};

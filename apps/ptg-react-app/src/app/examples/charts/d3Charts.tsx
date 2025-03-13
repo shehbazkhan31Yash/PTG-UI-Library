@@ -4,10 +4,10 @@
  * @uses Example using 3D charts as reusable component.
  * 
 */
-import {useState, useEffect} from  'react'
+import { useState, useEffect } from 'react';
 import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
@@ -16,9 +16,7 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 export interface PtgUiD3BarProps {
   data?:[],
 }
-export interface D3ChartsProps { }
-
-export function D3Charts(props: D3ChartsProps) {
+export function D3Charts() {
   const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
   const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
   const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();
@@ -115,14 +113,9 @@ export function D3Charts(props: D3ChartsProps) {
  
   import {  PtgUiD3Bar } from '@ptg-ui/react';
   import { d3BarData } from '@ptg-react-app/mock/mocks';
-
-  export interface D3ChartsProps { }
-  
-  export function D3Charts(props: D3ChartsProps) {
+  export function D3Charts() {
    
-  
   export default D3Charts;
-  
   `
   const htmlCodeBarChart = `
     <PtgUiD3Bar {...d3BarData} />
@@ -147,14 +140,9 @@ export function D3Charts(props: D3ChartsProps) {
   import {PtgUiD3Pie } from '@ptg-ui/react';
   import { d3PieData } from '@ptg-react-app/mock/mocks';
 
-  export interface D3ChartsProps { }
-  export function D3Charts(props: D3ChartsProps) {
-   
-  
+  export function D3Charts() {
   export default D3Charts;
-
 `
-
   const htmlCodePieChart = `
     <PtgUiD3Pie {...d3PieData} />
   `
@@ -171,9 +159,7 @@ export function D3Charts(props: D3ChartsProps) {
   import { PtgUiD3Line } from '@ptg-ui/react';
   import { d3LineData } from '@ptg-react-app/mock/mocks';
 
-  export interface D3ChartsProps { }
-  export function D3Charts(props: D3ChartsProps) {
-   
+  export function D3Charts() {
   
   export default D3Charts;`
 
