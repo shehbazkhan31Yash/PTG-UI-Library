@@ -148,50 +148,49 @@ export function PtgLogin() {
 
   return (
     <div className="row">
-        <div className="col-10 mt-1">
-          <h5 className="font-weight-bold example-heading">{t('LOGIN')}</h5>
-        </div>
-        <div className="col-2 mr-5 mb-2">
-          <CodeIcon
-            onClick={ShowExampleCode}
-            fontSize="large"
-            className="show-code-icon"
-          ></CodeIcon>
-        </div>
-        <hr className="horizontal-line" />
-        {showCode && (
-          <ShowCodeComponent
-            componentCode={componentCode}
-            htmlCode={htmlCode}
-          />
-        )}
-        <PtgUiLogin
-          emailLabel={t('LABEL_EMAIL')} //email field label email or username
-          passwordLabel={t('LABEL_PASSWORD')} // password field label password
-          emailPlaceholder={t('ENTER_EMAIL_PLACEHOLDER')} //placeholder email field
-          passwordPlaceholder={t('ENTER_PASSWORD_PLACEHOLDER')} //placeholder password field
-          loginButtonName={t('LOG_IN')} // login button name
-          signupMsg={t('LABEL_INFO_MSG')} //
-          signupButtonName={t('SIGN_UP')} // Signup button name
-          msalButtonName={'MSAL'} // MSAL button name
-          forgotPasswordLabel={t('FORGOT_PASSWORD')} // forgot password field label
-          imgPath={
-            'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg'
-          } // login page image
-          handleChange={handleChange} // handle change for login email and password
-          user={user} // pass login email and password as object {email, password}
-          emailType={'email'} // email type
-          passwordType={'password'} // password type
-          isEmailValid={isEmailValid} // email validation true or false
-          onLoginClick={() => onLoginClick()} //on login click
-          onMsalClick={() => onMsalClick()} // on msal click
-          isForgotPassword={true} // if you want to forgot password functionality
-          onForgotPasswordSubmit={onForgotPasswordSubmit} //on click on forgot password button
-          getForgetEmail={getForgetEmail} // get forgot email from forgot password modal
-          errorMessage={''}
-          successMessage={''}
-        />
+      <div className="col-10 mt-1">
+        <h5 className="font-weight-bold example-heading">{t('LOGIN')}</h5>
       </div>
+      <div className="col-2 mr-5 mb-2">
+        <CodeIcon
+          onClick={ShowExampleCode}
+          fontSize="large"
+          className="show-code-icon"
+        ></CodeIcon>
+      </div>
+      <hr className="horizontal-line" />
+      {showCode && (
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+      )}
+      <PtgUiLogin
+        emailLabel={t('LABEL_EMAIL')} //email field label email or username
+        passwordLabel={t('LABEL_PASSWORD')} // password field label password
+        emailPlaceholder={t('ENTER_EMAIL_PLACEHOLDER')} //placeholder email field
+        passwordPlaceholder={t('ENTER_PASSWORD_PLACEHOLDER')} //placeholder password field
+        loginButtonName={t('LOG_IN')} // login button name
+        signupMsg={t('LABEL_INFO_MSG')} //
+        signupButtonName={t('SIGN_UP')} // Signup button name
+        msalButtonName={'MSAL'} // MSAL button name
+        forgotPasswordLabel={t('FORGOT_PASSWORD')} // forgot password field label
+        imgPath={
+          'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg'
+        } // login page image
+        handleChange={handleChange} // handle change for login email and password
+        user={user} // pass login email and password as object {email, password}
+        emailType={'email'} // email type
+        passwordType={'password'} // password type
+        isEmailValid={isEmailValid} // email validation true or false
+        onLoginClick={() => onLoginClick()} //on login click
+        onMsalClick={() => onMsalClick()} // on msal click
+        isForgotPassword={true} // if you want to forgot password functionality
+        onForgotPasswordSubmit={onForgotPasswordSubmit} //on click on forgot password button
+        getForgetEmail={getForgetEmail} // get forgot email from forgot password modal
+        errorMessage={''}
+        successMessage={''}
+        oktaButtonName={'Okta Sign In'}
+        onOktaClick={() => console.log('Okta Sign In')}
+      />
+    </div>
   );
 }
 
