@@ -11,7 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatatableComponent } from './mat-datatable/mat-datatable.component';
-import { InputModule } from '@ptg-ui/angular/input';
+import { InputModule } from '../../input/input.module';
 
 
 
