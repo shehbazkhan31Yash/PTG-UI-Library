@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 // // regular style toast
-@import '~ngx-toastr/toastr';
+@import '../../../node_modules/ngx-toastr/toastr';
 
 // bootstrap 
 // @import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
@@ -14,8 +14,8 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 // // Ag-grid datatable 
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+// @import "ag-grid-community/dist/styles/ag-grid.css";
+// @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 
 // fontawesome style

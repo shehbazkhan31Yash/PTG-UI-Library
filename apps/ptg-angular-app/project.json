@@ -1,7 +1,10 @@
 {
+  "name": "ptg-angular-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ptg-angular-app/src",
   "prefix": "ptg-ui-library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -85,12 +88,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-angular-app"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-angular-app"],
       "options": {
         "jestConfig": "apps/ptg-angular-app/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

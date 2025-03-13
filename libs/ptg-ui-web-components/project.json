@@ -1,13 +1,14 @@
 {
+  "name": "ptg-ui-web-components",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ptg-ui-web-components/src",
   "projectType": "library",
+  "tags": [],
   "generators": {
     "@nxext/stencil:component": {
       "style": "css"
     }
   },
-  "tags": [],
   "targets": {
     "test": {
       "executor": "@nxext/stencil:test",

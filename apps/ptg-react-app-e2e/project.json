@@ -1,7 +1,10 @@
 {
+  "name": "ptg-react-app-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-react-app-e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["ptg-react-app"],
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
@@ -23,7 +26,5 @@
         "lintFilePatterns": ["apps/ptg-react-app-e2e/**/*.{js,ts}"]
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["ptg-react-app"]
+  }
 }

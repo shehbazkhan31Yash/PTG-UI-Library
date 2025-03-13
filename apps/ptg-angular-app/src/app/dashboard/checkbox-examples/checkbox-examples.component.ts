@@ -4,7 +4,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { resources } from "../../../resource/resource";
 import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
-import { TreeviewItem } from 'ngx-treeview';
+// import { TreeviewItem } from 'ngx-treeview';
 
 @Component({
   selector: 'ptg-ui-checkbox-examples',
@@ -65,7 +65,7 @@ export class CheckboxExamplesComponent implements OnInit {
 
   ngOnInit(): void {
     this.mocksApiService.getCheckboxList().subscribe((response) => {
-      this.checkBoxData = new TreeviewItem(response?.data[0].attributes.data);
+      // this.checkBoxData = new TreeviewItem(response?.data[0].attributes.data);
     });
   }
 

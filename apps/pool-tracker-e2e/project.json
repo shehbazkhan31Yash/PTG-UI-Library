@@ -3,6 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/pool-tracker-e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["pool-tracker"],
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
@@ -24,7 +26,5 @@
         "lintFilePatterns": ["apps/pool-tracker-e2e/**/*.{js,ts}"]
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["pool-tracker"]
+  }
 }
