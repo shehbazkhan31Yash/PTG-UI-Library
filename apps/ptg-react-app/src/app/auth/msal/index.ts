@@ -1,20 +1,16 @@
 import * as Msal from 'msal';
 import { Configuration } from 'msal';
 import { environment } from '../../../environments/environment';
-// import { Configuration } from 'msal';
-// const msalConfig :
-const envVar :any = process.env
-// const configValue: string = process.env.REACT_APP_SOME_CONFIGURATION 
-const msalConfig:Configuration  = {
+const msalConfig: Configuration = {
   auth: {
     postLogoutRedirectUri: environment.msal_postLogoutRedirectUri,
     redirectUri: environment.msal_redirectUri,
-   clientId:environment.msal_clientId,
-   authority:environment.msal_authority, 
+    clientId: environment.msal_clientId,
+    authority: environment.msal_authority,
   },
   cache: {
-      cacheLocation: "sessionStorage",
-      storeAuthStateInCookie: true
+    cacheLocation: 'sessionStorage',
+    storeAuthStateInCookie: true,
   },
 };
 //console.log("Msal Config",msalConfig)
@@ -22,26 +18,26 @@ const msalConfig:Configuration  = {
 const msalInstance = new Msal.UserAgentApplication(msalConfig);
 export const requiresInteraction = (errorMessage: string | string[]) => {
   if (!errorMessage || !errorMessage.length) {
-      return false;
+    return false;
   }
   return (
-      errorMessage.indexOf("consent_required") > -1 ||
-      errorMessage.indexOf("interaction_required") > -1 ||
-      errorMessage.indexOf("login_required") > -1
+    errorMessage.indexOf('consent_required') > -1 ||
+    errorMessage.indexOf('interaction_required') > -1 ||
+    errorMessage.indexOf('login_required') > -1
   );
 };
 export const acquireToken = async (request: any) => {
   try {
     const silentToken = await msalInstance.acquireTokenSilent(request);
     return [null, silentToken];
-  } catch (e:any) {
+  } catch (e: any) {
     if (requiresInteraction(e.errorCode)) {
       const popupToken = await msalInstance.acquireTokenPopup(request);
-      console.log('opo:',popupToken);
-      return [null, popupToken]
+      console.log('opo:', popupToken);
+      return [null, popupToken];
     } else {
       return [e];
     }
   }
-}
+};
 export default msalInstance;

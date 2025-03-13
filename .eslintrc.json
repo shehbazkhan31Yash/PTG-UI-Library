@@ -10,7 +10,8 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allowCircularSelfDependency": true,
+            "allow": ["@ptg-ui/**", "@ptg-react-app/**"],
             "depConstraints": [
               {
                 "sourceTag": "*",

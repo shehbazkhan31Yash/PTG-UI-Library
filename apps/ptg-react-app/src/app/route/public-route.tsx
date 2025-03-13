@@ -1,18 +1,11 @@
-import {
-    Navigate
-  } from 'react-router-dom';
-  import { authClass } from '@ptg-react-app/auth/services/auth.service';
-  
-  const PublicRoute=({ children}:{children:JSX.Element})=> {
+import { Navigate } from 'react-router-dom';
+import { authClass } from '@ptg-react-app/auth/services/auth.service';
+import { useAuth0 } from '@auth0/auth0-react';
 
-      let auth = authClass.getToken();
-      console.log('props:',auth);
-    return (
-        auth
-        ? <Navigate to='/calendar'/>
-        : children
+const PublicRoute = ({ children }: { children: JSX.Element }) => {
+  const { isAuthenticated } = useAuth0();
+  const auth = authClass.getToken();
+  return isAuthenticated || auth ? <Navigate to="/" /> : children;
+};
 
-    );
-  }
-
-  export default PublicRoute;
+export default PublicRoute;

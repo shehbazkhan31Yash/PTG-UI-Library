@@ -7,45 +7,46 @@
 import { authClass } from '../../auth/services/auth.service';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Reset from '../reset/Reset';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './UserProfile.scss';
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function UserProfile() {
   const { t } = useTranslation();
   const [toggle, setToggle] = useState(false);
+  const { logout, user } = useAuth0();
   interface LoggedInUser {
-    username?: any;
-    shortname?: any;
+    username?: string;
+    shortname?: string;
   }
   const [userData, setUserData] = useState<LoggedInUser>({});
   const navigate = useNavigate();
 
   const handleLogout = () => {
     authClass.removeToken();
+    logout();
     sessionStorage.clear();
     navigate('/login');
   };
 
-  {
-    /*--Start set logged in user data--*/
-  }
+  /*--Start set logged in user data--*/
+
   const getUserData = JSON.parse(authClass.getToken());
 
   useEffect(() => {
-    if (getUserData === null) {
+    if (getUserData === null && user === null) {
       handleLogout();
     } else {
-      if(getUserData.user) {
+      if (getUserData?.user) {
         getUserData.user.shortname = getUserData?.user?.username
-        ?.match(/\b(\w)/g)
-        ?.join('');
-      setUserData(getUserData.user);
+          ?.match(/\b(\w)/g)
+          ?.join('');
+        setUserData(getUserData.user);
       }
-      
+      if (user) {
+        setUserData({ username: user?.nickname, shortname: user?.name });
+      }
     }
   }, []);
 
@@ -61,16 +62,15 @@ export default function UserProfile() {
         onClick={() => setToggle(!toggle)}
         data-testid="profileIcon"
       >
-      <AccountCircleIcon fontSize='large'/>
+        <AccountCircleIcon fontSize="large" />
         {/* note: comment for username */}
         {/* {userData.shortname} */}
-
       </span>
       {toggle && (
         <div className="user-container">
           <div className="triangle-up"></div>
           <div className="list-group">
-             {/*--Display user username--*/}
+            {/*--Display user username--*/}
             <a className="list-group-item list-group-item-action bg-info text-white border-top-0">
               {userData.username}
             </a>
@@ -87,4 +87,3 @@ export default function UserProfile() {
     </div>
   );
 }
-

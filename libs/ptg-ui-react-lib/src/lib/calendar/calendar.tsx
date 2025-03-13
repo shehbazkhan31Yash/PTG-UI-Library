@@ -6,54 +6,53 @@
  *
  */
 import './calendar.scss';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+//import DatePicker from 'react-datepicker';
+//import 'react-datepicker/dist/react-datepicker.css';
 export interface CalendarProps {
-  onChange?: any;
-  date?: any;
-  selected?: any;
-  className?: any;
-  startDate?: any;
-  endDate?: any;
-  disabled?: boolean;
-  startRef?: any;
-  onKeyDown?: any;
-  accessKey?: string;
-  showTimeSelect?:boolean;
-  dateFormat?:string;
+	onChange?: any;
+	date?: any;
+	selected?: any;
+	className?: any;
+	startDate?: any;
+	endDate?: any;
+	disabled?: boolean;
+	startRef?: any;
+	onKeyDown?: any;
+	accessKey?: string;
+	showTimeSelect?: boolean;
+	dateFormat?: string;
+	isDateTime?: boolean;
 }
 
 export function PtgUiCalendar({
-  className,
-  selected,
-  onChange,
-  startDate,
-  endDate,
-  disabled,
-  startRef,
-  onKeyDown,
-  accessKey,
-  showTimeSelect,
-  dateFormat="MM-dd-yyyy"
+	className,
+	selected,
+	onChange,
+	startDate,
+	endDate,
+	disabled,
+	isDateTime,
+	startRef,
+	onKeyDown,
+	accessKey,
+	showTimeSelect,
+	dateFormat = 'MM-dd-yyyy',
 }: CalendarProps) {
-  return (
-    <div className="position-relative post-icon">
-      <DatePicker
-        disabled={disabled}
-        selected={selected}
-        className={className}
-        dateFormat={dateFormat}
-        placeholderText="MM-DD-YYYY"
-        onChange={onChange}
-        minDate={startDate === null ? startDate : new Date(startDate)}
-        maxDate={endDate === null ? endDate : new Date(endDate)}
-        ref={startRef}
-        onKeyDown={onKeyDown}
-        showTimeSelect={showTimeSelect}
-      />
-      <i className="icon cal-icon"></i>
-    </div>
-  );
+	return (
+		<div className="position-relative post-icon">
+			<div>
+				<input
+					className={className}
+					type={!isDateTime ? 'date' : 'datetime-local'}
+					value={selected}
+					onChange={onChange}
+					min={startDate || ''}
+					max={endDate || ''}
+					disabled={disabled}
+				/>
+			</div>
+		</div>
+	);
 }
 
 export default PtgUiCalendar;

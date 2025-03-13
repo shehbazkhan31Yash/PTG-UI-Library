@@ -109,11 +109,9 @@ export class PtgTable implements tableInterface {
     const start = this.page * this.pageSize;
     const end = this.page * this.pageSize + this.pageSize;
     this.tablelist = this.tabledata.slice(start, end);
-    console.log(end);
   }
 
   render() {
-    console.log('data', this.tabledata);
     return (
       <div class="ptg-table-wrapper">
         {this.searchable && (
