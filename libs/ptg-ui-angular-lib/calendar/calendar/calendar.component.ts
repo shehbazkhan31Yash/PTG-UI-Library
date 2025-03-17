@@ -99,8 +99,8 @@ export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   applyTheme(pop: BsDatepickerDirective): void {
-    this.bsConfig = { ...{ containerClass: this.themeColor } };
-}
+    this.bsConfig = { ...{}, containerClass: this.themeColor };
+  }
   ngAfterViewInit(): void {
     this.applyTheme(this.datepickerVal);
   }

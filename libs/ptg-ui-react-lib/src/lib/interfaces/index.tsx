@@ -1,7 +1,14 @@
 // Pagination
 interface IBreadcrumbItem {
 	title: string;
-	link: string;
+	link?: string;
+}
+
+//FormGroup
+export interface IFormGroupProps {
+	label?: string;
+	required?: boolean;
+	children?: React.ReactNode;
 }
 
 //Breadcrumb
@@ -131,6 +138,7 @@ export interface PtgUiLoginProps {
 	signupMsg?: string;
 	signupButtonName?: string;
 	msalButtonName?: string;
+	oktaButtonName?: string;
 	forgotPasswordLabel?: string;
 	imgPath?: string;
 	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void | undefined;
@@ -140,6 +148,7 @@ export interface PtgUiLoginProps {
 	isEmailValid?: boolean;
 	onLoginClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	onMsalClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
+	onOktaClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	isForgotPassword?: boolean;
 	onForgotPasswordSubmit?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined;
 	getForgetEmail?: (email: string) => void;
@@ -166,6 +175,17 @@ export interface IFormErr {
 	password?: boolean;
 	confirmPassword?: boolean;
 }
+interface ICityOption {
+	value: string; // The value associated with the city
+	label: string; // The display label for the city
+	name: string; // The name of the field (in this case, it seems to be 'city')
+}
+
+interface IGenderOption {
+	value: string; // The value associated
+	id: string; // The display label
+	name: string; // The name of the field
+}
 
 export interface PtgUiSignupProps {
 	handleCheckChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -179,6 +199,8 @@ export interface PtgUiSignupProps {
 	onSubmit?: () => void;
 	errorMessage?: string;
 	successMessage?: string;
+	cityList?: ICityOption[];
+	genderList?: IGenderOption[];
 }
 export interface IUserDetails {
 	firstName: string;
@@ -222,10 +244,9 @@ export interface IUserErrors {
 	cardHolder: boolean;
 }
 
-
 export interface IPtgUiMultiStepState {
-  stepCount: number;
-  showNext?: () => void;
+	stepCount: number;
+	showNext?: () => void;
 }
 
 export interface IStep {

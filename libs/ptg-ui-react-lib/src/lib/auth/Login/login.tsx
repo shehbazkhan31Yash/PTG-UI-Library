@@ -1,28 +1,11 @@
 import React from 'react';
+import './login.css';
 import { Link } from 'react-router-dom';
-import PtgUiAlert from '../../alert/alert';
+import { PtgUIForgotPassword } from '../ForgotPassword/forgotPassword';
 import { PtgUiButton } from '../../button/button';
 import PtgUiInput from '../../input/input';
 import { PtgUiLoginProps } from '../../interfaces';
-import { PtgUIForgotPassword } from '../ForgotPassword/forgotPassword';
-import './login.scss';
-
-/**
- * Component to display error and success messages.
- *
- * @param {Object} props - The properties for the MessageDisplay component.
- * @param {string} props.errorMessage - The error message to display.
- * @param {string} props.successMessage - The success message to display.
- * @returns {JSX.Element} The rendered message display component.
- */
-const MessageDisplay = ({ errorMessage, successMessage }) => (
-	<div className="form-group">
-		{/* Display error message if it exists */}
-		{errorMessage && <PtgUiAlert type="danger" message={errorMessage} />}
-		{/* Display success message if it exists */}
-		{successMessage && <PtgUiAlert type="success" message={successMessage} />}
-	</div>
-);
+import { MessageDisplay } from '../Common/common';
 
 /**
  * Function to determine the class name for the input field.
@@ -76,6 +59,7 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 	signupMsg,
 	signupButtonName,
 	msalButtonName,
+	oktaButtonName,
 	forgotPasswordLabel,
 	imgPath,
 	handleChange,
@@ -85,6 +69,7 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 	isEmailValid,
 	onLoginClick,
 	onMsalClick,
+	onOktaClick,
 	isForgotPassword,
 	onForgotPasswordSubmit,
 	getForgetEmail,
@@ -174,6 +159,21 @@ export const PtgUiLogin: React.FC<PtgUiLoginProps> = ({
 						>
 							{msalButtonName}
 						</PtgUiButton>
+						{/* OKTA button for alternative login method */}
+						{oktaButtonName && (
+							<>
+								<p className="text-center mx-3 mb-0">OR</p>
+								<PtgUiButton
+									className="w-100"
+									width="100%"
+									border={'1px solid #000'}
+									backgroundColor="#ddd"
+									onClick={onOktaClick}
+								>
+									{oktaButtonName}
+								</PtgUiButton>
+							</>
+						)}
 					</form>
 				</div>
 			</div>

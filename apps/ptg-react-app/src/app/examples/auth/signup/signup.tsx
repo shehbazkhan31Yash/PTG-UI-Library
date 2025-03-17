@@ -11,6 +11,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiSignup } from '@ptg-ui/react';
 import { IUser, IFormError } from '../../../interfaces';
+import { CITY_LIST, GENDER_LIST } from '../../../mock/mocks';
 export function PtgSignup() {
   const [showCode, setShowCode] = useState(false);
   const [date, setDate] = useState<Date | null | string>(null);
@@ -78,15 +79,15 @@ export function PtgSignup() {
       case 'email':
         {
           const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (
-          formValue === '' || formValue
-            ? true
-            : false !== regexEmail.test(formValue)
-        ) {
-          if (!regexEmail.test(formValue)) {
-            disabled = true;
+          if (
+            formValue === '' || formValue
+              ? true
+              : false !== regexEmail.test(formValue)
+          ) {
+            if (!regexEmail.test(formValue)) {
+              disabled = true;
+            }
           }
-        }
         }
         break;
       case 'city':
@@ -199,37 +200,36 @@ export function PtgSignup() {
 
   return (
     <div className="row">
-        <div className="col-10 mt-1">
-          <h5 className="font-weight-bold example-heading">Signup</h5>
-        </div>
-        <div className="col-2 mr-5 mb-2">
-          <CodeIcon
-            onClick={ShowExampleCode}
-            fontSize="large"
-            className="show-code-icon"
-          ></CodeIcon>
-        </div>
-        <hr className="horizontal-line" />
-        {showCode && (
-          <ShowCodeComponent
-            componentCode={componentCode}
-            htmlCode={htmlCode}
-          />
-        )}
-        <PtgUiSignup
-          handleCheckChange={handleCheckChange}
-          handleDateChange={handleDateChange}
-          handleChange={handleChange}
-          user={user}
-          formErr={formErr}
-          isDisabled={isDisabled}
-          date={date}
-          selectedCheck={selectedCheck}
-          onSubmit={onSubmit}
-          errorMessage={errorMessage}
-          successMessage={''}
-        />
+      <div className="col-10 mt-1">
+        <h5 className="font-weight-bold example-heading">Signup</h5>
       </div>
+      <div className="col-2 mr-5 mb-2">
+        <CodeIcon
+          onClick={ShowExampleCode}
+          fontSize="large"
+          className="show-code-icon"
+        ></CodeIcon>
+      </div>
+      <hr className="horizontal-line" />
+      {showCode && (
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+      )}
+      <PtgUiSignup
+        handleCheckChange={handleCheckChange}
+        handleDateChange={handleDateChange}
+        handleChange={handleChange}
+        user={user}
+        formErr={formErr}
+        isDisabled={isDisabled}
+        date={date}
+        selectedCheck={selectedCheck}
+        onSubmit={onSubmit}
+        errorMessage={errorMessage}
+        successMessage={''}
+        cityList={CITY_LIST}
+        genderList={GENDER_LIST}
+      />
+    </div>
   );
 }
 export default PtgSignup;

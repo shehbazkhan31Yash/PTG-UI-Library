@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-// import Reset from '../reset/Reset';
 import './UserProfile.scss';
 import './UserProfile.scss';
 
@@ -52,6 +51,10 @@ export default function UserProfile() {
         ?.join('');
       setUserData(getUserData.user);
     }
+
+    return () => {
+      setUserData({});
+    };
   }, []);
 
   {
@@ -72,7 +75,7 @@ export default function UserProfile() {
         <div className="user-container">
           <div className="triangle-up"></div>
           <div className="list-group">
-             {/*--Display user username--*/}
+            {/*--Display user username--*/}
             <a className="list-group-item list-group-item-action bg-info text-white border-top-0">
               {userData.username}
             </a>
