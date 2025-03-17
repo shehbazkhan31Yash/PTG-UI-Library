@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Calendar from './calendar';
+import { PtgUiCalendar } from './calendar';
 
 describe('Calendar', () => {
 	it('should render successfully', () => {
-		const { baseElement } = render(<Calendar />);
+		const { baseElement } = render(<PtgUiCalendar />);
 		expect(baseElement).toBeTruthy();
 	});
 });
