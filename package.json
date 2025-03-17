@@ -22,7 +22,7 @@
     "build:ptg-metaverse-comp-react": "nx build ptg-metaverse-comp-react --baseHref /ptg-metaverse-comp-react/",
     "build:backend": "nx build ptg-ui-apps-backend --prod --skip-nx-cache",
     "build:all:app": "npm run build:backend && npm run build:react-app -- --verbose && npm run build:ng-app && npm run build:ng-docprocess && npm run build:ng-storybook && npm run build:ng-googlemap && npm run build:ng-animations && nx build ptg-ui-web-components && npm run build:ptg-ui-web-comp-react && npm run build:ptg-ui-web-comp-angular && npm run build:ptg-metaverse-comp-react",
-    "build:ui:current": "npm run build:react-app -- --verbose",
+    "build:ui:current": "npm run build:react-app -- --verbose && npm run build:ng-app -- --verbose",
     "build:ng-lib": "nx build ptg-ui-angular-lib",
     "build:react-lib": "nx build ptg-ui-react-lib",
     "build:ng-stencil": "nx build ptg-ui-web-components",

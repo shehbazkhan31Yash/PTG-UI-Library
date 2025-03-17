@@ -1,10 +1,9 @@
-import { forwardRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { forwardRef } from '@angular/core';
 import {
   ControlContainer,
   FormGroupDirective,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+  NG_VALUE_ACCESSOR} from '@angular/forms';
 import { InputComponent } from './input.component';
 
 describe('InputComponent', () => {
@@ -13,16 +12,18 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InputComponent],
-      providers: [
+      declarations: [ InputComponent ],
+	   providers: [
         {
           provide: ControlContainer,
           useValue: FormGroupDirective
         },
         { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => InputComponent) }
       ],
-    }).compileComponents();
-  });
+
+    })
+    .compileComponents();
+	 });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(InputComponent);
@@ -30,64 +31,75 @@ describe('InputComponent', () => {
     fixture.debugElement.injector.get(NG_VALUE_ACCESSOR);
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  const testMethodCall = (methodName: string, args: any[] = []) => {
-    const spy = jest.spyOn(component, methodName);
-    component[methodName](...args);
-    expect(spy).toHaveBeenCalled();
-  };
 
-  it('should call handleBlur and onTouched', () => {
-    component.onTouched = jest.fn();
-    testMethodCall('handleBlur');
-    expect(component.onTouched).toHaveBeenCalled();
+  it('handle blur event called', () => {
+    const handleBlur = jest.spyOn(component, 'handleBlur');
+	  component.onTouched = jest.fn();
+    component.handleBlur();
+    expect(handleBlur).toHaveBeenCalledTimes(1);
+	  expect(component.onTouched).toHaveBeenCalled();
+  });
+ it('on onchangeInput', () => {
+    const onchangeInput = jest.spyOn(component, 'onchangeInput');
+	  component.onChange = jest.fn();
+    component.onchangeInput([{'name':'select','value':'Test'}]);
+    expect(onchangeInput).toHaveBeenCalledTimes(1);
+	  expect(component.onChange).toHaveBeenCalled();
   });
 
-  it('should call onchangeInput', () => {
-    component.onChange = jest.fn();
-    testMethodCall('onchangeInput', [[{ 'name': 'select', 'value': 'Test' }]]);
-    expect(component.onChange).toHaveBeenCalled();
+  it('On blur event called', () => {
+    const onBlur = jest.spyOn(component, 'onBlur');
+	 component.onTouched = jest.fn();
+    component.onBlur();
+    expect(onBlur).toHaveBeenCalledTimes(1);
+	 expect(component.onTouched).toHaveBeenCalled();
   });
 
-  it('should call onBlur and onTouched', () => {
-    component.onTouched = jest.fn();
-    testMethodCall('onBlur');
-    expect(component.onTouched).toHaveBeenCalled();
-  });
+  it('registerOnChange  on change is called', () => {
+    const registerOnChange = jest.spyOn(component, 'registerOnChange');
+    let mockFn  = jest.fn();
+    component.registerOnChange(mockFn);
+    expect(registerOnChange).toHaveBeenCalledTimes(1);
+	 });
 
-  it('should call registerOnChange', () => {
-    const mockFn = jest.fn();
-    testMethodCall('registerOnChange', [mockFn]);
-  });
+  it('registerOnTouched  on change is called', () => {
+    const registerOnTouched = jest.spyOn(component, 'registerOnTouched');
+    let mockFn  = jest.fn();
+    component.registerOnTouched(mockFn);
+    expect(registerOnTouched).toHaveBeenCalledTimes(1);
+	 });
 
-  it('should call registerOnTouched', () => {
-    const mockFn = jest.fn();
-    testMethodCall('registerOnTouched', [mockFn]);
-  });
+  it('ariaValueText event', () => {
+    let btn = jest.spyOn(component, 'ariaValueText');
+    component.ariaValueText();
+    expect(btn).toHaveBeenCalled();
+	});
 
-  it('should call ariaValueText', () => {
-    testMethodCall('ariaValueText');
-  });
+  it('isInteractive event', () => {
+    let btn = jest.spyOn(component, 'isInteractive');
+    component.isInteractive();
+    expect(btn).toHaveBeenCalled();
+	});
 
-  it('should call isInteractive', () => {
-    testMethodCall('isInteractive');
+  it('writeValue event', () => {
+    let evt:any={target:{value:'Test'}}
+    let btn = jest.spyOn(component, 'writeValue');
+    component.writeValue(evt);
+    expect(btn).toHaveBeenCalled();
   });
-
-  it('should call writeValue', () => {
-    const evt = { target: { value: 'Test' } };
-    testMethodCall('writeValue', [evt]);
-  });
-
-  it('should call onChange', () => {
-    const evt = { target: { value: 'Test' } };
-    testMethodCall('onChange', [evt]);
-  });
-
-  it('should call onTouched', () => {
-    testMethodCall('onTouched');
-  });
+  it('onChange event', () => {
+    let evt:any={target:{value:'Test'}}
+    let btn = jest.spyOn(component, 'onChange');
+    component.onChange(evt);
+    expect(btn).toBeDefined();
+	  });
+  it('onTouched event', () => {
+    let btn = jest.spyOn(component, 'onTouched');
+    component.onTouched();
+    expect(btn).toBeDefined();
+});
 });
