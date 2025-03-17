@@ -72,6 +72,7 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
 
 import { WebComponentsAngularModule } from '@ptg-ui/ptg-ui-web-components-angular';
 import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
+import { AgGridModule } from 'ag-grid-angular';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
@@ -142,6 +143,7 @@ defineCustomElements();
     DemoPtgUiNgModule,
     MatSnackBarModule,
     WebComponentsAngularModule,
+    AgGridModule,
     NgSelectModule
   ],
 })

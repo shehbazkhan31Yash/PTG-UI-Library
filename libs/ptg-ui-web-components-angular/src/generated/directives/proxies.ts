@@ -1,27 +1,46 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
+
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@ptg-ui/ptg-ui-web-components';
 
 
-
-
-export declare interface MyComponent extends Components.MyComponent {}
-
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['first', 'last', 'middle']
 })
 @Component({
   selector: 'my-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['first', 'last', 'middle']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['first', 'last', 'middle'],
 })
 export class MyComponent {
-  protected el: HTMLElement;
+  protected el: HTMLMyComponentElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface MyComponent extends Components.MyComponent {}
+
+
+@ProxyCmp({
+  inputs: ['bgColor', 'defaultOpened', 'description', 'label']
+})
+@Component({
+  selector: 'ptg-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['bgColor', 'defaultOpened', 'description', 'label'],
+})
+export class PtgAccordion {
+  protected el: HTMLPtgAccordionElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -31,18 +50,19 @@ export class MyComponent {
 
 export declare interface PtgAccordion extends Components.PtgAccordion {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['bgColor', 'defaultOpened', 'description', 'label']
+  inputs: ['appreanced', 'buttoncss', 'texed']
 })
 @Component({
-  selector: 'ptg-accordion',
+  selector: 'ptg-alert',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['bgColor', 'defaultOpened', 'description', 'label']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appreanced', 'buttoncss', 'texed'],
 })
-export class PtgAccordion {
-  protected el: HTMLElement;
+export class PtgAlert {
+  protected el: HTMLPtgAlertElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -52,18 +72,19 @@ export class PtgAccordion {
 
 export declare interface PtgAlert extends Components.PtgAlert {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['appreanced', 'buttoncss', 'texed']
+  inputs: ['datalist']
 })
 @Component({
-  selector: 'ptg-alert',
+  selector: 'ptg-breadcrumbs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appreanced', 'buttoncss', 'texed']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['datalist'],
 })
-export class PtgAlert {
-  protected el: HTMLElement;
+export class PtgBreadcrumbs {
+  protected el: HTMLPtgBreadcrumbsElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -73,18 +94,19 @@ export class PtgAlert {
 
 export declare interface PtgBreadcrumbs extends Components.PtgBreadcrumbs {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['datalist']
+  inputs: ['appearance', 'btnIconAlignment', 'text']
 })
 @Component({
-  selector: 'ptg-breadcrumbs',
+  selector: 'ptg-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['datalist']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appearance', 'btnIconAlignment', 'text'],
 })
-export class PtgBreadcrumbs {
-  protected el: HTMLElement;
+export class PtgButton {
+  protected el: HTMLPtgButtonElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -94,49 +116,19 @@ export class PtgBreadcrumbs {
 
 export declare interface PtgButton extends Components.PtgButton {}
 
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['appearance', 'btnIconAlignment', 'text']
-})
-@Component({
-  selector: 'ptg-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['appearance', 'btnIconAlignment', 'text']
-})
-export class PtgButton {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
-export declare interface PtgCalender extends Components.PtgCalender {
-  /**
-   *  
-   */
-  dayChanged: EventEmitter<CustomEvent<any>>;
-  /**
-   *  
-   */
-  monthChanged: EventEmitter<CustomEvent<any>>;
-
-}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['callback', 'dayNames', 'monthNames', 'showFillDays', 'startDate']
 })
 @Component({
   selector: 'ptg-calender',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['callback', 'dayNames', 'monthNames', 'showFillDays', 'startDate']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['callback', 'dayNames', 'monthNames', 'showFillDays', 'startDate'],
 })
 export class PtgCalender {
-  protected el: HTMLElement;
+  protected el: HTMLPtgCalenderElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -145,26 +137,26 @@ export class PtgCalender {
 }
 
 
-export declare interface PtgCard extends Components.PtgCard {
-  /**
-   *  
-   */
-  handleClick: EventEmitter<CustomEvent<any>>;
+export declare interface PtgCalender extends Components.PtgCalender {
 
+  dayChanged: EventEmitter<CustomEvent<any>>;
+
+  monthChanged: EventEmitter<CustomEvent<any>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['cardButtonText', 'cardContent', 'cardContentLength', 'cardId', 'cardTitle', 'isCardAction', 'src']
 })
 @Component({
   selector: 'ptg-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['cardButtonText', 'cardContent', 'cardContentLength', 'cardId', 'cardTitle', 'isCardAction', 'src']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['cardButtonText', 'cardContent', 'cardContentLength', 'cardId', 'cardTitle', 'isCardAction', 'src'],
 })
 export class PtgCard {
-  protected el: HTMLElement;
+  protected el: HTMLPtgCardElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -173,26 +165,24 @@ export class PtgCard {
 }
 
 
-export declare interface PtgCheckbox extends Components.PtgCheckbox {
-  /**
-   *  
-   */
-  valueChanged: EventEmitter<CustomEvent<string>>;
+export declare interface PtgCard extends Components.PtgCard {
 
+  handleClick: EventEmitter<CustomEvent<any>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['callback', 'checked', 'color', 'dataid', 'datavalue', 'disabled', 'indeterminate', 'label']
 })
 @Component({
   selector: 'ptg-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['callback', 'checked', 'color', 'dataid', 'datavalue', 'disabled', 'indeterminate', 'label']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['callback', 'checked', 'color', 'dataid', 'datavalue', 'disabled', 'indeterminate', 'label'],
 })
 export class PtgCheckbox {
-  protected el: HTMLElement;
+  protected el: HTMLPtgCheckboxElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -201,20 +191,46 @@ export class PtgCheckbox {
 }
 
 
-export declare interface PtgFooter extends Components.PtgFooter {}
+export declare interface PtgCheckbox extends Components.PtgCheckbox {
+
+  valueChanged: EventEmitter<CustomEvent<string>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['footer']
 })
 @Component({
   selector: 'ptg-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['footer']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['footer'],
 })
 export class PtgFooter {
-  protected el: HTMLElement;
+  protected el: HTMLPtgFooterElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgFooter extends Components.PtgFooter {}
+
+
+@ProxyCmp({
+  inputs: ['header']
+})
+@Component({
+  selector: 'ptg-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['header'],
+})
+export class PtgHeader {
+  protected el: HTMLPtgHeaderElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -224,45 +240,19 @@ export class PtgFooter {
 
 export declare interface PtgHeader extends Components.PtgHeader {}
 
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['header']
-})
-@Component({
-  selector: 'ptg-header',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['header']
-})
-export class PtgHeader {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
-export declare interface PtgInput extends Components.PtgInput {
-  /**
-   * Event emmiter to handle changes 
-   */
-  valueChanged: EventEmitter<CustomEvent<string>>;
-
-}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['inputId', 'label', 'name', 'placeholder', 'type', 'value', 'width']
 })
 @Component({
   selector: 'ptg-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inputId', 'label', 'name', 'placeholder', 'type', 'value', 'width']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['inputId', 'label', 'name', 'placeholder', 'type', 'value', 'width'],
 })
 export class PtgInput {
-  protected el: HTMLElement;
+  protected el: HTMLPtgInputElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -271,30 +261,26 @@ export class PtgInput {
 }
 
 
-export declare interface PtgModal extends Components.PtgModal {
+export declare interface PtgInput extends Components.PtgInput {
   /**
-   *  
+   * Event emmiter to handle changes
    */
-  modalClose: EventEmitter<CustomEvent<boolean>>;
-  /**
-   *  
-   */
-  confirmClose: EventEmitter<CustomEvent<boolean>>;
-
+  valueChanged: EventEmitter<CustomEvent<string>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['btnName', 'cancelBtn', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'primaryBtn', 'showFooter', 'showHeader']
 })
 @Component({
   selector: 'ptg-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['btnName', 'cancelBtn', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'primaryBtn', 'showFooter', 'showHeader']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['btnName', 'cancelBtn', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'primaryBtn', 'showFooter', 'showHeader'],
 })
 export class PtgModal {
-  protected el: HTMLElement;
+  protected el: HTMLPtgModalElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -303,30 +289,26 @@ export class PtgModal {
 }
 
 
-export declare interface PtgPagination extends Components.PtgPagination {
-  /**
-   *  
-   */
-  pageChanged: EventEmitter<CustomEvent<any>>;
-  /**
-   *  
-   */
-  sizeChanged: EventEmitter<CustomEvent<any>>;
+export declare interface PtgModal extends Components.PtgModal {
 
+  modalClose: EventEmitter<CustomEvent<boolean>>;
+
+  confirmClose: EventEmitter<CustomEvent<boolean>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['itemCount', 'page', 'pageSize', 'pageSizeOptions']
 })
 @Component({
   selector: 'ptg-pagination',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['itemCount', 'page', 'pageSize', 'pageSizeOptions']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['itemCount', 'page', 'pageSize', 'pageSizeOptions'],
 })
 export class PtgPagination {
-  protected el: HTMLElement;
+  protected el: HTMLPtgPaginationElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -335,20 +317,48 @@ export class PtgPagination {
 }
 
 
-export declare interface PtgRadiobtn extends Components.PtgRadiobtn {}
+export declare interface PtgPagination extends Components.PtgPagination {
+
+  pageChanged: EventEmitter<CustomEvent<any>>;
+
+  sizeChanged: EventEmitter<CustomEvent<any>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['ids', 'name', 'sender', 'type', 'value']
 })
 @Component({
   selector: 'ptg-radiobtn',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['ids', 'name', 'sender', 'type', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['ids', 'name', 'sender', 'type', 'value'],
 })
 export class PtgRadiobtn {
-  protected el: HTMLElement;
+  protected el: HTMLPtgRadiobtnElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgRadiobtn extends Components.PtgRadiobtn {}
+
+
+@ProxyCmp({
+  inputs: ['ids', 'name', 'sender', 'type', 'value']
+})
+@Component({
+  selector: 'ptg-radiobuton',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['ids', 'name', 'sender', 'type', 'value'],
+})
+export class PtgRadiobuton {
+  protected el: HTMLPtgRadiobutonElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -358,18 +368,19 @@ export class PtgRadiobtn {
 
 export declare interface PtgRadiobuton extends Components.PtgRadiobuton {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['ids', 'name', 'sender', 'type', 'value']
+  inputs: ['multiSelect', 'selectData']
 })
 @Component({
-  selector: 'ptg-radiobuton',
+  selector: 'ptg-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['ids', 'name', 'sender', 'type', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['multiSelect', 'selectData'],
 })
-export class PtgRadiobuton {
-  protected el: HTMLElement;
+export class PtgSelect {
+  protected el: HTMLPtgSelectElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -379,18 +390,19 @@ export class PtgRadiobuton {
 
 export declare interface PtgSelect extends Components.PtgSelect {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['multiSelect', 'selectData']
+  inputs: ['text', 'url']
 })
 @Component({
-  selector: 'ptg-select',
+  selector: 'ptg-sidenav',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['multiSelect', 'selectData']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['text', 'url'],
 })
-export class PtgSelect {
-  protected el: HTMLElement;
+export class PtgSidenav {
+  protected el: HTMLPtgSidenavElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -400,18 +412,19 @@ export class PtgSelect {
 
 export declare interface PtgSidenav extends Components.PtgSidenav {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['text', 'url']
+  inputs: ['appearance']
 })
 @Component({
-  selector: 'ptg-sidenav',
+  selector: 'ptg-spinner',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['text', 'url']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appearance'],
 })
-export class PtgSidenav {
-  protected el: HTMLElement;
+export class PtgSpinner {
+  protected el: HTMLPtgSpinnerElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -421,18 +434,19 @@ export class PtgSidenav {
 
 export declare interface PtgSpinner extends Components.PtgSpinner {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['appearance']
+  inputs: ['customClass', 'pageSizeOptions', 'searchable', 'sortable', 'tableHover', 'tableStrip', 'tablecolumn', 'tabledata', 'tabletitle', 'themeColor']
 })
 @Component({
-  selector: 'ptg-spinner',
+  selector: 'ptg-table',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appearance']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['customClass', 'pageSizeOptions', 'searchable', 'sortable', 'tableHover', 'tableStrip', 'tablecolumn', 'tabledata', 'tabletitle', 'themeColor'],
 })
-export class PtgSpinner {
-  protected el: HTMLElement;
+export class PtgTable {
+  protected el: HTMLPtgTableElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -442,18 +456,19 @@ export class PtgSpinner {
 
 export declare interface PtgTable extends Components.PtgTable {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['customClass', 'pageSizeOptions', 'searchable', 'sortable', 'tableHover', 'tableStrip', 'tablecolumn', 'tabledata', 'tabletitle', 'themeColor']
+  inputs: ['appearance', 'autofocus', 'cols', 'disable', 'form', 'maxlen', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'value']
 })
 @Component({
-  selector: 'ptg-table',
+  selector: 'ptg-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['customClass', 'pageSizeOptions', 'searchable', 'sortable', 'tableHover', 'tableStrip', 'tablecolumn', 'tabledata', 'tabletitle', 'themeColor']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appearance', 'autofocus', 'cols', 'disable', 'form', 'maxlen', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'value'],
 })
-export class PtgTable {
-  protected el: HTMLElement;
+export class PtgTextarea {
+  protected el: HTMLPtgTextareaElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -463,18 +478,19 @@ export class PtgTable {
 
 export declare interface PtgTextarea extends Components.PtgTextarea {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['appearance', 'autofocus', 'cols', 'disable', 'form', 'maxlen', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'value']
+  inputs: ['appearance', 'discription', 'id1', 'open', 'type']
 })
 @Component({
-  selector: 'ptg-textarea',
+  selector: 'ptg-toast',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appearance', 'autofocus', 'cols', 'disable', 'form', 'maxlen', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appearance', 'discription', 'id1', 'open', 'type'],
 })
-export class PtgTextarea {
-  protected el: HTMLElement;
+export class PtgToast {
+  protected el: HTMLPtgToastElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -484,18 +500,19 @@ export class PtgTextarea {
 
 export declare interface PtgToast extends Components.PtgToast {}
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['appearance', 'discription', 'id1', 'open', 'type']
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
 })
 @Component({
-  selector: 'ptg-toast',
+  selector: 'ptg-ui-carousel',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appearance', 'discription', 'id1', 'open', 'type']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators'],
 })
-export class PtgToast {
-  protected el: HTMLElement;
+export class PtgUiCarousel {
+  protected el: HTMLPtgUiCarouselElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -505,20 +522,4 @@ export class PtgToast {
 
 export declare interface PtgUiCarousel extends Components.PtgUiCarousel {}
 
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
-})
-@Component({
-  selector: 'ptg-ui-carousel',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
-})
-export class PtgUiCarousel {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
+

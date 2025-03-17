@@ -196,9 +196,8 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputEmail"
                       value={user.email}
                       onChange={handleChange}
-                      className={`"w-100 form-control bg_0 ${
-                        formErr.email === true ? 'border-danger' : ''
-                      }`}
+                      className={`"w-100 form-control bg_0 ${formErr.email === true ? 'border-danger' : ''
+                        }`}
                       name="email"
                       placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
                       onBlur={user.email === '' ? handleBlur : null}
@@ -225,9 +224,8 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
                       id="inputPassword"
                       onChange={handleChange}
                       value={user.password}
-                      className={`"w-100 form-control bg_0 ${
-                        formErr.password === true ? 'border-danger' : ''
-                      }`}
+                      className={`"w-100 form-control bg_0 ${formErr.password === true ? 'border-danger' : ''
+                        }`}
                       name="password"
                       placeholder={t('INPUT_PLACEHOLDER_PASSWORD')}
                       onBlur={user.password === '' ? handleBlur : null}

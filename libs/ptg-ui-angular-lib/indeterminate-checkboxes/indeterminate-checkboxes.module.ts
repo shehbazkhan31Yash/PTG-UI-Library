@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { IndeterminateCheckboxesComponent } from './indeterminate-checkboxes/indeterminate-checkboxes.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-import { TreeviewModule } from 'ngx-treeview';
+// import { TreeviewModule } from 'ngx-treeview';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { TreeviewModule } from 'ngx-treeview';
     CommonModule,
     MatCheckboxModule,
     FormsModule,
-    TreeviewModule.forRoot()
+    // TreeviewModule.forRoot()
   ],
   exports:[
     IndeterminateCheckboxesComponent

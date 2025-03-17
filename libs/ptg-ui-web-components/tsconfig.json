@@ -13,7 +13,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "types": ["jest"] // Add this line for Jest
+    // "types": ["mocha"] // Uncomment this line if you are using Mocha
   },
   "references": [
     {
