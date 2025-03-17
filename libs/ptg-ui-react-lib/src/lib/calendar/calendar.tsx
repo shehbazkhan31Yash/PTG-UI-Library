@@ -1,13 +1,5 @@
-/* eslint-disable jsx-a11y/no-access-key */
-/**
- * @since March 2022
- * @author Harsha Zalawa
- * @desc Reusable Calendar Component
- *
- */
-import './calendar.scss';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
+
 export interface CalendarProps {
 	onChange?: any;
 	date?: any;
@@ -24,7 +16,7 @@ export interface CalendarProps {
 	isDateTime?: boolean;
 }
 
-export function PtgUiCalendar({
+export const PtgUiCalendar = ({
 	className,
 	selected,
 	onChange,
@@ -32,12 +24,7 @@ export function PtgUiCalendar({
 	endDate,
 	disabled,
 	isDateTime,
-	startRef,
-	onKeyDown,
-	accessKey,
-	showTimeSelect,
-	dateFormat = 'MM-dd-yyyy',
-}: CalendarProps) {
+}: CalendarProps) => {
 	return (
 		<div className="position-relative post-icon">
 			<div>
@@ -54,5 +41,3 @@ export function PtgUiCalendar({
 		</div>
 	);
 }
-
-export default PtgUiCalendar;

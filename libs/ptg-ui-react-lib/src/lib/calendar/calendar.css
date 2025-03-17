@@ -1,0 +1,58 @@
+.calendar {
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	overflow: hidden;
+	font-family: Arial, sans-serif;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background-color: #f0f0f0;
+}
+
+.header button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.header button:hover {
+	background-color: #0056b3;
+}
+
+.date-input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+
+.days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.day-name {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	background-color: #f0f0f0;
+}
+
+.day {
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #eee;
+}
+
+.empty {
+	background-color: #f9f9f9;
+}

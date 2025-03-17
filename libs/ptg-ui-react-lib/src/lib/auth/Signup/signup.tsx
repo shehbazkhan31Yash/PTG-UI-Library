@@ -8,7 +8,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PtgUiAlert from '../../alert/alert';
 import { PtgUiButton } from '../../button/button';
-import PtgUiCalendar from '../../calendar/calendar';
+import { PtgUiCalendar } from '../../calendar/calendar';
 import PtgUiCheckbox from '../../checks/checks';
 import PtgUiInput from '../../input/input';
 import { PtgUiSignupProps } from '../../interfaces';
