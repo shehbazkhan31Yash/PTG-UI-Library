@@ -14,6 +14,7 @@ export interface IFormGroupProps {
 //Breadcrumb
 export interface IPtgUiBreadcrumbsProps {
 	datalist: IBreadcrumbItem[];
+	handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 // Accordion
@@ -94,10 +95,6 @@ export interface ICarouselProps {
 	imgWidth?: string;
 	images?: string[];
 	showIndicators?: boolean;
-}
-
-export interface IPtgUiBreadcrumbsProps {
-	datalist: IBreadcrumbItem[];
 }
 
 // Accordion
