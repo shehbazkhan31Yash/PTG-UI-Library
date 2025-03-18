@@ -14,7 +14,7 @@ export interface IFormGroupProps {
 //Breadcrumb
 export interface IPtgUiBreadcrumbsProps {
 	datalist: IBreadcrumbItem[];
-	handleClick?: (event) => void;
+	handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 // Accordion
