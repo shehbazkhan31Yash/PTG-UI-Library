@@ -10,16 +10,11 @@ import { Link } from 'react-router-dom';
  * @param {IPtgUiBreadcrumbsProps} props - The props for the component.
  * @param {Array<{ title: string; link?: string }>} props.datalist - An array of breadcrumb items, 
  * where each item has a title and an optional link.
- * 
+ * @param {Function} props.handleClick - A function to handle click events on breadcrumb links.
  * @returns {JSX.Element} A JSX element representing the breadcrumb navigation.
  */
 
-export const PtgUiBreadcrumbs = ({ datalist }: IPtgUiBreadcrumbsProps) => {
-	const handleClick = (event) => {
-		event.preventDefault();
-		// Your custom logic here
-	};
-
+export const PtgUiBreadcrumbs = ({ datalist, handleClick }: IPtgUiBreadcrumbsProps) => {
 	return (
 		<nav aria-label="breadcrumb">
 			<ol className="breadcrumb">
