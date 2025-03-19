@@ -1,65 +1,37 @@
+import { PtgUiDatePickerProps } from '../interfaces';
+
 /**
- * @since March 2022
- * @author Harsha Zalawa
- * @uses Reusable component for date picker.
- * https://www.npmjs.com/package/@material-ui/pickers
+ * PtgUiDatePicker Component
+ * 
+ * A functional component that renders a date input field.
+ * 
+ * @param {Readonly<PtgUiDatePickerProps>} props - The props for the date picker component.
+ * @param {string} props.id - The unique identifier for the input element.
+ * @param {string} props.placeholder - The placeholder text for the input.
+ * @param {Date | string} props.value - The currently selected date value.
+ * @param {function} props.onChange - Callback function to handle date changes.
+ * @param {string} props.className - Additional class names for styling the input.
+ * @param {string} props.ariaLabel - The aria-label for accessibility.
+ * 
+ * @returns {JSX.Element} A JSX element representing the date input.
  */
-
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { KeyboardDatePicker } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import './date-picker.scss';
-
-/* eslint-disable-next-line */
-export interface PtgUiDatePickerProps {
-	variant?: any;
-	format?: string;
-	id?: string;
-	placeholder?: string;
-	value?: any;
-	onChange?: any;
-	className?: string;
-	inputVariant?: any;
-	ariaLabel?: any;
-	// accessKey?: any,
-	disableRipple?: boolean;
-	disableTouchRipple?: boolean;
-}
-
-export function PtgUiDatePicker({
-	variant,
-	className = 'toolbarNone',
-	format,
+export const PtgUiDatePicker = ({
 	id,
 	placeholder,
 	value,
-	inputVariant = 'outlined',
 	onChange,
-	ariaLabel = 'date',
-	// accessKey = 'c',
-	disableRipple,
-	disableTouchRipple,
-}: PtgUiDatePickerProps) {
+	className,
+	ariaLabel
+}: Readonly<PtgUiDatePickerProps>) => {
 	return (
-		<MuiPickersUtilsProvider utils={DateFnsUtils}>
-			<KeyboardDatePicker
-				variant={variant}
-				className={className}
-				format={format}
-				id={id}
-				placeholder={placeholder}
-				inputVariant={inputVariant}
-				value={value}
-				onChange={onChange}
-				KeyboardButtonProps={{
-					'aria-label': ariaLabel,
-					// 'accessKey':accessKey,
-					disableRipple: disableRipple,
-					disableTouchRipple: disableTouchRipple,
-				}}
-			/>
-		</MuiPickersUtilsProvider>
+		<input
+			type="date"
+			className={`${className} form-control`}
+			id={id}
+			placeholder={placeholder}
+			value={value instanceof Date ? value.toISOString().split('T')[0] : value ?? ''}
+			onChange={onChange}
+			aria-label={ariaLabel}
+		/>
 	);
 }
-
-export default PtgUiDatePicker;

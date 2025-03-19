@@ -96,9 +96,9 @@ export function WebAccessibility() {
       };
     });
   };
-  const [date, setDate] = useState(null);
-  const dateChange = (date: any) => {
-    setDate(date);
+  const [date, setDate] = useState('');
+  const dateChange = (event) => {
+    setDate(event.target.value);
   };
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
   const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -191,9 +191,9 @@ export function WebAccessibility() {
     setState('isLoading', true);
     authClass
       .signUp({
-        username: user.value,
+        username: user.username,
         email: user.email,
-        DOB: user.date,
+        DOB: date,
         city: user.city,
         gender: user.gender,
         password: user.password,
@@ -383,9 +383,9 @@ export function WebAccessibility() {
         setState('isLoading', true);
         authClass
           .signUp({
-            username: user.value,
+            username: user.username,
             email: user.email,
-            DOB: user.date,
+            DOB: date,
             city: user.city,
             gender: user.gender,
             password: user.password,
@@ -439,20 +439,7 @@ const htmlCode = `
   
   <label htmlFor="inputDOB" tabIndex={0} aria-label="DOB" id="enterDOB">DOB</label>
 
-  <PtgUiDatePicker
-    variant="inline"
-    className="date-picker mt-1 w-100"
-    format="MM/dd/yyyy"
-    id="inputDOB"
-    data-testid="inputDOB"
-    placeholder="DATE_PLACEHOLDER"
-    inputVariant="outlined"
-    value={date}
-    onChange={dateChange}
-    ariaLabel="date"
-    disableRipple={true}
-    disableTouchRipple={true}
-  />
+  <PtgUiDatePicker value={date} onChange={dateChange}/>
                
   <label htmlFor="inputCity" tabIndex={0} aria-label="city">CITY</label>
 
@@ -609,21 +596,7 @@ const htmlCode = `
                           >
                             {t('DOB')}
                           </label>
-                          <PtgUiDatePicker
-                            variant="inline"
-                            className="date-picker mt-1 w-100"
-                            format="MM/dd/yyyy"
-                            id="inputDOB"
-                            
-                            data-testid="inputDOB"
-                            placeholder={t('DATE_PLACEHOLDER')}
-                            inputVariant="outlined"
-                            value={date}
-                            onChange={dateChange}
-                            ariaLabel="date"
-                            disableRipple={true}
-                            disableTouchRipple={true}
-                          />
+                              <PtgUiDatePicker value={date} onChange={dateChange} />
                         </div>
                       </div>
                     </div>
