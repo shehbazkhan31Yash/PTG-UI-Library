@@ -1,7 +1,9 @@
 {
+  "name": "ptg-ui-apps-backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-ui-apps-backend/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/node:webpack",
@@ -52,12 +54,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-ui-apps-backend"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-ui-apps-backend"],
       "options": {
         "jestConfig": "apps/ptg-ui-apps-backend/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

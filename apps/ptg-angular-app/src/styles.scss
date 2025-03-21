@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 // regular style toast
-@import '~ngx-toastr/toastr';
+@import '../../../node_modules/ngx-toastr/toastr';
 
 // ng-select style
 @import "~@ng-select/ng-select/themes/default.theme.css";
@@ -11,31 +11,28 @@
 @import "../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 // Ag-grid datatable
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 // Ngx datatable
-@import '~@swimlane/ngx-datatable/index.css';
-@import '~@swimlane/ngx-datatable/themes/material.scss';
-@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import '../../../node_modules/@swimlane/ngx-datatable/index.css';
+@import '../../../node_modules/@swimlane/ngx-datatable/themes/material.scss';
+@import '../../../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 
 // fontawesome style
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 // @import "./styles/index.scss";
 @import "index";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/helpers";
-@import "~bootstrap/scss/utilities/api";
-@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/utilities";
+@import "../../../node_modules/bootstrap/scss/helpers";
+@import "../../../node_modules/bootstrap/scss/utilities/api";
 @import "./app/app.theme.scss";
 
 // include other modules mixin here
 @include app-theme();
 @import '../../../libs/ptg-ui-web-components/src/global/global.css';
 
-@import "~bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
