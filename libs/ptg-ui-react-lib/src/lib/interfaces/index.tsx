@@ -97,6 +97,37 @@ export interface ICarouselProps {
 	showIndicators?: boolean;
 }
 
+//Checks
+export interface PtgUiCheckboxProps {
+	id?: string;  
+	name?: string;
+	label?: string;
+	value?: string;
+	for?: string;
+	htmlFor?: string;
+	checked?: boolean;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	className?: string;
+}
+
+//Input
+export interface PtgUiInputProps {
+	type: string;
+	value?: string;
+	onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void);
+	placeholder?: string;
+	disabled?: boolean;
+	required?: boolean;
+	className?: string;
+	inputsize?: string;
+	name?: string;
+	onBlur?: ((event: React.FocusEvent<HTMLInputElement>) => void);
+	ref?: React.Ref<HTMLInputElement>;
+    maxlength?: number;
+	onKeyUp?: ((event: React.KeyboardEvent<HTMLInputElement>) => void);
+	id?: string;
+}
+
 // Accordion
 export interface IAccordionItemProps {
 	title?: string;
