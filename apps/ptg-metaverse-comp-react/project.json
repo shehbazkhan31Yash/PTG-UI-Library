@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-metaverse-comp-react/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/webpack:webpack",
@@ -75,12 +76,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-metaverse-comp-react"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-metaverse-comp-react"],
       "options": {
         "jestConfig": "apps/ptg-metaverse-comp-react/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

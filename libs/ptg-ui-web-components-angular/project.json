@@ -1,7 +1,9 @@
 {
+  "name": "ptg-ui-web-components-angular",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ptg-ui-web-components-angular/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -22,12 +24,13 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ptg-ui-web-components-angular"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/ptg-ui-web-components-angular"
+      ],
       "options": {
         "jestConfig": "libs/ptg-ui-web-components-angular/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

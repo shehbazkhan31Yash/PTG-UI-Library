@@ -2,7 +2,7 @@ import React from 'react';
 import './signup.css';
 import { Link } from 'react-router-dom';
 import { PtgUiButton } from '../../button/button';
-import PtgUiCalendar from '../../calendar/calendar';
+import { PtgUiCalendar } from '../../calendar/calendar';
 import PtgUiCheckbox from '../../checks/checks';
 import PtgUiInput from '../../input/input';
 import PtgUiRadio from '../../radio/radio';
