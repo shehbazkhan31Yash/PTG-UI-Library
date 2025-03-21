@@ -135,7 +135,8 @@ export interface IPtgUiMultiStep {
 }
 
 export interface ImageItem {
-  image: string;
+  id: string;
+  image?: string;
   title?: string;
   description?: { __html: string };
   shape?: 'circle' | 'square' | 'rectangle';

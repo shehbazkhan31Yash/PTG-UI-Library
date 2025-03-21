@@ -26,6 +26,7 @@ const CarouselExample = () => {
 
   const imageList: ImageItem[] = [
     {
+      id: '0',
       image: 'https://picsum.photos/id/328/3264/2448',
       title: 'Understanding and Managing Self',
       description: {
@@ -45,6 +46,7 @@ const CarouselExample = () => {
       padding: '10px',
     },
     {
+      id: '1',
       image: 'https://picsum.photos/id/431/5000/3334',
       description: { __html: '<p>This is a description for Image 2.</p>' },
       title: 'Image 2',
@@ -54,6 +56,7 @@ const CarouselExample = () => {
       padding: '10px',
     },
     {
+      id: '2',
       image: 'https://picsum.photos/id/5/5000/3334',
       shape: 'rectangle' as const,
       backgroundColor: '#0047AB',
@@ -66,7 +69,8 @@ const CarouselExample = () => {
   import {PtgUiCarouselWithCard} from '@ptg-ui/react';
 
   interface ImageItem {
-  image: string;
+   id: string;
+  image?: string;
   title?: string;
   description?: { __html: string };
   shape?: 'circle' | 'square' | 'rectangle';

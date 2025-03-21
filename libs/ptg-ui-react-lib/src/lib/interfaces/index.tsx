@@ -310,6 +310,7 @@ export interface ICardProps {
 }
 
 interface ICarouselItem {
+	id: string;
 	image?: string;
 	title?: string;
 	description?: { __html: string };

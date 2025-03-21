@@ -35,15 +35,11 @@ export const PtgUiCarousel: React.FC<ICarouselProps> = ({
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const nextSlide = () => {
-		if (items.length > 0) {
-			setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-		}
+		setCurrentIndex((prevIndex) => (items.length ? (prevIndex + 1) % items.length : 0));
 	};
 
 	const prevSlide = () => {
-		if (items.length > 0) {
-			setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
-		}
+		setCurrentIndex((prevIndex) => (items.length ? (prevIndex - 1) % items.length : 0));
 	};
 
 	return (
@@ -65,9 +61,9 @@ export const PtgUiCarousel: React.FC<ICarouselProps> = ({
 
 			{!navigationOnIcon && (
 				<div className="dot-navigation">
-					{items.map((item, index) => (
+					{items.map((carouselItem, index) => (
 						<button
-							key={index + 'dot-navigation'}
+							key={carouselItem?.id}
 							className={`dot ${currentIndex === index ? 'active' : ''}`}
 							onClick={() => setCurrentIndex(index)}
 							style={{ border: 'none', padding: 0, cursor: 'pointer' }}
@@ -79,9 +75,9 @@ export const PtgUiCarousel: React.FC<ICarouselProps> = ({
 
 			{navigationOnIcon && (
 				<div className="icon-navigation">
-					{items.map((item, index) => (
+					{items.map((carouselItem, index) => (
 						<button
-							key={index + 'icon-navigation'}
+							key={carouselItem?.id}
 							onClick={() => setCurrentIndex(index)}
 							style={{
 								border: 'none',
@@ -93,7 +89,7 @@ export const PtgUiCarousel: React.FC<ICarouselProps> = ({
 							aria-label={`Slide ${index + 1}`}
 						>
 							<img
-								src={item.image}
+								src={carouselItem.image}
 								alt={`Slide ${index + 1}`}
 								style={{
 									width: navigationIconWidth,
