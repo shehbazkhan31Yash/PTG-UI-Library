@@ -55,6 +55,23 @@ export interface IPtgUiButtonProps {
 	border?: string;
 }
 
+//Calendar
+type DateType = string | Date | null;
+
+export interface IPtgUiCalendarProps {
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+	date?: Date;
+	selected?: DateType;
+	className?: string;
+	startDate?: DateType;
+	endDate?: Date | null;
+	disabled?: boolean;
+	accessKey?: string;
+	showTimeSelect?: boolean;
+	dateFormat?: string;
+	isDateTime?: boolean;
+}
+
 //Cards
 export interface ICardUiProps {
 	image?: string;
