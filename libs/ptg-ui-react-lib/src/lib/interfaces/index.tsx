@@ -328,3 +328,41 @@ export interface IStepperProps {
 	activeStep?: number;
 	orientation?: string;
 }
+
+export interface ICardProps {
+	image?: string;
+	title?: string;
+	description?: { __html: string };
+	backgroundColor?: string;
+	shape?: 'circle' | 'square' | 'rectangle';
+	maxWidth?: string;
+	margin?: string;
+	padding?: string;
+}
+
+interface ICarouselItem {
+	id: string;
+	image?: string;
+	title?: string;
+	description?: { __html: string };
+	backgroundColor?: string;
+	shape?: 'circle' | 'square' | 'rectangle';
+	imageWidth?: string;
+	maxWidth?: string;
+	margin?: string;
+	padding?: string;
+}
+
+export interface ICarouselProps {
+	items: ICarouselItem[];
+	backgroundColor?: string;
+	buttonPosition?: 'top' | 'middle' | 'bottom';
+	buttonProps?: {
+		iconLeft: string;
+		iconRight: string;
+		style?: React.CSSProperties;
+	};
+	navigationOnIcon?: boolean;
+	navigationIconWidth?: string;
+	navigationIconHeight?: string;
+}

@@ -88,10 +88,9 @@ const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
 const SignUp = lazy(() => import('../examples/auth/signup/signup'));
-const pagination = lazy(() => import('../examples/pagination/pagination')); 
+const pagination = lazy(() => import('../examples/pagination/pagination'));
 
-
-  /*--Declare routes and component for dynamic load--*/
+/*--Declare routes and component for dynamic load--*/
 
 const routing = [
   {
