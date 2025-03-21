@@ -1,0 +1,166 @@
+.dealer-auction-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .search-toolbar {
+    padding: 8px 16px;
+    display: flex;
+    gap: 16px;
+
+    .search-field {
+      flex: 1;
+      margin-bottom: -1.25em;
+    }
+  }
+
+  mat-sidenav-container {
+    flex: 1;
+
+    .filters-sidebar {
+      width: 250px;
+      padding: 16px;
+      // background-color: var(--sidebar-background);
+      // color: var(--sidebar-fonts);
+    }
+
+    .main-content {
+      padding: 20px;
+
+      .sort-controls {
+        margin-bottom: 20px;
+      }
+
+      .auctions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+    }
+  }
+}
+
+.auction-card {
+  .card-image-container {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .vehicle-type-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .time-remaining {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .auction-info {
+    h3 {
+      margin: 8px 0;
+      font-size: 1.2em;
+    }
+
+    .current-bid {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #2196F3;
+    }
+
+    .starting-bid {
+      color: #666;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #666;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+  }
+}
+
+// ==============
+
+.main-content{
+  padding: 15px;
+}
+
+.btn-theme{
+  background-color: var(--button-primarytheme);
+  color: var(--button-primaryFontColor);
+}
+
+
+// buttons============>
+
+.theme-primary{
+  background-color: var(--primary-button-background)!important;
+  color: var(--primary-button-font)!important;
+}
+.theme-info{
+  background-color: var(--info-button-background)!important;
+  color: var(--info-button-font)!important;
+}
+.theme-warning{
+  background-color: var(--warning-button-background)!important;
+  color: var(--warning-button-font)!important;
+}
+.theme-danger{
+  background-color: var(--danger-button-background)!important;
+  color: var(--danger-button-font)!important;
+}
+.theme-secondary{
+  background-color: var(--secondary-button-background)!important;
+  color: var(--secondary-button-font)!important;
+}
+
+.ml-2{
+  margin-left: 1rem;
+}
+
+//
+
+.change-dealer-form-wrapper{
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 360px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: var(--sidebar-background);
+}
+.d-block{
+  display: block;
+}
+
+.theme-heading{
+  color: var(--content-layout-heading);
+}
+
+.border-box{
+  width: 100px;
+  height: 20px;
+  border: 1px solid #000;
+  
+}

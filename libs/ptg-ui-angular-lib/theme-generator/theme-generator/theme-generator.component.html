@@ -1,1 +1,133 @@
-<p>hello theme</p>
+<div class="form-to-change-theme">
+    <div class="form-wrapper">
+      <form
+        class="example-form"
+        [formGroup]="colorpaletteForm"
+        (ngSubmit)="applyThemeChanges()"
+      >
+        <div class="form-group-fields">
+          <!-- Nav Header -->
+          <div class="form-group" formGroupName="navHeader">
+            <mat-form-field class="input-full-width">
+              <mat-label>Nav Header Background</mat-label>
+              <input
+                type="color"
+                matInput
+                formControlName="navHeaderBackground"
+              />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Nav Header Font</mat-label>
+              <input type="color" matInput formControlName="navHeaderFont" />
+            </mat-form-field>
+          </div>
+          <!-- Sidebar -->
+          <div class="form-group" formGroupName="sideBar">
+            <mat-form-field class="input-full-width">
+              <mat-label>Sidebar Background</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Sidebar Tiles Background</mat-label>
+              <input type="color" matInput formControlName="tabBackground" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Sidebar Tiles Font</mat-label>
+              <input type="color" matInput formControlName="tabFontColor" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Sidebar Other Fonts</mat-label>
+              <input type="color" matInput formControlName="otherFontColor" />
+            </mat-form-field>
+          </div>
+          <!-- Layout -->
+          <div class="form-group" formGroupName="contentLayout">
+            <mat-form-field class="input-full-width">
+              <mat-label>Content Layout Background</mat-label>
+              <input type="color" matInput formControlName="layoutBackground" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Content Layout Headeings</mat-label>
+              <input type="color" matInput formControlName="layoutHeading" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+                <mat-label>Content Layout Sub Headeings</mat-label>
+                <input type="color" matInput formControlName="layoutSubHeading" />
+              </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Content Layout Para (Content)</mat-label>
+              <input type="color" matInput formControlName="layoutContent" />
+            </mat-form-field>
+          </div>
+          <!-- Buttons -->
+          <!-- Primary button -->
+          <div class="form-group" formGroupName="primaryButton">
+            <mat-form-field class="input-full-width">
+              <mat-label>Primary Button</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Button Font</mat-label>
+              <input type="color" matInput formControlName="fontColor" />
+            </mat-form-field>
+          </div>
+          <!-- Secondary -->
+          <div class="form-group" formGroupName="secondaryButton">
+            <mat-form-field class="input-full-width">
+              <mat-label>Secondary Button</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Button Font</mat-label>
+              <input type="color" matInput formControlName="fontColor" />
+            </mat-form-field>
+          </div>
+          <!-- Info -->
+          <div class="form-group" formGroupName="infoButton">
+            <mat-form-field class="input-full-width">
+              <mat-label>Info Button</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Button Font</mat-label>
+              <input type="color" matInput formControlName="fontColor" />
+            </mat-form-field>
+          </div>
+          <!-- Warning -->
+          <div class="form-group" formGroupName="warningButton">
+            <mat-form-field class="input-full-width">
+              <mat-label>Warning Button</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Button Font</mat-label>
+              <input type="color" matInput formControlName="fontColor" />
+            </mat-form-field>
+          </div>
+          <!-- Warning -->
+          <div class="form-group" formGroupName="dangerButton">
+            <mat-form-field class="input-full-width">
+              <mat-label>Danger Button</mat-label>
+              <input type="color" matInput formControlName="background" />
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+              <mat-label>Button Font</mat-label>
+              <input type="color" matInput formControlName="fontColor" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button mat-raised-button color="accent" type="submit">Apply</button>
+          <button
+            mat-raised-button
+            color="accent"
+            type="button"
+            class="ml-2"
+            (click)="generateFinalJSON()"
+          >
+            Generate JSON
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

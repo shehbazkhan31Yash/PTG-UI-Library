@@ -22,6 +22,8 @@ import { CardModule } from '@ptg-ui/angular/card';
 import { CarouselModule } from '@ptg-ui/angular/carousel';
 import { GridModule } from '@ptg-ui/angular/grid';
 import { StepperModule } from '@ptg-ui/angular/stepper';
+import { themeGeneratorModule } from '@ptg-ui/angular/theme-generator';
+import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
 
 const modules = [
   SidenavModule,
@@ -46,7 +48,9 @@ const modules = [
   CarouselModule,
   GridModule,
   StepperModule,
-  DialogModule
+  DialogModule,
+  themeGeneratorModule,
+  MatThemeGeneratorModule
 ];
 @NgModule({
   declarations: [],

@@ -1,0 +1,41 @@
+.form-to-change-theme {
+    // box-shadow: 0px -1px 16px -1px rgba(121,139,158,0.64);
+    background-color: #d5d9e2;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 0;
+    position: fixed;
+    right: 0;
+    top: 240px;
+    z-index: 1;
+
+    .form-wrapper {
+        min-height: 200px;
+        .form-group-fields {
+            padding: 15px;
+            background-color: #bad5ef;
+            max-height: calc(100vh - 220px);
+            overflow: auto;
+            margin-bottom: 20px;
+            .input-full-width{
+                width: 100%;
+            }
+            mat-label{
+                color: #d205e1;
+                // font-weight: bold;
+                font-size: 18px;
+            }
+        }
+        .form-footer{
+            padding: 10px;
+        }
+    }
+}
+
+.ml-2{
+    margin-left: 1rem;
+}
+
+.pt-2{
+    padding-top: 1rem;
+}

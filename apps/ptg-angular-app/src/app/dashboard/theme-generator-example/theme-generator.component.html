@@ -1,0 +1,96 @@
+<section class="pt-2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 parent-block ">
+        <h4 class="mb-3" [innerHTML]="'THEME_GENERATOR' | translate"></h4>
+        <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
+        
+      </div>
+        <mat-toolbar class="layout-header" [ngStyle]="{
+          background: themesettingsValues?.navHeader?.navHeaderBackground,
+          color: themesettingsValues?.navHeader?.navHeaderFont
+        }">
+          <div class="brand-img">
+            <a routerLink="/">PTG-UI</a>
+          </div>
+          <div class="right-nav-bar flex-end">
+            <span [ngStyle]="{ color: themesettingsValues?.navHeader?.navHeaderFont }">Home</span>
+            <span [ngStyle]="{ color: themesettingsValues?.navHeader?.navHeaderFont }">About</span>
+            <span [ngStyle]="{ color: themesettingsValues?.navHeader?.navHeaderFont }">User</span>
+          </div>
+        </mat-toolbar>
+
+        <div class="layout-wrapper">
+          <!-- Sidebar -->
+          <div class="layout-sidebar" [ngStyle]="{
+            background: themesettingsValues?.sideBar?.background,
+            color: themesettingsValues?.sideBar?.otherFontColor
+          }">
+          </div>
+
+          <!-- Content Area -->
+
+          <div class="layout-content-area"
+            [ngStyle]="{background: themesettingsValues?.contentLayout?.layoutBackground}">
+            <!-- Buttons -->
+            <div class="buttons">
+              <button mat-raised-button class="theme-primary" [ngStyle]="{
+                'background-color': themesettingsValues?.primaryButton?.background,
+                color: themesettingsValues?.primaryButton?.fontColor
+              }" type="button">
+                Primary
+              </button>
+              <button mat-raised-button class="theme-primary ml-2" [ngStyle]="{
+                'background-color':
+                  themesettingsValues?.secondaryButton?.background,
+                color: themesettingsValues?.secondaryButton?.fontColor
+              }" type="button">
+                Secondary
+              </button>
+              <button mat-raised-button class="theme-primary ml-2" [ngStyle]="{
+                'background-color': themesettingsValues?.infoButton?.background,
+                color: themesettingsValues?.infoButton?.fontColor
+              }" type="button">
+                Info
+              </button>
+              <button mat-raised-button class="theme-primary ml-2" [ngStyle]="{
+                'background-color': themesettingsValues?.warningButton?.background,
+                color: themesettingsValues?.warningButton?.fontColor
+              }" type="button">
+                Warning
+              </button>
+              <button mat-raised-button class="theme-primary ml-2" [ngStyle]="{
+                'background-color': themesettingsValues?.dangerButton.background,
+                color: themesettingsValues?.dangerButton?.fontColor
+              }" type="button">
+                Danger
+              </button>
+            </div>
+            <div class="headings pt-2">
+              <h2 [ngStyle]="{color: themesettingsValues?.contentLayout?.layoutHeading}">Heading</h2>
+              <h3 [ngStyle]="{color: themesettingsValues?.contentLayout?.layoutSubHeading}">Sub Heading</h3>
+            </div>
+            <div class="paragraphs pt-2" [ngStyle]="{color: themesettingsValues?.contentLayout?.layoutContent}">
+              Paragraphs Content
+              <p class="content-para">
+                Angular is a popular open-source web application framework developed and
+                maintained by Google. It is designed for building dynamic, single-page
+                applications (SPAs) and provides a robust set of tools and features for
+                developers Angular applications are built using components, which are
+                reusable and encapsulated pieces of code that manage their own view and
+                behavior. This promotes modularity and reusability.
+              </p>
+            </div>
+            <button mat-raised-button class="theme-primary" [ngStyle]="{
+            'background-color': themesettingsValues?.primaryButton?.background,
+            color: themesettingsValues?.primaryButton?.fontColor
+          }" type="button" (click)="backToPreviusRoute()">
+              Back to Home
+            </button>
+          </div>
+          <ptg-ui-theme-generator (themeSettings)="recieveThemeSettings($event)"></ptg-ui-theme-generator>
+        </div>
+
+    </div>
+  </div>
+</section>
