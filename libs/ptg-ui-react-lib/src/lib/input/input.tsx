@@ -1,5 +1,5 @@
 import { PtgUiInputProps } from '@ptg-react-libs/interfaces';
-import './input.scss';
+import './input.css';
 
 /**
  * PtgUiInput Component

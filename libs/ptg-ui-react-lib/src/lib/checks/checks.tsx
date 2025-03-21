@@ -1,5 +1,5 @@
 import { PtgUiCheckboxProps } from '@ptg-react-libs/interfaces';
-import './checks.scss';
+import './checks.css';
 /**
  * PtgUiChecks Component
  *
