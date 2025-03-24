@@ -1,5 +1,5 @@
 import { PtgUiRadioProps } from '@ptg-react-libs/interfaces';
-import './radio.scss';
+import './radio.css';
 /**
  * PtgUiRadio Component
  * 

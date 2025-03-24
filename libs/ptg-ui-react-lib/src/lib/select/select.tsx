@@ -1,5 +1,5 @@
 import { PtgUiSelectProps } from '@ptg-react-libs/interfaces';
-import './select.scss';
+import './select.css';
 import { Form } from 'react-bootstrap';
 /**
  * PtgUiSelect Component
