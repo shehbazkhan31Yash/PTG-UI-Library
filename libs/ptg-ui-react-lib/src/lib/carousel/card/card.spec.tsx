@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { ICardProps } from '@ptg-react-libs/interfaces';
 import { Card } from './card';
