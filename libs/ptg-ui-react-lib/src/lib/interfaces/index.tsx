@@ -99,7 +99,7 @@ export interface ICarouselProps {
 
 //Checks
 export interface PtgUiCheckboxProps {
-	id?: string;  
+	id?: string;
 	name?: string;
 	label?: string;
 	value?: string;
@@ -114,17 +114,17 @@ export interface PtgUiCheckboxProps {
 export interface PtgUiInputProps {
 	type: string;
 	value?: string;
-	onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void);
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	placeholder?: string;
 	disabled?: boolean;
 	required?: boolean;
 	className?: string;
 	inputsize?: string;
 	name?: string;
-	onBlur?: ((event: React.FocusEvent<HTMLInputElement>) => void);
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	ref?: React.Ref<HTMLInputElement>;
-    maxlength?: number;
-	onKeyUp?: ((event: React.KeyboardEvent<HTMLInputElement>) => void);
+	maxlength?: number;
+	onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 	id?: string;
 }
 
@@ -341,7 +341,7 @@ export interface ICardProps {
 }
 
 interface ICarouselItem {
-	id: string;
+	id?: string;
 	image?: string;
 	title?: string;
 	description?: { __html: string };
