@@ -123,7 +123,7 @@ export interface PtgUiInputProps {
 	name?: string;
 	onBlur?: ((event: React.FocusEvent<HTMLInputElement>) => void);
 	ref?: React.Ref<HTMLInputElement>;
-    maxlength?: number;
+    maxlength?: string;
 	onKeyUp?: ((event: React.KeyboardEvent<HTMLInputElement>) => void);
 	id?: string;
 }
