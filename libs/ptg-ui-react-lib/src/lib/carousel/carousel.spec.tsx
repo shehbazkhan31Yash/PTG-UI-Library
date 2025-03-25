@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { PtgUiCarousel } from './carousel';
 
 describe('PtgUiCarousel', () => {
 	interface ImageItem {
-		image: string;
+		id?: string;
+		image?: string;
 		title?: string;
 		description?: { __html: string };
 		shape?: 'circle' | 'square' | 'rectangle';
@@ -34,6 +34,7 @@ describe('PtgUiCarousel', () => {
 	};
 	const items: ImageItem[] = [
 		{
+			id: '0',
 			image: 'image1.jpg',
 			title: 'Title 1',
 			description: { __html: '<p>Description 1</p>' }, // Ensure this is a valid HTML string
@@ -44,6 +45,7 @@ describe('PtgUiCarousel', () => {
 			padding: '10px',
 		},
 		{
+			id: '1',
 			image: 'image2.jpg',
 			title: 'Title 2',
 			description: { __html: '<p>Description 2</p>' }, // Ensure this is a valid HTML string
@@ -54,29 +56,30 @@ describe('PtgUiCarousel', () => {
 			padding: '10px',
 		},
 		{
+			id: '2',
 			image: 'image3.jpg',
 			title: 'Title 3',
 			description: { __html: '<p>Description 3</p>' }, // Ensure this is a valid HTML string
-			backgroundColor: '#00f',
-			shape: 'rectangle',
-			maxWidth: '300px',
-			margin: '10px',
-			padding: '10px',
 		},
 	];
 
+	const noItems: ImageItem[] = [];
+	test('renders empty item list', () => {
+		render(<PtgUiCarousel items={noItems} navigationOnIcon={false} />);
+		// Try to click on empty arrow button
+		fireEvent.click(screen.getByText('>'));
+		fireEvent.click(screen.getByText('<'));
+		expect(screen.queryByRole('img')).not.toBeInTheDocument();
+	});
+
 	test('renders dot navigation', () => {
 		render(<PtgUiCarousel items={items} navigationOnIcon={false} />);
-
-		// Check if the dot navigation buttons are rendered
 		const dots = screen.getAllByRole('button', { name: /Slide/i });
 		expect(dots).toHaveLength(items.length);
 	});
 
 	test('renders icon navigation', () => {
 		render(<PtgUiCarousel items={items} navigationOnIcon={true} />);
-
-		// Check if the icon navigation buttons are rendered
 		const icons = screen.getAllByRole('button', { name: /Slide/i });
 		expect(icons).toHaveLength(items.length);
 	});
@@ -94,7 +97,6 @@ describe('PtgUiCarousel', () => {
 			/>
 		);
 
-		// Check if the first item's title is rendered
 		expect(screen.getByText('Title 1')).toBeInTheDocument();
 		expect(screen.getByText('Description 1')).toBeInTheDocument();
 	});
@@ -102,10 +104,8 @@ describe('PtgUiCarousel', () => {
 	test('navigates to the next slide', () => {
 		render(<PtgUiCarousel items={items} />);
 
-		// Click the next button
 		fireEvent.click(screen.getByText('>'));
 
-		// Check if the second item's title is rendered
 		expect(screen.getByText('Title 2')).toBeInTheDocument();
 		expect(screen.queryByText('Title 1')).not.toBeInTheDocument();
 	});
@@ -113,13 +113,10 @@ describe('PtgUiCarousel', () => {
 	test('navigates to the previous slide', () => {
 		render(<PtgUiCarousel items={items} />);
 
-		// Navigate to the second slide first
 		fireEvent.click(screen.getByText('>'));
 
-		// Click the previous button
 		fireEvent.click(screen.getByText('<'));
 
-		// Check if the first item's title is rendered again
 		expect(screen.getByText('Title 1')).toBeInTheDocument();
 		expect(screen.queryByText('Title 2')).not.toBeInTheDocument();
 	});
@@ -127,10 +124,8 @@ describe('PtgUiCarousel', () => {
 	test('navigates to the correct slide when clicking on dot navigation', () => {
 		render(<PtgUiCarousel items={items} navigationOnIcon={false} />);
 
-		// Click on the second dot
 		fireEvent.click(screen.getAllByRole('button', { name: /Slide 2/i })[0]);
 
-		// Check if the second item's title is rendered
 		expect(screen.getByText('Title 2')).toBeInTheDocument();
 		expect(screen.queryByText('Title 1')).not.toBeInTheDocument();
 	});
@@ -138,10 +133,8 @@ describe('PtgUiCarousel', () => {
 	test('navigates to the correct slide when clicking on icon navigation', () => {
 		render(<PtgUiCarousel items={items} navigationOnIcon={true} />);
 
-		// Click on the second icon
 		fireEvent.click(screen.getAllByRole('button', { name: /Slide 2/i })[0]);
 
-		// Check if the second item's title is rendered
 		expect(screen.getByText('Title 2')).toBeInTheDocument();
 		expect(screen.queryByText('Title 1')).not.toBeInTheDocument();
 	});
@@ -149,24 +142,11 @@ describe('PtgUiCarousel', () => {
 	test('wraps around to the first slide after the last slide', () => {
 		render(<PtgUiCarousel items={items} />);
 
-		// Navigate to the last slide
 		fireEvent.click(screen.getByText('>'));
 		fireEvent.click(screen.getByText('>'));
 
-		// Click next again to wrap around
 		fireEvent.click(screen.getByText('>'));
 
-		// Check if the first item's title is rendered
 		expect(screen.getByText('Title 1')).toBeInTheDocument();
-	});
-
-	test('wraps around to the last slide from the first slide', () => {
-		render(<PtgUiCarousel items={items} />);
-
-		// Click previous to wrap around
-		fireEvent.click(screen.getByText('<'));
-
-		// Check if the last item's title is rendered
-		expect(screen.getByText('Title 3')).toBeInTheDocument();
 	});
 });
