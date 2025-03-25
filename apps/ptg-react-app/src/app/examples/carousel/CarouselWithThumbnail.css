@@ -1,0 +1,8 @@
+.card {
+  box-shadow: none;
+  border-style: none;
+}
+
+.carousel-controls.middle {
+  top: 43%;
+}

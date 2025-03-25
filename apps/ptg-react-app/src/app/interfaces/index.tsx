@@ -135,7 +135,7 @@ export interface IPtgUiMultiStep {
 }
 
 export interface ImageItem {
-  id: string;
+  id?: string;
   image?: string;
   title?: string;
   description?: { __html: string };
@@ -150,4 +150,24 @@ export interface ImageItem {
     iconRight: string;
     style?: React.CSSProperties;
   };
+}
+
+export interface ICarouselWithDefaultProps {
+  showCodeDefaultCarousel: boolean;
+}
+
+export interface ICarouselWithMaxWidth {
+  showCodeWithMaxWidth: boolean;
+}
+
+export interface ICarouselWithThumbnail {
+  showCodeWithThumbnail: boolean;
+}
+
+export interface ICarouselWithCustomPropsOne {
+  showCodeWithCustomPropsOne: boolean;
+}
+
+export interface ICarouselWithAllCustomProps {
+  showCodeWithAllCustomProps: boolean;
 }
