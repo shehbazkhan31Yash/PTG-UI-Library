@@ -1,25 +1,26 @@
-/**
- * @since March 2022
- * @author Harsha Zalawa
- * @desc Reusable Select Component
- *
- */
-import './select.scss';
+import { PtgUiSelectProps } from '@ptg-react-libs/interfaces';
+import './select.css';
 import { Form } from 'react-bootstrap';
-//import Select from 'react-select';
-/* eslint-disable-next-line */
-export interface PtgUiSelectProps {
-	name?: string;
-	value?: string;
-	id?: string;
-	className?: string;
-	list: { label: string; value: string }[];
-	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-	htmlFor?: string;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+/**
+ * PtgUiSelect Component
+ * 
+ * A functional component that renders a customizable select dropdown.
+ * 
+ * @param {Readonly<PtgUiSelectProps>} props - The props for the select component.
+ * @param {string} props.name - The name attribute for the select input.
+ * @param {string} props.value - The value attribute for the select input.
+ * @param {string} props.id - The id attribute for the select input.
+ * @param {string} props.className - The class name for the select input.
+ * @param {Array<{ id: string; label: string; value: string }>} props.list - The list of select options.
+ * @param {function} props.onBlur - The function to call when the select input loses focus.
+ * @param {string} props.htmlFor - The htmlFor attribute for the select label.
+ * @param {function} props.onChange - The function to call when the select input changes.
+ * 
+ * @returns {JSX.Element} A JSX element representing the select component.
+ */
 
-export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange, htmlFor }: PtgUiSelectProps) {
+
+export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange }: Readonly<PtgUiSelectProps>) {
 	return (
 		<Form.Group controlId="formBasicSelect" className={className}>
 			<Form.Control
@@ -35,8 +36,8 @@ export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange
 				<option value="" className="d-none" disabled selected>
 					Select
 				</option>
-				{list?.map((item, key) => (
-					<option key={key} value={item.value}>
+				{list?.map((item) => (
+					<option key={item.id} value={item.value}>
 						{item.label}
 					</option>
 				))}

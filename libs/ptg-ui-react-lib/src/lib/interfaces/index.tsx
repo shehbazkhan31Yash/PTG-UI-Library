@@ -14,6 +14,7 @@ export interface IFormGroupProps {
 //Breadcrumb
 export interface IPtgUiBreadcrumbsProps {
 	datalist: IBreadcrumbItem[];
+	handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 // Accordion
@@ -54,6 +55,23 @@ export interface IPtgUiButtonProps {
 	border?: string;
 }
 
+//Calendar
+type DateType = string | Date | null;
+
+export interface IPtgUiCalendarProps {
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+	date?: Date;
+	selected?: DateType;
+	className?: string;
+	startDate?: DateType;
+	endDate?: Date | null;
+	disabled?: boolean;
+	accessKey?: string;
+	showTimeSelect?: boolean;
+	dateFormat?: string;
+	isDateTime?: boolean;
+}
+
 //Cards
 export interface ICardUiProps {
 	image?: string;
@@ -79,8 +97,35 @@ export interface ICarouselProps {
 	showIndicators?: boolean;
 }
 
-export interface IPtgUiBreadcrumbsProps {
-	datalist: IBreadcrumbItem[];
+//Checks
+export interface PtgUiCheckboxProps {
+	id?: string;
+	name?: string;
+	label?: string;
+	value?: string;
+	for?: string;
+	htmlFor?: string;
+	checked?: boolean;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	className?: string;
+}
+
+//Input
+export interface PtgUiInputProps {
+	type: string;
+	value?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	placeholder?: string;
+	disabled?: boolean;
+	required?: boolean;
+	className?: string;
+	inputsize?: string;
+	name?: string;
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	ref?: React.Ref<HTMLInputElement>;
+	maxlength?: string;
+	onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+	id?: string;
 }
 
 // Accordion
@@ -92,6 +137,30 @@ export interface IPtgUiAccordionProps {
 	accordionItems: IAccordionItemProps[];
 	handleToggle: (index: number) => void;
 	activeIndex: number | null;
+}
+
+// Radio
+export interface PtgUiRadioProps {
+	name?: string;
+	value?: string;
+	id?: string;
+	htmlFor?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	list: { id: string; name: string; value: string }[];
+	children?: React.ReactNode;
+	checked?: boolean;
+}
+
+//select dropdown
+export interface PtgUiSelectProps {
+	name?: string;
+	value?: string;
+	id?: string;
+	className?: string;
+	list: { id: string; label: string; value: string }[];
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	htmlFor?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface AlertProps {
@@ -282,4 +351,42 @@ export interface IStepperProps {
 	steps?: IStep[];
 	activeStep?: number;
 	orientation?: string;
+}
+
+export interface ICardProps {
+	image?: string;
+	title?: string;
+	description?: { __html: string };
+	backgroundColor?: string;
+	shape?: 'circle' | 'square' | 'rectangle';
+	maxWidth?: string;
+	margin?: string;
+	padding?: string;
+}
+
+interface ICarouselItem {
+	id?: string;
+	image?: string;
+	title?: string;
+	description?: { __html: string };
+	backgroundColor?: string;
+	shape?: 'circle' | 'square' | 'rectangle';
+	imageWidth?: string;
+	maxWidth?: string;
+	margin?: string;
+	padding?: string;
+}
+
+export interface ICarouselProps {
+	items: ICarouselItem[];
+	backgroundColor?: string;
+	buttonPosition?: 'top' | 'middle' | 'bottom';
+	buttonProps?: {
+		iconLeft: string;
+		iconRight: string;
+		style?: React.CSSProperties;
+	};
+	navigationOnIcon?: boolean;
+	navigationIconWidth?: string;
+	navigationIconHeight?: string;
 }

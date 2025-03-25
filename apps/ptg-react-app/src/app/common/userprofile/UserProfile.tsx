@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './UserProfile.scss';
 import { useAuth0 } from '@auth0/auth0-react';
+import { environment } from '../../../environments/environment';
 
 export default function UserProfile() {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ export default function UserProfile() {
 
   const handleLogout = () => {
     authClass.removeToken();
-    logout();
+    logout({ logoutParams: { returnTo: environment.okta_logout_url } });
     sessionStorage.clear();
     navigate('/login');
   };

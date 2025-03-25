@@ -1,5 +1,5 @@
-import { forwardRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { forwardRef } from '@angular/core';
 import {
   ControlContainer,
   FormGroupDirective,

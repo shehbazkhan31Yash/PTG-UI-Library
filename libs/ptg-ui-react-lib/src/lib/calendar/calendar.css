@@ -1,0 +1,71 @@
+:root {
+--primary-color: #007bff;
+--hover-color: #0056b3;
+--border-color: #ccc;
+--background-color: #f0f0f0;
+--text-color: #333;
+}
+.calendar {
+width: 300px;
+border: 1px solid var(--border-color);
+border-radius: 8px;
+overflow: hidden;
+font-family: Arial, sans-serif;
+}
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+background-color: var(--background-color);
+}
+.header button {
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 5px 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+.header button:hover {
+background-color: var(--hover-color);
+}
+.header button:focus {
+outline: 2px solid var(--primary-color);
+outline-offset: 2px;
+}
+.date-input {
+width: 100%;
+padding: 10px;
+border: 1px solid var(--border-color);
+border-radius: 5px;
+margin: 10px 0;
+}
+.days {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+}
+.day-name {
+font-weight: bold;
+text-align: center;
+padding: 10px;
+background-color: var(--background-color);
+font-size: 1.2rem; /* Example size */
+}
+.day {
+text-align: center;
+padding: 20px;
+border: 1px solid #eee;
+}
+.day:hover {
+background-color: rgba(0, 123, 255, 0.1);
+cursor: pointer;
+}
+.empty {
+background-color: #f9f9f9;
+}
+@media (max-width: 600px) {
+.calendar {
+width: 100%;
+}
+}

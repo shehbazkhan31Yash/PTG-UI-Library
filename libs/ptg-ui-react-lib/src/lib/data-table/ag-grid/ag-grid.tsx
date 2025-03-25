@@ -9,9 +9,8 @@
 import './ag-grid.scss';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import './ag-grid.scss';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+// import 'ag-grid-community/dist/styles/ag-grid.css';
+// import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 export interface PtgUiAgGridProps {
 	data: {
@@ -30,7 +29,7 @@ export interface PtgUiAgGridProps {
 	autoGroupColumnDef: any;
 	columnDefs: any;
 	defaultColDef: any;
-	rowSelection?: string;
+	rowSelection?: 'single' | 'multiple';
 	groupSelectsChildren?: boolean;
 	pagination?: boolean;
 	paginationPageSize?: number;
