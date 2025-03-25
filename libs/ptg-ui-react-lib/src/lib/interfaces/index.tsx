@@ -245,6 +245,7 @@ export interface IFormErr {
 	confirmPassword?: boolean;
 }
 interface ICityOption {
+	id: string;
 	value: string; // The value associated with the city
 	label: string; // The display label for the city
 	name: string; // The name of the field (in this case, it seems to be 'city')

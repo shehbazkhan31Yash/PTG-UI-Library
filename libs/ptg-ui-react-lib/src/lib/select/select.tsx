@@ -1,11 +1,11 @@
 import { PtgUiSelectProps } from '@ptg-react-libs/interfaces';
-import './select.css';
+import './select.scss';
 import { Form } from 'react-bootstrap';
 /**
  * PtgUiSelect Component
- * 
+ *
  * A functional component that renders a customizable select dropdown.
- * 
+ *
  * @param {Readonly<PtgUiSelectProps>} props - The props for the select component.
  * @param {string} props.name - The name attribute for the select input.
  * @param {string} props.value - The value attribute for the select input.
@@ -15,10 +15,9 @@ import { Form } from 'react-bootstrap';
  * @param {function} props.onBlur - The function to call when the select input loses focus.
  * @param {string} props.htmlFor - The htmlFor attribute for the select label.
  * @param {function} props.onChange - The function to call when the select input changes.
- * 
+ *
  * @returns {JSX.Element} A JSX element representing the select component.
  */
-
 
 export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange }: Readonly<PtgUiSelectProps>) {
 	return (
