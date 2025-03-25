@@ -77,8 +77,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ThemeGeneratorComponent } from './theme-generator-example/theme-generator.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatThemeExample } from './mat-theme-example/mat-theme-example.component';
-
+import { MatThemeExampleComponent } from './mat-theme-example/mat-theme-example.component';
+import {MatCardModule} from '@angular/material/card';
 defineCustomElements();
 
 @NgModule({
@@ -121,7 +121,7 @@ defineCustomElements();
     BreadcrumbsExampleComponent,
     CarouselExampleComponent,
     ThemeGeneratorComponent,
-    MatThemeExample
+    MatThemeExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -150,7 +150,8 @@ defineCustomElements();
     WebComponentsAngularModule,
     AgGridModule,
     NgSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
   ]
 })
 export class DashboardModule {}

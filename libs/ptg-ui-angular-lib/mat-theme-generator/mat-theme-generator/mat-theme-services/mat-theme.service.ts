@@ -17,9 +17,6 @@ export class MatThemeService {
   // tinycolor: any
   primaryColorPallate: Color[] = [];
   accentColorPallate: Color[] = [];
-  //for stattic only will remove on dynamic phase
-primaryColor='#0000aa';
-accentColor='#0000ab';
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
   getQueryParamsFromRoute() {
@@ -37,7 +34,6 @@ accentColor='#0000ab';
   getActiveTheme(): string {
     return this.activeThemeSubject.value;
   }
-
 
   savePrimaryColor(color: string) {
     this.primaryColorPallate = this.computeThemeColor(color);

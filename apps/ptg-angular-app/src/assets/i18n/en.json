@@ -177,6 +177,7 @@
   "CAROUSEL_EXAMPLE_WITH_INDICATOR": "Carousel example with indicator",
   "CAROUSEL_EXAMPLE_WITH_CAPTION": "Carousel example with caption",
   "DRAG_DROP": "Drag Drop",
-  "THEME_GENERATOR": "Theme Generator Example"
+  "THEME_GENERATOR": "Theme Generator Example",
+  "MAT_THEME_GENERATOR": "Mat Theme Generator Example"
 
 }
