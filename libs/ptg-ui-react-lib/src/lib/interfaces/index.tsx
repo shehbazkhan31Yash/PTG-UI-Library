@@ -123,7 +123,7 @@ export interface PtgUiInputProps {
 	name?: string;
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	ref?: React.Ref<HTMLInputElement>;
-	maxlength?: number;
+	maxlength?: string;
 	onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 	id?: string;
 }
@@ -137,6 +137,30 @@ export interface IPtgUiAccordionProps {
 	accordionItems: IAccordionItemProps[];
 	handleToggle: (index: number) => void;
 	activeIndex: number | null;
+}
+
+// Radio
+export interface PtgUiRadioProps {
+	name?: string;
+	value?: string;
+	id?: string;
+	htmlFor?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	list: { id: string; name: string; value: string }[];
+	children?: React.ReactNode;
+	checked?: boolean;
+}
+
+//select dropdown
+export interface PtgUiSelectProps {
+	name?: string;
+	value?: string;
+	id?: string;
+	className?: string;
+	list: { id: string; label: string; value: string }[];
+	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	htmlFor?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface AlertProps {
