@@ -1,12 +1,10 @@
-
-
 export const CITY_LIST = [
   // { value: '', label: 'Select' },
-  { value: 'pune', label: 'Pune', name: 'city' },
-  { value: 'indore', label: 'Indore', name: 'city' },
-  { value: 'gujarat', label: 'Gujarat', name: 'city' },
-  { value: 'Karnataka', label: 'Karnataka', name: 'city' },
-  { value: 'goa', label: 'Goa', name: 'city' },
+  { id: '1', value: 'pune', label: 'Pune', name: 'city' },
+  { id: '2', value: 'indore', label: 'Indore', name: 'city' },
+  { id: '3', value: 'gujarat', label: 'Gujarat', name: 'city' },
+  { id: '4', value: 'Karnataka', label: 'Karnataka', name: 'city' },
+  { id: '5', value: 'goa', label: 'Goa', name: 'city' },
 ];
 
 export const Lang_LIST = [
@@ -474,7 +472,6 @@ export const CARD_LIST = [
   { value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
-
 export const CARD_ITEMS = [
   {
     id: 1,
@@ -510,33 +507,28 @@ export const CARD_ITEMS = [
   },
 ];
 // BreadCrumbs mock data
-  export const breadCrumbsMockData = (t:(key:string)=>string) =>{
+export const breadCrumbsMockData = (t: (key: string) => string) => {
   return [
-    { title: `${t('HOME')}`, link: '/home'},
+    { title: `${t('HOME')}`, link: '/home' },
     { title: `${t('ABOUT_US')}`, link: '/about' },
-    { title: `${t('CONTACT_US')}`, link: '/contact',},
-    
-  ]
-  }
+    { title: `${t('CONTACT_US')}`, link: '/contact' },
+  ];
+};
 
-  // Accordion mock data
-  export const accordionMockData = (t: (key: string) => string) =>{
-    return [
-      {
-        title: `${t('ACCORDION_TITLE')} - #1`,
-        content: `${t('ACCORDION_CONTENT')}`,
-      },
-      {
-        title: `${t('ACCORDION_TITLE')} - #2`,
-        content: `${t('ACCORDION_CONTENT')}`,
-      },
-      {
-        title: `${t('ACCORDION_TITLE')} - #3`,
-        content: `${t('ACCORDION_CONTENT')}`,
-      },
-    ]
-    }
-
-
-
-
+// Accordion mock data
+export const accordionMockData = (t: (key: string) => string) => {
+  return [
+    {
+      title: `${t('ACCORDION_TITLE')} - #1`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+    {
+      title: `${t('ACCORDION_TITLE')} - #2`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+    {
+      title: `${t('ACCORDION_TITLE')} - #3`,
+      content: `${t('ACCORDION_CONTENT')}`,
+    },
+  ];
+};

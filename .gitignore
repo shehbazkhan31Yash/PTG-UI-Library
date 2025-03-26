@@ -42,6 +42,7 @@ Thumbs.db
 
 .angular
 
-
-
+/.nx
+/libs/ptg-ui-web-components/.stencil
+/libs/ptg-ui-web-components/www
 # /apps/ptg-ui-apps-backend/src/assets/

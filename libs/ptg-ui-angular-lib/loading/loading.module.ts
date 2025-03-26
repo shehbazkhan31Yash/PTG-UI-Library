@@ -8,7 +8,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './loading/loading.component';
-import { NgxLoadingModule } from 'ngx-loading';
+// import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { NgxLoadingModule } from 'ngx-loading';
   ],
   imports: [
     CommonModule,
-    NgxLoadingModule.forRoot({}),
+    // NgxLoadingModule.forRoot({}),
   ], exports: [
     LoadingComponent
   ]

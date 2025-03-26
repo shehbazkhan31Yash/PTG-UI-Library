@@ -1,7 +1,10 @@
 {
+  "name": "ptg-angular-google-map",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ptg-angular-google-map/src",
   "prefix": "ptg-ui-library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -82,12 +85,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-angular-google-map"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-angular-google-map"],
       "options": {
         "jestConfig": "apps/ptg-angular-google-map/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

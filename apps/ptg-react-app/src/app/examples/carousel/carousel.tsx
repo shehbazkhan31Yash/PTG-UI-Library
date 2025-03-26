@@ -1,81 +1,156 @@
-/**
- * @since December 2023
- * @author Nimish Jain
- * @uses Example using Carousel as reusable component.
- *
- */
-
 import { useState } from 'react';
-import { PtgUiCarousel } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import './carousel.scss';
 import { useTranslation } from 'react-i18next';
+import { CarouselWithDefaultProps } from './CarouselWithDefaultProps';
+import { CarouselWithMaxWidth } from './CarouselWithMaxWidth';
+import { CarouselWithThumbnail } from './CarouselWithThumbnail';
+import { CarouselWithCustomPropsOne } from './CarouselWithCustomPropsOne';
+import { CarouselWithAllCustomProps } from './CarouselWithAllCustomProps';
+
 const CarouselExample = () => {
-  const [showCode, setShowCode] = useState<boolean>(false);
+  const [showCodeDefaultCarousel, setShowCodeDefaultCarousel] =
+    useState<boolean>(false);
+  const [showCodeWithMaxWidth, setShowCodeWithMaxWidth] =
+    useState<boolean>(false);
+
+  const [showCodeWithThumbnail, setShowCodeWithThumbnail] =
+    useState<boolean>(false);
+
+  const [showCodeWithCustomPropsOne, setShowCodeWithCustomPropsOne] =
+    useState<boolean>(false);
+
+  const [showCodeWithAllCustomProps, setShowCodeWithAllCustomProps] =
+    useState<boolean>(false);
   const { t } = useTranslation();
 
   // Note: Handle function to show code
-  const ShowExampleCode = () => setShowCode(!showCode);
+  const ShowExampleWithDefaultProps = () =>
+    setShowCodeDefaultCarousel(!showCodeDefaultCarousel);
 
-//Note: Sample images for carousel
-  const sampleImages:string[] = [
-    'https://picsum.photos/id/328/3264/2448',
-    'https://picsum.photos/id/431/5000/3334',
-    'https://picsum.photos/id/5/5000/3334',
-  ];
+  const ShowExampleWithCustomMaxWidth = () =>
+    setShowCodeWithMaxWidth(!showCodeWithMaxWidth);
 
-  // Note: Component code for carousel
-  const componentCode = `
-  import {PtgUiCarousel} from '@ptg-ui/react';
+  const ShowExampleWithThumbnail = () =>
+    setShowCodeWithThumbnail(!showCodeWithThumbnail);
 
-  const sampleImages:string[] = [
-    'https://picsum.photos/id/328/3264/2448',
-    'https://picsum.photos/id/431/5000/3334',
-    'https://picsum.photos/id/5/5000/3334',
-  ];  `;
+  const ShowExampleWithCustomPropsOne = () =>
+    setShowCodeWithCustomPropsOne(!showCodeWithCustomPropsOne);
 
-  // Note: HTML code for carousel
-  const htmlCode = `
-      <PtgUiCarousel
-        images={sampleImages}
-        imgWidth="100%"
-        imgHeight="300px"
-        showIndicators={true}
-      ></PtgUiCarousel>`;
-
+  const ShowExampleWithAllCustomProps = () =>
+    setShowCodeWithAllCustomProps(!showCodeWithAllCustomProps);
 
   return (
     <div>
+      {/* Carousel With Default Props */}
       <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading"> {t('CAROUSEL')}</h5>
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('CAROUSEL with Default Property')}
+            </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
             <CodeIcon
-              onClick={ShowExampleCode}
+              onClick={ShowExampleWithDefaultProps}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
           </div>
           <hr className="horizontal-line" />
-          <div className="mb-3">
-            {showCode && (
-              <ShowCodeComponent
-                componentCode={componentCode}
-                htmlCode={htmlCode}
-              />
-            )}
-            <div className="carousel-component">
-              <PtgUiCarousel
-                images={sampleImages}
-                imgWidth="100%"
-                imgHeight="300px"
-                showIndicators={true}
-              ></PtgUiCarousel>
-            </div>
+          <CarouselWithDefaultProps
+            showCodeDefaultCarousel={showCodeDefaultCarousel}
+          />
+        </div>
+      </section>
+
+      {/* Carousel with Custom Properties Related with CSS */}
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('CAROUSEL with Customize Width for Image')}
+            </h5>
           </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithCustomMaxWidth}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <CarouselWithMaxWidth showCodeWithMaxWidth={showCodeWithMaxWidth} />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t(
+                'Thumbnail Navigation and Button Position Middle and Image in Circle'
+              )}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithThumbnail}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <CarouselWithThumbnail
+            showCodeWithThumbnail={showCodeWithThumbnail}
+          />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('Carousel with Card and Custom Background')}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithCustomPropsOne}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <CarouselWithCustomPropsOne
+            showCodeWithCustomPropsOne={showCodeWithCustomPropsOne}
+          />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('Carousel with All Custom Props')}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithAllCustomProps}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <CarouselWithAllCustomProps
+            showCodeWithAllCustomProps={showCodeWithAllCustomProps}
+          />
         </div>
       </section>
     </div>

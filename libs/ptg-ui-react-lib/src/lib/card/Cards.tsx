@@ -1,15 +1,35 @@
+import React from 'react';
 import { ICardUiProps } from '../interfaces';
 import { PtgUiButton, CARD_BUTTON } from '@ptg-ui/react';
 
-export function PtgUiCard(props: Readonly<ICardUiProps>) {
+/**
+ * PtgUiCard Component
+ * 
+ * A functional component that renders a card with an image, title, description, and an optional button.
+ * 
+ * @param {Readonly<ICardUiProps>} props - The props for the card component.
+ * @param {string} props.image - The URL of the image to display on the card.
+ * @param {string} props.title - The title of the card.
+ * @param {string} props.description - The description text of the card.
+ * @param {string} props.buttonText - The text to display on the button.
+ * @param {function} props.onClick - Callback function to handle button clicks.
+ * @param {string} props.buttonColor - The background color of the button.
+ * @param {string} props.buttonWidth - The width of the button.
+ * @param {React.ReactNode} props.children - Any additional content to display inside the card.
+ * @param {string} props.imageWidth - The width of the image.
+ * @param {string} props.imageHeight - The height of the image.
+ * @param {string} props.backgroundColor - The background color of the card.
+ * @param {string} props.buttonTextColor - The text color of the button.
+ * 
+ * @returns {JSX.Element} A JSX element representing the card.
+ */
+export const PtgUiCard = (props: Readonly<ICardUiProps>) => {
 	const {
 		image,
 		title,
 		description,
 		buttonText,
-		onClick = () => {
-			return;
-		},
+		onClick,
 		buttonColor = CARD_BUTTON.COLOR,
 		buttonWidth = CARD_BUTTON.WIDTH,
 		children,
@@ -20,7 +40,7 @@ export function PtgUiCard(props: Readonly<ICardUiProps>) {
 	} = props;
 
 	return (
-		<div className="card m-2" style={{ backgroundColor }}>
+		<div className="card m-2" style={{ backgroundColor }}> 
 			{image && (
 				<img
 					src={image}
@@ -38,7 +58,7 @@ export function PtgUiCard(props: Readonly<ICardUiProps>) {
 				<div className="card-body">
 					{title && <h5 className="card-title">{title}</h5>}
 					{description && <p className="card-text">{description}</p>}
-					{buttonText && (
+					{buttonText && ( 
 						<PtgUiButton
 							className="btn btn-primary go-somewhere-button"
 							text={buttonText}
@@ -54,4 +74,3 @@ export function PtgUiCard(props: Readonly<ICardUiProps>) {
 		</div>
 	);
 }
-export default PtgUiCard;

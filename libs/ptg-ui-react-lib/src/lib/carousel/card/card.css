@@ -1,0 +1,46 @@
+/* Card.css */
+.card {
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	transition: transform 0.2s;
+	text-align: center;
+}
+
+.card-image {
+	width: 100%;
+	height: auto;
+}
+
+.card-image.circle {
+	border-radius: 50%;
+}
+
+.card-image.square {
+	border-radius: 0;
+}
+
+.card-image.rectangle {
+	border-radius: 10px;
+}
+
+.card-title {
+	font-size: 1.5rem;
+	margin: 10px 0;
+	color: white;
+}
+
+.card-description {
+	font-size: 1rem;
+	color: white;
+	text-align: left;
+}
+
+.card-description ul {
+	padding-left: 20px;
+	margin: 0;
+}
+
+.card-description li {
+	margin-bottom: 5px;
+}
