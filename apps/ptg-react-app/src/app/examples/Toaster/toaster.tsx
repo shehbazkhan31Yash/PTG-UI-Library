@@ -8,7 +8,7 @@ export default function Toaster() {
   const [showCode, setShowCode] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [message, setMessage] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState<'success' | 'error'>('success');
 
   const displayToast = (msg: string, messageType: 'success' | 'error') => {
     setMessage(msg);
@@ -22,8 +22,7 @@ export default function Toaster() {
   const [showCode, setShowCode] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [message, setMessage] = useState('');
-  const [type, setType] = useState('');
-
+  const [type, setType] = useState<'success' | 'error'>('success');
   const displayToast = (msg: string, messageType: 'success' | 'error') => {
     setMessage(msg);
     setType(messageType);

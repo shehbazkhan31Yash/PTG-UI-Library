@@ -1,23 +1,24 @@
+import { PtgUiTextAreaProps } from "@ptg-react-libs/interfaces";
+
 /**
- * @since March 2022
- * @author Devang Kushwah
- * @uses Reusable Component for textarea
- *
+ * PtgUiTextArea Component
+ * 
+ * A functional component that renders a customizable textarea.
+ * 
+ * @param {Readonly<PtgUiTextAreaProps>} props - The props for the textarea component.
+ * @param {string} props.placeholder - The placeholder text for the textarea.
+ * @param {string} props.className - The CSS class name for the textarea.
+ * @param {number} props.rows - The number of rows for the textarea.
+ * @param {string} props.name - The name attribute for the textarea.
+ * @param {string} props.id - The id attribute for the textarea.
+ * @param {string} props.value - The value of the textarea.
+ * @param {function} props.onChange - The function to call when the textarea value changes.
+ * @param {function} props.onBlur - The function to call when the textarea loses focus.
+ * 
+ * @returns {JSX.Element} A JSX element representing the textarea.
  */
-
-interface PtgUiTextAreaProps {
-	placeholder?: string;
-	className?: string;
-	rows?: any;
-	name?: string;
-	id?: string;
-	value?: string;
-	onChange?: (event: any) => void | undefined;
-	onBlur?: (event: any) => void | undefined;
-}
-
 const defaultProps: PtgUiTextAreaProps = {
-	rows: '4',
+	rows: 4,
 	value: '',
 	placeholder: '',
 	id: '',
@@ -25,7 +26,7 @@ const defaultProps: PtgUiTextAreaProps = {
 	name: ''
 };
 
-export function PtgUiTextArea({ ...rest }: PtgUiTextAreaProps) {
+export function PtgUiTextArea({ ...rest }: Readonly<PtgUiTextAreaProps>) {
 	return <textarea {...rest} data-testid={rest.name} />;
 }
 PtgUiTextArea.defaultProps = defaultProps;

@@ -163,6 +163,26 @@ export interface PtgUiSelectProps {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+//Textarea
+export interface PtgUiTextAreaProps {
+    placeholder?: string;
+    className?: string;
+    rows?: number;
+    name?: string;
+    id?: string;
+    value?: string;
+	onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+}
+
+//Toaster
+export interface ToasterProps {
+	show: boolean;
+	setShow: (show: boolean) => void;
+	message: string;
+	type: 'error' | 'success';
+	children?: React.ReactNode[];
+}
 export interface AlertProps {
 	message?: string;
 	type?: string;
@@ -342,8 +362,8 @@ export interface IPtgUiMultiStepFormProps {
 }
 
 export interface PtgUiCommonStepProps {
-	handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-	handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+	handleChange?: (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+    handleBlur?: (event: React.FocusEvent<HTMLInputElement> | React.FocusEvent<HTMLTextAreaElement>) => void;
 	details?: IUserDetails;
 	error?: IUserDetails;
 }
