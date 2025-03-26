@@ -1,0 +1,39 @@
+.rating-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.rating-star {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease, font-size 0.2s ease;
+  user-select: none;
+}
+
+.rating-star:hover {
+  transform: scale(1.1);
+}
+
+.star-fill,
+.star-empty {
+  font-size: inherit;
+  display: inline-block;
+}
+
+.half-star,
+.full-star {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  cursor: pointer;
+}
+
+.half-star {
+  left: 0;
+}
+
+.full-star {
+  right: 0;
+}

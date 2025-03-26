@@ -391,3 +391,17 @@ export interface ICarouselProps {
 	navigationIconWidth?: string;
 	navigationIconHeight?: string;
 }
+
+export interface IRatingProps {
+	value?: number;
+	onChange?: (value: number) => void;
+	readOnly?: boolean;
+	disabled?: boolean;
+	precision?: number;
+	icon?: string;
+	emptyIcon?: string;
+	color?: string;
+	borderColor?: string;
+	size?: number;
+	hoverSize?: number;
+}
