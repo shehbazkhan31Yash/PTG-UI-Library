@@ -75,7 +75,7 @@ export class MatThemeService {
   }
 
   updateColorTheme(colors: Color[], theme: string) {
-    console.log(colors,"colors");
+    console.log(colors, "colors");
     if (isPlatformBrowser(this.platformId)) {
       const colorObservable = from(colors);
       colorObservable.subscribe(
@@ -93,7 +93,7 @@ export class MatThemeService {
           error: (e) => {
             console.log('pallate setting error', e);
           },
-          complete: () => {console.log("color completed") }
+          complete: () => { console.log("color completed") }
         }
       )
     }

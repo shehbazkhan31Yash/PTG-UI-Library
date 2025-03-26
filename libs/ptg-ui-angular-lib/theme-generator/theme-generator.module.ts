@@ -8,26 +8,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { themeGeneratorComponent } from './theme-generator/theme-generator.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { ThemeGeneratorComponent } from './theme-generator/theme-generator.component';
 
 import { ReactiveFormsModule} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
-    themeGeneratorComponent
+    ThemeGeneratorComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
     ReactiveFormsModule
   ],
   exports: [
-    themeGeneratorComponent
+    ThemeGeneratorComponent
   ]
 })
 export class themeGeneratorModule { }

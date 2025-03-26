@@ -21,7 +21,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./theme-generator.component.scss']
 })
 
-export class themeGeneratorComponent implements OnInit {
+export class ThemeGeneratorComponent implements OnInit {
 
   colorpaletteForm!: FormGroup;
   navBack = 'red';
