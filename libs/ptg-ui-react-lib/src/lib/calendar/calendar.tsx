@@ -1,58 +1,58 @@
-/* eslint-disable jsx-a11y/no-access-key */
-/**
- * @since March 2022
- * @author Harsha Zalawa
- * @desc Reusable Calendar Component
- *
- */
-import './calendar.scss';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
-export interface CalendarProps {
-	onChange?: any;
-	date?: any;
-	selected?: any;
-	className?: any;
-	startDate?: any;
-	endDate?: any;
-	disabled?: boolean;
-	startRef?: any;
-	onKeyDown?: any;
-	accessKey?: string;
-	showTimeSelect?: boolean;
-	dateFormat?: string;
-	isDateTime?: boolean;
-}
+import './calendar.css';
+import { IPtgUiCalendarProps } from '../interfaces';
 
-export function PtgUiCalendar({
-	className,
-	selected,
-	onChange,
-	startDate,
-	endDate,
-	disabled,
-	isDateTime,
-	startRef,
-	onKeyDown,
-	accessKey,
-	showTimeSelect,
-	dateFormat = 'MM-dd-yyyy',
-}: CalendarProps) {
+/**
+ * PtgUiCalendar Component
+ * 
+ * A functional component that renders a date or datetime input field.
+ * 
+ * @param {Readonly<IPtgUiCalendarProps>} props - The props for the calendar component.
+ * @param {string} props.className - Additional class names for styling the input.
+ * @param {Date | string} props.selected - The currently selected date or datetime.
+ * @param {function} props.onChange - Callback function to handle date changes.
+ * @param {Date | string} props.startDate - The minimum selectable date.
+ * @param {Date | string} props.endDate - The maximum selectable date.
+ * @param {boolean} props.disabled - Indicates if the input should be disabled.
+ * @param {boolean} props.isDateTime - Indicates if the input should be a datetime picker.
+ * 
+ * @returns {JSX.Element} A JSX element representing the calendar input.
+ */
+export const PtgUiCalendar = (props: Readonly<IPtgUiCalendarProps>) => {
+	const {
+		className,
+		selected,
+		onChange,
+		startDate,
+		endDate,
+		disabled,
+		isDateTime,
+	} = props;
+	const formatDate = (date: Date | string) => {
+		if (date instanceof Date) {
+			return date.toISOString().split('T')[0];
+		}
+		return date || '';
+	};
+	const formatDateTime = (date: Date | string) => {
+		if (date instanceof Date) {
+			return date.toISOString().slice(0, 16); // Format for datetime-local
+		}
+		return date || '';
+	};
 	return (
 		<div className="position-relative post-icon">
 			<div>
 				<input
 					className={className}
-					type={!isDateTime ? 'date' : 'datetime-local'}
-					value={selected}
+					type={isDateTime ? 'datetime-local' : 'date'}
+					value={isDateTime ? formatDateTime(selected ?? '') : formatDate(selected ?? '')}
 					onChange={onChange}
-					min={startDate || ''}
-					max={endDate || ''}
+					min={isDateTime ? formatDateTime(startDate ?? '') : formatDate(startDate ?? '')}
+					max={isDateTime ? formatDateTime(endDate ?? '') : formatDate(endDate ?? '')}
 					disabled={disabled}
+					aria-label="Select date"
 				/>
 			</div>
 		</div>
 	);
 }
-
-export default PtgUiCalendar;

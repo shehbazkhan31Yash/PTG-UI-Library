@@ -4,13 +4,12 @@
  * @desc Side bar/navigation list
  */
 
-  /*--List of sidebar/side navigation--*/
-
+/*--List of sidebar/side navigation--*/
 
 export const NavigationChildData = [
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-sliders',
     label: 'Carousel',
     disabled: false,
   },
@@ -102,7 +101,7 @@ export const NavigationData = [
   },
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-sliders',
     label: 'CAROUSEL',
     disabled: false,
   },
