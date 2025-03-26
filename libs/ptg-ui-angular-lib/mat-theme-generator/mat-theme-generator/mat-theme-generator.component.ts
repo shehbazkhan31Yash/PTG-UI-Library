@@ -9,8 +9,6 @@
  **/
 
 import { Component, Output, EventEmitter, inject, OnInit } from '@angular/core';
-
-import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatThemeService } from './mat-theme-services/mat-theme.service';
 

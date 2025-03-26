@@ -1,92 +1,31 @@
-import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { MatThemeGeneratorComponent } from './mat-theme-generator.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
-import * as CardComponents from './card.stories.ts';
+<Meta title="Components/MatThemeGenerator" component={MatThemeGeneratorComponent} />
 
-import { CardComponent } from './card.component';
+# MatThemeGenerator Component
 
-<Meta
-  title="Component/CardComponent/CardComponentDocs"
-  component={CardComponent}
-/>
+This component allows users to generate and save theme colors.
 
-# Card Component
-
----
-
-A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
-
-We can import the button tag using the following importation :
+We can import the Theme tag using the following importation :
 
 ```
-    import { CardModule } from '@ptg-ui/angular/card'
+    import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator'
 ```
-
-Types of controls supported by card:
-
-- title
-- content
-- footer
-- src
-- cardClass
-- cardHeaderClass
-- cardBodyClass
-- cardFooterClass
-- Kitchen Sink
-
 ## Quick Start
 
-we can create a card using the following HTML Tag:
+we can create a theme-generator using the following HTML Tag:
 
 ```
-<ptg-ui-card [cardObj]="cardObj">
-          </ptg-ui-card>
+  <ptg-ui-mat-theme-generator></ptg-ui-mat-theme-generator>`;
+
 
 ```
 
-Following are some controls with their explanation :
-
-1] title , subtitle ,content:
-
-The title , subtite and content are title ,subtitle and description of card respectively.
-
-A] title : <Canvas><Story id="component-cardcomponent--primary" /></Canvas>  
-B] subtitle : <Canvas><Story id="component-cardcomponent--subtitle"/></Canvas>
-
-2] Image :
-
-To show image for the card user need to pass src of the image :
+To view demo of theme-generator :
 
 <Canvas>
-  <Story id="component-cardcomponent--image" />
+  <Story id="component-matthemegeneratorcomponent--primary" />
 </Canvas>
-
-3] Footer :
-
-Add footer within a card.
-
-<Canvas>
-  <Story id="component-cardcomponent--footer" />
-</Canvas>
-
-4] Classes :
-
-User can pass classes to card, header,body and footer in the card.
-
-<Canvas>
-  <Story id="component-cardcomponent--classes" />
-</Canvas>
-
-5] Kitchen Sink :
-Mix and match multiple content types to create the card you need, or throw everything in there.
-For example user can write multiple button within card using their own html.
-
-```
-<ptg-ui-card [cardObj]="cardObj">
- <ul class="list-group list-group-flush">
-   <li class="list-group-item">An item</li>
-   <li class="list-group-item">A second item</li>
-   <li class="list-group-item">A third item</li>
- </ul>
- </ptg-ui-card>
-
-```
