@@ -1,51 +1,41 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { PtgUiDatePicker } from './date-picker';
-import { PtgUiDatePickerProps } from '../interfaces';
 
-describe('PtgUiDatePicker', () => {
-	const defaultProps: Readonly<PtgUiDatePickerProps> = {
-		id: 'test-date-picker',
-		placeholder: 'Select a date',
-		value: '',
-		onChange: jest.fn(),
-		className: 'test-class',
-		ariaLabel: 'date-picker'
-	};
+test('renders date picker component', () => {
+	render(<PtgUiDatePicker sendSelectedDate={jest.fn()} id="test-date-picker" className="test-class" />);
+	const inputElement = screen.getByPlaceholderText(/select a date/i);
+	expect(inputElement).toBeInTheDocument();
+});
 
-	it('renders the date input with correct attributes', () => {
-		render(<PtgUiDatePicker {...defaultProps} />);
+test('toggles calendar popup', () => {
+	render(<PtgUiDatePicker sendSelectedDate={jest.fn()} id="test-date-picker" className="test-class" />);
+	const inputElement = screen.getByPlaceholderText(/select a date/i);
+	fireEvent.click(inputElement);
+	const calendarElement = screen.getByRole('table');
+	expect(calendarElement).toBeInTheDocument();
+	fireEvent.mouseDown(document);
+	expect(calendarElement).not.toBeInTheDocument();
+});
 
-		const inputElement = screen.getByLabelText('date-picker');
-		expect(inputElement).toBeInTheDocument();
-		expect(inputElement).toHaveAttribute('type');
-		expect(inputElement).toHaveAttribute('id');
-		expect(inputElement).toHaveAttribute('placeholder');
-		expect(inputElement).toHaveClass('test-class form-control');
-	});
+test('selects a date', () => {
+	const mockSendSelectedDate = jest.fn();
+	render(<PtgUiDatePicker sendSelectedDate={mockSendSelectedDate} id="test-date-picker" className="test-class" />);
+	const inputElement = screen.getByPlaceholderText(/select a date/i);
+	fireEvent.click(inputElement);
+	const dayElement = screen.getByText('15');
+	fireEvent.click(dayElement);
+	expect((inputElement as HTMLInputElement).value).toBe('2025-03-15');
+	expect(mockSendSelectedDate).toHaveBeenCalledWith('2025-03-15');
+});
 
-	it('displays the correct value when a date is provided', () => {
-		const dateValue = new Date(2025, 2, 19); // March 19, 2025
-		render(<PtgUiDatePicker {...defaultProps} value={dateValue} />);
-
-		const inputElement = screen.getByLabelText('date-picker');
-		expect(inputElement).toHaveValue('2025-03-19');
-	});
-
-	it('calls onChange callback when the date is changed', () => {
-		render(<PtgUiDatePicker {...defaultProps} />);
-
-		const inputElement = screen.getByLabelText('date-picker');
-		fireEvent.change(inputElement, { target: { value: '2025-03-20' } });
-
-		expect(defaultProps.onChange).toHaveBeenCalled();
-		expect(defaultProps.onChange).toHaveBeenCalledWith(expect.any(Object));
-	});
-
-	it('displays the correct value when a string date is provided', () => {
-		render(<PtgUiDatePicker {...defaultProps} value="2025-03-19" />);
-
-		const inputElement = screen.getByLabelText('date-picker');
-		expect(inputElement).toHaveValue('2025-03-19');
-	});
+test('changes month and year', () => {
+	render(<PtgUiDatePicker sendSelectedDate={jest.fn()} id="test-date-picker" className="test-class" />);
+	const inputElement = screen.getByPlaceholderText(/select a date/i);
+	fireEvent.click(inputElement);
+	const monthSelect = screen.getByDisplayValue('March');
+	fireEvent.change(monthSelect, { target: { value: '4' } });
+	expect(screen.getByText('April 2025')).toBeInTheDocument();
+	const yearSelect = screen.getByDisplayValue('2025');
+	fireEvent.change(yearSelect, { target: { value: '2026' } });
+	expect(screen.getByText('April 2026')).toBeInTheDocument();
 });

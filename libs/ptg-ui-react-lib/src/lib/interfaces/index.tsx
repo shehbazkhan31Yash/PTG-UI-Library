@@ -22,7 +22,7 @@ export interface PtgUiDatePickerProps {
 	id?: string;
 	placeholder?: string;
 	value?: string | Date | null;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	sendSelectedDate?: (string) => void;
 	className?: string;
 	ariaLabel?: string;
 }

@@ -97,8 +97,8 @@ export function WebAccessibility() {
     });
   };
   const [date, setDate] = useState('');
-  const dateChange = (event) => {
-    setDate(event.target.value);
+  const dateChange = (val: string) => {
+    setDate(val);
   };
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
   const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -596,7 +596,7 @@ const htmlCode = `
                           >
                             {t('DOB')}
                           </label>
-                              <PtgUiDatePicker value={date} onChange={dateChange} />
+                              <PtgUiDatePicker value={date} sendSelectedDate={dateChange} />
                         </div>
                       </div>
                     </div>
