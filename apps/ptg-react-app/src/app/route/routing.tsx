@@ -84,6 +84,7 @@ const PtgUiReactTable = lazy(
   () => import('../examples/data-table/react-table')
 );
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
+const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
@@ -221,6 +222,10 @@ const routing = [
   {
     path: '/toaster',
     component: Toaster,
+  },
+  {
+    path: '/textarea',
+    component: Textarea,
   },
   {
     path: '/button',
