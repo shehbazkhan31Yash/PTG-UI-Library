@@ -160,6 +160,12 @@ export const NavigationData = [
     ],
   },
   {
+    path: '/datePicker',
+    icon: 'fa fa-calendar',
+    label: 'Date Picker',
+    disabled: false,
+  },
+  {
     path: '/pagination',
     icon: 'fa-solid fa-table-list',
     label: 'PAGINATION',

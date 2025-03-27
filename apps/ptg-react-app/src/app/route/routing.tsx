@@ -90,7 +90,7 @@ const Authentication = lazy(() => import('../examples/auth/login/Login'));
 const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
 const Rating = lazy(() => import('../examples/rating/rating'));
-
+const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -241,6 +241,10 @@ const routing = [
   {
     path: '/rating',
     component: Rating,
+  },
+  {
+    path: '/datePicker',
+    component: DatePicker,
   },
 ];
 export default routing;
