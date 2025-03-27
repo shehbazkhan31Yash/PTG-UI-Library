@@ -1,87 +1,113 @@
-import React from 'react';
-import { ICarouselProps } from '../interfaces';
+import React, { useState } from 'react';
 import './carousel.css';
+import { Card } from './card/card';
+import { ICarouselProps } from '@ptg-react-libs/interfaces';
 
 /**
- * PtgUiCarousel Component
- * 
- * A functional component that renders a carousel of images.
- * 
- * @param {Readonly<ICarouselProps>} props - The props for the carousel component.
- * @param {string} props.imgHeight - The height of the carousel images.
- * @param {string} props.imgWidth - The width of the carousel images.
- * @param {Array<string>} props.images - An array of image paths to display in the carousel.
- * @param {boolean} props.showIndicators - Indicates if the carousel indicators should be shown (default is true).
- * 
- * @returns {JSX.Element} A JSX element representing the image carousel.
+ * PtgUiCarousel component to render a carousel with navigation options.
+ *
+ * @param {ICarouselProps} props - The properties for the PtgUiCarousel component.
+ * @param {Array} props.items - The list of items to display in the carousel.
+ * @param {string} [props.backgroundColor='#fff'] - The background color of the carousel.
+ * @param {string} [props.buttonPosition='bottom'] - The position of the navigation buttons.
+ * @param {Object} [props.buttonProps] - The properties for the navigation buttons.
+ * @param {string} [props.buttonProps.iconLeft='<'] - The icon for the left navigation button.
+ * @param {string} [props.buttonProps.iconRight='>'] - The icon for the right navigation button.
+ * @param {Object} [props.buttonProps.style] - The style for the navigation buttons.
+ * @param {boolean} [props.navigationOnIcon=false] - Flag to enable navigation on icons.
+ * @param {string} [props.navigationIconWidth='40px'] - The width of the navigation icons.
+ * @param {string} [props.navigationIconHeight='40px'] - The height of the navigation icons.
+ * @returns {JSX.Element} The rendered carousel component.
  */
-export const PtgUiCarousel = ({
-	imgHeight,
-	imgWidth,
-	images = [],
-	showIndicators = true,
-}: Readonly<ICarouselProps>) => {
+export const PtgUiCarousel: React.FC<ICarouselProps> = ({
+	items,
+	backgroundColor = '#fff',
+	buttonPosition = 'bottom',
+	buttonProps = {
+		iconLeft: '<',
+		iconRight: '>',
+		style: { backgroundColor: '#007bff', color: 'white', width: '40px', height: '40px' },
+	},
+	navigationOnIcon = false,
+	navigationIconWidth = '40px',
+	navigationIconHeight = '40px',
+}) => {
+	const [currentIndex, setCurrentIndex] = useState(0);
+
+	const nextSlide = () => {
+		setCurrentIndex((prevIndex) => (items.length ? (prevIndex + 1) % items.length : 0));
+	};
+
+	const prevSlide = () => {
+		setCurrentIndex((prevIndex) => (items.length ? (prevIndex - 1) % items.length : 0));
+	};
+
 	return (
-		<div className="parent-container">
-			<div className="carousel">
-				<ul
-					className="slides"
-					style={{
-						minHeight: imgHeight ? `${imgHeight}` : '400px',
-						width: imgWidth ? `${imgWidth}` : '600px',
-					}}
-				>
-					{images.length ? (
-						images.map((imgPath, index) => {
-							return (
-								<React.Fragment key={imgPath}>
-									<div>
-										<input
-											type="radio"
-											name="radio-buttons"
-											id={`img-${index}`}
-											defaultChecked={index === 0}
-										/>
-										<li className="slide-container">
-											<div className="slide-image">
-												<img src={imgPath} alt="Carousel" />
-											</div>
-											<div className="carousel-controls" style={{ lineHeight: imgHeight }}>
-												<label
-													htmlFor={`img-${index === 0 ? images.length - 1 : index - 1}`}
-													className="prev-slide"
-													aria-label="Previous Slide"
-												>
-													<span>&lsaquo;</span>
-												</label>
-												<label
-													htmlFor={`img-${index === images.length - 1 ? 0 : index + 1}`}
-													className="next-slide"
-													aria-label="Next Slide"
-												>
-													<span>&rsaquo;</span>
-												</label>
-											</div>
-										</li>
-									</div>
-									{showIndicators && (
-										<div className="carousel-dots">
-											{images.map((_, dotIndex) => (
-												<label
-													htmlFor={`img-${dotIndex}`}
-													className="carousel-dot"
-													id={`img-dot-${dotIndex}`}
-													key={`dot-${imgPath}-${dotIndex}`}
-													aria-label="Slide dots"
-												></label>
-											))}
-										</div>
-									)}
-								</React.Fragment>
-							);
-						})
-					) : null}
-				</ul>
+		<div className="carousel" style={{ backgroundColor }}>
+			<div className="carousel-content">
+				{items?.length > 0 && (
+					<Card
+						image={items[currentIndex]?.image}
+						title={items[currentIndex]?.title}
+						description={items[currentIndex]?.description}
+						backgroundColor={items[currentIndex]?.backgroundColor}
+						shape={items[currentIndex]?.shape}
+						maxWidth={items[currentIndex]?.maxWidth}
+						margin={items[currentIndex]?.margin}
+						padding={items[currentIndex]?.padding}
+					/>
+				)}
+			</div>
+
+			{!navigationOnIcon && (
+				<div className="dot-navigation">
+					{items.map((carouselItem, index) => (
+						<button
+							key={`${carouselItem?.id} ${index} dot-navigation`}
+							className={`dot ${currentIndex === index ? 'active' : ''}`}
+							onClick={() => setCurrentIndex(index)}
+							style={{ border: 'none', padding: 0, cursor: 'pointer' }}
+							aria-label={`Slide ${index + 1}`}
+						/>
+					))}
+				</div>
+			)}
+
+			{navigationOnIcon && (
+				<div className="icon-navigation">
+					{items.map((carouselItem, index) => (
+						<button
+							key={carouselItem?.id}
+							onClick={() => setCurrentIndex(index)}
+							style={{
+								border: 'none',
+								padding: 0,
+								cursor: 'pointer',
+								margin: '0 5px',
+								opacity: currentIndex === index ? 1 : 0.5,
+							}}
+							aria-label={`Slide ${index + 1}`}
+						>
+							<img
+								src={carouselItem.image}
+								alt={`Slide ${index + 1}`}
+								style={{
+									width: navigationIconWidth,
+									height: navigationIconHeight,
+								}}
+							/>
+						</button>
+					))}
+				</div>
+			)}
+
+			<div className={`carousel-controls ${buttonPosition}`}>
+				<button onClick={prevSlide} style={{ ...buttonProps.style }}>
+					{buttonProps.iconLeft}
+				</button>{' '}
+				<button onClick={nextSlide} style={{ ...buttonProps.style }}>
+					{buttonProps.iconRight}
+				</button>{' '}
 			</div>
 		</div>
 	);

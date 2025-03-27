@@ -4,13 +4,12 @@
  * @desc Side bar/navigation list
  */
 
-  /*--List of sidebar/side navigation--*/
-
+/*--List of sidebar/side navigation--*/
 
 export const NavigationChildData = [
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-sliders',
     label: 'Carousel',
     disabled: false,
   },
@@ -102,7 +101,7 @@ export const NavigationData = [
   },
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-sliders',
     label: 'CAROUSEL',
     disabled: false,
   },
@@ -159,6 +158,12 @@ export const NavigationData = [
         disabled: false,
       },
     ],
+  },
+  {
+    path: '/datePicker',
+    icon: 'fa fa-calendar',
+    label: 'Date Picker',
+    disabled: false,
   },
   {
     path: '/pagination',
@@ -221,9 +226,27 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/toaster',
+    icon: 'fa-solid fa-bell',
+    label: 'TOASTER',
+    disabled: false,
+  },
+  {
+    path: '/textarea',
+    icon: 'fa-solid fa-pen',
+    label: 'TEXTAREA',
+    disabled: false,
+  },
+  {
     path: '/webAccessibility',
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',
+    disabled: false,
+  },
+  {
+    path: '/rating',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Rating',
     disabled: false,
   },
 ];

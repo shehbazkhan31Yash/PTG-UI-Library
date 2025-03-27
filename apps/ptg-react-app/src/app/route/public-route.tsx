@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const PublicRoute = ({ children }: { children: JSX.Element }) => {
   const { isAuthenticated } = useAuth0();
   const auth = authClass.getToken();
-  return isAuthenticated || auth ? <Navigate to="/" /> : children;
+  return isAuthenticated || auth ? <Navigate to="/calendar" /> : children;
 };
 
 export default PublicRoute;

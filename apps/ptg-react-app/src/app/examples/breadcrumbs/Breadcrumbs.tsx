@@ -18,6 +18,9 @@ export default function Breadcrumb() {
   const handleShowCode = () => {
     setShowCode(!showCode)
   }
+  const handleClick = (event) => {
+    event.preventDefault();
+  };
 
   const componentCode = `
     import { PtgUiBreadcrumbs } from '@ptg-ui/react';
@@ -33,7 +36,7 @@ export default function Breadcrumb() {
       { title: 'contact us', link: '/contact',},
     ]
   `;
-  const htmlCode = `<PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />`;
+  const htmlCode = `<PtgUiBreadcrumbs handleClick={handleClick} datalist={breadCrumbsDataArr} />`;
 
   return (
     <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
@@ -59,7 +62,7 @@ export default function Breadcrumb() {
         )}
         <div className="row">
           <div className="breadcrumbs-component col-md-12">
-            <PtgUiBreadcrumbs datalist={breadCrumbsDataArr} />
+            <PtgUiBreadcrumbs handleClick={handleClick} datalist={breadCrumbsDataArr} />
           </div>
         </div>
       </div>

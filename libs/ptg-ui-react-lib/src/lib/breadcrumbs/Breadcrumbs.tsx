@@ -1,5 +1,6 @@
 import { IPtgUiBreadcrumbsProps } from '@ptg-react-libs/interfaces';
 import './breadcrumbs.css';
+import { Link } from 'react-router-dom';
 
 /**
  * PtgUiBreadcrumbs Component
@@ -9,23 +10,24 @@ import './breadcrumbs.css';
  * @param {IPtgUiBreadcrumbsProps} props - The props for the component.
  * @param {Array<{ title: string; link?: string }>} props.datalist - An array of breadcrumb items, 
  * where each item has a title and an optional link.
- * 
+ * @param {Function} props.handleClick - A function to handle click events on breadcrumb links.
  * @returns {JSX.Element} A JSX element representing the breadcrumb navigation.
  */
 
-export const PtgUiBreadcrumbs = ({ datalist }: IPtgUiBreadcrumbsProps) => {
+export const PtgUiBreadcrumbs = ({ datalist, handleClick }: IPtgUiBreadcrumbsProps) => {
 	return (
-		<ul className="breadcrumb"> 
-			{datalist?.map((item: { title: string; link?: string }, i: number) => {
-				if (datalist?.length - 1 > i) { 
-					return (
-						<li key={item.title}> 
-							<a href={`${item?.link}`}>{item?.title}</a>
-						</li>
-					);
-				}
-				return <li key={item?.title}>{item?.title}</li>;
-			})}
-		</ul>
+		<nav aria-label="breadcrumb">
+			<ol className="breadcrumb">
+				{datalist.map((breadcrumb, index) => (
+					<li key={breadcrumb.title} className={`breadcrumb-item ${index === datalist.length - 1 ? 'active' : ''}`}>
+						{index === datalist.length - 1 ? (
+							breadcrumb.title
+						) : (
+							<Link to={breadcrumb.link || '#'} onClick={handleClick}>{breadcrumb.title}</Link>
+						)}
+					</li>
+				))}
+			</ol>
+		</nav>
 	);
 };
