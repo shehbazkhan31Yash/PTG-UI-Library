@@ -22,7 +22,7 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 	const calendarRef = useRef<HTMLDivElement | null>(null);
 
 	const toggleCalendar = () => {
-		setIsCalendarOpen(!isCalendarOpen);
+		setIsCalendarOpen(prev => !prev);
 	};
 
 	const handleDateSelect = (day: number) => {
@@ -34,12 +34,20 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 		setIsCalendarOpen(false);
 	};
 
-	const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		setCurrentMonth(parseInt(event.target.value, 10));
+	const changeMonth = (increment: number) => {
+		setCurrentMonth(prev => {
+			const newMonth = (prev + increment + 12) % 12;
+			if (newMonth === 0 && increment === -1) {
+				setCurrentYear(year => year - 1);
+			} else if (newMonth === 11 && increment === 1) {
+				setCurrentYear(year => year + 1);
+			}
+			return newMonth;
+		});
 	};
 
-	const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		setCurrentYear(parseInt(event.target.value, 10)); // Update the current year state
+	const changeYear = (increment: number) => {
+		setCurrentYear(prev => prev + increment);
 	};
 
 	const renderCalendar = () => {
@@ -48,19 +56,16 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 		const daysInMonth = lastDay.getDate();
 		const days: JSX.Element[] = [];
 
-		// Fill in the blanks for the first week
 		for (let i = 0; i < firstDay.getDay(); i++) {
 			days.push(<td key={`blank-${i}`}></td>);
 		}
 
-		// Fill in the days of the month
 		for (let day = 1; day <= daysInMonth; day++) {
 			days.push(
 				<td key={day} onClick={() => handleDateSelect(day)}>{day}</td>
 			);
 		}
 
-		// Split the days into weeks
 		const weeks: JSX.Element[] = [];
 		for (let i = 0; i < days.length; i += 7) {
 			weeks.push(<tr key={`week-${i / 7}`}>{days.slice(i, i + 7)}</tr>);
@@ -70,7 +75,7 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 			<table>
 				<thead>
 					<tr>
-						<th colSpan={7}>{`${firstDay.toLocaleString('default', { month: 'long' })} ${currentYear}`}</th> {/* Month and year header */}
+						<th colSpan={7}>{`${firstDay.toLocaleString('default', { month: 'long' })} ${currentYear}`}</th>
 					</tr>
 					<tr>
 						{['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day) => (
@@ -84,7 +89,7 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 			</table>
 		);
 	}
-	// Effect to handle clicks outside the calendar
+
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
@@ -111,24 +116,15 @@ export const PtgUiDatePicker = ({ sendSelectedDate, id, className }: Readonly<Pt
 			{isCalendarOpen && (
 				<div className="calendar" ref={calendarRef}>
 					<div className="calendar-controls">
-						<select value={currentMonth} onChange={handleMonthChange}>
-							{Array.from({ length: 12 }, (_, i) => (
-								<option key={i} value={i}>
-									{new Date(0, i).toLocaleString('default', { month: 'long' })}
-								</option>
-							))}
-						</select>
-						<select value={currentYear} onChange={handleYearChange}>
-							{Array.from({ length: 101 }, (_, i) => (
-								<option key={i} value={currentYear - 50 + i}>
-									{currentYear - 50 + i}
-								</option>
-							))}
-						</select>
+						<button className='selectButton' onClick={() => changeYear(-1)}>&lt;&lt;</button>
+						<button className='selectButton' onClick={() => changeMonth(-1)}>&lt;</button>
+						<span className='showMonthAndYear'>{new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} {currentYear}</span>
+						<button className='selectButton' onClick={() => changeMonth(1)}>&gt;</button>
+						<button className='selectButton' onClick={() => changeYear(1)}>&gt;&gt;</button>
 					</div>
 					<div className="calendar-days">{renderCalendar()}</div>
 				</div>
 			)}
 		</div>
-	)
+	);
 }
