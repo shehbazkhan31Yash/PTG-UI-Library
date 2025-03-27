@@ -64,13 +64,16 @@ export const Rating: React.FC<IRatingProps> = ({
 		if (precision === 1) {
 			const fullStars = Math.ceil(displayValue);
 			return fullStars >= starIndex ? 100 : 0;
-		} else {
-			if (displayValue >= starIndex) {
-				return 100;
-			} else if (displayValue >= starIndex - 0.5) {
-				return 50;
-			}
 		}
+
+		if (displayValue >= starIndex) {
+			return 100;
+		}
+
+		if (displayValue >= starIndex - 0.5) {
+			return 50;
+		}
+
 		return 0;
 	};
 
