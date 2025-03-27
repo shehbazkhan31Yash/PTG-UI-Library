@@ -225,4 +225,10 @@ export const NavigationData = [
     label: 'WEB ACCESSIBILTY',
     disabled: false,
   },
+  {
+    path: '/rating',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Rating',
+    disabled: false,
+  },
 ];
