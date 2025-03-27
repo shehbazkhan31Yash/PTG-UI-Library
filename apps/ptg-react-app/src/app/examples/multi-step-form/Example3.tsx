@@ -143,7 +143,7 @@ const Example3 = () => {
     setError(newError);
   };
   // handleChange
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     validate(name, value);
     setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
