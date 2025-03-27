@@ -228,7 +228,7 @@ export const NavigationData = [
   {
     path: '/textarea',
     icon: 'fa-solid fa-pen',
-    label: 'Textarea',
+    label: 'TEXTAREA',
     disabled: false,
   },
   {
