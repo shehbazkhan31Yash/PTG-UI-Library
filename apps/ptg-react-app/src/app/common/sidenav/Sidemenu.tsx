@@ -220,6 +220,18 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/toaster',
+    icon: 'fa-solid fa-bell',
+    label: 'TOASTER',
+    disabled: false,
+  },
+  {
+    path: '/textarea',
+    icon: 'fa-solid fa-pen',
+    label: 'Textarea',
+    disabled: false,
+  },
+  {
     path: '/webAccessibility',
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',
