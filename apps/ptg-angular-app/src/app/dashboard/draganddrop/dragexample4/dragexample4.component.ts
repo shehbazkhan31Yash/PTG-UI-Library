@@ -19,8 +19,7 @@ export class Dragexample4Component {
   currentCollection?: any;
   codeKey = 'key';
   resources = resources;
-  dragAndDropHtmlCode = `
-  
+  dragAndDropHtmlCode = ` 
 <div class="wrapper3 mt-2 p-2 bg-white rounded">
   <div class="row pb-2 text-center">
     <div>

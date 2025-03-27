@@ -17,11 +17,6 @@ import { Component, OnInit } from '@angular/core';
   dragAndDropHtmlCode = `
 <div  class="container mt-4">
 <h3 class="mt-5">Drag and Drop in a Grid</h3>
-<ptg-ui-toggle-code
-[htmlCode]="dragAndDropHtmlCode"
-[tsCode]="dragAndDropTsCode"
->
-</ptg-ui-toggle-code>
   <div class="row mt-5">
     <div class="col-4" *ngFor="let item of gridItems; let i = index">
       <div
