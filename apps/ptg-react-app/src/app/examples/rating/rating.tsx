@@ -6,6 +6,8 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 import './rating.css';
 import { RatingWithPrecision } from './RatingWithPrecision';
 import { RatingWithHoverLabel } from './RatingWithHoverLabel';
+import { RatingWithVariousSize } from './RatingWithVariousSize';
+import { RatingWithCustomIcon } from './RatingWithCustomIcon';
 
 const RatingExample = () => {
   const { t } = useTranslation();
@@ -20,6 +22,12 @@ const RatingExample = () => {
   const [showCodeWithHoverLabel, setShowCodeWithHoverLabel] =
     useState<boolean>(false);
 
+  const [showCodeWithVariousSize, setshowCodeWithVariousSize] =
+    useState<boolean>(false);
+
+  const [showCodeWithCustomIcon, setShowCodeWithCustomIcon] =
+    useState<boolean>(false);
+
   const ShowExampleWithDefaultProps = () =>
     setShowCodeDefaultRating(!showCodeDefaultRating);
 
@@ -28,6 +36,12 @@ const RatingExample = () => {
 
   const ShowExampleWithHoverLabel = () =>
     setShowCodeWithHoverLabel(!showCodeWithHoverLabel);
+
+  const ShowExampleWithVariousSize = () =>
+    setshowCodeWithVariousSize(!showCodeWithVariousSize);
+
+  const ShowExampleWithCustomIcon = () =>
+    setShowCodeWithCustomIcon(!showCodeWithCustomIcon);
 
   const handleRatingChange = (newValue) => {
     console.log('New rating value:', newValue);
@@ -162,6 +176,50 @@ const RatingExample = () => {
           <hr className="horizontal-line" />
           <RatingWithHoverLabel
             showCodeWithHoverLabel={showCodeWithHoverLabel}
+          />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('Rating with Various Size')}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithVariousSize}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <RatingWithVariousSize
+            showCodeWithVariousSize={showCodeWithVariousSize}
+          />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('Rating with Various Icon')}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithCustomIcon}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+          <RatingWithCustomIcon
+            showCodeWithCustomIcon={showCodeWithCustomIcon}
           />
         </div>
       </section>

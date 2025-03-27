@@ -190,3 +190,10 @@ export interface IRatingWithPrecision {
 export interface IRatingWithHoverLabel {
   showCodeWithHoverLabel?: boolean;
 }
+export interface IRatingWithVariousSize {
+  showCodeWithVariousSize?: boolean;
+}
+
+export interface IRatingWithCustomIcon {
+  showCodeWithCustomIcon?: boolean;
+}
