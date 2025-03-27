@@ -17,6 +17,17 @@ export interface IPtgUiBreadcrumbsProps {
 	handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
+//Date Picker
+export interface PtgUiDatePickerProps {
+	id?: string;
+	placeholder?: string;
+	value?: string | Date | null;
+	sendSelectedDate?: (string) => void;
+	className?: string;
+	ariaLabel?: string;
+}
+
+
 // Accordion
 export interface IAccordionItemProps {
 	title?: string;
