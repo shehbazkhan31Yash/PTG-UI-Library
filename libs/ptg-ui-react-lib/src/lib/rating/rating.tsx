@@ -102,28 +102,40 @@ export const Rating: React.FC<IRatingProps> = ({
 		if (precision < 1) {
 			return (
 				<>
-					<span
+					<button
 						className="half-star"
 						onClick={() => handleClick(starIndex - 0.5)}
 						onMouseEnter={() => handleMouseEnter(starIndex - 0.5)}
 						onMouseLeave={handleMouseLeave}
-					></span>
-					<span
+						style={{
+							background: 'none',
+							border: 'none',
+						}}
+					></button>
+					<button
 						className="full-star"
 						onClick={() => handleClick(starIndex)}
 						onMouseEnter={() => handleMouseEnter(starIndex)}
 						onMouseLeave={handleMouseLeave}
-					></span>
+						style={{
+							background: 'none',
+							border: 'none',
+						}}
+					></button>
 				</>
 			);
 		} else {
 			return (
-				<span
+				<button
 					className="full-star"
 					onClick={() => handleClick(starIndex)}
 					onMouseEnter={() => handleMouseEnter(starIndex)}
 					onMouseLeave={handleMouseLeave}
-				></span>
+					style={{
+						background: 'none',
+						border: 'none',
+					}}
+				></button>
 			);
 		}
 	};
