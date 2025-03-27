@@ -56,26 +56,80 @@ export const Rating: React.FC<IRatingProps> = ({
 		if (!readOnly && !disabled) setHoverValue(roundToPrecision(hoveredValue));
 	};
 
-	const handleMouseLeave = () => setHoverValue(null);
+	const handleMouseLeave = () => {
+		setHoverValue(null);
+	};
+
+	const calculateFillPercentage = (displayValue: number, starIndex: number, precision: number) => {
+		if (precision === 1) {
+			const fullStars = Math.ceil(displayValue);
+			return fullStars >= starIndex ? 100 : 0;
+		} else {
+			if (displayValue >= starIndex) {
+				return 100;
+			} else if (displayValue >= starIndex - 0.5) {
+				return 50;
+			}
+		}
+		return 0;
+	};
+
+	const renderStarFill = (fillPercentage: number, icon: string, color: string) => (
+		<span
+			className="star-fill"
+			style={{
+				position: 'absolute',
+				width: `${fillPercentage}%`,
+				overflow: 'hidden',
+				color: color,
+				whiteSpace: 'nowrap',
+			}}
+		>
+			{icon}
+		</span>
+	);
+
+	const renderStarEmpty = (emptyIcon: string, borderColor: string) => (
+		<span className="star-empty" style={{ color: borderColor }}>
+			{emptyIcon}
+		</span>
+	);
+
+	const renderClickableStars = (starIndex: number) => {
+		if (precision < 1) {
+			return (
+				<>
+					<span
+						className="half-star"
+						onClick={() => handleClick(starIndex - 0.5)}
+						onMouseEnter={() => handleMouseEnter(starIndex - 0.5)}
+						onMouseLeave={handleMouseLeave}
+					></span>
+					<span
+						className="full-star"
+						onClick={() => handleClick(starIndex)}
+						onMouseEnter={() => handleMouseEnter(starIndex)}
+						onMouseLeave={handleMouseLeave}
+					></span>
+				</>
+			);
+		} else {
+			return (
+				<span
+					className="full-star"
+					onClick={() => handleClick(starIndex)}
+					onMouseEnter={() => handleMouseEnter(starIndex)}
+					onMouseLeave={handleMouseLeave}
+				></span>
+			);
+		}
+	};
 
 	const renderStars = () => {
 		const stars: JSX.Element[] = [];
 		for (let i = 1; i <= 5; i++) {
 			const displayValue = hoverValue !== null ? hoverValue : value;
-			let fillPercentage = 0;
-
-			if (precision === 1) {
-				// Use Math.ceil to round up for full stars
-				const fullStars = Math.ceil(displayValue);
-				fillPercentage = fullStars >= i ? 100 : 0;
-			} else {
-				// Allow half-star fills for precision = 0.5
-				if (displayValue >= i) {
-					fillPercentage = 100;
-				} else if (displayValue >= i - 0.5) {
-					fillPercentage = 50;
-				}
-			}
+			const fillPercentage = calculateFillPercentage(displayValue, i, precision);
 
 			stars.push(
 				<span
@@ -88,50 +142,9 @@ export const Rating: React.FC<IRatingProps> = ({
 						display: 'inline-block',
 					}}
 				>
-					{/* Filled part of the star */}
-					<span
-						className="star-fill"
-						style={{
-							position: 'absolute',
-							width: `${fillPercentage}%`,
-							overflow: 'hidden',
-							color: color,
-							whiteSpace: 'nowrap',
-						}}
-					>
-						{icon}
-					</span>
-
-					{/* Empty star */}
-					<span className="star-empty" style={{ color: borderColor }}>
-						{emptyIcon}
-					</span>
-
-					{/* Clickable areas for half/full star */}
-					{precision < 1 && (
-						<>
-							<span
-								className="half-star"
-								onClick={() => handleClick(i - 0.5)}
-								onMouseEnter={() => handleMouseEnter(i - 0.5)}
-								onMouseLeave={handleMouseLeave}
-							></span>
-							<span
-								className="full-star"
-								onClick={() => handleClick(i)}
-								onMouseEnter={() => handleMouseEnter(i)}
-								onMouseLeave={handleMouseLeave}
-							></span>
-						</>
-					)}
-					{precision === 1 && (
-						<span
-							className="full-star"
-							onClick={() => handleClick(i)}
-							onMouseEnter={() => handleMouseEnter(i)}
-							onMouseLeave={handleMouseLeave}
-						></span>
-					)}
+					{renderStarFill(fillPercentage, icon, color)}
+					{renderStarEmpty(emptyIcon, borderColor)}
+					{renderClickableStars(i)}
 				</span>
 			);
 		}
