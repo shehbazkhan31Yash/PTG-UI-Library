@@ -4,7 +4,7 @@ import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import PtgUiToaster from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/toaster/toaster';
 import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import { useTranslation } from 'react-i18next';
-
+import './toaster.css';
 export default function Toaster() {
   const [showCode, setShowCode] = useState(false);
   const [showToast, setShowToast] = useState(false);
