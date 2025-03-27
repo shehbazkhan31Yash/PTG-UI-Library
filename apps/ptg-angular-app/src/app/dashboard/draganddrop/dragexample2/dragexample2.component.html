@@ -1,37 +1,32 @@
 <!-- Loading -->
 <ptg-ui-loading [loading]="loading"></ptg-ui-loading>
-
-<!--  Drag and Drop Example 1 Wrapper -->
-<div class="wrapper1 mt-2 p-3 parent-block bg-white rounded">
+<div class="container mt-4">
+<div class="mt-5">
   <ptg-ui-toggle-code
-    [htmlCode]="dragAndDropHtmlCode"
-    [tsCode]="dragAndDropTsCode"
-  >
-  </ptg-ui-toggle-code>
-  <div *ngIf="personaldetails && personaldetails.length > 0; else elseNotDone"
-    cdkDropList
-    class="example-list"
-    #personList="cdkDropList"
-    [cdkDropListData]="personaldetails"
-    (cdkDropListDropped)="onDrop($event)"
-  >
-    <div
-      *ngFor="let item of personaldetails; let i = index"
-      class="divlayout d-flex justify-content-between"
-      cdkDrag
+  [htmlCode]="dragAndDropHtmlCode"
+  [tsCode]="dragAndDropTsCode"
+>
+</ptg-ui-toggle-code>
+  <h3>Drag and Drop List</h3>
+  <ul class="list-group mt-5">
+    <li
+      *ngFor="let item of items; let i = index"
+      class="list-group-item"
+      draggable="true"
+      (dragstart)="onDragStart($event, i)"
+      (dragover)="allowDrop($event)"
+      (drop)="onDrop($event)"
+      [attr.data-index]="i"
     >
-      <span cdkDragHandle class="p-2"><i class="fa-solid fa-bars"></i></span>
-      <span class="p-2">{{ i + 1 }} - {{ item.username }}</span>
-      <span cdkDragHandle class="p-2">
-        <i class="fa-solid fa-bars"></i>
-      </span>
-    </div>
-  </div>
+      {{ item }}
+    </li>
+  </ul> 
 </div>
 <ng-template #elseNotDone>
   <div class="d-flex justify-content-center">
-    <div class="spinner-border text-loader m-5" role="status">
+    <div class="spinner-border text-loader m-5" output="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
 </ng-template>
+</div>
