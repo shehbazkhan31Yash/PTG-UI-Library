@@ -1,0 +1,31 @@
+<div class="change-dealer-form-wrapper">
+  <form [formGroup]="themeColorsGroup" (ngSubmit)="onFormSubmit()">
+    <mat-form-field>
+      <mat-label>Primary color</mat-label>
+      <input
+      type="color"
+      matInput
+      formControlName="primary"
+    />
+    
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Accent color</mat-label>
+      <input
+      type="color"
+      matInput
+      formControlName="accent"
+    />
+    
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      class="theme-primary d-block"
+      type="submit"
+    >
+      Change Theme
+    </button>
+
+  </form>
+</div>

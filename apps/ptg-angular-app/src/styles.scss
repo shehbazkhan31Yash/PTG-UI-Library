@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use '@angular/material' as mat;
+@use "./dynamic-theming.scss" as dynamicTheme;
 // regular style toast
 @import '../../../node_modules/ngx-toastr/toastr';
 
@@ -36,3 +37,42 @@
 @import '../../../libs/ptg-ui-web-components/src/global/global.css';
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+@include mat.core();
+:root{
+     //nav header==
+  --nav-header-background: '';
+  --nav-header-font: '';
+  // sidebar==
+  --sidebar-background: '';
+  --sidebar-fonts: '';
+//layout == 
+  --content-layout-background: '';
+  --content-layout-heading: '';
+  --content-layout-subheading: '';
+  --content-layout-paracontent: '';
+
+  //primary button==
+  --primary-button-background: '';
+  --primary-button-font: '';
+
+  //primary button==
+  --secondary-button-background: '';
+  --secondary-button-font: '';
+
+  //primary button==
+  --info-button-background: '';
+  --info-button-font: '';
+
+  //primary button==
+  --warning-button-background: '';
+  --warning-button-font: '';
+
+  //primary button==
+  --danger-button-background: '';
+  --danger-button-font: '';
+
+}
+
+.dynamic-theme {
+  @include mat.all-component-colors(dynamicTheme.$dynamic-app-theme);
+}
