@@ -171,3 +171,29 @@ export interface ICarouselWithCustomPropsOne {
 export interface ICarouselWithAllCustomProps {
   showCodeWithAllCustomProps: boolean;
 }
+
+export interface ICarouselWithAllCustomProps {
+  showCodeWithAllCustomProps: boolean;
+}
+
+export interface IRatingWithDefaultProps {
+  showCodeDefaultRating?: boolean;
+  setRating: (value: number) => void;
+  value?: number;
+  readonly?: boolean;
+  disabled?: boolean;
+  defaultValue?: number;
+}
+export interface IRatingWithPrecision {
+  showCodePrecisionRating?: boolean;
+}
+export interface IRatingWithHoverLabel {
+  showCodeWithHoverLabel?: boolean;
+}
+export interface IRatingWithVariousSize {
+  showCodeWithVariousSize?: boolean;
+}
+
+export interface IRatingWithCustomIcon {
+  showCodeWithCustomIcon?: boolean;
+}
