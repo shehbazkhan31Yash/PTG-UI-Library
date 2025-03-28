@@ -1,9 +1,10 @@
-/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { HighPieChartComponent } from './high-pie-chart.component';
 import { ChartModule } from '../../../chart.module';
 import { PIE_CHART_3D } from './high-pie-chart';
 
-export default {
+const meta: Meta<HighPieChartComponent> = {
   title: 'Component/HighPieChartComponent',
   component: HighPieChartComponent,
   decorators: [
@@ -11,17 +12,14 @@ export default {
       imports: [ChartModule],
     }),
   ],
-} as Meta<HighPieChartComponent>;
-
-const Template: Story<HighPieChartComponent> = (
-  args: HighPieChartComponent
-) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  colors: ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'],
-  data: PIE_CHART_3D.data,
 };
-*/
+
+export default meta;
+type Story = StoryObj<HighPieChartComponent>;
+
+export const Primary: Story = {
+  args: {
+    colors: ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'],
+    data: PIE_CHART_3D.data,
+  },
+};

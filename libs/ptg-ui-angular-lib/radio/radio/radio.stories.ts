@@ -1,39 +1,37 @@
-/* import { ItemsList } from '@ng-select/ng-select/lib/items-list';
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { RadioComponent } from './radio.component';
 
-export default {
+const meta: Meta<RadioComponent> = {
   title: 'Component/RadioComponent',
   component: RadioComponent,
-
   decorators: [
     moduleMetadata({
       imports: [],
     }),
   ],
-} as Meta<RadioComponent>;
-
-const Template: Story<RadioComponent> = (args: RadioComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  id: 'ptg-radio',
-  items: [
-    {
-      id: '1',
-      name: 'male',
-      default: true,
-    },
-    {
-      id: '2',
-      name: 'female',
-    },
-    {
-      id: '3',
-      name: 'other',
-    },
-  ]
 };
- */
+
+export default meta;
+type Story = StoryObj<RadioComponent>;
+
+export const Primary: Story = {
+  args: {
+    id: 'ptg-radio',
+    items: [
+      {
+        id: '1',
+        name: 'male',
+        default: true,
+      },
+      {
+        id: '2',
+        name: 'female',
+      },
+      {
+        id: '3',
+        name: 'other',
+      },
+    ],
+  },
+};

@@ -1,58 +1,58 @@
-/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import {  moduleMetadata } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+
 import { AccordionComponent } from './accordion.component';
-import { AccordianModule } from '../accordion.module'
+import { AccordianModule } from '../accordion.module';
 import { ACCORDIAN_DATA } from './accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-export default {
+const meta: Meta<AccordionComponent> = {
   title: 'Component/AccordionComponent',
   component: AccordionComponent,
-
   decorators: [
     moduleMetadata({
-      imports: [AccordianModule,BrowserAnimationsModule],
+      imports: [AccordianModule, BrowserAnimationsModule],
     }),
   ],
-} as Meta<AccordionComponent>;
-
-const Template: Story<AccordionComponent> = (args: AccordionComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  isAnimated: false,
-  oneAtATime: false,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:false
+  
 };
 
-export const IsAnimated = Template.bind({});
-IsAnimated.args = {
-  isAnimated: true,
-  oneAtATime: false,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:false
+export default meta;
+type Story = StoryObj<AccordionComponent>
+
+export const Primary: Story = {
+  args: {
+    isAnimated: false,
+    oneAtATime: false,
+    listData: ACCORDIAN_DATA,
+    addAccordionGroup: false,
+  },
 };
 
-
-export const addAccordionGroup = Template.bind({});
-addAccordionGroup.args = {
-  isAnimated: false,
-  oneAtATime: false,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:true
+export const IsAnimated: Story = {
+  args: {
+    isAnimated: true,
+    oneAtATime: false,
+    listData: ACCORDIAN_DATA,
+    addAccordionGroup: false,
+  },
 };
 
-
-export const OneAtATime = Template.bind({});
-OneAtATime.args = {
-  isAnimated: false,
-  oneAtATime: true,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:true
+export const AddAccordionGroup: Story = {
+  args: {
+    isAnimated: false,
+    oneAtATime: false,
+    listData: ACCORDIAN_DATA,
+    addAccordionGroup: true,
+  },
 };
-*/
 
-
-
+export const OneAtATime: Story = {
+  args: {
+    isAnimated: false,
+    oneAtATime: true,
+    listData: ACCORDIAN_DATA,
+    addAccordionGroup: true,
+  },
+};

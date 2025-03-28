@@ -1,8 +1,9 @@
-/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { High3dPieChartComponent } from './high-3d-pie-chart.component';
-import {PIE_CHART_3D} from './high-3d-pie-chart';
+import { PIE_CHART_3D } from './high-3d-pie-chart';
 
-export default {
+const meta: Meta<High3dPieChartComponent> = {
   title: 'Component/High3dPieChartComponent',
   component: High3dPieChartComponent,
   decorators: [
@@ -10,24 +11,21 @@ export default {
       imports: [],
     }),
   ],
-} as Meta<High3dPieChartComponent>;
-
-const Template: Story<High3dPieChartComponent> = (
-  args: High3dPieChartComponent
-) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  data: PIE_CHART_3D.data,
-  title: 'PIE_CHART_3D',
-  };
-
-export const Title = Template.bind({});
-Title.args = {
-  data: PIE_CHART_3D.data,
-  title: 'PIE_CHART_3D',
-
 };
-*/
+
+export default meta;
+type Story = StoryObj<High3dPieChartComponent>;
+
+export const Primary: Story = {
+  args: {
+    data: PIE_CHART_3D.data,
+    title: 'PIE_CHART_3D',
+  },
+};
+
+export const Title: Story = {
+  args: {
+    data: PIE_CHART_3D.data,
+    title: 'PIE_CHART_3D',
+  },
+};

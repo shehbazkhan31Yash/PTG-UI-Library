@@ -1,9 +1,10 @@
-/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { IndeterminateCheckboxesComponent } from './indeterminate-checkboxes.component';
-import {IndeterminateCheckboxesModule} from '../indeterminate-checkboxes.module'
-import {CHECKBOX_ARRAY} from './indeterminate-checkboxes';
+import { IndeterminateCheckboxesModule } from '../indeterminate-checkboxes.module';
+import { CHECKBOX_ARRAY } from './indeterminate-checkboxes';
 
-export default {
+const meta: Meta<IndeterminateCheckboxesComponent> = {
   title: 'Component/IndeterminateCheckboxesComponent',
   component: IndeterminateCheckboxesComponent,
   decorators: [
@@ -11,16 +12,13 @@ export default {
       imports: [IndeterminateCheckboxesModule],
     }),
   ],
-} as Meta<IndeterminateCheckboxesComponent>;
-
-const Template: Story<IndeterminateCheckboxesComponent> = (
-  args: IndeterminateCheckboxesComponent
-) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  checkBoxList: CHECKBOX_ARRAY,
 };
- */
+
+export default meta;
+type Story = StoryObj<IndeterminateCheckboxesComponent>;
+
+export const Primary: Story = {
+  args: {
+    checkBoxList: CHECKBOX_ARRAY,
+  },
+};

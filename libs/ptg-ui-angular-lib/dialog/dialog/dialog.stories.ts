@@ -1,8 +1,10 @@
-/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { DialogComponent } from './dialog.component';
-import {DialogModule} from '../dialog.module'; 
 
-export default {
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
+import { DialogComponent } from './dialog.component';
+import { DialogModule } from '../dialog.module';
+
+const meta: Meta<DialogComponent> = {
   title: 'Component/DialogComponent',
   component: DialogComponent,
   decorators: [
@@ -10,27 +12,28 @@ export default {
       imports: [DialogModule],
     }),
   ],
-} as Meta<DialogComponent>;
-
-const Template: Story<DialogComponent> = (args: DialogComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-   headerTitle: 'Modal Header',
-  modalBodyContent: "<p>Modal body text goes here.</p>",
 };
 
-export const headerTitle = Template.bind({});
-headerTitle.args = {
-  headerTitle: 'Modal Header',
- modalBodyContent: "<p>Modal body text goes here.</p>",
+export default meta;
+type Story = StoryObj<DialogComponent>;
+
+export const Primary: Story = {
+  args: {
+    headerTitle: 'Modal Header',
+    modalBodyContent: '<p>Modal body text goes here.</p>',
+  },
 };
 
-export const modalBodyContent = Template.bind({});
-modalBodyContent.args = {
-  headerTitle: 'Modal Header',
- modalBodyContent: "<p>Modal body text goes here.</p>",
+export const HeaderTitle: Story = {
+  args: {
+    headerTitle: 'Modal Header',
+    modalBodyContent: '<p>Modal body text goes here.</p>',
+  },
 };
- */
+
+export const ModalBodyContent: Story = {
+  args: {
+    headerTitle: 'Modal Header',
+    modalBodyContent: '<p>Modal body text goes here.</p>',
+  },
+};

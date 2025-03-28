@@ -1,9 +1,10 @@
-/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { LineChartComponent } from './line-chart.component';
-import {LINE_CHART_D3} from './line-chart'
-import {ChartModule} from '../../chart.module';
+import { LINE_CHART_D3 } from './line-chart';
+import { ChartModule } from '../../chart.module';
 
-export default {
+const meta: Meta<LineChartComponent> = {
   title: 'Component/LineChartComponent',
   component: LineChartComponent,
   decorators: [
@@ -11,33 +12,34 @@ export default {
       imports: [ChartModule],
     }),
   ],
-} as Meta<LineChartComponent>;
-
-const Template: Story<LineChartComponent> = (args: LineChartComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  data: LINE_CHART_D3.data,
-  margin: LINE_CHART_D3.margin,
-  width: LINE_CHART_D3.width,
-  height: LINE_CHART_D3.height,
 };
 
-export const Width = Template.bind({});
-Width.args = {
-  data: LINE_CHART_D3.data,
-  margin: LINE_CHART_D3.margin,
-  width: LINE_CHART_D3.width,
-  height: LINE_CHART_D3.height,
+export default meta;
+type Story = StoryObj<LineChartComponent>;
+
+export const Primary: Story = {
+  args: {
+    data: LINE_CHART_D3.data,
+    margin: LINE_CHART_D3.margin,
+    width: LINE_CHART_D3.width,
+    height: LINE_CHART_D3.height,
+  },
 };
 
-export const Height = Template.bind({});
-Height.args = {
-  data: LINE_CHART_D3.data,
-  margin: LINE_CHART_D3.margin,
-  width: LINE_CHART_D3.width,
-  height: LINE_CHART_D3.height,
+export const Width: Story = {
+  args: {
+    data: LINE_CHART_D3.data,
+    margin: LINE_CHART_D3.margin,
+    width: LINE_CHART_D3.width,
+    height: LINE_CHART_D3.height,
+  },
 };
-*/
+
+export const Height: Story = {
+  args: {
+    data: LINE_CHART_D3.data,
+    margin: LINE_CHART_D3.margin,
+    width: LINE_CHART_D3.width,
+    height: LINE_CHART_D3.height,
+  },
+};

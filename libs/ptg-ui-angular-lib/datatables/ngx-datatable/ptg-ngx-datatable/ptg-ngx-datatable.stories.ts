@@ -1,9 +1,10 @@
-/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { PtgNgxDatatableComponent } from './ptg-ngx-datatable.component';
 import { PtgNgxDatatableModule } from '../ptg-ngx-datatable.module';
-import {GRID_DATA} from './ptg-ngx-datatable';
+import { GRID_DATA } from './ptg-ngx-datatable';
 
-export default {
+const meta: Meta<PtgNgxDatatableComponent> = {
   title: 'Component/PtgNgxDatatableComponent',
   component: PtgNgxDatatableComponent,
   decorators: [
@@ -11,48 +12,46 @@ export default {
       imports: [PtgNgxDatatableModule],
     }),
   ],
-} as Meta<PtgNgxDatatableComponent>;
+};
 
-const Template: Story<PtgNgxDatatableComponent> = (
-  args: PtgNgxDatatableComponent
-) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<PtgNgxDatatableComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  columns :[
-    { name: "Athlete", field: "athlete", frozenLeft: true},
-    { name: "Age",field: "age",filtering: true },
-    { name: "Country" ,field: "country",filtering: false},
-    { name: "Year",field: "year",filtering: false },
-    { name: "Date",field: "date" ,filtering: false},
-    { name: "Sport",field: "sport" ,filtering: false},
-    { name: "Gold",field: "gold" ,filtering: false},
-    { name: "Silver",field: "silver" ,filtering: false},
-    { name: "Total",field: "total" ,filtering: false},
-  ],
-  rows:GRID_DATA,
-  scrollbarV: false,
-  scrollbarH: true,
-  headerHeight: 50,
-  footerHeight: 100,
-  rowHeight: 'auto',
-  loaderShowWhen: false,
-  limit: 2,
-  externalSorting: false,
-  rowClass: '',
-  showFiter: true,
-  selected: [],
-  // selectionType: this.SelectionType.checkbox,
-  showActionButton: false,
-  actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+export const Primary: Story = {
+  args: {
+    columns: [
+      { name: 'Athlete', field: 'athlete', frozenLeft: true },
+      { name: 'Age', field: 'age', filtering: true },
+      { name: 'Country', field: 'country', filtering: false },
+      { name: 'Year', field: 'year', filtering: false },
+      { name: 'Date', field: 'date', filtering: false },
+      { name: 'Sport', field: 'sport', filtering: false },
+      { name: 'Gold', field: 'gold', filtering: false },
+      { name: 'Silver', field: 'silver', filtering: false },
+      { name: 'Total', field: 'total', filtering: false },
+    ],
+    rows: GRID_DATA,
+    scrollbarV: false,
+    scrollbarH: true,
+    headerHeight: 50,
+    footerHeight: 100,
+    rowHeight: 'auto',
+    loaderShowWhen: false,
+    limit: 2,
+    externalSorting: false,
+    rowClass: '',
+    showFiter: true,
+    selected: [],
+    // selectionType: this.SelectionType.checkbox,
+    showActionButton: false,
+    actionButtonLabel: 'Click Here',
+    actionButtonHeaderLabel: 'Action',
+  },
 };
 
 
-export const scrollbarV = Template.bind({});
-scrollbarV.args = {
+export const scrollbarV : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -79,46 +78,14 @@ scrollbarV.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
-};
-
-
-
-export const scrollbarH = Template.bind({});
-scrollbarH.args = {
-  columns :[
-    { name: "Athlete", field: "athlete", frozenLeft: true},
-    { name: "Age",field: "age",filtering: true },
-    { name: "Country" ,field: "country",filtering: false},
-    { name: "Year",field: "year",filtering: false },
-    { name: "Date",field: "date" ,filtering: false},
-    { name: "Sport",field: "sport" ,filtering: false},
-    { name: "Gold",field: "gold" ,filtering: false},
-    { name: "Silver",field: "silver" ,filtering: false},
-    { name: "Total",field: "total" ,filtering: false},
-  ],
-  rows:GRID_DATA,
-  scrollbarV: false,
-  scrollbarH: true,
-  headerHeight: 50,
-  footerHeight: 100,
-  rowHeight: 'auto',
-  loaderShowWhen: false,
-  limit: 2,
-  externalSorting: false,
-  rowClass: '',
-  showFiter: true,
-  selected: [],
-  // selectionType: this.SelectionType.checkbox,
-  showActionButton: false,
-  actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
 
-export const HeaderHeight = Template.bind({});
-HeaderHeight.args = {
+export const scrollbarH : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -145,13 +112,14 @@ HeaderHeight.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
 
-export const FooterHeight = Template.bind({});
-FooterHeight.args = {
+export const HeaderHeight: Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -178,13 +146,14 @@ FooterHeight.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
 
-export const RowHeight = Template.bind({});
-RowHeight.args = {
+export const FooterHeight : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -211,12 +180,14 @@ RowHeight.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const LoaderShowWhen = Template.bind({});
-LoaderShowWhen.args = {
+
+export const RowHeight : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -243,12 +214,13 @@ LoaderShowWhen.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const Limit = Template.bind({});
-Limit.args = {
+export const LoaderShowWhen : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -275,12 +247,13 @@ Limit.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const ExternalSorting = Template.bind({});
-ExternalSorting.args = {
+export const Limit : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -307,12 +280,13 @@ ExternalSorting.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const RowClass = Template.bind({});
-RowClass.args = {
+export const ExternalSorting : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -339,12 +313,13 @@ RowClass.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const ShowFiter = Template.bind({});
-ShowFiter.args = {
+export const RowClass : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -372,11 +347,12 @@ ShowFiter.args = {
   showActionButton: false,
   actionButtonLabel: 'Click Here',
   actionButtonHeaderLabel: 'Action',
+}
 };
 
 
-export const ShowActionButton = Template.bind({});
-ShowActionButton.args = {
+export const ShowFiter : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -403,43 +379,13 @@ ShowActionButton.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
-};
-
-export const ActionButtonLabel = Template.bind({});
-ActionButtonLabel.args = {
-  columns :[
-    { name: "Athlete", field: "athlete", frozenLeft: true},
-    { name: "Age",field: "age",filtering: true },
-    { name: "Country" ,field: "country",filtering: false},
-    { name: "Year",field: "year",filtering: false },
-    { name: "Date",field: "date" ,filtering: false},
-    { name: "Sport",field: "sport" ,filtering: false},
-    { name: "Gold",field: "gold" ,filtering: false},
-    { name: "Silver",field: "silver" ,filtering: false},
-    { name: "Total",field: "total" ,filtering: false},
-  ],
-  rows:GRID_DATA,
-  scrollbarV: false,
-  scrollbarH: true,
-  headerHeight: 50,
-  footerHeight: 100,
-  rowHeight: 'auto',
-  loaderShowWhen: false,
-  limit: 2,
-  externalSorting: false,
-  rowClass: '',
-  showFiter: true,
-  selected: [],
-  // selectionType: this.SelectionType.checkbox,
-  showActionButton: false,
-  actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
+  actionButtonHeaderLabel: 'Action'
+}
 };
 
 
-export const ActionButtonHeaderLabel = Template.bind({});
-ActionButtonHeaderLabel.args = {
+export const ShowActionButton : Story = {
+  args: {
   columns :[
     { name: "Athlete", field: "athlete", frozenLeft: true},
     { name: "Age",field: "age",filtering: true },
@@ -466,5 +412,71 @@ ActionButtonHeaderLabel.args = {
   // selectionType: this.SelectionType.checkbox,
   showActionButton: false,
   actionButtonLabel: 'Click Here',
-  actionButtonHeaderLabel: 'Action',
-}; */
+  actionButtonHeaderLabel: 'Action'
+}
+};
+
+export const ActionButtonLabel : Story = {
+  args: {
+  columns :[
+    { name: "Athlete", field: "athlete", frozenLeft: true},
+    { name: "Age",field: "age",filtering: true },
+    { name: "Country" ,field: "country",filtering: false},
+    { name: "Year",field: "year",filtering: false },
+    { name: "Date",field: "date" ,filtering: false},
+    { name: "Sport",field: "sport" ,filtering: false},
+    { name: "Gold",field: "gold" ,filtering: false},
+    { name: "Silver",field: "silver" ,filtering: false},
+    { name: "Total",field: "total" ,filtering: false},
+  ],
+  rows:GRID_DATA,
+  scrollbarV: false,
+  scrollbarH: true,
+  headerHeight: 50,
+  footerHeight: 100,
+  rowHeight: 'auto',
+  loaderShowWhen: false,
+  limit: 2,
+  externalSorting: false,
+  rowClass: '',
+  showFiter: true,
+  selected: [],
+  // selectionType: this.SelectionType.checkbox,
+  showActionButton: false,
+  actionButtonLabel: 'Click Here',
+  actionButtonHeaderLabel: 'Action'
+}
+};
+
+
+export const ActionButtonHeaderLabel : Story = {
+  args: {
+  columns :[
+    { name: "Athlete", field: "athlete", frozenLeft: true},
+    { name: "Age",field: "age",filtering: true },
+    { name: "Country" ,field: "country",filtering: false},
+    { name: "Year",field: "year",filtering: false },
+    { name: "Date",field: "date" ,filtering: false},
+    { name: "Sport",field: "sport" ,filtering: false},
+    { name: "Gold",field: "gold" ,filtering: false},
+    { name: "Silver",field: "silver" ,filtering: false},
+    { name: "Total",field: "total" ,filtering: false},
+  ],
+  rows:GRID_DATA,
+  scrollbarV: false,
+  scrollbarH: true,
+  headerHeight: 50,
+  footerHeight: 100,
+  rowHeight: 'auto',
+  loaderShowWhen: false,
+  limit: 2,
+  externalSorting: false,
+  rowClass: '',
+  showFiter: true,
+  selected: [],
+  // selectionType: this.SelectionType.checkbox,
+  showActionButton: false,
+  actionButtonLabel: 'Click Here',
+  actionButtonHeaderLabel: 'Action'
+}
+};

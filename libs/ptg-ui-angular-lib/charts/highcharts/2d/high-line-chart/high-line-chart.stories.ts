@@ -1,9 +1,9 @@
-/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { HighLineChartComponent } from './high-line-chart.component';
-import {LINE_CHART_2D} from './high-line-chart';
+import { LINE_CHART_2D } from './high-line-chart';
 
-
-export default {
+const meta: Meta<HighLineChartComponent> = {
   title: 'Component/HighLineChartComponent',
   component: HighLineChartComponent,
   decorators: [
@@ -11,24 +11,21 @@ export default {
       imports: [],
     }),
   ],
-} as Meta<HighLineChartComponent>;
-
-const Template: Story<HighLineChartComponent> = (
-  args: HighLineChartComponent
-) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-   id: 'line-chart',
-  data: LINE_CHART_2D.data
 };
 
+export default meta;
+type Story = StoryObj<HighLineChartComponent>;
 
-export const id = Template.bind({});
-id.args = {
-   id: 'line-chart',
-   data: LINE_CHART_2D.data
+export const Primary: Story = {
+  args: {
+    id: 'line-chart',
+    data: LINE_CHART_2D.data,
+  },
 };
-*/
+
+export const Id: Story = {
+  args: {
+    id: 'line-chart',
+    data: LINE_CHART_2D.data,
+  },
+};

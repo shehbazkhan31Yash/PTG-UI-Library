@@ -1,7 +1,8 @@
-/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { InputComponent } from './input.component';
 
-export default {
+const meta: Meta<InputComponent> = {
   title: 'Component/InputComponent',
   component: InputComponent,
   decorators: [
@@ -9,58 +10,57 @@ export default {
       imports: [],
     }),
   ],
-} as Meta<InputComponent>;
-
-const Template: Story<InputComponent> = (args: InputComponent) => ({
-  props: args,
-});
-
-
-
-
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-  placeholder: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: '',
 };
 
-export const Class = Template.bind({});
-Class.args = {
-  placeholder: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: '',
+export default meta;
+type Story = StoryObj<InputComponent>;
+
+export const Placeholder: Story = {
+  args: {
+    placeholder: '',
+    className: '',
+    type: 'text',
+    id: '',
+    value: '',
+  },
 };
 
-export const Type = Template.bind({});
-Type.args = {
-  placeholder: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: ''
+export const Class: Story = {
+  args: {
+    placeholder: '',
+    className: '',
+    type: 'text',
+    id: '',
+    value: '',
+  },
 };
 
-export const Id = Template.bind({});
-Id.args = {
-  placeholder: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: ''
+export const Type: Story = {
+  args: {
+    placeholder: '',
+    className: '',
+    type: 'text',
+    id: '',
+    value: '',
+  },
 };
 
-export const Value = Template.bind({});
-Value.args = {
-  placeholder: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: ''
+export const Id: Story = {
+  args: {
+    placeholder: '',
+    className: '',
+    type: 'text',
+    id: '',
+    value: '',
+  },
 };
 
- */
+export const Value: Story = {
+  args: {
+    placeholder: '',
+    className: '',
+    type: 'text',
+    id: '',
+    value: '',
+  },
+};
