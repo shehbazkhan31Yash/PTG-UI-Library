@@ -22,7 +22,7 @@ import { CardModule } from '@ptg-ui/angular/card';
 import { CarouselModule } from '@ptg-ui/angular/carousel';
 import { GridModule } from '@ptg-ui/angular/grid';
 import { StepperModule } from '@ptg-ui/angular/stepper';
-import { themeGeneratorModule } from '@ptg-ui/angular/theme-generator';
+import { ThemeGeneratorModule } from '@ptg-ui/angular/theme-generator';
 import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
 
 const modules = [
@@ -49,7 +49,7 @@ const modules = [
   GridModule,
   StepperModule,
   DialogModule,
-  themeGeneratorModule,
+  ThemeGeneratorModule,
   MatThemeGeneratorModule
 ];
 @NgModule({

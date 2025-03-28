@@ -40,7 +40,7 @@ export class ThemeGeneratorComponent implements OnInit {
   previousUrl = '';
   currentUrl = '';
 
-  constructor(private router: Router) {
+  constructor(readonly router: Router) {
   }
   ngOnInit(): void {
     console.log(this.currentUrl, this.previousUrl)

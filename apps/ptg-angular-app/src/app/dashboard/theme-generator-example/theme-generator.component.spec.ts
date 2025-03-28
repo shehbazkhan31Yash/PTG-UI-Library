@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { ThemeGeneratorComponent } from './theme-generator.component';
 
@@ -8,29 +9,29 @@ describe('ThemeGeneratorComponent', () => {
   let fixture: ComponentFixture<ThemeGeneratorComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[
+      imports: [
         ReactiveFormsModule,
         FormsModule,
         BsDatepickerModule.forRoot(),
-        
+
       ],
-      declarations: [ ThemeGeneratorComponent ],
-      providers:[
+      declarations: [ThemeGeneratorComponent],
+      providers: [
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ThemeGeneratorComponent);
     component = fixture.componentInstance;
-   
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
-  
+
+
 })

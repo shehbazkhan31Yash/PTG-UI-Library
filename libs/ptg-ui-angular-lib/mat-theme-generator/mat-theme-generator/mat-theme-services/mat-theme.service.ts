@@ -2,7 +2,7 @@ import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { BehaviorSubject, from, of } from 'rxjs';
+import { BehaviorSubject, from} from 'rxjs';
 import tinycolor from 'tinycolor2';
 import { Color } from '../interface';
 @Injectable({
@@ -10,14 +10,14 @@ import { Color } from '../interface';
 })
 export class MatThemeService {
 
-  private platformId = inject(PLATFORM_ID);
+  readonly platformId = inject(PLATFORM_ID);
   queryParameters: any = {};
-  private activeThemeSubject = new BehaviorSubject<string>('#44474e');
+  readonly activeThemeSubject = new BehaviorSubject<string>('#44474e');
   activeTheme$ = this.activeThemeSubject.asObservable();
   // tinycolor: any
   primaryColorPallate: Color[] = [];
   accentColorPallate: Color[] = [];
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
+  constructor(readonly http: HttpClient, readonly activatedRoute: ActivatedRoute) { }
 
   getQueryParamsFromRoute() {
     this.activatedRoute.queryParams.subscribe((params: any) => {

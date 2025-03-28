@@ -3,7 +3,6 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { MatThemeService } from './mat-theme.service';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import tinycolor from 'tinycolor2';
 import { Color } from '../interface';
 
 describe('MatThemeService', () => {

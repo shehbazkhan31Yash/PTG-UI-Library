@@ -8,7 +8,7 @@
  * @description This component for card
  **/
 
-import { Component, Output, EventEmitter, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatThemeService } from './mat-theme-services/mat-theme.service';
 
@@ -22,30 +22,27 @@ export class MatThemeGeneratorComponent implements OnInit {
 
   routeToDealerForm!: FormGroup;
   dealersList: string[] = [];
-  dealersWithThemeColors: any =null;
+  dealersWithThemeColors: any = null;
   themeColorsGroup!: FormGroup;
-  constructor(private themeService: MatThemeService, private fb: FormBuilder) {
-   
+  constructor(readonly themeService: MatThemeService, readonly fb: FormBuilder) {
+
   }
 
   ngOnInit() {
     console.log('Dealro home')
     this.themeColorsGroup = this.fb.group({
       primary: [''],
-    accent: ['']    })
-    // Empty as initialization is handled in constructor
+      accent: ['']
+    })
   }
 
-  // navigateToThemeGenerator() {
-  //   this.router.navigate(['dealer/theme-generator']);
-  // }
-  onFormSubmit(){
+  onFormSubmit() {
     console.log('formdata', this.themeColorsGroup.value);
     this.themeService.savePrimaryColor(this.themeColorsGroup.value?.primary);
     this.themeService.saveAccentColor(this.themeColorsGroup.value?.accent);
   }
 
-  
+
 
 }
 

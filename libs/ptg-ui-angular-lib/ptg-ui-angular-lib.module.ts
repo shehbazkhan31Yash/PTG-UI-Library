@@ -34,7 +34,7 @@ import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { StepperModule } from '@ptg-ui/angular/stepper';
 import { DialogModule } from './dialog/dialog.module';
-import { themeGeneratorModule } from '@ptg-ui/angular/theme-generator';
+import { ThemeGeneratorModule } from '@ptg-ui/angular/theme-generator';
 import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
 @NgModule({
   declarations: [],
@@ -65,7 +65,7 @@ import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
     StepperModule,
     // SidenavModule,
     DialogModule,
-    themeGeneratorModule,
+    ThemeGeneratorModule,
     MatThemeGeneratorModule
   ],
   exports: [

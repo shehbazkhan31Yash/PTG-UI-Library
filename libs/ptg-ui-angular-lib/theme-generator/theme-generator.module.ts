@@ -24,4 +24,4 @@ import { ReactiveFormsModule} from '@angular/forms';
     ThemeGeneratorComponent
   ]
 })
-export class themeGeneratorModule { }
+export class ThemeGeneratorModule { }

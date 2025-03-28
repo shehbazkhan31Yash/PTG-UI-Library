@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DealerHomeComponent } from './dealer-home.component';
+import { MatThemeExampleComponent } from './mat-theme-example.component';
 
-describe('DealerHomeComponent', () => {
-  let component: DealerHomeComponent;
-  let fixture: ComponentFixture<DealerHomeComponent>;
+describe('MatThemeExampleComponent', () => {
+  let component: MatThemeExampleComponent;
+  let fixture: ComponentFixture<MatThemeExampleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DealerHomeComponent],
+      imports: [MatThemeExampleComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DealerHomeComponent);
+    fixture = TestBed.createComponent(MatThemeExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

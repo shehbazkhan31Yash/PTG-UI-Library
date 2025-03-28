@@ -29,7 +29,7 @@ export class ThemeGeneratorComponent implements OnInit {
   // @Input() themeValueJSON = this.colorpaletteForm.value;
   @Output() themeSettings = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(readonly fb: FormBuilder) { }
   ngOnInit(): void {
     this.colorpaletteForm = this.fb.group({
       navHeader: this.fb.group({
