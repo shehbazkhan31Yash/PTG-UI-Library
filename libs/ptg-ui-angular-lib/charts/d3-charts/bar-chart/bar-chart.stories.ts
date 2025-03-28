@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { BarChartComponent } from './bar-chart.component';
 import {ChartModule} from '../../chart.module';
 import { BAR_CHART_D3 } from './bar-chart';
@@ -95,3 +95,4 @@ End.args = {
   start:0, 
   end:160000
 };
+*/

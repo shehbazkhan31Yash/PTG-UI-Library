@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LoadingComponent } from './loading.component';
 import { LoadingModule } from '../loading.module'
 
@@ -20,3 +20,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   loading: true,
 };
+ */

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PtgAgGridDatatableComponent } from './ptg-ag-grid-datatable.component';
 import {GRID_DATA} from './ptg-ag-grid-datatable';
 import {PtgAgGridDatatableModule} from '../ptg-ag-grid-datatable.module'
@@ -290,3 +290,4 @@ RowSelection.args = {
   customPaginationClass: '',
   enableCustomFilter: true,
 };
+ */

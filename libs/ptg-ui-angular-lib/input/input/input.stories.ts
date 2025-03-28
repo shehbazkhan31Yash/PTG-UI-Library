@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { InputComponent } from './input.component';
 
 export default {
@@ -63,3 +63,4 @@ Value.args = {
   value: ''
 };
 
+ */

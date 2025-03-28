@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { HighLineChartComponent } from './high-line-chart.component';
 import {LINE_CHART_2D} from './high-line-chart';
 
@@ -31,3 +31,4 @@ id.args = {
    id: 'line-chart',
    data: LINE_CHART_2D.data
 };
+*/

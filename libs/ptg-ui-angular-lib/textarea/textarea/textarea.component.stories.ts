@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { TextareaComponent } from './textarea.component';
 
 export default {
@@ -15,3 +15,4 @@ const Template: Story<TextareaComponent> = (args: TextareaComponent) => ({
   props: args,
 });
 
+ */

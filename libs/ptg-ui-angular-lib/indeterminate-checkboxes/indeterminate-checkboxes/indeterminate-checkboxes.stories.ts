@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { IndeterminateCheckboxesComponent } from './indeterminate-checkboxes.component';
 import {IndeterminateCheckboxesModule} from '../indeterminate-checkboxes.module'
 import {CHECKBOX_ARRAY} from './indeterminate-checkboxes';
@@ -23,3 +23,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   checkBoxList: CHECKBOX_ARRAY,
 };
+ */

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PtgNgxDatatableComponent } from './ptg-ngx-datatable.component';
 import { PtgNgxDatatableModule } from '../ptg-ngx-datatable.module';
 import {GRID_DATA} from './ptg-ngx-datatable';
@@ -467,4 +467,4 @@ ActionButtonHeaderLabel.args = {
   showActionButton: false,
   actionButtonLabel: 'Click Here',
   actionButtonHeaderLabel: 'Action',
-};
+}; */

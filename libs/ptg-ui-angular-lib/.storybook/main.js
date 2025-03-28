@@ -1,6 +1,5 @@
 const rootMain = require('../../../.storybook/main');
 
-
 module.exports = {
   ...rootMain,
 
@@ -8,10 +7,16 @@ module.exports = {
 
   stories: [
     ...rootMain.stories,
-    '../**/*.stories.mdx',
-    '../**/*.stories.@(js|jsx|ts|tsx)',
+    '../**/*.mdx',
+    '../**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
-  addons: [...rootMain.addons,'@storybook/addon-docs','@storybook/addon-controls'],
+  addons: [
+    ...rootMain.addons,
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-docs',
+    '@storybook/addon-controls',
+  ],
   webpackFinal: async (config, { configType }) => {
     // apply any global webpack configs that might have been specified in .storybook/main.js
     if (rootMain.webpackFinal) {

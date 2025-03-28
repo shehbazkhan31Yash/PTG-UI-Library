@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { StepperComponent } from './stepper.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -29,3 +29,4 @@ Orientation.args = {
   orientation: 'vertical'
 };
 
+ */

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ChecksComponent } from './checks.component';
 
 export default {
@@ -20,3 +20,4 @@ Label.args = {
   label: '',
   // accessKey: '',
 };
+ */

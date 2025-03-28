@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LineChartComponent } from './line-chart.component';
 import {LINE_CHART_D3} from './line-chart'
 import {ChartModule} from '../../chart.module';
@@ -40,3 +40,4 @@ Height.args = {
   width: LINE_CHART_D3.width,
   height: LINE_CHART_D3.height,
 };
+*/

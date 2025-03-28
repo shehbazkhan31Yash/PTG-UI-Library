@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { HighPieChartComponent } from './high-pie-chart.component';
 import { ChartModule } from '../../../chart.module';
 import { PIE_CHART_3D } from './high-pie-chart';
@@ -24,3 +24,4 @@ Primary.args = {
   colors: ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'],
   data: PIE_CHART_3D.data,
 };
+*/

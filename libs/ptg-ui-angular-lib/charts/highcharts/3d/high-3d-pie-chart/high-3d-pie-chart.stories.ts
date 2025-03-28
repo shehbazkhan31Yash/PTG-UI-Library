@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { High3dPieChartComponent } from './high-3d-pie-chart.component';
 import {PIE_CHART_3D} from './high-3d-pie-chart';
 
@@ -30,3 +30,4 @@ Title.args = {
   title: 'PIE_CHART_3D',
 
 };
+*/

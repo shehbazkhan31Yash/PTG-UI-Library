@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { RadioComponent } from './radio.component';
 
 export default {
@@ -22,3 +22,4 @@ Primary.args = {
   accessKey: '',
   aria_label: '',
 };
+ */

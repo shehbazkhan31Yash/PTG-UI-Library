@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { High3dLineChartComponent } from './high-3d-line-chart.component';
 import {ChartModule} from '../../../chart.module';
 import {LINE_CHART_2D} from './high-3d-line-chart'
@@ -75,3 +75,4 @@ chart.args = {
   yTitle: 'Values',
   id: 'chart-line-3d',
 };
+*/

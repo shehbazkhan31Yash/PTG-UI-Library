@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { CardComponent } from './card.component';
 
 
@@ -71,3 +71,4 @@ Classes.args = {
     cardFooterClass: 'bg-transparent border-success'
   }
 };
+*/

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SidenavComponent } from './sidenav.component';
 import {SidenavModule} from '../sidenav.module'
 import { RouterModule } from '@angular/router';
@@ -28,4 +28,4 @@ Primary.args = {
 export const isMenuOpen = Template.bind({});
 isMenuOpen.args = {
   isMenuOpen: false,
-};
+}; */

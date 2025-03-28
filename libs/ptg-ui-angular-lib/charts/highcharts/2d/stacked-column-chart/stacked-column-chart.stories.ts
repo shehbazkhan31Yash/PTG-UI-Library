@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { StackedColumnChartComponent } from './stacked-column-chart.component';
 import {STACKED_COLUMN_DATA} from './stacked-column-chart';
 import {ChartModule} from '../../../chart.module';
@@ -47,5 +47,5 @@ Yaxistitle.args = {
      yTitle:'Values' 
     };
   
-
+*/
   

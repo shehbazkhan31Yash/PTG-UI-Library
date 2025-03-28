@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 
 
@@ -125,6 +125,7 @@ export const Large = Template.bind({});
     isDisable: false,
     isBlock: true,
   };
+  */
 
 
 

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LinebarChartComponent } from './linebar-chart.component';
 import {LINE_BAR_DATA} from './linebar-chart'
 import {ChartModule} from '../../../chart.module';
@@ -45,4 +45,4 @@ Subtitle.args = {
   remainingOptions:LINE_BAR_DATA.remainingOptions,
   categories:LINE_BAR_DATA.categories,
 };
-
+*/

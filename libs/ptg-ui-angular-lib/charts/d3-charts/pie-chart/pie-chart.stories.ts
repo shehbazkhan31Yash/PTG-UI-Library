@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PieChartComponent } from './pie-chart.component';
 import {ChartModule} from '../../chart.module';
 import {PIE_CHART_D3} from './pie-chart'
@@ -83,3 +83,4 @@ Height.args = {
     '#242582',
   ],
 };
+*/

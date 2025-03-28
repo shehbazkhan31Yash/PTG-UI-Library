@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SelectComponent } from './select.component';
 import { CITY_LIST } from './selectData';
 import { SelectModule } from '../select.module'
@@ -99,3 +99,4 @@ ItemCount.args = {
   itemCount: 3,
   items: CITY_LIST
 };
+ */

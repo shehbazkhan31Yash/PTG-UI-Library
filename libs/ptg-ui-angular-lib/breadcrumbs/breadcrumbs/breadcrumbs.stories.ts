@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
 
 export default {
@@ -64,3 +64,4 @@ divider.args = {
   }
     
   };
+  */

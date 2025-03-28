@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AlertComponent } from './alert.component';
 import {AlertModule} from '../alert.module'; 
 
@@ -33,3 +33,4 @@ isDismissible.args = {
   message: 'Hello',
  isDismissible: true,
 };
+*/

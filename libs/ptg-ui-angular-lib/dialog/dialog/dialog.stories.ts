@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { DialogComponent } from './dialog.component';
 import {DialogModule} from '../dialog.module'; 
 
@@ -33,3 +33,4 @@ modalBodyContent.args = {
   headerTitle: 'Modal Header',
  modalBodyContent: "<p>Modal body text goes here.</p>",
 };
+ */

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ToastsComponent } from './toasts.component';
 import { ToastsModule } from '../toasts.module';
 
@@ -20,3 +20,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'toasts works!'
 };
+ */

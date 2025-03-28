@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/*import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AccordionComponent } from './accordion.component';
 import { AccordianModule } from '../accordion.module'
 import { ACCORDIAN_DATA } from './accordion';
@@ -52,6 +52,7 @@ OneAtATime.args = {
   listData : ACCORDIAN_DATA,
   addAccordionGroup:true
 };
+*/
 
 
 

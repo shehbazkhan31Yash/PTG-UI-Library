@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+/* import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { GridComponent } from './grid.component';
 
 
@@ -26,3 +26,4 @@ Primary.args = {
   rowClass:'mb-4',
 };
 
+ */
