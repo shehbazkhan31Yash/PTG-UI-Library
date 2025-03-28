@@ -1,20 +1,32 @@
 import { IPtgUiAccordionProps } from '../interfaces';
-import './Accordion.scss';
-/* eslint-disable-next-line */
+import './Accordion.css';
 
-export function PtgUiAccordion(props: Readonly<IPtgUiAccordionProps>) {
-	const { accordionItems, handleToggle, activeIndex } = props;
+/**
+ * PtgUiAccordion component to render a customizable accordion with collapsible sections.
+ *
+ * @param {IPtgUiAccordionProps} props - The properties for the PtgUiAccordion component.
+ * @param {Array} props.accordionItems - An array of accordion items, each containing a title and content.
+ * @param {Function} props.handleToggle - Callback function triggered when an accordion item is toggled.
+ * @param {number} props.activeIndex - The index of the currently active (expanded) accordion item.
+ * @returns {JSX.Element} The rendered accordion component.
+ */
+
+export const PtgUiAccordion: React.FC<Readonly<IPtgUiAccordionProps>> = ({
+	accordionItems,
+	handleToggle,
+	activeIndex,
+}) => {
 	return (
 		<div className="accordion">
 			{accordionItems?.map((item, index) => (
-				<div key={item?.title} className="accordion-item">
+				<div key={`${item?.title}-${index}`} className="accordion-item">
 					<h2 className="accordion-header">
 						<button
 							className={`accordion-button shadow-sm p-3 bg-white rounded ${activeIndex === index ? 'collapsed' : ''}`}
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target={`#collapse${index}`}
-							aria-expanded={activeIndex === index ? 'true' : 'false'}
+							aria-expanded={activeIndex === index}
 							aria-controls={`collapse${index}`}
 							onClick={() => handleToggle(index)}
 						>
@@ -33,6 +45,4 @@ export function PtgUiAccordion(props: Readonly<IPtgUiAccordionProps>) {
 			))}
 		</div>
 	);
-}
-
-export default PtgUiAccordion;
+};
