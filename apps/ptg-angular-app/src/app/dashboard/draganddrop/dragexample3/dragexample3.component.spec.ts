@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Dragexample3Component } from './dragexample3.component';
 import { By } from '@angular/platform-browser';
@@ -27,41 +26,31 @@ describe('Dragexample3Component', () => {
   });
 
   it('should allow dragging and dropping items within the same list', () => {
-    // Simulate drag start on the first todo item
     const dragStartEvent = new DragEvent('dragstart', {
       dataTransfer: new DataTransfer(),
     });
     const firstTodoItem = fixture.debugElement.query(By.css('div.list-group-item:nth-child(1)'));
     firstTodoItem.nativeElement.dispatchEvent(dragStartEvent);
-    
-    // Simulate drop on the second todo item
     const dropEvent = new DragEvent('drop', {
       dataTransfer: dragStartEvent.dataTransfer,
     });
     const secondTodoItem = fixture.debugElement.query(By.css('div.list-group-item:nth-child(2)'));
     secondTodoItem.nativeElement.dispatchEvent(dropEvent);
-
-    // Check if the items have been rearranged
     fixture.detectChanges();
     expect(component.todoData).toEqual(['Pick up groceries', 'Get to work', 'Go home', 'Fall asleep']);
   });
 
   it('should allow dragging and dropping items between lists', () => {
-    // Simulate drag start on the first todo item
     const dragStartEvent = new DragEvent('dragstart', {
       dataTransfer: new DataTransfer(),
     });
     const firstTodoItem = fixture.debugElement.query(By.css('div.list-group-item:nth-child(1)'));
     firstTodoItem.nativeElement.dispatchEvent(dragStartEvent);
-    
-    // Simulate drop on the first done item
     const dropEvent = new DragEvent('drop', {
       dataTransfer: dragStartEvent.dataTransfer,
     });
     const firstDoneItem = fixture.debugElement.query(By.css('div.list-group-item:nth-child(1)'));
     firstDoneItem.nativeElement.dispatchEvent(dropEvent);
-
-    // Check if the item has been moved from todo to done
     fixture.detectChanges();
     expect(component.todoData).toEqual(['Pick up groceries', 'Go home', 'Fall asleep']);
     expect(component.doneData).toEqual(['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog', 'Get to work']);
@@ -71,8 +60,6 @@ describe('Dragexample3Component', () => {
     const dragOverEvent = new DragEvent('dragover');
     const todoList = fixture.debugElement.query(By.css('.list-group.mt-5'));
     todoList.nativeElement.dispatchEvent(dragOverEvent);
-
-    // Check if the onDragOver method is called
     expect(component.onDragOver).toHaveBeenCalled();
   });
 });
