@@ -8,20 +8,21 @@
  * @description This component for carousel
  **/
 
-import {
-  Component,
-  Input
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ptg-ui-carousels',
-  templateUrl: './carousel.component.html'
+  templateUrl: './carousel.component.html',
 })
-
 export class CarouselComponent {
-  @Input() carouselItems: { image: string, alt: string, captionLabel?: string, captionContent?: string }[] = [];
+  @Input() carouselItems: {
+    image: string;
+    alt: string;
+    captionLabel?: string;
+    captionContent?: string;
+  }[] = [];
   @Input() showControls?: boolean = false;
   @Input() showIndicators?: boolean = false;
+  @Input() showImageIndicators?: boolean = false;
   @Input() carouselId = '';
-
 }

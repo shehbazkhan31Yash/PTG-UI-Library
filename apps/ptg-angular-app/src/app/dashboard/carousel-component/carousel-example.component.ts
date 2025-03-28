@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { sampleImagesData, sampleImagesWithCaptionData, sampleImageWithControlsData } from './carousel';
+import {
+  sampleImagesData,
+  sampleImagesWithCaptionData,
+  sampleImageWithControlsData,
+} from './carousel';
 
 @Component({
   selector: 'ptg-ui-carousel-example',
@@ -9,13 +13,16 @@ import { sampleImagesData, sampleImagesWithCaptionData, sampleImageWithControlsD
 export class CarouselExampleComponent {
   isLoaded = true;
   htmlCode = `
-      <ptg-ui-carousels [carouselItems]="sampleImageWithControls" [showControls]="true"></ptg-ui-carousels>`;
+      <ptg-ui-carousels [carouselItems]="sampleImages" [showControls]="true"></ptg-ui-carousels>`;
 
   htmlCodeWithIndicators = `
       <ptg-ui-carousels [carouselItems]="sampleImages" [showIndicators]="true"></ptg-ui-carousels>`;
 
   htmlCodeWithCaption = `
-  <ptg-ui-carousels [carouselItems]="sampleImagesWithCaption" [showIndicators]="true"></ptg-ui-carousels>`;
+      <ptg-ui-carousels [carouselItems]="sampleImagesWithCaption" [showIndicators]="true" [showControls]="true"></ptg-ui-carousels>`;
+
+  htmlCodeWithImageThumbnail = `
+      <ptg-ui-carousels [carouselItems]="sampleImages" [showImageIndicators]="true" [showControls]="true"></ptg-ui-carousels>`;
 
   tsCode = `
     import { Component } from '@angular/core';
@@ -25,22 +32,26 @@ export class CarouselExampleComponent {
       templateUrl: './demo-carousel.component.html'
     })
     export class DemoCarouselComponent {
-     sampleImageWithControls = [
+    sampleImages = [
     { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1" },
     { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2" },
     { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3" }
-  ];
-  sampleImages = [
-    { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1" },
-    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2" },
-    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3" }
-  ];
-  sampleImagesWithCaption = [
-    { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1", captionLabel: 'First slide label', captionContent: 'Some representative placeholder content for the first slide.' },
-    { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2", captionLabel: 'Second slide label', captionContent: 'Some representative placeholder content for the second slide.' },
-    { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3", captionLabel: 'Third slide label', captionContent: 'Some representative placeholder content for the third slide.' }
-  ];
+    ];
     }`;
+  tsCodeWithCaption = `
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'demo-carousel-component',
+    templateUrl: './demo-carousel.component.html'
+  })
+  export class DemoCarouselComponent {
+  sampleImagesWithCaption = [
+  { image: 'https://picsum.photos/id/328/3264/2448', alt: "image1", captionLabel: 'First slide label', captionContent: 'Some representative placeholder content for the first slide.' },
+  { image: 'https://picsum.photos/id/431/5000/3334', alt: "image2", captionLabel: 'Second slide label', captionContent: 'Some representative placeholder content for the second slide.' },
+  { image: 'https://picsum.photos/id/5/5000/3334', alt: "image3", captionLabel: 'Third slide label', captionContent: 'Some representative placeholder content for the third slide.' }
+  ];
+  }`;
   sampleImageWithControls = sampleImageWithControlsData;
   sampleImages = sampleImagesData;
   sampleImagesWithCaption = sampleImagesWithCaptionData;
