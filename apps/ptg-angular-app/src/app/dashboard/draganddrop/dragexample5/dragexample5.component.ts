@@ -1,162 +1,112 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-case-declarations */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
-
 /**
- * @since April 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-dragexample5;
- * @description This component for drag and drop example5
-**/
+ * @since Feb 2025
+ * @author Prasad Londhe
+ * @Component ptg-ui-dragexample4;
+ * @description This component for drag and drop example4
+ **/
 
-import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
-import { DOCUMENT } from "@angular/common";
-import { debounce } from "@agentepsilon/decko";
-import { resources } from "../../../../resource/resource";
-import { mocksService } from "@ptg-angular-app/common/data-services/mocks.service";
-export interface TreeNode {
-    id: string;
-    children: TreeNode[];
-    isExpanded?:boolean;
-  }
-
+import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'ptg-ui-dragexample5',
-  templateUrl: './dragexample5.component.html',
-  styleUrls: ['./dragexample5.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
+      selector: 'ptg-ui-dragexample5',
+      templateUrl: './dragexample5.component.html',
+      styleUrls: ['./dragexample5.component.scss'],
+    })
+    export class Dragexample5Component implements OnInit{
+  items: string[] = [];
+  gridItems: string[] = []; 
+  dragAndDropHtmlCode = `
+<div  class="container mt-4">
+<h3 class="mt-5">Drag and Drop in a Grid</h3>
+  <div class="row mt-5">
+    <div class="col-4" *ngFor="let item of gridItems; let i = index">
+      <div
+        class="card mb-3"
+        draggable="true"
+        (dragstart)="onGridDragStart($event, i)"
+        (dragover)="allowDrop($event)"
+        (drop)="onGridDrop($event)"
+        [attr.data-index]="i"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ item }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+  dragAndDropTsCode = `
+  import { Component, OnInit } from '@angular/core';
+@Component({
+      selector: 'ptg-ui-dragexample5',
+      templateUrl: './dragexample5.component.html',
+      styleUrls: ['./dragexample5.component.scss'],
+    })
+    export class Dragexample5Component implements OnInit{
+  items: string[] = [];
+  gridItems: string[] = []; 
 
-export class Dragexample5Component implements OnInit{
-    nodes:any;
-  // ids for connected drop lists
-  dropTargetIds:any = [];
-  nodeLookup:any = {};
-  // dropActionTodo: DropInfo = null;
-  dropActionTodo!: any;
-  resources=resources;
-
-  constructor(@Inject(DOCUMENT) private document: Document,private mocksApiService: mocksService) {
+  ngOnInit() {
+    this.setGridItems(6); 
   }
-ngOnInit(): void {
-    this.mocksApiService.getDemoData1().subscribe((response) => {
-        this.nodes=(response?.data[0].attributes.data);
-        this.prepareDragDrop(this.nodes);
-      });
+  generateGridItems(count: number) {
+    this.gridItems = Array.from({ length: count }, (_, i) =>
+     'Item' + (i + 1));
+  }
+  setGridItems(count: number) {
+    this.generateGridItems(count);
+  }
+
+  onGridDragStart(event: DragEvent, index: number) {
+    event.dataTransfer?.setData('text/plain', index.toString());
+  }
+  
+  onGridDrop(event: DragEvent) {
+    event.preventDefault();
+    const fromIndex = Number(event.dataTransfer?.getData('text/plain'));
+    const toIndex = Number((event.currentTarget as HTMLElement).getAttribute('data-index'));
+  
+    if (fromIndex !== toIndex) {
+      const movedItem = this.gridItems[fromIndex];
+      this.gridItems.splice(fromIndex, 1);
+      this.gridItems.splice(toIndex, 0, movedItem);
     }
+  }
+    allowDrop(event: DragEvent) {
+     event.preventDefault();
+  }
+}
+  `;
 
-  prepareDragDrop(nodes: TreeNode[]) {
-      nodes.forEach((node) => {
-          this.dropTargetIds.push(node.id);
-          this.nodeLookup[node.id] = node;
-          this.prepareDragDrop(node.children);
-      });
+  ngOnInit() {
+    this.setGridItems(6); // Pass the count directly 
+  }
+  generateGridItems(count: number) {
+    this.gridItems = Array.from({ length: count }, (_, i) =>'Item' + (i + 1));
   }
 
 
-  @debounce(50)
-  dragMoved(event:any) {
-      const e = this.document.elementFromPoint(event.pointerPosition.x,event.pointerPosition.y);
-      
-      if (!e) {
-          this.clearDragInfo();
-          return;
-      }
-      const container = e.classList.contains("node-item") ? e : e.closest(".node-item");
-      if (!container) {
-          this.clearDragInfo();
-          return;
-      }
-      this.dropActionTodo = {
-          targetId: container.getAttribute("data-id")
-      };
-      const targetRect = container.getBoundingClientRect();
-      const oneThird = targetRect.height / 3;
-
-      if (event.pointerPosition.y - targetRect.top < oneThird) {
-          // before
-          this.dropActionTodo["action"] = "before";
-      } else if (event.pointerPosition.y - targetRect.top > 2 * oneThird) {
-          // after
-          this.dropActionTodo["action"] = "after";
-      } else {
-          // inside
-          this.dropActionTodo["action"] = "inside";
-      }
-      this.showDragInfo();
+  setGridItems(count: number) {
+    this.generateGridItems(count);
   }
 
-
-  drop(event:any) {
-      if (!this.dropActionTodo) return;
-
-      const draggedItemId = event.item.data;
-      const parentItemId = event.previousContainer.id;
-      const targetListId = this.getParentNodeId(this.dropActionTodo.targetId, this.nodes, 'main');
-
-
-      const draggedItem = this.nodeLookup[draggedItemId];
-
-      const oldItemContainer = parentItemId != 'main' ? this.nodeLookup[parentItemId].children : this.nodes;
-      const newContainer = targetListId != 'main' ? this.nodeLookup[targetListId].children : this.nodes;
-
-      const i = oldItemContainer.findIndex((c:any) => c.id === draggedItemId);
-      oldItemContainer.splice(i, 1);
-
-      switch (this.dropActionTodo.action) {
-          case 'before':
-          case 'after':
-              const targetIndex = newContainer.findIndex((c:any) => c.id === this.dropActionTodo.targetId);
-              if (this.dropActionTodo.action == 'before') {
-                  newContainer.splice(targetIndex, 0, draggedItem);
-              } else {
-                  newContainer.splice(targetIndex + 1, 0, draggedItem);
-              }
-              break;
-
-          case 'inside':
-              this.nodeLookup[this.dropActionTodo.targetId].children.push(draggedItem)
-              this.nodeLookup[this.dropActionTodo.targetId].isExpanded = true;
-              break;
-      }
-
-      this.clearDragInfo(true)
+  onGridDragStart(event: DragEvent, index: number) {
+    event.dataTransfer?.setData('text/plain', index.toString());
   }
-
-  getParentNodeId(id: string, nodesToSearch: TreeNode[], parentId: string): any {
-      for (const node of nodesToSearch) {
-          if (node.id == id) return parentId;
-          const ret = this.getParentNodeId(id, node.children, node.id);
-          if (ret) return ret;
-      }
-      return null;
+  
+  onGridDrop(event: DragEvent) {
+    event.preventDefault();
+    const fromIndex = Number(event.dataTransfer?.getData('text/plain'));
+    const toIndex = Number((event.currentTarget as HTMLElement).getAttribute('data-index'));
+  
+    if (fromIndex !== toIndex) {
+      const movedItem = this.gridItems[fromIndex];
+      this.gridItems.splice(fromIndex, 1);
+      this.gridItems.splice(toIndex, 0, movedItem);
+    }
   }
-
-  showDragInfo() {
-      this.clearDragInfo();
-      if (this.dropActionTodo) {
-        this.document.getElementById("node-" + this.dropActionTodo.targetId)
-        ?.classList.add("drop-" + this.dropActionTodo.action);
-      }
+    allowDrop(event: DragEvent) {
+     event.preventDefault();
   }
-
-  clearDragInfo(dropped = false) {
-      
-      if (dropped) {
-          this.dropActionTodo = null;
-      }
-      this.document
-          .querySelectorAll(".drop-before")
-          .forEach(element => element.classList.remove("drop-before"));
-      this.document
-          .querySelectorAll(".drop-after")
-          .forEach(element => element.classList.remove("drop-after"));
-      this.document
-          .querySelectorAll(".drop-inside")
-          .forEach(element => element.classList.remove("drop-inside"));
-  }
- 
 
 }

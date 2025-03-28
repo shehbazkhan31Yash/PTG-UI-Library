@@ -1,33 +1,24 @@
-<ng-template #tmplNode1 let-node="node" let-index="index">
-  <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-'+node.id">
-    <div class="node-title" (click)="node.isExpanded=!node.isExpanded">
-      {{node.children.length ? ((node.isExpanded?'-&nbsp;':'+')) : '&nbsp;&nbsp;&nbsp;'}} 
-      {{index}} &nbsp;&nbsp;&nbsp; {{node.id}}
-      <span class="item-notes">
-        ({{node.children.length}} {{node.children.length?', expanded: ' + !!node.isExpanded:''}})
-      </span>
-    </div>
-
-    <div *ngIf="node.isExpanded && node.children.length" class="node-children" cdkDropList
-      [cdkDropListData]="node.children" [id]="node.id" [cdkDropListConnectedTo]="dropTargetIds"
-      (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
-
-      <div *ngFor="let child of node.children, index as i" cdkDrag [cdkDragData]="child.id" (cdkDragMoved)="dragMoved($event)">
-        <ng-container *ngTemplateOutlet="tmplNode1,context:{node:child, index: index+'.'+(i+1)}"></ng-container>
+<div  class="container mt-4">
+  <h3 class="mt-5">Drag and Drop in a Grid</h3>
+  <ptg-ui-toggle-code
+  [htmlCode]="dragAndDropHtmlCode"
+  [tsCode]="dragAndDropTsCode"
+  >
+  </ptg-ui-toggle-code>
+    <div class="row mt-5">
+      <div class="col-4" *ngFor="let item of gridItems; let i = index">
+        <div
+          class="card mb-3"
+          draggable="true"
+          (dragstart)="onGridDragStart($event, i)"
+          (dragover)="allowDrop($event)"
+          (drop)="onGridDrop($event)"
+          [attr.data-index]="i"
+        >
+          <div class="card-body">
+            <h3 class="card-title">{{ item }}</h3>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-  </div>
-</ng-template>
-
-<div class="wrapper3 mt-2  bg-white">
-  <div class="p-2" cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
-    (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
-    <div *ngFor="let node of nodes, index as index" cdkDrag [cdkDragData]="node.id" (cdkDragMoved)="dragMoved($event)">
-      <ng-container *ngTemplateOutlet="tmplNode1, context:{node:node, index: index+1}"></ng-container>
     </div>
   </div>
-</div>
-<!-- <p  class="p-2"><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
-<pre>{{dropActionTodo|json}}</pre> -->
