@@ -1,0 +1,98 @@
+<div class="form-to-change-theme">
+  <div class="form-wrapper">
+    <form class="example-form" [formGroup]="colorpaletteForm" (ngSubmit)="applyThemeChanges()">
+      <div class="form-group-fields">
+        <!-- Nav Header -->
+        <div class="form-group input-full-width" formGroupName="navHeader">
+          <label for="navHeaderBackground">Nav Header Background</label>
+          <input type="color" class="form-control" id="navHeaderBackground" formControlName="navHeaderBackground"
+            aria-describedby="emailHelp">
+
+        </div>
+        <!-- Sidebar -->
+        <div class="form-group" formGroupName="sideBar">
+          <label for="background">Sidebar Background</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="tabBackground">Sidebar Tiles Background</label>
+          <input type="color" class="form-control" id="tabBackground" formControlName="tabBackground"
+            aria-describedby="emailHelp">
+          <label for="tabFontColor">Sidebar Tiles Font</label>
+          <input type="color" class="form-control" id="tabFontColor" formControlName="tabFontColor"
+            aria-describedby="emailHelp">
+          <label for="otherFontColor">Sidebar Other Fonts</label>
+          <input type="color" class="form-control" id="otherFontColor" formControlName="otherFontColor"
+            aria-describedby="emailHelp">
+        </div>
+        <!-- Layout -->
+        <div class="form-group" formGroupName="contentLayout">
+          <label for="layoutBackground">Content Layout Background</label>
+          <input type="color" class="form-control" id="layoutBackground" formControlName="layoutBackground"
+            aria-describedby="emailHelp">
+          <label for="layoutHeading">Content Layout Headeings</label>
+          <input type="color" class="form-control" id="layoutHeading" formControlName="layoutHeading"
+            aria-describedby="emailHelp">
+          <label for="layoutSubHeading">Content Layout Sub Headeings</label>
+          <input type="color" class="form-control" id="layoutSubHeading" formControlName="layoutSubHeading"
+            aria-describedby="emailHelp">
+          <label for="layoutContent">Content Layout Para (Content)</label>
+          <input type="color" class="form-control" id="layoutContent" formControlName="layoutContent"
+            aria-describedby="emailHelp">
+
+        </div>
+        <!-- Buttons -->
+        <!-- Primary button -->
+        <div class="form-group" formGroupName="primaryButton">
+          <label for="background">Primary Button</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="fontColor">Button Font</label>
+          <input type="color" class="form-control" id="fontColor" formControlName="fontColor"
+            aria-describedby="emailHelp">
+        </div>
+        <!-- Secondary -->
+        <div class="form-group" formGroupName="secondaryButton">
+          <label for="background">Secondary Button</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="fontColor">Button Font</label>
+          <input type="color" class="form-control" id="fontColor" formControlName="fontColor"
+            aria-describedby="emailHelp">
+        </div>
+        <!-- Info -->
+        <div class="form-group" formGroupName="infoButton">
+          <label for="background">Info Button</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="fontColor">Button Font</label>
+          <input type="color" class="form-control" id="fontColor" formControlName="fontColor"
+            aria-describedby="emailHelp">
+        </div>
+        <!-- Warning -->
+        <div class="form-group" formGroupName="warningButton">
+          <label for="background">Warning Button</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="fontColor">Button Font</label>
+          <input type="color" class="form-control" id="fontColor" formControlName="fontColor"
+            aria-describedby="emailHelp">
+        </div>
+        <!-- Warning -->
+        <div class="form-group" formGroupName="dangerButton">
+          <label for="background">Danger Button</label>
+          <input type="color" class="form-control" id="background" formControlName="background"
+            aria-describedby="emailHelp">
+          <label for="fontColor">Button Font</label>
+          <input type="color" class="form-control" id="fontColor" formControlName="fontColor"
+            aria-describedby="emailHelp">
+        </div>
+      </div>
+      <div class="form-footer">
+        <button class="btn btn-primary" color="accent" type="submit">Apply</button>
+        <button class="btn btn-primary ml-2" color="accent" type="button" (click)="generateFinalJSON()">
+          Generate JSON
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

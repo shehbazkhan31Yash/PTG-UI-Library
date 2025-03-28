@@ -220,6 +220,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/rating',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Rating',
+    disabled: false,
+  },
+  {
     path: '/select',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
@@ -241,12 +247,6 @@ export const NavigationData = [
     path: '/webAccessibility',
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',
-    disabled: false,
-  },
-  {
-    path: '/rating',
-    icon: 'fa-solid fa-ranking-star',
-    label: 'Rating',
     disabled: false,
   },
 ];

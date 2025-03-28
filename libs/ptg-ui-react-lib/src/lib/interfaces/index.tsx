@@ -27,7 +27,6 @@ export interface PtgUiDatePickerProps {
 	ariaLabel?: string;
 }
 
-
 // Accordion
 export interface IAccordionItemProps {
 	title?: string;
@@ -176,22 +175,22 @@ export interface PtgUiSelectProps {
 
 //Textarea
 export interface PtgUiTextAreaProps {
-    placeholder?: string;
-    className?: string;
-    rows?: number;
-    name?: string;
-    id?: string;
-    value?: string;
+	placeholder?: string;
+	className?: string;
+	rows?: number;
+	name?: string;
+	id?: string;
+	value?: string;
 	onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+	onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
 //Toaster
 export interface ToasterProps {
-    show: boolean;
-    setShow: (show: boolean) => void;
-    message: string;
-    type: 'success' | 'error';
+	show: boolean;
+	setShow: (show: boolean) => void;
+	message: string;
+	type: 'success' | 'error';
 }
 export interface AlertProps {
 	message?: string;
@@ -373,7 +372,7 @@ export interface IPtgUiMultiStepFormProps {
 
 export interface PtgUiCommonStepProps {
 	handleChange?: (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
-    handleBlur?: (event: React.FocusEvent<HTMLInputElement> | React.FocusEvent<HTMLTextAreaElement>) => void;
+	handleBlur?: (event: React.FocusEvent<HTMLInputElement> | React.FocusEvent<HTMLTextAreaElement>) => void;
 	details?: IUserDetails;
 	error?: IUserDetails;
 }
@@ -427,11 +426,13 @@ export interface IRatingProps {
 	onChange?: (value: number) => void;
 	readOnly?: boolean;
 	disabled?: boolean;
-	precision?: number;
+	precision?: 0.5 | 1;
 	icon?: string;
 	emptyIcon?: string;
 	color?: string;
 	borderColor?: string;
 	size?: number;
 	hoverSize?: number;
+	defaultValue?: number;
+	onHover?: (value: number) => void;
 }

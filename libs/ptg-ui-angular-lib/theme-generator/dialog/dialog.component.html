@@ -1,0 +1,14 @@
+<mat-dialog-content>
+  <div class="dialog-content-area">
+    <pre *ngIf="dialogData.themeSettingValues">
+        {{ stringyFiedData }}
+    </pre>
+    <p *ngIf="!dialogData.themeSettingValues">
+      {{ dialogData }}
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="p-2">
+  <button mat-raised-button color="accent" (click)="copyToClipboard()">Copy</button>
+  <button mat-raised-button mat-dialog-close>Close Dialog</button>
+</mat-dialog-actions>

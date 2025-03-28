@@ -31,9 +31,11 @@ export const Rating: React.FC<IRatingProps> = ({
 	borderColor = '#ccc',
 	size = 24,
 	hoverSize = 28,
+	defaultValue = 2,
+	onHover,
 }) => {
 	const [hoverValue, setHoverValue] = useState<number | null>(null);
-	const [internalValue, setInternalValue] = useState<number>(0);
+	const [internalValue, setInternalValue] = useState<number>(defaultValue);
 	const isControlled = controlledValue !== undefined;
 	const value = isControlled ? controlledValue : internalValue;
 
@@ -53,11 +55,15 @@ export const Rating: React.FC<IRatingProps> = ({
 	};
 
 	const handleMouseEnter = (hoveredValue: number) => {
-		if (!readOnly && !disabled) setHoverValue(roundToPrecision(hoveredValue));
+		if (!readOnly && !disabled) {
+			setHoverValue(roundToPrecision(hoveredValue));
+			onHover?.(hoveredValue);
+		}
 	};
 
 	const handleMouseLeave = () => {
 		setHoverValue(null);
+		onHover?.(-1);
 	};
 
 	const calculateFillPercentage = (displayValue: number, starIndex: number, precision: number) => {
