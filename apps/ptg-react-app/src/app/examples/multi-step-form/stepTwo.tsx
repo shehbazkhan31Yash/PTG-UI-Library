@@ -213,7 +213,7 @@ export const StepTwo = ({
           className={`w-100 form-control bg_0 ${
             error.homeAddress ? 'border-danger' : ''
           }`}
-          rows="2"
+          rows={2}
           name="homeAddress"
           id="inputAddress"
           value={details.homeAddress}

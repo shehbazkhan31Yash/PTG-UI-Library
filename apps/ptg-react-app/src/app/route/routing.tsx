@@ -84,12 +84,14 @@ const PtgUiReactTable = lazy(
   () => import('../examples/data-table/react-table')
 );
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
+const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
 const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
-
+const Rating = lazy(() => import('../examples/rating/rating'));
+const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -222,6 +224,10 @@ const routing = [
     component: Toaster,
   },
   {
+    path: '/textarea',
+    component: Textarea,
+  },
+  {
     path: '/button',
     component: Button,
   },
@@ -236,6 +242,14 @@ const routing = [
   {
     path: '/pagination',
     component: pagination,
+  },
+  {
+    path: '/rating',
+    component: Rating,
+  },
+  {
+    path: '/datePicker',
+    component: DatePicker,
   },
 ];
 export default routing;

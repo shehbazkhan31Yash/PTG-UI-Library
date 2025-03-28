@@ -1,0 +1,18 @@
+{
+    "1234AA": {
+        "primaryColor": "#0000aa",
+        "accentColor": "#000000"
+    },
+    "1234AB": {
+        "primaryColor": "#3c4377",
+        "accentColor": "#dedede"
+    },
+    "1234AC": {
+        "primaryColor": "#ff0000",
+        "accentColor": "#0e48ba"
+    },
+    "1234AD": {
+        "primaryColor": "#3c4377",
+        "accentColor": "#dedede"
+    }
+}

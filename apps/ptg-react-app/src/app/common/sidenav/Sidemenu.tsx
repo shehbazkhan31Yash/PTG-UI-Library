@@ -160,6 +160,12 @@ export const NavigationData = [
     ],
   },
   {
+    path: '/datePicker',
+    icon: 'fa fa-calendar',
+    label: 'Date Picker',
+    disabled: false,
+  },
+  {
     path: '/pagination',
     icon: 'fa-solid fa-table-list',
     label: 'PAGINATION',
@@ -214,9 +220,27 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/rating',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Rating',
+    disabled: false,
+  },
+  {
     path: '/select',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
+    disabled: false,
+  },
+  {
+    path: '/toaster',
+    icon: 'fa-solid fa-bell',
+    label: 'TOASTER',
+    disabled: false,
+  },
+  {
+    path: '/textarea',
+    icon: 'fa-solid fa-pen',
+    label: 'TEXTAREA',
     disabled: false,
   },
   {

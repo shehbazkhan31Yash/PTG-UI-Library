@@ -9,7 +9,7 @@ const genderList = GENDER_LIST_SELECT;
 const stateList = STATE_LIST;
 const contriesList = COUNTRY_LIST;
 
-export function PtgUiSecondStep(props: PtgUiCommonStepProps) {
+export function PtgUiSecondStep(props: Readonly<PtgUiCommonStepProps>) {
 	const { handleChange, details, error, handleBlur } = props;
 	return (
 		<div className="p-2">
@@ -123,7 +123,7 @@ export function PtgUiSecondStep(props: PtgUiCommonStepProps) {
 				<label htmlFor="inputAddress">{'Home Address'} </label>
 				<PtgUiTextArea
 					className={`w-100 form-control bg_0 ${error?.homeAddress ? 'border-danger' : ''}`}
-					rows="2"
+					rows={2}
 					name="homeAddress"
 					id="inputAddress"
 					value={details?.homeAddress}
