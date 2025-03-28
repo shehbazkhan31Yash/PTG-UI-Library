@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
+    "reset":"nx reset",
     "start": "nx serve",
-    "start:ptg-angular": "nx serve ptg-angular-app",
+    "start:ptg-angular": "nx serve ptg-angular-app --verbose",
     "start:ptg-react": "nx serve ptg-react-app",
     "start:pool-tracker": "nx serve pool-tracker",
     "start:ptg-stencil": "nx serve ptg-ui-web-components",
@@ -152,6 +153,7 @@
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
     "socket.io": "^4.3.2",
+    "tinycolor2": "^1.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

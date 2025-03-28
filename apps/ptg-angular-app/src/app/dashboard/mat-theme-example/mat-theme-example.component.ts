@@ -1,0 +1,104 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'ptg-ui-mat-theme-customizer',
+  templateUrl: './mat-theme-example.component.html',
+  styleUrls: ['./mat-theme-example.component.scss']
+})
+export class MatThemeExampleComponent{
+
+  htmlCode = `
+ <ptg-ui-mat-theme-generator></ptg-ui-mat-theme-generator>`;
+
+  tsCode = `
+    import { Component } from '@angular/core';
+    @Component({
+      selector: 'ptg-ui-theme-generator-example',
+      templateUrl: './theme-generator.component.html',
+      styleUrls: ['./theme-generator.component.scss']
+    })
+    export class ThemeGeneratorComponent {
+     
+    }`;
+    cssCode= `
+   @use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+$dynamic-primary-theme: (
+  50 : var(--theme-primary-50),
+  100 : var(--theme-primary-100),
+  200 : var(--theme-primary-200),
+  300 : var(--theme-primary-300),
+  400 : var(--theme-primary-400),
+  500 : var(--theme-primary-500),
+  600 : var(--theme-primary-600),
+  700 : var(--theme-primary-700),
+  800 : var(--theme-primary-800),
+  900 : var(--theme-primary-900),
+  A100 : var(--theme-primary-A100),
+  A200 : var(--theme-primary-A200),
+  A400 : var(--theme-primary-A400),
+  A700 : var(--theme-primary-A700),
+  contrast: (
+    50: var(--theme-primary-contrast-50),
+    100: var(--theme-primary-contrast-100),
+    200: var(--theme-primary-contrast-200),
+    300: var(--theme-primary-contrast-300),
+    400: var(--theme-primary-contrast-400),
+    500: var(--theme-primary-contrast-500),
+    600: var(--theme-primary-contrast-600),
+    700: var(--theme-primary-contrast-700),
+    800: var(--theme-primary-contrast-800),
+    900: var(--theme-primary-contrast-900),
+    A100: var(--theme-primary-contrast-A100),
+    A200: var(--theme-primary-contrast-A200),
+    A400: var(--theme-primary-contrast-A400),
+    A700: var(--theme-primary-contrast-A700)
+  )
+);
+
+$dynamic-accent-theme: (
+  50 : var(--theme-accent-50),
+  100 : var(--theme-accent-100),
+  200 : var(--theme-accent-200),
+  300 : var(--theme-accent-300),
+  400 : var(--theme-accent-400),
+  500 : var(--theme-accent-500),
+  600 : var(--theme-accent-600),
+  700 : var(--theme-accent-700),
+  800 : var(--theme-accent-800),
+  900 : var(--theme-accent-900),
+  A100 : var(--theme-accent-A100),
+  A200 : var(--theme-accent-A200),
+  A400 : var(--theme-accent-A400),
+  A700 : var(--theme-accent-A700),
+  contrast: (
+    50: var(--theme-accent-contrast-50),
+    100: var(--theme-accent-contrast-100),
+    200: var(--theme-accent-contrast-200),
+    300: var(--theme-accent-contrast-300),
+    400: var(--theme-accent-contrast-400),
+    500: var(--theme-accent-contrast-500),
+    600: var(--theme-accent-contrast-600),
+    700: var(--theme-accent-contrast-700),
+    800: var(--theme-accent-contrast-800),
+    900: var(--theme-accent-contrast-900),
+    A100: var(--theme-accent-contrast-A100),
+    A200: var(--theme-accent-contrast-A200),
+    A400: var(--theme-accent-contrast-A400),
+    A700: var(--theme-accent-contrast-A700)
+  )
+); // Apply the default theme
+
+// Define the palettes using m2-define-palette
+$primary-palette: mat.m2-define-palette($dynamic-primary-theme);
+$accent-palette: mat.m2-define-palette($dynamic-accent-theme);
+
+// Create a custom theme using the defined palettes
+$dynamic-app-theme: mat.m2-define-light-theme($primary-palette, $accent-palette);
+
+// Include the theme styles
+@include mat.all-component-themes($dynamic-app-theme);`;
+}

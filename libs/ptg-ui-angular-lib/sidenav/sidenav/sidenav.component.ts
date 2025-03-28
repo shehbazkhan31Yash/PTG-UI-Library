@@ -217,6 +217,20 @@ export class SidenavComponent {
         label: 'BREADCRUMBS',
         disabled: false,
       },
+      {
+        id: '17',
+        path: '/theme-generator',
+        icon: 'fa-solid fa-file',
+        label: 'THEME_GENERATOR',
+        disabled: false,
+      },
+      {
+        id: '18',
+        path: '/mat-theme',
+        icon: 'fa-solid fa-file',
+        label: 'MAT_THEME_GENERATOR',
+        disabled: false,
+      },
     ];
     this.menuItems.sort((a, b) => a.label.localeCompare(b.label));
 
