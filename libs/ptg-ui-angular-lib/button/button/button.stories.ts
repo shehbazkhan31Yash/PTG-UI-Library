@@ -1,11 +1,10 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 
-
-export default {
+const meta: Meta<ButtonComponent> = {
   title: 'Component/ButtonComponent',
   component: ButtonComponent,
-  
   parameters: {
     backgroundColor: {
       default: 'red',
@@ -16,147 +15,101 @@ export default {
     },
   },
   argTypes: {
-    isDisable : {
-     control: 'boolean',
+    isDisable: {
+      control: 'boolean',
     },
-    isBlock : {
-      control:'boolean' 
+    isBlock: {
+      control: 'boolean',
     },
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
       category: 'Colors',
-       },
-       
+    },
     size: {
-      options: ['small','medium', 'large'],
+      options: ['small', 'medium', 'large'],
       mapping: {
         small: 'small',
         medium: 'medium',
-        large:'large',
+        large: 'large',
       },
       description: 'Size options for the button',
-      // variant: {
-      //   options: ['small','medium', 'large'],
-      //   control: { type: 'radio' },
-      // },
-         
-     
       control: {
         type: 'radio',
         labels: {
           small: 'small',
           medium: 'medium',
-          large:'large',
-        }
+          large: 'large',
+        },
       },
     },
-    },
-
+  },
   decorators: [
     moduleMetadata({
       imports: [],
     }),
   ],
-} as Meta<ButtonComponent>;
+};
 
-const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
-  props: args,
-  component: ButtonComponent,
-});
+export default meta;
+type Story = StoryObj<ButtonComponent>;
 
-
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {
+  args: {
     label: 'Button',
     type: 'button',
     isDisable: false,
     isBlock: false,
-    accessKey: '', 
-    
-  };
+    accessKey: '',
+  },
+};
 
-
-  
-  
-export const Small = Template.bind({});
-  Small.args = {
+export const Small: Story = {
+  args: {
     type: 'button',
     label: 'Button',
     isDisable: false,
     isBlock: false,
     accessKey: '',
     size: 'small',
-  };
-  
-export const Medium = Template.bind({});
-  Medium.args = {
+  },
+};
+
+export const Medium: Story = {
+  args: {
     type: 'button',
     label: 'Button',
     isDisable: false,
     isBlock: false,
     accessKey: '',
     size: 'medium',
-  };
-  
-export const Large = Template.bind({});
-  Large.args = {
+  },
+};
+
+export const Large: Story = {
+  args: {
     type: 'button',
+    label: 'Button',
     isDisable: false,
     isBlock: false,
-    label: 'Button',
     accessKey: '',
     size: 'large',
-  };
+  },
+};
 
-
-  export const isDisable = Template.bind({});
-  isDisable.args = {
+export const IsDisable: Story = {
+  args: {
     type: 'button',
     isDisable: true,
     label: 'Button',
     isBlock: false,
-  };
+  },
+};
 
-
-  export const isBlock = Template.bind({});
-  isBlock.args = {
+export const IsBlock: Story = {
+  args: {
     label: 'Button',
     type: 'button',
     isDisable: false,
     isBlock: true,
-  };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  },
+};

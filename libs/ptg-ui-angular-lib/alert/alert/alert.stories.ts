@@ -1,8 +1,9 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { AlertComponent } from './alert.component';
-import {AlertModule} from '../alert.module'; 
+import { AlertModule } from '../alert.module';
 
-export default {
+const meta: Meta<AlertComponent> = {
   title: 'Component/AlertComponent',
   component: AlertComponent,
   decorators: [
@@ -10,26 +11,28 @@ export default {
       imports: [AlertModule],
     }),
   ],
-} as Meta<AlertComponent>;
-
-const Template: Story<AlertComponent> = (args: AlertComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-   message: 'Hello',
-  isDismissible: true,
 };
 
-export const Message = Template.bind({});
-Message.args = {
-  message: 'Hello',
- isDismissible: true,
+export default meta;
+type Story = StoryObj<AlertComponent>;
+
+export const Primary: Story = {
+  args: {
+    message: 'Hello',
+    isDismissible: true,
+  },
 };
 
-export const isDismissible = Template.bind({});
-isDismissible.args = {
-  message: 'Hello',
- isDismissible: true,
+export const Message: Story = {
+  args: {
+    message: 'Hello',
+    isDismissible: true,
+  },
+};
+
+export const IsDismissible: Story = {
+  args: {
+    message: 'Hello',
+    isDismissible: true,
+  },
 };

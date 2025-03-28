@@ -1,9 +1,10 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { FileDownloadComponent } from './file-download.component';
 import { FileDownloadsModule } from '../file-downloads.module';
-import {TABLE_DATA} from './file-download';
+import { TABLE_DATA } from './file-download';
 
-export default {
+const meta: Meta<FileDownloadComponent> = {
   title: 'Component/FileDownloadComponent',
   component: FileDownloadComponent,
   decorators: [
@@ -11,15 +12,13 @@ export default {
       imports: [FileDownloadsModule],
     }),
   ],
-} as Meta<FileDownloadComponent>;
+};
 
-const Template: Story<FileDownloadComponent> = (
-  args: FileDownloadComponent
-) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<FileDownloadComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  tableData: TABLE_DATA
+export const Primary: Story = {
+  args: {
+    tableData: TABLE_DATA,
+  },
 };

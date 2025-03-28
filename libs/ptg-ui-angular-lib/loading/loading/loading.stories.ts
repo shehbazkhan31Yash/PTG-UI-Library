@@ -1,8 +1,9 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { LoadingComponent } from './loading.component';
-import { LoadingModule } from '../loading.module'
+import { LoadingModule } from '../loading.module';
 
-export default {
+const meta: Meta<LoadingComponent> = {
   title: 'Component/LoadingComponent',
   component: LoadingComponent,
   decorators: [
@@ -10,13 +11,13 @@ export default {
       imports: [LoadingModule],
     }),
   ],
-} as Meta<LoadingComponent>;
+};
 
-const Template: Story<LoadingComponent> = (args: LoadingComponent) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<LoadingComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  loading: true,
+export const Primary: Story = {
+  args: {
+    loading: true,
+  },
 };
