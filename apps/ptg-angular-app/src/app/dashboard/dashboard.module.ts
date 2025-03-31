@@ -66,7 +66,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input'
+import { MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 
@@ -74,8 +74,11 @@ import { WebComponentsAngularModule } from '@ptg-ui/ptg-ui-web-components-angula
 import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
 import { AgGridModule } from 'ag-grid-angular';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ThemeGeneratorComponent } from './theme-generator-example/theme-generator.component';
 
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatThemeExampleComponent } from './mat-theme-example/mat-theme-example.component';
+import {MatCardModule} from '@angular/material/card';
 defineCustomElements();
 
 @NgModule({
@@ -116,7 +119,9 @@ defineCustomElements();
     DialogExampleComponent,
     CardExampleComponent,
     BreadcrumbsExampleComponent,
-    CarouselExampleComponent
+    CarouselExampleComponent,
+    ThemeGeneratorComponent,
+    MatThemeExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -144,7 +149,9 @@ defineCustomElements();
     MatSnackBarModule,
     WebComponentsAngularModule,
     AgGridModule,
-    NgSelectModule
-  ],
+    NgSelectModule,
+    MatSidenavModule,
+    MatCardModule
+  ]
 })
 export class DashboardModule {}

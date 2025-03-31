@@ -22,7 +22,7 @@ export class CarouselExampleComponent {
       <ptg-ui-carousels [carouselItems]="sampleImagesWithCaption" [showIndicators]="true" [showControls]="true"></ptg-ui-carousels>`;
 
   htmlCodeWithImageThumbnail = `
-      <ptg-ui-carousels [carouselItems]="sampleImages" [showImageIndicators]="true" [showControls]="true"></ptg-ui-carousels>`
+      <ptg-ui-carousels [carouselItems]="sampleImages" [showImageIndicators]="true" [showControls]="true"></ptg-ui-carousels>`;
 
   tsCode = `
     import { Component } from '@angular/core';

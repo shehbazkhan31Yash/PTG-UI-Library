@@ -1,112 +1,144 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
 
 /**
- * @since March 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-dragexample3;
- * @description This component for drag and drop example3
+ * @since Feb 2025
+ * @author Prasad Londhe
+ * @Component ptg-ui-dragexample2;
+ * @description This component for drag and drop example2
  **/
 
-import { Component, OnInit } from '@angular/core';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
-import { resources } from '../../../../resource/resource';
-import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'ptg-ui-dragexample3',
   templateUrl: './dragexample3.component.html',
   styleUrls: ['./dragexample3.component.scss'],
 })
-export class Dragexample3Component implements OnInit {
-  todo: any = [];
-  done: any;
-
-  resources = resources;
-
+export class Dragexample3Component {
+  // Data required to drag and drop the box/element
+  todoData = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  doneData = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
   dragAndDropHtmlCode = `
-    // TODO List
-    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todoData" [cdkDropListConnectedTo]="[doneList]"
-         (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let item of todoData; let i = index" cdkDrag>{{i+1}} - {{item}}</div>
+  <h3>Todo List</h3>
+  <div
+    class="list-group mt-5"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event, 'todo')"
+  >
+    <div
+      *ngFor="let item of todoData; let i = index"
+      class="list-group-item d-flex justify-content-between align-items-center"
+      draggable="true"
+      (dragstart)="onDragStart($event, i, 'todo')"
+    >
+      {{ i + 1 }} - {{ item }}
     </div>
+  </div>
 
-    // DONE List
-    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneData" [cdkDropListConnectedTo]="[todoList]"
-        (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let item of doneData; let i = index" cdkDrag>{{i+1}} - {{item}}</div>
+  <h3 class="mt-4">Done List</h3>
+  <div
+    class="list-group"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event, 'done')"
+  >
+    <div
+      *ngFor="let item of doneData; let i = index"
+      class="list-group-item d-flex justify-content-between align-items-center"
+      draggable="true"
+      (dragstart)="onDragStart($event, i, 'done')"
+    >
+      {{ i + 1 }} - {{ item }}
     </div>
-  `;
-  dragAndDropTsCode = `
-    import { Component } from '@angular/core';
-    import {
-      CdkDragDrop,
-      moveItemInArray,
-      transferArrayItem,
-    } from '@angular/cdk/drag-drop';
+  </div>`;
+dragAndDropTsCode = `
+import { Component } from '@angular/core';
+@Component({
+  selector: 'ptg-ui-dragexample3',
+  templateUrl: './dragexample3.component.html',
+  styleUrls: ['./dragexample3.component.scss'],
+})
+export class Dragexample3Component {
+   todoData = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+   doneData = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+   draggedItemIndex: number | null = null;
+   draggedFromList: 'todo' | 'done' | null = null;
 
-    @Component({
-      selector: 'drag-and-drop-component',
-      templateUrl: './drag-and-drop-component.html'
-    })
-    export class DragAndDropComponent {
-      // Data required to drag and drop the box/element
-      todoData = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-      doneData = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
-      // Drop method for example 2
-      drop(event: CdkDragDrop<string[]> | any) {
-        if (event.previousContainer === event.container) {
-          moveItemInArray(
-            event.container.data,
-            event.previousIndex,
-            event.currentIndex
-          );
-        } else {
-          transferArrayItem(
-            event.previousContainer.data,
-            event.container.data,
-            event.previousIndex,
-            event.currentIndex
-          );
-        }
-      }
-    }
-  `;
-
-  constructor(private mocksApiService: mocksService) {}
-
-  ngOnInit(): void {
-    //todo list
-    this.mocksApiService.getTodoList().subscribe((response) => {
-      this.todo = response?.data[0].attributes.todo.split(',');
-    });
-    //done list
-    this.mocksApiService.getDoneList().subscribe((response) => {
-      this.done = response?.data[0].attributes.done.split(',');
-    });
+  onDragStart(event: DragEvent, index: number, list: 'todo' | 'done') {
+    this.draggedItemIndex = index;
+    this.draggedFromList = list;
+    event.dataTransfer?.setData('text/plain', index.toString());
   }
 
-  // Drop method for example 2
-  drop(event: CdkDragDrop<string[]> | any) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+  onDrop(event: DragEvent, targetList: 'todo' | 'done') {
+    event.preventDefault();
+    const fromIndex = this.draggedItemIndex;
+    const toIndex = parseInt(event.dataTransfer?.getData('text/plain') || '0', 10);
+
+    if (fromIndex !== null && this.draggedFromList !== null) {
+      if (this.draggedFromList === targetList) {
+        // Move within the same list
+        const data = targetList === 'todo' ? this.todoData : this.doneData;
+        const movedItem = data[fromIndex];
+        data.splice(fromIndex, 1);
+        data.splice(toIndex, 0, movedItem);
+      } else {
+        // Move between lists
+        const fromData = this.draggedFromList === 'todo' ? this.todoData : this.doneData;
+        const toData = targetList === 'todo' ? this.todoData : this.doneData;
+        const movedItem = fromData[fromIndex];
+        fromData.splice(fromIndex, 1);
+        toData.splice(toIndex, 0, movedItem);
+      }
     }
+
+    // Reset dragged item index
+    this.draggedItemIndex = null;
+    this.draggedFromList = null;
+  }
+
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+}
+  
+  `;
+
+  // Store the index of the dragged item
+  draggedItemIndex: number | null = null;
+  draggedFromList: 'todo' | 'done' | null = null;
+
+  onDragStart(event: DragEvent, index: number, list: 'todo' | 'done') {
+    this.draggedItemIndex = index;
+    this.draggedFromList = list;
+    event.dataTransfer?.setData('text/plain', index.toString());
+  }
+
+  onDrop(event: DragEvent, targetList: 'todo' | 'done') {
+    event.preventDefault();
+    const fromIndex = this.draggedItemIndex;
+    const toIndex = parseInt(event.dataTransfer?.getData('text/plain') || '0', 10);
+
+    if (fromIndex !== null && this.draggedFromList !== null) {
+      if (this.draggedFromList === targetList) {
+        // Move within the same list
+        const data = targetList === 'todo' ? this.todoData : this.doneData;
+        const movedItem = data[fromIndex];
+        data.splice(fromIndex, 1);
+        data.splice(toIndex, 0, movedItem);
+      } else {
+        // Move between lists
+        const fromData = this.draggedFromList === 'todo' ? this.todoData : this.doneData;
+        const toData = targetList === 'todo' ? this.todoData : this.doneData;
+        const movedItem = fromData[fromIndex];
+        fromData.splice(fromIndex, 1);
+        toData.splice(toIndex, 0, movedItem);
+      }
+    }
+
+    // Reset dragged item index
+    this.draggedItemIndex = null;
+    this.draggedFromList = null;
+  }
+
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
   }
 }
