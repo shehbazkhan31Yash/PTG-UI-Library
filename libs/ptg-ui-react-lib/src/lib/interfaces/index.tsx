@@ -436,3 +436,20 @@ export interface IRatingProps {
 	defaultValue?: number;
 	onHover?: (value: number) => void;
 }
+
+export interface PtgUiModalProps {
+	isOpen?: boolean;
+	onConfirmed?: any;
+	modalSize?: string;
+	showHeader?: boolean;
+	header?: string;
+	showFooter?: boolean;
+	confirmButton?: string;
+	cancelButton?: string;
+	onModalClose?: any;
+	backdropClick?: boolean;
+	content?: string;
+	confirmButtonColor?: string;
+	cancelButtonColor?: string;
+	children?: any;
+}
