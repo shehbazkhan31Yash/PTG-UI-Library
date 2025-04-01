@@ -52,13 +52,21 @@ export const PtgUiModal: React.FC<PtgUiModalProps> = ({
 	return (
 		<>
 			<div className="modal-wrapper isOpen" data-backdrop="static">
-				<div className={`modal-body modal ${modalSize}`} role="dialog" aria-modal="true">
+				<div className={`modal-body modal ${modalSize}`} role="<dialog>" aria-modal="true">
 					{showHeader && header && (
 						<div className="header">
 							<h4>{header}</h4>
-							<div className="close" id="closeButton" onClick={onModalClose} role="button" aria-label="Close modal">
+							<button
+								style={{ background: 'none', border: 'none' }}
+								className="close"
+								id="closeButton"
+								onClick={onModalClose}
+								role="button"
+								aria-label="Close modal"
+								tabIndex={0}
+							>
 								×
-							</div>
+							</button>
 						</div>
 					)}
 					<div className="body">{children || <p>{content}</p>}</div>

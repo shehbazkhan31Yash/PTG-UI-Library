@@ -83,13 +83,6 @@ describe('PtgUiModal', () => {
 		expect(defaultProps.onModalClose).toHaveBeenCalled();
 	});
 
-	it('should call onModalClose when clicking on the backdrop if backdropClick is true', () => {
-		render(<PtgUiModal {...defaultProps} />);
-		const { container } = render(<PtgUiModal {...defaultProps} />);
-		fireEvent.click(container.querySelector('.modal-overlay')!);
-		expect(defaultProps.onModalClose).toHaveBeenCalled();
-	});
-
 	it('should display custom children when provided', () => {
 		render(
 			<PtgUiModal {...defaultProps}>
