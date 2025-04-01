@@ -1,14 +1,10 @@
-<accordion [isAnimated]="isAnimated || false" [closeOthers]="oneAtATime || false" class="pb-2 mt-5">
-  <ng-container *ngIf="addAccordionGroup">
-    <accordion-group *ngFor="let item of listData" [isDisabled]="item.isDisabled || false" [ngClass]="classes"
-      [heading]="item.title" [isOpen]="item.isOpen || false" [panelClass]="item.panelClass || ''"  (isOpenChange)="change($event)">
+<div [ngClass]="classes">
+  <div *ngFor="let item of listData; let i = index" [ngClass]="item.customClass || ''">
+    <div class="accordion-header" [ngClass]="{ 'isOpen': item.isOpen, 'isDisabled': item.isDisabled }" (click)="!item.isDisabled && toggleItem(i)">
+      {{ item.title }}
+    </div>
+    <div class="accordion-body" *ngIf="item.isOpen">
       {{ item.description }}
-    </accordion-group>
-  </ng-container>
-  <ng-container *ngIf="!addAccordionGroup">
-    <accordion-panel  *ngFor="let item of listData" [isDisabled]="item.isDisabled || false" [ngClass]="classes"
-      [heading]="item.title" [isOpen]="item.isOpen || false" [panelClass]="item.panelClass || ''" (isOpenChange)="change($event)">
-      {{ item.description }}
-    </accordion-panel>
-  </ng-container>
-</accordion>
+    </div>
+  </div>
+</div>
