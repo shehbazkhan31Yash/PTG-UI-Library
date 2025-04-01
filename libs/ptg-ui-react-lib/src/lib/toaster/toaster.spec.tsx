@@ -4,33 +4,62 @@ import '@testing-library/jest-dom';
 import PtgUiToaster from './toaster';
 
 describe('PtgUiToaster Component', () => {
-    it('renders without crashing', () => {
-        render(<PtgUiToaster show={true} setShow={() => jest.fn()} message="Test message" type="success" />);
-        const toaster = screen.getByText('Test message');
-        expect(toaster).toBeInTheDocument();
-    });
+  const defaultProps = {
+    show: true,
+    setShow: jest.fn(),
+    message: 'Test message',
+    type: 'success',
+    showDescription: true,
+    closeIcon: <span>Close</span>,
+    alignItem: 'center',
+    justifyContent: 'center',
+    timeToShow: 3000,
+    icon: <span>Icon</span>,
+  };
 
-    it('displays the correct message and type', () => {
-        render(<PtgUiToaster show={true} setShow={() => jest.fn()} message="Success message" type="success" />);
-        const message = screen.getByText('Success message');
-        const header = screen.getByText('Success');
-        expect(message).toBeInTheDocument();
-        expect(header).toHaveClass('text-success');
-    });
+  it('should render the toaster with the correct message', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    expect(screen.getByText('Test message')).toBeInTheDocument();
+  });
 
-    it('displays the correct error message and type', () => {
-        render(<PtgUiToaster show={true} setShow={() => jest.fn()} message="Error message" type="error" />);
-        const message = screen.getByText('Error message');
-        const header = screen.getByText('Error');
-        expect(message).toBeInTheDocument();
-        expect(header).toHaveClass('text-danger');
-    });
+  it('should render the toaster with the correct type', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    expect(screen.getByText('success')).toBeInTheDocument();
+  });
 
-    it('calls setShow when the close button is clicked', () => {
-        const setShowMock = jest.fn();
-        render(<PtgUiToaster show={true} setShow={setShowMock} message="Test message" type="success" />);
-        const closeButton = screen.getByRole('button');
-        fireEvent.click(closeButton);
-        expect(setShowMock).toHaveBeenCalledWith(false);
-    });
+  it('should render the toaster with the custom icon', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    expect(screen.getByText('Icon')).toBeInTheDocument();
+  });
+
+  it('should render the close button with the custom close icon', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    expect(screen.getByText('Close')).toBeInTheDocument();
+  });
+
+  it('should call setShow(false) when the close button is clicked', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    const closeButton = screen.getByText('Close');
+    fireEvent.click(closeButton);
+    expect(defaultProps.setShow).toHaveBeenCalledWith(false);
+  });
+
+  it('should hide the toaster after the specified timeToShow duration', () => {
+    jest.useFakeTimers();
+    const setShowMock = jest.fn();
+    render(<PtgUiToaster {...defaultProps} setShow={setShowMock} />);
+    jest.advanceTimersByTime(3000);
+    expect(setShowMock).toHaveBeenCalledWith(false);
+    jest.useRealTimers();
+  });
+
+  it('should render the description if showDescription is true', () => {
+    render(<PtgUiToaster {...defaultProps} />);
+    expect(screen.getByText('Test message')).toBeInTheDocument();
+  });
+
+  it('should not render the description if showDescription is false', () => {
+    render(<PtgUiToaster {...defaultProps} showDescription={false} />);
+    expect(screen.queryByText('Test message')).not.toBeInTheDocument();
+  });
 });
