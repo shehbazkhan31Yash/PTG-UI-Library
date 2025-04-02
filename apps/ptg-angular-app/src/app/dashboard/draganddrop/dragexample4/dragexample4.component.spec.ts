@@ -1,66 +1,83 @@
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { TranslateModule } from '@ngx-translate/core';
-
 import { Dragexample4Component } from './dragexample4.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
+ 
 describe('Dragexample4Component', () => {
   let component: Dragexample4Component;
   let fixture: ComponentFixture<Dragexample4Component>;
-  const formBuilder: FormBuilder = new FormBuilder();
-  let collectionArray:any
-
+ 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [Dragexample4Component],
-      imports: [FormsModule, ReactiveFormsModule, TranslateModule.forRoot()],
-      providers: [{ provide: FormBuilder, useValue: formBuilder },]
-    })
-      .compileComponents();
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
   });
-
+ 
   beforeEach(() => {
     fixture = TestBed.createComponent(Dragexample4Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+ 
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should call onClick method', (async () => {
-
-    const onClickMock = jest.spyOn(component, 'addManual');
-    fixture.debugElement.query(By.css('button')).triggerEventHandler('click', null);
-    jest.useFakeTimers();
-    jest.advanceTimersByTime(0)
-    expect(onClickMock).toHaveBeenCalled();
-  }));
-  it('should delete the Collection from the ID', () => {
-    const mockId = '1';
-    const obj = component.deleteCollection(mockId);
-    expect(obj).not.toEqual('1');
+ 
+  it('should initialize an empty form array', () => {
+    expect(component.collectionArray.length).toBe(0);
   });
-  it('should reset the Collection from the ID', () => {
-    const mockId = 0;
-    let submitBtn = jest.spyOn(component, 'resetCollection');
-    fixture.detectChanges();
-    component.resetCollection(mockId);
-    let r = collectionArray?.controls[0]?.reset()
-    expect(submitBtn).toHaveBeenCalledTimes(1)
+ 
+  it('should add a new collection group', () => {
+    component.addManual();
+    expect(component.collectionArray.length).toBe(1);
+expect(component.collectionArray.at(0).value).toEqual({ key: '' });
   });
-  it('drop1 check', ()=>{
-    let event: any = {}
-    event.container = { data: ['Pick up groceries', 'Go home', 'Get to work', 'Fall asleep'] }
-    event.previousIndex = 2
-    event.currentIndex = 1
-    event.previousContainer = {data:['Pick up groceries', 'Go home', 'Get to work', 'Fall asleep']}
-    let submitBtn = jest.spyOn(component, 'drop1');
-    fixture.detectChanges();
-    component.drop1(event);
-    expect(submitBtn).toHaveBeenCalledTimes(1)
-
-  })
+ 
+  it('should delete a collection item', () => {
+    component.addManual();
+    component.addManual();
+    expect(component.collectionArray.length).toBe(2);
+    component.deleteCollection(0);
+    expect(component.collectionArray.length).toBe(1);
+  });
+ 
+  it('should reset a collection item', () => {
+    component.addManual();
+component.collectionArray.at(0).patchValue({ key: 'TestValue' });
+expect(component.collectionArray.at(0).value.key).toBe('TestValue');
+    component.resetCollection(0);
+expect(component.collectionArray.at(0).value.key).toBe('');
+  });
+ 
+  it('should handle drag start event', () => {
+    component.onDragStart(2);
+    expect(component.draggingIndex).toBe(2);
+  });
+ 
+  it('should allow drag over event', () => {
+    const event = new DragEvent('dragover');
+    spyOn(event, 'preventDefault');
+    component.onDragOver(event);
+    expect(event.preventDefault).toHaveBeenCalled();
+  });
+ 
+  it('should move item on drop event', () => {
+    component.addManual();
+    component.addManual();
+    component.addManual();
+component.collectionArray.at(0).patchValue({ key: 'Item1' });
+component.collectionArray.at(1).patchValue({ key: 'Item2' });
+component.collectionArray.at(2).patchValue({ key: 'Item3' });
+ 
+    component.onDragStart(0);
+    component.onDrop(2);
+ 
+expect(component.collectionArray.at(0).value.key).toBe('Item2');
+expect(component.collectionArray.at(1).value.key).toBe('Item3');
+expect(component.collectionArray.at(2).value.key).toBe('Item1');
+  });
 });
+
+

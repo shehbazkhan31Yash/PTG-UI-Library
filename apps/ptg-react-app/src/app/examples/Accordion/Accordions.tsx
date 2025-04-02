@@ -1,4 +1,4 @@
-import './Accordion.scss';
+import './Accordion.css';
 import { useState } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
 import { IAccordion } from '../../interfaces';
@@ -12,7 +12,7 @@ export default function () {
   const [showCode, setShowCode] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleShowCode = () => setShowCode((prev) => !prev);
-  const accordionItems:IAccordion[] = accordionMockData(t)
+  const accordionItems: IAccordion[] = accordionMockData(t);
 
   // Note : handle toggle function is used to toggle the accordion item
   const handleToggle = (index: number) => {
@@ -58,7 +58,7 @@ export default function () {
       },
     ];
  `;
-//  Note: HTML code is used to show the code snippet of the component
+  //  Note: HTML code is used to show the code snippet of the component
   const htmlCode = `
   import { PtgUiAccordion } from '@ptg-ui/react';
   import "@ptg-ui/react/lib/styles/index.css";
