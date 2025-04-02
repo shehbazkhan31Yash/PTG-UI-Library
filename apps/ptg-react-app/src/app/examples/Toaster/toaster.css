@@ -1,52 +1,112 @@
-.custom-toast {
+/* Container Styles */
+.custom-toast-container {
+    display: flex;
     position: fixed;
-    top: 80px;
-    right: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 9999;
+    pointer-events: none; 
+}
+
+/* Toast Styles */
+.custom-toast {
+    position: relative;
     min-width: 300px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border: 1px solid rgb(177, 177, 177);
     transition: opacity 0.3s ease-in-out;
-    display: none;
+    pointer-events: auto; 
 }
+
 .custom-toast.show {
     display: block;
 }
+
 .custom-toast.hide {
     display: none;
 }
+
+/* Toast Header */
 .toast-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px 0px 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
 }
 
+/* Toast Background Colors */
+.custom-toast.success {
+    background-color: rgba(40, 167, 69, 0.3); 
+}
+
+.custom-toast.error {
+    background-color: rgba(220, 53, 69, 0.3); 
+}
+
+.custom-toast.warning {
+    background-color: rgba(220, 129, 0, 0.3); 
+}
+
+.custom-toast.info {
+    background-color: rgba(0, 126, 253, 0.3);
+}
+
+/* Toast Title */
 .toast-title {
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.toast-title.success {
-    color: #28a745;
+.toast-title.success,
+.toast-icon.success {
+    color: rgb(30, 70, 32); 
 }
 
-.toast-title.error {
-    color: #dc3545;
+.toast-title.error,
+.toast-icon.error {
+    color: rgb(95, 33, 32);
 }
+
+.toast-title.warning,
+.toast-icon.warning {
+    color: rgb(102, 60, 0); 
+}
+
+.toast-title.info,
+.toast-icon.info {
+    color: rgb(1, 67, 97); 
+}
+
+/* Close Button */
 .toast-close-btn {
     background: none;
     border: none;
-    color: rgb(90, 90, 90);
+    color: rgb(28, 28, 28);
     font-size: 20px;
     cursor: pointer;
 }
+
+/* Divider */
 .toast-divider {
     margin: 0;
 }
+
+/* Toast Message */
 .toast-message {
     font-size: 14px;
     color: #000;
     margin: 15px;
+}
+
+/* Toast Icon */
+.toast-icon {
+    margin-right: 7px;
+    font-size: 17px;
 }
