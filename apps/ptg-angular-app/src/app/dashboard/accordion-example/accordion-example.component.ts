@@ -32,13 +32,11 @@ export class AccordionExampleComponent {
     { title: 'Header 4', description: 'Content Description', isDisabled: false, isOpen: false, customClass: 'panel-danger' }
   ];
   onAccordionChange(event: any) {
-    console.log('Accordion changed:', event);
   }
     }`;
 
   accordionItems: AccordionItem[] = ACCORDION_DATA;
   
   onAccordionChange(event: any) {
-    console.log('Accordion changed:', event);
   }
 }
