@@ -38,7 +38,6 @@
 	transition: transform 0.3s ease-in-out;
 	background-size: contain;
 	background-repeat: no-repeat;
-	/* background-image: url('/assets/accordian-arrow.svg'); */
 	opacity: 0.6;
 }
 
