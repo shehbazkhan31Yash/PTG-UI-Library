@@ -35,16 +35,6 @@ IsAnimated.args = {
   addAccordionGroup:false
 };
 
-
-export const addAccordionGroup = Template.bind({});
-addAccordionGroup.args = {
-  isAnimated: false,
-  oneAtATime: false,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:true
-};
-
-
 export const OneAtATime = Template.bind({});
 OneAtATime.args = {
   isAnimated: false,

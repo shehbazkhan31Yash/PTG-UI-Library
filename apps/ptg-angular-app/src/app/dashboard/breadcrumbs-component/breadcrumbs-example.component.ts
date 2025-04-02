@@ -33,7 +33,7 @@ export class BreadcrumbsExampleComponent {
   export class BreadcrumbsExampleComponent {
     data = {
     "name": "Home",
-    "url" :"home",
+    "url" :"/home",
     "child": {
       "name": "Category",
       "url" :"/home/category",

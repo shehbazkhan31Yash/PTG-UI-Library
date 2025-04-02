@@ -29,7 +29,6 @@ import {AccordionComponent} from './accordion.component';
  
  - isAnimated
  - oneAtATime
- - addAccordionGroup
 
 Types of controls supported by accordion data:
 
@@ -38,7 +37,7 @@ Types of controls supported by accordion data:
  - description
  - isDisabled
  - isOpen
- - panelClass
+ - customClass
 
  ## Quick Start
  
@@ -83,17 +82,8 @@ panelClass − string, Provides an ability to use Bootstrap's contextual panel c
 <Canvas><Story id="component-accordioncomponent--is-animated"/></Canvas>
 
 
- 2] addAccordionGroup :
 
- The addAccordionGroup property sets or returns whether to use AccordionGroup or panel.
-
- true - Default, Accordion group is added within accordion
-
- false -  Accordion group is not added within accordion
-    
-<Canvas><Story id="component-accordioncomponent--add-accordion-group" /></Canvas>
-
-3] oneAtATime :
+2] oneAtATime :
 
 We can use oneAtATime control to show only one element at time.
 
