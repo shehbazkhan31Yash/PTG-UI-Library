@@ -187,10 +187,16 @@ export interface PtgUiTextAreaProps {
 
 //Toaster
 export interface ToasterProps {
-	show: boolean;
-	setShow: (show: boolean) => void;
-	message: string;
-	type: 'success' | 'error';
+    show: boolean;
+    setShow: (show: boolean) => void;
+    message?: string;
+    type?: string;
+    showDescription?: boolean;
+    closeIcon?:React.ReactNode;
+    alignItem?: string;
+    justifyContent?: string;
+    timeToShow?: number;
+    icon?: React.ReactNode;
 }
 export interface AlertProps {
 	message?: string;
