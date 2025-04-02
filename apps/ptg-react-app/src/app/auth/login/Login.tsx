@@ -141,6 +141,7 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
       })
       .catch((_error: any) => {
         setState('isAlert', true);
+        setState('isLoading', false);
       });
   };
 
@@ -161,7 +162,7 @@ export function PtgUiLogin(__props: PtgUiLoginProps) {
 
   return (
     <React.Fragment>
-      {user.isLoading && <PtgUiLoading />}
+      {user.isLoading && <PtgUiLoading type='dot' color='#CCC' />}
       <div className="login-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
         <div className="login-container">
           <div className="login-form-wrapper">
