@@ -1,6 +1,8 @@
 <div [ngClass]="classes">
   <div *ngFor="let item of listData; let i = index" [ngClass]="item.customClass || ''">
-    <div class="accordion-header" [ngClass]="{ 'isOpen': item.isOpen, 'isDisabled': item.isDisabled }" (click)="!item.isDisabled && toggleItem(i)">
+    <div class="accordion-header" [ngClass]="{ 'isOpen': item.isOpen, 'isDisabled': item.isDisabled }"
+      (click)="!item.isDisabled && toggleItem(i)" (keydown)="!item.isDisabled && toggleItem(i)"
+      (keypress)="!item.isDisabled && toggleItem(i)" (keyup)="!item.isDisabled && toggleItem(i)">
       {{ item.title }}
     </div>
     <div class="accordion-body" *ngIf="item.isOpen">
