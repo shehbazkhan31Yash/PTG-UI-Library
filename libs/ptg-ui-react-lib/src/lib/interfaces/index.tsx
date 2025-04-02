@@ -197,6 +197,12 @@ export interface AlertProps {
 	type?: string;
 }
 
+//Loader
+export interface PtgUiLoadingProps {
+	type: string;
+	color?: string;
+}
+
 //forgot password
 export interface IForgotPassword {
 	onForgotPasswordSubmit?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

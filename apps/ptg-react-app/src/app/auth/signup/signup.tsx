@@ -181,11 +181,12 @@ export function PtgUiSignup() {
       })
       .catch((error: any) => {
         console.log(error);
+        setState('isLoading', false);
       });
   };
   return (
     <React.Fragment>
-      <div>{user.isLoading && <PtgUiLoading />}</div>
+      <div>{user.isLoading && <PtgUiLoading type='circular' />}</div>
       <div className="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
         <div className="signup-container">
           <div className="signup-form-wrapper">
