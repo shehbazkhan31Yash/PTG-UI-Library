@@ -157,5 +157,8 @@
   "BUTTON_WITH_ICON": "Button with Icon",
   "ICON_ALIGNMENT_LEFT": "Icon Alignment Left",
   "ICON_ALIGNMENT_RIGHT": "Icon Alignment Right",
-  "PAGINATION": "Pagination"
+  "PAGINATION": "Pagination",
+  "DOT-LOADER": "Dot Loader",
+  "LINEAR-LOADER": "Linear Loader",
+  "CIRCULAR-LOADER": "Circular Loader"
 }

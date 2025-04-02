@@ -16,15 +16,15 @@ export const PtgUiLoading = ({ type, color }: Readonly<PtgUiLoadingProps>) => {
 		<>
 			{type === 'dot' &&
 				<div className="loader">
-					<div className="dot" style={{ background: color }}></div>
-					<div className="dot" style={{ background: color }}></div>
-					<div className="dot" style={{ background: color }}></div>
+					<div className="dot" style={{ backgroundColor: color }}></div>
+					<div className="dot" style={{ backgroundColor: color }}></div>
+					<div className="dot" style={{ backgroundColor: color }}></div>
 				</div>
 			}
 			{type !== 'dot' &&
 				<div className="loaders-container">
-					{type === 'linear' && <div className="linear-loader" style={{ background: color }}></div>}
-					{type === 'circular' && <div className="circular-loader" style={{ background: color }}></div>}
+					{type === 'linear' && <div className="linear-loader" style={{ backgroundColor: color }}></div>}
+					{type === 'circular' && <div className="circular-loader" style={{ borderTop: `8px solid ${color}` }}></div>}
 				</div>
 			}
 		</>
