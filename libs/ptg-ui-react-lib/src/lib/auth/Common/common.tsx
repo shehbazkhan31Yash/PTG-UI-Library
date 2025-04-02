@@ -1,5 +1,5 @@
 import '../Login/login.css';
-import PtgUiAlert from '../../alert/alert';
+import { PtgUiAlert } from '../../alert/alert';
 //File contains common components used in the auth module.
 
 /**
