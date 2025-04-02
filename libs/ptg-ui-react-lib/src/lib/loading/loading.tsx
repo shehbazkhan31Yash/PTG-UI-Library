@@ -1,20 +1,32 @@
-/**
- * @since March 2022
- * @author Harsha Zalawa
- * @desc Reusable Loading component
- *
- */
-import './loading.scss';
-import { Loading } from 'react-loading-dot';
-/* eslint-disable-next-line */
-export interface LoadingProps {}
 
-export function PtgUiLoading(props: LoadingProps) {
+import './loading.css';
+import { PtgUiLoadingProps } from '../interfaces';
+/**
+ * PtgUiLoading Component
+ * 
+ * A functional component that renders a custom loader .
+ * 
+ * @param {Readonly<PtgUiLoadingProps>} props - The props for the loader component.
+ * @param {string} props.type - The type of loader to display. Can be 'dot', 'linear', or 'circular'.
+ * @param {string} props.color - The background color for the loader(s). This will be applied to the dots or the loader's background.
+ * @returns {JSX.Element} A JSX element representing the loader.
+ */
+export const PtgUiLoading = ({ type, color }: Readonly<PtgUiLoadingProps>) => {
 	return (
-		<div>
-			<Loading background="#000" />
-		</div>
+		<>
+			{type === 'dot' &&
+				<div className="loader">
+					<div className="dot" style={{ background: color }}></div>
+					<div className="dot" style={{ background: color }}></div>
+					<div className="dot" style={{ background: color }}></div>
+				</div>
+			}
+			{type !== 'dot' &&
+				<div className="loaders-container">
+					{type === 'linear' && <div className="linear-loader" style={{ background: color }}></div>}
+					{type === 'circular' && <div className="circular-loader" style={{ background: color }}></div>}
+				</div>
+			}
+		</>
 	);
 }
-
-export default PtgUiLoading;

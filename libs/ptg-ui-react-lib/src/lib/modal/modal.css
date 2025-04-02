@@ -28,17 +28,18 @@
 	top: 40%;
 	transform: translate(-50%, -50%);
 	width: 100%;
-	&.lg {
-		max-width: 800px;
-	}
+}
 
-	&.md {
-		max-width: 600px;
-	}
+.modal-wrapper .modal.lg {
+	max-width: 800px;
+}
 
-	&.sm {
-		max-width: 300px;
-	}
+.modal-wrapper .modal.md {
+	max-width: 600px;
+}
+
+.modal-wrapper .modal.sm {
+	max-width: 300px;
 }
 
 .modal-wrapper .modal .header {
@@ -90,19 +91,22 @@
 .modal-wrapper .modal .footer my-buttons {
 	margin: 0 6px;
 }
+
 .modal-wrapper .modal .footer .cancel {
 	margin-left: 8px;
 }
 
 .isOpen {
 	opacity: 1;
-	transition: visibility 0s linear 0.25s, opacity 0.25s 0s, tranform 0.25s;
+	transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 	visibility: visible;
 	z-index: 99999;
 }
+
 .close {
 	font-size: 33px;
 }
+
 .btn {
 	background: #ececec;
 	color: #212529;
@@ -119,27 +123,31 @@
 	justify-content: center;
 	font-family: inherit;
 }
-div[slot='btnIcon'] {
-	svg {
-		width: 20px;
-		height: 20px;
-	}
+
+div[slot='btnIcon'] svg {
+	width: 20px;
+	height: 20px;
 }
+
 .showLeft {
 	width: 18px;
 	margin-left: 12px;
 }
+
 .btn.primary {
 	background: #2196f3;
 	color: #ffffff;
 }
+
 .btn.primary:hover {
 	background: #0a58ca;
 }
+
 .btn.danger {
 	background: #dd3434;
 	color: #ffffff;
 }
+
 .btn.danger:hover {
 	background: #bd2c2c;
 }

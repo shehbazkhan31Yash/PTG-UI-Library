@@ -58,6 +58,7 @@ export function PtgUiResetPassword(_props: PtgUiResetPasswordProps) {
       })
       .catch((error: any) => {
         setState('isAlert', true);
+        setState('isLoading', false);
         console.log(error);
       });
   };
@@ -145,7 +146,7 @@ export function PtgUiResetPassword(_props: PtgUiResetPasswordProps) {
 
   return (
     <>
-      {fields.isLoading && <PtgUiLoading />}
+      {fields.isLoading && <PtgUiLoading type='linear' />}
       {fields.showMessage.show && (
         <PtgUiAlert
           type={fields?.showMessage?.type}
