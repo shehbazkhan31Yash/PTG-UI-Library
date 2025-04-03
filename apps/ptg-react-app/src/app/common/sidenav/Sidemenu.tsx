@@ -166,6 +166,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/loader',
+    icon: 'fa fa-spinner',
+    label: 'LOADER',
+    disabled: false,
+  },
+  {
     path: '/pagination',
     icon: 'fa-solid fa-table-list',
     label: 'PAGINATION',
