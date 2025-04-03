@@ -27,7 +27,8 @@ export class ButtonComponent {
     return [
       mode,
       sizeClass,
-      this.isBlock ? 'ptg-ui-button--block' : ''
+      this.isBlock ? 'ptg-ui-button--block' : '',
+      this.isDisable ? 'ptg-ui-button--disabled' : ''
     ];
   }
 
