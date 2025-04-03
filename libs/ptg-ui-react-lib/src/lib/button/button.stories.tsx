@@ -2,7 +2,6 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { PtgUiButton } from './button';
 import { IPtgUiButtonProps } from '../interfaces';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 export default {
   title: 'Components/Button',
   component: PtgUiButton,
@@ -134,7 +133,7 @@ ButtonWithLeftIcon.args = {
   text: 'Left Icon',
   btnIconAlignment: 'left',
   hasbtnIconSlot: true,
-  children: <AddCircleOutlineIcon/>,
+  children: <div className="btn-icon">+</div>
 };
 
 // Button with right-aligned icon
@@ -144,7 +143,7 @@ ButtonWithRightIcon.args = {
   text: 'Right Icon',
   btnIconAlignment: 'right',
   hasbtnIconSlot: true,
-  children: <AddCircleOutlineIcon/>,
+  children: <div className="btn-icon">+</div>
 };
 
 // Primary button story
