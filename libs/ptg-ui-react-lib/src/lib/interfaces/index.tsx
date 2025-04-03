@@ -187,10 +187,16 @@ export interface PtgUiTextAreaProps {
 
 //Toaster
 export interface ToasterProps {
-	show: boolean;
-	setShow: (show: boolean) => void;
-	message: string;
-	type: 'success' | 'error';
+    show: boolean;
+    setShow: (show: boolean) => void;
+    message?: string;
+    type?: string;
+    showDescription?: boolean;
+    closeIcon?:React.ReactNode;
+    alignItem?: string;
+    justifyContent?: string;
+    timeToShow?: number;
+    icon?: React.ReactNode;
 }
 export interface AlertProps {
 	message?: string;
@@ -441,4 +447,21 @@ export interface IRatingProps {
 	hoverSize?: number;
 	defaultValue?: number;
 	onHover?: (value: number) => void;
+}
+
+export interface PtgUiModalProps {
+	isOpen?: boolean;
+	onConfirmed?: any;
+	modalSize?: string;
+	showHeader?: boolean;
+	header?: string;
+	showFooter?: boolean;
+	confirmButton?: string;
+	cancelButton?: string;
+	onModalClose?: any;
+	backdropClick?: boolean;
+	content?: string;
+	confirmButtonColor?: string;
+	cancelButtonColor?: string;
+	children?: any;
 }

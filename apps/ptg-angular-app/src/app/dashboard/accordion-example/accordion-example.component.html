@@ -4,7 +4,12 @@
       <div class="col-12">
         <h4 class="mb-3" [innerHTML]="'ACCORDION_EXAMPLE' | translate"></h4>
         <ptg-ui-toggle-code [htmlCode]="htmlCode" [tsCode]="tsCode"></ptg-ui-toggle-code>
-        <ptg-ui-accordion [listData]="accordionData" style="margin-bottom: 2rem;"></ptg-ui-accordion>
+         <ptg-ui-accordion
+        [listData]="accordionItems"
+        [isAnimated]="false"
+        [oneAtATime]="true"
+        (handleChange)="onAccordionChange($event)">
+      </ptg-ui-accordion>
       </div>
     </div>
   </div>
