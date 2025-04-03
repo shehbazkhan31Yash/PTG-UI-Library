@@ -37,6 +37,22 @@
 				"jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
 				"passWithNoTests": true
 			}
-		}
+		},
+		"storybook": {
+  "executor": "@nrwl/storybook:storybook",
+  "options": {
+    "port": 4400,
+    "configDir": "libs/ptg-ui-react-lib/.storybook",
+    "browserTarget": "ptg-ui-react-lib:build"
+  }
+},
+"build-storybook": {
+  "executor": "@nrwl/storybook:build",
+  "outputs": ["{options.outputDir}"],
+  "options": {
+    "outputDir": "dist/storybook/ptg-ui-react-lib",
+    "configDir": "libs/ptg-ui-react-lib/.storybook"
+  }
+}
 	}
 }
