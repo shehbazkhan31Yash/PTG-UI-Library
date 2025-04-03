@@ -21,6 +21,10 @@
 		},
 		{
 			"path": "./tsconfig.spec.json"
-		}
-	]
+		},
+		{
+			"path": "./.storybook/tsconfig.json"
+		  }
+	],
+	"types": ["storybook__react"]
 }
