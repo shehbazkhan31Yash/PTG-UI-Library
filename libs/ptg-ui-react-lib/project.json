@@ -44,14 +44,22 @@
     "port": 4400,
     "configDir": "libs/ptg-ui-react-lib/.storybook",
     "browserTarget": "ptg-ui-react-lib:build"
-  }
+}
 },
 "build-storybook": {
   "executor": "@nrwl/storybook:build",
   "outputs": ["{options.outputDir}"],
   "options": {
-    "outputDir": "dist/storybook/ptg-ui-react-lib",
-    "configDir": "libs/ptg-ui-react-lib/.storybook"
+    "outputDir": "dist/apps/ptg-ui-apps-backend/public/ptg-react-storybook",
+    "configDir": "libs/ptg-ui-react-lib/.storybook",
+	"browserTarget": "ptg-ui-react-lib:build-storybook",
+	"compodoc": false
+  },
+  "configurations": {
+	"ci": {
+	  "quiet": true
+	}
+  
   }
 }
 	}
