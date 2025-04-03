@@ -231,6 +231,13 @@ export class SidenavComponent {
         label: 'MAT_THEME_GENERATOR',
         disabled: false,
       },
+      {
+        id: '18',
+        path: '/button',
+        icon: 'fa-solid fa-file',
+        label: 'BUTTON',
+        disabled: false,
+      },
     ];
     this.menuItems.sort((a, b) => a.label.localeCompare(b.label));
 

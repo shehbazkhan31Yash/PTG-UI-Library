@@ -1,71 +1,47 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-/**
- * @since March 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-button;
- * @description This component for button
- **/
-
-import {
-  Component,
-  ElementRef,
-  Input, 
-  ViewChild,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ptg-ui-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
-  host: {
-    '[tabindex]': 'disabled ? -1 : 0',
-    '(keydown)': 'handleKeyDown($event)',
-  },
+  styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent  {
-  @Input() type: any = 'button';
-  @Input() isDisable = false;
-  @Input() isBlock = false;
-  @Input() accessKey = '';
-  @ViewChild('button', { static: true }) button!: ElementRef;
-  @Input() btnStyleType:any;
-  @Input() size?: 'small' | 'medium' | 'large';
-  @Input() primary = false;
-  @Output() onClick = new EventEmitter<Event>();
-  @Input() label = 'Button';
+export class ButtonComponent {
+  @Input() type?: string = 'button';
+  @Input() isDisable?: boolean = false;
+  @Input() isBlock?: boolean = false;
+  @Input() btnStyleType: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link' = 'primary';
+  @Input() size: 'small' | 'medium' | 'large' | 'extra-large' = 'medium';
+  @Input() label?: string = 'Button';
   @Input() backgroundColor?: string;
+  @Output() buttonClick = new EventEmitter<Event>();
 
-  
-
-  handleKeyDown(event: KeyboardEvent) {
-    switch (event.which) {
-      case 13:
-        this.button.nativeElement.click();
-        break;
-      default:
-        return;
+  handleClick(event: Event) {
+    if (!this.isDisable) {
+      this.buttonClick.emit(event);
     }
   }
 
+  get classes(): string[] {
+    const mode = `ptg-ui-button--${this.btnStyleType}`;
+    const sizeClass = this.getSizeClass();
+    return [
+      mode,
+      sizeClass,
+      this.isBlock ? 'ptg-ui-button--block' : ''
+    ];
+  }
 
-
-
-  public get classes(): string[] {
-
-     const mode = this.primary
-       ? 'ptg-ui-button--primary'
-       : 'ptg-ui-button--secondary';
-       
-       
-     return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, mode];
-    
-  
-   }
-   
-
-   
+  private getSizeClass(): string {
+    switch (this.size) {
+      case 'small':
+        return 'ptg-ui-button--small';
+      case 'large':
+        return 'ptg-ui-button--large';
+      case 'extra-large':
+        return 'ptg-ui-button--extra-large';
+      default:
+        return 'ptg-ui-button--medium';
+    }
+  }
 }
+

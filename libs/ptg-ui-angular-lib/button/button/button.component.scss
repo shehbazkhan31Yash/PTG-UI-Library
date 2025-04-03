@@ -3,46 +3,95 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
-  border-radius: 3em;
+  border-radius: 0.5em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  transition: background-color 0.3s ease;
+  padding: 6px 12px; // Default padding for medium size
+}
+
+.ptg-ui-button:hover {
+  filter: brightness(90%);
+}
+
+.ptg-ui-button:active {
+  filter: brightness(80%);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 .ptg-ui-button--primary {
   background-color: $btnBlue;
+  color: white;
 }
 
 .ptg-ui-button--secondary {
-  color: $dark;
+  background-color: gray;
+  color: white;
+}
+
+.ptg-ui-button--success {
+  background-color: green;
+  color: white;
+}
+
+.ptg-ui-button--danger {
+  background-color: red;
+  color: white;
+}
+
+.ptg-ui-button--warning {
+  background-color: orange;
+  color: white;
+}
+
+.ptg-ui-button--info {
+  background-color: lightblue;
+  color: white;
+}
+
+.ptg-ui-button--light {
+  background-color: lightgray;
+  color: black;
+}
+
+.ptg-ui-button--dark {
+  background-color: black;
+  color: white;
+}
+
+.ptg-ui-button--link {
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  color: blue;
+  text-decoration: underline;
 }
 
 .ptg-ui-button--small {
-  background-color: $btnBlue;
   font-size: 12px;
   padding: 4px 8px;
-  color: $dark;
 }
 
 .ptg-ui-button--medium {
   font-size: 14px;
-  color: $dark;
-  background-color: $btnBlue;
   padding: 6px 12px;
 }
 
 .ptg-ui-button--large {
   font-size: 16px;
-  color: $dark;
   padding: 8px 16px;
-  background-color: $btnBlue;
+}
+
+.ptg-ui-button--extra-large {
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.ptg-ui-button--block {
+  display: block;
+  width: 100%;
 }
 
 .ptg-ui-button--isDisable {
   pointer-events: none;
-  opacity: 0.5;
-  color: $dark;
-  border: 1px solid $dark;
+  opacity: 0.65;
 }
