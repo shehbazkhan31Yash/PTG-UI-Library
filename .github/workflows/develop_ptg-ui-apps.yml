@@ -37,8 +37,8 @@ jobs:
         run: |
           cd dist/apps/ptg-ui-apps-backend
            npm install -f
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+      - name: Upload node-app artifact
+        uses: actions/upload-artifact@v2
         with:
           name: node-app
           path: ./dist/apps/ptg-ui-apps-backend
