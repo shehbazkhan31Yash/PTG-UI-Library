@@ -27,6 +27,12 @@ jobs:
       - name: npm build
         run: |
           npm run build:ui:current --if-present
+      - name: Create directory if it does not exist
+        run: |
+          mkdir -p dist/apps/ptg-ui-apps-backend
+      - name: Change to build directory
+        run: |
+          cd dist/apps/ptg-ui-apps-backend
       - name: npm install in dist
         run: |
           cd dist/apps/ptg-ui-apps-backend
