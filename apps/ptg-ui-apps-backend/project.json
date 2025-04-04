@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ptg-ui-apps-backend",
@@ -17,7 +17,8 @@
         "assets": [
           "apps/ptg-ui-apps-backend/src/assets",
           "apps/ptg-ui-apps-backend/src/index.html"
-        ]
+        ],
+        "webpackConfig": "apps/ptg-ui-apps-backend/webpack.config.js"
       },
       "configurations": {
         "production": {
