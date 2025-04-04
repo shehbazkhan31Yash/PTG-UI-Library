@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = (config, context) => {
   return {
     ...config,
-    mode: 'development',
+    mode: 'production',
     entry: './apps/ptg-ui-apps-backend/src/main.ts',
     resolve: {
       extensions: ['.js', '.ts', '.json', '.jsx', '.tsx'],
@@ -23,13 +23,13 @@ module.exports = (config, context) => {
         vm: require.resolve('vm-browserify'),
         net: false,
         async_hooks: false,
-        dns: false, // Disable dns for browser builds
-        child_process: false, // Disable child_process for browser builds
-        tls: false // Disable tls for browser builds
+        dns: false,
+        child_process: false,
+        tls: false
       }
     },
     externals: {
-      nodemailer: 'commonjs nodemailer' // Exclude nodemailer from the Webpack bundle
+      nodemailer: 'commonjs nodemailer'
     },
     plugins: [
       ...(config.plugins || []),
@@ -39,7 +39,14 @@ module.exports = (config, context) => {
       new webpack.ProvidePlugin({
         process: 'process/browser',
         Buffer: ['buffer', 'Buffer']
-      })
+      }),
+      new webpack.ContextReplacementPlugin(
+        /express[/\\]lib/,
+        (data) => {
+          delete data.dependencies[0].critical;
+          return data;
+        }
+      )
     ]
   };
 };
