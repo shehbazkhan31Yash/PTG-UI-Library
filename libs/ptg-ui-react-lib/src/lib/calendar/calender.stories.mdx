@@ -1,0 +1,91 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Calendar/PtgUiCalendar" component={PtgUiCalendar} />
+
+# PtgUiCalendar Component
+
+The `PtgUiCalendar` component is a versatile date and datetime picker designed to integrate seamlessly into your React applications. With options for customization and accessibility, it empowers users to select dates efficiently.
+
+You can import the component using the following statement:
+```jsx
+import { PtgUiCalendar } from '@ptg-ui/react';
+
+
+## Features
+
+The `PtgUiCalendar` component supports the following controls:
+
+### `className`
+
+The `className` attribute allows you to apply custom styles to the calendar input field.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--default-calendar" />
+</Canvas>
+
+---
+
+### `selected`
+
+The `selected` prop indicates the currently selected date or datetime. It can be used to pre-select a specific value.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--default-calendar" />
+</Canvas>
+
+---
+
+### `startDate`
+
+The `startDate` prop defines the minimum selectable date or datetime. Use this to restrict past dates or set specific boundaries.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--restricted-calendar" />
+</Canvas>
+
+---
+
+### `endDate`
+
+The `endDate` prop defines the maximum selectable date or datetime. It ensures users cannot select dates beyond the specified limit.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--restricted-calendar" />
+</Canvas>
+
+---
+
+### `disabled`
+
+The `disabled` prop allows you to disable the calendar input, making it unclickable and visually indicating its state.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--disabled-calendar" />
+</Canvas>
+
+---
+
+### `isDateTime`
+
+The `isDateTime` prop determines whether the calendar input should act as a date picker or datetime picker.
+
+#### Example:
+
+<Canvas>
+  <Story id="components-calendar--date-time-picker" />
+</Canvas>
+
+---
+
+
+
