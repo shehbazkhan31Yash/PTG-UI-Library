@@ -1,11 +1,19 @@
 <div class="datepicker-wrapper" (clickOutside)="hideCalendar()">
   <input type="text" [placeholder]="placeholder" [value]="displayValue" [readOnly]="isReadOnly"
     (click)="toggleCalendar()" class="datepicker-input" />
+  <span class="calendar-icon" (click)="toggleCalendar()">
+    📅
+  </span>
   <div class="calendar" *ngIf="showCalendar">
     <div class="calendar-header">
-      <button (click)="prevMonth()">&lt;</button>
-      <span>{{ months[currentMonth] }} {{ currentYear }}</span>
-      <button (click)="nextMonth()">&gt;</button>
+      <button (click)="prevMonth()" aria-label="Previous Month">&lt;</button>
+      <select [(ngModel)]="currentMonth" (change)="onMonthOrYearChange()">
+        <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
+      </select>
+      <select [(ngModel)]="currentYear" (change)="onMonthOrYearChange()">
+        <option *ngFor="let year of years">{{ year }}</option>
+      </select>
+      <button (click)="nextMonth()" aria-label="Next Month">&gt;</button>
     </div>
     <div class="calendar-body">
       <div class="calendar-weekdays">

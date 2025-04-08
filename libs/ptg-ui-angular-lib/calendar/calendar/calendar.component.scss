@@ -1,7 +1,7 @@
 .datepicker-wrapper {
   position: relative;
   display: inline-block;
-  width: 200px;
+  width: 230px;
 }
 
 .datepicker-input {
@@ -9,6 +9,16 @@
   padding: 8px;
   box-sizing: border-box;
   cursor: pointer;
+  padding-right: 30px; /* Adjust padding to make space for the icon */
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px; /* Adjust size as needed */
 }
 
 .calendar {
@@ -38,13 +48,15 @@
 
 .calendar-dates span {
   padding: 6px;
-  cursor: pointer; /* Add hand cursor for selectable dates */
+  cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  transition: background-color 0.3s ease;
 }
 
-.calendar-dates span:hover:not(.disabled) {
+.calendar-dates span:hover:not(.disabled),
+.calendar-dates span:focus:not(.disabled) {
   background-color: #eee;
+  outline: none;
 }
 
 .calendar-dates .selected {
@@ -54,6 +66,17 @@
 
 .calendar-dates .disabled {
   color: #ccc;
-  pointer-events: none; /* Remove pointer events from disabled dates */
-  cursor: default; /* Ensure cursor is not a pointer for disabled dates */
+  pointer-events: none;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .calendar {
+    width: 100%;
+    padding: 4px;
+  }
+
+  .calendar-dates span {
+    padding: 4px;
+  }
 }
