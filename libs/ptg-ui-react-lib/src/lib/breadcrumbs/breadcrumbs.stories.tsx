@@ -1,15 +1,14 @@
-// stories.tsx
-
 import { StoryFn, Meta } from '@storybook/react';
 import { PtgUiBreadcrumbs } from './Breadcrumbs';
 import { IPtgUiBreadcrumbsProps } from '@ptg-react-libs/interfaces';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export default {
-    title: 'Components/PtgUiBreadcrumbs',
+    title: 'Components/Breadcrumbs',
     component: PtgUiBreadcrumbs,
 } as Meta;
 
-const Template: StoryFn<IPtgUiBreadcrumbsProps> = (args) => <PtgUiBreadcrumbs {...args} />;
+const Template: StoryFn<IPtgUiBreadcrumbsProps> = (args) => <Router><PtgUiBreadcrumbs {...args} /></Router>;
 
 export const Default = Template.bind({});
 Default.args = {
