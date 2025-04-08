@@ -4,7 +4,8 @@ const webpack = require('webpack');
 module.exports = (config) => {
   return {
     ...config,
-    entry: 'apps/ptg-ui-apps-backend/src/main.ts',
+    mode: 'development',
+    entry: './apps/ptg-ui-apps-backend/src/main.ts',
     resolve: {
       extensions: ['.js', '.ts', '.json', '.jsx', '.tsx'],
       ...config.resolve,
@@ -33,7 +34,7 @@ module.exports = (config) => {
     plugins: [
       ...(config.plugins || []),
       new HtmlWebpackPlugin({
-        template: 'apps/ptg-ui-apps-backend/src/index.html'
+        template: './apps/ptg-ui-apps-backend/src/index.html'
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser',
