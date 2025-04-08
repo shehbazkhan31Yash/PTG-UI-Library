@@ -1,11 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-module.exports = (config, context) => {
+module.exports = (config) => {
   return {
     ...config,
-    mode: 'production',
-    entry: './apps/ptg-ui-apps-backend/src/main.ts',
+    entry: 'apps/ptg-ui-apps-backend/src/main.ts',
     resolve: {
       extensions: ['.js', '.ts', '.json', '.jsx', '.tsx'],
       ...config.resolve,
@@ -34,7 +33,7 @@ module.exports = (config, context) => {
     plugins: [
       ...(config.plugins || []),
       new HtmlWebpackPlugin({
-        template: './apps/ptg-ui-apps-backend/src/index.html'
+        template: 'apps/ptg-ui-apps-backend/src/index.html'
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser',
