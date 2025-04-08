@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { PtgUiBreadcrumbs } from './Breadcrumbs';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+<Meta title="Components/PtgUiBreadcrumbs" component={PtgUiBreadcrumbs} />
+
+# PtgUiBreadcrumbs
+
+A functional component that renders a breadcrumb navigation list.
+
+## Props
+
+| Name         | Type     | Description                                      |
+|--------------|----------|--------------------------------------------------|
+| `datalist`   | `Array`  | An array of breadcrumb items.                    |
+| `handleClick`| `Function` | A function to handle click events on breadcrumb links. |
+
+## Example
+
+<Canvas>
+  <Story name="Default">
+    <Router>
+      <PtgUiBreadcrumbs
+        datalist={[
+          { title: 'Home', link: '/' },
+          { title: 'Library', link: '/library' },
+          { title: 'Data', link: '/data' },
+        ]}
+        handleClick={() => alert('Breadcrumb clicked!')}
+      />
+    </Router>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="WithoutLinks">
+    <Router>
+      <PtgUiBreadcrumbs
+        datalist={[
+          { title: 'Home' },
+          { title: 'Library' },
+          { title: 'Data' },
+        ]}
+        handleClick={() => alert('Breadcrumb clicked!')}
+      />
+    </Router>
+  </Story>
+</Canvas>
