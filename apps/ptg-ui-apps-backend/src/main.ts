@@ -28,12 +28,13 @@ app.all('/*', function (req, res, next) {
 
 
 // main routes
-app.get('/api', (req: any, res: any) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
 });
 app.use(express.static(path.join(__dirname, 'assets')));
 
-let server = app.listen(port, async () => {
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 // using authentication routes
@@ -51,12 +52,13 @@ mongoose
     // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
   )
   .then((data) => {
+    console.log('Database connected successfully:', data);
   })
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
 app.use('/', express.static(path.join(__dirname, 'public')));
-app.get('*', (req: express.Request, res: express.Response) => {
+app.get('*', (req, res) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
   const apps = {
