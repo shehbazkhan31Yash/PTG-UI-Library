@@ -1,11 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path'); // Import path module
 
 module.exports = (config) => {
   return {
     ...config,
     mode: 'development',
-    entry: './apps/ptg-ui-apps-backend/src/main.ts',
+    entry: path.resolve(__dirname, './src/main.ts'), // Use path.resolve to create an absolute path
     resolve: {
       extensions: ['.js', '.ts', '.json', '.jsx', '.tsx'],
       ...config.resolve,
@@ -34,7 +35,7 @@ module.exports = (config) => {
     plugins: [
       ...(config.plugins || []),
       new HtmlWebpackPlugin({
-        template: './apps/ptg-ui-apps-backend/src/index.html'
+        template: path.resolve(__dirname, './src/index.html'), // Use path.resolve to create an absolute path
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser',
