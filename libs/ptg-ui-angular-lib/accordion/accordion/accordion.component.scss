@@ -29,8 +29,14 @@
     }
 
     &::after {
-      content: '\f078';
-      font-family: 'FontAwesome', sans-serif;
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 10px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #333;
       transition: transform 0.3s ease;
     }
 

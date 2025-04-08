@@ -11,7 +11,7 @@ import { TextareaModule } from '@ptg-ui/angular/textarea';
 import { FileDownloadsModule } from '@ptg-ui/angular/file-downloads';
 import { IndeterminateCheckboxesModule } from '@ptg-ui/angular/indeterminate-checkboxes';
 import { SidenavModule } from '@ptg-ui/angular/sidenav';
-import { AccordianModule } from '@ptg-ui/angular/accordion';
+import { AccordionModule } from '@ptg-ui/angular/accordion';
 import { AlertModule } from '@ptg-ui/angular/alert';
 import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
@@ -34,7 +34,7 @@ const modules = [
   ChecksModule,
   ChartModule,
   RadioModule,
-  AccordianModule,
+  AccordionModule,
   TextareaModule,
   AlertModule,
   PtgAgGridDatatableModule,

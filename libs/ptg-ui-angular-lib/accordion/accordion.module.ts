@@ -8,7 +8,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionComponent } from './accordion/accordion.component';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 
 @NgModule({
@@ -16,11 +15,10 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     AccordionComponent
   ],
   imports: [
-    CommonModule,
-    AccordionModule.forRoot(),    
+    CommonModule   
   ],
   exports:[
     AccordionComponent
   ]
 })
-export class AccordianModule { }
+export class AccordionModule { }
