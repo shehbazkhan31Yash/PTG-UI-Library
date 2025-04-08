@@ -1,0 +1,89 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs';
+import { PtgUiBreadcrumbs } from './Breadcrumbs';
+
+<Meta title="Components/PtgUiBreadcrumbs" component={PtgUiBreadcrumbs} />
+
+# PtgUiBreadcrumbs Component
+
+The `PtgUiBreadcrumbs` component is a functional navigation aid that helps users understand their current location within a web application. It displays a list of links that represent the user's path, allowing for easy navigation back to previous sections.
+
+## Usage
+
+To use the `PtgUiBreadcrumbs` component, you need to provide it with a `datalist` prop, which is an array of breadcrumb items. Each item should have a `title` and an optional `link`. Additionally, you can provide a `handleClick` function to handle click events on the breadcrumb links.
+
+## Examples
+
+### Default
+
+<Preview>
+  <Story name="Default">
+    <PtgUiBreadcrumbs
+      datalist={[
+        { title: 'Home', link: '/' },
+        { title: 'Nature', link: '/nature' },
+        { title: 'Forests', link: '/nature/forests' },
+      ]}
+      handleClick={() => console.log('Breadcrumb clicked!')}
+    />
+  </Story>
+</Preview>
+
+This example shows a standard breadcrumb navigation with links to "Home," "Nature," and "Forests."
+
+### Active Breadcrumb
+
+<Preview>
+  <Story name="ActiveBreadcrumb">
+    <PtgUiBreadcrumbs
+      datalist={[
+        { title: 'Home', link: '/' },
+        { title: 'Nature', link: '/nature' },
+        { title: 'Rivers', link: '/nature/rivers' },
+        { title: 'Amazon River' }, // No link for the active breadcrumb
+      ]}
+      handleClick={() => console.log('Breadcrumb clicked!')}
+    />
+  </Story>
+</Preview>
+
+In this example, the "Amazon River" breadcrumb is the active item and does not have a link.
+
+### Long Breadcrumbs
+
+<Preview>
+  <Story name="LongBreadcrumbs">
+    <PtgUiBreadcrumbs
+      datalist={[
+        { title: 'Home', link: '/' },
+        { title: 'Nature', link: '/nature' },
+        { title: 'Forests', link: '/nature/forests' },
+        { title: 'Tropical Rainforests', link: '/nature/forests/tropical' },
+        { title: 'Amazon Rainforest' }, // No link for the active breadcrumb
+      ]}
+      handleClick={() => console.log('Breadcrumb clicked!')}
+    />
+  </Story>
+</Preview>
+
+This example demonstrates how the component handles a longer list of breadcrumbs.
+
+### No Links
+
+<Preview>
+  <Story name="NoLinks">
+    <PtgUiBreadcrumbs
+      datalist={[
+        { title: 'Home' }, // No link
+        { title: 'About Us' }, // No link
+        { title: 'Contact' }, // No link
+      ]}
+      handleClick={() => console.log('Breadcrumb clicked!')}
+    />
+  </Story>
+</Preview>
+
+In this case, the breadcrumbs do not have any links, which can be useful for static navigation items.
+
+## Conclusion
+
+The `PtgUiBreadcrumbs` component is a versatile and user-friendly navigation tool that enhances the user experience by providing clear paths through a web application. By utilizing this component, developers can ensure that users always know where they are and how to navigate back to previous sections.
