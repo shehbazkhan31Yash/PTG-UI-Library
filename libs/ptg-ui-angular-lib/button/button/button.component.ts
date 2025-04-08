@@ -23,26 +23,13 @@ export class ButtonComponent {
 
   get classes(): string[] {
     const mode = `ptg-ui-button--${this.btnStyleType}`;
-    const sizeClass = this.getSizeClass();
+    const sizeClass = `ptg-ui-button--${this.size}`;
     return [
       mode,
       sizeClass,
       this.isBlock ? 'ptg-ui-button--block' : '',
       this.isDisable ? 'ptg-ui-button--disabled' : ''
     ];
-  }
-
-  private getSizeClass(): string {
-    switch (this.size) {
-      case 'small':
-        return 'ptg-ui-button--small';
-      case 'large':
-        return 'ptg-ui-button--large';
-      case 'extra-large':
-        return 'ptg-ui-button--extra-large';
-      default:
-        return 'ptg-ui-button--medium';
-    }
   }
 }
 
