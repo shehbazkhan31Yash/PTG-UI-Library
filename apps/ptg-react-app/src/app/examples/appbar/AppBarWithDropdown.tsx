@@ -79,7 +79,7 @@ export const AppBarWithDropDown = (props: IAppBarWithDropdownMenu) => {
       <ul>
         {menuItems.map((item, index) => (
           <li
-            key={`${index}item`}
+            key={`${item.label}-${index}}`}
             style={{
               listStyleType: 'none',
               padding: '2px',

@@ -80,7 +80,7 @@ export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
     ),
     backgroundColor: 'secondary' as 'secondary',
     burgerMenu: !isDesktop,
-    position: 'top' as 'top',
+    position: 'top' as const,
   };
 
 
@@ -157,7 +157,7 @@ export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
     ),
     backgroundColor: 'secondary' as const,
     burgerMenu: !isDesktop,
-    position: 'top' as 'top',
+    position: 'top' as const,
   };
 
   return (
