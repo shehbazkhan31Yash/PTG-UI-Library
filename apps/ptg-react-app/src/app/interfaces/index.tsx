@@ -217,3 +217,7 @@ export interface IAppBarWithDropdownMenu {
 export interface IAppBarWithResponsiveness {
   showCodeAppBarWithResponsiveness?: boolean;
 }
+
+export interface IAppBarWithoutStatic {
+  showCodeAppBarWithoutStatic?: boolean;
+}

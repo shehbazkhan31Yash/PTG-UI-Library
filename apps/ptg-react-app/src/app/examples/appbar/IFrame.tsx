@@ -101,7 +101,7 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     top: 0;
                     left: 0;
                     height: 100%;
-                    width: 150px;
+                    width: 175px;
 
                     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
                     transition: transform 0.3s ease;
@@ -128,6 +128,13 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     overflow-y: auto;
                     }
 
+                    .paragraph {
+                    overflow: hidden; /* Prevents scrolling */
+                    white-space: normal; /* Allows text to wrap */
+                    overflow-wrap: break-word; /* Breaks long words */
+                    word-wrap: break-word; /* For older browsers */
+                    max-width: 100%; /* Ensures it doesn't exceed the container width */
+}
 
                 /* AppBarWithDefaultProps.css */
 

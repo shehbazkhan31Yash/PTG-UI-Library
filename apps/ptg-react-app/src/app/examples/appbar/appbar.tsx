@@ -7,6 +7,7 @@ import { AppBarWithBurgerMenu } from './AppBarWithBurgerMenu';
 import { AppBarWithMenuBottom } from './AppBarWithMenuBottom';
 import { AppBarWithDropDown } from './AppBarWithDropdown';
 import { AppBarWithResponsiveness } from './AppBarWithResponsiveness';
+import { AppBarWithoutStatic } from './AppBarWithoutStatic';
 
 const AppBarExample = () => {
   const { t } = useTranslation();
@@ -19,10 +20,15 @@ const AppBarExample = () => {
     useState<boolean>(false);
   const [showCodeAppBarWithDropdownMenu, setShowCodeAppBarWithDropdownMenu] =
     useState<boolean>(false);
+  const [showCodeAppBarWithoutStatic, setShowCodeAppBarWithoutStatic] =
+    useState<boolean>(false);
   const [
     showCodeAppBarWithResponsiveness,
     setShowCodeAppBarWithResponsiveness,
   ] = useState<boolean>(false);
+
+  const ShowExampleWithStaticMenu = () =>
+    setShowCodeAppBarWithoutStatic(!showCodeAppBarWithoutStatic);
 
   const ShowExampleWithResponsiveness = () =>
     setShowCodeAppBarWithResponsiveness(!showCodeAppBarWithResponsiveness);
@@ -152,6 +158,29 @@ const AppBarExample = () => {
 
           <AppBarWithResponsiveness
             showCodeAppBarWithResponsiveness={showCodeAppBarWithResponsiveness}
+          />
+        </div>
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <div className="row">
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">
+              {' '}
+              {t('AppBar with Burger Menu')}
+            </h5>
+          </div>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleWithStaticMenu}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
+
+          <AppBarWithoutStatic
+            showCodeAppBarWithoutStatic={showCodeAppBarWithoutStatic}
           />
         </div>
       </section>
