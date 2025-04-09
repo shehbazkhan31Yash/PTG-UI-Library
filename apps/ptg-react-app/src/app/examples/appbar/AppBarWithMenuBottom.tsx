@@ -82,7 +82,7 @@ export const AppBarWithMenuBottom = (props: IAppBarWithMenuBottom) => {
       <ul>
         {menuItems.map((item, index) => (
           <li
-            key={index}
+            key={`${index}item`}
             style={{
               listStyleType: 'none',
               padding: '2px',

@@ -21,7 +21,7 @@ export const AppBar: React.FC<IAppBarProps> = ({
 	openMenu: controlledMenuOpen, // Controlled state for menu open
 	closeMenu, // Function to set menu open state
 }) => {
-	const [menuOpen, setMenuOpen] = useState(controlledMenuOpen || false); // Use controlled state or local state
+	const [menuOpen, setMenuOpen] = useState(controlledMenuOpen ?? false); // Use controlled state or local state
 	const menuConfigState = { ...defaultMenuConfig, ...menuConfig }; // State for menu configuration
 
 	const menuRef = useRef<HTMLDivElement>(null);
@@ -64,7 +64,7 @@ export const AppBar: React.FC<IAppBarProps> = ({
 			}`}
 			style={{
 				backgroundColor: colorMap[menuConfigState.backgroundColor],
-				color: menuConfigState.textColor || '#fff',
+				color: menuConfigState.textColor ?? '#fff',
 				justifyContent:
 					menuConfigState.menuAlignment === 'right' && menuConfigState.logoAlignment === 'right'
 						? 'flex-end'
@@ -119,7 +119,7 @@ export const AppBar: React.FC<IAppBarProps> = ({
 								}}
 							>
 								<div className="menu-header">
-									<h3 style={{ color: menuConfigState.textColor || '#fff' }}>Menu</h3>
+									<h3 style={{ color: menuConfigState.textColor ?? '#fff' }}>Menu</h3>
 									<button onClick={closeMenuHandler} className="close-button">
 										✖
 									</button>

@@ -138,7 +138,7 @@ const AppBarExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('AppBar with Dropdown Menu')}
+              {t('Responsive AppBar')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

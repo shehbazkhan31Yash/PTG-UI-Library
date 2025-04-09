@@ -64,12 +64,13 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     align-items: center;
                     justify-content: space-between;
                     flex-direction: row;
-                    margin: 0 40px;
+                    margin: 0 20px 0 0;
                     }
 
                     .logo {
                     height: 40px;
                     cursor: pointer;
+                    margin: 0 10px 0 0;
                     }
 
                     .burger-menu {
@@ -100,7 +101,7 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     top: 0;
                     left: 0;
                     height: 100%;
-                    width: 250px;
+                    width: 150px;
 
                     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
                     transition: transform 0.3s ease;
@@ -182,6 +183,7 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
 
   return (
     <iframe
+      title="iframe"
       ref={setRef}
       style={{ width: '100%', height: '400px', border: '2px' }}
     >

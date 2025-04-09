@@ -76,7 +76,7 @@ export const AppBarWithDefaultProps = (props: IAppBarWithDefaultProps) => {
     menuItems: (
       <ul className="menu-list">
         {menuItems.map((item, index) => (
-          <li key={index} className="menu-item">
+          <li key={`${index}item`} className="menu-item">
             <Link to="#" className="link">
               {item.label}
             </Link>

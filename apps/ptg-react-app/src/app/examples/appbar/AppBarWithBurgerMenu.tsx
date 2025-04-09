@@ -76,7 +76,10 @@ export const AppBarWithBurgerMenu = (props: IAppBarWithBurgerMenu) => {
     menuItems: (
       <ul>
         {menuItems.map((item, index) => (
-          <li key={index} style={{ listStyleType: 'none', padding: '5px' }}>
+          <li
+            key={`${index}item`}
+            style={{ listStyleType: 'none', padding: '5px' }}
+          >
             <Link to="#" className="link">
               {item.label}
             </Link>
