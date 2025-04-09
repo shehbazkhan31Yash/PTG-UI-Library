@@ -171,6 +171,8 @@ export interface PtgUiSelectProps {
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	htmlFor?: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	placeholder?: string;
+	disabled?: boolean;
 }
 
 //Textarea
