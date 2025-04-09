@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path'); // Import path module
+const { NxWebpackPlugin } = require('@nx/webpack');
 
 module.exports = (config) => {
   return {
@@ -26,11 +27,11 @@ module.exports = (config) => {
         async_hooks: false,
         dns: false,
         child_process: false,
-        tls: false
-      }
+        tls: false,
+      },
     },
     externals: {
-      nodemailer: 'commonjs nodemailer'
+      nodemailer: 'commonjs nodemailer',
     },
     plugins: [
       ...(config.plugins || []),
@@ -39,15 +40,17 @@ module.exports = (config) => {
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser',
-        Buffer: ['buffer', 'Buffer']
+        Buffer: ['buffer', 'Buffer'],
       }),
-      new webpack.ContextReplacementPlugin(
-        /express[/\\]lib/,
-        (data) => {
-          delete data.dependencies[0].critical;
-          return data;
-        }
-      )
-    ]
+      new webpack.ContextReplacementPlugin(/express[/\\]lib/, (data) => {
+        delete data.dependencies[0].critical;
+        return data;
+      }),
+      new NxWebpackPlugin({
+        target: 'node',
+        compiler: 'tsc',
+        generatePackageJson: true,
+      }),
+    ],
   };
 };
