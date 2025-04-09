@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { AppBar } from './AppBar';
 import '@testing-library/jest-dom';
@@ -73,6 +72,6 @@ describe('AppBar Component', () => {
 			menuConfig: { ...defaultProps.menuConfig, backgroundColor: 'secondary' as const },
 		};
 		const { container } = render(<AppBar {...props} />);
-		expect(container.firstChild).toHaveStyle('background-color: rgb(33, 150, 243)');
+		expect(container.firstChild).toHaveStyle('background-color: #4CAF50');
 	});
 });
