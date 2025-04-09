@@ -26,5 +26,20 @@ export const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
 export const MODAL_SIZE_LARGE = 'lg';
 export const BUTTON_CLASS = 'btn';
 
-export const primaryColor = '#4CAF50';
-export const secondaryColor = '#2196F3';
+export const defaultMenuConfig = {
+	backgroundColor: 'primary',
+	static: false,
+	position: 'top',
+	textColor: '#fff',
+	menuAlignment: 'right',
+	logoAlignment: 'left',
+	burgerMenu: false,
+	burgerMenuType: 'drawer',
+	menuItems: [],
+	logo: '',
+};
+
+export const colorMap: Record<string, string> = {
+	primary: '#2196F3',
+	secondary: '#4CAF50',
+};

@@ -197,3 +197,23 @@ export interface IRatingWithVariousSize {
 export interface IRatingWithCustomIcon {
   showCodeWithCustomIcon?: boolean;
 }
+
+export interface IAppBarWithDefaultProps {
+  showCodeDefaultAppBar?: boolean;
+}
+
+export interface IAppBarWithBurgerMenu {
+  showCodeAppBarWithBurger?: boolean;
+}
+
+export interface IAppBarWithMenuBottom {
+  showCodeAppBarWithMenuBottom?: boolean;
+}
+
+export interface IAppBarWithDropdownMenu {
+  showCodeAppBarWithDropdownMenu?: boolean;
+}
+
+export interface IAppBarWithResponsiveness {
+  showCodeAppBarWithResponsiveness?: boolean;
+}

@@ -82,6 +82,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/appbar',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Appbar',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',

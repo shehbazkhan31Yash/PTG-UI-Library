@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { primaryColor, secondaryColor } from '@ptg-react-libs/constants/Constants';
+import './AppBar.css'; // Import the CSS file
 import { IAppBarProps } from '@ptg-react-libs/interfaces';
+import { colorMap, defaultMenuConfig } from '@ptg-react-libs/constants/Constants';
 
 /**
  * AppBar component to render a customizable navigation bar.
@@ -15,20 +16,26 @@ import { IAppBarProps } from '@ptg-react-libs/interfaces';
  * @param {Function} [props.closeMenu] - Callback function triggered when the menu is closed.
  * @returns {JSX.Element} The rendered AppBar component.
  */
-export const AppBar: React.FC<IAppBarProps> = ({ menuConfig, openMenu: controlledMenuOpen, closeMenu }) => {
-	const [menuOpen, setLocalMenuOpen] = useState(controlledMenuOpen || false);
+export const AppBar: React.FC<IAppBarProps> = ({
+	menuConfig,
+	openMenu: controlledMenuOpen, // Controlled state for menu open
+	closeMenu, // Function to set menu open state
+}) => {
+	const [menuOpen, setMenuOpen] = useState(controlledMenuOpen || false); // Use controlled state or local state
+	const menuConfigState = { ...defaultMenuConfig, ...menuConfig }; // State for menu configuration
+
 	const menuRef = useRef<HTMLDivElement>(null);
 
 	const toggleMenu = () => {
 		const newState = !menuOpen;
-		setLocalMenuOpen(newState);
+		setMenuOpen(newState);
 		if (closeMenu) {
 			closeMenu(newState); // Call the parent's closeMenu function if provided
 		}
 	};
 
 	const closeMenuHandler = () => {
-		setLocalMenuOpen(false);
+		setMenuOpen(false);
 		if (closeMenu) {
 			closeMenu(false); // Call the parent's closeMenu function if provided
 		}
@@ -46,172 +53,78 @@ export const AppBar: React.FC<IAppBarProps> = ({ menuConfig, openMenu: controlle
 
 	useEffect(() => {
 		if (controlledMenuOpen !== undefined) {
-			setLocalMenuOpen(controlledMenuOpen); // Sync local state with controlled prop
+			setMenuOpen(controlledMenuOpen); // Sync local state with controlled prop
 		}
 	}, [controlledMenuOpen]);
 
-	const backgroundColor =
-		menuConfig.backgroundColor === 'primary'
-			? primaryColor
-			: menuConfig.backgroundColor === 'secondary'
-			? secondaryColor
-			: '#333';
-
 	return (
 		<nav
+			className={`app-bar ${menuConfigState.static ? 'app-bar-relative' : 'app-bar-fixed'} ${
+				menuConfigState.position === 'top' ? 'app-bar-top' : 'app-bar-bottom'
+			}`}
 			style={{
-				width: '100%',
-				display: 'flex',
-				padding: '10px 20px',
-				boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
-				position: menuConfig.static ? 'relative' : 'fixed',
-				top: menuConfig.position === 'top' ? 0 : 'auto',
-				bottom: menuConfig.position === 'bottom' ? 0 : 'auto',
-				backgroundColor: backgroundColor,
-				color: menuConfig.textColor || '#fff',
+				backgroundColor: colorMap[menuConfigState.backgroundColor],
+				color: menuConfigState.textColor || '#fff',
 				justifyContent:
-					menuConfig.menuAlignment === 'right' && menuConfig.logoAlignment === 'right' ? 'flex-end' : 'flex-start',
+					menuConfigState.menuAlignment === 'right' && menuConfigState.logoAlignment === 'right'
+						? 'flex-end'
+						: 'flex-start',
 			}}
 		>
-			<div
-				style={{
-					display: 'flex',
-					width: '100%',
-					alignItems: 'center',
-					justifyContent: 'space-between',
-					flexDirection: 'row',
-					margin: '0 40px',
-				}}
-			>
-				{menuConfig.logo && (
-					<div style={{ order: menuConfig.logoAlignment === 'left' ? -1 : 1 }}>
-						<img src={menuConfig.logo} alt="Logo" style={{ height: '40px', cursor: 'pointer' }} />
+			<div className="app-bar-content">
+				{menuConfigState.logo && (
+					<div style={{ order: menuConfigState.logoAlignment === 'left' ? -1 : 1 }}>
+						<img src={menuConfigState.logo} alt="Logo" className="logo" />
 					</div>
 				)}
-				{!menuConfig.burgerMenu && <div>{menuConfig.menuItems}</div>}
-				{menuConfig.burgerMenu && (
+				{!menuConfigState.burgerMenu && <div>{menuConfigState.menuItems}</div>}
+				{menuConfigState.burgerMenu && (
 					<div
 						ref={menuRef}
+						className="burger-menu"
 						style={{
-							position: 'relative',
-							marginLeft: menuConfig.menuAlignment === 'right' ? 'auto' : '0',
+							backgroundColor: colorMap[menuConfigState.backgroundColor],
+							marginLeft: menuConfigState.menuAlignment === 'right' ? 'auto' : '0',
 						}}
 					>
-						<button
-							onClick={toggleMenu}
-							style={{
-								background: 'none',
-								border: 'none',
-								fontSize: '24px',
-								cursor: 'pointer',
-							}}
-						>
+						<button onClick={toggleMenu} className="burger-button">
 							☰
 						</button>
-						{menuOpen && menuConfig.burgerMenuType === 'dropdown' && (
+						{menuOpen && menuConfigState.burgerMenuType === 'dropdown' && (
 							<div
+								className="dropdown-menu"
 								style={{
-									position: 'absolute',
-									top: menuConfig.position === 'bottom' ? 'auto' : '100%',
-									bottom: menuConfig.position === 'bottom' ? '100%' : 'auto',
-									backgroundColor: backgroundColor,
-									padding: '10px',
-									boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-									borderRadius: '5px',
-									minWidth: '150px',
-									maxHeight: '300px',
-									overflowY: 'auto',
-									scrollbarWidth: 'none',
-									msOverflowStyle: 'none',
-									zIndex: 1000,
-									left: menuConfig.menuAlignment === 'left' ? '0' : 'auto',
-									right: menuConfig.menuAlignment === 'right' ? '0' : 'auto',
-									width: 'auto',
-									height: 'auto',
-									display: 'flex',
-									flexDirection: 'column',
+									backgroundColor: colorMap[menuConfigState.backgroundColor],
+									left: menuConfigState.menuAlignment === 'left' ? '0' : 'auto',
+									right: menuConfigState.menuAlignment === 'right' ? '0' : 'auto',
 								}}
 							>
-								<div
-									style={{
-										display: 'flex',
-										justifyContent: 'space-between',
-										alignItems: 'center',
-										marginBottom: '10px',
-									}}
-								>
+								<div className="menu-header">
 									<span style={{ flexGrow: 1 }}></span>
-									<button
-										onClick={closeMenuHandler}
-										style={{
-											background: 'none',
-											border: 'none',
-											fontSize: '24px',
-											cursor: 'pointer',
-										}}
-									>
+									<button onClick={closeMenuHandler} className="close-button">
 										✖
 									</button>
 								</div>
-								<div
-									style={{
-										maxHeight: '300px',
-										overflowY: 'auto',
-										scrollbarWidth: 'none',
-										msOverflowStyle: 'none',
-									}}
-								>
-									{menuConfig.menuItems}
-								</div>
+								<div className="menu-content">{menuConfigState.menuItems}</div>
 							</div>
 						)}
-						{menuOpen && menuConfig.burgerMenuType === 'drawer' && (
+						{menuOpen && menuConfigState.burgerMenuType === 'drawer' && (
 							<div
+								className="drawer-menu"
 								style={{
-									position: 'fixed',
-									top: 0,
-									left: 0, // Position the drawer on the left
-									height: '100%',
-									width: '250px',
-									backgroundColor: backgroundColor,
-									boxShadow: '2px 0 5px rgba(0, 0, 0, 0.5)',
-									transform: menuOpen ? 'translateX(0)' : 'translateX(-100%)', // Slide in from the left
-									transition: 'transform 0.3s ease',
-									zIndex: 1000,
+									backgroundColor: colorMap[menuConfigState.backgroundColor],
+									transform: menuOpen ? 'translateX(0)' : 'translateX(-100%)',
+									left: menuConfigState.menuAlignment === 'left' ? '0' : 'auto',
+									right: menuConfigState.menuAlignment === 'right' ? '0' : 'auto',
 								}}
 							>
-								<div
-									style={{
-										display: 'flex',
-										justifyContent: 'space-between',
-										alignItems: 'center',
-										padding: '10px',
-									}}
-								>
-									<h3 style={{ color: menuConfig.textColor || '#fff' }}>Menu</h3>
-									<button
-										onClick={closeMenuHandler}
-										style={{
-											background: 'none',
-											border: 'none',
-											fontSize: '24px',
-											cursor: 'pointer',
-										}}
-									>
+								<div className="menu-header">
+									<h3 style={{ color: menuConfigState.textColor || '#fff' }}>Menu</h3>
+									<button onClick={closeMenuHandler} className="close-button">
 										✖
 									</button>
 								</div>
-								<div
-									style={{
-										padding: '10px',
-										maxHeight: 'calc(100% - 50px)',
-										overflowY: 'auto',
-										scrollbarWidth: 'none',
-										msOverflowStyle: 'none',
-									}}
-								>
-									{menuConfig.menuItems}
-								</div>
+								<div className="menu-content">{menuConfigState.menuItems}</div>
 							</div>
 						)}
 					</div>

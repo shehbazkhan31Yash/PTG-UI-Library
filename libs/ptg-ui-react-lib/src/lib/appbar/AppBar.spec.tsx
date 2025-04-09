@@ -27,7 +27,6 @@ describe('AppBar Component', () => {
 	it('renders the AppBar with logo and menu items', () => {
 		render(<AppBar {...defaultProps} />);
 		expect(screen.getByAltText('Logo')).toBeInTheDocument();
-		//expect(screen.getByText('Menu Item')).toBeInTheDocument();
 	});
 
 	it('toggles the burger menu when the button is clicked', () => {
@@ -60,7 +59,7 @@ describe('AppBar Component', () => {
 	it('renders the drawer menu when burgerMenuType is "drawer"', () => {
 		const props = {
 			...defaultProps,
-			menuConfig: { ...defaultProps.menuConfig, burgerMenuType: "drawer" as "drawer" },
+			menuConfig: { ...defaultProps.menuConfig, burgerMenuType: 'drawer' as const },
 		};
 		render(<AppBar {...props} />);
 		const burgerButton = screen.getByText('☰');
@@ -71,7 +70,7 @@ describe('AppBar Component', () => {
 	it('applies the correct background color based on menuConfig', () => {
 		const props = {
 			...defaultProps,
-			menuConfig: { ...defaultProps.menuConfig, backgroundColor: 'secondary' as 'secondary' },
+			menuConfig: { ...defaultProps.menuConfig, backgroundColor: 'secondary' as const },
 		};
 		const { container } = render(<AppBar {...props} />);
 		expect(container.firstChild).toHaveStyle('background-color: rgb(33, 150, 243)');
