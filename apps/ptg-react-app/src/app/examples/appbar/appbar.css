@@ -1,0 +1,94 @@
+/* AppBar.css */
+
+.app-bar {
+  width: 100%;
+  display: flex;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  height: auto;
+}
+
+.app-bar-fixed {
+  position: fixed;
+}
+
+.app-bar-relative {
+  position: relative;
+}
+
+.app-bar-top {
+  top: 0;
+}
+
+.app-bar-bottom {
+  bottom: 0;
+}
+
+.app-bar-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0;
+}
+
+.logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+.burger-menu {
+  position: relative;
+}
+
+.burger-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.drawer-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.menu-content {
+  padding: 10px;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+}
