@@ -7,7 +7,7 @@
     </span>
   </div>
   <div class="calendar" *ngIf="showCalendar">
-    <div class="calendar-header">
+    <div class="calendar-header" [ngClass]="classes">
       <button (click)="prevMonth()" aria-label="Previous Month">&lt;</button>
       <select [(ngModel)]="currentMonth" (change)="onMonthOrYearChange()">
         <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
@@ -21,7 +21,7 @@
       <div class="calendar-weekdays">
         <span *ngFor="let day of days">{{day}}</span>
       </div>
-      <div class="calendar-dates">
+      <div class="calendar-dates" [ngClass]="classes+'-dates'">
         <span *ngFor="let date of dates" (click)="selectDate(date)" [class.disabled]="isDisabled(date)"
           [class.selected]="isSelected(date)">
           {{ date.getDate() }}

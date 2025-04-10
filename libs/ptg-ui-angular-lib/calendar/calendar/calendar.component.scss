@@ -1,3 +1,6 @@
+
+
+
 .datepicker-wrapper {
   position: relative;
   display: inline-block;
@@ -46,14 +49,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-  background-color: #007bff;
+  
 }
 
 .calendar-header button {
   border: none;
   color: white;
   cursor: pointer;
-  background-color: #007bff;
+  
 }
 
 .calendar-header select {
@@ -63,12 +66,32 @@
   background: none;
   border: none;
   padding: 4px;
-  background-color: #007bff;
+  
   cursor: pointer;
   color: white;
   margin: 0 4px;
 }
+$theme-colors: (
+  theme-green: #28a745,
+  theme-blue: #007bff,
+  theme-dark-blue: #343a40,
+  theme-red: #dc3545,
+  theme-orange: #fd7e14
+);
 
+@mixin apply-theme($theme) {
+  background-color: map-get($theme-colors, $theme);
+}
+
+@each $name, $color in $theme-colors {
+  .ptg-ui-calendar--#{$name},
+  .ptg-ui-calendar--#{$name} select,
+  .ptg-ui-calendar--#{$name} button,
+  .ptg-ui-calendar--#{$name}-dates .selected {
+    @include apply-theme($name);
+  }
+}
+  
 .calendar-header select::-ms-expand {
   display: none;
 }
@@ -94,7 +117,7 @@
 }
 
 .calendar-dates .selected {
-  background-color: #007bff;
+  
   color: white;
 }
 

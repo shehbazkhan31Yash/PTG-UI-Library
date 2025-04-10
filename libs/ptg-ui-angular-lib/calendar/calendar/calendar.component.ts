@@ -21,6 +21,8 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = 'Select Date';
   @Input() format = 'MM/DD/YYYY';
   @Input() locale = 'en-IN';
+  @Input() colorTheme: 'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
+
   @Output() calendarValueChange = new EventEmitter<Date>();
 
   showCalendar = false;
@@ -197,5 +199,9 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.isReadOnly = isDisabled;
+  }
+  get classes(): string[] {
+    return [
+      `ptg-ui-calendar--${this.colorTheme}`];
   }
 }

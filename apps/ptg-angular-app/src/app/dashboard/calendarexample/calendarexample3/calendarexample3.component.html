@@ -8,14 +8,14 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3">
                                     <label [innerHTML]="resources.MIN_DATE"></label>
                                     <ptg-ui-calendar [placeholder]="resources.DATE_PLACEHOLDER" [minDate]="minDate" class="w-100" [id]="'startDate2'"
-                                        formControlName="startDate" (calendarValueChange)="onStartDateChange($event)">
+                                        formControlName="startDate" [colorTheme]="'theme-blue'" (calendarValueChange)="onStartDateChange($event)">
                                     </ptg-ui-calendar>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <label [innerHTML]="resources.DATE_VALIDATOR_TEXT"></label>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <ptg-ui-calendar [placeholder]="resources.DATE_PLACEHOLDER" [minDate]="endMinDate" class="w-100"
+                                            <ptg-ui-calendar [colorTheme]="'theme-red'" [placeholder]="resources.DATE_PLACEHOLDER" [minDate]="endMinDate" class="w-100"
                                                 formControlName="endDate" [disabled]="isDisabled" [id]="'endDate2'"
                                                 (calendarValueChange)="onEndDateChange($event)">
                                             </ptg-ui-calendar>
