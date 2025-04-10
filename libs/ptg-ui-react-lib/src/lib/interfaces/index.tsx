@@ -171,6 +171,8 @@ export interface PtgUiSelectProps {
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	htmlFor?: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	placeholder?: string;
+	disabled?: boolean;
 }
 
 //Textarea
@@ -187,16 +189,16 @@ export interface PtgUiTextAreaProps {
 
 //Toaster
 export interface ToasterProps {
-    show: boolean;
-    setShow: (show: boolean) => void;
-    message?: string;
-    type?: string;
-    showDescription?: boolean;
-    closeIcon?:React.ReactNode;
-    alignItem?: string;
-    justifyContent?: string;
-    timeToShow?: number;
-    icon?: React.ReactNode;
+	show: boolean;
+	setShow: (show: boolean) => void;
+	message?: string;
+	type?: string;
+	showDescription?: boolean;
+	closeIcon?: React.ReactNode;
+	alignItem?: string;
+	justifyContent?: string;
+	timeToShow?: number;
+	icon?: React.ReactNode;
 }
 export interface AlertProps {
 	message?: string;
@@ -464,4 +466,23 @@ export interface PtgUiModalProps {
 	confirmButtonColor?: string;
 	cancelButtonColor?: string;
 	children?: any;
+}
+
+export interface IMenuConfig {
+	logo?: string;
+	menuItems: React.ReactNode;
+	backgroundColor?: 'primary' | 'secondary';
+	textColor?: string;
+	menuAlignment?: 'left' | 'right';
+	logoAlignment?: 'left' | 'right';
+	burgerMenu?: boolean;
+	burgerMenuType?: 'drawer' | 'dropdown';
+	position?: 'top' | 'bottom';
+	static?: boolean;
+}
+
+export interface IAppBarProps {
+	menuConfig: IMenuConfig;
+	openMenu?: boolean;
+	closeMenu?: (open: boolean) => void;
 }

@@ -1,0 +1,37 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Radio" component={PtgUiRadio} />
+
+# PtgUiRadio Component
+
+The `PtgUiRadio` component is a customizable radio button group that allows users to select one option from a predefined list.
+
+You can import the component using the following statement:
+```jsx
+import { PtgUiRadio } from './radio';
+
+The PtgUiRadio component supports the following controls:
+
+# name
+The name prop specifies the name attribute for the radio input, ensuring all radio buttons in the group are associated correctly.
+
+Example:
+<Canvas> <Story id="components-radio--default-radio" /> </Canvas>
+
+# value
+The value prop indicates the currently selected option in the radio group. It can be controlled programmatically or used for initial values.
+
+Example:
+<Canvas> <Story id="components-radio--pre-selected-radio" /> </Canvas>
+
+# id
+The id prop serves as the prefix for the unique identifiers assigned to each radio input, aiding accessibility and interaction.
+
+Example:
+<Canvas> <Story id="components-radio--id-radio" /> </Canvas>
+
+# list
+The list prop defines an array of radio options. Each option in the array can include properties such as id, name, and value for customization.
+
+Example:
+<Canvas> <Story id="components-radio--default-radio" /> </Canvas>
