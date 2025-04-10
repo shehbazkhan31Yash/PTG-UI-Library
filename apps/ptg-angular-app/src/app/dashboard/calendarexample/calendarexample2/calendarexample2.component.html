@@ -9,7 +9,7 @@
                                     <label [innerHTML]="resources.MIN_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar class="w-100" [placeholder]="resources.DATE_PLACEHOLDER" [id]="'startDate1'" formControlName='startDate'>
+                                    <ptg-ui-calendar class="w-100" [locale]="'de-DE'" [placeholder]="resources.DATE_PLACEHOLDER" [id]="'startDate1'" formControlName='startDate'>
                                     </ptg-ui-calendar>
                                 </div>
                             </div>
@@ -18,7 +18,7 @@
                                     <label [innerHTML]="resources.MAX_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar [minDate]="endMinDate" [placeholder]="resources.DATE_PLACEHOLDER" class="w-100"
+                                    <ptg-ui-calendar [locale]="'ja-JP'" [minDate]="endMinDate" [placeholder]="resources.DATE_PLACEHOLDER" class="w-100"
                                         formControlName='endDate' [id]="'endDate1'">
                                     </ptg-ui-calendar>
                                 </div>
@@ -30,7 +30,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <ptg-ui-calendar [placeholder]="resources.DATE_PLACEHOLDER" (calendarValueChange)="onDateChange($event)"
+                                    <ptg-ui-calendar [locale]="'fr-FR'" [placeholder]="resources.DATE_PLACEHOLDER" (calendarValueChange)="onDateChange($event)"
                                         formControlName='calendar2Value'  [id]="'maxEndDate1'">
                                     </ptg-ui-calendar>
                                     <p class="text-danger"

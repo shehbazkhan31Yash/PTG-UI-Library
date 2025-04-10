@@ -60,7 +60,7 @@ export class Calendarexample1Component implements OnInit, AfterViewInit {
   onStartDateChange(event:any){
     this.startDate = event;
     this.endMinDate = event;
-
+console.log( this.startDate,this.endMinDate,"this.endMinDate");
     if(this.endDateDetail?.value < event){
       this.endDateDetail?.reset();
     }

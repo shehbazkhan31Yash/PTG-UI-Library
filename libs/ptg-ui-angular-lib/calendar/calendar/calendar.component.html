@@ -1,9 +1,11 @@
 <div class="datepicker-wrapper" (clickOutside)="hideCalendar()">
-  <input type="text" [placeholder]="placeholder" [value]="displayValue" [readOnly]="isReadOnly"
-    (click)="toggleCalendar()" class="datepicker-input" />
-  <span class="calendar-icon" (click)="toggleCalendar()">
-    📅
-  </span>
+  <div class="input-group">
+    <input type="text" [placeholder]="placeholder" [value]="displayValue" [readOnly]="isReadOnly"
+      (click)="toggleCalendar()" class="datepicker-input" />
+    <span class="calendar-icon" (click)="toggleCalendar()">
+      📅
+    </span>
+  </div>
   <div class="calendar" *ngIf="showCalendar">
     <div class="calendar-header">
       <button (click)="prevMonth()" aria-label="Previous Month">&lt;</button>

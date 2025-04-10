@@ -19,8 +19,9 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   @Input() disabledDates: Date[] = [];
   @Input() isReadOnly?: boolean = false;
   @Input() placeholder = 'Select Date';
-  @Input() format = 'MM/DD/YYYY'; // Corrected typo
-  @Output() dateSelected = new EventEmitter<Date>();
+  @Input() format = 'MM/DD/YYYY';
+  @Input() locale = 'en-IN';
+  @Output() calendarValueChange = new EventEmitter<Date>();
 
   showCalendar = false;
   selectedDate: Date | null = null;
@@ -32,15 +33,20 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
   years: number[] = [];
-  private onChange: any = () => {};
-  private onTouched: any = () => {};
+  private onChange: any = () => { };
+  private onTouched: any = () => { };
   private _value: any;
 
   ngOnInit() {
     this.generateYears();
     this.generateCalendar();
+    this.formatMonthsAndWeekdays();
   }
-
+  formatMonthsAndWeekdays() {
+    const date = new Date();
+    this.months = Array.from({ length: 12 }, (_, i) => new Intl.DateTimeFormat(this.locale, { month: 'long' }).format(new Date(date.getFullYear(), i)));
+    this.days = Array.from({ length: 7 }, (_, i) => new Intl.DateTimeFormat(this.locale, { weekday: 'short' }).format(new Date(date.getFullYear(), date.getMonth(), date.getDate() + i)));
+  }
   generateYears() {
     const startYear = this.minDate ? this.minDate.getFullYear() : 1900;
     const endYear = this.maxDate ? this.maxDate.getFullYear() : new Date().getFullYear() + 10;
@@ -59,11 +65,11 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
 
   selectDate(date: Date) {
     if (this.isDisabled(date)) {
-      return; // Do not select the date if it is disabled
+      return;
     }
     this.selectedDate = new Date(date);
-    this.displayValue = this.formatDate(date);
-    this.dateSelected.emit(this.selectedDate);
+    this.displayValue = this.ChangeFormatDate(date);
+    this.calendarValueChange.emit(this.selectedDate);
     this.hideCalendar();
   }
 
@@ -88,7 +94,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   }
 
   onMonthOrYearChange() {
-    this.currentMonth = Number(this.currentMonth); // Ensure currentMonth is a number
+    this.currentMonth = Number(this.currentMonth);
     this.generateCalendar();
   }
 
@@ -98,20 +104,16 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     const lastDay = new Date(this.currentYear, this.currentMonth + 1, 0);
     const startDay = firstDay.getDay();
 
-    // Get the last day of the previous month
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth, 0).getDate();
 
-    // Add dates from the previous month
     for (let i = startDay - 1; i >= 0; i--) {
       this.dates.push(new Date(this.currentYear, this.currentMonth - 1, prevMonthLastDay - i));
     }
 
-    // Add dates from the current month
     for (let i = 1; i <= lastDay.getDate(); i++) {
       this.dates.push(new Date(this.currentYear, this.currentMonth, i));
     }
 
-    // Add dates from the next month to fill the last row only if necessary
     const totalDays = this.dates.length;
     const remainingDays = (totalDays <= 35) ? (35 - totalDays) : (42 - totalDays);
     for (let i = 1; i <= remainingDays; i++) {
@@ -121,15 +123,19 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
 
   isDisabled(date: Date): boolean {
     if (isNaN(date.getTime())) {
-      return true; // Treat NaN dates as disabled
+      return true;
     }
     const dateStr = date.toDateString();
     return (
       (this.minDate && date < this.minDate) ||
       (this.maxDate && date > this.maxDate) ||
       this.disabledDates.some(disabledDate => disabledDate.toDateString() === dateStr) ||
-      date.getMonth() !== this.currentMonth // Disable dates from other months
+      date.getMonth() !== this.currentMonth
     );
+  }
+
+  formatDate(date: Date): string {
+    return new Intl.DateTimeFormat(this.locale, { year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
   }
 
   isSelected(date: Date): boolean {
@@ -140,9 +146,9 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     );
   }
 
-  formatDate(date: Date): string {
+  ChangeFormatDate(date: Date): string {
     const day = this.pad(date.getDate());
-    const month = this.pad(date.getMonth() + 1); // Months are zero-based  
+    const month = this.pad(date.getMonth() + 1);
     const year = date.getFullYear();
     switch (this.format) {
       case 'MM/DD/YYYY':
@@ -152,7 +158,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
       case 'YYYY/MM/DD':
         return `${year}/${month}/${day}`;
       default:
-        return date.toDateString(); // Fallback to default string representation
+        return date.toDateString();
     }
   }
 
@@ -190,6 +196,6 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    // Handle the disabled state if needed
+    this.isReadOnly = isDisabled;
   }
 }
