@@ -1,0 +1,55 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+
+<Meta title="Components/Select" component={PtgUiSelect} />
+
+# PtgUiSelect Component
+
+The `PtgUiSelect` component is a customizable dropdown menu that allows users to choose from predefined options.
+
+You can import the component using the following statement:
+```jsx
+import { PtgUiSelect } from './select';
+
+The PtgUiSelect component supports the following controls:
+
+# name
+The name prop specifies the name attribute for the select input, making it useful for form data handling.
+
+Example:
+<Canvas> <Story id="components-select--default-select-dropdown" /> </Canvas>
+
+# value
+The value prop indicates the currently selected option. It can be controlled programmatically or used for initial values.
+
+Example:
+<Canvas> <Story id="components-select--pre-selected-dropdown" /> </Canvas>
+
+# id
+The id prop assigns a unique identifier to the select input for accessibility and interaction purposes.
+
+Example:
+<Canvas> <Story id="components-select--id" /> </Canvas>
+
+# className
+The className prop allows you to apply custom styles to the select input, ensuring the dropdown integrates seamlessly with your design.
+
+Example:
+<Canvas> <Story id="components-select--class-name" /> </Canvas>
+
+# list
+The list prop defines an array of options available in the dropdown. Each option can have a unique id, label, and value.
+
+Example:
+<Canvas> <Story id="components-select--default-select-dropdown" /> </Canvas>
+
+# placeholder
+The placeholder prop allows you to display an instructional or hint text when no selection has been made.
+
+Example:
+<Canvas> <Story id="components-select--placeholder-dropdown" /> </Canvas>
+
+# disabled
+The disabled prop makes the select dropdown unclickable and visually indicates its state.
+
+Example:
+<Canvas> <Story id="components-select--disabled-dropdown" /> </Canvas>
