@@ -35,21 +35,35 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
   years: number[] = [];
+
   private onChange: any = () => { };
   private onTouched: any = () => { };
   private _value: any;
+
+  
+  get value() {
+    return this._value;
+  }
+
+  set value(val: any) {
+    this._value = val;
+    this.onChange(val);
+    this.onTouched();
+  }
 
   ngOnInit() {
     this.generateYears();
     this.generateCalendar();
     this.formatMonthsAndWeekdays();
   }
-  formatMonthsAndWeekdays() {
+
+  formatMonthsAndWeekdays(): void {
     const date = new Date();
     this.months = Array.from({ length: 12 }, (_, i) => new Intl.DateTimeFormat(this.locale, { month: 'long' }).format(new Date(date.getFullYear(), i)));
     this.days = Array.from({ length: 7 }, (_, i) => new Intl.DateTimeFormat(this.locale, { weekday: 'short' }).format(new Date(date.getFullYear(), date.getMonth(), date.getDate() + i)));
   }
-  generateYears() {
+
+  generateYears(): void {
     const startYear = this.minDate ? this.minDate.getFullYear() : 1900;
     const endYear = this.maxDate ? this.maxDate.getFullYear() : new Date().getFullYear() + 10;
     for (let year = startYear; year <= endYear; year++) {
@@ -57,25 +71,25 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  toggleCalendar() {
+  toggleCalendar(): void {
     this.showCalendar = !this.showCalendar;
   }
 
-  hideCalendar() {
+  hideCalendar(): void {
     this.showCalendar = false;
   }
 
-  selectDate(date: Date) {
-    if (this.isDisabled(date)) {
+  selectDate(date: Date): void {
+    if (this.isDisabled(date) || isNaN(date.getTime())) {
       return;
     }
     this.selectedDate = new Date(date);
-    this.displayValue = this.ChangeFormatDate(date);
+    this.displayValue = this.changeFormatDate(date);
     this.calendarValueChange.emit(this.selectedDate);
     this.hideCalendar();
   }
 
-  prevMonth() {
+  prevMonth(): void {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear--;
@@ -85,7 +99,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     this.generateCalendar();
   }
 
-  nextMonth() {
+  nextMonth(): void {
     if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear++;
@@ -95,27 +109,23 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     this.generateCalendar();
   }
 
-  onMonthOrYearChange() {
+  onMonthOrYearChange(): void {
     this.currentMonth = Number(this.currentMonth);
     this.generateCalendar();
   }
 
-  generateCalendar() {
+  generateCalendar(): void {
     this.dates = [];
     const firstDay = new Date(this.currentYear, this.currentMonth, 1);
     const lastDay = new Date(this.currentYear, this.currentMonth + 1, 0);
     const startDay = firstDay.getDay();
-
     const prevMonthLastDay = new Date(this.currentYear, this.currentMonth, 0).getDate();
-
     for (let i = startDay - 1; i >= 0; i--) {
       this.dates.push(new Date(this.currentYear, this.currentMonth - 1, prevMonthLastDay - i));
     }
-
     for (let i = 1; i <= lastDay.getDate(); i++) {
       this.dates.push(new Date(this.currentYear, this.currentMonth, i));
     }
-
     const totalDays = this.dates.length;
     const remainingDays = (totalDays <= 35) ? (35 - totalDays) : (42 - totalDays);
     for (let i = 1; i <= remainingDays; i++) {
@@ -148,7 +158,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     );
   }
 
-  ChangeFormatDate(date: Date): string {
+  changeFormatDate(date: Date): string {
     const day = this.pad(date.getDate());
     const month = this.pad(date.getMonth() + 1);
     const year = date.getFullYear();
@@ -175,16 +185,6 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  get value() {
-    return this._value;
-  }
-
-  set value(val: any) {
-    this._value = val;
-    this.onChange(val);
-    this.onTouched();
-  }
-
   writeValue(value: any): void {
     this._value = value;
   }
@@ -200,6 +200,11 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   setDisabledState?(isDisabled: boolean): void {
     this.isReadOnly = isDisabled;
   }
+
+  trackByDate(index: number, date: Date): number {
+    return date.getTime();
+  }
+
   get classes(): string[] {
     return [
       `ptg-ui-calendar--${this.colorTheme}`];

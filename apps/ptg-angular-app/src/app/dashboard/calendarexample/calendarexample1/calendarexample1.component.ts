@@ -6,7 +6,7 @@
 
 /**
  * @since March 2022
- * @author Bhanu Prakash Sharma
+ * @author Priyanka Jain
  * @Component ptg-ui-calendarexample1;
  * @description This component for calendarexample1
 **/
@@ -26,7 +26,7 @@ export class Calendarexample1Component implements OnInit, AfterViewInit {
   startDate!: Date;
   endDate!: Date;
   endMinDate = new Date();
-  resources=resources;
+  resources = resources;
   submitted = false;
 
   get f() {
@@ -41,45 +41,42 @@ export class Calendarexample1Component implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.calendarForm = this.formBuilder.group({
-      startDate: [null, [Validators.required]], 
+      startDate: [null, [Validators.required]],
       endDate: [null, [Validators.required]],
       calendar1Value: [null, [Validators.required]],
       calendar2Value: [null, Validators.required]
-    },{
-      validator: calendarValidator("startDate","endDate", "calendar2Value")
+    }, {
+      validator: calendarValidator("startDate", "endDate", "calendar2Value")
     },
     );
     this.cdr.detectChanges()
-
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.cdr.detectChanges();
   }
 
-  onStartDateChange(event:any){
+  onStartDateChange(event: any) {
     this.startDate = event;
     this.endMinDate = event;
-console.log( this.startDate,this.endMinDate,"this.endMinDate");
-    if(this.endDateDetail?.value < event){
+    if (this.endDateDetail?.value < event) {
       this.endDateDetail?.reset();
     }
     const calendar1Control = this.f['calendar1Value'];
-    if(calendar1Control?.value < event){
+    if (calendar1Control?.value < event) {
       calendar1Control?.reset();
     }
   }
 
-  onEndDateChange(event:any){
+  onEndDateChange(event: any) {
     this.endDate = event;
     const calendar1Control = this.f['calendar1Value'];
-
-    if(calendar1Control?.value > event){
+    if (calendar1Control?.value > event) {
       calendar1Control?.reset();
     }
   }
 
-  onFormSubmit(event:any){
+  onFormSubmit(event: any) {
     this.submitted = true
   }
 

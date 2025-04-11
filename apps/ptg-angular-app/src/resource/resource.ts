@@ -44,6 +44,8 @@ export const resources = {
   CALENDAR_EXAMPLE_4: 'Calendar Example 4',
   MIN_DATE: 'Min Date',
   MAX_DATE: 'Max Date',
+  BLUE_THEME: 'Blue Theme Calendar Example',
+  RED_THEME: 'Green Theme Calendar Example',
   LOCALE_GERMANY: 'Calendar Example Germany',
   LOCALE_FRANCE: 'Calendar Example France',
   LOCALE_JAPAN:' Calendar Example Japan',

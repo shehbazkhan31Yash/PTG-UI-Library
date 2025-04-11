@@ -9,10 +9,10 @@
   <div class="calendar" *ngIf="showCalendar">
     <div class="calendar-header" [ngClass]="classes">
       <button (click)="prevMonth()" aria-label="Previous Month">&lt;</button>
-      <select [(ngModel)]="currentMonth" (change)="onMonthOrYearChange()">
+      <select [(ngModel)]="currentMonth" (change)="onMonthOrYearChange()" aria-label="Select Month">
         <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
       </select>
-      <select [(ngModel)]="currentYear" (change)="onMonthOrYearChange()">
+      <select [(ngModel)]="currentYear" (change)="onMonthOrYearChange()" aria-label="Select Year">
         <option *ngFor="let year of years">{{ year }}</option>
       </select>
       <button (click)="nextMonth()" aria-label="Next Month">&gt;</button>
@@ -22,8 +22,8 @@
         <span *ngFor="let day of days">{{day}}</span>
       </div>
       <div class="calendar-dates" [ngClass]="classes+'-dates'">
-        <span *ngFor="let date of dates" (click)="selectDate(date)" [class.disabled]="isDisabled(date)"
-          [class.selected]="isSelected(date)">
+        <span *ngFor="let date of dates; trackBy: trackByDate" (click)="selectDate(date)"
+          [class.disabled]="isDisabled(date)" [class.selected]="isSelected(date)">
           {{ date.getDate() }}
         </span>
       </div>

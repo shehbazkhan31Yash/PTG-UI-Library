@@ -1,10 +1,20 @@
+$theme-colors: (
+  theme-green: #28a745,
+  theme-blue: #007bff,
+  theme-dark-blue: #343a40,
+  theme-red: #dc3545,
+  theme-orange: #fd7e14
+);
 
-
+@mixin apply-theme($theme) {
+  background-color: map-get($theme-colors, $theme);
+}
 
 .datepicker-wrapper {
   position: relative;
   display: inline-block;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
 }
 
 .input-group {
@@ -49,14 +59,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-  
 }
 
 .calendar-header button {
   border: none;
   color: white;
   cursor: pointer;
-  
 }
 
 .calendar-header select {
@@ -66,21 +74,9 @@
   background: none;
   border: none;
   padding: 4px;
-  
   cursor: pointer;
   color: white;
   margin: 0 4px;
-}
-$theme-colors: (
-  theme-green: #28a745,
-  theme-blue: #007bff,
-  theme-dark-blue: #343a40,
-  theme-red: #dc3545,
-  theme-orange: #fd7e14
-);
-
-@mixin apply-theme($theme) {
-  background-color: map-get($theme-colors, $theme);
 }
 
 @each $name, $color in $theme-colors {
@@ -91,7 +87,7 @@ $theme-colors: (
     @include apply-theme($name);
   }
 }
-  
+
 .calendar-header select::-ms-expand {
   display: none;
 }
@@ -117,7 +113,6 @@ $theme-colors: (
 }
 
 .calendar-dates .selected {
-  
   color: white;
 }
 
@@ -127,13 +122,58 @@ $theme-colors: (
   cursor: default;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .datepicker-wrapper {
+    max-width: 100%;
+  }
+
   .calendar {
     width: 100%;
     padding: 4px;
   }
 
+  .calendar-header {
+    flex-direction: column;
+    align-items: flex-start;
+    button, select {
+      font-size: 0.875rem;
+    }
+  }
+
   .calendar-dates span {
     padding: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .datepicker-wrapper {
+    .input-group {
+      flex-direction: column;
+      align-items: flex-start;
+      .datepicker-input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      .calendar-icon {
+        position: static;
+        transform: none;
+        align-self: flex-end;
+      }
+    }
+
+    .calendar {
+      width: 100%;
+      padding: 4px;
+    }
+
+    .calendar-header {
+      button, select {
+        font-size: 0.75rem;
+      }
+    }
+
+    .calendar-dates span {
+      padding: 2px;
+    }
   }
 }
