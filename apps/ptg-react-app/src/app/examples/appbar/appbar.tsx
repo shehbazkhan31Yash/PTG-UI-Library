@@ -167,7 +167,7 @@ const AppBarExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('AppBar with Burger Menu')}
+              {t('AppBar with Sticky Menu')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

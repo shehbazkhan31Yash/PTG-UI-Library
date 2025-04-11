@@ -101,7 +101,6 @@ export const AppBarWithoutStatic = (props: IAppBarWithoutStatic) => {
       <div className="mb-3">
         <IFrame>
           <AppBar menuConfig={menuConfig} />
-          <div className="mb-3"></div>
           <p className="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             pretium rutrum urna at imperdiet. Sed sodales aliquet nulla, et

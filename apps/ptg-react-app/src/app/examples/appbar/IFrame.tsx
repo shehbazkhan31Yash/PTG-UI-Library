@@ -132,7 +132,7 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     overflow: hidden; /* Prevents scrolling */
                     white-space: normal; /* Allows text to wrap */
                     overflow-wrap: break-word; /* Breaks long words */
-                    word-wrap: break-word; /* For older browsers */
+                   
                     max-width: 100%; /* Ensures it doesn't exceed the container width */
 }
 
