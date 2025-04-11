@@ -1,5 +1,5 @@
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ButtonComponent } from './button.component';
 
 describe('ButtonComponent', () => {
@@ -9,8 +9,7 @@ describe('ButtonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ButtonComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -23,28 +22,52 @@ describe('ButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('on closed handleKeyDown', fakeAsync(() => {
-    const event = new KeyboardEvent('keydown', {'keyCode': 13,'which':13});
-    document.dispatchEvent(event);
-    const spyCloseDialog = jest.spyOn(component, 'handleKeyDown');
-    component.handleKeyDown(event)
-    const button = fixture.debugElement.nativeElement.querySelector('button');
-    button.click();
+  it('should have default type as "button"', () => {
+    expect(component.type).toBe('button');
+  });
+
+  it('should emit buttonClick event when clicked and not disabled', () => {
+    component.isDisable = false;
     fixture.detectChanges();
-    expect(spyCloseDialog).toHaveBeenCalledTimes(1);
-  }));
 
-  it('on closed handleKeyDown with default value', fakeAsync(() => {
-     const event = new KeyboardEvent('keydown', {'keyCode': 0,'which':0});
-     document.dispatchEvent(event);
-     const spyCloseDialog = jest.spyOn(component, 'handleKeyDown');
-     component.handleKeyDown(event)
-     const button = fixture.debugElement.nativeElement.querySelector('button');
-     button.click();
-     fixture.detectChanges();
-     expect(spyCloseDialog).toHaveBeenCalledTimes(1);
-   }));
+    const button = fixture.debugElement.query(By.css('button'));
+    button.triggerEventHandler('click', null);
+
+    expect(component.buttonClick.emit).toHaveBeenCalled();
+  });
+
+  it('should not emit buttonClick event when clicked and disabled', () => {
+    spyOn(component.buttonClick, 'emit');
+    component.isDisable = true;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(By.css('button'));
+    button.triggerEventHandler('click', null);
+
+    expect(component.buttonClick.emit).not.toHaveBeenCalled();
+  });
+
+  it('should apply correct classes based on inputs', () => {
+    component.btnStyleType = 'success';
+    component.size = 'large';
+    component.isBlock = true;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(By.css('button'));
+    const classes = button.nativeElement.classList;
+
+    expect(classes).toContain('ptg-ui-button--success');
+    expect(classes).toContain('ptg-ui-button--large');
+    expect(classes).toContain('ptg-ui-button--block');
+  });
+
+  it('should apply disabled class when isDisable is true', () => {
+    component.isDisable = true;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(By.css('button'));
+    const classes = button.nativeElement.classList;
+
+    expect(classes).toContain('ptg-ui-button--disabled');
+  });
 });
-
-
-

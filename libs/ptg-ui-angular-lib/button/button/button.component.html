@@ -1,13 +1,10 @@
-<div [ngClass]="isBlock ? 'd-grid gap-2 customClass' : ''">
-  <button
-    #button
-    [type]="type"
-    class="btn"
-    [ngClass]="['btn-' + btnStyleType, 'ptg-ui-button--' + size]"
-    [disabled]="isDisable"
-    tabindex="0"
-    [style.background-color]="backgroundColor"
-  >
-    {{ label }}
-  </button>
-</div>
+<button
+  [type]="type"
+  class="ptg-ui-button"
+  [ngClass]="classes"
+  [disabled]="isDisable"
+  [style.background-color]="backgroundColor"
+  (click)="handleClick($event)"
+>
+  {{ label }}
+</button>

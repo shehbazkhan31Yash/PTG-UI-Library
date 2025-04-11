@@ -419,7 +419,7 @@ If any dependencies issue came, please install this with force
 17. **Accordian**
 
     **Import Accordian**  
-     `import { PtgUiAccordianModule } from '@ptg-ui/angular';`
+     `import { AccordionModule } from '@ptg-ui/angular';`
 
     _Properties_  
      **The " ? " represents here that this property is optional.**

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ICardUiProps } from '../interfaces';
-import { PtgUiButton, CARD_BUTTON } from '@ptg-ui/react';
+import { PtgUiButton } from '../../lib/button/button';
+import { CARD_BUTTON } from '../../lib/constants/Constants';
 
 /**
  * PtgUiCard Component

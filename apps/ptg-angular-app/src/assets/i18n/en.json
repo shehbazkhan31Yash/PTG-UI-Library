@@ -180,5 +180,6 @@
   "THEME_GENERATOR": "Theme Generator Example",
   "MAT_THEME_GENERATOR": "Mat Theme Generator Example",
   "CAROUSEL_EXAMPLE_WITH_IMAGE_THUMBNAIL":"Carousel example with image thumbnail",
-  "DRAG_DROP": "Drag Drop"
+  "BUTTON_EXAMPLE": "Button Basic Example",
+  "BUTTON_EXAMPLE_WITH_SIZES": "Button Example with Sizes"
 }
