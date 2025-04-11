@@ -37,7 +37,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   years: number[] = [];
 
   private onChange: any = () => { };
-  private onTouched: any = () => { };
+  readonly onTouched: any = () => { };
   private _value: any;
 
   

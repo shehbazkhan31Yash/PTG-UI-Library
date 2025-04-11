@@ -22,10 +22,12 @@
         <span *ngFor="let day of days">{{day}}</span>
       </div>
       <div class="calendar-dates" [ngClass]="classes+'-dates'">
-        <span *ngFor="let date of dates; trackBy: trackByDate" (click)="selectDate(date)"
-          [class.disabled]="isDisabled(date)" [class.selected]="isSelected(date)">
+        <span *ngFor="let date of dates; trackBy: trackByDate" (click)="selectDate(date)" (keypress)="selectDate( date)"
+          (keydown)="selectDate(date)" (keyup)="selectDate( date)" [class.disabled]="isDisabled(date)"
+          [class.selected]="isSelected(date)">
           {{ date.getDate() }}
         </span>
+
       </div>
     </div>
   </div>
