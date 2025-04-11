@@ -2,7 +2,8 @@
   <div class="input-group">
     <input type="text" [placeholder]="placeholder" [value]="displayValue" [readOnly]="isReadOnly"
       (click)="toggleCalendar()" class="datepicker-input" />
-    <span class="calendar-icon" (click)="toggleCalendar()">
+    <span class="calendar-icon" (click)="toggleCalendar()"(keypress)="toggleCalendar()"
+    (keydown)="toggleCalendar()" (keyup)="toggleCalendar()">
       📅
     </span>
   </div>
