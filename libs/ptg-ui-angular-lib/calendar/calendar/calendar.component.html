@@ -1,23 +1,35 @@
-<div class="input-group post-icon">
-  <input
-    type="text"
-    [id]="id"
-    [minDate]="minDate"
-    [maxDate]="maxDate"
-    class="form-control"
-    [placeholder]="placeholder"
-    bsDatepicker
-    (bsValueChange)="onDateChanged($event)"
-    [bsConfig]="bsConfig"
-    #bd="bsDatepicker"
-    [(ngModel)]="inputDate"
-    autocomplete="off"
-    (blur)="onBlur()"
-    [disabled]="disabled"
-    [readonly]="isReadOnly"
-    [attr.aria-placeholder]="aria_placeholder"
-    #datePicker
-    [attr.aria-label]="aria_label"
-  />
-  <i (click)="bd.toggle()" class="icon cal-icon"></i>
+<div class="datepicker-wrapper" (clickOutside)="hideCalendar()">
+  <div class="input-group">
+    <input type="text" [placeholder]="placeholder" [value]="displayValue" [readOnly]="isReadOnly"
+      (click)="toggleCalendar()" class="datepicker-input" />
+    <span class="calendar-icon" (click)="toggleCalendar()"(keypress)="toggleCalendar()"
+    (keydown)="toggleCalendar()" (keyup)="toggleCalendar()">
+      📅
+    </span>
+  </div>
+  <div class="calendar" *ngIf="showCalendar">
+    <div class="calendar-header" [ngClass]="classes">
+      <button (click)="prevMonth()" aria-label="Previous Month">&lt;</button>
+      <select [(ngModel)]="currentMonth" (change)="onMonthOrYearChange()" aria-label="Select Month">
+        <option *ngFor="let month of months; let i = index" [value]="i">{{ month }}</option>
+      </select>
+      <select [(ngModel)]="currentYear" (change)="onMonthOrYearChange()" aria-label="Select Year">
+        <option *ngFor="let year of years">{{ year }}</option>
+      </select>
+      <button (click)="nextMonth()" aria-label="Next Month">&gt;</button>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-weekdays">
+        <span *ngFor="let day of days">{{day}}</span>
+      </div>
+      <div class="calendar-dates" [ngClass]="classes+'-dates'">
+        <span *ngFor="let date of dates; trackBy: trackByDate" (click)="selectDate(date)" (keypress)="selectDate( date)"
+          (keydown)="selectDate(date)" (keyup)="selectDate( date)" [class.disabled]="isDisabled(date)"
+          [class.selected]="isSelected(date)">
+          {{ date.getDate() }}
+        </span>
+
+      </div>
+    </div>
+  </div>
 </div>

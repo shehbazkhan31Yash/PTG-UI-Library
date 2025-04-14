@@ -1,110 +1,212 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-empty-function */
-
-/**
- * @since March 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-calendar;
- * @description This component for calendar
- **/
-
-import {
-  Component,
-  ViewChild,
-  forwardRef,
-  Input,
-  HostListener,
-  Output,
-  EventEmitter,
-  ElementRef,
-  ChangeDetectionStrategy,
-  ViewEncapsulation,
-  ChangeDetectorRef,
-  AfterViewInit
-} from '@angular/core';
-import { BsDatepickerConfig, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
-import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
-
+import { Component, Input, Output, EventEmitter, OnInit, forwardRef, HostListener } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'ptg-ui-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    class: '',
-    '(blur)': 'handleBlur()',
-  },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      multi: true,
       useExisting: forwardRef(() => CalendarComponent),
-    },
-  ],
+      multi: true
+    }
+  ]
 })
-export class CalendarComponent implements ControlValueAccessor, AfterViewInit {
-  @ViewChild(BsDatepickerDirective, { static: false })
-  datepickerVal!: BsDatepickerDirective;
-  @ViewChild('datePicker', { static: true }) datePicker!: ElementRef;
-  bsConfig?: Partial<BsDatepickerConfig>;
-
-  @Input() placeholder?: string = '';
-  @Input() className?: string = '';
-  @Input() id?: string = '';
+export class CalendarComponent implements OnInit, ControlValueAccessor {
   @Input() minDate?: Date;
   @Input() maxDate?: Date;
-  @Input() disabled = false;
-  @Input() isReadOnly = false;
-  @Input() aria_placeholder = 'MM-DD-YYYY';
-  @Input() aria_label = 'given-name';
-  @Input() themeColor: 'theme-default' | 'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
-  @Output() calendarValueChange = new EventEmitter<any>();
-  inputDate: any;
+  @Input() disabledDates: Date[] = [];
+  @Input() isReadOnly?: boolean = false;
+  @Input() placeholder = 'Select Date';
+  @Input() format = 'MM/DD/YYYY';
+  @Input() locale = 'en-IN';
+  @Input() colorTheme: 'theme-green' | 'theme-blue' | 'theme-dark-blue' | 'theme-red' | 'theme-orange' = 'theme-green';
 
-  constructor(private readonly _changeDetectorRef: ChangeDetectorRef) { }
-  ngOnInit(){
-    this.bsConfig = { dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true };
-  }
-  onChange = (_: any) => { };
-  onTouched = () => { };
+  @Output() calendarValueChange = new EventEmitter<Date>();
 
-  writeValue(obj: any): void {
-    this.inputDate = obj;
-    this._changeDetectorRef.markForCheck();
+  showCalendar = false;
+  selectedDate: Date | null = null;
+  displayValue = '';
+  currentMonth: number = new Date().getMonth();
+  currentYear: number = new Date().getFullYear();
+  dates: Date[] = [];
+  days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December'];
+  years: number[] = [];
+
+  private onChange: any = () => { };
+  readonly onTouched: any = () => { };
+  private _value: any;
+
+  
+  get value() {
+    return this._value;
   }
+
+  set value(val: any) {
+    this._value = val;
+    this.onChange(val);
+    this.onTouched();
+  }
+
+  ngOnInit() {
+    this.generateYears();
+    this.generateCalendar();
+    this.formatMonthsAndWeekdays();
+  }
+
+  formatMonthsAndWeekdays(): void {
+    const date = new Date();
+    this.months = Array.from({ length: 12 }, (_, i) => new Intl.DateTimeFormat(this.locale, { month: 'long' }).format(new Date(date.getFullYear(), i)));
+    this.days = Array.from({ length: 7 }, (_, i) => new Intl.DateTimeFormat(this.locale, { weekday: 'short' }).format(new Date(date.getFullYear(), date.getMonth(), date.getDate() + i)));
+  }
+
+  generateYears(): void {
+    const startYear = this.minDate ? this.minDate.getFullYear() : 1900;
+    const endYear = this.maxDate ? this.maxDate.getFullYear() : new Date().getFullYear() + 10;
+    for (let year = startYear; year <= endYear; year++) {
+      this.years.push(year);
+    }
+  }
+
+  toggleCalendar(): void {
+    this.showCalendar = !this.showCalendar;
+  }
+
+  hideCalendar(): void {
+    this.showCalendar = false;
+  }
+
+  selectDate(date: Date): void {
+    if (this.isDisabled(date) || isNaN(date.getTime())) {
+      return;
+    }
+    this.selectedDate = new Date(date);
+    this.displayValue = this.changeFormatDate(date);
+    this.calendarValueChange.emit(this.selectedDate);
+    this.hideCalendar();
+  }
+
+  prevMonth(): void {
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      this.currentYear--;
+    } else {
+      this.currentMonth--;
+    }
+    this.generateCalendar();
+  }
+
+  nextMonth(): void {
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      this.currentYear++;
+    } else {
+      this.currentMonth++;
+    }
+    this.generateCalendar();
+  }
+
+  onMonthOrYearChange(): void {
+    this.currentMonth = Number(this.currentMonth);
+    this.generateCalendar();
+  }
+
+  generateCalendar(): void {
+    this.dates = [];
+    const firstDay = new Date(this.currentYear, this.currentMonth, 1);
+    const lastDay = new Date(this.currentYear, this.currentMonth + 1, 0);
+    const startDay = firstDay.getDay();
+    const prevMonthLastDay = new Date(this.currentYear, this.currentMonth, 0).getDate();
+    for (let i = startDay - 1; i >= 0; i--) {
+      this.dates.push(new Date(this.currentYear, this.currentMonth - 1, prevMonthLastDay - i));
+    }
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+      this.dates.push(new Date(this.currentYear, this.currentMonth, i));
+    }
+    const totalDays = this.dates.length;
+    const remainingDays = (totalDays <= 35) ? (35 - totalDays) : (42 - totalDays);
+    for (let i = 1; i <= remainingDays; i++) {
+      this.dates.push(new Date(this.currentYear, this.currentMonth + 1, i));
+    }
+  }
+
+  isDisabled(date: Date): boolean {
+    if (isNaN(date.getTime())) {
+      return true;
+    }
+    const dateStr = date.toDateString();
+    return (
+      (this.minDate && date < this.minDate) ||
+      (this.maxDate && date > this.maxDate) ||
+      this.disabledDates.some(disabledDate => disabledDate.toDateString() === dateStr) ||
+      date.getMonth() !== this.currentMonth
+    );
+  }
+
+  formatDate(date: Date): string {
+    return new Intl.DateTimeFormat(this.locale, { year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+  }
+
+  isSelected(date: Date): boolean {
+    return (
+      this.selectedDate !== null &&
+      !isNaN(date.getTime()) &&
+      date.toDateString() === this.selectedDate.toDateString()
+    );
+  }
+
+  changeFormatDate(date: Date): string {
+    const day = this.pad(date.getDate());
+    const month = this.pad(date.getMonth() + 1);
+    const year = date.getFullYear();
+    switch (this.format) {
+      case 'MM/DD/YYYY':
+        return `${month}/${day}/${year}`;
+      case 'DD/MM/YYYY':
+        return `${day}/${month}/${year}`;
+      case 'YYYY/MM/DD':
+        return `${year}/${month}/${day}`;
+      default:
+        return date.toDateString();
+    }
+  }
+
+  pad(n: number): string {
+    return n < 10 ? `0${n}` : `${n}`;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onOutsideClick(event: MouseEvent) {
+    if (!(event.target as HTMLElement).closest('.datepicker-wrapper')) {
+      this.hideCalendar();
+    }
+  }
+
+  writeValue(value: any): void {
+    this._value = value;
+  }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
-  onDateChanged(event: any): void {
-    this.onChange(event);
-    this.calendarValueChange.emit(event);
-  }
-
-  handleBlur(): void {
     this.onTouched();
   }
 
-  onBlur(): void {
-    this.onTouched();
+  setDisabledState?(isDisabled: boolean): void {
+    this.isReadOnly = isDisabled;
   }
 
-  applyTheme(pop: BsDatepickerDirective): void {
-    this.bsConfig = { ...{}, containerClass: this.themeColor };
+  trackByDate(index: number, date: Date): number {
+    return date.getTime();
   }
-  ngAfterViewInit(): void {
-    this.applyTheme(this.datepickerVal);
-  }
-  @HostListener('window:scroll')
-  onScrollEvent() {
+
+  get classes(): string[] {
+    return [
+      `ptg-ui-calendar--${this.colorTheme}`];
   }
 }
