@@ -486,3 +486,29 @@ export interface IAppBarProps {
 	openMenu?: boolean;
 	closeMenu?: (open: boolean) => void;
 }
+
+export interface PtgUiDownloadFileProps {
+	allowFileTypes?: any;
+	children?: any;
+	excelColumns?: any;
+	excelDataToDownload?: any;
+	downloadBtnText?: string;
+}
+
+export interface IGridColumnUiProps {
+	children: React.ReactNode;
+	xl?: number;
+	lg?: number;
+	md?: number;
+	sm?: number;
+	xs?: number;
+	offsetLg?: number;
+	offsetMd?: number;
+	offsetSm?: number;
+	className?: string;
+}
+
+export interface RowUiProps {
+	children?: React.ReactNode;
+	className?: string;
+}
