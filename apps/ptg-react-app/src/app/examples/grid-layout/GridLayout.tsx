@@ -6,11 +6,7 @@
 
 import '@ptg-react-app/examples/grid-layout/./GridLayout.scss';
 import { useTranslation } from 'react-i18next';
-import {
-  PtgUiCard,
-  PtgUiGridColumn,
-  PtgUiRow,
-} from '@ptg-ui/react';
+import { PtgUiCard, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
@@ -127,7 +123,7 @@ export function GridLayout() {
           <PtgUiRow>
             <PtgUiGridColumn
               lg={4}
-              md={4}
+              md={6}
               sm={12}
               xs={12}
               className={'mb-8 mb-md-0'}
@@ -143,7 +139,7 @@ export function GridLayout() {
             </PtgUiGridColumn>
             <PtgUiGridColumn
               lg={4}
-              md={4}
+              md={6}
               sm={12}
               xs={12}
               offsetMd={4}

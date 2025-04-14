@@ -115,7 +115,7 @@ const DownloadFileExample = () => {
         <div className="me-4">
           <PtgUiDownload
             excelColumns={downloadFileData.columns}
-            excelDataToDownload={[]}
+            excelDataToDownload={downloadFileData.data}
             allowFileTypes={['PDF', 'EXCEL', 'JPG', 'WORD']}
             downloadBtnText={t('DOWNLOAD')}
           >
