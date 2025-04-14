@@ -5,6 +5,22 @@ import { ExportToCsv } from 'export-to-csv';
 import { PtgUiButton } from '../button/button';
 import { PtgUiDownloadFileProps } from '@ptg-react-libs/interfaces';
 
+/**
+ * PtgUiDownload component to provide functionality for downloading data in various formats.
+ *
+ * This component supports downloading data as Excel, PDF, JPG, or Word files. It allows users
+ * to select the desired file type from a dropdown and download the content rendered inside
+ * the component.
+ *
+ * @param {PtgUiDownloadFileProps} props - The properties for the PtgUiDownload component.
+ * @param {Array<string>} [props.excelColumns=[]] - The column headers for the Excel file.
+ * @param {Array<any>} [props.excelDataToDownload=[]] - The data to be downloaded in the Excel file.
+ * @param {Array<string>} [props.allowFileTypes=['PDF', 'EXCEL', 'JPG', 'WORD']] - The allowed file types for download.
+ * @param {React.ReactNode} props.children - The content to render inside the component and download.
+ * @param {string} [props.downloadBtnText='Download'] - The text for the download button.
+ * @param {string} [props.downloadFileName='example'] - The name of the downloaded file (without extension).
+ * @returns {JSX.Element} The rendered PtgUiDownload component.
+ */
 export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 	excelColumns = [],
 	excelDataToDownload = [],
