@@ -65,7 +65,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 
 	// Create HTML table from the ref
 	const createTable = () => {
-		return tableRef.current?.outerHTML || ''; // Optional chaining for safety
+		return tableRef.current?.outerHTML ?? ''; // Optional chaining for safety
 	};
 
 	// Download the Blob
