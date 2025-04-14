@@ -6,11 +6,12 @@ import { PtgUiButton } from '../button/button';
 import { PtgUiDownloadFileProps } from '@ptg-react-libs/interfaces';
 
 export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
-	excelColumns = [''],
+	excelColumns = [],
 	excelDataToDownload = [],
 	allowFileTypes = ['PDF', 'EXCEL', 'JPG', 'WORD'],
 	children,
 	downloadBtnText = 'Download',
+	downloadFileName = 'example',
 }) => {
 	const [selectedType, setSelectedType] = useState<string>(''); // Renamed for clarity
 	const tableRef = useRef<HTMLDivElement>(null); // Use useRef for table reference
@@ -49,9 +50,19 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 
 	// Download Excel file
 	const downloadExcel = (data: any) => {
-		console.log('Excel data:', data); // Debugging line
-		const csvExporter = new ExportToCsv();
-		csvExporter.generateCsv([excelColumns, ...data]);
+		const options = {
+			headers: excelColumns,
+			fieldSeparator: ',',
+			quoteStrings: '"',
+			decimalSeparator: '.',
+			useTextFile: false,
+			useBom: true,
+			filename: `${downloadFileName}.csv`,
+			useKeysAsHeaders: true,
+		};
+		const csvExporter = new ExportToCsv(options);
+		// Combine headers with data for export
+		csvExporter.generateCsv(data);
 	};
 
 	// Generate a Blob for the Word file
@@ -60,7 +71,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 	// Create and download the Word file
 	const downloadWordFile = () => {
 		const blob = generateBlob(createTable(), 'application/msword');
-		downloadBlob(blob, 'word.doc');
+		downloadBlob(blob, `${downloadFileName}.doc`);
 	};
 
 	// Create HTML table from the ref
@@ -84,7 +95,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 			const data = canvas.toDataURL('image/jpg');
 			const link = document.createElement('a');
 			link.href = data;
-			link.download = 'image.jpg';
+			link.download = `${downloadFileName}.jpg`;
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);
@@ -101,7 +112,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 			const fileHeight = (canvas.height * fileWidth) / canvas.width;
 			const PDF = new jsPDF('p', 'mm', 'a4');
 			PDF.addImage(data, 'PNG', 0, 0, fileWidth, fileHeight);
-			PDF.save('example.pdf');
+			PDF.save(`${downloadFileName}.pdf`);
 		}
 	};
 

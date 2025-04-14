@@ -118,6 +118,7 @@ const DownloadFileExample = () => {
             excelDataToDownload={downloadFileData.data}
             allowFileTypes={['PDF', 'EXCEL', 'JPG', 'WORD']}
             downloadBtnText={t('DOWNLOAD')}
+            downloadFileName={t('DOWNLOAD_FILE_NAME')}
           >
             <div className="col-lg-12 mb-3 col-sm-12 col-xs-12">
               <div className="table-responsive">

@@ -493,6 +493,7 @@ export interface PtgUiDownloadFileProps {
 	excelColumns?: any;
 	excelDataToDownload?: any;
 	downloadBtnText?: string;
+	downloadFileName?: string;
 }
 
 export interface IGridColumnUiProps {
