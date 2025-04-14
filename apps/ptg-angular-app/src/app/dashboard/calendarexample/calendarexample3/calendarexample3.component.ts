@@ -10,7 +10,7 @@
  * @description This component for calendarexample3
 **/
 
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { resources } from "../../../../resource/resource";
 
@@ -20,7 +20,7 @@ import { resources } from "../../../../resource/resource";
   templateUrl: './calendarexample3.component.html',
   styleUrls: ['./calendarexample3.component.scss']
 })
-export class Calendarexample3Component implements OnInit {
+export class Calendarexample3Component implements OnInit, AfterViewInit {
   calendarForm!: FormGroup;
   startDate!:any;
   endDate!:any;
