@@ -5,12 +5,29 @@ import { ExportToCsv } from 'export-to-csv';
 import { PtgUiButton } from '../button/button';
 import { PtgUiDownloadFileProps } from '@ptg-react-libs/interfaces';
 
+/**
+ * PtgUiDownload component to provide functionality for downloading data in various formats.
+ *
+ * This component supports downloading data as Excel, PDF, JPG, or Word files. It allows users
+ * to select the desired file type from a dropdown and download the content rendered inside
+ * the component.
+ *
+ * @param {PtgUiDownloadFileProps} props - The properties for the PtgUiDownload component.
+ * @param {Array<string>} [props.excelColumns=[]] - The column headers for the Excel file.
+ * @param {Array<any>} [props.excelDataToDownload=[]] - The data to be downloaded in the Excel file.
+ * @param {Array<string>} [props.allowFileTypes=['PDF', 'EXCEL', 'JPG', 'WORD']] - The allowed file types for download.
+ * @param {React.ReactNode} props.children - The content to render inside the component and download.
+ * @param {string} [props.downloadBtnText='Download'] - The text for the download button.
+ * @param {string} [props.downloadFileName='example'] - The name of the downloaded file (without extension).
+ * @returns {JSX.Element} The rendered PtgUiDownload component.
+ */
 export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
-	excelColumns = [''],
+	excelColumns = [],
 	excelDataToDownload = [],
 	allowFileTypes = ['PDF', 'EXCEL', 'JPG', 'WORD'],
 	children,
 	downloadBtnText = 'Download',
+	downloadFileName = 'example',
 }) => {
 	const [selectedType, setSelectedType] = useState<string>(''); // Renamed for clarity
 	const tableRef = useRef<HTMLDivElement>(null); // Use useRef for table reference
@@ -49,9 +66,19 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 
 	// Download Excel file
 	const downloadExcel = (data: any) => {
-		console.log('Excel data:', data); // Debugging line
-		const csvExporter = new ExportToCsv();
-		csvExporter.generateCsv([excelColumns, ...data]);
+		const options = {
+			headers: excelColumns,
+			fieldSeparator: ',',
+			quoteStrings: '"',
+			decimalSeparator: '.',
+			useTextFile: false,
+			useBom: true,
+			filename: `${downloadFileName}.csv`,
+			useKeysAsHeaders: true,
+		};
+		const csvExporter = new ExportToCsv(options);
+		// Combine headers with data for export
+		csvExporter.generateCsv(data);
 	};
 
 	// Generate a Blob for the Word file
@@ -60,7 +87,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 	// Create and download the Word file
 	const downloadWordFile = () => {
 		const blob = generateBlob(createTable(), 'application/msword');
-		downloadBlob(blob, 'word.doc');
+		downloadBlob(blob, `${downloadFileName}.doc`);
 	};
 
 	// Create HTML table from the ref
@@ -84,7 +111,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 			const data = canvas.toDataURL('image/jpg');
 			const link = document.createElement('a');
 			link.href = data;
-			link.download = 'image.jpg';
+			link.download = `${downloadFileName}.jpg`;
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);
@@ -101,7 +128,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 			const fileHeight = (canvas.height * fileWidth) / canvas.width;
 			const PDF = new jsPDF('p', 'mm', 'a4');
 			PDF.addImage(data, 'PNG', 0, 0, fileWidth, fileHeight);
-			PDF.save('example.pdf');
+			PDF.save(`${downloadFileName}.pdf`);
 		}
 	};
 
