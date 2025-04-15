@@ -1,28 +1,16 @@
-/**
- * @since April 2022
- * @author Harsha Zalawa
- * @uses Reusable Component for Indeterminate Checkbox
- */
 import React from 'react';
-import Checkbox from '../Checkbox/Checkbox';
+import { Checkbox } from '../Checkbox/Checkbox';
 import './checkboxlist.scss';
-import { CheckboxState, Item } from './checkbox.interface';
+import { CheckboxState } from './checkbox.interface';
+import { CheckboxListProps } from '@ptg-react-libs/interfaces';
 
-interface CheckboxListProps {
-	items: Item[];
-	idsToRender?: number[];
-	indentLevel?: number;
-	onClick?: (id: number) => void;
-	getStateForId: (id: number) => CheckboxState;
-}
-
-function CheckboxList({
+export const CheckboxList = ({
 	items,
 	getStateForId,
 	idsToRender = [],
 	indentLevel = 0,
 	onClick = () => undefined,
-}: CheckboxListProps) {
+}: CheckboxListProps) => {
 	if (!idsToRender.length) {
 		idsToRender = items.filter((i) => !i.parentId).map((i) => i.id);
 	}
@@ -54,7 +42,6 @@ function CheckboxList({
 								indeterminate={checkboxState === CheckboxState.INDETERMINATE}
 								labelId={item.name + '_' + item.id}
 							/>
-							{/* <label className="align-text-bottom">{item.name}</label> */}
 						</li>
 						{getChildNodes(item.id)}
 					</React.Fragment>
@@ -62,6 +49,4 @@ function CheckboxList({
 			})}
 		</ul>
 	);
-}
-
-export default CheckboxList;
+};

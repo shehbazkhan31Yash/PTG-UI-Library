@@ -1,23 +1,10 @@
-/**
- * @since April 2022
- * @author Harsha Zalawa
- * @uses Reusable Component for Indeterminate Checkbox
- */
-
 import { useCallback, useState, useLayoutEffect, useEffect } from 'react';
-import CheckboxList from '../CheckboxList/CheckboxList';
+import { CheckboxList } from '../CheckboxList/CheckboxList';
 import { updateItemStates } from './updateItemStates';
 import { CheckboxState, ItemState } from '../CheckboxList/checkbox.interface';
+import { PtgUiIndeterminateCheckboxProps } from '@ptg-react-libs/interfaces';
 
-export interface PtgUiIndeterminateCheckboxProps {
-	items: any;
-}
-
-export function PtgUiIndeterminateCheckbox({ items }: PtgUiIndeterminateCheckboxProps) {
-	// const defaultItemStates: ItemState[] = items.map((i:any) => ({
-	//   id: i.id,
-	//   state: CheckboxState.UNCHECKED,
-	// }));
+export const PtgUiIndeterminateCheckbox = ({ items }: PtgUiIndeterminateCheckboxProps) => {
 	const [itemStates, setItemStates] = useState<ItemState[]>([]);
 	const getStateForId = useCallback(
 		(id: number) => {
@@ -44,6 +31,4 @@ export function PtgUiIndeterminateCheckbox({ items }: PtgUiIndeterminateCheckbox
 	useLayoutEffect(() => undefined as void, [itemStates]);
 
 	return <CheckboxList items={items} onClick={clickHandler} getStateForId={getStateForId} />;
-}
-
-export default PtgUiIndeterminateCheckbox;
+};

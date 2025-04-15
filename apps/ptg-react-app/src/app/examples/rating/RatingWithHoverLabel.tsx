@@ -1,6 +1,6 @@
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { IRatingWithHoverLabel } from '@ptg-react-app/interfaces';
-import { Rating } from '@ptg-react-libs/rating/rating';
+import { PtgUiRating } from '@ptg-react-libs/rating/rating';
 import { useState } from 'react';
 
 export const RatingWithHoverLabel = (props: IRatingWithHoverLabel) => {
@@ -20,7 +20,7 @@ export const RatingWithHoverLabel = (props: IRatingWithHoverLabel) => {
     5: 'Excellent+',
   };
 
-  const componentCode = `import { Rating } from '@ptg-react-libs/rating/rating';`;
+  const componentCode = `import { PtgUiRating } from '@ptg-react-libs/rating/rating';`;
 
   // Note: HTML code for Rating
   const htmlCode = `
@@ -42,7 +42,7 @@ export const RatingWithHoverLabel = (props: IRatingWithHoverLabel) => {
 
   return (
   <>
-        <Rating
+        <PtgUiRating
             value={value}
             onChange={setValue}
             precision={0.5}
@@ -64,7 +64,7 @@ export const RatingWithHoverLabel = (props: IRatingWithHoverLabel) => {
       )}
       <div className="mb-3">
         <div className="d-flex justify-content-center">
-          <Rating
+          <PtgUiRating
             value={value}
             onChange={setValue}
             precision={0.5}
