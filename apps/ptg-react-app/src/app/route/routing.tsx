@@ -3,6 +3,7 @@
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
  */
+
 import { lazy } from 'react';
 
 /*--Import Components for routing using lazy loading--*/
@@ -94,6 +95,7 @@ const Rating = lazy(() => import('../examples/rating/rating'));
 const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
+const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -172,6 +174,10 @@ const routing = [
   {
     path: '/carousel',
     component: PtgUiCarousel,
+  },
+  {
+    path: '/chatbot',
+    component: Chatbot,
   },
   {
     path: '/dialog',

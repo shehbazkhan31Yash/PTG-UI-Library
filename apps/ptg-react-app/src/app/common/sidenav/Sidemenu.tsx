@@ -132,6 +132,12 @@ export const NavigationData = [
     ],
   },
   {
+    path: '/chatbot',
+    icon: 'fa fa-android',
+    label: 'Chatbot',
+    disabled: false,
+  },
+  {
     label: 'DATA TABLE',
     icon: 'fa fa-table',
     pages: [
