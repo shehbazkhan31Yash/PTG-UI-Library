@@ -516,7 +516,7 @@ export interface RowUiProps {
 	className?: string;
 }
 
-export interface checkboxProps {
+export interface ICheckboxProps {
 	isChecked?: boolean;
 	indeterminate?: boolean;
 	onClick?: () => void;

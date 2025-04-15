@@ -1,7 +1,7 @@
-import { checkboxProps } from '@ptg-react-libs/interfaces';
+import { ICheckboxProps } from '@ptg-react-libs/interfaces';
 import './checkbox.scss';
 
-export const Checkbox = ({ isChecked = false, onClick, indeterminate = false, labelId }: checkboxProps) => {
+export const Checkbox = ({ isChecked = false, onClick, indeterminate = false, labelId }: ICheckboxProps) => {
 	const splitId = labelId.split('_');
 	return (
 		<>
