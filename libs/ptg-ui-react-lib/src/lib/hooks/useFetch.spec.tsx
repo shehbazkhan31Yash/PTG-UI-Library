@@ -16,7 +16,9 @@ const TestComponent = ({ url }) => {
 		<div>
 			{isLoading && <span>Loading...</span>}
 			{error && <span>Error: {error}</span>}
-			{data && data?.map((item: Item) => <div key={item?.id}>{item?.name}</div>)}
+			{data?.map((item: Item) => (
+				<div key={item?.id}>{item?.name}</div>
+			))}
 		</div>
 	);
 };
