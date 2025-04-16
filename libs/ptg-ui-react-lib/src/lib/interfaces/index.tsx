@@ -493,7 +493,7 @@ export interface PtgUiDownloadFileProps {
 	allowFileTypes?: string[];
 	children?: React.ReactNode;
 	excelColumns?: string[];
-	excelDataToDownload?: Record<string, any>[];
+	excelDataToDownload?: Record<string, object>[];
 	downloadBtnText?: string;
 	downloadFileName?: string;
 }

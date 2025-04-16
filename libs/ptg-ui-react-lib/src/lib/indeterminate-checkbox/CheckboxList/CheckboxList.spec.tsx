@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 describe('CheckboxList Component', () => {
 	const mockItems = [
-		{ id: 1, name: 'Parent 1',parentId: 0},
+		{ id: 1, name: 'Parent 1', parentId: 0 },
 		{ id: 2, name: 'Child 1.1', parentId: 1 },
 		{ id: 3, name: 'Child 1.2', parentId: 1 },
 		{ id: 4, name: 'Parent 2', parentId: 2 },

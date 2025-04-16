@@ -65,7 +65,7 @@ export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
 	};
 
 	// Download Excel file
-	const downloadExcel = (data: Record<string, any>[]) => {
+	const downloadExcel = (data: Record<string, object>[]) => {
 		const options = {
 			headers: excelColumns,
 			fieldSeparator: ',',

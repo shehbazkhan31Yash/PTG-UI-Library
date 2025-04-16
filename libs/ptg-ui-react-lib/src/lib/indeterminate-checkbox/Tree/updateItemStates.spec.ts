@@ -59,7 +59,7 @@ describe('updateItemStates', () => {
 			{ id: 5, state: CheckboxState.CHECKED },
 		];
 
-		const newState = updateItemStates(checkedState, items, 2);
+		const newState = updateItemStates([...checkedState], [...items], 2);
 
 		expect(newState.find((i) => i.id === 2)?.state).toBe(CheckboxState.UNCHECKED);
 		expect(newState.find((i) => i.id === 4)?.state).toBe(CheckboxState.UNCHECKED);
