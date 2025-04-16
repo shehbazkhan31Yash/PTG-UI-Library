@@ -11,24 +11,32 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import { PtgUiButton, PtgUiModal } from '@ptg-ui/react';
 import './dialog.scss';
-import { FONT_SIZE_12, BUTTON_VARIANT, MODAL_CANCEL_BUTTON_COLOR, MODAL_CANCEL_BUTTON_TEXT, MODAL_CONFIRM_BUTTON_COLOR, MODAL_CONFIRM_BUTTON_TEXT, POSITIONS, WIDTH_200 } from '@ptg-react-app/constants/Constant';
+import {
+  FONT_SIZE_12,
+  BUTTON_VARIANT,
+  MODAL_CANCEL_BUTTON_COLOR,
+  MODAL_CANCEL_BUTTON_TEXT,
+  MODAL_CONFIRM_BUTTON_COLOR,
+  MODAL_CONFIRM_BUTTON_TEXT,
+  POSITIONS,
+  WIDTH_200,
+} from '@ptg-react-app/constants/Constant';
 
 const DialogExample = () => {
   const [showCode, setShowCode] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-// Note: showExampleCode function show code 
+  // Note: showExampleCode function show code
   const showExampleCode = () => setShowCode(!showCode);
- 
-  // Note: Handle modal close 
+
+  // Note: Handle modal close
   const modalClosed = () => setIsOpen(false);
 
-// Note: Handle confirm click
+  // Note: Handle confirm click
   const confirmClicked = () => setIsOpen(false);
 
-// Note: Handle open modal
-  const openModal = () =>  setIsOpen(true);
-  
+  // Note: Handle open modal
+  const openModal = () => setIsOpen(true);
 
   const componentCode = `
     const [showCode, setShowCode] = useState<boolean>(false);
@@ -86,7 +94,7 @@ const DialogExample = () => {
   const ModalProps = {
     isOpen: isOpen,
     onConfirmed: confirmClicked,
-    modalSize: 'lg',
+    modalSize: 'lg' as const,
     header: 'Header Name Here',
     confirmButton: MODAL_CONFIRM_BUTTON_TEXT,
     cancelButton: MODAL_CANCEL_BUTTON_TEXT,
