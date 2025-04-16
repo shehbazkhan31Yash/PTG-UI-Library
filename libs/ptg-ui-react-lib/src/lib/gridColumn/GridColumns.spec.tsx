@@ -29,7 +29,7 @@ describe('PtgUiGridColumn', () => {
 			</PtgUiGridColumn>
 		);
 		expect(container.firstChild).toHaveClass(
-			'col-xl-4 col-lg-3 col-md-2 col-sm-1 col-xs-6 offset-lg-2 offset-md-1 offset-sm-3 custom-class'
+			'ptg-ui-col-xl-4 ptg-ui-col-lg-3 ptg-ui-col-md-2 ptg-ui-col-sm-1 ptg-ui-col-xs-6 ptg-ui-offset-lg-2 ptg-ui-offset-md-1 ptg-ui-offset-sm-3 custom-class'
 		);
 	});
 

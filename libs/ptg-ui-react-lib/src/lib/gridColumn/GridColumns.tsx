@@ -38,14 +38,14 @@ export const PtgUiGridColumn = (props: IGridColumnUiProps) => {
 
 	// Construct the custom class names based on the props
 	const classNames = [
-		xl ? `col-xl-${xl}` : '',
-		lg ? `col-lg-${lg}` : '',
-		md ? `col-md-${md}` : '',
-		sm ? `col-sm-${sm}` : '',
-		xs ? `col-xs-${xs}` : '',
-		offsetLg ? `offset-lg-${offsetLg}` : '',
-		offsetMd ? `offset-md-${offsetMd}` : '',
-		offsetSm ? `offset-sm-${offsetSm}` : '',
+		xl ? `ptg-ui-col-xl-${xl}` : '',
+		lg ? `ptg-ui-col-lg-${lg}` : '',
+		md ? `ptg-ui-col-md-${md}` : '',
+		sm ? `ptg-ui-col-sm-${sm}` : '',
+		xs ? `ptg-ui-col-xs-${xs}` : '',
+		offsetLg ? `ptg-ui-offset-lg-${offsetLg}` : '',
+		offsetMd ? `ptg-ui-offset-md-${offsetMd}` : '',
+		offsetSm ? `ptg-ui-offset-sm-${offsetSm}` : '',
 		className,
 	]
 		.filter(Boolean)
