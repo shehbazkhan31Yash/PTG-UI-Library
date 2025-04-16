@@ -455,19 +455,19 @@ export interface IRatingProps {
 
 export interface PtgUiModalProps {
 	isOpen?: boolean;
-	onConfirmed?: any;
-	modalSize?: string;
+	onConfirmed?: () => void;
+	modalSize?: 'sm' | 'md' | 'lg';
 	showHeader?: boolean;
 	header?: string;
 	showFooter?: boolean;
 	confirmButton?: string;
 	cancelButton?: string;
-	onModalClose?: any;
+	onModalClose?: () => void;
 	backdropClick?: boolean;
 	content?: string;
 	confirmButtonColor?: string;
 	cancelButtonColor?: string;
-	children?: any;
+	children?: React.ReactNode;
 }
 
 export interface IMenuConfig {
@@ -490,10 +490,10 @@ export interface IAppBarProps {
 }
 
 export interface PtgUiDownloadFileProps {
-	allowFileTypes?: any;
-	children?: any;
-	excelColumns?: any;
-	excelDataToDownload?: any;
+	allowFileTypes?: string[];
+	children?: React.ReactNode;
+	excelColumns?: string[];
+	excelDataToDownload?: Record<string, object>[];
 	downloadBtnText?: string;
 	downloadFileName?: string;
 }
@@ -532,5 +532,5 @@ export interface CheckboxListProps {
 }
 
 export interface PtgUiIndeterminateCheckboxProps {
-	items: any;
+	items: Item[];
 }
