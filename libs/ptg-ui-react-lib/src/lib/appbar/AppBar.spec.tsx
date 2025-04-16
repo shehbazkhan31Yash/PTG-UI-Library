@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import { AppBar } from './AppBar';
+import { PtgUiAppBar } from './AppBar';
 import '@testing-library/jest-dom';
 import { IAppBarProps } from '@ptg-react-libs/interfaces';
 
@@ -24,12 +24,12 @@ describe('AppBar Component', () => {
 	};
 
 	it('renders the AppBar with logo and menu items', () => {
-		render(<AppBar {...defaultProps} />);
+		render(<PtgUiAppBar {...defaultProps} />);
 		expect(screen.getByAltText('Logo')).toBeInTheDocument();
 	});
 
 	it('toggles the burger menu when the button is clicked', () => {
-		render(<AppBar {...defaultProps} />);
+		render(<PtgUiAppBar {...defaultProps} />);
 		const burgerButton = screen.getByText('☰');
 		fireEvent.click(burgerButton);
 		expect(screen.getByText('Menu Item')).toBeVisible();
@@ -38,7 +38,7 @@ describe('AppBar Component', () => {
 	});
 
 	it('closes the menu when clicking outside', () => {
-		render(<AppBar {...defaultProps} />);
+		render(<PtgUiAppBar {...defaultProps} />);
 		const burgerButton = screen.getByText('☰');
 		fireEvent.click(burgerButton);
 		expect(screen.getByText('Menu Item')).toBeVisible();
@@ -48,7 +48,7 @@ describe('AppBar Component', () => {
 	});
 
 	it('calls closeMenu callback when menu is closed', () => {
-		render(<AppBar {...defaultProps} />);
+		render(<PtgUiAppBar {...defaultProps} />);
 		const burgerButton = screen.getByText('☰');
 		fireEvent.click(burgerButton);
 		fireEvent.click(burgerButton);
@@ -60,7 +60,7 @@ describe('AppBar Component', () => {
 			...defaultProps,
 			menuConfig: { ...defaultProps.menuConfig, burgerMenuType: 'drawer' as const },
 		};
-		render(<AppBar {...props} />);
+		render(<PtgUiAppBar {...props} />);
 		const burgerButton = screen.getByText('☰');
 		fireEvent.click(burgerButton);
 		expect(screen.getByText('Menu Item')).toBeVisible();
@@ -71,7 +71,7 @@ describe('AppBar Component', () => {
 			...defaultProps,
 			menuConfig: { ...defaultProps.menuConfig, backgroundColor: 'secondary' as const },
 		};
-		const { container } = render(<AppBar {...props} />);
+		const { container } = render(<PtgUiAppBar {...props} />);
 		expect(container.firstChild).toHaveStyle('background-color: #4CAF50');
 	});
 });

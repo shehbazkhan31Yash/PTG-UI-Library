@@ -1,3 +1,5 @@
+import { CheckboxState, Item } from '@ptg-react-libs/indeterminate-checkbox/CheckboxList/checkbox.interface';
+
 // Pagination
 interface IBreadcrumbItem {
 	title: string;
@@ -512,4 +514,23 @@ export interface IGridColumnUiProps {
 export interface RowUiProps {
 	children?: React.ReactNode;
 	className?: string;
+}
+
+export interface ICheckboxProps {
+	isChecked?: boolean;
+	indeterminate?: boolean;
+	onClick?: () => void;
+	labelId: string;
+}
+
+export interface CheckboxListProps {
+	items: Item[];
+	idsToRender?: number[];
+	indentLevel?: number;
+	onClick?: (id: number) => void;
+	getStateForId: (id: number) => CheckboxState;
+}
+
+export interface PtgUiIndeterminateCheckboxProps {
+	items: any;
 }

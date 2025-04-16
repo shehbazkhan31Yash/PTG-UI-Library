@@ -16,7 +16,7 @@ import { colorMap, defaultMenuConfig } from '@ptg-react-libs/constants/Constants
  * @param {Function} [props.closeMenu] - Callback function triggered when the menu is closed.
  * @returns {JSX.Element} The rendered AppBar component.
  */
-export const AppBar: React.FC<IAppBarProps> = ({
+export const PtgUiAppBar: React.FC<IAppBarProps> = ({
 	menuConfig,
 	openMenu: controlledMenuOpen, // Controlled state for menu open
 	closeMenu, // Function to set menu open state

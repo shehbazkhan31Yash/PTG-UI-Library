@@ -1,9 +1,3 @@
-/**
- * @since April 2022
- * @author Harsha Zalawa
- * @uses Reusable Component for Indeterminate Checkbox
- */
-
 import { CheckboxState, Item, ItemState } from '../CheckboxList/checkbox.interface';
 
 export const updateItemStates = (oldState: ItemState[], items: Item[], clickedId: number) => {

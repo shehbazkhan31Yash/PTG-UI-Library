@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { IAppBarWithoutStatic } from '@ptg-react-app/interfaces';
-import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
 import './AppBarWithDefaultProps.css';
 import IFrame from './IFrame';
 
 export const AppBarWithoutStatic = (props: IAppBarWithoutStatic) => {
   const componentCode = `
-  import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+  import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
   import { Link } from 'react-router-dom'; 
   // Add CSS file for styling
  `;
@@ -50,7 +50,7 @@ export const AppBarWithoutStatic = (props: IAppBarWithoutStatic) => {
     static: true,
   };
 
-    <AppBar menuConfig={menuConfig} />
+    <PtgUiAppBar menuConfig={menuConfig} />
  
   `;
 
@@ -100,7 +100,7 @@ export const AppBarWithoutStatic = (props: IAppBarWithoutStatic) => {
       )}
       <div className="mb-3">
         <IFrame>
-          <AppBar menuConfig={menuConfig} />
+          <PtgUiAppBar menuConfig={menuConfig} />
           <p className="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             pretium rutrum urna at imperdiet. Sed sodales aliquet nulla, et
