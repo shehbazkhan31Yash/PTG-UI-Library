@@ -1,6 +1,24 @@
 import { useState, useEffect } from 'react';
 
-export function PtguseFetch(url: string) {
+/**
+ * PtguseFetch - A custom React hook for fetching data from an API.
+ *
+ * This hook provides a simple way to fetch data from a given API endpoint.
+ * It manages the loading state, error handling, and the fetched data.
+ *
+ * @param {string} url - The API endpoint to fetch data from.
+ * @returns {Object} - An object containing the following properties:
+ *   - {Array} data: The fetched data from the API.
+ *   - {boolean} isLoading: Indicates whether the data is currently being fetched.
+ *   - {string | null} error: The error message, if any, or null if no error occurred.
+ *
+ * @example
+ * const { data, isLoading, error } = PtguseFetch('example-endpoint');
+ * if (isLoading) return <p>Loading...</p>;
+ * if (error) return <p>Error: {error}</p>;
+ * return <div>{JSON.stringify(data)}</div>;
+ */
+export const PtguseFetch = (url: string) => {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null); // Use null for no error
@@ -35,6 +53,4 @@ export function PtguseFetch(url: string) {
 	}, [url]);
 
 	return { data, isLoading, error };
-}
-
-
+};
