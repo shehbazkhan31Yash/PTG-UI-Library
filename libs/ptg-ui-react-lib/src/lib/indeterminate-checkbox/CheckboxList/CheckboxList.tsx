@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox } from '../Checkbox/Checkbox';
-import './checkboxlist.scss';
+import './checkboxlist.css';
 import { CheckboxState } from './checkbox.interface';
 import { CheckboxListProps } from '@ptg-react-libs/interfaces';
 
@@ -31,19 +31,19 @@ export const CheckboxList = ({
 	return (
 		<ul className="list" style={{ paddingLeft: indentLevel * 20 }}>
 			{idsToRender.map((id) => {
-				const item: any = items.find((i) => i.id === id);
+				const item: { id: number; name: string; parentId?: number } | undefined = items.find((i) => i.id === id);
 				const checkboxState = getStateForId(id);
 				return (
-					<React.Fragment key={item.id}>
+					<React.Fragment key={item?.id}>
 						<li>
 							<Checkbox
-								onClick={() => onClick(item.id)}
+								onClick={() => item && onClick(item.id)}
 								isChecked={checkboxState === CheckboxState.CHECKED}
 								indeterminate={checkboxState === CheckboxState.INDETERMINATE}
-								labelId={item.name + '_' + item.id}
+								labelId={item?.name + '_' + item?.id}
 							/>
 						</li>
-						{getChildNodes(item.id)}
+						{item?.id !== undefined && getChildNodes(item.id)}
 					</React.Fragment>
 				);
 			})}
