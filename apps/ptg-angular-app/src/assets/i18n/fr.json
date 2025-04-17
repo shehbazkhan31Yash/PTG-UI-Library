@@ -153,8 +153,8 @@
   "DIALOG_WITH_OPTIONAL_FOOTER_EXAMPLE": "Boîte de dialogue avec option de pied de page facultative",
   "CAROUSEL_EXAMPLE": "Exemple de carrousel",
   "CAROUSEL_EXAMPLE_WITH_INDICATOR": "Exemple pour masquer l'indicateur et utiliser la hauteur et la largeur minimales",
-  "CAROUSEL_EXAMPLE_WITH_CAPTION":"Exemple de carrousel avec légende",
-  "CAROUSEL_EXAMPLE_WITH_IMAGE_THUMBNAIL":"Exemple de carrousel avec vignette d'image",
-  "DRAG_DROP": "Glisser-Déposer"
-
+  "CAROUSEL_EXAMPLE_WITH_CAPTION": "Exemple de carrousel avec légende",
+  "CAROUSEL_EXAMPLE_WITH_IMAGE_THUMBNAIL": "Exemple de carrousel avec vignette d'image",
+  "DRAG_DROP": "Glisser-Déposer",
+  "DOWNLOAD_FILE_NAME": "Télécharger le fichier"
 }

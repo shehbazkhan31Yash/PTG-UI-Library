@@ -19,7 +19,7 @@ import './rating.css';
  * @param {number} [props.hoverSize=28] - The size of the stars when hovered in pixels.
  * @returns {JSX.Element} The rendered Rating component.
  */
-export const Rating: React.FC<IRatingProps> = ({
+export const PtgUiRating: React.FC<IRatingProps> = ({
 	value: controlledValue,
 	onChange,
 	readOnly = false,

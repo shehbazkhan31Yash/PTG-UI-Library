@@ -8,9 +8,7 @@
 	list-style: none; /* Remove default list styles */
 	padding: 0; /* Remove default padding */
 	margin: 0; /* Remove default margin */
-	--bs-pagination-color: #000;
-
-	//flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+	color: #000; /* Set pagination color */
 }
 
 /* Media Queries for Smaller Screens */

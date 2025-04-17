@@ -1,3 +1,5 @@
+import { CheckboxState, Item } from '@ptg-react-libs/indeterminate-checkbox/CheckboxList/checkbox.interface';
+
 // Pagination
 interface IBreadcrumbItem {
 	title: string;
@@ -453,19 +455,19 @@ export interface IRatingProps {
 
 export interface PtgUiModalProps {
 	isOpen?: boolean;
-	onConfirmed?: any;
-	modalSize?: string;
+	onConfirmed?: () => void;
+	modalSize?: 'sm' | 'md' | 'lg';
 	showHeader?: boolean;
 	header?: string;
 	showFooter?: boolean;
 	confirmButton?: string;
 	cancelButton?: string;
-	onModalClose?: any;
+	onModalClose?: () => void;
 	backdropClick?: boolean;
 	content?: string;
 	confirmButtonColor?: string;
 	cancelButtonColor?: string;
-	children?: any;
+	children?: React.ReactNode;
 }
 
 export interface IMenuConfig {
@@ -485,4 +487,60 @@ export interface IAppBarProps {
 	menuConfig: IMenuConfig;
 	openMenu?: boolean;
 	closeMenu?: (open: boolean) => void;
+}
+
+export interface PtgUiDownloadFileProps {
+	allowFileTypes?: string[];
+	children?: React.ReactNode;
+	excelColumns?: string[];
+	excelDataToDownload?: Record<string, object>[];
+	downloadBtnText?: string;
+	downloadFileName?: string;
+}
+
+export interface IGridColumnUiProps {
+	children: React.ReactNode;
+	xl?: number;
+	lg?: number;
+	md?: number;
+	sm?: number;
+	xs?: number;
+	offsetLg?: number;
+	offsetMd?: number;
+	offsetSm?: number;
+	className?: string;
+}
+
+export interface RowUiProps {
+	children?: React.ReactNode;
+	className?: string;
+}
+
+export interface ICheckboxProps {
+	isChecked?: boolean;
+	indeterminate?: boolean;
+	onClick?: () => void;
+	labelId: string;
+}
+
+export interface CheckboxListProps {
+	items: Item[];
+	idsToRender?: number[];
+	indentLevel?: number;
+	onClick?: (id: number) => void;
+	getStateForId: (id: number) => CheckboxState;
+}
+
+export interface PtgUiIndeterminateCheckboxProps {
+	items: Item[];
+}
+
+export interface PtgUiPaginationProps {
+	pageNumber?: number;
+	dataCount?: number;
+	pageIndex?: (number) => void;
+	siblingCount?: number;
+	pageSize?: number;
+	previousBtnText?: string;
+	nextBtnText?: string;
 }

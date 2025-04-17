@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { IAppBarWithMenuBottom } from '@ptg-react-app/interfaces';
-import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
 import './AppBarWithDefaultProps.css';
 import IFrame from './IFrame';
 
 export const AppBarWithMenuBottom = (props: IAppBarWithMenuBottom) => {
   const componentCode = `
-  import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+  import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
   import { Link } from 'react-router-dom'; 
   // Add CSS file for styling
  `;
@@ -53,7 +53,7 @@ export const AppBarWithMenuBottom = (props: IAppBarWithMenuBottom) => {
     burgerMenuType: 'drawer' as const
   };
 
-    <AppBar menuConfig={menuConfig} />
+    <PtgUiAppBar menuConfig={menuConfig} />
  
   `;
 
@@ -111,7 +111,7 @@ export const AppBarWithMenuBottom = (props: IAppBarWithMenuBottom) => {
       )}
       <div className="mb-3">
         <IFrame>
-          <AppBar menuConfig={menuConfig} />
+          <PtgUiAppBar menuConfig={menuConfig} />
         </IFrame>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { IAppBarWithResponsiveness } from '@ptg-react-app/interfaces';
-import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
 import './AppBarWithDefaultProps.css';
 import IFrame from './IFrame';
 import { DropdownMenu } from './DropdownMenu';
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
   const componentCode = `
-  import { AppBar } from '@ptg-react-libs/appbar/AppBar';
+  import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
   import { Link } from 'react-router-dom'; 
   // Add CSS file for styling
  `;
@@ -84,7 +84,7 @@ export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
   };
 
 
-    <AppBar
+    <PtgUiAppBar
             menuConfig={menuConfig}
             openMenu={menuOpen}
             closeMenu={setMenuOpen}
@@ -167,7 +167,7 @@ export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
       )}
       <div className="mb-3">
         <IFrame>
-          <AppBar
+          <PtgUiAppBar
             menuConfig={menuConfig}
             openMenu={menuOpen}
             closeMenu={setMenuOpen}

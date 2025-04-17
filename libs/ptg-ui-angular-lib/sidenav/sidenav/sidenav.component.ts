@@ -71,7 +71,7 @@ export class SidenavComponent {
         id: '2',
         path: '/calendar',
         icon: 'fa-solid fa-calendar',
-        label: 'CALENDER',
+        label: 'CALENDAR',
         disabled: false,
       },
       {

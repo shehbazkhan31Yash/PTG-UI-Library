@@ -44,7 +44,7 @@ export const PtgUiModal: React.FC<PtgUiModalProps> = ({
 	children,
 }) => {
 	const closeModal = () => {
-		if (backdropClick) onModalClose();
+		if (backdropClick && onModalClose) onModalClose();
 	};
 
 	if (!isOpen) return null;

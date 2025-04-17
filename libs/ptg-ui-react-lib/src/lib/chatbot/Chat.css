@@ -1,0 +1,108 @@
+/* Chat.css */
+.chatContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	background-color: #f9f9f9;
+}
+.messages {
+	flex: 1;
+	padding: 20px;
+	overflow-y: auto;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	border-radius: 8px 8px 0 0;
+}
+.message {
+	margin-bottom: 15px;
+}
+.message.user {
+	text-align: right;
+}
+.messageText {
+	display: inline-block;
+	padding: 10px;
+	border-radius: 12px;
+	max-width: 75%;
+	word-wrap: break-word;
+}
+.message.user .messageText {
+	background-color: #d1e7dd; /* Light green for user messages */
+}
+.message.ai .messageText {
+	background-color: #cfe2ff; /* Light blue for AI messages */
+}
+.imageContainer {
+	margin-top: 5px;
+}
+.uploadedImage {
+	max-width: 100%;
+	border-radius: 8px;
+}
+.loadingIndicator {
+	text-align: center;
+	font-style: italic;
+	color: #888;
+}
+.inputContainer {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+input[type='text'] {
+	flex: 1;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+input[type='file'] {
+	display: none; /* Hide the default file input */
+}
+.uploadIcon {
+	cursor: pointer;
+	margin-right: 10px;
+}
+.previewContainer {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+.previewImage {
+	max-width: 50px;
+	max-height: 50px;
+	border-radius: 4px;
+	margin-right: 5px;
+}
+.deleteImageBtn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #ff4d4d; /* Red color for delete button */
+}
+button {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 20px;
+	background-color: #007bff;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+	background-color: #0056b3;
+}

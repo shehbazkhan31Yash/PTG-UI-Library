@@ -1,13 +1,6 @@
-import React from 'react';
+import { RowUiProps } from '@ptg-react-libs/interfaces';
 
-interface RowUiProps {
-	children?: React.ReactNode;
-	className?: string;
-}
-
-export function PtgUiRow(props: RowUiProps) {
+export const PtgUiRow = (props: RowUiProps) => {
 	const { children, className = '' } = props;
-	return <div className={`row ${className}`}>{children}</div>;
-}
-
-export default PtgUiRow;
+	return <div className={`ptg-ui-row ${className}`}>{children}</div>;
+};

@@ -1,186 +1,175 @@
-/**
- * @since March 2022
- * @author Ankit Patidar
- * @uses Reusable Component for download file
- *
- */
-import React, { createRef } from 'react';
+import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { ExportToCsv } from 'export-to-csv';
 import { PtgUiButton } from '../button/button';
+import { PtgUiDownloadFileProps } from '@ptg-react-libs/interfaces';
 
-interface PtgUiDownloadFileProps {
-	allowFileTypes?: any;
-	children?: any;
-	excelColumns?: any;
-	excelDataToDownload?: any;
-	downloadBtnText?: string;
-}
+/**
+ * PtgUiDownload component to provide functionality for downloading data in various formats.
+ *
+ * This component supports downloading data as Excel, PDF, JPG, or Word files. It allows users
+ * to select the desired file type from a dropdown and download the content rendered inside
+ * the component.
+ *
+ * @param {PtgUiDownloadFileProps} props - The properties for the PtgUiDownload component.
+ * @param {Array<string>} [props.excelColumns=[]] - The column headers for the Excel file.
+ * @param {Array<any>} [props.excelDataToDownload=[]] - The data to be downloaded in the Excel file.
+ * @param {Array<string>} [props.allowFileTypes=['PDF', 'EXCEL', 'JPG', 'WORD']] - The allowed file types for download.
+ * @param {React.ReactNode} props.children - The content to render inside the component and download.
+ * @param {string} [props.downloadBtnText='Download'] - The text for the download button.
+ * @param {string} [props.downloadFileName='example'] - The name of the downloaded file (without extension).
+ * @returns {JSX.Element} The rendered PtgUiDownload component.
+ */
+export const PtgUiDownload: React.FC<PtgUiDownloadFileProps> = ({
+	excelColumns = [],
+	excelDataToDownload = [],
+	allowFileTypes = ['PDF', 'EXCEL', 'JPG', 'WORD'],
+	children,
+	downloadBtnText = 'Download',
+	downloadFileName = 'example',
+}) => {
+	const [selectedType, setSelectedType] = useState<string>(''); // Renamed for clarity
+	const tableRef = useRef<HTMLDivElement>(null); // Use useRef for table reference
 
-export class PtgUiDownload extends React.Component<PtgUiDownloadFileProps> {
-	constructor(props) {
-		super(props);
-		this.state = {
-			selecteType: '',
-			myRef: createRef(),
+	// Create options for the select dropdown
+	const newAllowTypes = allowFileTypes.map((item) => ({
+		label: item,
+		value: item,
+	}));
+
+	// Handle file type selection
+	const onSelectHandle = (fileType: React.ChangeEvent<HTMLSelectElement>) => {
+		setSelectedType(fileType.target.value.toUpperCase());
+	};
+
+	// Download function based on selected type
+	const download = () => {
+		switch (selectedType) {
+			case 'EXCEL':
+				downloadExcel(excelDataToDownload);
+				break;
+			case 'JPG':
+			case 'JPEG':
+				downloadImage();
+				break;
+			case 'WORD':
+				downloadWordFile();
+				break;
+			case 'PDF':
+				downloadPdfFile();
+				break;
+			default:
+				break;
+		}
+	};
+
+	// Download Excel file
+	const downloadExcel = (data: Record<string, object>[]) => {
+		const options = {
+			headers: excelColumns,
+			fieldSeparator: ',',
+			quoteStrings: '"',
+			decimalSeparator: '.',
+			useTextFile: false,
+			useBom: true,
+			filename: `${downloadFileName}.csv`,
+			useKeysAsHeaders: true,
 		};
-	}
+		const csvExporter = new ExportToCsv(options);
+		// Combine headers with data for export
+		csvExporter.generateCsv(data);
+	};
 
-	override render() {
-		const { selecteType, myRef }: any = this.state;
-		const {
-			excelColumns = [''],
-			excelDataToDownload = [],
-			allowFileTypes = ['PDF', 'EXCEL', 'JPG', 'WORD'],
-			children,
-			downloadBtnText = 'Download',
-		} = this.props;
-		const tableEl = myRef;
+	// Generate a Blob for the Word file
+	const generateBlob = (data: string, type: string) => new Blob([data], { type });
 
-		const newAllowTypes = allowFileTypes?.map((item: any, index: any) => {
-			return { label: item, value: item };
-		});
+	// Create and download the Word file
+	const downloadWordFile = () => {
+		const blob = generateBlob(createTable(), 'application/msword');
+		downloadBlob(blob, `${downloadFileName}.doc`);
+	};
 
-		const onSelectHandle = (fileType: any) => {
-			const value = fileType.target.value.toUpperCase();
-			this.setState({ selecteType: value.toUpperCase() });
-		};
+	// Create HTML table from the ref
+	const createTable = () => {
+		return tableRef.current?.outerHTML ?? ''; // Optional chaining for safety
+	};
 
-		const download = () => {
-			switch (selecteType) {
-				case 'EXCEL':
-					downloadExcel(excelDataToDownload);
-					break;
-				case 'JPG':
-				case 'JPEG':
-					image();
+	// Download the Blob
+	const downloadBlob = (blob: Blob, fileName: string) => {
+		const element = document.createElement('a');
+		element.href = URL.createObjectURL(blob);
+		element.download = fileName;
+		element.click();
+	};
 
-					break;
-				case 'WORD':
-					downloadWordFile();
-					break;
-				case 'PDF':
-					downloadPdfFile();
-					break;
-
-				default:
-					break;
-			}
-		};
-
-		const downloadExcel = (data: any) => {
-			const csvExporter = new ExportToCsv();
-			csvExporter.generateCsv([excelColumns, ...data]);
-		};
-
-		const generateBlob = (data: any, type: any) => {
-			return new Blob([data], { type });
-		};
-
-		const getElementAndAsignBlob = (blob: any, fileName: any) => {
-			const element: any = document.createElement('a');
-			element.href = URL.createObjectURL(blob);
-			element.download = fileName;
-			element.click();
-		};
-
-		const downloadWordFile = () => {
-			const blob = generateBlob(createTable(), 'application/msword');
-			getElementAndAsignBlob(blob, 'word.doc');
-		};
-
-		const createTable = () => {
-			const table: any = tableEl;
-
-			return table.current.outerHTML;
-		};
-		/* istanbul ignore next */
-		const image = async () => {
-			const element = tableEl.current;
+	// Download image as JPG
+	const downloadImage = async () => {
+		const element = tableRef.current;
+		if (element) {
 			const canvas = await html2canvas(element);
-
 			const data = canvas.toDataURL('image/jpg');
 			const link = document.createElement('a');
+			link.href = data;
+			link.download = `${downloadFileName}.jpg`;
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+	};
 
-			if (typeof link.download === 'string') {
-				link.href = data;
-				link.download = 'image.jpg';
-
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
-			} else {
-				window.open(data);
-			}
-		};
-		/* istanbul ignore next */
-		const downloadPdfFile: any = async () => {
-			const element = tableEl.current;
+	// Download PDF file
+	const downloadPdfFile = async () => {
+		const element = tableRef.current;
+		if (element) {
 			const canvas = await html2canvas(element);
 			const data = canvas.toDataURL('image/png');
-
-			// const pdf = new jsPDF("p", "mm");
-			// const imgProperties = pdf.getImageProperties(data);
-
-			// var width = pdf.internal.pageSize.getWidth();
-			// var height = pdf.internal.pageSize.getHeight();
-			// pdf.addImage(data, 'PNG', 0, 0, width, height);
-			// pdf.save('print.pdf');
-
 			const fileWidth = 208;
 			const fileHeight = (canvas.height * fileWidth) / canvas.width;
 			const PDF = new jsPDF('p', 'mm', 'a4');
-			const position = 0;
-			PDF.addImage(data, 'PNG', 0, position, fileWidth, fileHeight);
-			PDF.save('example.pdf');
-		};
+			PDF.addImage(data, 'PNG', 0, 0, fileWidth, fileHeight);
+			PDF.save(`${downloadFileName}.pdf`);
+		}
+	};
 
-		return (
-			<div className="container">
-				<div className="row">
-					<div className="col-12">
-						<div className="d-flex mb-3 justify-content-md-end">
-							<div className="w-25">
-								<select
-									className="form-select"
-									aria-label="Default select example"
-									onChange={onSelectHandle}
-									value={selecteType}
-								>
-									<option value="">Select</option>
-									{newAllowTypes?.map((item, index) => {
-										return (
-											<option key={index} value={item.value}>
-												{item.label}
-											</option>
-										);
-									})}
-								</select>
-							</div>
-
-							<div className="ms-2 mr-7">
-								<PtgUiButton
-									text={downloadBtnText}
-									textColor="#fff"
-									backgroundColor={'#052982'}
-									onClick={download}
-									width="110px"
-									fontSize="14px"
-									disabled={selecteType === '' ? true : false}
-								></PtgUiButton>
-							</div>
+	return (
+		<div className="container">
+			<div className="row">
+				<div className="col-12">
+					<div className="d-flex mb-3 justify-content-md-end">
+						<div className="w-25">
+							<select
+								className="form-select"
+								aria-label="Default select example"
+								onChange={onSelectHandle}
+								value={selectedType}
+							>
+								<option value="">Select</option>
+								{newAllowTypes.map((item, index) => (
+									<option key={index} value={item.value}>
+										{item.label}
+									</option>
+								))}
+							</select>
+						</div>
+						<div className="ms-2 mr-7">
+							<PtgUiButton
+								text={downloadBtnText}
+								textColor="#fff"
+								backgroundColor="#052982"
+								onClick={download}
+								width="110px"
+								fontSize="14px"
+								disabled={selectedType === ''} // Simplified condition
+							/>
 						</div>
 					</div>
 				</div>
-
-				<div className="row" ref={tableEl}>
-					{children}
-				</div>
 			</div>
-		);
-	}
-}
 
-//PtgUiDownload.defaultProps = defaultProps;
-//export default PtgUiDownload;
+			<div className="row" ref={tableRef}>
+				{children}
+			</div>
+		</div>
+	);
+};
