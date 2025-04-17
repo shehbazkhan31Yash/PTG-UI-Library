@@ -73,7 +73,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 	const paginationRange = PaginationRange();
 
 	return (
-		<ul className="pagination justify-content-center mt-3" role="navigation" aria-label="Pagination">
+		<ul className="pagination justify-content-center mt-3" role="nav" aria-label="Pagination">
 			<li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
 				<button className="page-link" onClick={previousPage} disabled={currentPage === 1} aria-label="Previous Page">
 					{previousBtnText}
