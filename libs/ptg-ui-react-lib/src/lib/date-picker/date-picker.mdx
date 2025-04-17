@@ -1,0 +1,44 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiDatePicker } from './date-picker';
+
+<Meta title="Components/Datepicker" component={PtgUiDatePicker} />
+
+# Datepicker Component
+
+---
+
+The Datepicker component allows users to select and display dates efficiently.
+
+## Properties
+
+### Datepicker Controls:
+- **id** – Unique identifier for the datepicker.
+- **className** – Custom class name for styling.
+- **sendSelectedDate** – Callback function triggered when a date is selected.
+
+## Usage Example
+
+```tsx
+import { PtgUiDatePicker } from '@ptg-ui/react';
+
+<PtgUiDatePicker 
+  id="custom-date-picker" 
+  className="datepicker-style"
+  sendSelectedDate={(date) => console.log('Selected date:', date)}
+/>
+
+## Examples
+Default Datepicker
+A basic datepicker component with default styling.
+
+<Canvas> <Story name="Default Datepicker" args={{ id: 'date-picker-default', className: 'default-date-picker', }} /> </Canvas>
+
+Datepicker with Custom Class Name
+A datepicker with a custom styling class.
+
+<Canvas> <Story name="Custom Class Name Datepicker" args={{ id: 'date-picker-custom', className: 'custom-date-picker', }} /> </Canvas>
+
+Datepicker with Initial Date Selection
+A datepicker with an initial selection callback.
+
+<Canvas> <Story name="Datepicker with Initial Date" args={{ id: 'date-picker-initial', className: 'initial-date-picker', sendSelectedDate: (date) => console.log('Initial date selected:', date), }} /> </Canvas>

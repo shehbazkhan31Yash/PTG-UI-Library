@@ -1,0 +1,48 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiAccordion } from './Accordion';
+
+<Meta title="Components/Accordion" component={PtgUiAccordion} />
+
+# Accordion Component
+
+---
+
+A customizable accordion component for collapsible sections.
+
+## Properties
+
+### Accordion Controls:
+- **accordionItems** – Array of objects with title and content for each section.
+- **handleToggle** – Callback function triggered when an accordion item is clicked.
+- **activeIndex** – Index of the currently active accordion item.
+
+## Usage Example
+
+```tsx
+import { PtgUiAccordion } from '@ptg-ui/react';
+
+<PtgUiAccordion 
+  accordionItems={[
+    { title: 'Section 1', content: 'This is the content of section 1.' },
+    { title: 'Section 2', content: 'This is the content of section 2.' },
+    { title: 'Section 3', content: 'This is the content of section 3.' },
+  ]}
+  activeIndex={0}
+  handleToggle={(index) => console.log('Toggled section:', index)}
+/>
+
+## Examples
+Default Accordion
+An accordion with multiple sections, initially opening the first section.
+
+<Canvas> <Story name="Default Accordion" args={{ accordionItems: [ { title: 'Section 1', content: 'This is the content of section 1.' }, { title: 'Section 2', content: 'This is the content of section 2.' }, { title: 'Section 3', content: 'This is the content of section 3.' }, ], activeIndex: 0, }} /> </Canvas>
+
+Multiple Sections Accordion
+An accordion with various sections covering web technologies.
+
+<Canvas> <Story name="Multiple Sections Accordion" args={{ accordionItems: [ { title: 'HTML', content: 'HTML stands for HyperText Markup Language. It defines the structure of web pages.' }, { title: 'CSS', content: 'CSS stands for Cascading Style Sheets. It helps style HTML elements.' }, { title: 'JavaScript', content: 'JavaScript is a programming language that adds interactivity to web pages.' }, { title: 'React', content: 'React is a JavaScript library for building user interfaces.' }, ], activeIndex: 1, }} /> </Canvas>
+
+Single Section Accordion
+An accordion with a single section.
+
+<Canvas> <Story name="Single Section Accordion" args={{ accordionItems: [ { title: 'About Us', content: 'We are a team dedicated to building scalable software solutions.' }, ], activeIndex: 0, }} /> </Canvas>
