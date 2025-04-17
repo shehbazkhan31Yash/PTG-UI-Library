@@ -53,11 +53,6 @@ describe('PtgUiPagination', () => {
 		expect(mockPageIndex).toHaveBeenCalledWith(3);
 	});
 
-/* 	it('should render dots when siblingCount is set', () => {
-		const { getByText } = render(<PtgUiPagination {...defaultProps} siblingCount={1} />);
-		expect(document.querySelector('.pagination')?.innerHTML).toContain('…');
-	});
- */
 	it('should update current page when pageNumber prop changes', () => {
 		const { rerender, getByText } = render(<PtgUiPagination {...defaultProps} pageNumber={1} />);
 		rerender(<PtgUiPagination {...defaultProps} pageNumber={3} />);
