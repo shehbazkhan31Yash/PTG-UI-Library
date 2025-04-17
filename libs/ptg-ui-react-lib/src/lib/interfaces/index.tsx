@@ -534,3 +534,13 @@ export interface CheckboxListProps {
 export interface PtgUiIndeterminateCheckboxProps {
 	items: Item[];
 }
+
+export interface PtgUiPaginationProps {
+	pageNumber?: number;
+	dataCount?: number;
+	pageIndex?: (number) => void;
+	siblingCount?: number;
+	pageSize?: number;
+	previousBtnText?: string;
+	nextBtnText?: string;
+}
