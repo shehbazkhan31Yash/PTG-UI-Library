@@ -1,6 +1,6 @@
 module.exports = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-essentials'],
+  stories: ['../src/**/*.mdx','../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: ['@storybook/addon-essentials','@storybook/addon-docs'],
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
