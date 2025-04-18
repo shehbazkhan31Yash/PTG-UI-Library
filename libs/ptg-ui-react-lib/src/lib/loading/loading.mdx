@@ -1,0 +1,42 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiLoading } from './loading';
+
+<Meta title="Components/Loading" component={PtgUiLoading} />
+
+# Loading Component
+
+---
+
+The Loading component provides different styles of animated loaders to indicate ongoing processes.
+
+## Properties
+
+### Loader Controls:
+- **type** – Defines the loader type (`dot`, `linear`, `circular`).
+- **color** – Sets the loader's color.
+
+## Usage Example
+
+```tsx
+import { PtgUiLoading } from '@ptg-ui/react';
+
+<PtgUiLoading 
+  type="dot"
+  color="#3498db"
+/>
+
+## Examples
+Dot Loader
+A loader using animated dots.
+
+<Canvas> <Story name="Dot Loader" args={{ type: 'dot', color: '#3498db', }} /> </Canvas>
+
+Linear Loader
+A loader with a linear progress animation.
+
+<Canvas> <Story name="Linear Loader" args={{ type: 'linear', color: '#e74c3c', }} /> </Canvas>
+
+Circular Loader
+A loader using a circular animation.
+
+<Canvas> <Story name="Circular Loader" args={{ type: 'circular', color: '#2ecc71', }} /> </Canvas>

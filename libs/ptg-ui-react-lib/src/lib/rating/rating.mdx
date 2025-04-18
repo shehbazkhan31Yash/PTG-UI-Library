@@ -1,0 +1,81 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { Rating } from './rating';
+
+<Meta title="Components/Rating" component={Rating} />
+
+# Rating Component
+
+---
+
+The Rating component allows users to provide feedback using a star-based system or custom icons.
+
+## Properties
+
+### Rating Controls:
+- **value** – Defines the rating value.
+- **readOnly** – Boolean to make the rating read-only.
+- **disabled** – Boolean to disable interaction.
+- **precision** – Defines the step value for rating increments.
+- **icon** – Custom icon representing a filled rating.
+- **emptyIcon** – Custom icon for an empty rating state.
+- **color** – Sets the color of the rating icons.
+- **borderColor** – Defines the border color for rating icons.
+- **size** – Sets the size of the icons.
+- **hoverSize** – Defines the size when hovering over icons.
+- **defaultValue** – Specifies the initial rating value.
+- **onChange** – Action triggered when rating value changes.
+- **onHover** – Action triggered when hovering over rating options.
+
+## Usage Example
+
+```tsx
+import { Rating } from '@ptg-ui/react';
+
+<Rating 
+  value={3}
+  readOnly={false}
+  disabled={false}
+  precision={1}
+  icon="★"
+  emptyIcon="☆"
+  color="#FFD700"
+  borderColor="#ccc"
+  size={24}
+  hoverSize={28}
+/>
+
+## Examples
+No Rating
+A rating component with no selection.
+
+<Canvas> <Story name="No Rating" args={{ value: 0, readOnly: false, disabled: false, precision: 1, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', size: 24, hoverSize: 28, }} /> </Canvas>
+
+Read-Only Rating
+A rating component that cannot be modified.
+
+<Canvas> <Story name="Read-Only Rating" args={{ value: 4, readOnly: true, disabled: false, precision: 1, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', size: 24, hoverSize: 28, }} /> </Canvas>
+
+Disabled Rating
+A rating component with disabled interaction.
+
+<Canvas> <Story name="Disabled Rating" args={{ value: 2, readOnly: false, disabled: true, precision: 1, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', size: 24, hoverSize: 28, }} /> </Canvas>
+
+Half-Star Precision Rating
+A rating component with finer step adjustments.
+
+<Canvas> <Story name="Half-Star Precision" args={{ value: 3.5, readOnly: false, disabled: false, precision: 0.5, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', size: 24, hoverSize: 28, }} /> </Canvas>
+
+Hover Feedback
+A rating component that displays hover feedback.
+
+<Canvas> <Story name="Hover Feedback" args={{ value: 1, readOnly: false, disabled: false, precision: 1, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', size: 24, hoverSize: 28, }} /> </Canvas>
+
+Various Sizes
+A rating component showcasing different icon sizes.
+
+<Canvas> <Story name="Various Sizes" args={{ value: 3, readOnly: false, disabled: false, precision: 1, icon: '★', emptyIcon: '☆', color: '#FFD700', borderColor: '#ccc', }} /> </Canvas>
+
+Various Icons
+A rating component with different custom icons.
+
+<Canvas> <Story name="Various Icons" args={{ value: 3, readOnly: false, disabled: false, precision: 1, size: 24, hoverSize: 28, }} /> </Canvas>
