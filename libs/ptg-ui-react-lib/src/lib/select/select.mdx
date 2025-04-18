@@ -1,0 +1,70 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiSelect } from './select';
+
+<Meta title="Components/Select" component={PtgUiSelect} />
+
+# Select Component
+
+---
+
+The Select component provides a dropdown menu for users to choose from predefined options.
+
+## Properties
+
+### Select Controls:
+- **name** – Defines the name attribute for the select input.
+- **value** – Represents the selected value.
+- **id** – Unique identifier for the select input.
+- **className** – Custom styling class for the dropdown.
+- **list** – Array of selectable options.
+- **placeholder** – Displays a placeholder text in the dropdown.
+- **disabled** – Boolean to disable the dropdown interaction.
+
+## Usage Example
+
+```tsx
+import { PtgUiSelect } from '@ptg-ui/react';
+
+<PtgUiSelect 
+  name="example-select"
+  id="select-id"
+  className="example-select"
+  list={[
+    { id: '1', label: 'Option 1', value: '1' },
+    { id: '2', label: 'Option 2', value: '2' },
+    { id: '3', label: 'Option 3', value: '3' },
+  ]}
+  placeholder="Select an option"
+  disabled={false}
+/>
+
+## Examples
+Default Select Dropdown
+A basic dropdown with default properties.
+
+<Canvas> <Story name="Default Select Dropdown" args={{ name: 'default-select', id: 'select-id', className: 'default-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '', placeholder: '', disabled: false, }} /> </Canvas>
+
+Select with ID Attribute
+A dropdown configured with a unique ID.
+
+<Canvas> <Story name="Select with ID" args={{ name: 'id-select', id: 'id', className: 'id-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '', placeholder: '', disabled: false, }} /> </Canvas>
+
+Select with Custom Class Name
+A dropdown featuring a custom styling class.
+
+<Canvas> <Story name="Select with Custom Class Name" args={{ name: 'className-select', id: 'className', className: 'className-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '', placeholder: '', disabled: false, }} /> </Canvas>
+
+Pre-selected Dropdown
+A dropdown with a predefined selection.
+
+<Canvas> <Story name="Pre-selected Dropdown" args={{ name: 'preselected-select', id: 'preselect-id', className: 'preselected-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '2', placeholder: '', disabled: false, }} /> </Canvas>
+
+Select with Placeholder
+A dropdown featuring placeholder text.
+
+<Canvas> <Story name="Select with Placeholder" args={{ name: 'placeholder-select', id: 'placeholder-id', className: 'placeholder-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '', placeholder: 'Select an option', disabled: false, }} /> </Canvas>
+
+Disabled Dropdown
+A dropdown component with disabled functionality.
+
+<Canvas> <Story name="Disabled Dropdown" args={{ name: 'disabled-select', id: 'disabled-id', className: 'disabled-select', list: [ { id: '1', label: 'Option 1', value: '1' }, { id: '2', label: 'Option 2', value: '2' }, { id: '3', label: 'Option 3', value: '3' }, ], value: '', placeholder: '', disabled: true, }} /> </Canvas>
