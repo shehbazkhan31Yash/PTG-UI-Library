@@ -38,24 +38,10 @@ export const NavigationChildData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        icon: 'fa-solid fa-table-list',
-        disabled: false,
-      },
-      {
         label: 'REACT DATA GRID',
         path: '/datatable/reactdatagrid',
         icon: 'fa-solid fa-table-list',
         id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        icon: 'fa-solid fa-table-list',
-        id: 'Material',
         disabled: false,
       },
       {
@@ -142,10 +128,8 @@ export const NavigationData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        //icon: 'fa-solid fa-table-list',
+        label: 'TABLE',
+        path: '/datatable/table',
         disabled: false,
       },
       {
@@ -153,13 +137,6 @@ export const NavigationData = [
         path: '/datatable/reactdatagrid',
         //icon: 'fa-solid fa-table-list',
         id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Material',
         disabled: false,
       },
       {

@@ -1,0 +1,390 @@
+import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import { ITableWithPagination } from '@ptg-react-app/interfaces';
+import { PtgUiTable } from '@ptg-react-libs/data-table/table/Table';
+import './table.css';
+import { PtgUiPagination } from '@ptg-react-libs/pagination/pagination';
+import { useState } from 'react';
+
+export const TableWithPagination = (props: ITableWithPagination) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5; // Define the number of items per page
+
+  // Calculate the data to display based on the current page and page size
+  const startIndex = (currentPage - 1) * pageSize;
+
+  const columns = [
+    { Header: 'ID', accessor: 'id', isNumeric: true },
+    { Header: 'First Name', accessor: 'firstName' },
+    { Header: 'Last Name', accessor: 'lastName' },
+    { Header: 'Email', accessor: 'email' },
+    { Header: 'Phone', accessor: 'phone' },
+    { Header: 'Age', accessor: 'age', isNumeric: true },
+    { Header: 'Country', accessor: 'country' },
+    { Header: 'City', accessor: 'city' },
+  ];
+
+  const data = [
+    {
+      id: 1,
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
+      phone: '123-456-7890',
+      age: 28,
+      country: 'USA',
+      city: 'New York',
+    },
+    {
+      id: 2,
+      firstName: 'Jane',
+      lastName: 'Smith',
+      email: 'jane.smith@example.com',
+      phone: '234-567-8901',
+      age: 34,
+      country: 'Canada',
+      city: 'Toronto',
+    },
+    {
+      id: 3,
+      firstName: 'Alice',
+      lastName: 'Johnson',
+      email: 'alice.johnson@example.com',
+      phone: '345-678-9012',
+      age: 25,
+      country: 'UK',
+      city: 'London',
+    },
+    {
+      id: 4,
+      firstName: 'Bob',
+      lastName: 'Brown',
+      email: 'bob.brown@example.com',
+      phone: '456-789-0123',
+      age: 45,
+      country: 'Australia',
+      city: 'Sydney',
+    },
+    {
+      id: 5,
+      firstName: 'Charlie',
+      lastName: 'Davis',
+      email: 'charlie.davis@example.com',
+      phone: '567-890-1234',
+      age: 30,
+      country: 'USA',
+      city: 'Los Angeles',
+    },
+    {
+      id: 6,
+      firstName: 'David',
+      lastName: 'Wilson',
+      email: 'david.wilson@example.com',
+      phone: '678-901-2345',
+      age: 40,
+      country: 'Canada',
+      city: 'Vancouver',
+    },
+    {
+      id: 7,
+      firstName: 'Eva',
+      lastName: 'Garcia',
+      email: 'eva.garcia@example.com',
+      phone: '789-012-3456',
+      age: 22,
+      country: 'Mexico',
+      city: 'Mexico City',
+    },
+    {
+      id: 8,
+      firstName: 'Frank',
+      lastName: 'Martinez',
+      email: 'frank.martinez@example.com',
+      phone: '890-123-4567',
+      age: 29,
+      country: 'USA',
+      city: 'Chicago',
+    },
+    {
+      id: 9,
+      firstName: 'Grace',
+      lastName: 'Hernandez',
+      email: 'grace.hernandez@example.com',
+      phone: '901-234-5678',
+      age: 31,
+      country: 'Spain',
+      city: 'Madrid',
+    },
+    {
+      id: 10,
+      firstName: 'Henry',
+      lastName: 'Lopez',
+      email: 'henry.lopez@example.com',
+      phone: '012-345-6789',
+      age: 27,
+      country: 'Argentina',
+      city: 'Buenos Aires',
+    },
+    {
+      id: 11,
+      firstName: 'Isabella',
+      lastName: 'Gonzalez',
+      email: 'isabella.gonzalez@example.com',
+      phone: '123-456-7891',
+      age: 35,
+      country: 'Colombia',
+      city: 'Bogotá',
+    },
+    {
+      id: 12,
+      firstName: 'Jack',
+      lastName: 'Wilson',
+      email: 'jack.wilson@example.com',
+      phone: '234-567-8902',
+      age: 38,
+      country: 'USA',
+      city: 'Miami',
+    },
+    {
+      id: 13,
+      firstName: 'Kathy',
+      lastName: 'Anderson',
+      email: 'kathy.anderson@example.com',
+      phone: '345-678-9013',
+      age: 26,
+      country: 'UK',
+      city: 'Manchester',
+    },
+    {
+      id: 14,
+      firstName: 'Leo',
+      lastName: 'Thomas',
+      email: 'leo.thomas@example.com',
+      phone: '456-789-0124',
+      age: 33,
+      country: 'Australia ',
+      city: 'Melbourne',
+    },
+    {
+      id: 15,
+      firstName: 'Mia',
+      lastName: 'Taylor',
+      email: 'mia.taylor@example.com',
+      phone: '567-890-1235',
+      age: 24,
+      country: 'Canada',
+      city: 'Ottawa',
+    },
+  ];
+
+  const paginatedData = data.slice(startIndex, startIndex + pageSize);
+
+  const componentCode = `
+  import { PtgUiTable } from '@ptg-react-libs/data-table/table/Table';
+  import { PtgUiPagination } from '@ptg-react-libs/pagination/pagination';
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5; // Define the number of items per page
+
+  // Calculate the data to display based on the current page and page size
+  const startIndex = (currentPage - 1) * pageSize;
+
+  const columns = [
+    { Header: 'ID', accessor: 'id', isNumeric: true },
+    { Header: 'First Name', accessor: 'firstName' },
+    { Header: 'Last Name', accessor: 'lastName' },
+    { Header: 'Email', accessor: 'email' },
+    { Header: 'Phone', accessor: 'phone' },
+    { Header: 'Age', accessor: 'age', isNumeric: true },
+    { Header: 'Country', accessor: 'country' },
+    { Header: 'City', accessor: 'city' },
+  ];
+
+  const data = [
+    {
+      id: 1,
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
+      phone: '123-456-7890',
+      age: 28,
+      country: 'USA',
+      city: 'New York',
+    },
+    {
+      id: 2,
+      firstName: 'Jane',
+      lastName: 'Smith',
+      email: 'jane.smith@example.com',
+      phone: '234-567-8901',
+      age: 34,
+      country: 'Canada',
+      city: 'Toronto',
+    },
+    {
+      id: 3,
+      firstName: 'Alice',
+      lastName: 'Johnson',
+      email: 'alice.johnson@example.com',
+      phone: '345-678-9012',
+      age: 25,
+      country: 'UK',
+      city: 'London',
+    },
+    {
+      id: 4,
+      firstName: 'Bob',
+      lastName: 'Brown',
+      email: 'bob.brown@example.com',
+      phone: '456-789-0123',
+      age: 45,
+      country: 'Australia',
+      city: 'Sydney',
+    },
+    {
+      id: 5,
+      firstName: 'Charlie',
+      lastName: 'Davis',
+      email: 'charlie.davis@example.com',
+      phone: '567-890-1234',
+      age: 30,
+      country: 'USA',
+      city: 'Los Angeles',
+    },
+    {
+      id: 6,
+      firstName: 'David',
+      lastName: 'Wilson',
+      email: 'david.wilson@example.com',
+      phone: '678-901-2345',
+      age: 40,
+      country: 'Canada',
+      city: 'Vancouver',
+    },
+    {
+      id: 7,
+      firstName: 'Eva',
+      lastName: 'Garcia',
+      email: 'eva.garcia@example.com',
+      phone: '789-012-3456',
+      age: 22,
+      country: 'Mexico',
+      city: 'Mexico City',
+    },
+    {
+      id: 8,
+      firstName: 'Frank',
+      lastName: 'Martinez',
+      email: 'frank.martinez@example.com',
+      phone: '890-123-4567',
+      age: 29,
+      country: 'USA',
+      city: 'Chicago',
+    },
+    {
+      id: 9,
+      firstName: 'Grace',
+      lastName: 'Hernandez',
+      email: 'grace.hernandez@example.com',
+      phone: '901-234-5678',
+      age: 31,
+      country: 'Spain',
+      city: 'Madrid',
+    },
+    {
+      id: 10,
+      firstName: 'Henry',
+      lastName: 'Lopez',
+      email: 'henry.lopez@example.com',
+      phone: '012-345-6789',
+      age: 27,
+      country: 'Argentina',
+      city: 'Buenos Aires',
+    },
+    {
+      id: 11,
+      firstName: 'Isabella',
+      lastName: 'Gonzalez',
+      email: 'isabella.gonzalez@example.com',
+      phone: '123-456-7891',
+      age: 35,
+      country: 'Colombia',
+      city: 'Bogotá',
+    },
+    {
+      id: 12,
+      firstName: 'Jack',
+      lastName: 'Wilson',
+      email: 'jack.wilson@example.com',
+      phone: '234-567-8902',
+      age: 38,
+      country: 'USA',
+      city: 'Miami',
+    },
+    {
+      id: 13,
+      firstName: 'Kathy',
+      lastName: 'Anderson',
+      email: 'kathy.anderson@example.com',
+      phone: '345-678-9013',
+      age: 26,
+      country: 'UK',
+      city: 'Manchester',
+    },
+    {
+      id: 14,
+      firstName: 'Leo',
+      lastName: 'Thomas',
+      email: 'leo.thomas@example.com',
+      phone: '456-789-0124',
+      age: 33,
+      country: 'Australia ',
+      city: 'Melbourne',
+    },
+    {
+      id: 15,
+      firstName: 'Mia',
+      lastName: 'Taylor',
+      email: 'mia.taylor@example.com',
+      phone: '567-890-1235',
+      age: 24,
+      country: 'Canada',
+      city: 'Ottawa',
+    },
+  ];
+
+  const paginatedData = data.slice(startIndex, startIndex + pageSize);
+  `;
+
+  // Note: HTML code for Rating
+  const htmlCode = `
+         <PtgUiTable columns={columns} data={paginatedData} />
+        <PtgUiPagination
+          dataCount={data.length}
+          pageNumber={currentPage}
+          pageIndex={setCurrentPage}
+          pageSize={pageSize}
+          siblingCount={1} // Adjust as needed
+          previousBtnText="Previous"
+          nextBtnText="Next"
+        />
+  `;
+
+  return (
+    <section>
+      {props?.showCodeWithPagination && (
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+      )}
+      <div className="mb-3">
+        <PtgUiTable columns={columns} data={paginatedData} />
+        <PtgUiPagination
+          dataCount={data.length}
+          pageNumber={currentPage}
+          pageIndex={setCurrentPage}
+          pageSize={pageSize}
+          siblingCount={1} // Adjust as needed
+          previousBtnText="Previous"
+          nextBtnText="Next"
+        />
+      </div>
+    </section>
+  );
+};

@@ -221,3 +221,18 @@ export interface IAppBarWithResponsiveness {
 export interface IAppBarWithoutStatic {
   showCodeAppBarWithoutStatic?: boolean;
 }
+
+export interface ITableWithDefaultProps {
+  showCodeWithDefaultProps?: boolean;
+}
+export interface ITableWithPagination {
+  showCodeWithPagination?: boolean;
+}
+
+export interface ITableWithStickyHeader {
+  showCodeWithStickyHeader?: boolean;
+}
+
+export interface ITableWithServerSidePagination {
+  showCodeWithServerSidePagination?: boolean;
+}

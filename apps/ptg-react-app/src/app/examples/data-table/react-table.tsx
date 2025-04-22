@@ -2,8 +2,8 @@
  * @since March 2022
  * @author Harsha Zalawa
  * @uses Example using React Data Grid as reusable component.
- * 
-*/
+ *
+ */
 import React, { useEffect, useState } from 'react';
 import './data-table.scss';
 import { PtgUiReactTable, PtguseFetch } from '@ptg-ui/react';
@@ -19,27 +19,29 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
   const [showCode, setShowCode] = useState(false);
-  
+
   const ShowExampleCode = () => {
-    if(!showCode){
+    if (!showCode) {
       setShowCode(true);
-    }
-    else{
+    } else {
       setShowCode(false);
     }
   };
   useEffect(() => {
     authClass
       .gridData()
-      .then((res: any) => {setGridData(res.data);console.log(res.data)})
+      .then((res: any) => {
+        setGridData(res.data);
+        console.log(res.data);
+      })
       .catch((err: any) => console.log(err));
   }, []);
-   const { data:apiData } = PtguseFetch('table-lists') as any
-   useEffect(() => {
-    if(apiData[0]){
-      setGridData(apiData[0]?.attributes?.grid)
+  const { data: apiData } = PtguseFetch('table-lists') as any;
+  useEffect(() => {
+    if (apiData[0]) {
+      setGridData(apiData[0]?.attributes?.grid);
     }
-  },[apiData])
+  }, [apiData]);
 
   const columns = React.useMemo(
     () => [
@@ -78,9 +80,10 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
       {
         Header: 'Total',
         accessor: 'total',
-      }
+      },
     ],
-    []);
+    []
+  );
 
   const componentCode = `
 import React, { useEffect, useState } from 'react';
@@ -147,33 +150,40 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
       }
     ],
     []);
-  export default PtgUiReactTableExample;`
+  export default PtgUiReactTableExample;`;
 
   const htmlCode = `
     <PtgUiReactTable 
       columns={columns} 
       data={gridData} 
     />
-  `
+  `;
   return (
     <div className="w-100">
       <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
-       <div className="row">
-        <div className="col-10 mb-2 mt-1">
-          <h5 className='example-heading'>{t('REACT_TABLE')}</h5>
+        <div className="row">
+          <div className="col-10 mb-2 mt-1">
+            <h5 className="example-heading">{t('REACT_TABLE')}</h5>
+          </div>
+          <div className="col-2 mr-2">
+            <CodeIcon
+              onClick={ShowExampleCode}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
         </div>
-        <div className='col-2 mr-2'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
-        </div>
-        <hr className='horizontal-line'/>
-      </div>
-      {!showCode ? (
-        <div className='m-4 react-table-component'>
-        <PtgUiReactTable columns={columns} data={gridData} />
-        </div>
-      ):(
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-      )}
+        {!showCode ? (
+          <div className="m-4 react-table-component">
+            <PtgUiReactTable columns={columns} data={gridData} />
+          </div>
+        ) : (
+          <ShowCodeComponent
+            componentCode={componentCode}
+            htmlCode={htmlCode}
+          />
+        )}
       </section>
     </div>
   );

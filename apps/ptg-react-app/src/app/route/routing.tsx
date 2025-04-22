@@ -47,12 +47,8 @@ const PtgD3Charts = lazy(
 const PtgUiReactDataGrid = lazy(
   () => import('@ptg-react-app/examples/data-table/react-data-grid')
 );
-const PtgUiAgGrid = lazy(
-  () => import('@ptg-react-app/examples/data-table/ag-grid/ag-grid')
-);
-const PtgUiMaterialTable = lazy(
-  () =>
-    import('@ptg-react-app/examples/data-table/material/material-table-tabs')
+const PtgUiTable = lazy(
+  () => import('@ptg-react-app/examples/data-table/Table')
 );
 const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'));
 const PtgUiMultiSelectCheckbox = lazy(
@@ -104,21 +100,14 @@ const routing = [
     component: PtgUiAdminHome,
   },
   {
-    path: '/datatable/aggrid',
-    component: PtgUiAgGrid,
-  },
-  {
     path: '/datatable/reactdatagrid',
     component: PtgUiReactDataGrid,
-  },
-  {
-    path: '/datatable/materialTable',
-    component: PtgUiMaterialTable,
   },
   {
     path: '/datatable/reactTable',
     component: PtgUiReactTable,
   },
+  { path: '/datatable/table', component: PtgUiTable },
   {
     path: '/dragnDrop',
     component: PtgUiDragnDrop,
