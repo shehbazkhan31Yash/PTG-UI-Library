@@ -114,7 +114,7 @@ const TableExample = () => {
           </div>
           <div className="col-2 mr-5 mb-2">
             <CodeIcon
-              onClick={ShowExampleWithStickyHeader}
+              onClick={ShowExampleWithServerSidePagination}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>

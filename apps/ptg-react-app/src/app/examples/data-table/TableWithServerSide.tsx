@@ -13,7 +13,7 @@ export const TableWithServerSidePagination = (
   >([]);
   const [dataCount, setDataCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize] = useState(10);
   const columns = [
     { Header: 'ID', accessor: 'id', isNumeric: true },
     { Header: 'Title', accessor: 'title' },

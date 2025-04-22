@@ -54,18 +54,6 @@ td {
   background-color: #f9f9f9; /* Light gray background for alternate rows */
 }
 
-.ptg-ui-input {
-  margin-bottom: 10px;
-  padding: 8px;
-  width: 25%; /* Default width */
-  text-align: left; /* Default text alignment */
-  border: 1px solid #ccc; /* Optional: Add a border */
-  border-radius: 4px; /* Optional: Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-  margin-right: 0;
-  margin-left: auto;
-  padding-right: 30px;
-}
 
 .search-bar-container {
   display: flex; /* Use flexbox for alignment */
