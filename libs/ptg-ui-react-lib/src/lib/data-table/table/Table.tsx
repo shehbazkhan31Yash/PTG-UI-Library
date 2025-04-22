@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Table.css';
 import { TableProps } from '@ptg-react-libs/interfaces';
 
@@ -31,6 +31,44 @@ export const PtgUiTable: React.FC<TableProps> = ({
 		direction: null,
 	});
 	const [hoveredColumn, setHoveredColumn] = useState<string | null>(null);
+
+	// Check for duplicate accessors in columns
+	useEffect(() => {
+		const accessorSet = new Set();
+		const duplicates = columns.filter((column) => {
+			if (accessorSet.has(column.accessor)) {
+				return true; // Duplicate found
+			}
+			accessorSet.add(column.accessor);
+			return false;
+		});
+
+		if (duplicates.length > 0) {
+			console.warn(
+				'Duplicate accessors found:',
+				duplicates.map((col) => col.accessor)
+			);
+		}
+	}, [columns]);
+
+	// Check for duplicate IDs in data
+	useEffect(() => {
+		const idSet = new Set();
+		const duplicates = data.filter((row) => {
+			if (idSet.has(row.id)) {
+				return true; // Duplicate found
+			}
+			idSet.add(row.id);
+			return false;
+		});
+
+		if (duplicates.length > 0) {
+			console.warn(
+				'Duplicate IDs found:',
+				duplicates.map((row) => row.id)
+			);
+		}
+	}, [data]);
 
 	const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFilterValue(e.target.value);
@@ -88,39 +126,41 @@ export const PtgUiTable: React.FC<TableProps> = ({
 				<table className="ptg-ui-table">
 					<thead className={stickyHeader ? 'sticky-header' : ''}>
 						<tr>
-							{columns.map((column) => (
-								<th
-									key={column.accessor}
-									style={{
-										width: column.columnWidth || 'auto',
-									}}
-									onMouseEnter={() => setHoveredColumn(column.accessor)}
-									onMouseLeave={() => setHoveredColumn(null)}
-									onClick={() => handleSort(column.accessor)}
-								>
-									{column.Header}
-									<span style={{ marginLeft: '5px', float: 'right' }}>
-										{hoveredColumn === column.accessor
-											? sortConfig.key === column.accessor
-												? sortConfig.direction === 'ascending'
-													? '↑'
-													: '↓'
-												: '⇅' // Vertical arrow for non-sorted columns
-											: null}
-									</span>
-								</th>
-							))}
+							{columns.map((column) => {
+								// Extract the sort indicator logic into a separate variable
+								let sortIndicator: '↑' | '↓' | '⇅' = '⇅'; // Default value for non-hovered columns
+								if (hoveredColumn === column.accessor) {
+									if (sortConfig.key === column.accessor) {
+										sortIndicator = sortConfig.direction === 'ascending' ? '↑' : '↓';
+									}
+								}
+
+								return (
+									<th
+										key={column.accessor}
+										style={{
+											width: column.columnWidth ?? 'auto',
+										}}
+										onMouseEnter={() => setHoveredColumn(column.accessor)}
+										onMouseLeave={() => setHoveredColumn(null)}
+										onClick={() => handleSort(column.accessor)}
+									>
+										{column.Header}
+										<span style={{ marginLeft: '5px', float: 'right' }}>{sortIndicator}</span>
+									</th>
+								);
+							})}
 						</tr>
 					</thead>
 					<tbody>
 						{sortedData.length ? (
 							sortedData.map((row, rowIndex) => (
-								<tr key={rowIndex} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
+								<tr key={row.id} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
 									{columns.map((column) => (
 										<td
 											key={column.accessor}
 											style={{
-												width: column.columnWidth || 'auto',
+												width: column.columnWidth ?? 'auto',
 											}}
 										>
 											{row[column.accessor]}
