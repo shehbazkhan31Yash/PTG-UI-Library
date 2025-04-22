@@ -1,0 +1,60 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiTextArea } from './textarea';
+
+<Meta title="Components/TextArea" component={PtgUiTextArea} />
+
+# TextArea Component
+
+---
+
+The TextArea component provides a multi-line text input field for users to enter longer content.
+
+## Properties
+
+### TextArea Controls:
+- **placeholder** – Defines the placeholder text displayed inside the textarea.
+- **rows** – Specifies the number of visible rows in the textarea.
+- **className** – Custom styling class for the textarea.
+- **name** – Defines the name attribute of the textarea.
+- **id** – Unique identifier for the textarea.
+- **value** – Represents the pre-filled value of the textarea.
+
+## Usage Example
+
+```tsx
+import { PtgUiTextArea } from '@ptg-ui/react';
+
+<PtgUiTextArea 
+  placeholder="Enter your message..."
+  rows={4}
+  className="custom-textarea"
+  name="message"
+  id="messageId"
+  value=""
+/>
+
+## Examples
+Default TextArea
+A basic textarea component with default styling.
+
+<Canvas> <Story name="Default TextArea" args={{ placeholder: 'Enter text...', rows: 4, className: 'default-class', name: 'textArea', id: 'textArea', value: '', }} /> </Canvas>
+
+TextArea with Custom Class Name
+A textarea with a predefined custom styling class.
+
+<Canvas> <Story name="TextArea with Custom Class Name" args={{ placeholder: 'Enter text...', rows: 4, className: 'custom-textarea', name: 'textArea', id: 'textArea', value: '', }} /> </Canvas>
+
+TextArea with ID
+A textarea component identified with a unique ID.
+
+<Canvas> <Story name="TextArea with ID" args={{ placeholder: 'Enter text...', rows: 4, className: 'default-class', name: 'textArea', id: 'textAreaId', value: '', }} /> </Canvas>
+
+TextArea with Placeholder
+A textarea that features a placeholder text.
+
+<Canvas> <Story name="TextArea with Placeholder" args={{ placeholder: 'Enter your message...', rows: 4, className: 'default-class', name: 'textArea', id: 'textArea', value: '', }} /> </Canvas>
+
+TextArea with Pre-Filled Value
+A textarea component initialized with a default value.
+
+<Canvas> <Story name="TextArea with Pre-Filled Value" args={{ placeholder: 'Enter text...', rows: 4, className: 'default-class', name: 'textArea', id: 'textArea', value: 'This is a pre-filled value', }} /> </Canvas>

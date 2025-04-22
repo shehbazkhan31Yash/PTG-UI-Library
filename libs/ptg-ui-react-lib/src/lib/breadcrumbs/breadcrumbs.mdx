@@ -1,0 +1,68 @@
+import { Meta, ArgsTable, Canvas, Story } from '@storybook/addon-docs';
+import { Default, ActiveBreadcrumb, LongBreadcrumbs, NoLinks } from './breadcrumbs.stories';
+import { PtgUiBreadcrumbs } from './Breadcrumbs';
+
+
+<Meta title="Components/Breadcrumbs" component={PtgUiBreadcrumbs} />
+
+# PtgUiBreadcrumbs Component
+
+The `PtgUiBreadcrumbs` component is a functional navigation aid that helps users understand their current location within a web application. It displays a list of links that represent the user's path, allowing for easy navigation back to previous sections.
+
+## Usage
+
+### Component Description
+
+To use the `PtgUiBreadcrumbs` component, you need to provide it with a `datalist` prop, which is an array of breadcrumb items. Each item should have a `title` and an optional `link`. Additionally, you can provide a `handleClick` function to handle click events on the breadcrumb links.
+
+## Properties
+
+### Breadcrumbs Controls:
+- **datalist** – Array of breadcrumb objects containing `title` and optional `link`.
+- **handleClick** – Callback function triggered when a breadcrumb is clicked.
+
+## Example Usage
+
+```tsx
+import { PtgUiBreadcrumbs } from '@ptg-ui/react';
+
+<Router>
+  <PtgUiBreadcrumbs 
+    datalist={[
+      { title: 'Home', link: '/' },
+      { title: 'Nature', link: '/nature' },
+      { title: 'Forests', link: '/nature/forests' },
+    ]}
+    handleClick={() => console.log('Breadcrumb clicked!')}
+  />
+</Router>
+
+
+## Examples
+
+Default Breadcrumbs
+A simple breadcrumb navigation with hierarchical links.
+
+<Canvas> <Story name="Default Breadcrumbs" args={{ datalist: [ { title: 'Home', link: '/' }, { title: 'Nature', link: '/nature' }, { title: 'Forests', link: '/nature/forests' }, ], handleClick: () => console.log('Breadcrumb clicked!'), }} /> </Canvas>
+
+Active Breadcrumb
+A breadcrumb where the last item does not have a link.
+
+<Canvas> <Story name="Active Breadcrumb" args={{ datalist: [ { title: 'Home', link: '/' }, { title: 'Nature', link: '/nature' }, { title: 'Rivers', link: '/nature/rivers' }, { title: 'Amazon River' }, // No link for the active breadcrumb ], handleClick: () => console.log('Breadcrumb clicked!'), }} /> </Canvas>
+
+Long Breadcrumbs
+An extended breadcrumb navigation with more hierarchical levels.
+
+<Canvas> <Story name="Long Breadcrumbs" args={{ datalist: [ { title: 'Home', link: '/' }, { title: 'Nature', link: '/nature' }, { title: 'Forests', link: '/nature/forests' }, { title: 'Tropical Rainforests', link: '/nature/forests/tropical' }, { title: 'Amazon Rainforest' }, // No link for the active breadcrumb ], handleClick: () => console.log('Breadcrumb clicked!'), }} /> </Canvas>
+
+Breadcrumbs Without Links
+A breadcrumb where all items do not have navigation links.
+
+<Canvas> <Story name="Breadcrumbs Without Links" args={{ datalist: [ { title: 'Home' }, { title: 'About Us' }, { title: 'Contact' }, ], handleClick: () => console.log('Breadcrumb clicked!'), }} /> </Canvas>
+
+In this case, the breadcrumbs do not have any links, which can be useful for static navigation items.
+
+## Conclusion
+
+The `PtgUiBreadcrumbs` component is a versatile and user-friendly navigation tool that enhances the user experience by providing clear paths through a web application. By utilizing this component, developers can ensure that users always know where they are and how to navigate back to previous sections.
+

@@ -1,0 +1,49 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiRadio } from './radio';
+
+<Meta title="Components/Radio" component={PtgUiRadio} />
+
+# Radio Component
+
+---
+
+The Radio component provides a set of options where only one selection is allowed at a time.
+
+## Properties
+
+### Radio Controls:
+- **name** – The name attribute for the radio input group.
+- **value** – The selected radio input value.
+- **id** – The ID prefix for radio inputs.
+- **list** – Array of radio options including `id`, `name`, and `value`.
+
+## Usage Example
+
+```tsx
+import { PtgUiRadio } from '@ptg-ui/react';
+
+<PtgUiRadio 
+  name="radio-group"
+  id="radio-id"
+  list={[
+    { id: '1', name: 'Option 1', value: '1' },
+    { id: '2', name: 'Option 2', value: '2' },
+    { id: '3', name: 'Option 3', value: '3' },
+  ]}
+/>
+
+## Examples
+Default Radio Group
+A set of radio buttons with no preselected option.
+
+<Canvas> <Story name="Default Radio" args={{ name: 'radio-group', id: 'radio-id', list: [ { id: '1', name: 'Option 1', value: '1' }, { id: '2', name: 'Option 2', value: '2' }, { id: '3', name: 'Option 3', value: '3' }, ], }} /> </Canvas>
+
+Radio Group with ID
+A radio group structured with an ID prefix.
+
+<Canvas> <Story name="Radio Group with ID" args={{ name: 'radio-group', id: 'radio-id', list: [ { id: '1', name: 'Option 1', value: '1' }, { id: '2', name: 'Option 2', value: '2' }, { id: '3', name: 'Option 3', value: '3' }, ], }} /> </Canvas>
+
+Preselected Radio Button
+A radio group where one option is selected by default.
+
+<Canvas> <Story name="Pre-selected Radio" args={{ name: 'radio-group', id: 'radio-id', list: [ { id: '1', name: 'Option 1', value: '1' }, { id: '2', name: 'Option 2', value: '2' }, { id: '3', name: 'Option 3', value: '3' }, ], value: '2', }} /> </Canvas>

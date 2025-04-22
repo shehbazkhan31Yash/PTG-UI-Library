@@ -1,0 +1,53 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiToaster } from './toaster';
+
+<Meta title="Components/Toaster" component={PtgUiToaster} />
+
+# Toaster Component
+
+---
+
+The Toaster component displays notifications to users with different message types such as success, error, warning, and info.
+
+## Properties
+
+### Toaster Controls:
+- **message** – Defines the notification message content.
+- **type** – Specifies the type of toaster (`success`, `error`, `info`, `warning`).
+- **showDescription** – Boolean to enable or disable the description in the toaster.
+- **alignItem** – Controls the alignment (`flex-start`, `center`, `flex-end`).
+- **justifyContent** – Determines how the toaster content is justified (`flex-start`, `center`, `flex-end`).
+
+## Usage Example
+
+```tsx
+import { PtgUiToaster } from '@ptg-ui/react';
+
+<PtgUiToaster 
+  message="This is a sample toaster message."
+  type="success"
+  showDescription={true}
+  alignItem="center"
+  justifyContent="center"
+/>
+
+## Examples
+Primary Toaster
+A toaster displaying a success message.
+
+<Canvas> <Story name="Primary Toaster" args={{ message: 'This is a sample toaster message.', type: 'success', showDescription: true, closeIcon: 'X', alignItem: 'center', justifyContent: 'center', }} /> </Canvas>
+
+Error Toaster
+A toaster displaying an error message.
+
+<Canvas> <Story name="Error Toaster" args={{ message: 'Something went wrong!', type: 'error', showDescription: true, alignItem: 'center', justifyContent: 'center', }} /> </Canvas>
+
+Warning Toaster
+A toaster displaying a warning message.
+
+<Canvas> <Story name="Warning Toaster" args={{ message: 'Please be cautious!', type: 'warning', showDescription: true, alignItem: 'center', justifyContent: 'center', }} /> </Canvas>
+
+Information Toaster
+A toaster providing an informational message.
+
+<Canvas> <Story name="Information Toaster" args={{ message: 'This is an informational alert!', type: 'info', showDescription: true, alignItem: 'center', justifyContent: 'center', }} /> </Canvas>
