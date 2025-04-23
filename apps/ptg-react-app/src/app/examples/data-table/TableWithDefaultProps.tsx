@@ -25,29 +25,7 @@ export const TableWithDefaultProps = (props: ITableWithDefaultProps) => {
     { accessor: 'total', Header: 'Total', columnWidth: '100px' },
     { accessor: '', Header: '', columnWidth: '80px' },
   ];
-  /* const columns = [
-    { Header: 'ID', accessor: 'personID', isNumeric: true },
-    { Header: 'Name', accessor: 'name' },
-    { Header: 'Age', accessor: 'age', isNumeric: true },
-    { Header: 'Email', accessor: 'email' },
-  ];
- */
-  /* const data = [
-    { personID: 1, name: 'John Doe', age: 28, email: 'john@example.com' },
-    {
-      personID: 2,
-      name: 'Jane Smith',
-      age: 34,
-      email: 'jane@example.com',
-    },
-    {
-      personID: 3,
-      name: 'Alice Johnson',
-      age: 25,
-      email: 'alice@example.com',
-    },
-    { personID: 4, name: 'Bob Brown', age: 45, email: 'bob@example.com' },
-  ]; */
+
   const componentCode = `
   import { PtgUiTable } from '@ptg-react-libs/data-table/table/Table';
    const columns = [
