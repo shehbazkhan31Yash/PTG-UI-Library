@@ -35,7 +35,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 	// Check for duplicate accessors in columns
 	useEffect(() => {
 		const accessorSet = new Set();
-		const duplicates = columns.filter((column) => {
+		const duplicates = columns?.filter((column) => {
 			if (accessorSet.has(column.accessor)) {
 				return true; // Duplicate found
 			}
@@ -87,7 +87,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 	};
 
 	const filteredData = data.filter((row) =>
-		columns.some((column) => String(row[column.accessor]).toLowerCase().includes(filterValue.toLowerCase()))
+		columns?.some((column) => String(row[column.accessor]).toLowerCase().includes(filterValue.toLowerCase()))
 	);
 
 	const sortedData = filteredData.sort((a, b) => {
@@ -126,7 +126,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 				<table className="ptg-ui-table">
 					<thead className={stickyHeader ? 'sticky-header' : ''}>
 						<tr>
-							{columns.map((column) => {
+							{columns?.map((column) => {
 								// Extract the sort indicator logic into a separate variable
 								let sortIndicator: '↑' | '↓' | '⇅' = '⇅'; // Default value for non-hovered columns
 								if (hoveredColumn === column.accessor) {
@@ -156,7 +156,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 						{sortedData.length ? (
 							sortedData.map((row, rowIndex) => (
 								<tr key={row.id} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
-									{columns.map((column) => (
+									{columns?.map((column) => (
 										<td
 											key={column.accessor}
 											style={{
@@ -170,7 +170,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 							))
 						) : (
 							<tr>
-								<td colSpan={columns.length} className="no-data">
+								<td colSpan={columns?.length} className="no-data">
 									No data available
 								</td>
 							</tr>
