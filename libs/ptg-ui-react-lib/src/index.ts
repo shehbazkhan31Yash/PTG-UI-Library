@@ -22,14 +22,12 @@ export * from './lib/charts/highcharts/3D/pie/pie';
 export * from './lib/charts/d3/bar/bar';
 export * from './lib/charts/d3/line/line';
 export * from './lib/charts/d3/pie/pie';
-export * from './lib/data-table/ag-grid/ag-grid';
-export * from './lib/data-table/react-data-grid/react-data-grid';
-export * from './lib/data-table/material-table/material-table';
+
 export * from './lib/pipes/pipes';
 export * from './lib/date-picker/date-picker';
 export * from './lib/download-file/downloadFile';
 export * from './lib/indeterminate-checkbox/Tree/CheckboxTree';
-export * from './lib/data-table/react-table/react-table';
+
 export * from './lib/textarea/textarea';
 export * from './lib/hooks/useFetch';
 export * from './lib/pagination/pagination';
@@ -50,3 +48,4 @@ export * from './lib/multiStepForms/ThirdStep';
 export * from './lib/multiStepForms/FinalStep';
 export * from './lib/rating/rating';
 export * from './lib/appbar/AppBar';
+export * from './lib/data-table/table/Table';

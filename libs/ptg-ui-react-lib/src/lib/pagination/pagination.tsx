@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePagination, DOTS } from './usePagination';
-import './pagination.css';
 import { PtgUiPaginationProps } from '@ptg-react-libs/interfaces';
+import './pagination.css';
 
 /**
  * PtgUiPagination Component
