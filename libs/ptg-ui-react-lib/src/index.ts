@@ -50,3 +50,4 @@ export * from './lib/multiStepForms/ThirdStep';
 export * from './lib/multiStepForms/FinalStep';
 export * from './lib/rating/rating';
 export * from './lib/appbar/AppBar';
+export * from './lib/toaster/toaster';

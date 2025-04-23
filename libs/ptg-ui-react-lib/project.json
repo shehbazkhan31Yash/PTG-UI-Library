@@ -1,19 +1,19 @@
 {
+	"name": "ptg-ui-react-lib",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/ptg-ui-react-lib/src",
 	"projectType": "library",
 	"tags": [],
 	"targets": {
 		"build": {
-			"executor": "@nrwl/web:rollup",
+			"executor": "@nx/rollup:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/ptg-ui-react-lib",
 				"tsConfig": "libs/ptg-ui-react-lib/tsconfig.lib.json",
 				"project": "libs/ptg-ui-react-lib/package.json",
-				"entryFile": "libs/ptg-ui-react-lib/src/index.ts",
 				"external": ["react/jsx-runtime"],
-				"rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+				"rollupConfig": "@nx/react/plugins/bundle-rollup",
 				"compiler": "babel",
 				"assets": [
 					"libs/ptg-ui-react-lib/src/assets/accordian-arrow.svg",
@@ -39,28 +39,27 @@
 			}
 		},
 		"storybook": {
-  "executor": "@nrwl/storybook:storybook",
-  "options": {
-    "port": 4400,
-    "configDir": "libs/ptg-ui-react-lib/.storybook",
-    "browserTarget": "ptg-ui-react-lib:build"
-}
-},
-"build-storybook": {
-  "executor": "@nrwl/storybook:build",
-  "outputs": ["{options.outputDir}"],
-  "options": {
-    "outputDir": "dist/apps/ptg-ui-apps-backend/public/ptg-react-storybook",
-    "configDir": "libs/ptg-ui-react-lib/.storybook",
-	"browserTarget": "ptg-ui-react-lib:build-storybook",
-	"compodoc": false
-  },
-  "configurations": {
-	"ci": {
-	  "quiet": true
-	}
-  
-  }
-}
+			"executor": "@nrwl/storybook:storybook",
+			"options": {
+				"port": 4400,
+				"configDir": "libs/ptg-ui-react-lib/.storybook",
+				"browserTarget": "ptg-ui-react-lib:build"
+			}
+		},
+		"build-storybook": {
+			"executor": "@nrwl/storybook:build",
+			"outputs": ["{options.outputDir}"],
+			"options": {
+				"outputDir": "dist/apps/ptg-ui-apps-backend/public/ptg-react-storybook",
+				"configDir": "libs/ptg-ui-react-lib/.storybook",
+				"browserTarget": "ptg-ui-react-lib:build-storybook",
+				"compodoc": false
+			},
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
+			}
+		}
 	}
 }

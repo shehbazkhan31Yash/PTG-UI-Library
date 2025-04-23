@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../../dist/out-ts",
-		"types": ["node"]
+		"types": ["node"],
 	},
 	"files": [
 		"../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
@@ -17,7 +17,8 @@
 		"**/*.spec.js",
 		"**/*.test.js",
 		"**/*.spec.jsx",
-		"**/*.test.jsx"
+		"**/*.test.jsx",
+		"**/*.stories.tsx",
 	],
 	"include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }
