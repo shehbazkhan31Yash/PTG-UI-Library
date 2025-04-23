@@ -54,7 +54,6 @@ td {
 	background-color: #f9f9f9; /* Light gray background for alternate rows */
 }
 
-
 .search-bar-container {
 	display: flex; /* Use flexbox for alignment */
 	justify-content: flex-end; /* Align items to the right */

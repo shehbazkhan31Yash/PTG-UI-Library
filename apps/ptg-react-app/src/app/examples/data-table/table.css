@@ -7,9 +7,8 @@
 
 .ptg-ui-table {
   width: 100%; /* Ensure the table spans the container width */
-  min-width: 800px; /* Set a minimum width for the table */
   border-collapse: collapse; /* Ensure proper table rendering */
-  table-layout: fixed; /* Ensure fixed layout for consistent column widths */
+  table-layout: relative; /* Ensure fixed layout for consistent column widths */
 }
 
 /* Sticky header styling */
@@ -53,7 +52,6 @@ td {
 .alternate-row {
   background-color: #f9f9f9; /* Light gray background for alternate rows */
 }
-
 
 .search-bar-container {
   display: flex; /* Use flexbox for alignment */

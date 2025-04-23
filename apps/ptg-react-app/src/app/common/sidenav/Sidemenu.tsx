@@ -38,15 +38,8 @@ export const NavigationChildData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
         label: 'REACT TABLE',
-        path: '/datatable/reactTable',
+        path: '/datatable/table',
         icon: 'fa-solid fa-table-list',
         id: 'react-table',
         disabled: false,
@@ -130,20 +123,6 @@ export const NavigationData = [
       {
         label: 'TABLE',
         path: '/datatable/table',
-        disabled: false,
-      },
-      {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'REACT TABLE',
-        path: '/datatable/reactTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'react-table',
         disabled: false,
       },
     ],

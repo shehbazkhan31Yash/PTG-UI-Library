@@ -5,14 +5,14 @@ import './tableSticky.css';
 
 export const TableWithStickyHeader = (props: ITableWithStickyHeader) => {
   const columns = [
-    { Header: 'ID', accessor: 'id', isNumeric: true },
-    { Header: 'First Name', accessor: 'firstName' },
-    { Header: 'Last Name', accessor: 'lastName' },
-    { Header: 'Email', accessor: 'email' },
-    { Header: 'Phone', accessor: 'phone' },
-    { Header: 'Age', accessor: 'age', isNumeric: true },
-    { Header: 'Country', accessor: 'country' },
-    { Header: 'City', accessor: 'city' },
+    { Header: 'ID', accessor: 'id', isNumeric: true, columnWidth: '75px' },
+    { Header: 'First Name', accessor: 'firstName', columnWidth: '140px' },
+    { Header: 'Last Name', accessor: 'lastName', columnWidth: '140px' },
+    { Header: 'Email', accessor: 'email', columnWidth: '140px' },
+    { Header: 'Phone', accessor: 'phone', columnWidth: '140px' },
+    { Header: 'Age', accessor: 'age', isNumeric: true, columnWidth: '75px' },
+    { Header: 'Country', accessor: 'country', columnWidth: '125px' },
+    { Header: 'City', accessor: 'city', columnWidth: '100px' },
   ];
 
   const data = [
