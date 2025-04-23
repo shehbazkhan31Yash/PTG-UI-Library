@@ -127,7 +127,6 @@ export const PtgUiTable: React.FC<TableProps> = ({
 					<thead className={stickyHeader ? 'sticky-header' : ''}>
 						<tr>
 							{columns?.map((column) => {
-								// Extract the sort indicator logic into a separate variable
 								let sortIndicator: '↑' | '↓' | '⇅' = '⇅'; // Default value for non-hovered columns
 								if (hoveredColumn === column.accessor) {
 									if (sortConfig.key === column.accessor) {
