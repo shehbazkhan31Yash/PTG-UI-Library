@@ -64,7 +64,7 @@ export const PtgUiCarousel: React.FC<ICarouselProps> = ({
 					{items.map((carouselItem, index) => (
 						<button
 							key={`${carouselItem?.id} ${index} dot-navigation`}
-							className={`dot ${currentIndex === index ? 'active' : ''}`}
+							className={`ptg-ui-carousel-dot ${currentIndex === index ? 'active' : ''}`}
 							onClick={() => setCurrentIndex(index)}
 							style={{ border: 'none', padding: 0, cursor: 'pointer' }}
 							aria-label={`Slide ${index + 1}`}
