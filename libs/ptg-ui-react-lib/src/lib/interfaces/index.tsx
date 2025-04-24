@@ -475,8 +475,8 @@ export interface IMenuConfig {
 	menuItems: React.ReactNode;
 	backgroundColor?: 'primary' | 'secondary';
 	textColor?: string;
-	menuAlignment?: 'left' | 'right';
-	logoAlignment?: 'left' | 'right';
+	menuAlignment?: 'left' | 'right' | 'center';
+	logoAlignment?: 'left' | 'right' | 'center';
 	burgerMenu?: boolean;
 	burgerMenuType?: 'drawer' | 'dropdown';
 	position?: 'top' | 'bottom';
