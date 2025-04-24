@@ -544,3 +544,17 @@ export interface PtgUiPaginationProps {
 	previousBtnText?: string;
 	nextBtnText?: string;
 }
+
+interface Column {
+	Header: string;
+	accessor: string;
+	isNumeric?: boolean; // Optional property to indicate if the column is numeric
+	columnWidth?: string; // Optional property to specify column width
+}
+
+export interface TableProps {
+	columns: Column[];
+	data: any[];
+	stickyHeader?: boolean; // Option to make the header sticky
+	alternateRowColor?: boolean; // Option to enable alternate row colors
+}

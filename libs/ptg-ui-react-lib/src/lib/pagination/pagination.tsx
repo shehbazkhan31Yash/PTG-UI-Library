@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePagination, DOTS } from './usePagination';
-import './pagination.css';
 import { PtgUiPaginationProps } from '@ptg-react-libs/interfaces';
+import './pagination.css';
 
 /**
  * PtgUiPagination Component
@@ -28,13 +28,11 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 	previousBtnText,
 	nextBtnText,
 }) => {
-	// Use state hook to manage current page
 	const [currentPage, setCurrentPage] = useState(pageNumber);
 
-	// Effect to update currentPage when pageNumber prop changes
 	useEffect(() => {
 		setCurrentPage(pageNumber);
-	}, [pageNumber]); // Added dependency to update when pageNumber changes
+	}, [pageNumber]);
 
 	const PaginationRange = () => {
 		return usePagination({
@@ -72,29 +70,35 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 		}
 	};
 
-	const paginationRange = PaginationRange(); // Calculate pagination range once
+	const paginationRange = PaginationRange();
 
 	return (
-		<ul className="pagination justify-content-center mt-3">
+		<ul className="pagination justify-content-center mt-3" role="nav" aria-label="Pagination">
 			<li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-				<a className="page-link" onClick={previousPage}>
+				<button className="page-link" onClick={previousPage} disabled={currentPage === 1} aria-label="Previous Page">
 					{previousBtnText}
-				</a>
+				</button>
 			</li>
 			{paginationRange?.map((num, index) => {
 				if (num === DOTS) {
 					return (
 						<li className="pagination-item dots" key={`dots-${index}`}>
-							<a className="page-link">&#8230;</a>
+							<span className="page-link" aria-hidden="true">
+								&#8230;
+							</span>
 						</li>
 					);
 				}
 
 				return (
 					<li className={`page-item ${currentPage === num ? 'active' : ''}`} key={num}>
-						<a className="page-link" onClick={() => gotoPage(num)}>
+						<button
+							className="page-link"
+							onClick={() => gotoPage(num)}
+							aria-current={currentPage === num ? 'page' : undefined}
+						>
 							{num}
-						</a>
+						</button>
 					</li>
 				);
 			})}
@@ -104,9 +108,14 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 					dataCount && pageSize && Math.ceil(dataCount / pageSize) === currentPage ? 'disabled' : ''
 				}`}
 			>
-				<a className="page-link" onClick={nextPage}>
+				<button
+					className="page-link"
+					onClick={nextPage}
+					disabled={!!(dataCount && pageSize && Math.ceil(dataCount / pageSize) === currentPage)}
+					aria-label="Next Page"
+				>
 					{nextBtnText}
-				</a>
+				</button>
 			</li>
 		</ul>
 	);
