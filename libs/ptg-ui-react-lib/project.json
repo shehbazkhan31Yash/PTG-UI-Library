@@ -1,12 +1,11 @@
 {
-	"name": "ptg-ui-react-lib",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/ptg-ui-react-lib/src",
 	"projectType": "library",
 	"tags": [],
 	"targets": {
 		"build": {
-			"executor": "@nx/rollup:rollup",
+			"executor": "@nx/webpack:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/ptg-ui-react-lib",
@@ -20,7 +19,8 @@
 					"libs/ptg-ui-react-lib/src/lib/styles/index.css"
 				],
 				"styles": ["libs/ptg-ui-react-lib/src/lib/styles/index.css"],
-				"main": "libs/ptg-ui-react-lib/src/index.ts"
+				"main": "libs/ptg-ui-react-lib/src/index.ts",
+				"isolatedConfig": false
 			}
 		},
 		"lint": {
