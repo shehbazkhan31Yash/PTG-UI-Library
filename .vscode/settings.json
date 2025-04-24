@@ -1,9 +1,5 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "appService.showBuildDuringDeployPrompt": false,
-  "nxConsole.nxWorkspacePath": "",
-  "sonarlint.connectedMode.project": {
-    "connectionId": "shehbazkhan31yash",
-    "projectKey": "shehbazkhan31Yash_PTG-UI-Library"
-  }
+  "nxConsole.nxWorkspacePath": ""
 }
