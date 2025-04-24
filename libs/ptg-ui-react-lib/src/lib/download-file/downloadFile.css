@@ -1,0 +1,15 @@
+.custom-table {
+  width: 100%;
+  border: 1px solid rgb(201, 201, 201);
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  border: 1px solid rgb(201, 201, 201);
+  padding: 10px;
+}
+
+.custom-table td {
+  border: 1px solid rgb(201, 201, 201);
+  padding-left: 10px;
+}

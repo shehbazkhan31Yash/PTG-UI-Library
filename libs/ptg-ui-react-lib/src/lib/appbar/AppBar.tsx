@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './AppBar.css'; // Import the CSS file
 import { IAppBarProps } from '@ptg-react-libs/interfaces';
-import { colorMap, defaultMenuConfig } from '@ptg-react-libs/constants/Constants';
+import { colorMap, defaultMenuConfig } from '../constants/Constants';
 
 /**
  * AppBar component to render a customizable navigation bar.
  *
  * This component provides a flexible app bar with options for logo placement, menu alignment,
- * burger menu (dropdown or drawer), and controlled or uncontrolled menu state. It also supports
+ * burger menu (dropdown or drawer), and controlled or uncontrolled menu sta  te. It also supports
  * click outside to close functionality.
  *
  * @param {IAppBarProps} props - The properties for the AppBar component.
