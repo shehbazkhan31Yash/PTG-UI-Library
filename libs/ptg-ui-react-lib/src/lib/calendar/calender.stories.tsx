@@ -31,7 +31,7 @@ const Template: StoryFn<IPtgUiCalendarProps> = (args) => <PtgUiCalendar {...args
 // Default Calendar Story
 export const DefaultCalendar = Template.bind({});
 DefaultCalendar.args = {
-  className: 'default-calendar',
+  className: 'form-control w-50',
   selected: undefined,
   disabled: false,
   isDateTime: false,
@@ -40,7 +40,7 @@ DefaultCalendar.args = {
 //Selected Date Calender Story
 export const SelectedCalendar = Template.bind({});
 SelectedCalendar.args = {
-  className: 'selected-calendar',
+  className: 'form-control w-50',
   selected: new Date(2025, 11, 25), 
   disabled: false,
   isDateTime: false,
@@ -49,7 +49,7 @@ SelectedCalendar.args = {
 // ClassName Calendar Story
 export const ClassName = Template.bind({});
 ClassName.args = {
-  className: 'disabled-calendar',
+  className: 'form-control w-50',
   selected: new Date(),
   disabled: false,
   isDateTime: false,
@@ -58,7 +58,7 @@ ClassName.args = {
 // DateTime Picker Story
 export const DateTimePicker = Template.bind({});
 DateTimePicker.args = {
-  className: 'datetime-calendar',
+  className: 'form-control w-50',
   selected: new Date(),
   disabled: false,
   isDateTime: true,
@@ -67,7 +67,7 @@ DateTimePicker.args = {
 // Disabled Calendar Story
 export const DisabledCalendar = Template.bind({});
 DisabledCalendar.args = {
-  className: 'disabled-calendar',
+  className: 'form-control w-50',
   selected: new Date(),
   disabled: true,
   isDateTime: false,
