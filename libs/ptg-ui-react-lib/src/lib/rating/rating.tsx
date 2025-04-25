@@ -149,7 +149,7 @@ export const PtgUiRating: React.FC<IRatingProps> = ({
 	const renderStars = () => {
 		const stars: JSX.Element[] = [];
 		for (let i = 1; i <= 5; i++) {
-			const displayValue = hoverValue !== null ? hoverValue : value;
+			const displayValue = hoverValue ?? value;
 			const fillPercentage = calculateFillPercentage(displayValue, i, precision);
 
 			stars.push(

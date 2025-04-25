@@ -1,64 +1,78 @@
-import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
 import { PtgUiModal } from './modal';
+import { PtgUiButton } from '../button/button';
 
 <Meta title="Components/Modal" component={PtgUiModal} />
 
-# Modal Component
+# PtgUiModal Component
+
+The `PtgUiModal` component is a versatile and customizable modal dialog for displaying content, actions, or confirmation dialogs. It supports options for a header, footer, and configurable buttons.
 
 ---
 
-The Modal component provides a customizable pop-up dialog with optional headers, footers, and action buttons.
-
-## Properties
-
-### Modal Controls:
-- **isOpen** – Determines whether the modal is visible.
-- **modalSize** – Defines the modal size (`sm`, `md`, `lg`).
-- **showHeader** – Boolean to show or hide the modal header.
-- **showFooter** – Boolean to show or hide the modal footer.
-- **confirmButton** – Text for the confirm button.
-- **cancelButton** – Text for the cancel button.
-- **backdropClick** – Allows closing the modal by clicking the backdrop.
-- **content** – Specifies the main content inside the modal.
-- **confirmButtonColor** – Defines the confirm button color.
-- **cancelButtonColor** – Defines the cancel button color.
-
-## Usage Example
-
+## **Usage**
 ```tsx
-import { PtgUiModal } from '@ptg-ui/react';
+import React, { useState } from 'react';
+import { PtgUiModal } from './modal';
+import { PtgUiButton } from '../button/button';
 
-<PtgUiModal 
-  isOpen={true}
-  modalSize="md"
-  showHeader={true}
-  header="Example Modal"
-  showFooter={true}
-  confirmButton="Confirm"
-  cancelButton="Cancel"
-  backdropClick={true}
-  content="This is an example of a modal component."
-  confirmButtonColor="#2196f3"
-  cancelButtonColor="#dd3434"
-/>
+const ExampleModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-## Examples
+  const handleModalClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleModalConfirm = () => {
+    alert('Confirmed!');
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <PtgUiButton
+        text="Open Modal"
+        onClick={() => setIsOpen(true)}
+        textColor="#fff"
+        backgroundColor="#007bff"
+      />
+      <PtgUiModal
+        isOpen={isOpen}
+        modalSize="md"
+        showHeader={true}
+        header="Example Modal Header"
+        showFooter={true}
+        confirmButton="Confirm"
+        cancelButton="Cancel"
+        content="This is an example modal."
+        onModalClose={handleModalClose}
+        onConfirmed={handleModalConfirm}
+      />
+    </>
+  );
+};
+Stories
 Default Modal
-A modal with a header, footer, and confirm/cancel buttons.
+A standard modal with both header and footer.
 
-<Canvas> <Story name="Default Modal" args={{ isOpen: true, modalSize: 'md', showHeader: true, header: 'Default Modal Header', showFooter: true, confirmButton: 'Confirm', cancelButton: 'Cancel', backdropClick: true, content: 'This is the default content of the modal.', confirmButtonColor: '#2196f3', cancelButtonColor: '#dd3434', }} /> </Canvas>
+<Canvas> <Story name="Default" args={{ isOpen: false, modalSize: 'md', showHeader: true, header: 'Default Modal Header', showFooter: true, confirmButton: 'Confirm', cancelButton: 'Cancel', content: 'This is the default modal content.', confirmButtonColor: '#2196f3', cancelButtonColor: '#dd3434', }} /> </Canvas>
+
+Small Modal
+A compact version of the modal.
+
+<Canvas> <Story name="SmallModal" args={{ isOpen: false, modalSize: 'sm', showHeader: true, header: 'Small Modal Header', showFooter: true, confirmButton: 'Okay', cancelButton: 'Close', content: 'This modal is smaller in size.', }} /> </Canvas>
+
+Large Modal
+A spacious modal suitable for displaying larger content.
+
+<Canvas> <Story name="LargeModal" args={{ isOpen: false, modalSize: 'lg', showHeader: true, header: 'Large Modal Header', showFooter: true, confirmButton: 'Save', cancelButton: 'Discard', content: 'This is a larger modal, suitable for more content.', }} /> </Canvas>
+
+Modal Without Footer
+A modal that has no footer.
+
+<Canvas> <Story name="NoFooterModal" args={{ isOpen: false, modalSize: 'md', showHeader: true, header: 'No Footer Modal Header', showFooter: false, content: 'This modal does not have a footer.', }} /> </Canvas>
 
 Modal Without Header
-A modal that does not include a header.
+A modal without a header.
 
-<Canvas> <Story name="Modal Without Header" args={{ isOpen: true, modalSize: 'md', showHeader: false, showFooter: true, confirmButton: 'Confirm', cancelButton: 'Cancel', backdropClick: true, content: 'This modal does not have a header.', }} /> </Canvas>
-
-Modal with Custom Footer
-A modal featuring a footer with customized action buttons.
-
-<Canvas> <Story name="Modal with Custom Footer" args={{ isOpen: true, modalSize: 'lg', showHeader: true, header: 'Custom Footer Modal', showFooter: true, confirmButton: 'Proceed', cancelButton: 'Dismiss', backdropClick: true, content: 'This modal has a custom footer.', }} /> </Canvas>
-
-Closed Modal
-A modal that is not currently visible.
-
-<Canvas> <Story name="Closed Modal" args={{ isOpen: false, modalSize: 'md', showHeader: true, header: 'Closed Modal', showFooter: true, confirmButton: 'Confirm', cancelButton: 'Cancel', backdropClick: true, content: 'This modal is closed and should not be visible.', }} /> </Canvas>
+<Canvas> <Story name="NoHeaderModal" args={{ isOpen: false, modalSize: 'md', showHeader: false, showFooter: true, confirmButton: 'Proceed', cancelButton: 'Go Back', content: 'This modal does not have a header.', }} /> </Canvas>

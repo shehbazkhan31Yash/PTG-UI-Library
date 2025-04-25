@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { PtgUiDownload } from './downloadFile';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './downloadFile.css'; // Import custom styles
 
 export default {

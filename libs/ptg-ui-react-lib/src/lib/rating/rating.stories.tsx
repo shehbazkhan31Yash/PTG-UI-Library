@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { Rating } from './rating';
+import { PtgUiRating } from './rating';
 import { IRatingProps } from '../interfaces';
 
 export default {
   title: 'Components/Rating',
-  component: Rating,
+  component: PtgUiRating,
   argTypes: {
     value: { control: 'number' },
     readOnly: { control: 'boolean' },
@@ -34,13 +34,13 @@ const FeedbackTemplate: StoryFn<IRatingProps> = (args) => {
         4: 'Good',
         5: 'Excellent',
       };
-      setHoverFeedback(feedbackMap[hoverValue] || 'Useless');
+      setHoverFeedback(feedbackMap[hoverValue] ?? 'Useless');
     };
   
   
     return (
       <div>
-        <Rating
+        <PtgUiRating
           {...args}
           onHover={(hoverValue) => {
             handleHover(hoverValue);
@@ -52,7 +52,7 @@ const FeedbackTemplate: StoryFn<IRatingProps> = (args) => {
       </div>
     );
   };
-const Template: StoryFn<IRatingProps> = (args) => <Rating {...args} />;
+const Template: StoryFn<IRatingProps> = (args) => <PtgUiRating {...args} />;
 
 export const NoRating = Template.bind({});
 NoRating.args = {
@@ -127,11 +127,11 @@ HoverFeedback.args = {
 export const VariousSizes = (args: IRatingProps) => (
     <div>
       <h4>Small Size</h4>
-      <Rating {...args} size={16} hoverSize={20} />
+      <PtgUiRating {...args} size={16} hoverSize={20} />
       <h4>Medium Size</h4>
-      <Rating {...args} size={24} hoverSize={28} />
+      <PtgUiRating {...args} size={24} hoverSize={28} />
       <h4>Large Size</h4>
-      <Rating {...args} size={32} hoverSize={36} />
+      <PtgUiRating {...args} size={32} hoverSize={36} />
     </div>
   );
   VariousSizes.args = {
@@ -148,11 +148,11 @@ export const VariousSizes = (args: IRatingProps) => (
   export const VariousIcons = (args: IRatingProps) => (
     <div>
       <h4>Heart Icon</h4>
-      <Rating {...args} icon="❤️" emptyIcon="🤍" color="red" borderColor="lightgray" />
+      <PtgUiRating {...args} icon="❤️" emptyIcon="🤍" color="red" borderColor="lightgray" />
       <h4>Thumbs Up Icon</h4>
-      <Rating {...args} icon="👍" emptyIcon="👎" color="blue" borderColor="gray" />
+      <PtgUiRating {...args} icon="👍" emptyIcon="👎" color="blue" borderColor="gray" />
       <h4>Dollar Icon</h4>
-      <Rating {...args} icon="💵" emptyIcon="💸" color="green" borderColor="lightgreen" />
+      <PtgUiRating {...args} icon="💵" emptyIcon="💸" color="green" borderColor="lightgreen" />
     </div>
   );
   VariousIcons.args = {
