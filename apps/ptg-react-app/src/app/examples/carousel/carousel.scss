@@ -23,7 +23,7 @@
   margin-bottom: 10px;
 }
 
-.dot {
+.ptg-ui-carousel-dot {
   width: 1.1vw;
   height: 1.1vw;
   border-radius: 50%;
@@ -33,7 +33,7 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.dot.active {
+.ptg-ui-carousel-dot.active {
   background-color: blue;
   transform: scale(1.5);
   width: 2.5vw;
