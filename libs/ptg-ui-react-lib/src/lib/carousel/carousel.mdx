@@ -1,0 +1,53 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiCarousel } from './carousel';
+
+<Meta title="Components/Carousel" component={PtgUiCarousel} />
+
+# PtgUiCarousel Component
+
+The `PtgUiCarousel` component allows you to create a flexible and interactive carousel with customizable navigation options. You can use it for images, cards, or any custom items.
+
+---
+
+## **Usage**
+
+```tsx
+import { PtgUiCarousel } from './carousel';
+
+<PtgUiCarousel
+  items={[
+    { id: '1', image: 'https://via.placeholder.com/300', title: 'Slide 1', description: 'Description 1' },
+    { id: '2', image: 'https://via.placeholder.com/300', title: 'Slide 2', description: 'Description 2' },
+  ]}
+  backgroundColor="#fff"
+  buttonPosition="bottom"
+  buttonProps={{
+    iconLeft: '<',
+    iconRight: '>',
+    style: { backgroundColor: '#007bff', color: '#fff', width: '40px', height: '40px' },
+  }}
+  navigationOnIcon={false}
+  navigationIconWidth="40px"
+  navigationIconHeight="40px"
+/>;
+
+Stories
+Default Carousel
+A basic carousel with dot navigation and bottom controls.
+
+<Canvas> <Story name="DefaultCarousel" args={{ items: [ { id: '1', image: 'https://picsum.photos/id/328/3264/2448', backgroundColor: '#f5f5f5', }, { id: '2', image: 'https://picsum.photos/id/431/5000/3334', backgroundColor: '#e5e5e5', }, { id: '3', image: 'https://picsum.photos/id/5/5000/3334', backgroundColor: '#d5d5d5', }, ], backgroundColor: '#fff', buttonPosition: 'bottom', buttonProps: { iconLeft: '<', iconRight: '>', style: { backgroundColor: '#007bff', color: '#fff', width: '40px', height: '40px' }, }, navigationOnIcon: false, navigationIconWidth: '40px', navigationIconHeight: '40px', }} /> </Canvas>
+
+Carousel with Icon Navigation
+Navigation using thumbnail icons.
+
+<Canvas> <Story name="CarouselWithIconNavigation" args={{ items: [ { id: '1', image: 'https://picsum.photos/id/328/3264/2448', backgroundColor: '#f5f5f5' }, { id: '2', image: 'https://picsum.photos/id/431/5000/3334', backgroundColor: '#e5e5e5' }, { id: '3', image: 'https://picsum.photos/id/5/5000/3334', backgroundColor: '#d5d5d5' }, ], navigationOnIcon: true, navigationIconWidth: '50px', navigationIconHeight: '50px', backgroundColor: '#fafafa', }} /> </Canvas>
+
+Carousel with Top Controls
+Controls positioned at the top.
+
+<Canvas> <Story name="CarouselWithTopControls" args={{ items: [ { id: '1', image: 'https://picsum.photos/id/328/3264/2448', title: 'Slide 1', description: { __html: 'Description for Slide 1' }, backgroundColor: '#f5f5f5', }, { id: '2', image: 'https://picsum.photos/id/431/5000/3334', title: 'Slide 2', description: { __html: 'Description for Slide 2' }, backgroundColor: '#e5e5e5', }, { id: '3', image: 'https://picsum.photos/id/5/5000/3334', title: 'Slide 3', description: { __html: 'Description for Slide 3' }, backgroundColor: '#d5d5d5', }, ], buttonPosition: 'top', buttonProps: { iconLeft: '«', iconRight: '»', style: { backgroundColor: '#28a745', color: '#fff', width: '30px', height: '30px' }, }, backgroundColor: '#f0f0f0', }} /> </Canvas>
+
+Carousel of Cards
+A carousel with cards containing detailed information.
+
+<Canvas> <Story name="CarouselOfCards" args={{ items: [ { id: '0', image: 'https://picsum.photos/id/328/3264/2448', title: 'Understanding and Managing Yourself', description: { __html: <ul> <li>Discover your personality preferences and strength</li> <li>Identify stressors and triggers</li> <li>Your ideal roles</li> <li>How to manage yourself to be the best you</li> </ul>, }, shape: 'circle', backgroundColor: '#0047AB', margin: '10px', padding: '10px', }, { id: '1', image: 'https://picsum.photos/id/431/5000/3334', description: { __html: <ul> <li>Discover your personality preferences and strength</li> <li>Identify stressors and triggers</li> <li>Your ideal roles</li> <li>How to manage yourself to be the best you</li> </ul>, }, title: 'Understanding Power of Thinking', shape: 'square', backgroundColor: '#0047AB', margin: '10px', padding: '10px', }, { id: '2', image: 'https://picsum.photos/id/5/5000/3334', description: { __html: <ul> <li>Discover your personality preferences and strength</li> <li>Identify stressors and triggers</li> <li>Your ideal roles</li> <li>How to manage yourself to be the best you</li> </ul>, }, title: 'Believe in Yourself', shape: 'rectangle', backgroundColor: '#0047AB', margin: '10px', padding: '10px', }, ], backgroundColor: 'rgb(0, 48, 143)', buttonPosition: 'bottom', buttonProps: { iconLeft: '←', iconRight: '→', style: { backgroundColor: 'brown', color: '#fff', width: '40px', height: '40px' }, }, navigationOnIcon: false, navigationIconWidth: '70px', navigationIconHeight: '70px', }} /> </Canvas>
