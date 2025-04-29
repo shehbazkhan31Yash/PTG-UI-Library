@@ -6,7 +6,9 @@ import './Chat.css';
 
 export default function Chatbot() {
   const [showCode, setShowCode] = useState<boolean>(false);
-  const [genAIKey, setGenAIKey] = useState<string>('');
+  const [genAIKey, setGenAIKey] = useState<string>(
+    'AIzaSyD9Gd9nbIhFQbo2QQENyfZiOXqETv2pbmo'
+  );
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGenAIKey(event.target.value);
   };
@@ -42,7 +44,8 @@ export default function Chatbot() {
           <div className="genAIHeader">
             <input
               placeholder="Enter genAI key"
-              type="text"
+              type="password"
+              value={genAIKey}
               onChange={handleChange}
             />
             <a
