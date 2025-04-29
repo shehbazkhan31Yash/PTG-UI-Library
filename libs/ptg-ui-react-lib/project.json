@@ -5,7 +5,7 @@
 	"tags": [],
 	"targets": {
 		"build": {
-			"executor": "@nx/webpack:webpack",
+			"executor": "@nx/rollup:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/ptg-ui-react-lib",
@@ -20,8 +20,7 @@
 					"libs/ptg-ui-react-lib/src/lib/styles/index.css"
 				],
 				"styles": ["libs/ptg-ui-react-lib/src/lib/styles/index.css"],
-				"main": "libs/ptg-ui-react-lib/src/index.ts",
-				"isolatedConfig": false
+				"main": "libs/ptg-ui-react-lib/src/index.ts"
 			}
 		},
 		"lint": {
