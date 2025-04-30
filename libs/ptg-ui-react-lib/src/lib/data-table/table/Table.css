@@ -4,7 +4,6 @@
 	border: 1px solid #ccc; /* Optional: Add a border around the table container */
 	max-width: 100%; /* Ensure the container does not exceed the parent width */
 	overflow-y: auto;
-	max-height: 400px;
 }
 
 .ptg-ui-table {
