@@ -1,0 +1,47 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiGridColumn } from './GridColumns';
+import { PtgUiRow } from '../gridRow/GridRow';
+import { PtgUiCard } from '../card/Cards';
+import { CARD_BUTTON } from '../constants/Constants';
+import { CARD_ITEMS } from '../mock/mock';
+
+<Meta title="Components/GridColumn" component={PtgUiGridColumn} />
+
+# PtgUiGridColumn Component
+
+The `PtgUiGridColumn` component allows you to organize content in a responsive grid layout. It supports various screen sizes with the ability to span columns and add offsets.
+
+---
+
+## **Usage**
+
+### Basic Example
+
+```tsx
+import { PtgUiGridColumn } from './GridColumns';
+import { PtgUiRow } from '../gridRow/GridRow';
+import { PtgUiCard } from '../card/Cards';
+
+<PtgUiRow>
+  <PtgUiGridColumn xl={4} lg={6} md={6} sm={12} xs={12}>
+    <PtgUiCard
+      image="https://via.placeholder.com/150"
+      title="Dynamic Card Title"
+      description="Dynamic Card Description"
+      buttonText="Learn More"
+      buttonColor="#00f"
+      buttonWidth="150px"
+    />
+  </PtgUiGridColumn>
+</PtgUiRow>;
+
+Stories
+Grid Layout
+Demonstrates a grid layout with cards distributed evenly.
+
+<Canvas> <Story name="GridLayout" args={{ xl: 4, lg: 6, md: 6, sm: 12, xs: 12, className: 'ptg-ui-grid-item', }} /> </Canvas>
+
+Grid Layout with Offset
+Showcases grid columns with offsets to align elements differently.
+
+<Canvas> <Story name="GridLayoutWithOffset" args={{ xl: 4, lg: 6, md: 6, sm: 12, xs: 12, offsetLg: 2, offsetMd: 1, offsetSm: 0, className: '', }} /> </Canvas>
