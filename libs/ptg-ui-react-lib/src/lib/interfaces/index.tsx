@@ -270,6 +270,14 @@ export interface PtgUiLoginProps {
 	successMessage?: string;
 }
 
+export interface ICardItems {
+	id: number;
+	image: string;
+	title: string;
+	content: string;
+	button: string;
+  }
+
 export interface IUserSignup {
 	username?: string;
 	email?: string;

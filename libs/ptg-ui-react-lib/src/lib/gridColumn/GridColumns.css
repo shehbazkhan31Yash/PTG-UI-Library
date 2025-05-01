@@ -42,6 +42,37 @@
 	width: 100%;
 }
 
+.bg-dark-primary {
+	background-color: '#002144';
+  }
+
+/* Grid Item Class */
+.ptg-ui-grid-item {
+	display: flex; /* Use flexbox for layout */
+	flex-direction: column; /* Stack items vertically */
+	padding: 15px; /* Consistent padding */
+	box-sizing: border-box; /* Include padding in width/height */
+  }
+  
+  /* Responsive Widths */
+  @media (min-width: 576px) {
+	.ptg-ui-grid-item {
+	  flex: 0 0 50%; /* 2 items per row on small screens */
+	}
+  }
+  
+  @media (min-width: 768px) {
+	.ptg-ui-grid-item {
+	  flex: 0 0 33.33%; /* 3 items per row on medium screens */
+	}
+  }
+  
+  @media (min-width: 992px) {
+	.ptg-ui-grid-item {
+	  flex: 0 0 25%; /* 4 items per row on large screens */
+	}
+  }
+
 /* Column Sizes for Small Devices (≥576px) */
 @media (min-width: 576px) {
 	.ptg-ui-col-sm-1 {
