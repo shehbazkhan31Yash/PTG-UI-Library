@@ -16,7 +16,7 @@ import { environment } from '../../../environments/environment';
 export default function UserProfile() {
   const { t } = useTranslation();
   const [toggle, setToggle] = useState(false);
-  const { logout, user } = useAuth0();
+  const { logout, user, isAuthenticated } = useAuth0();
   interface LoggedInUser {
     username?: string;
     shortname?: string;
@@ -26,7 +26,9 @@ export default function UserProfile() {
 
   const handleLogout = () => {
     authClass.removeToken();
-    logout({ logoutParams: { returnTo: environment.okta_logout_url } });
+    if (isAuthenticated) {
+      logout({ logoutParams: { returnTo: environment.okta_logout_url } });
+    }
     sessionStorage.clear();
     navigate('/login');
   };
