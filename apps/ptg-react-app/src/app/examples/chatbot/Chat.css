@@ -1,43 +1,74 @@
 /* Chat.css */
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.chatContainer::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar */
+  height: 0; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.chatContainer {
+  scrollbar-width: thin; /* Make scrollbar thin */
+  scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
+}
+
+/* Optional: Add a hover effect to show scrollbar */
+.chatContainer:hover::-webkit-scrollbar {
+  width: 8px; /* Show scrollbar on hover */
+}
+
+.chatContainer:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+.chatContainer:hover::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
 .chatContainer {
   display: flex;
   flex-direction: column;
-  height: 40vh;
-  width: 80vw;
-  max-width: 600px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  width: 80%; /* Set width to 80% */
+  margin: 0 auto; /* Center the container horizontally */
   background-color: #f9f9f9;
+  overflow-y: auto;
 }
 .messages {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
   border-radius: 8px 8px 0 0;
+  overflow-y: auto; /* Allow scrolling if messages overflow */
 }
-.message {
-  margin-bottom: 15px;
-}
+
 .message.user {
-  text-align: right;
+  width: fit-content;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: 4%;
+  overflow-wrap: break-word;
 }
-.messageText {
-  display: inline-block;
-  padding: 10px;
-  border-radius: 12px;
-  max-width: 75%;
-  word-wrap: break-word;
-}
+
 .message.user .messageText {
   background-color: #d1e7dd; /* Light green for user messages */
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.message.ai {
+  width: fit-content;
+  margin-left: 4%;
+  margin-right: 2%;
+  overflow-wrap: break-word;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
 }
 .message.ai .messageText {
   background-color: #cfe2ff; /* Light blue for AI messages */
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
 }
+
 .imageContainer {
   margin-top: 5px;
 }
@@ -55,10 +86,12 @@
   align-items: center;
   padding: 10px;
   background-color: #fff;
-  border-top: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 15px;
 }
-input[type='text'],
-input[type='password'] {
+input[type='text'] {
   flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
@@ -107,6 +140,26 @@ button:disabled {
 button:hover:not(:disabled) {
   background-color: #0056b3;
 }
-.genAIHeader {
-  margin-bottom: 8px;
+
+@media (max-width: 768px) {
+  .chatContainer {
+    width: 90%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .chatContainer {
+    width: 99%; /* Full width on smaller screens */
+  }
+  .messages {
+    padding: 10px; /* Reduce padding on smaller screens */
+    overflow-x: hidden;
+  }
+  .message.ai {
+    margin-left: 0;
+    margin-right: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
 }

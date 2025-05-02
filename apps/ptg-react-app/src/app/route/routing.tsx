@@ -151,7 +151,7 @@ const routing = [
     component: PtgUiCarousel,
   },
   {
-    path: '/chatbot',
+    path: '/aichatbot',
     component: Chatbot,
   },
   {

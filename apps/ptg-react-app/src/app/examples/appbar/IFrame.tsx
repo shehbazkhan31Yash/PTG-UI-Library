@@ -177,6 +177,181 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     font-size: 10px;
                     }
                 }
+
+                /* Chat.css */
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.chatContainer::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar */
+  height: 0; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.chatContainer {
+  scrollbar-width: thin; /* Make scrollbar thin */
+  scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
+}
+
+/* Optional: Add a hover effect to show scrollbar */
+.chatContainer:hover::-webkit-scrollbar {
+  width: 8px; /* Show scrollbar on hover */
+}
+
+.chatContainer:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+.chatContainer:hover::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 80%; /* Set width to 80% */
+  margin: 0 auto; /* Center the container horizontally */
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+.messages {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px 8px 0 0;
+  overflow-y: auto; /* Allow scrolling if messages overflow */
+}
+
+.message.user {
+  width: fit-content;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: 4%;
+  overflow-wrap: break-word;
+}
+
+.message.user .messageText {
+  background-color: #d1e7dd; /* Light green for user messages */
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.message.ai {
+  width: fit-content;
+  margin-left: 4%;
+  margin-right: 2%;
+  overflow-wrap: break-word;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+.message.ai .messageText {
+  background-color: #cfe2ff; /* Light blue for AI messages */
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.imageContainer {
+  margin-top: 5px;
+}
+.uploadedImage {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.loadingIndicator {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 15px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+.uploadIcon {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.previewContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.previewImage {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+.deleteImageBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4d4d; /* Red color for delete button */
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .chatContainer {
+    width: 90%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .chatContainer {
+    width: 99%; /* Full width on smaller screens */
+  }
+  .messages {
+    padding: 10px; /* Reduce padding on smaller screens */
+    overflow-x: hidden;
+  }
+  .message.ai {
+    margin-left: 0;
+    margin-right: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+.codeBlock {
+	background-color: #f8f9fa; /* Light gray background for code blocks */
+	padding: 10px;
+	border-radius: 5px;
+	overflow-x: auto; /* Allow horizontal scrolling for long lines */
+	font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+}
+
                 </style>
             </head>
             <body></body>

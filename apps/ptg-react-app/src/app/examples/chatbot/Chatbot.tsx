@@ -3,6 +3,7 @@ import { PtgChatBot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot/Chat';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import './Chat.css';
+import IFrame from '../appbar/IFrame';
 
 export default function Chatbot() {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -23,7 +24,7 @@ export default function Chatbot() {
     <section className="card-section-two bg-white rounded">
       <div className="row">
         <div className="col-10 mb-2 mt-3">
-          <h5 className="font-weight-bold example-heading">Chatbot</h5>
+          <h5 className="font-weight-bold example-heading">AI Chatbot</h5>
         </div>
         <div className="col-2 mb-2 mt-2">
           <CodeIcon
@@ -56,8 +57,10 @@ export default function Chatbot() {
               Get genAI key
             </a>
           </div>
-          <PtgChatBot genAIKey={genAIKey} />
         </div>
+        <IFrame>
+          <PtgChatBot genAIKey={genAIKey} />
+        </IFrame>
       </div>
     </section>
   );
