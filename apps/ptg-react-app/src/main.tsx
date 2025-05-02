@@ -19,7 +19,7 @@ root.render(
       clientId={environment.okta_clientId}
       authorizationParams={{ redirect_uri: environment.okta_redirectUri }}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/ptg-react-app">
         <Suspense fallback={<span>Loading...</span>}>
           <App />
         </Suspense>

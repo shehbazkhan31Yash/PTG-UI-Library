@@ -2,8 +2,8 @@
  * @since March 2022
  * @author Sunil Bhawsar
  * @desc Routing for reusable components
- * 
-*/
+ *
+ */
 import { PtgUiLogin } from '../app/auth/login/Login';
 import { PtgUiSignup } from '../app/auth/signup/signup';
 import { Routes, Route } from 'react-router-dom';
@@ -14,13 +14,30 @@ import PtgUiResetPassword from './auth/resetpassword/ResetPassword';
 export function App() {
   return (
     <div>
-        {/*-----Public routes-----*/}
+      {/*-----Public routes-----*/}
       <Routes>
-        <Route path="/login" element={<PublicRoute><PtgUiLogin /></PublicRoute>} />
-        <Route path="/signup" element={<PtgUiSignup />} />
-        <Route path="/reset-password" element={<PtgUiResetPassword />} />
+        <Route
+          path="/ptg-react-app/login"
+          element={
+            <PublicRoute>
+              <PtgUiLogin />
+            </PublicRoute>
+          }
+        />
+        <Route path="/ptg-react-app/signup" element={<PtgUiSignup />} />
+        <Route
+          path="/ptg-react-app/reset-password"
+          element={<PtgUiResetPassword />}
+        />
         {/*-----Layout in private routes-----*/}
-        <Route path="*" element={<PrivateRoute><Layout /></PrivateRoute>} />        
+        <Route
+          path="*"
+          element={
+            <PrivateRoute>
+              <Layout />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
