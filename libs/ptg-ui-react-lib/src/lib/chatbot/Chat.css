@@ -5,12 +5,6 @@
 	height: 0; /* Hide scrollbar */
 }
 
-/* Hide scrollbar for Firefox */
-.chatContainer {
-	scrollbar-width: thin; /* Make scrollbar thin */
-	scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
-}
-
 /* Optional: Add a hover effect to show scrollbar */
 .chatContainer:hover::-webkit-scrollbar {
 	width: 8px; /* Show scrollbar on hover */
@@ -25,6 +19,8 @@
 	background: transparent; /* Background of the scrollbar track */
 }
 .chatContainer {
+	scrollbar-width: thin; /* Make scrollbar thin */
+	scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
