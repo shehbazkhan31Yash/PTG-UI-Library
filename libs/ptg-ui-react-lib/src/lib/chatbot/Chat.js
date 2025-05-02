@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Chat.css'; // You can create a CSS file for styling
 import { GoogleGenerativeAI } from '@google/generative-ai';
@@ -82,10 +82,10 @@ export const PtgChatBot = ({ genAIKey }) => {
 		return (
 			<div className="messageText">
 				{messageContent.map((part, index) => {
-					if (codeBlocks && codeBlocks.includes(part)) {
+					if (codeBlocks?.includes(part)) {
 						const code = part.replace(/```/g, ''); // Remove the backticks
 						return (
-							<div key={index} className="codeBlock">
+							<div key={index + 'chatbot-user'} className="codeBlock">
 								<pre>{code}</pre>
 								<button onClick={() => copyToClipboard(code)} title="Copy code">
 									<FaClipboard />
@@ -93,7 +93,7 @@ export const PtgChatBot = ({ genAIKey }) => {
 							</div>
 						);
 					}
-					return <div key={index} dangerouslySetInnerHTML={{ __html: part }} />;
+					return <div key={index + 'chatbot-user'} dangerouslySetInnerHTML={{ __html: part }} />;
 				})}
 			</div>
 		);
