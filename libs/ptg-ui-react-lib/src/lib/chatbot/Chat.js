@@ -68,29 +68,31 @@ export const PtgChatBot = ({ genAIKey }) => {
 		}
 	};
 
+	const handleCopySuccess = (id) => {
+		setCopyMessages((prev) => ({
+			...prev,
+			[id]: 'Code copied!', // Set the copy message for the specific code block
+		}));
+		setButtonVisibility((prev) => ({
+			...prev,
+			[id]: false, // Hide the button
+		}));
+		setTimeout(() => {
+			setCopyMessages((prev) => ({
+				...prev,
+				[id]: '', // Clear the message after 1 second
+			}));
+			setButtonVisibility((prev) => ({
+				...prev,
+				[id]: true, // Show the button again
+			}));
+		}, 1000);
+	};
+
 	const copyToClipboard = (text, id) => {
 		navigator.clipboard
 			.writeText(text)
-			.then(() => {
-				setCopyMessages((prev) => ({
-					...prev,
-					[id]: 'Code copied!', // Set the copy message for the specific code block
-				}));
-				setButtonVisibility((prev) => ({
-					...prev,
-					[id]: false, // Hide the button
-				}));
-				setTimeout(() => {
-					setCopyMessages((prev) => ({
-						...prev,
-						[id]: '', // Clear the message after 1 second
-					}));
-					setButtonVisibility((prev) => ({
-						...prev,
-						[id]: true, // Show the button again
-					}));
-				}, 1000);
-			})
+			.then(() => handleCopySuccess(id))
 			.catch((err) => {
 				console.error('Failed to copy: ', err);
 			});
@@ -121,7 +123,7 @@ export const PtgChatBot = ({ genAIKey }) => {
 				);
 			} else {
 				elements.push(
-					<div key={i} className="message">
+					<div key={`text-${i}-message`} className="message">
 						{node.innerText}
 					</div>
 				);

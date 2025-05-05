@@ -34,7 +34,7 @@ export function Layout() {
 
           return (
             <Route
-              key={idx}
+              key={`${idx}-route`}
               path={route.path}
               element={
                 !route.requiresLayout ? (

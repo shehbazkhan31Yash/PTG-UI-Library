@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { PtgChatBot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot/Chat';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import './Chat.css';
 import IFrame from '../appbar/IFrame';
 import { PtgUiModal } from '@ptg-react-libs/modal/modal';
 import {
@@ -11,9 +10,10 @@ import {
   MODAL_CANCEL_BUTTON_COLOR,
   POSITIONS,
   WIDTH_110,
-  WIDTH_200,
 } from '@ptg-react-app/constants/Constant';
 import { PtgUiButton } from '@ptg-react-libs/button/button';
+import './Chat.css';
+import './modal.css';
 
 export default function Chatbot() {
   const [showCode, setShowCode] = useState<boolean>(false);
