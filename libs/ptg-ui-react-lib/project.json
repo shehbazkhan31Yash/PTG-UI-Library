@@ -5,7 +5,7 @@
 	"tags": [],
 	"targets": {
 		"build": {
-			"executor": "@nrwl/web:rollup",
+			"executor": "@nx/rollup:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/ptg-ui-react-lib",
@@ -36,6 +36,29 @@
 			"options": {
 				"jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
 				"passWithNoTests": true
+			}
+		},
+		"storybook": {
+			"executor": "@nrwl/storybook:storybook",
+			"options": {
+				"port": 4400,
+				"configDir": "libs/ptg-ui-react-lib/.storybook",
+				"browserTarget": "ptg-ui-react-lib:build"
+			}
+		},
+		"build-storybook": {
+			"executor": "@nrwl/storybook:build",
+			"outputs": ["{options.outputDir}"],
+			"options": {
+				"outputDir": "dist/apps/ptg-ui-apps-backend/public/ptg-react-storybook",
+				"configDir": "libs/ptg-ui-react-lib/.storybook",
+				"browserTarget": "ptg-ui-react-lib:build-storybook",
+				"compodoc": false
+			},
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
 			}
 		}
 	}

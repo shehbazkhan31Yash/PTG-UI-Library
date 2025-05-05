@@ -1,0 +1,111 @@
+.ptg-ui-table-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  margin-top: 20px;
+  border: 1px solid #ccc; /* Optional: Add a border around the table container */
+  max-width: 100%; /* Ensure the container does not exceed the parent width */
+}
+
+.ptg-ui-table {
+  width: 100%; /* Ensure the table spans the container width */
+  border-collapse: collapse; /* Ensure proper table rendering */
+  table-layout: relative; /* Ensure fixed layout for consistent column widths */
+}
+
+/* Sticky header styling */
+.ptg-ui-table th {
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  cursor: pointer;
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick to the top */
+  background-color: white; /* Background color for the sticky header */
+  z-index: 1; /* Ensure the header is above other content */
+}
+
+/* Non-sticky header styling */
+.ptg-ui-table th.non-sticky {
+  position: relative; /* Default positioning for non-sticky */
+  background-color: #f9f9f9; /* Optional: Different background for non-sticky */
+}
+
+.ptg-ui-table th:hover {
+  background-color: #f0f0f0; /* Hover effect for headers */
+}
+
+.ptg-ui-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.no-data {
+  text-align: center;
+  padding: 10px;
+}
+
+th,
+td {
+  overflow: hidden; /* Prevent content overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent wrapping of text */
+}
+
+.alternate-row {
+  background-color: #f9f9f9; /* Light gray background for alternate rows */
+}
+
+.search-bar-container {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Align items to the right */
+  margin-bottom: 20px; /* Add some space below the search bar */
+  margin-right: 40px;
+}
+
+.input-container {
+  position: relative; /* Position relative to allow absolute positioning of the button */
+  width: 25%; /* Set a width for the input container */
+}
+
+.ptg-ui-input {
+  padding-right: 30px; /* Add padding to the right to make space for the button */
+  width: 100%; /* Ensure the input takes full width of the container */
+}
+
+.reset-button {
+  position: absolute; /* Position the button absolutely within the input container */
+  left: 100%; /* Position it to the right */
+  top: 40%; /* Center it vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  border: none; /* Remove default border */
+  background: transparent; /* Transparent background */
+  color: black; /* Color for the "X" */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size for the "X" */
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Center the pagination */
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  color: #000; /* Set pagination color */
+  margin-top: auto;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 375px) {
+  .page-link {
+    padding: 8px 10px; /* Reduce padding for smaller screens */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .page-item {
+    margin: 0 3px; /* Reduce margin for smaller screens */
+  }
+}

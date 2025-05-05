@@ -19,7 +19,7 @@ import { Form } from 'react-bootstrap';
  * @returns {JSX.Element} A JSX element representing the select component.
  */
 
-export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange }: Readonly<PtgUiSelectProps>) {
+export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange,disabled }: Readonly<PtgUiSelectProps>) {
 	return (
 		<Form.Group controlId="formBasicSelect" className={className}>
 			<Form.Control
@@ -31,6 +31,7 @@ export function PtgUiSelect({ name, value, id, className, list, onBlur, onChange
 				name={name}
 				data-testid={name}
 				id={id}
+				disabled={disabled}
 			>
 				<option value="" className="d-none" disabled selected>
 					Select

@@ -71,7 +71,7 @@ export class SidenavComponent {
         id: '2',
         path: '/calendar',
         icon: 'fa-solid fa-calendar',
-        label: 'CALENDER',
+        label: 'CALENDAR',
         disabled: false,
       },
       {
@@ -229,6 +229,13 @@ export class SidenavComponent {
         path: '/mat-theme',
         icon: 'fa-solid fa-file',
         label: 'MAT_THEME_GENERATOR',
+        disabled: false,
+      },
+      {
+        id: '18',
+        path: '/button',
+        icon: 'fa-solid fa-file',
+        label: 'BUTTON',
         disabled: false,
       },
     ];

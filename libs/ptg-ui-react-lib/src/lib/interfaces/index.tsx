@@ -1,3 +1,5 @@
+import { CheckboxState, Item } from '@ptg-react-libs/indeterminate-checkbox/CheckboxList/checkbox.interface';
+
 // Pagination
 interface IBreadcrumbItem {
 	title: string;
@@ -171,6 +173,8 @@ export interface PtgUiSelectProps {
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	htmlFor?: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	placeholder?: string;
+	disabled?: boolean;
 }
 
 //Textarea
@@ -189,12 +193,24 @@ export interface PtgUiTextAreaProps {
 export interface ToasterProps {
 	show: boolean;
 	setShow: (show: boolean) => void;
-	message: string;
-	type: 'success' | 'error';
+	message?: string;
+	type?: string;
+	showDescription?: boolean;
+	closeIcon?: React.ReactNode;
+	alignItem?: string;
+	justifyContent?: string;
+	timeToShow?: number;
+	icon?: React.ReactNode;
 }
 export interface AlertProps {
 	message?: string;
 	type?: string;
+}
+
+//Loader
+export interface PtgUiLoadingProps {
+	type: string;
+	color?: string;
 }
 
 //forgot password
@@ -253,6 +269,14 @@ export interface PtgUiLoginProps {
 	errorMessage?: string;
 	successMessage?: string;
 }
+
+export interface ICardItems {
+	id: number;
+	image: string;
+	title: string;
+	content: string;
+	button: string;
+  }
 
 export interface IUserSignup {
 	username?: string;
@@ -435,4 +459,110 @@ export interface IRatingProps {
 	hoverSize?: number;
 	defaultValue?: number;
 	onHover?: (value: number) => void;
+}
+
+export interface PtgUiModalProps {
+	isOpen?: boolean;
+	onConfirmed?: () => void;
+	modalSize?: 'sm' | 'md' | 'lg';
+	showHeader?: boolean;
+	header?: string;
+	showFooter?: boolean;
+	confirmButton?: string;
+	cancelButton?: string;
+	onModalClose?: () => void;
+	backdropClick?: boolean;
+	content?: string;
+	confirmButtonColor?: string;
+	cancelButtonColor?: string;
+	children?: React.ReactNode;
+}
+
+export interface IMenuConfig {
+	logo?: string;
+	menuItems: React.ReactNode;
+	backgroundColor?: 'primary' | 'secondary';
+	textColor?: string;
+	menuAlignment?: 'left' | 'right' | 'center';
+	logoAlignment?: 'left' | 'right' | 'center';
+	burgerMenu?: boolean;
+	burgerMenuType?: 'drawer' | 'dropdown';
+	position?: 'top' | 'bottom';
+	static?: boolean;
+}
+
+export interface IAppBarProps {
+	menuConfig: IMenuConfig;
+	openMenu?: boolean;
+	closeMenu?: (open: boolean) => void;
+}
+
+export interface PtgUiDownloadFileProps {
+	allowFileTypes?: string[];
+	children?: React.ReactNode;
+	excelColumns?: string[];
+	excelDataToDownload?: Record<string, object>[];
+	downloadBtnText?: string;
+	downloadFileName?: string;
+}
+
+export interface IGridColumnUiProps {
+	children: React.ReactNode;
+	xl?: number;
+	lg?: number;
+	md?: number;
+	sm?: number;
+	xs?: number;
+	offsetLg?: number;
+	offsetMd?: number;
+	offsetSm?: number;
+	className?: string;
+}
+
+export interface RowUiProps {
+	children?: React.ReactNode;
+	className?: string;
+}
+
+export interface ICheckboxProps {
+	isChecked?: boolean;
+	indeterminate?: boolean;
+	onClick?: () => void;
+	labelId: string;
+}
+
+export interface CheckboxListProps {
+	items: Item[];
+	idsToRender?: number[];
+	indentLevel?: number;
+	onClick?: (id: number) => void;
+	getStateForId: (id: number) => CheckboxState;
+}
+
+export interface PtgUiIndeterminateCheckboxProps {
+	items: Item[];
+}
+
+export interface PtgUiPaginationProps {
+	pageNumber?: number;
+	dataCount?: number;
+	pageIndex?: (number) => void;
+	siblingCount?: number;
+	pageSize?: number;
+	previousBtnText?: string;
+	nextBtnText?: string;
+}
+
+interface Column {
+	Header: string;
+	accessor: string;
+	isNumeric?: boolean; // Optional property to indicate if the column is numeric
+	columnWidth?: string; // Optional property to specify column width
+}
+
+export interface TableProps {
+	columns: Column[];
+	data: any[];
+	stickyHeader?: boolean; // Option to make the header sticky
+	alternateRowColor?: boolean; // Option to enable alternate row colors
 }

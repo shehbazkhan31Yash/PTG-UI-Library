@@ -38,29 +38,8 @@ export const NavigationChildData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        icon: 'fa-solid fa-table-list',
-        disabled: false,
-      },
-      {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        icon: 'fa-solid fa-table-list',
-        id: 'Material',
-        disabled: false,
-      },
-      {
         label: 'REACT TABLE',
-        path: '/datatable/reactTable',
+        path: '/datatable/table',
         icon: 'fa-solid fa-table-list',
         id: 'react-table',
         disabled: false,
@@ -79,6 +58,12 @@ export const NavigationData = [
     path: '/accordian',
     icon: 'fa fa-lock',
     label: 'ACCORDION',
+    disabled: false,
+  },
+  {
+    path: '/appbar',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Appbar',
     disabled: false,
   },
   {
@@ -126,35 +111,18 @@ export const NavigationData = [
     ],
   },
   {
+    path: '/aichatbot',
+    icon: 'fa fa-android',
+    label: 'AI Chatbot',
+    disabled: false,
+  },
+  {
     label: 'DATA TABLE',
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        //icon: 'fa-solid fa-table-list',
-        disabled: false,
-      },
-      {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Material',
-        disabled: false,
-      },
-      {
-        label: 'REACT TABLE',
-        path: '/datatable/reactTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'react-table',
+        label: 'TABLE',
+        path: '/datatable/table',
         disabled: false,
       },
     ],
@@ -163,6 +131,12 @@ export const NavigationData = [
     path: '/datePicker',
     icon: 'fa fa-calendar',
     label: 'Date Picker',
+    disabled: false,
+  },
+  {
+    path: '/loader',
+    icon: 'fa fa-spinner',
+    label: 'LOADER',
     disabled: false,
   },
   {

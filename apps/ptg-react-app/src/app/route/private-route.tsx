@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   return isAuthenticated || isAuthenticatedMSAL ? (
     children
   ) : (
-    <Navigate to="/login" state={{ from: location }} />
+    <Navigate to="/ptg-react-app/login" state={{ from: location }} />
   );
 };
 export default PrivateRoute;

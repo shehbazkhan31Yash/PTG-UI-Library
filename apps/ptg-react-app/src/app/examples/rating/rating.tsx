@@ -58,15 +58,15 @@ const RatingExample = () => {
   };
   return(<> 
  //Controlled Rating
-  <Rating onChange={setDefaultPropsRating}  value={defaultPropsRating} />
+  <PtgUiRating onChange={setDefaultPropsRating}  value={defaultPropsRating} />
   //Uncontrolled Rating
-  <Rating onChange={handleRatingChange}  defaultValue={4} />
+  <PtgUiRating onChange={handleRatingChange}  defaultValue={4} />
   //Read Only
-   <Rating onChange={setDefaultPropsRating}  value={defaultPropsRating} readonly={true}/>
+   <PtgUiRating onChange={setDefaultPropsRating}  value={defaultPropsRating} readonly={true}/>
    //Disabled
-   <Rating onChange={setDefaultPropsRating}  value={defaultPropsRating} disabled={true}/>
+   <PtgUiRating onChange={setDefaultPropsRating}  value={defaultPropsRating} disabled={true}/>
    //No Rating
-    <Rating onChange={setDefaultRatingZero}  value={defaultRatingZero} />
+    <PtgUiRating onChange={setDefaultRatingZero}  value={defaultRatingZero} />
   </>)
   `;
 

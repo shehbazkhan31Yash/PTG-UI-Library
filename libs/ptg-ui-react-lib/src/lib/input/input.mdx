@@ -1,0 +1,66 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import PtgUiInput from './input';
+
+<Meta title="Components/InputComponent" component={PtgUiInput} />
+
+# Input Component
+
+---
+
+The Input component allows users to enter text with various properties such as size, placeholders, and validation controls.
+
+## Properties
+
+### Input Controls:
+- **type** – Defines the input type (e.g., text, email, password).
+- **value** – Specifies the input field's current value.
+- **placeholder** – Placeholder text displayed within the input field.
+- **disabled** – Boolean to disable input interaction.
+- **required** – Boolean indicating if input is required.
+- **className** – Custom styling class for the input field.
+- **inputsize** – Defines the size of the input field (`sm`, `md`, `lg`).
+- **name** – Name attribute for the input field.
+- **maxlength** – Maximum length of input characters.
+
+## Usage Example
+
+```tsx
+import { PtgUiInput } from '@ptg-ui/react';
+
+<PtgUiInput 
+  type="text"
+  value=""
+  placeholder="Enter your name"
+  disabled={false}
+  required={true}
+  className="input-style"
+  inputsize="md"
+  name="nameInput"
+  maxlength="20"
+/>
+
+## Examples
+Default Input
+A basic text input field.
+
+<Canvas> <Story name="Default Input" args={{ type: 'text', value: '', placeholder: 'Enter text here', disabled: false, required: false, className: 'default-input', inputsize: 'md', name: 'defaultInput', }} /> </Canvas>
+
+Input with Placeholder
+An input field with a predefined placeholder.
+
+<Canvas> <Story name="Input with Placeholder" args={{ type: 'text', value: '', placeholder: 'Your email', disabled: false, required: true, className: 'placeholder-input', inputsize: 'lg', name: 'placeholderInput', }} /> </Canvas>
+
+Disabled Input
+A disabled input field that prevents user interaction.
+
+<Canvas> <Story name="Disabled Input" args={{ type: 'text', value: '', placeholder: 'Disabled input', disabled: true, required: false, className: 'disabled-input', inputsize: 'sm', name: 'disabledInput', }} /> </Canvas>
+
+Required Input
+An input field that must be filled before submission.
+
+<Canvas> <Story name="Required Input" args={{ type: 'text', value: '', placeholder: 'Required input', disabled: false, required: true, className: 'required-input', inputsize: 'md', name: 'requiredInput', }} /> </Canvas>
+
+Input with Max Length
+An input field with a character limit.
+
+<Canvas> <Story name="Input with Max Length" args={{ type: 'text', value: '', placeholder: 'Max length input', disabled: false, required: false, maxlength: '10', className: 'maxlength-input', inputsize: 'lg', name: 'maxLengthInput', }} /> </Canvas>

@@ -3,6 +3,7 @@
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
  */
+
 import { lazy } from 'react';
 
 /*--Import Components for routing using lazy loading--*/
@@ -43,15 +44,8 @@ const PtgUiD3Pie = lazy(
 const PtgD3Charts = lazy(
   () => import('@ptg-react-app/examples/charts/d3Charts')
 );
-const PtgUiReactDataGrid = lazy(
-  () => import('@ptg-react-app/examples/data-table/react-data-grid')
-);
-const PtgUiAgGrid = lazy(
-  () => import('@ptg-react-app/examples/data-table/ag-grid/ag-grid')
-);
-const PtgUiMaterialTable = lazy(
-  () =>
-    import('@ptg-react-app/examples/data-table/material/material-table-tabs')
+const PtgUiTable = lazy(
+  () => import('@ptg-react-app/examples/data-table/Table')
 );
 const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'));
 const PtgUiMultiSelectCheckbox = lazy(
@@ -80,9 +74,6 @@ const GridLayout = lazy(() => import('../examples/grid-layout/GridLayout'));
 const Indeterminate = lazy(
   () => import('../examples/indeterminate-checkbox/indeterminate-checkbox')
 );
-const PtgUiReactTable = lazy(
-  () => import('../examples/data-table/react-table')
-);
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
@@ -92,6 +83,12 @@ const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
 const Rating = lazy(() => import('../examples/rating/rating'));
 const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
+const Loader = lazy(() => import('../examples/loader/Loader'));
+const AppBar = lazy(() => import('../examples/appbar/appbar'));
+const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
+const ChatbotFullScreen = lazy(
+  () => import('../examples/chatbot/ChatbotFullScreen')
+);
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -99,22 +96,7 @@ const routing = [
     path: '/admin-home',
     component: PtgUiAdminHome,
   },
-  {
-    path: '/datatable/aggrid',
-    component: PtgUiAgGrid,
-  },
-  {
-    path: '/datatable/reactdatagrid',
-    component: PtgUiReactDataGrid,
-  },
-  {
-    path: '/datatable/materialTable',
-    component: PtgUiMaterialTable,
-  },
-  {
-    path: '/datatable/reactTable',
-    component: PtgUiReactTable,
-  },
+  { path: '/datatable/table', component: PtgUiTable },
   {
     path: '/dragnDrop',
     component: PtgUiDragnDrop,
@@ -170,6 +152,10 @@ const routing = [
   {
     path: '/carousel',
     component: PtgUiCarousel,
+  },
+  {
+    path: '/aichatbot',
+    component: Chatbot,
   },
   {
     path: '/dialog',
@@ -248,8 +234,21 @@ const routing = [
     component: Rating,
   },
   {
+    path: '/appbar',
+    component: AppBar,
+  },
+  {
     path: '/datePicker',
     component: DatePicker,
+  },
+  {
+    path: '/loader',
+    component: Loader,
+  },
+  {
+    path: '/aichatbot-yash',
+    component: ChatbotFullScreen,
+    requiresLayout: true,
   },
 ];
 export default routing;

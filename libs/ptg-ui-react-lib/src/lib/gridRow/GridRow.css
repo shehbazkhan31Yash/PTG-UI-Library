@@ -1,0 +1,36 @@
+/* Base row class */
+.ptg-ui-row {
+	display: flex; /* Use flexbox for layout */
+	flex-wrap: wrap; /* Allow items to wrap to the next line */
+	margin-right: -15px; /* Adjust for gutter */
+	margin-left: -15px; /* Adjust for gutter */
+}
+
+/* Responsive spacing for different breakpoints */
+@media (min-width: 576px) {
+	.ptg-ui-row {
+		margin-right: -15px; /* Adjust for gutter on small screens */
+		margin-left: -15px; /* Adjust for gutter on small screens */
+	}
+}
+
+@media (min-width: 768px) {
+	.ptg-ui-row {
+		margin-right: -15px; /* Adjust for gutter on medium screens */
+		margin-left: -15px; /* Adjust for gutter on medium screens */
+	}
+}
+
+@media (min-width: 992px) {
+	.ptg-ui-row {
+		margin-right: -15px; /* Adjust for gutter on large screens */
+		margin-left: -15px; /* Adjust for gutter on large screens */
+	}
+}
+
+@media (min-width: 1200px) {
+	.ptg-ui-row {
+		margin-right: -15px; /* Adjust for gutter on extra-large screens */
+		margin-left: -15px; /* Adjust for gutter on extra-large screens */
+	}
+}

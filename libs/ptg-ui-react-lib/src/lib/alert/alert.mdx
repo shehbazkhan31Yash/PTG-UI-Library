@@ -1,0 +1,47 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiAlert } from './alert';
+
+<Meta title="Components/Alert" component={PtgUiAlert} />
+
+# Alert Component
+
+---
+
+A reusable alert component for displaying different types of messages.
+
+## Properties
+
+### Alert Controls:
+- **type** – Defines the alert type (`success`, `warning`, `danger`, `info`).
+- **message** – Specifies the message displayed inside the alert.
+
+## Usage Example
+
+```tsx
+import { PtgUiAlert } from '@ptg-ui/react';
+
+<PtgUiAlert 
+  type="success"
+  message="Operation completed successfully!"
+/>
+
+## Examples
+Success Alert
+An alert indicating a successful operation.
+
+<Canvas> <Story name="Success Alert" args={{ type: 'success', message: 'Operation completed successfully!', }} /> </Canvas>
+
+Warning Alert
+An alert warning users about potential issues.
+
+<Canvas> <Story name="Warning Alert" args={{ type: 'warning', message: 'Be careful! There might be potential issues.', }} /> </Canvas>
+
+Danger Alert
+An alert signaling an error occurrence.
+
+<Canvas> <Story name="Danger Alert" args={{ type: 'danger', message: 'An error occurred! Please try again.', }} /> </Canvas>
+
+Information Alert
+An alert providing helpful information.
+
+<Canvas> <Story name="Info Alert" args={{ type: 'info', message: 'Here is some useful information for you.', }} /> </Canvas>

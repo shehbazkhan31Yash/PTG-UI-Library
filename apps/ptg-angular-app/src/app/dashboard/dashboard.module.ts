@@ -79,6 +79,7 @@ import { ThemeGeneratorComponent } from './theme-generator-example/theme-generat
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatThemeExampleComponent } from './mat-theme-example/mat-theme-example.component';
 import {MatCardModule} from '@angular/material/card';
+import { ButtonExampleComponent } from './button-component/button-example.component';
 defineCustomElements();
 
 @NgModule({
@@ -121,7 +122,8 @@ defineCustomElements();
     BreadcrumbsExampleComponent,
     CarouselExampleComponent,
     ThemeGeneratorComponent,
-    MatThemeExampleComponent
+    MatThemeExampleComponent,
+    ButtonExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -151,7 +153,8 @@ defineCustomElements();
     AgGridModule,
     NgSelectModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    ButtonModule
   ]
 })
 export class DashboardModule {}

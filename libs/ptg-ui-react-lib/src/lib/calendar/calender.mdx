@@ -1,0 +1,54 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiCalendar } from './calendar';
+
+<Meta title="Components/Calendar" component={PtgUiCalendar} />
+
+# Calendar Component
+
+---
+
+The Calendar component allows users to select and display dates with optional datetime functionality.
+
+## Properties
+
+### Calendar Controls:
+- **className** – Custom class name for styling the calendar input.
+- **selected** – Defines the currently selected date or datetime.
+- **disabled** – Boolean that determines if the calendar input should be disabled.
+- **isDateTime** – Boolean that indicates whether to enable datetime selection.
+
+## Usage Example
+
+```tsx
+import { PtgUiCalendar } from '@ptg-ui/react';
+
+<PtgUiCalendar 
+  className="default-calendar" 
+  selected={new Date()} 
+  disabled={false} 
+  isDateTime={false}
+/>
+
+## Examples
+
+Default Calendar
+A basic calendar component without pre-selected date.
+
+<Canvas> <Story name="Default Calendar" args={{ className: 'default-calendar', selected: undefined, disabled: false, isDateTime: false, }} /> </Canvas>
+
+Selected Date Calendar
+A calendar with a predefined selected date.
+
+<Canvas> <Story name="Selected Date Calendar" args={{ className: 'selected-calendar', selected: new Date(2025, 11, 25), disabled: false, isDateTime: false, }} /> </Canvas>
+
+DateTime Picker
+A calendar configured for datetime selection.
+
+<Canvas> <Story name="DateTime Picker" args={{ className: 'datetime-calendar', selected: new Date(), disabled: false, isDateTime: true, }} /> </Canvas>
+
+Disabled Calendar
+A calendar component with disabled input.
+
+<Canvas> <Story name="Disabled Calendar" args={{ className: 'disabled-calendar', selected: new Date(), disabled: true, isDateTime: false, }} /> </Canvas>
+
+<ArgsTable of={PtgUiCalendar} />

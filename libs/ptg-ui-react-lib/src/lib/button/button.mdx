@@ -1,0 +1,81 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiButton } from './button';
+
+<Meta title="Components/Button" component={PtgUiButton} />
+
+# Button Component
+
+---
+
+A customizable button component with different appearances, sizes, and interaction options.
+
+## Properties
+
+### Button Controls:
+- **appearance** – Defines the button style (`primary`, `secondary`, `warning`, `success`, `danger`, `info`, `light`, `dark`).
+- **text** – Sets the button's displayed text.
+- **btnIconAlignment** – Specifies icon alignment (`left`, `right`).
+- **hasbtnIconSlot** – Boolean indicating whether the button includes an icon slot.
+- **width** – Sets the width of the button.
+- **height** – Defines the height of the button.
+- **fontSize** – Specifies the font size of the button text.
+- **fontWeight** – Controls the font weight of the button text.
+- **textColor** – Defines the button text color.
+- **backgroundColor** – Sets the background color of the button.
+- **disabled** – Boolean indicating whether the button is disabled.
+- **type** – Defines the button type (e.g., `button`, `submit`).
+- **border** – Specifies the button border style.
+- **onClick** – Event triggered when the button is clicked.
+
+## Usage Example
+
+```tsx
+import { PtgUiButton } from '@ptg-ui/react';
+
+<PtgUiButton 
+  appearance="primary"
+  text="Click Me"
+  width="200px"
+  height="60px"
+  fontSize="20px"
+  fontWeight="600"
+  textColor="#ffffff"
+  backgroundColor="#2196f3"
+  disabled={false}
+/>
+
+## Examples
+Large Button
+A large button with distinct styling.
+
+<Canvas> <Story name="Large Button" args={{ appearance: 'primary', text: 'Large Button', width: '200px', height: '60px', fontSize: '20px', fontWeight: '600', textColor: '#ffffff', backgroundColor: '#2196f3', disabled: false, }} /> </Canvas>
+
+Medium Button
+A medium-sized button with a secondary appearance.
+
+<Canvas> <Story name="Medium Button" args={{ appearance: 'secondary', text: 'Medium Button', width: '150px', height: '50px', fontSize: '16px', fontWeight: '500', textColor: '#ffffff', backgroundColor: '#585656', disabled: false, }} /> </Canvas>
+
+Small Button
+A small button with a warning appearance.
+
+<Canvas> <Story name="Small Button" args={{ appearance: 'warning', text: 'Small Button', width: '100px', height: '40px', fontSize: '14px', fontWeight: '400', textColor: '#ffffff', backgroundColor: '#ffa942', disabled: false, }} /> </Canvas>
+
+Disabled Button
+A disabled button with an inactive state.
+
+<Canvas> <Story name="Disabled Button" args={{ appearance: 'danger', text: 'Disabled Button', width: '150px', height: '50px', fontSize: '16px', fontWeight: '500', textColor: '#ffffff', backgroundColor: '#e9ecef', disabled: true, }} /> </Canvas>
+
+Button with Left-Aligned Icon
+A button featuring a left-aligned icon.
+
+<Canvas> <Story name="Button with Left Icon" args={{ appearance: 'secondary', text: 'Left Icon', btnIconAlignment: 'left', hasbtnIconSlot: true, children: <div className="btn-icon">+</div>, }} /> </Canvas>
+
+Button with Right-Aligned Icon
+A button featuring a right-aligned icon.
+
+<Canvas> <Story name="Button with Right Icon" args={{ appearance: 'success', text: 'Right Icon', btnIconAlignment: 'right', hasbtnIconSlot: true, children: <div className="btn-icon">+</div>, }} /> </Canvas>
+
+Primary Button
+A basic primary button.
+
+<Canvas> <Story name="Primary Button" args={{ appearance: 'primary', text: 'Primary', }} /> </Canvas>

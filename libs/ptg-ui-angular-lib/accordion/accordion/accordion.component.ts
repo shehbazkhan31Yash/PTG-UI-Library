@@ -1,18 +1,13 @@
-/**
- * @since May 2022
- * @author Aakash Patidar
- * @Component ptg-ui-Accordion;
- * @description This component for Accordion;
-**/
-
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 interface AccordionItem {
   isDisabled?: boolean;
   title: string;
   isOpen?: boolean;
-  panelClass?: string;
+  customClass?: string;
   description: string;
 }
+
 @Component({
   selector: 'ptg-ui-accordion',
   templateUrl: './accordion.component.html',
@@ -22,33 +17,28 @@ export class AccordionComponent {
   @Input() listData: AccordionItem[] = [];
   @Input() isAnimated?: boolean;
   @Input() oneAtATime?: boolean;
-  @Input() addAccordionGroup?: boolean = true;
-  @Output() handleChange: EventEmitter<any> = new EventEmitter();
+  @Output() handleChange: EventEmitter<{ index: number; isOpen: boolean }> = new EventEmitter();
 
-  // onAccordion change state 
-  change(event: any) {
+  change(event: { index: number; isOpen: boolean }) {
     this.handleChange.emit(event);
   }
 
-  public get classes(): string[] {
-
-    const animatedmode = this.isAnimated
-      ? 'ptg-ui-Accordion--isAnimated'
-      : 'ptg-ui-Accordion--secondary';
-
-    const oneAtTimemode = this.oneAtATime
-      ? 'ptg-ui-Accordion--oneAtATime'
-      : 'ptg-ui-Accordion--secondary';
-
-    const addAccordionGroupMode = this.addAccordionGroup
-      ? 'ptg-ui-Accordion--addAccordionGroup'
-      : 'ptg-ui-Accordion--secondary';
-
-    return [`ptg-ui-Accordion`, `ptg-ui-Accordion--${this.isAnimated}`, animatedmode, oneAtTimemode, addAccordionGroupMode];
-
-
-
+  toggleItem(index: number) {
+    if (this.oneAtATime) {
+      this.listData.forEach((item, i) => {
+        if (i !== index) {
+          item.isOpen = false;
+        }
+      });
+    }
+    this.listData[index].isOpen = !this.listData[index].isOpen;
+    this.change({ index, isOpen: this.listData[index].isOpen });
   }
 
+  get classes(): string[] {
+    const animatedMode = this.isAnimated ? 'isAnimated' : '';
+    const oneAtATimeMode = this.oneAtATime ? 'oneAtATime' : '';
 
+    return ['accordion', animatedMode, oneAtATimeMode];
+  }
 }

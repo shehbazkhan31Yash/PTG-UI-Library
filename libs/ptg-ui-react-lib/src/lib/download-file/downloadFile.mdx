@@ -1,0 +1,55 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiDownload } from './downloadFile';
+
+<Meta title="Components/Download" component={PtgUiDownload} />
+
+# PtgUiDownload Component
+
+The `PtgUiDownload` component provides functionality to download content in various formats such as Excel, PDF, JPG, or Word files. It supports dynamic file generation and custom configurations for downloading.
+
+---
+
+## **Usage**
+```tsx
+import { PtgUiDownload } from './downloadFile';
+
+<PtgUiDownload
+  excelColumns={['Name', 'Age']}
+  excelDataToDownload={[
+    { Name: { value: 'John' }, Age: { value: 30 } },
+    { Name: { value: 'Jane' }, Age: { value: 25 } },
+  ]}
+  allowFileTypes={['PDF', 'EXCEL', 'JPG', 'WORD']}
+  downloadBtnText="Download"
+  downloadFileName="example"
+>
+  <table className="custom-table">
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>DESIGNATION</th>
+        <th>DEPARTMENT</th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* Add table rows dynamically here */}
+    </tbody>
+  </table>
+</PtgUiDownload>
+
+Stories
+Default Download
+A default setup for downloading content in various file formats.
+
+<Canvas> <Story name="Default" args={{ excelColumns: ['Name', 'Age'], excelDataToDownload: [ { Name: { value: 'John' }, Age: { value: 30 } }, { Name: { value: 'Jane' }, Age: { value: 25 } }, ], allowFileTypes: ['PDF', 'EXCEL', 'JPG', 'WORD'], downloadBtnText: 'Download', downloadFileName: 'example', }} /> </Canvas>
+
+Custom Table
+An example of a table passed as children to the PtgUiDownload component.
+
+<Canvas> <Story name="CustomTable" args={{ excelColumns: ['Name', 'Age', 'Designation', 'Department'], excelDataToDownload: [ { Name: { value: 'Alice' }, Age: { value: 35 }, Designation: { value: 'Manager' }, Department: { value: 'HR' } }, { Name: { value: 'Bob' }, Age: { value: 28 }, Designation: { value: 'Developer' }, Department: { value: 'IT' } }, ], allowFileTypes: ['PDF', 'EXCEL', 'WORD'], downloadBtnText: 'Export', downloadFileName: 'employee_data', }} /> </Canvas>
+
+Limited File Types
+Restricts the file types available for download.
+
+<Canvas> <Story name="LimitedFileTypes" args={{ excelColumns: ['Name', 'Age'], excelDataToDownload: [ { Name: { value: 'John' }, Age: { value: 30 } }, { Name: { value: 'Jane' }, Age: { value: 25 } }, ], allowFileTypes: ['PDF', 'EXCEL'], downloadBtnText: 'Download Report', downloadFileName: 'report', }} /> </Canvas>

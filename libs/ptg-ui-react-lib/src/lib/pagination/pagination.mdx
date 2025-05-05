@@ -1,0 +1,33 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiPagination } from './pagination';
+
+<Meta title="Components/Pagination" component={PtgUiPagination} />
+
+# PtgUiPagination Component
+
+The `PtgUiPagination` component is used to navigate through pages of data efficiently. It supports customizable page sizes, sibling count, and navigation controls.
+
+## **Usage**
+```tsx
+import { PtgUiPagination } from './pagination';
+
+<PtgUiPagination
+  dataCount={100}
+  pageNumber={1}
+  pageSize={10}
+  siblingCount={1}
+  previousBtnText="Previous"
+  nextBtnText="Next"
+  pageIndex={(page) => console.log(`Page changed to ${page}`)}
+/>;
+
+Example Stories
+Default Pagination
+A basic pagination setup.
+
+<Canvas> <Story name="Default" args={{ dataCount: 100, pageNumber: 1, pageSize: 10, siblingCount: 1, previousBtnText: "Previous", nextBtnText: "Next", }} /> </Canvas>
+
+Custom Pagination
+Modify button text and adjust page size dynamically.
+
+<Canvas> <Story name="Custom Pagination" args={{ dataCount: 200, pageNumber: 5, pageSize: 20, siblingCount: 2, previousBtnText: "Go Back", nextBtnText: "Move Forward", }} /> </Canvas>

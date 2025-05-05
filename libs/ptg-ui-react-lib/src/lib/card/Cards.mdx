@@ -1,0 +1,59 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { PtgUiCard } from './Cards';
+
+<Meta title="Components/Cards" component={PtgUiCard} />
+
+# Card Component
+
+---
+
+The Card component is a customizable UI element used to display content such as images, text, and interactive buttons.
+
+## Properties
+
+### Card Controls:
+- **onClick** – Action triggered when the button is clicked.
+- **backgroundColor** – Defines the background color of the card.
+- **buttonColor** – Sets the button color.
+- **buttonTextColor** – Determines the text color of the button.
+
+## Usage Example
+
+```tsx
+import { PtgUiCard } from '@ptg-ui/react';
+
+<PtgUiCard 
+  image="https://picsum.photos/id/1/200/300"
+  title="Example Card"
+  description="This is a customizable card component."
+  buttonText="Click Here"
+  buttonColor="#007bff"
+  buttonTextColor="#ffffff"
+  backgroundColor="#f8f9fa"
+/>
+
+# Examples
+Default Card
+A card with an image, title, description, and a button.
+
+<Canvas> <Story name="Default Card" args={{ image: 'https://picsum.photos/id/1/200/300', title: 'Default Card Title', description: 'This is a description for the default card.', buttonText: 'Click Me', buttonColor: '#007bff', buttonTextColor: '#ffffff', imageWidth: '100%', imageHeight: '150px', backgroundColor: '#f8f9fa', }} /> </Canvas>
+
+Card Without an Image
+A simple text-based card without an image.
+
+<Canvas> <Story name="Card Without Image" args={{ title: 'Card Without Image', description: 'This card does not have an image.', buttonText: 'Learn More', backgroundColor: '#e9ecef', }} /> </Canvas>
+
+Card with Custom Button Colors
+A card featuring a custom button color scheme.
+
+<Canvas> <Story name="Custom Button Colors" args={{ image: 'https://picsum.photos/id/1/200/300', title: 'Custom Button Colors', description: 'This card has custom button colors.', buttonText: 'Custom Button', buttonColor: '#28a745', buttonTextColor: '#ffffff', backgroundColor: '#ffffff', }} /> </Canvas>
+
+Card with Additional Content
+A card that includes extra child elements.
+
+<Canvas> <Story name="Card with Children" args={{ image: 'https://picsum.photos/id/1/200/300', title: 'Card with Children', description: 'This card has additional content.', buttonText: 'See More', children: <p>This is some additional content inside the card.</p>, backgroundColor: '#f0f0f0', }} /> </Canvas>
+
+Card with Custom Dimensions
+A card with modified image dimensions.
+
+<Canvas> <Story name="Custom Dimensions" args={{ image: 'https://picsum.photos/id/1/200/300', title: 'Custom Dimensions', description: 'This card has custom image dimensions.', buttonText: 'Click Here', imageWidth: '80%', imageHeight: '100px', backgroundColor: '#ffffff', }} /> </Canvas>

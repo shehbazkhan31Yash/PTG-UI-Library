@@ -158,5 +158,8 @@
   "BUTTON_WITH_ICON": "Bouton avec icône",
   "ICON_ALIGNMENT_LEFT": "Alignement des icônes à gauche",
   "ICON_ALIGNMENT_RIGHT": "Alignement des icônes à droite",
-  "PAGINATION": "Pagination"
+  "PAGINATION": "Pagination",
+  "DOT-LOADER": "Chargeur de points",
+  "LINEAR-LOADER": "Chargeur linéaire",
+  "CIRCULAR-LOADER": "Chargeur circulaire"
 }

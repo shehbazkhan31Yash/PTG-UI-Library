@@ -1,0 +1,50 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import PtgUiCheckbox from './checks';
+
+<Meta title="Components/CheckboxComponent" component={PtgUiCheckbox} />
+
+# Checkbox Component
+
+---
+
+The Checkbox component allows users to toggle between checked and unchecked states. It supports labels and customizable properties.
+
+## Properties
+
+### Checkbox Controls:
+- **id** – Unique identifier for the checkbox.
+- **name** – Name attribute for the checkbox.
+- **value** – Value assigned to the checkbox input.
+- **className** – Custom class name for styling.
+- **htmlFor** – Specifies the `for` attribute for labeling purposes.
+- **checked** – Boolean defining the default checked state.
+
+## Usage Example
+
+```tsx
+import { PtgUiCheckbox } from '@ptg-ui/react';
+
+<PtgUiCheckbox 
+  id="custom-checkbox" 
+  name="customCheckbox"
+  value="custom"
+  className="checkbox-style"
+  htmlFor="custom-checkbox"
+  checked={false}
+/>
+
+## Examples
+Default Checkbox
+A basic checkbox component with default styling.
+
+<Canvas> <Story name="Default Checkbox" args={{ id: 'default-checkbox', name: 'defaultCheckbox', value: 'default', className: 'custom-checkbox', htmlFor: 'default-checkbox', checked: false, }} /> </Canvas>
+
+Checkbox with Label
+A checkbox that includes a label for accessibility and user guidance.
+
+<Canvas> <Story name="Label Checkbox" args={{ id: 'label-checkbox', name: 'labelCheckbox', label: 'Label Checkbox', value: 'label', className: 'custom-checkbox', htmlFor: 'label-checkbox', checked: false, }} /> </Canvas>
+
+Checked Checkbox
+A checkbox component that is pre-checked by default.
+
+<Canvas> <Story name="Checked Checkbox" args={{ id: 'checked-checkbox', name: 'checkedCheckbox', label: 'Checked Checkbox', value: 'checked', className: 'custom-checkbox', htmlFor: 'checked-checkbox', checked: true, }} /> </Canvas>

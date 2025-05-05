@@ -1,0 +1,19 @@
+.checkbox {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	position: relative;
+	line-height: 17px;
+	margin-right: 5px;
+	accent-color: #002144; /* Replace with the actual value of $main */
+}
+
+.checkbox.isIndeterminate::after {
+	content: '\2212';
+}
+
+.indeterminatespan {
+	visibility: hidden;
+}

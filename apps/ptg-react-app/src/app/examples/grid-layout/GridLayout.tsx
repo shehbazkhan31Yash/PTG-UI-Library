@@ -6,11 +6,7 @@
 
 import '@ptg-react-app/examples/grid-layout/./GridLayout.scss';
 import { useTranslation } from 'react-i18next';
-import {
-  PtgUiCard,
-  PtgUiGridColumn,
-  PtgUiRow,
-} from '@ptg-ui/react';
+import { PtgUiCard, PtgUiGridColumn, PtgUiRow } from '@ptg-ui/react';
 import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
@@ -68,9 +64,9 @@ export function GridLayout() {
   </PtgUiRow>`;
 
   return (
-    <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 pb-4">
+    <div className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
       <PtgUiRow>
-        <PtgUiGridColumn md={10} className={'mt-1 mb-2'}>
+        <PtgUiGridColumn md={9} className={'ptg-ui-mt-1 ptg-ui-mr-4'}>
           <h5 className="font-weight-bold example-heading">
             {t('GRID_LAYOUT_EXAMPLE_HEADING')}
           </h5>
@@ -100,7 +96,7 @@ export function GridLayout() {
                   lg={6}
                   md={6}
                   sm={12}
-                  className={'grid-item mb-8'}
+                  className={'ptg-ui-grid-item ptg-ui-mb-8'}
                   key={item.id}
                 >
                   <PtgUiCard
@@ -120,17 +116,20 @@ export function GridLayout() {
       <section className="bg-image m-4">
         <div className="container">
           <PtgUiRow>
-            <PtgUiGridColumn md={12} className={'text-center mb-5'}>
+            <PtgUiGridColumn
+              md={12}
+              className={'pgt-ui-text-center ptg-ui-mb-5'}
+            >
               <h2 className="text-white">{t('GRID_LAYOUT_OFFSET_HEADING')}</h2>
             </PtgUiGridColumn>
           </PtgUiRow>
           <PtgUiRow>
             <PtgUiGridColumn
               lg={4}
-              md={4}
+              md={6}
               sm={12}
               xs={12}
-              className={'mb-8 mb-md-0'}
+              className={'ptg-ui-mb-8 ptg-ui-mb-md-0'}
             >
               <PtgUiCard
                 image={'assets/images/img1.png'}
@@ -143,7 +142,7 @@ export function GridLayout() {
             </PtgUiGridColumn>
             <PtgUiGridColumn
               lg={4}
-              md={4}
+              md={6}
               sm={12}
               xs={12}
               offsetMd={4}

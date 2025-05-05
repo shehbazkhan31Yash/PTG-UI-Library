@@ -1,0 +1,51 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiAppBar } from './AppBar';
+
+<Meta title="Components/AppBar" component={PtgUiAppBar} />
+
+# PtgUiAppBar Component
+
+The `PtgUiAppBar` component renders a customizable navigation bar for applications. It offers flexible menu configurations, supports both dropdown and drawer-style burger menus, and provides options to align the logo and menu elements.
+
+---
+
+## **Usage**
+```tsx
+import { PtgUiAppBar } from './AppBar';
+
+<PtgUiAppBar
+  menuConfig={{
+    logo: 'https://your-logo-url.com/logo.png',
+    menuItems: <ul><li>Home</li><li>About</li><li>Contact</li></ul>,
+    burgerMenu: true,
+    burgerMenuType: 'dropdown',
+    position: 'top',
+  }}
+  openMenu={false}
+/>;
+
+tories
+Default AppBar
+A standard AppBar with a dropdown menu.
+
+<Canvas> <Story name="Default" args={{ menuConfig: { logo: 'https://your-logo-url.com/logo.png', logoAlignment: 'left', menuAlignment: 'right', burgerMenu: true, burgerMenuType: 'dropdown', backgroundColor: 'primary', textColor: '#fff', menuItems: ( <ul> <li>Home</li> <li>About</li> <li>Contact</li> </ul> ), static: false, position: 'top', }, openMenu: false, }} /> </Canvas>
+
+AppBar with Drawer Menu
+An AppBar featuring a drawer-style burger menu.
+
+<Canvas> <Story name="WithBurgerMenu" args={{ menuConfig: { logo: 'https://your-logo-url.com/logo.png', logoAlignment: 'left', menuAlignment: 'left', burgerMenu: true, burgerMenuType: 'drawer', backgroundColor: 'secondary', textColor: '#000', menuItems: ( <ul className="vertical-menu"> <li>Dashboard</li> <li>Settings</li> <li>Logout</li> </ul> ), static: true, position: 'top', }, openMenu: false, }} /> </Canvas>
+
+AppBar without Burger Menu
+An AppBar with a static menu, no burger functionality.
+
+<Canvas> <Story name="WithoutBurgerMenu" args={{ menuConfig: { logo: 'https://your-logo-url.com/logo.png', logoAlignment: 'left', menuAlignment: 'right', burgerMenu: false, backgroundColor: 'secondary', textColor: '#000', menuItems: ( <ul className="vertical-menu"> <li>Dashboard</li> <li>Settings</li> <li>Logout</li> </ul> ), static: true, position: 'top', }, openMenu: false, }} /> </Canvas>
+
+AppBar with Bottom Position
+An AppBar positioned at the bottom of the screen.
+
+<Canvas> <Story name="MenuAtBottom" args={{ menuConfig: { logo: 'https://your-logo-url.com/logo.png', logoAlignment: 'left', menuAlignment: 'left', burgerMenu: true, burgerMenuType: 'drawer', backgroundColor: 'secondary', textColor: '#000', menuItems: ( <ul> <li>Dashboard</li> <li>Settings</li> <li>Logout</li> </ul> ), static: true, position: 'bottom', }, openMenu: false, }} /> </Canvas>
+
+AppBar with Sticky Menu and Paragraph
+A sticky AppBar with a scrollable paragraph section below it.
+
+<Canvas> <Story name="WithStickyMenu" args={{ menuConfig: { logo: 'https://your-logo-url.com/logo.png', logoAlignment: 'left', menuAlignment: 'right', burgerMenu: true, burgerMenuType: 'dropdown', backgroundColor: 'primary', textColor: '#fff', menuItems: ( <ul> <li>Home</li> <li>About</li> <li>Contact</li> </ul> ), static: false, position: 'top', }, openMenu: false, }} /> </Canvas>

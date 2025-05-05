@@ -1,12 +1,13 @@
 import React from 'react';
 import { ICardUiProps } from '../interfaces';
-import { PtgUiButton, CARD_BUTTON } from '@ptg-ui/react';
+import { PtgUiButton } from '../../lib/button/button';
+import { CARD_BUTTON } from '../../lib/constants/Constants';
 
 /**
  * PtgUiCard Component
- * 
+ *
  * A functional component that renders a card with an image, title, description, and an optional button.
- * 
+ *
  * @param {Readonly<ICardUiProps>} props - The props for the card component.
  * @param {string} props.image - The URL of the image to display on the card.
  * @param {string} props.title - The title of the card.
@@ -20,7 +21,7 @@ import { PtgUiButton, CARD_BUTTON } from '@ptg-ui/react';
  * @param {string} props.imageHeight - The height of the image.
  * @param {string} props.backgroundColor - The background color of the card.
  * @param {string} props.buttonTextColor - The text color of the button.
- * 
+ *
  * @returns {JSX.Element} A JSX element representing the card.
  */
 export const PtgUiCard = (props: Readonly<ICardUiProps>) => {
@@ -40,7 +41,7 @@ export const PtgUiCard = (props: Readonly<ICardUiProps>) => {
 	} = props;
 
 	return (
-		<div className="card m-2" style={{ backgroundColor }}> 
+		<div className="card mb-2 mt-2" style={{ backgroundColor }}>
 			{image && (
 				<img
 					src={image}
@@ -58,7 +59,7 @@ export const PtgUiCard = (props: Readonly<ICardUiProps>) => {
 				<div className="card-body">
 					{title && <h5 className="card-title">{title}</h5>}
 					{description && <p className="card-text">{description}</p>}
-					{buttonText && ( 
+					{buttonText && (
 						<PtgUiButton
 							className="btn btn-primary go-somewhere-button"
 							text={buttonText}
@@ -73,4 +74,4 @@ export const PtgUiCard = (props: Readonly<ICardUiProps>) => {
 			</div>
 		</div>
 	);
-}
+};

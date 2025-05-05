@@ -4,7 +4,7 @@ interface AccordionItem {
   isDisabled?: boolean;
   title: string;
   isOpen?: boolean;
-  panelClass?: string;
+  customClass?: string;
   description: string;
 }
 @Component({
@@ -25,15 +25,18 @@ export class AccordionExampleComponent {
     })
     export class DemoAccordionComponent {
       data = [
-        {title: 'Static Header', description: 'Accordion Content Area', isDisabled: true},
-        {title: 'Header 1', description: 'Content Description',  isOpen: true }
-      {title: 'Header 2', description: 'Content Description', panelClass:'panel-primary'}
-      ]
+    { title: 'Static Header', description: 'Accordion Content Area', isOpen: true, customClass: 'panel-primary' },
+    { title: 'Header 1', description: 'Content Description', isDisabled: true, customClass: 'panel-success' },
+    { title: 'Header 2', description: 'Content Description', isDisabled: false, isOpen: false },
+    { title: 'Header 3', description: 'Content Description', isDisabled: true, isOpen: false, customClass: 'panel-warning' },
+    { title: 'Header 4', description: 'Content Description', isDisabled: false, isOpen: false, customClass: 'panel-danger' }
+  ];
+  onAccordionChange(event: any) {
+  }
     }`;
 
-  accordionData: Array<AccordionItem> = [];
-
-  ngOnInit(): void {
-    this.accordionData = ACCORDION_DATA;
+  accordionItems: AccordionItem[] = ACCORDION_DATA;
+  
+  onAccordionChange(event: any) {
   }
 }
