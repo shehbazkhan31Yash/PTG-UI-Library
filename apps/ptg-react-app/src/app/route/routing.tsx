@@ -86,6 +86,9 @@ const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
+const ChatbotFullScreen = lazy(
+  () => import('../examples/chatbot/ChatbotFullScreen')
+);
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -241,6 +244,11 @@ const routing = [
   {
     path: '/loader',
     component: Loader,
+  },
+  {
+    path: '/aichatbot-yash',
+    component: ChatbotFullScreen,
+    requiresLayout: true,
   },
 ];
 export default routing;
