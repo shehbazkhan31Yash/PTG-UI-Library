@@ -134,7 +134,7 @@ export const AppBarWithResponsiveness = (props: IAppBarWithResponsiveness) => {
   }, []);
 
   const menuConfig = {
-    logo: 'assets/images/YashLogo.png',
+    logo: './assets/images/YashLogo.png',
     menuItems: (
       <ul
         style={{
