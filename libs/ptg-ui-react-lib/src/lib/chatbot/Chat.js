@@ -122,8 +122,9 @@ export const PtgChatBot = ({ genAIKey }) => {
 					</div>
 				);
 			} else {
+				const messageId = `text-${i}-message`;
 				elements.push(
-					<div key={`text-${i}-message`} className="message">
+					<div key={messageId} className="message">
 						{node.innerText}
 					</div>
 				);

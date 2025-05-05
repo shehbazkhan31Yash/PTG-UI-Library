@@ -18,6 +18,7 @@ export function Layout() {
     <div className="wrapper">
       <Routes>
         {routing.map((route: any, idx: number) => {
+          const routeId = `${idx}-route`;
           const RouteElement = (
             <PrivateRoute>
               <Suspense
@@ -34,7 +35,7 @@ export function Layout() {
 
           return (
             <Route
-              key={`${idx}-route`}
+              key={routeId}
               path={route.path}
               element={
                 !route.requiresLayout ? (
