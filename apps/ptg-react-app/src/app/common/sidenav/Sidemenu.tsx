@@ -111,9 +111,9 @@ export const NavigationData = [
     ],
   },
   {
-    path: '/chatbot',
+    path: '/aichatbot',
     icon: 'fa fa-android',
-    label: 'Chatbot',
+    label: 'AI Chatbot',
     disabled: false,
   },
   {
