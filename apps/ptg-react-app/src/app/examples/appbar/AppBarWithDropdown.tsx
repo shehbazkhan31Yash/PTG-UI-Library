@@ -74,7 +74,7 @@ export const AppBarWithDropDown = (props: IAppBarWithDropdownMenu) => {
   ];
 
   const menuConfig = {
-    logo: 'assets/images/YashLogo.png',
+    logo: 'images/YashLogo.png',
     menuItems: (
       <ul>
         {menuItems.map((item, index) => (
