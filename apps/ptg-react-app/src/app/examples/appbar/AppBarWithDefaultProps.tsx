@@ -72,7 +72,7 @@ export const AppBarWithDefaultProps = (props: IAppBarWithDefaultProps) => {
   ];
 
   const menuConfig = {
-    logo: '/images/YashLogo.png',
+    logo: 'assets/images/YashLogo.png',
     menuItems: (
       <ul className="menu-list">
         {menuItems.map((item, index) => (

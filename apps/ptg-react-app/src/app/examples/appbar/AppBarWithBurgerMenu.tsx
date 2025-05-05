@@ -72,7 +72,7 @@ export const AppBarWithBurgerMenu = (props: IAppBarWithBurgerMenu) => {
   ];
 
   const menuConfig = {
-    logo: './images/YashLogo.png',
+    logo: 'assets/images/YashLogo.png',
     menuItems: (
       <ul>
         {menuItems.map((item, index) => (
