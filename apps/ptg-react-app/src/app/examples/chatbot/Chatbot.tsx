@@ -64,7 +64,7 @@ export default function Chatbot() {
           <div className="tooltip-container mb-2 mt-3 mr-3">
             <button
               onClick={() =>
-                openInNewTab('ptg-react-app/aichatbot-yash', {
+                openInNewTab('aichatbot-yash', {
                   state: genAIKey,
                 })
               }
