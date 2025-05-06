@@ -1,10 +1,10 @@
-import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as AccordionComponents from './accordion.stories.ts'
+import { AccordionComponent } from './accordion.component';
 
-import {AccordionComponent} from './accordion.component';
+import * as AccordionStories from './accordion.stories';
 
- <Meta title="Component/AccordionComponent/AccordionComponentDocs" component={ AccordionComponent }/>
+<Meta of={AccordionStories} />
 
 
 
@@ -70,21 +70,13 @@ isOpen − boolean, keep accordion group open if true
 
 panelClass − string, Provides an ability to use Bootstrap's contextual panel classes (panel-primary, panel-success, panel-info, etc...).
 
+<Canvas of={AccordionStories.Primary} />
 
-
- 1] isAnimated :
+ 2] isAnimated :
 
  isAnimated control is used to transform the element. 
 
  This property allows you to rotate the elements.
 
+<Canvas of={AccordionStories.IsAnimated} /> 
 
-<Canvas><Story id="component-accordioncomponent--is-animated"/></Canvas>
-
-
-
-2] oneAtATime :
-
-We can use oneAtATime control to show only one element at time.
-
-<Canvas><Story id="component-accordioncomponent--one-at-a-time" /></Canvas>

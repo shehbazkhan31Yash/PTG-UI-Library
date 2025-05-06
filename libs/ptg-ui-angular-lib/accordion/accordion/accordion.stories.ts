@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import {  moduleMetadata } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
 
 import { AccordionComponent } from './accordion.component';
 import { AccordionModule } from '../accordion.module'
@@ -32,14 +31,6 @@ export const Primary: Story = {
 export const IsAnimated: Story = {
   args: {
     isAnimated: true,
-    oneAtATime: false,
-    listData: ACCORDIAN_DATA
-  },
-};
-
-export const AddAccordionGroup: Story = {
-  args: {
-    isAnimated: false,
     oneAtATime: false,
     listData: ACCORDIAN_DATA
   },

@@ -19,36 +19,24 @@ type Story = StoryObj<CalendarComponent>;
 
 export const Placeholder: Story = {
   args: {
-    placeholder: 'MM-DD-YYYY',
-    className: 'calendarClass',
-    id: 'calendarId',
-    disabled: false,
+    placeholder: 'MM-DD-YYYY'
   },
 };
 
 export const ClassName: Story = {
   args: {
-    placeholder: 'MM-DD-YYYY',
-    className: 'calendarClass',
-    id: 'calendarId',
-    disabled: false,
+    placeholder: 'MM-DD-YYYY'
   },
 };
 
 export const Id: Story = {
   args: {
-    placeholder: 'MM-DD-YYYY',
-    className: 'calendarClass',
-    id: 'calendarId',
-    disabled: false,
+    placeholder: 'MM-DD-YYYY'
   },
 };
 
 export const IsDisabled: Story = {
   args: {
-    placeholder: 'MM-DD-YYYY',
-    className: 'calendarClass',
-    id: 'calendarId',
-    disabled: true,
+    placeholder: 'MM-DD-YYYY'
   },
 };

@@ -1,10 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as BreadcrumbComponent from './breadcrumbs.stories.ts'
-
 import {BreadcrumbsComponent} from './breadcrumbs.component';
 
- <Meta title="Component/BreadcrumbsComponent/BreadcrumbsComponentDocs" component={ BreadcrumbsComponent }    />
+import * as BreadcrumbsStories from './breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
 
 
 
@@ -56,10 +56,9 @@ import {BreadcrumbsComponent} from './breadcrumbs.component';
   };
 
 ```
-<Canvas><Story id="component-breadcrumbscomponent--primary" /></Canvas>
-
+<Canvas of={BreadcrumbsStories.Primary} />
 
  2] dividers : 
 
  User can coustomize dividers of breadcrumbs by passing any string
- <Canvas><Story id="component-breadcrumbscomponent--divider" /></Canvas>
+ <Canvas of={BreadcrumbsStories.Divider} />

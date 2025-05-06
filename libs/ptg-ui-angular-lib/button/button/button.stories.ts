@@ -59,7 +59,6 @@ export const Primary: Story = {
     type: 'button',
     isDisable: false,
     isBlock: false,
-    accessKey: '',
   },
 };
 
@@ -69,7 +68,6 @@ export const Small: Story = {
     label: 'Button',
     isDisable: false,
     isBlock: false,
-    accessKey: '',
     size: 'small',
   },
 };
@@ -80,7 +78,6 @@ export const Medium: Story = {
     label: 'Button',
     isDisable: false,
     isBlock: false,
-    accessKey: '',
     size: 'medium',
   },
 };
@@ -91,7 +88,6 @@ export const Large: Story = {
     label: 'Button',
     isDisable: false,
     isBlock: false,
-    accessKey: '',
     size: 'large',
   },
 };

@@ -7,7 +7,7 @@ module.exports = {
 
   stories: [
     ...rootMain.stories,
-    '../**/*.stories.mdx',
+    '../**/*.mdx',
     '../**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -30,18 +30,12 @@ module.exports = {
 
     // Add MDX loader
     config.module.rules.push({
-      test: /\.mdx$/,
+      test: /\.(ts|tsx)$/,
       use: [
         {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
           options: {
-            // Add any Babel options here
-          },
-        },
-        {
-          loader: '@mdx-js/loader',
-          options: {
-            // Add any MDX options here
+            transpileOnly: true,
           },
         },
       ],

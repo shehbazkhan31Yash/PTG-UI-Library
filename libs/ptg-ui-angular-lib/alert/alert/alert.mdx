@@ -1,13 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as AlertComponents from './alert.stories.ts';
-
 import {AlertComponent} from './alert.component';
+import * as AlertStories from './alert.stories';
 
-<Meta
-  title="Component/AlertComponent/AlertComponentDocs"
-  component={AlertComponent}
-/>
+<Meta of={AlertStories} />
+
 
 # Alert Component
 
@@ -41,15 +38,16 @@ we can create a alert using the following HTML Tag:
 
 Following are some controls with their explanation :
 
-1] message :
+<Canvas of={AlertStories.Primary} />
+
+1] Message :
 
 Alert messages can be used to notify the user about something special.
 
-<Canvas><Story id="component-alertcomponent--message" /></Canvas>
-
+<Canvas of={AlertStories.Message} />
 
 2]isDismissible :
 
 The isDismissible attribute specifies whether the alert  will be dismissed when user taps on the scrim.
 
-<Canvas><Story id="component-alertcomponent--is-dismissible" /></Canvas>
+<Canvas of={AlertStories.IsDismissible} />
