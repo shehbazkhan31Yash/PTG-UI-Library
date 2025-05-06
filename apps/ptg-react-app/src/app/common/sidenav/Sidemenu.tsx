@@ -67,6 +67,18 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/avatar',
+    icon: 'fa-solid fa-user',
+    label: 'Avatar',
+    disabled: false,
+  },
+  {
+    path: '/aichatbot',
+    icon: 'fa fa-android',
+    label: 'AI Chatbot',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
@@ -109,12 +121,6 @@ export const NavigationData = [
         disabled: false,
       },
     ],
-  },
-  {
-    path: '/aichatbot',
-    icon: 'fa fa-android',
-    label: 'AI Chatbot',
-    disabled: false,
   },
   {
     label: 'DATA TABLE',
@@ -209,12 +215,6 @@ export const NavigationData = [
     path: '/toaster',
     icon: 'fa-solid fa-bell',
     label: 'TOASTER',
-    disabled: false,
-  },
-  {
-    path: '/avatar',
-    icon: 'fa-solid fa-user',
-    label: 'AVATAR',
     disabled: false,
   },
   {
