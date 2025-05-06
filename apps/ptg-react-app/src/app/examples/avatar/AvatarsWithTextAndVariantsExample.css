@@ -1,0 +1,28 @@
+.avatar-text-component {
+  display: flex;
+  gap: 10px;
+}
+
+.avatar-text-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-with-text-component {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.avatar-with-text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-text {
+  font-size: 14px;
+  font-weight: 500;
+}
