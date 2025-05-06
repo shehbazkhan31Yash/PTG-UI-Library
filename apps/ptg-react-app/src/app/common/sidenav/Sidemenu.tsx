@@ -212,6 +212,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/avatar',
+    icon: 'fa-solid fa-user',
+    label: 'AVATAR',
+    disabled: false,
+  },
+  {
     path: '/textarea',
     icon: 'fa-solid fa-pen',
     label: 'TEXTAREA',

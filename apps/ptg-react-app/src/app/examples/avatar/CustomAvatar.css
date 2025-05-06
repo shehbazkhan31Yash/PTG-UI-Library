@@ -1,0 +1,20 @@
+
+.custom-avatar-examples {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.avatar-item {
+  text-align: center;
+  width: 150px;
+}
+.avatar-component{
+  display: 'flex';
+  margin-left: '10px';
+}
