@@ -18,7 +18,7 @@ describe('PtgUiRow Component', () => {
 				<span>Test Child</span>
 			</PtgUiRow>
 		);
-		expect(container.firstChild).toHaveClass('row custom-class');
+		expect(container.firstChild).toHaveClass('ptg-ui-row custom-class');
 	});
 
 	it('should have default "row" class when no className is provided', () => {
@@ -27,6 +27,6 @@ describe('PtgUiRow Component', () => {
 				<span>Test Child</span>
 			</PtgUiRow>
 		);
-		expect(container.firstChild).toHaveClass('row');
+		expect(container.firstChild).toHaveClass('ptg-ui-row');
 	});
 });
