@@ -76,6 +76,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@nosferatu500/react-sortable-tree": "^4.1.0",
     "@nrwl/angular": "^18.3.5",
+    "@nx/eslint-plugin": "^21.0.0",
     "@nx/nx-linux-x64-gnu": "^20.6.3",
     "@react-three/cannon": "^6.4.0",
     "@react-three/drei": "^9.40.0",
