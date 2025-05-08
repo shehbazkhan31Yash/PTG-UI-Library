@@ -8,6 +8,7 @@ import { marked } from 'marked';
 export const PtgChatBot = ({ genAIKey }) => {
 	const [input, setInput] = useState('');
 	const [messages, setMessages] = useState([]);
+	const [oldMessages, setOldMessages] = useState([]);
 	const [image, setImage] = useState({ data: null, mimeType: null });
 	const [loading, setLoading] = useState(false);
 	const genAI = new GoogleGenerativeAI(genAIKey);
@@ -53,7 +54,12 @@ export const PtgChatBot = ({ genAIKey }) => {
 						},
 				  ]
 				: [input];
-			generatedContent = await model.generateContent(contentToSend);
+
+      // to provide old context to llm send old messages along with new one
+			generatedContent = await model.generateContent([...oldMessages, ...contentToSend]);
+
+      setOldMessages([...oldMessages, ...contentToSend])
+
 			setMessages((prevMessages) => [
 				...prevMessages,
 				{ text: input, image, sender: 'user' },
