@@ -24,14 +24,14 @@ describe('PtgUiCustomAvatar Component', () => {
 		expect(avatarElement).toHaveStyle({ borderRadius: '10%' });
 	});
 
-	test('Render avatar for sqaure variant', () => {
+	test('Render avatar for square variant', () => {
 		render(<PtgUiCustomAvatar variant="square" src="test-image.jpg" alt="Test Avatar" />);
 		const avatarElement = screen.getByRole('img');
 		expect(avatarElement).toHaveStyle({ borderRadius: '0' });
 	});
 
 	test('Render for named avatars', () => {
-		render(<PtgUiCustomAvatar backgroundColor="blue" children="AB" />);
+		render(<PtgUiCustomAvatar backgroundColor="blue">AB</PtgUiCustomAvatar>);
 		const fallbackElement = screen.getByText('AB');
 		expect(fallbackElement).toHaveStyle({ backgroundColor: 'blue' });
 	});
