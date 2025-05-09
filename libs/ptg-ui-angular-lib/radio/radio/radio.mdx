@@ -1,14 +1,11 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as RadioComponents from './radio.stories.ts';
 
 import RadioComponent from './radio.component';
 
-<Meta
-  title="Component/RadioComponent/RadioComponentDocs"
-  component={RadioComponent}
-/>
+import * as RadioStories from './radio.stories';
 
+<Meta of={RadioStories} />
 # Radio Component
 
 ---
@@ -49,6 +46,4 @@ The syntax for id is: write a hash character (#), followed by an id name. Then, 
 
 We can use it to change the properties of radio button. For ex. if we want to change the name of radio button we can access or change it as items.name.
 
-<Canvas>
-  <Story id="component-radiocomponent--primary" />
-</Canvas>
+<Canvas of={RadioStories.Primary} />

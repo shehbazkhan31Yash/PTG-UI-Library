@@ -1,10 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as LineChartComponents from './line-chart.stories.ts'
-
 import LineChartComponent from './line-chart.component';
 
- <Meta title="Component/LineChartComponent/LineChartComponentDocs" component={ LineChartComponent }    />
+import * as LineChartStories from './line-chart.stories';
+
+<Meta of={LineChartStories} />
 
 
  # LineChart Component
@@ -58,7 +58,7 @@ height control sets the Chart height to any given value in Pixels.
 
 If the height is not set for the chart container, it takes the default height.
 
-<Canvas><Story id="component-linechartcomponent--height" /></Canvas>
+ <Canvas of={LineChartStories.Height} />
 
 
 2] width : 
@@ -66,8 +66,8 @@ If the height is not set for the chart container, it takes the default height.
 width control sets the Chart width to any given value in Pixels.
 
 If the Width is not set for the chart container, it takes the default width.
-
-<Canvas><Story id="component-linechartcomponent--width" /></Canvas>
+ 
+ <Canvas of={LineChartStories.Width} />
 
 3] margin :
 
@@ -75,7 +75,7 @@ Margin controls sets the chart margin from all section.
 
 If the Margin is not set for the chart container, it takes the default Margin.
 
-<Canvas><Story id="component-linechartcomponent--margin" /></Canvas>
+ <Canvas of={LineChartStories.Primary} />
 
 4] color :
 
@@ -85,14 +85,14 @@ If the color is not set for the chart container, it takes the default color.
 
 Color attribute can be hexcode, color code etc.
 
-<Canvas><Story id="component-linechartcomponent--color" /></Canvas>
+ <Canvas of={LineChartStories.Primary} />
 
 5] id: 
 Id controls sets the multiple chart on all section.
 
 If the id is not set for the chart container, it takes the default id.
 
-<Canvas><Story id="component-linechartcomponent--id" /></Canvas>
+ <Canvas of={LineChartStories.Primary} />
 
 6] coordinateDataTypes:
 
@@ -100,6 +100,6 @@ coordinateDataTypes controls sets the chart x & y co-ordinate type wheather it's
 
 If the coordinateDataTypes is not set for the chart container, it takes the default coordinateDataTypes.
 
-<Canvas><Story id="component-linechartcomponent--coordinateDataTypes" /></Canvas>
+ <Canvas of={LineChartStories.Primary} />
 
 

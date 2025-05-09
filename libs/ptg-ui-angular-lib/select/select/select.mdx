@@ -1,10 +1,11 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as SelectComponents from './select.stories.ts'
 
 import SelectComponent from './select.component';
 
-<Meta title="Component/SelectComponent/SelectComponentDocs" component={ SelectComponent }    />
+import * as SelectStories from './select.stories';
+
+<Meta of={SelectStories} />
 
 
 
@@ -63,8 +64,8 @@ The id attribute is used to point to a specific style declaration in a style she
 
 The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
 
+<Canvas of={SelectStories.Id} />
 
-<Canvas><Story id="component-selectcomponent--id" /></Canvas>   
 
 
 2] placeholder :
@@ -74,14 +75,14 @@ The placeholder attribute specifies a short hint that describes the expected val
 The short hint is displayed in the input field before the user enters a value.
 
 
-<Canvas><Story id="component-selectcomponent--placeholder" /></Canvas>
+<Canvas of={SelectStories.Placeholder} />
 
 
 3] bindLabel :
 
 bindLabel contol is use for label. 
 
-<Canvas><Story id="component-selectcomponent--bind-label" /></Canvas>
+<Canvas of={SelectStories.BindLabel} />
 
 
 4] isMultiple :
@@ -95,7 +96,7 @@ a] True - we can select the multiple items.
 b] False - we can select only one item.
 
 
-<Canvas><Story id="component-selectcomponent--is-multiple" /></Canvas>
+<Canvas of={SelectStories.IsMultiple} />
 
 
 5] closeOnSelect :
@@ -114,5 +115,5 @@ b] False - item list close after the item is selected.
 Using the itemCount control we can set the number of items displayed in the textbox when we select the multiple items.
 
 
-<Canvas><Story id="component-selectcomponent--item-count" /></Canvas>
+<Canvas of={SelectStories.CloseOnSelect} />
 

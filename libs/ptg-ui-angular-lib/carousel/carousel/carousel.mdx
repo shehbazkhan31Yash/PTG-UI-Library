@@ -1,13 +1,12 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as CarouselComponents from './carousel.stories.ts';
 
 import { CarouselComponent } from './carousel.component';
+import * as CarouselStories from './carousel.stories';
 
-<Meta
-  title="Component/CarouselComponent/CarouselComponentDocs"
-  component={CarouselComponent}
-/>
+<Meta of={CarouselStories} />
+
+
 
 # Carousel Component
 
@@ -39,30 +38,24 @@ Following are some controls with their explanation :
 
 Here’s a carousel with slides only.
 
-<Canvas><Story id="component-carouselcomponent--primary" /></Canvas>  
+<Canvas of={carouselStories.Primary} />
 
 
 2] With Controls :
 
 Adding in the previous and next controls.
 
-<Canvas>
-  <Story id="component-carouselcomponent--show-controls" />
-</Canvas>
+<Canvas of={carouselStories.ShowControls} />
 
 3] With indicators :
 
 You can also add the indicators to the carousel, alongside the controls, too.
 
-<Canvas>
-  <Story id="component-carouselcomponent--show-indicators" />
-</Canvas>
+<Canvas of={carouselStories.ShowIndicators} />
 
 4] With Caption :
 
 You can also add the Caption to the carousel.
 
-<Canvas>
-  <Story id="component-carouselcomponent--show-content" />
-</Canvas>
+<Canvas of={carouselStories.ShowContent} />
 

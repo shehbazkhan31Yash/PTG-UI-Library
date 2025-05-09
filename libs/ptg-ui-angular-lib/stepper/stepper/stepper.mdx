@@ -1,13 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as StepperComponents from './stepper.stories.ts';
-
 import { StepperComponent } from './stepper.component';
 
-<Meta
-  title="Component/StepperComponent/StepperComponentDocs"
-  component={StepperComponent}
-/>
+import * as StepperStories from './stepper.stories';
+
+<Meta of={StepperStories} />
 
 # Stepper Component
 
@@ -50,9 +47,9 @@ Following are some controls with their explanation :
 stepLabels = ['Account Info', 'Personal Information', 'Payment Details'];
 
 B] formGroups :  formGroups is an array of fromgroups of each steps .
-<Canvas><Story id="component-steppercomponent--primary"/></Canvas> 
+<Canvas of={StepperStories.Primary} />
 
 c] orientation :  using orientation input user can switch between stepper varients.
-<Canvas><Story id="component-steppercomponent--orientation"/></Canvas> 
+<Canvas of={StepperStories.Orientation} />
  
 

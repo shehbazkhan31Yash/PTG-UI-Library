@@ -1,10 +1,14 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as ButtonComponents from './button.stories.ts'
+
 
 import {ButtonComponent} from './button.component';
+import * as ButtonStories from './button.stories';
 
- <Meta title="Component/ButtonComponent/ButtonComponentDocs" component={ ButtonComponent }    />
+<Meta of={ButtonStories} />
+
+
+ 
 
 
 
@@ -60,18 +64,17 @@ import {ButtonComponent} from './button.component';
 
  false - Default. The button is not disabled
 
-
-<Canvas><Story id="component-buttoncomponent--is-disable" /></Canvas>
+<Canvas of={ButtonStories.IsDisable} />
 
 
  2] size : 
 
  Some types of sizes in buttons are below :  
 
-A] Primary Button :  <Canvas><Story id="component-buttoncomponent--primary" /></Canvas>   
-B] Small Button :    <Canvas><Story id="component-buttoncomponent--small" /></Canvas>
-C] Medium Button :   <Canvas><Story id="component-buttoncomponent--medium" /></Canvas>      
-D] Large Button :    <Canvas><Story id="component-buttoncomponent--large" /></Canvas>
+A] Primary Button :  <Canvas of={ButtonStories.Primary} />  
+B] Small Button :    <Canvas of={ButtonStories.Small} />
+C] Medium Button :   <Canvas of={ButtonStories.Medium} />   
+D] Large Button :    <Canvas of={ButtonStories.Large} />>
 
 
 
@@ -81,7 +84,7 @@ D] Large Button :    <Canvas><Story id="component-buttoncomponent--large" /></Ca
  false it remains default.   
 
 
-<Canvas><Story id="component-buttoncomponent--is-block" /></Canvas>
+<Canvas of={ButtonStories.IsBlock} />
 
 
  4] backgroundColor :

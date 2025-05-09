@@ -1,12 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as textAreaComponents from './textarea.stories.ts'
-
 import TextareaComponent from './textarea.component';
 
- <Meta title="Component/TextareaComponent/TextAreaComponentDocs" component={ TextareaComponent }    />
+import * as TextareaStories from './textarea.stories';
 
-
+<Meta of={TextareaStories} />
 
  # Textarea Component
 
@@ -56,7 +54,7 @@ The short hint is displayed in the input field before the user enters a value.
 
 Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
 
-<Canvas><Story id="component-textareacomponent--placeholder" /></Canvas>
+<Canvas of={BreadcrumbsStories.Placeholder} />
 
 
  2] id : 
@@ -69,7 +67,7 @@ The id attribute is used to point to a specific style declaration in a style she
 The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
 
 
-<Canvas><Story id="component-textareacomponent--id" /></Canvas>   
+<Canvas of={BreadcrumbsStories.Id} />
 
 
  3] class :
@@ -80,7 +78,7 @@ The class attribute is often used to point to a class name in a style sheet. It 
 
 Multiple HTML elements can share the same class.
 
-<Canvas><Story id="component-textareacomponent--class-name" /></Canvas>
+<Canvas of={BreadcrumbsStories.ClassName} />
 
 
 
@@ -96,4 +94,4 @@ For "text", "password", and "hidden" - it defines the initial (default) value of
 For "checkbox", "radio", "image" - it defines the value associated with the input (this is also the value that is sent on submit)
 
 
-<Canvas><Story id="component-textareacomponent--value" /></Canvas>
+<Canvas of={BreadcrumbsStories.Value} />

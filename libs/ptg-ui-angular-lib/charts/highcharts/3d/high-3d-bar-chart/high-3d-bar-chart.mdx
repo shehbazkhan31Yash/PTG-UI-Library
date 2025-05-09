@@ -1,10 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as High3dBarChartComponents from './high-3d-bar-chart.stories.ts'
-
 import High3dBarChartComponent from './high-3d-bar-chart.component';
 
-<Meta title="Component/High3dBarChartComponent/HighBarChartComponentDocs" component={ High3dBarChartComponent }    />
+import * as High3dBarChartStories from './high-3d-bar-chart.stories';
+
+<Meta of={High3dBarChartStories} />
 
  # High3DBarChart Component
 
@@ -53,7 +53,7 @@ Following are some controls with their explanation :
  This helps the reader immediately know what the graph is. 
 
 
-<Canvas><Story id="component-high3dbarchartcomponent--title" /></Canvas>
+<Canvas of={High3dBarChartStories.Title} />
 
 
 2] xTitle : 
@@ -61,7 +61,7 @@ Following are some controls with their explanation :
 
 The axis title is a short text displayed alongside the axis. Usually, the axis title shows units of measurement for axis values, but you can put any text in it.
 
-<Canvas><Story id="component-high3dbarchartcomponent--x-title" /></Canvas>
+<Canvas of={High3dBarChartStories.XTitle} />
 
 
 
@@ -70,7 +70,7 @@ The axis title is a short text displayed alongside the axis. Usually, the axis t
 
 The axis title is a short text displayed alongside the axis. Usually, the axis title shows units of measurement for axis values, but you can put any text in it.
 
-<Canvas><Story id="component-high3dbarchartcomponent--y-title" /></Canvas>
+<Canvas of={High3dBarChartStories.YTitle} />
 
 4] isCreditEnabled:
 
@@ -78,4 +78,4 @@ this property will enable / disable the High charts credits base on user input.
 
 by default the value is false.
 
-<Canvas><Story id="component-high3dlinechartcomponent--chart-isCreditEnabled" /></Canvas>
+<Canvas of={High3dBarChartStories.Primary} />

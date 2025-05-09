@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as High3dPieChartComponents from './high-3d-pie-chart.stories.ts'
-
 import High3dPieChartComponent from './high-3d-pie-chart.component';
 
-<Meta title="Component/High3dPieChartComponent/High3dPieChartComponentDocs" component={ High3dPieChartComponent }    />
+import * as High3dPieChartStories from './high-3d-pie-chart.stories';
 
+<Meta of={High3dPieChartStories} />
 
  # High3DPieChart Component
 
@@ -52,7 +51,7 @@ Following are some controls with their explanation :
  This helps the reader immediately know what the graph is. 
 
 
-<Canvas><Story id="component-high3dlinechartcomponent--title" /></Canvas>
+<Canvas of={High3dPieChartStories.Primary} />
 
 2] isCreditEnabled:
 
@@ -60,4 +59,4 @@ this property will enable / disable the High charts credits base on user input.
 
 by default the value is false.
 
-<Canvas><Story id="component-high3dlinechartcomponent--chart-isCreditEnabled" /></Canvas>
+<Canvas of={High3dPieChartStories.Title} />

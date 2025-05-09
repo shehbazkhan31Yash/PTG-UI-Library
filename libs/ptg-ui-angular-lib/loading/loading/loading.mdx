@@ -1,13 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as LoadingComponents from './loading.stories.ts';
-
 import LoadingComponent from './loading.component';
 
-<Meta
-  title="Component/LoadingComponent/LoadingComponentDocs"
-  component={LoadingComponent}
-/>
+import * as LoadingStories from './loading.stories';
+
+<Meta of={LoadingStories} />
 
 # Loading Component
 
@@ -46,6 +43,5 @@ true - Default. The loader is unabled
 
 false - The loader is not disabled
 
-<Canvas>
-  <Story id="component-loadingcomponent--primary" />
-</Canvas>
+<Canvas of={LoadingComponent.Primary} />
+

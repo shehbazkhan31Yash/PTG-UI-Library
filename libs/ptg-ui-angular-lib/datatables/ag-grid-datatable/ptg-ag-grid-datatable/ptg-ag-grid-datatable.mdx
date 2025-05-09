@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as PtgAgGridDatatableComponents from './ptg-ag-grid-datatable.stories.ts'
-
 import PtgAgGridDatatableComponent from './ptg-ag-grid-datatable.component';
 
- <Meta title="Component/PtgAgGridDatatableComponent/AgGridDatatableDocs" component={ PtgAgGridDatatableComponent }    />
+import * as PtgAgGridDatatableStories from './ptg-ag-grid-datatable.stories';
 
+<Meta of={PtgAgGridDatatableStories} />
 
 
  # PtgAgGridDatatable Component
@@ -75,7 +74,7 @@ The grid comes with several provided themes which act as a great starting point 
 
 You can check for other themes on ag-grid official site. Just import that themes in the application.
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--theme-class-name" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.ThemeClassName} />
 
 
 2] sorTable -
@@ -92,7 +91,7 @@ a] True - you can sort the data .
 
 b] False - you can not sort the data .
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--sortable" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.Sortable} />
 
 
 3] ediTable -
@@ -105,14 +104,14 @@ a] True - you can edit the data .
 
 b] False - you can not edit the data .
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--editable" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.Editable} />
 
 
 4] rowHeight -
 
 Using rowHeight we can set the specific height for the row .    
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--row-height" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.RowHeight} />
 
 
 5] rowClass -
@@ -124,7 +123,7 @@ The class attribute is often used to point to a class name in a style sheet. It 
 Multiple elements can share the same class.
 
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--row-class" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.RowClass} />
 
 
 6] rowSelection - 
@@ -134,21 +133,21 @@ Multiple elements can share the same class.
  'single' will use single row selection, such that when you select a row, any previously selected row gets unselected. 'multiple' allows multiple rows to be selected.
 
 
-<Canvas><Story id="component-ptgaggriddatatablecomponent--row-selection" /></Canvas>
+<Canvas of={PtgAgGridDatatableStories.RowSelection} />
 
 
 7] pagination - 
 
   Pagination allows the grid to paginate rows, removing the need for a vertical scroll to view more data.
 
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--pagination" /></Canvas>  
+<Canvas of={PtgAgGridDatatableStories.Pagination} />
 
 
 8] paginationLimit -
   
   PaginationLimit allows you to set the number of rows on the page.
 
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--pagination-limit" /></Canvas>   
+ <Canvas of={PtgAgGridDatatableStories.PaginationLimit} />  
 
 
 9] customPaginationClass -
@@ -157,4 +156,4 @@ We can set the class for the pagination.
  
 The class attribute is often used to point to a class name in a style sheet. It can also be used by a other languages and manipulate elements with the specific class name.
  
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--custom-pagination-class" /></Canvas>   
+<Canvas of={PtgAgGridDatatableStories.CustomPaginationClass} />

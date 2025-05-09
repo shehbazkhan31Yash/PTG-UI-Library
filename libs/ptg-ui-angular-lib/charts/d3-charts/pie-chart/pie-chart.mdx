@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as PieChartComponents from './pie-chart.stories.ts'
-
 import PieChartComponent from './pie-chart.component';
 
- <Meta title="Component/PieChartComponent/PieChartComponentDocs" component={ PieChartComponent }    />
+import * as PieChartStories from './pie-chart.stories';
 
+<Meta of={PieChartStories} />
 
  # PieChart Component
 
@@ -60,7 +59,7 @@ height control sets the Chart height to any given value in Pixels.
 
 If the height is not set for the chart container, it takes the default height.
 
-<Canvas><Story id="component-piechartcomponent--height" /></Canvas>
+<Canvas of={PieChartStories.Height} />
 
 
 2] width : 
@@ -69,18 +68,18 @@ width control sets the Chart width to any given value in Pixels.
 
 If the Width is not set for the chart container, it takes the default width.
 
-<Canvas><Story id="component-piechartcomponent--width" /></Canvas>
+<Canvas of={PieChartStories.Width} />
 
 
 3] margin : 
 
 The  margin conteol is used to create space around elements, outside of any defined borders.
 
-<Canvas><Story id="component-piechartcomponent--margin" /></Canvas>
+<Canvas of={PieChartStories.Margin} />
 
-5] id: 
+4] id: 
 Id controls sets the multiple chart on all section.
 
 If the id is not set for the chart container, it takes the default id.
 
-<Canvas><Story id="component-linechartcomponent--id" /></Canvas>
+<Canvas of={PieChartStories.Primary} />

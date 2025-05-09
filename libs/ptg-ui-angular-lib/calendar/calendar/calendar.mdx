@@ -1,10 +1,12 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as CalendarComponents from './calendar.stories.ts'
 
 import {CalendarComponent} from './calendar.component';
+import * as CalenderStories from './calendar.stories';
 
- <Meta title="Component/CalendarComponent/CalendarComponentDocs" component={ CalendarComponent }    />
+<Meta of={CalenderStories} />
+
+ 
 
 
 
@@ -44,7 +46,7 @@ The className attribute is often used to point to a class name in a style sheet.
 
 Multiple HTML elements can share the same class.
 
-<Canvas><Story id="component-calendarcomponent--class-name" /></Canvas>
+<Canvas of={CalenderStories.ClassName} />
 
 
 2] id :
@@ -56,7 +58,7 @@ The id attribute is used to point to a specific style declaration in a style she
 The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
 
 
-<Canvas><Story id="component-calendarcomponent--id" /></Canvas>
+<Canvas of={CalenderStories.Id} />
 
 
 3] is Disable : 
@@ -70,8 +72,7 @@ true - The calendar is disabled
 false - Default. The calendar is not disabled
 
 
-<Canvas><Story id="component-calendarcomponent--is-disabled" /></Canvas>
-
+<Canvas of={CalenderStories.IsDisabled} />
 
 4] placeholder : 
 
@@ -81,4 +82,4 @@ The short hint is displayed in the input field before the user enters a value.
 
 Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
 
-<Canvas><Story id="component-calendarcomponent--placeholder" /></Canvas>
+<Canvas of={CalenderStories.Placeholder} />

@@ -1,12 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as BarChartComponents from './bar-chart.stories.ts'
-
 import BarChartComponent from './bar-chart.component';
 
- <Meta title="Component/BarChartComponent/BarChartComponentDocs" component={ BarChartComponent }    />
+import * as BarChartStories from './bar-chart.stories';
 
-
+<Meta of={BarChartStories} />
  # BarChart Component
 
  ---
@@ -59,7 +57,7 @@ height control sets the Chart height to any given value in Pixels.
 
 If the height is not set for the chart container, it takes the default height.
 
-<Canvas><Story id="component-barchartcomponent--height" /></Canvas>
+<Canvas of={BarChartStories.Height} />
 
 
 2] width : 
@@ -68,14 +66,14 @@ width control sets the Chart width to any given value in Pixels.
 
 If the Width is not set for the chart container, it takes the default width.
 
-<Canvas><Story id="component-barchartcomponent--width" /></Canvas>
+<Canvas of={BarChartStories.Width} />
 
 
 3] margin : 
 
 The  margin conteol is used to create space around elements, outside of any defined borders.
 
-<Canvas><Story id="component-barchartcomponent--margin" /></Canvas>
+<Canvas of={BarChartStories.Margin} />
 
 
 
@@ -85,7 +83,7 @@ Start control is used to set the starting point of y-axis.
 
 we can change the starting point of y-axis using the start control.
 
-<Canvas><Story id="component-barchartcomponent--start" /></Canvas>
+<Canvas of={BarChartStories.Start} />
 
 
 5] end :
@@ -94,11 +92,11 @@ end control is used to set the ending point of y-axis.
 
 we can change the ending point of y-axis using the end control.
 
-<Canvas><Story id="component-barchartcomponent--end" /></Canvas>
+<Canvas of={BarChartStories.End} />
 
 6] id: 
 Id controls sets the multiple chart on all section.
 
 If the id is not set for the chart container, it takes the default id.
 
-<Canvas><Story id="component-linechartcomponent--id" /></Canvas>
+<Canvas of={BarChartStories.Primary} />

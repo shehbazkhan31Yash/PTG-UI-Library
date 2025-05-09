@@ -1,13 +1,11 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as GridComponents from './grid.stories.ts';
-
 import { GridComponent } from './grid.component';
 
-<Meta
-  title="Component/GridComponent/GridComponentDocs"
-  component={GridComponent}
-/>
+import * as GridStories from './grid.stories';
+
+<Meta of={GridStories} />
+
 
 # Grid Component
 
@@ -55,5 +53,7 @@ Number of template will be same as column count.
 B] columnClass :  User can send any custom class for column of grid.
 
 B] rowClass :  User can send any custom class for row of grid.
-<Canvas><Story id="component-gridcomponent--primary"/><ng-template>Your Column Template</ng-template></Canvas>  
+<Canvas of={GridStories.GridComponent} />
+
+
 

@@ -1,13 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-import * as ToastsComponents from './toasts.stories.ts';
-
 import ToastsComponent from './toasts.component';
 
-<Meta
-  title="Component/ToastsComponent/ToastsComponentDocs"
-  component={ToastsComponent}
-/>
+import * as ToastsStories from './toasts.stories';
+
+<Meta of={ToastsStories} />
 
 # Toasts Component
 
@@ -41,6 +38,4 @@ Following are some controls with their explanation :
 
 The label property sets the label of toasts message.
 
-<Canvas>
-  <Story id="component-toastscomponent--primary" />
-</Canvas>
+<Canvas of={ToastsStories.Primary} />

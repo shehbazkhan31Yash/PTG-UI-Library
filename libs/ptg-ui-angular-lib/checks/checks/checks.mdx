@@ -1,10 +1,12 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as ChecksComponents from './checks.stories.ts'
 
 import ChecksComponent from './checks.component';
+import * as ChecksStories from './checks.stories';
 
- <Meta title="Component/ChecksComponent/CheckComponentDocs" component={ ChecksComponent }    />
+<Meta of={ChecksStories} />
+
+
 
 
 
@@ -50,4 +52,4 @@ Users who have difficulty clicking on very small regions (such as checkboxes) - 
 
 
 
-<Canvas><Story id="component-checkscomponent--label" /></Canvas>
+<Canvas of={ChecksStories.ChecksComponent} />

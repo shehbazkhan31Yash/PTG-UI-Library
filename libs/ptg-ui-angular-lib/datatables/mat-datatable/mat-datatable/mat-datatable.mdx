@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as MatDatatableComponents from './mat-datatable.stories.ts'
-
 import {MatDatatableComponent} from './mat-datatable.component';
 
- <Meta title="Component/MatDatatableComponent/MatDatatablDocs" component={ MatDatatableComponent }    />
+import * as MatDatatableStories from './mat-datatable.stories';
 
+<Meta of={MatDatatableStories} />
 
 
  # PtgMatDatatable Component
@@ -55,7 +54,7 @@ We can import the datatable using the following importation :
  emptyStateMessage is shown when the table is empty of data (regardless of filtering) - i.e. there are zero records in the table.
 
 
- <Canvas><Story id="component-matdatatablecomponent--empty-state-message" /></Canvas>
+ <Canvas of={MatDatatableStories.EmptyStateMessage} />
 
 
 
@@ -67,7 +66,7 @@ We can import the datatable using the following importation :
 
    If we change the value number of rows will change.
 
-   <Canvas><Story id="component-matdatatablecomponent--limit" /></Canvas>
+    <Canvas of={MatDatatableStories.Limit} />
 
 
  3] showFilter - 
@@ -78,5 +77,5 @@ We can import the datatable using the following importation :
     
   If we change the value to true search bar filter is visible.
 
-  <Canvas><Story id="component-matdatatablecomponent--filter" /></Canvas>
+   <Canvas of={MatDatatableStories.Filter} />
 

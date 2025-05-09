@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as High3dLineChartComponents from './high-3d-line-chart.stories.ts'
-
 import High3dLineChartComponent from './high-3d-line-chart.component';
 
-<Meta title="Component/High3dLineChartComponent/High3dLineChartComponentDocs" component={ High3dLineChartComponent }    />
+import * as High3dLineChartStories from './high-3d-line-chart.stories';
 
+<Meta of={High3dLineChartStories} />
 
 
  # High3DLineChart Component
@@ -61,7 +60,7 @@ Following are some controls with their explanation :
  This helps the reader immediately know what the graph is. 
 
 
-<Canvas><Story id="component-high3dlinechartcomponent--title" /></Canvas>
+<Canvas of={High3dLineChartStories.Title} />
 
 
 2] xTitle : 
@@ -69,7 +68,7 @@ Following are some controls with their explanation :
 
 The axis title is a short text displayed alongside the axis. Usually, the axis title shows units of measurement for axis values, but you can put any text in it.
 
-<Canvas><Story id="component-high3dlinechartcomponent--x-title" /></Canvas>
+<Canvas of={High3dLineChartStories.XTitle} />
 
 
 
@@ -78,7 +77,7 @@ The axis title is a short text displayed alongside the axis. Usually, the axis t
 
 The axis title is a short text displayed alongside the axis. Usually, the axis title shows units of measurement for axis values, but you can put any text in it.
 
-<Canvas><Story id="component-high3dlinechartcomponent--y-title" /></Canvas>
+<Canvas of={High3dLineChartStories.YTitle} />
 
 
 4] id : 
@@ -88,7 +87,7 @@ The id attribute specifies a unique id for an chart . The value of the id attrib
 The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
 
 
-<Canvas><Story id="component-high3dlinechartcomponent--chart-id" /></Canvas>
+<Canvas of={High3dLineChartStories.Chart} />
 
 5] isCreditEnabled:
 
@@ -96,4 +95,4 @@ this property will enable / disable the High charts credits base on user input.
 
 by default the value is false.
 
-<Canvas><Story id="component-high3dlinechartcomponent--chart-isCreditEnabled" /></Canvas>
+<Canvas of={High3dLineChartStories.Primary} />

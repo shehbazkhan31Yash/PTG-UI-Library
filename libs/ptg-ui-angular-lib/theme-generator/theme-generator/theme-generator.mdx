@@ -3,10 +3,10 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { ThemeGeneratorComponent } from './theme-generator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import * as ThemeGeneratorComponents from './theme-generator.stories.ts';
 
-<Meta title="Component/ThemeGeneratorComponent" component={ThemeGeneratorComponent} />
+import * as ThemeGeneratorStories from './theme-generator.stories';
 
+<Meta of={ThemeGeneratorStories} />
 # ThemeGeneratorComponent
 
 The `ThemeGeneratorComponent` is used to generate theme settings for an application. It allows users to customize various aspects of the UI, such as navigation headers, sidebars, content layout, and buttons.
@@ -29,6 +29,4 @@ we can create a theme-generator using the following HTML Tag:
 
 To view demo of theme-generator :
 
-<Canvas>
-  <Story id="component-themegeneratorcomponent--primary" />
-</Canvas>
+<Canvas of={ThemeGeneratorStories.Primary} />

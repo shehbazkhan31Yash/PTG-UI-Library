@@ -1,11 +1,10 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as PtgNgxDatatableComponents from './ptg-ngx-datatable.stories.ts'
-
 import {PtgNgxDatatableComponent} from './ptg-ngx-datatable.component';
 
- <Meta title="Component/PtgNgxDatatableComponent/PtgNgxDatatableDocs" component={ PtgNgxDatatableComponent }    />
+import * as PtgNgxDatatableStories from './ptg-ngx-datatable.stories';
 
+<Meta of={PtgNgxDatatableStories} />
 
 
  # PtgNgxDatatable Component
@@ -80,7 +79,7 @@ Following are some controls with their explanation :
 
  false - The vertical scrollbar is not unhide.
 
- <Canvas><Story id="component-ptgngxdatatablecomponent--scrollbar-v" /></Canvas>
+<Canvas of={PtgNgxDatatableStories.scrollbarV} />
 
 
   2] scrollbarH : 
@@ -91,7 +90,7 @@ Following are some controls with their explanation :
 
   false - The horizontal scrollbar is not hide.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--scrollbar-h" /></Canvas>
+ <Canvas of={PtgNgxDatatableStories.scrollbarH} />
 
 
   3] headerHeight :
@@ -100,7 +99,7 @@ Following are some controls with their explanation :
    
    The headerHeight attribute specifies the height of an element, in pixels.
 
-   <Canvas><Story id="component-ptgngxdatatablecomponent--header-height" /></Canvas>
+ <Canvas of={PtgNgxDatatableStories.HeaderHeight} />
 
   
   4] footerHeight :
@@ -109,7 +108,7 @@ Following are some controls with their explanation :
    
    The footerHeight attribute specifies the height of an element, in pixels.
 
-   <Canvas><Story id="component-ptgngxdatatablecomponent--footer-height" /></Canvas>
+  <Canvas of={PtgNgxDatatableStories.FooterHeight} />
 
 
   5] rowHeight :
@@ -118,7 +117,7 @@ Following are some controls with their explanation :
    
    The rowHeight attribute specifies the height of an element, in pixels.
 
-   <Canvas><Story id="component-ptgngxdatatablecomponent--row-height" /></Canvas>
+   <Canvas of={PtgNgxDatatableStories.RowHeight} />
 
   
   6] loaderShowWhen :
@@ -129,7 +128,7 @@ Following are some controls with their explanation :
 
    If the value is true loading bar is visible.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--loader-show-when" /></Canvas>
+  <Canvas of={PtgNgxDatatableStories.LoaderShowWhen} />
 
 
    
@@ -141,7 +140,7 @@ Following are some controls with their explanation :
 
    If we change the value number of rows will change.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--limit" /></Canvas>
+ <Canvas of={PtgNgxDatatableStories.Limit} />
 
 
 
@@ -153,7 +152,7 @@ Following are some controls with their explanation :
 
    If we change the boolean value to false externalSorting stops the working.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--external-sorting" /></Canvas>
+ <Canvas of={PtgNgxDatatableStories.ExternalSorting} />
 
   
    9] rowClass - 
@@ -162,7 +161,7 @@ Following are some controls with their explanation :
  
    The className attribute is often used to point to a class name in a style sheet. It can also be used by a other languages to access and manipulate elements with the specific class name.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--row-class" /></Canvas>
+  <Canvas of={PtgNgxDatatableStories.RowClass} />
 
     
    10] showActionButton - 
@@ -173,18 +172,18 @@ Following are some controls with their explanation :
 
    If we change the boolean value to true button is visible.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--show-action-button" /></Canvas>
+  <Canvas of={PtgNgxDatatableStories.ShowActionButton} />
 
 
    11] actionButtonLabel - 
 
    The actionButtonLabel defines a name for the button.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--action-button-label" /></Canvas>
+  <Canvas of={PtgNgxDatatableStories.ActionButtonLabel} />
 
 
    12] actionButtonHeaderLabel - 
 
    The actionButtonHeaderLabel defines a name of the column for the button.
 
-  <Canvas><Story id="component-ptgngxdatatablecomponent--action-button-header-label" /></Canvas>
+ <Canvas of={PtgNgxDatatableStories.ActionButtonHeaderLabel} />

@@ -1,11 +1,11 @@
 import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
 
-import * as Input from './input.stories.ts'
 
 import InputComponent from './input.component';
 
- <Meta title="Component/InputComponent/InputComponentDocs" component={ InputComponent }    />
+import * as InputComponentStories from './input.stories';
 
+<Meta of={InputComponentStories} />
 
 
  # Input Component
@@ -63,7 +63,7 @@ The short hint is displayed in the input field before the user enters a value.
 
 Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
 
-<Canvas><Story id="component-inputcomponent--placeholder" /></Canvas>
+<Canvas of={InputComponentStories.Placeholder} />
 
 
  2] id : 
@@ -76,7 +76,7 @@ The id attribute is used to point to a specific style declaration in a style she
 The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
 
 
-<Canvas><Story id="component-inputcomponent--id" /></Canvas>   
+<Canvas of={InputComponentStories.Id} />  
 
 
  3] class :
@@ -87,7 +87,7 @@ The class attribute is often used to point to a class name in a style sheet. It 
 
 Multiple HTML elements can share the same class.
 
-<Canvas><Story id="component-inputcomponent--class" /></Canvas>
+<Canvas of={InputComponentStories.Class} />
 
 
  4] type :
@@ -98,7 +98,7 @@ If the type attribute is not specified, the default type is "text".
 
 `<input type="text">` defines a single-line text input field:
 
-<Canvas><Story id="component-inputcomponent--type" /></Canvas>
+<Canvas of={InputComponentStories.Type} />
 
 
 5]  value :
@@ -113,4 +113,4 @@ For "text", "password", and "hidden" - it defines the initial (default) value of
 For "checkbox", "radio", "image" - it defines the value associated with the input (this is also the value that is sent on submit)
 
 
-<Canvas><Story id="component-inputcomponent--value" /></Canvas>
+<Canvas of={InputComponentStories.Value} />
