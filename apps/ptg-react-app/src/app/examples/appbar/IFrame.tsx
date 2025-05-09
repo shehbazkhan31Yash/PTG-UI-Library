@@ -177,6 +177,216 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
                     font-size: 10px;
                     }
                 }
+
+            /* Chat.css */
+            .chatContainer::-webkit-scrollbar {
+              width: 0;
+              height: 0;
+            }
+
+            .chatContainer:hover::-webkit-scrollbar {
+              width: 8px;
+            }
+
+            .chatContainer:hover::-webkit-scrollbar-thumb {
+              background-color: rgba(0, 0, 0, 0.5);
+              border-radius: 10px;
+            }
+
+            .chatContainer:hover::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .chatContainer {
+              scrollbar-width: thin; /* Make scrollbar thin */
+              scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
+              display: flex;
+              flex-direction: column;
+              height: 100vh;
+              width: 80%;
+              margin: 0 auto;
+              background-color: #f9f9f9;
+              overflow-y: auto;
+            }
+            .messages {
+              flex: 1;
+              padding: 20px;
+              background-color: #fff;
+              border-radius: 8px 8px 0 0;
+              overflow-y: auto;
+            }
+
+            .message.user {
+              width: fit-content;
+              max-width: 50%;
+              margin-left: auto;
+              margin-right: 4%;
+              overflow-wrap: break-word;
+            }
+
+            .message.user .messageText {
+              background-color: #d1e7dd;
+              padding: 0.75rem 1.25rem;
+              border-radius: 0.5rem;
+            }
+
+            .message.ai {
+              width: fit-content;
+              margin-left: 4%;
+              margin-right: 2%;
+              overflow-wrap: break-word;
+              padding: 0.75rem 1.25rem;
+              border-radius: 0.5rem;
+            }
+            .message.ai .messageText {
+              background-color: #cfe2ff;
+              padding: 0.75rem 1.25rem;
+              border-radius: 0.5rem;
+            }
+
+            .imageContainer {
+              margin-top: 5px;
+            }
+            .uploadedImage {
+              max-width: 100%;
+              border-radius: 8px;
+            }
+            .loadingIndicator {
+              text-align: center;
+              font-style: italic;
+              color: #888;
+            }
+            .inputContainer {
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              background-color: #fff;
+              border: 1px solid #ccc;
+              border-radius: 15px;
+              position: relative;
+              margin-bottom: 15px;
+            }
+            input[type="text"] {
+              flex: 1;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 20px;
+              margin-right: 10px;
+              font-size: 16px;
+            }
+            input[type="file"] {
+              display: none;
+            }
+            .uploadIcon {
+              cursor: pointer;
+              margin-right: 10px;
+            }
+            .previewContainer {
+              display: flex;
+              align-items: center;
+              margin-right: 10px;
+            }
+            .previewImage {
+              max-width: 50px;
+              max-height: 50px;
+              border-radius: 4px;
+              margin-right: 5px;
+            }
+            .deleteImageBtn {
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: #ff4d4d;
+            }
+            button {
+              padding: 10px 15px;
+              border: none;
+              border-radius: 20px;
+              background-color: #007bff;
+              color: white;
+              font-size: 16px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            button:disabled {
+              background-color: #ccc;
+              cursor: not-allowed;
+            }
+            button:hover:not(:disabled) {
+              background-color: #0056b3;
+            }
+
+            @media (max-width: 768px) {
+              .chatContainer {
+                width: 90%;
+              }
+            }
+
+            @media (max-width: 480px) {
+              .chatContainer {
+                width: 99%;
+              }
+              .messages {
+                padding: 10px;
+                overflow-x: hidden;
+              }
+              .message.ai {
+                margin-left: 0;
+                margin-right: auto;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                word-break: break-word;
+              }
+            }
+
+            .codeBlock {
+              display: grid;
+              grid-template-rows: auto 1fr;
+              position: relative;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              padding: 16px;
+              background-color: #fff;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .codeBlock pre {
+              background-color: #f5f5f5;
+              padding: 10px;
+              border-radius: 4px;
+              overflow-x: auto;
+              white-space: pre;
+              font-family: monospace;
+            }
+
+            .codeBlock button {
+              position: absolute;
+              top: 30px;
+              right: 20px;
+              background-color: #007bff;
+              color: white;
+              border: none;
+              border-radius: 4px;
+              padding: 8px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            }
+
+            .copyMessage {
+              position: absolute;
+              top: 30px;
+              right: 20px;
+              color: #28a745;
+              font-size: 14px;
+              transition: opacity 0.5s ease;
+              opacity: 1;
+            }
+
+            .copyMessage.fade-out {
+              opacity: 0;
+            }
+
+              
+
                 </style>
             </head>
             <body></body>

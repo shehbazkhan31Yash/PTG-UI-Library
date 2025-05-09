@@ -22,6 +22,7 @@ export * from './lib/charts/highcharts/3D/pie/pie';
 export * from './lib/charts/d3/bar/bar';
 export * from './lib/charts/d3/line/line';
 export * from './lib/charts/d3/pie/pie';
+export * from './lib/avatar/CustomAvatar';
 
 export * from './lib/pipes/pipes';
 export * from './lib/date-picker/date-picker';
