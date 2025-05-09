@@ -236,3 +236,40 @@ export interface ITableWithStickyHeader {
 export interface ITableWithServerSidePagination {
   showCodeWithServerSidePagination?: boolean;
 }
+
+
+export interface IAvatarsWithImage {
+  showCodeAvatarsWithImage: boolean;
+}
+
+export interface IAvatarsWithIcon {
+  showCodeAvatarsWithIcon: boolean;
+}
+export interface IAvatarsWithLetter{
+  showCodeAvatarsWithLetter: boolean;
+}
+
+export interface IAvatarsWithSizes {
+  showCodeAvatarsWithSizes: boolean;
+}
+
+export interface IAvatarsWithVariants {
+  showCodeAvatarsWithVariants: boolean;
+}
+export interface IAvatarsWithGrouped {
+  showCodeAvatarsWithGrouped: boolean;
+}
+
+export interface IAvatarsWithBadge {
+  showCodeAvatarsWithBadge: boolean;
+}
+export interface IAvatarsWithBorder {
+  showCodeAvatarsWithBorder: boolean;
+}
+
+export interface IAvatarsWithText {
+  showCodeAvatarsWithText: boolean;
+}
+
+
+

@@ -1,0 +1,72 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { PtgUiTable } from './Table';
+import { PtgUiPagination } from '../../pagination/pagination';
+
+<Meta title="Components/Table" component={PtgUiTable} />
+
+# PtgUiTable Component
+
+The `PtgUiTable` component is a powerful and customizable table component that supports features like filtering, sorting, pagination, sticky headers, and server-side data handling.
+
+---
+
+## **Usage**
+
+### Basic Table Example
+```tsx
+import { PtgUiTable } from './Table';
+
+<PtgUiTable
+  columns={[
+    { accessor: 'name', Header: 'Name' },
+    { accessor: 'age', Header: 'Age' },
+  ]}
+  data={[
+    { id: 1, name: 'John Doe', age: 28 },
+    { id: 2, name: 'Jane Smith', age: 34 },
+  ]}
+/>;
+
+Table with Pagination
+
+import { PtgUiTable } from './Table';
+import { PtgUiPagination } from '../../pagination/pagination';
+
+<PtgUiTable
+  columns={[
+    { accessor: 'name', Header: 'Name' },
+    { accessor: 'age', Header: 'Age' },
+  ]}
+  data={[
+    { id: 1, name: 'John Doe', age: 28 },
+    { id: 2, name: 'Jane Smith', age: 34 },
+  ]}
+  stickyHeader
+/>
+<PtgUiPagination
+  dataCount={100}
+  pageNumber={1}
+  pageIndex={setCurrentPage}
+  pageSize={5}
+/>;
+
+Stories
+Default Table
+A basic table with default configurations.
+
+<Canvas> <Story name="DefaultTable" args={{ columns: [ { accessor: 'athlete', Header: 'Athlete' }, { accessor: 'age', Header: 'Age' }, { accessor: 'country', Header: 'Country' }, ], data: [], stickyHeader: false, alternateRowColor: false, }} /> </Canvas>
+
+Table with Sticky Header
+A table with sticky headers to ensure the header remains visible during scrolling.
+
+<Canvas> <Story name="TableWithStickyHeader" args={{ columns: [ { Header: 'ID', accessor: 'id', columnWidth: '75px' }, { Header: 'First Name', accessor: 'firstName', columnWidth: '140px' }, { Header: 'Last Name', accessor: 'lastName', columnWidth: '140px' }, ], data: [ { id: 1, firstName: 'John', lastName: 'Doe' }, { id: 2, firstName: 'Jane', lastName: 'Smith' }, ], stickyHeader: true, alternateRowColor: false, }} /> </Canvas>
+
+Table with Pagination
+A table with client-side pagination.
+
+<Canvas> <Story name="TableWithPagination" args={{ columns: [ { Header: 'ID', accessor: 'id' }, { Header: 'First Name', accessor: 'firstName' }, { Header: 'Last Name', accessor: 'lastName' }, ], data: [ { id: 1, firstName: 'John', lastName: 'Doe' }, { id: 2, firstName: 'Jane', lastName: 'Smith' }, { id: 3, firstName: 'Alice', lastName: 'Johnson' }, { id: 4, firstName: 'Bob', lastName: 'Brown' }, ], }} /> </Canvas>
+
+Table with Server Side Pagination
+A table that simulates server-side pagination by dynamically fetching data based on the page number.
+
+<Canvas> <Story name="TableWithServerSidePagination" args={{ columns: [ { Header: 'ID', accessor: 'id' }, { Header: 'Title', accessor: 'title' }, { Header: 'Description', accessor: 'description' }, ], stickyHeader: false, alternateRowColor: true, }} /> </Canvas>

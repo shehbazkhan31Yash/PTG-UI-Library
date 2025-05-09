@@ -1,0 +1,36 @@
+.avatar-component {
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin: 5px;
+}
+
+.status-badge {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+}
+
+.status-badge.online {
+  background-color: green;
+}
+
+.status-badge.offline {
+  background-color: red;
+}
+
+.status-badge.top-right {
+  top: 0;
+  right: 0;
+}
+
+.status-badge.bottom-right {
+  bottom: 0;
+  right: 0;
+}
