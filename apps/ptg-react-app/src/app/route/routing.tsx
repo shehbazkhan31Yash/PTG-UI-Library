@@ -77,6 +77,7 @@ const Indeterminate = lazy(
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
+const Avatar = lazy(() => import('../examples/avatar/CustomAvatar'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
 const SignUp = lazy(() => import('../examples/auth/signup/signup'));
@@ -208,6 +209,10 @@ const routing = [
   {
     path: '/toaster',
     component: Toaster,
+  },
+  {
+    path: '/avatar',
+    component: Avatar,
   },
   {
     path: '/textarea',

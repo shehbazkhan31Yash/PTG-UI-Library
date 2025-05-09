@@ -189,6 +189,17 @@ export interface PtgUiTextAreaProps {
 	onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
+//Avatar
+export interface PtgUiCustomAvatarProps {
+	alt?: string; 
+	src?: string;
+	size?: number;
+	backgroundColor?: string; 
+	textColor?: string;
+	children?: React.ReactNode; 
+	variant?: 'square' | 'rounded' | 'circle';
+  }
+
 //Toaster
 export interface ToasterProps {
 	show: boolean;
