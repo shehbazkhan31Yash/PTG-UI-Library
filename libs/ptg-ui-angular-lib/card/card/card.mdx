@@ -1,7 +1,5 @@
 import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
 
-
-
 import { CardComponent } from './card.component';
 import * as CardStories from './card.stories';
 
@@ -49,26 +47,26 @@ Following are some controls with their explanation :
 
 The title , subtite and content are title ,subtitle and description of card respectively.
 
-A] title : <Canvas of={Card.Primary} />  
-B] subtitle : <Canvas of={Card.Subtitle} />
+A] title : <Canvas of={CardStories.Primary} />  
+B] subtitle : <Canvas of={CardStories.Subtitle} />
 
 2] Image :
 
 To show image for the card user need to pass src of the image :
 
-<Canvas of={Card.Image} />
+<Canvas of={CardStories.Image} />
 
 3] Footer :
 
 Add footer within a card.
 
-<Canvas of={Card.Footer} />
+<Canvas of={CardStories.Footer} />
 
 4] Classes :
 
 User can pass classes to card, header,body and footer in the card.
 
-<Canvas of={Card.Classes} />
+<Canvas of={CardStories.Classes} />
 
 5] Kitchen Sink :
 Mix and match multiple content types to create the card you need, or throw everything in there.
