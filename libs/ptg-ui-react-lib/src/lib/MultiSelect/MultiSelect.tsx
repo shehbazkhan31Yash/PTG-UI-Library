@@ -37,7 +37,13 @@ export const PtgUiSelectbox: React.FC<PtgUiMultiSelectProps> = ({
 				</form>
 			) : (
 				<div>
-					<div onClick={toggleDropdown} className="select-btn" style={{ width }}>
+					<button
+						onClick={toggleDropdown}
+						className="select-btn"
+						style={{ width }}
+						aria-expanded={dropdownOpen}
+						aria-haspopup="listbox"
+					>
 						{multiSelectOptions.length > 0
 							? multiSelectOptions.map((selected) => (
 									<span className="item-content" key={`index-${selected}`}>
@@ -55,7 +61,7 @@ export const PtgUiSelectbox: React.FC<PtgUiMultiSelectProps> = ({
 							  ))
 							: placeholder}
 						<span></span>
-					</div>
+					</button>
 					{dropdownOpen && (
 						<div className="items" style={{ width }}>
 							{list.map((option) => (
