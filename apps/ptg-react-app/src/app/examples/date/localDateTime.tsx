@@ -28,8 +28,10 @@ const LocalDatetime = (props: ITimeZoneProps) => {
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimeZone(event.target.value);
+  const onSelect = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    if (event.target instanceof HTMLSelectElement) {
+      setTimeZone(event.target.value);
+    }
   };
   //Note: get datepicker formate from new Date()
 const splitDate = (dateStr: Date | null | undefined) => {

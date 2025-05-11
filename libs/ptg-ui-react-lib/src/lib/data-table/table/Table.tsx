@@ -10,7 +10,7 @@ import { TableProps } from '@ptg-react-libs/interfaces';
  *
  * @param {TableProps} props - The properties for the PtgUiTable component.
  * @param {Array<{ Header: string; accessor: string; columnWidth?: string }>} props.columns - The column definitions for the table.
- * @param {Array<Record<string, any>>} props.data - The data to display in the table.
+ * @param {Array<Record<string, un>>} props.data - The data to display in the table.
  * @param {boolean} [props.stickyHeader=false] - Whether the table header should stick to the top while scrolling.
  * @param {boolean} [props.alternateRowColor=false] - Whether to apply alternate row coloring for better readability.
  *
@@ -55,17 +55,17 @@ export const PtgUiTable: React.FC<TableProps> = ({
 	useEffect(() => {
 		const idSet = new Set();
 		const duplicates = data.filter((row) => {
-			if (idSet.has(row.id)) {
+			if (idSet.has(row['id'])) {
 				return true; // Duplicate found
 			}
-			idSet.add(row.id);
+			idSet.add(row['id']);
 			return false;
 		});
 
 		if (duplicates.length > 0) {
 			console.warn(
 				'Duplicate IDs found:',
-				duplicates.map((row) => row.id)
+				duplicates.map((row) => row['id'])
 			);
 		}
 	}, [data]);
@@ -98,7 +98,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 			if (typeof aValue === 'number' && typeof bValue === 'number') {
 				return sortConfig.direction === 'ascending' ? aValue - bValue : bValue - aValue;
 			} else {
-				return sortConfig.direction === 'ascending' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+				return sortConfig.direction === 'ascending' ? String(aValue).localeCompare(String(bValue)) : String(bValue).localeCompare(String(aValue));
 			}
 		}
 		return 0;
@@ -154,7 +154,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 					<tbody>
 						{sortedData.length ? (
 							sortedData.map((row, rowIndex) => (
-								<tr key={row.id} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
+								<tr key={row['id'] as React.Key} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
 									{columns?.map((column) => (
 										<td
 											key={column.accessor}
@@ -162,7 +162,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 												width: column.columnWidth ?? 'auto',
 											}}
 										>
-											{row[column.accessor]}
+											{String(row[column.accessor])}
 										</td>
 									))}
 								</tr>

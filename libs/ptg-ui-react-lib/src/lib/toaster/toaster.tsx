@@ -34,17 +34,17 @@ export function PtgUiToaster({
 }: Readonly<ToasterProps>) {
 	const [showToast, setShowToast] = useState(show);
 	useEffect(() => {
-		setShowToast(show);
-		if (show) {
-			const timer = setTimeout(() => {
-				setShowToast(false);
-				setShow(false);
-			}, timeToShow);
+	setShowToast(show);
+	if (show) {
+		const timer = setTimeout(() => {
+			setShowToast(false);
+			setShow(false);
+		}, timeToShow);
 
-			return () => clearTimeout(timer);
-		}
-		return () => {};
-	}, [show, setShow]);
+		return () => clearTimeout(timer);
+	}
+	return undefined;
+}, [show, setShow, timeToShow]);
 
 	return (
 		<div className="custom-toast-container" style={{ alignItems: alignItem, justifyContent: justifyContent }}>

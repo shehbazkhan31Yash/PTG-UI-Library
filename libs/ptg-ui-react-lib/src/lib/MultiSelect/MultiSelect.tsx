@@ -9,19 +9,24 @@
 import React from 'react';
 import './MultiSelect.scss';
 
+export interface ListItem {
+    value: string | number;
+    label: string;
+}
+
 export interface PtgUiMultiSelectProps {
-	name?: string;
-	list?: any;
-	onSelect?: any;
-	selectedOption?: string;
-	singleSelect?: boolean;
-	className?: string;
-	placeholder?: string;
-	width?: string;
-	multiSelectOptions?: any;
-	dropdownOpen?: boolean;
-	toggleDropdown?: any;
-	removeItem?: any;
+    name?: string;
+    list?: ListItem[]; 
+    onSelect?: (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void; 
+    selectedOption?: string;
+    singleSelect?: boolean;
+    className?: string;
+    placeholder?: string;
+    width?: string;
+    multiSelectOptions?: (string | number)[]; 
+    dropdownOpen?: boolean;
+    toggleDropdown?: () => void; 
+    removeItem?: (item: string | number) => void; 
 }
 
 export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
@@ -43,10 +48,11 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 			singleSelect,
 			removeItem,
 			placeholder,
-		}: any = this.props;
+			className,
+		} = this.props;
 
 		return (
-			<>
+			<div>
 				{singleSelect ? (
 					<form>
 						<select
@@ -68,29 +74,37 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 						</select>
 					</form>
 				) : (
-					<div>
-							<div onClick={toggleDropdown} className="select-btn" style={{ width: width }}>
-								{multiSelectOptions?.length > 0
+					<div className={className}>
+							<button onClick={toggleDropdown} className="select-btn" style={{ width: width }}>
+								{multiSelectOptions && multiSelectOptions.length > 0
 									? multiSelectOptions?.map((selected) => (
 											<span className="item-content" key={`index-${selected}`}>
 												<span className="selected-item">{selected}</span>
-												<span
+												<button
+													type="button"
 													className="remove-item"
 													onClick={(e) => {
 														e.stopPropagation();
-														removeItem(selected);
+														removeItem?.(selected);
 													}}
+													onKeyDown={(e) => {
+														if (e.key === 'Enter' || e.key === ' ') {
+															e.preventDefault();
+															removeItem?.(selected);
+														}
+													}}
+													aria-label={`Remove ${selected}`}
 												>
 													x
-												</span>
+												</button>
 											</span>
 									  ))
 									: placeholder}
 								<span></span>
-							</div>
+							</button>
 							{dropdownOpen && (
 								<div className="items" style={{ width: width }}>
-										{list.map((option) => (
+										{(list ?? []).map((option) => (
 											<div key={option.value}>
 												<label>
 													<input
@@ -108,7 +122,7 @@ export class PtgUiSelectbox extends React.Component<PtgUiMultiSelectProps> {
 							)}
 						</div>
 				)}
-			</>
+			</div>
 		);
 	}
 }

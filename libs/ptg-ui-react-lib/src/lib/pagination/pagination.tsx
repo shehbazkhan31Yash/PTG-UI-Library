@@ -73,7 +73,8 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 	const paginationRange = PaginationRange();
 
 	return (
-		<ul className="pagination justify-content-center mt-3" role="nav" aria-label="Pagination">
+		<nav aria-label="Pagination">
+			<ul className="pagination justify-content-center mt-3">
 			<li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
 				<button className="page-link" onClick={previousPage} disabled={currentPage === 1} aria-label="Previous Page">
 					{previousBtnText}
@@ -82,7 +83,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 			{paginationRange?.map((num, index) => {
 				if (num === DOTS) {
 					return (
-						<li className="pagination-item dots" key={`dots-${index}`}>
+						<li className="pagination-item dots" key={`dots-${num}-${index}`}>
 							<span className="page-link" aria-hidden="true">
 								&#8230;
 							</span>
@@ -117,6 +118,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 					{nextBtnText}
 				</button>
 			</li>
-		</ul>
+			</ul>
+		</nav>
 	);
 };

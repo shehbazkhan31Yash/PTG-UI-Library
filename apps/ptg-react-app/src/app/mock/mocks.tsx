@@ -335,7 +335,7 @@ export const highchartsColumnData: any = {
 };
 
 export const highchartsPieData = {
-  title: 'My charts',
+  title: { text: 'My charts'},
   data: [
     {
       name: 'Chrome',
