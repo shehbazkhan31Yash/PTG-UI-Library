@@ -28,7 +28,7 @@
     "build:ng-stencil": "nx build ptg-ui-web-components --verbose",
     "test": "nx test",
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
-    "start:ng-storybook:": "nx storybook ptg-ui-angular-lib",
+    "start:ng-storybook": "nx storybook ptg-ui-angular-lib",
     "build:react-storybook": "nx build-storybook ptg-ui-react-lib",
     "start:react-storybook": "nx storybook ptg-ui-react-lib",
     "scss": "libs/ptg-ui-react-lib/src/lib/styles/index.scss -o libs/ptg-ui-react-lib/src/lib/styles/index.css",
