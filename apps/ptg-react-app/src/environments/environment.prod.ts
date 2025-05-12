@@ -16,4 +16,6 @@ export const environment = {
   okta_scopes: ['openid', 'profile', 'email'],
   okta_domain: 'dev-mgbwsj7nuk623uv6.us.auth0.com',
   okta_logout_url: 'https://yash-ui-apps.azurewebsites.net',
+  baseName: '/ptg-react-app'
+
 };

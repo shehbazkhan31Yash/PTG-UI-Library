@@ -18,6 +18,7 @@ export const BUTTON_VARIANT = {
 
 export const WIDTH_110 = '110px';
 export const FONT_SIZE_12 = '12px';
+export const FONT_SIZE_10 = '10px';
 export const WIDTH_60 = '60px';
 export const WIDTH_200 = '200px';
 export const BUTTON_BACKGROUND_COLOR = '#052982';

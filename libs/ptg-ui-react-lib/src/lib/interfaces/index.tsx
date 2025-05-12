@@ -189,6 +189,17 @@ export interface PtgUiTextAreaProps {
 	onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
+//Avatar
+export interface PtgUiCustomAvatarProps {
+	alt?: string;
+	src?: string;
+	size?: number;
+	backgroundColor?: string;
+	textColor?: string;
+	children?: React.ReactNode;
+	variant?: 'square' | 'rounded' | 'circle';
+}
+
 //Toaster
 export interface ToasterProps {
 	show: boolean;
@@ -268,6 +279,14 @@ export interface PtgUiLoginProps {
 	getForgetEmail?: (email: string) => void;
 	errorMessage?: string;
 	successMessage?: string;
+}
+
+export interface ICardItems {
+	id: number;
+	image: string;
+	title: string;
+	content: string;
+	button: string;
 }
 
 export interface IUserSignup {
@@ -557,4 +576,24 @@ export interface TableProps {
 	data: any[];
 	stickyHeader?: boolean; // Option to make the header sticky
 	alternateRowColor?: boolean; // Option to enable alternate row colors
+}
+
+interface Option {
+	value: string;
+	label: string;
+}
+
+export interface PtgUiMultiSelectProps {
+	name?: string;
+	list?: Option[];
+	onSelect?: (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+	selectedOption?: string;
+	singleSelect?: boolean;
+	className?: string;
+	placeholder?: string;
+	width?: string;
+	multiSelectOptions?: string[];
+	dropdownOpen?: boolean;
+	toggleDropdown?: () => void;
+	removeItem?: (item: string) => void;
 }

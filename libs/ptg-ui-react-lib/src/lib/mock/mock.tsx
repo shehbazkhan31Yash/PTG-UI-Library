@@ -28,6 +28,58 @@ export const CARD_LIST = [
 	{ id: '3', value: 'Rupay Card', label: 'Rupay Card', name: 'card' },
 ];
 
+export const CARD_ITEMS = [
+	{
+	  id: 1,
+	  image: 'https://picsum.photos/id/5/5000/3334',
+	  title: 'Card title',
+	  content:
+		"Some quick example text to build on the card title and make up the bulk of the card's content.",
+	  button: 'Go somewhere',
+	},
+	{
+	  id: 2,
+	  image: 'https://picsum.photos/id/431/5000/3334',
+	  title: 'Card title',
+	  content:
+		"Some quick example text to build on the card title and make up the bulk of the card's content.",
+	  button: 'Go somewhere',
+	},
+	{
+	  id: 3,
+	  image: 'https://picsum.photos/id/5/5000/3334',
+	  title: 'Card title',
+	  content:
+		"Some quick example text to build on the card title and make up the bulk of the card's content.",
+	  button: 'Go somewhere',
+	},
+	{
+	  id: 4,
+	  image: 'https://picsum.photos/id/431/5000/3334',
+	  title: 'Card title',
+	  content:
+		"Some quick example text to build on the card title and make up the bulk of the card's content.",
+	  button: 'Go somewhere',
+	},
+	{
+		id: 5,
+		image: 'https://picsum.photos/id/431/5000/3334',
+		title: 'Card title',
+		content:
+		  "Some quick example text to build on the card title and make up the bulk of the card's content.",
+		button: 'Go somewhere',
+	  },
+	  {
+		id: 6,
+		image: 'https://picsum.photos/id/5/5000/3334',
+		title: 'Card title',
+		content:
+		  "Some quick example text to build on the card title and make up the bulk of the card's content.",
+		button: 'Go somewhere',
+	  },
+	 
+  ];
+
   export const appBarParagaraph = `
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 	pretium rutrum urna at imperdiet. Sed sodales aliquet nulla, et
