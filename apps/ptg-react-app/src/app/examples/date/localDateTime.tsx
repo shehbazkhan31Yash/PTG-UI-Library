@@ -5,18 +5,36 @@ import { PtgUiSelectbox } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import { ITimeZoneProps } from '../../interfaces';
-import { LOCAL_TIME, MMMM_D_YYYY_H_MM_AA, TIME_ZONE_LABEL_LONDON, TIME_ZONE_LABEL_NEW_YORK, TIME_ZONE_LONDON, TIME_ZONE_NEW_YORK, YYYY_MM_DD_HH_MM } from '../../constants/Constant';
+import {
+  LOCAL_TIME,
+  MMMM_D_YYYY_H_MM_AA,
+  TIME_ZONE_LABEL_LONDON,
+  TIME_ZONE_LABEL_NEW_YORK,
+  TIME_ZONE_LONDON,
+  TIME_ZONE_NEW_YORK,
+  YYYY_MM_DD_HH_MM,
+} from '../../constants/Constant';
 
 export const timeZoneList = [
-  { value: TIME_ZONE_NEW_YORK, label: TIME_ZONE_LABEL_NEW_YORK, name: TIME_ZONE_NEW_YORK },
-  { value: TIME_ZONE_LONDON, label: TIME_ZONE_LABEL_LONDON, name: TIME_ZONE_LONDON },
+  {
+    value: TIME_ZONE_NEW_YORK,
+    label: TIME_ZONE_LABEL_NEW_YORK,
+    name: TIME_ZONE_NEW_YORK,
+  },
+  {
+    value: TIME_ZONE_LONDON,
+    label: TIME_ZONE_LABEL_LONDON,
+    name: TIME_ZONE_LONDON,
+  },
 ];
 const LocalDatetime = (props: ITimeZoneProps) => {
   const { showCodeLocalDate } = props;
-  const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null | undefined>(
+    new Date()
+  );
   const [timeZone, setTimeZone] = useState('');
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
-  Date | null | undefined
+    Date | null | undefined
   >(new Date());
   const { t } = useTranslation();
   //handle convert tine
@@ -28,21 +46,29 @@ const LocalDatetime = (props: ITimeZoneProps) => {
     const newDate = new Date(date.toLocaleString(locale, options));
     return newDate;
   };
-  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimeZone(event.target.value);
+  const onSelect = (
+    event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
+    if (event.target instanceof HTMLSelectElement) {
+      setTimeZone(event.target.value);
+    }
   };
   //Note: get datepicker formate from new Date()
-const splitDate = (dateStr: Date | null | undefined) => {
-    if(!dateStr){
-     return ""
+  const splitDate = (dateStr: Date | null | undefined) => {
+    if (!dateStr) {
+      return '';
     }
-    return new Date(dateStr).toISOString().split(":")[0]+":"+new Date().toISOString().split(":")[1]
-  }
-  const handleTime = (e:Date|string) => {
+    return (
+      new Date(dateStr).toISOString().split(':')[0] +
+      ':' +
+      new Date().toISOString().split(':')[1]
+    );
+  };
+  const handleTime = (e: Date | string) => {
     let datePart = convertDateTime(new Date(e));
     datePart = new Date(moment(datePart).format(YYYY_MM_DD_HH_MM));
     setDateTimeToOtherLocale(datePart);
-  }
+  };
 
   const startDateProp = {
     selected: splitDate(selectedDate),

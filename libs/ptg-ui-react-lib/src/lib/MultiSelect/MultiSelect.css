@@ -2,6 +2,7 @@
 	padding: 5px;
 	border-radius: 5px;
 }
+
 .item-content {
 	display: flex;
 	align-items: center;
@@ -12,6 +13,7 @@
 	margin: 2px 2px;
 	color: #ffffff;
 }
+
 .select-btn {
 	padding: 4px;
 	cursor: pointer;
@@ -20,6 +22,7 @@
 	flex-wrap: wrap;
 	border: 1px solid #000;
 }
+
 .remove-item {
 	padding: 0px 4px;
 	margin: 0px 5px;
@@ -28,14 +31,17 @@
 	font-size: 7px;
 	text-align: center;
 }
+
 .selected-item {
 	font-size: 12px;
 }
+
 .items {
 	border: 1px solid #ccc;
 	padding: 10px;
 	border-radius: 5px;
 }
+
 .checkboxs {
 	margin-right: 6px;
 }
