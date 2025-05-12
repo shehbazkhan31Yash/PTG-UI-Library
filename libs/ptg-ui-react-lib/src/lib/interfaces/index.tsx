@@ -573,7 +573,7 @@ interface Column {
 
 export interface TableProps {
 	columns: Column[];
-	data: any[];
+	data: Record<string, unknown>[];
 	stickyHeader?: boolean; // Option to make the header sticky
 	alternateRowColor?: boolean; // Option to enable alternate row colors
 }

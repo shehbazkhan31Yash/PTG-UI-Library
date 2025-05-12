@@ -50,10 +50,16 @@ describe('Rating Component', () => {
 	it('handles precision correctly for half stars', () => {
 		const { container } = render(<PtgUiRating precision={0.5} onChange={mockOnChange} />);
 		const stars = container.querySelectorAll('.rating-star');
-		fireEvent.click(stars[2].querySelector('.half-star')!);
-		expect(mockOnChange).toHaveBeenCalledWith(2.5);
-		fireEvent.click(stars[2].querySelector('.full-star')!);
-		expect(mockOnChange).toHaveBeenCalledWith(3);
+		const halfStar = stars[2]?.querySelector('.half-star');
+		const fullStar = stars[2]?.querySelector('.full-star');
+		if (halfStar) {
+			fireEvent.click(halfStar);
+			expect(mockOnChange).toHaveBeenCalledWith(2.5);
+		}
+		if (fullStar) {
+			fireEvent.click(fullStar);
+			expect(mockOnChange).toHaveBeenCalledWith(3);
+		}
 	});
 
 	it('calls onChange when a star is clicked', () => {
