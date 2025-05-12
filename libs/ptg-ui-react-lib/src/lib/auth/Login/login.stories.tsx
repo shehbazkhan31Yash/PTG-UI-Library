@@ -154,7 +154,7 @@ FilledLogin.args = {
 };
 
 // Login form with Okta option
-export const WithOktaOption = Template.bind({});
+export const  WithOktaOption = Template.bind({});
 WithOktaOption.args = {
   ...DefaultLogin.args,
   oktaButtonName: 'Sign in with Okta',
