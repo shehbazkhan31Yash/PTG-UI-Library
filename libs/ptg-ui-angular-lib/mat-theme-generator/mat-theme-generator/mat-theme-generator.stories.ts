@@ -1,23 +1,45 @@
-import { Meta, Story ,moduleMetadata} from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { MatThemeGeneratorComponent } from './mat-theme-generator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { MatThemeService } from './mat-theme-services/mat-theme.service';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
-export default {
-  title: 'Components/MatThemeGenerator',
+const meta: Meta<MatThemeGeneratorComponent> = {
+  title: 'Component/MatThemeGenerator',
   component: MatThemeGeneratorComponent,
   decorators: [
     moduleMetadata({
-      imports: [ReactiveFormsModule, MatDialogModule],
+      imports: [
+        ReactiveFormsModule,
+        MatDialogModule,
+        HttpClientModule
+      ],
+      providers: [
+        MatThemeService,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}), 
+            queryParams: of({}), 
+            snapshot: {
+              paramMap: {
+                get: () => null
+              }
+            }
+          }
+        }
+      ],
     }),
   ],
-} as Meta;
+};
 
-const Template: Story<MatThemeGeneratorComponent> = (args: MatThemeGeneratorComponent) => ({
-  component: MatThemeGeneratorComponent,
-  props: args,
-});
+export default meta;
+type Story = StoryObj<MatThemeGeneratorComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {
+  args: {},
 };

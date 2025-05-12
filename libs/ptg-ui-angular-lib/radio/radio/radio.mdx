@@ -1,0 +1,49 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+
+import RadioComponent from './radio.component';
+
+import * as RadioStories from './radio.stories';
+
+<Meta of={RadioStories} />
+# Radio Component
+
+---
+
+Radio component are used when a list of two or more options are mutually exclusive, meaning the user must select only one.
+
+We can import the radio tag using the following importation :
+
+```
+    import { RadioComponent } from ' @ptg-ui/angular'
+```
+
+Types of controls supported by Radio:
+
+- id
+- item
+
+## Quick Start
+
+we can create a radio using the following HTML Tag:
+
+```
+<ptg-ui-radio id="ptg-radio" [items]="items"></ptg-ui-radio>
+
+```
+
+Following are some controls with their explanation :
+
+1] id :
+
+The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages to access and manipulate the element with the specific id.
+
+The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
+
+2] items :
+
+We can use it to change the properties of radio button. For ex. if we want to change the name of radio button we can access or change it as items.name.
+
+<Canvas of={RadioStories.Primary} />

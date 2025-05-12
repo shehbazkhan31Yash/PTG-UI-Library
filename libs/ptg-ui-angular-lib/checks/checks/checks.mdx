@@ -1,0 +1,55 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+
+import ChecksComponent from './checks.component';
+import * as ChecksStories from './checks.stories';
+
+<Meta of={ChecksStories} />
+
+
+
+
+
+ # Check Component
+
+ ---
+ The `<input type="checkbox">` defines a checkbox.
+
+The checkbox is shown as a square box that is ticked (checked) when activated.
+
+Checkboxes are used to let a user select one or more options of a limited number of choices.
+
+
+We can import the Checkbox tag using the following importation : 
+
+```
+    import { ChecksComponent } from ' @ptg-ui/angular'
+
+```    
+
+ ## Quick Start
+ 
+ we can create a checkBox using the following HTML Tag: 
+
+
+```
+
+<input #check [checked]="isChecked" class="form-check-input" type="checkbox" (change)="onCheck()" (blur)="onBlur()"
+    [(ngModel)]="isChecked" [id]="randomId">
+  <label class="form-check-label" [for]="randomId">
+    {{label}}
+  </label>
+
+ ``` 
+
+Following control is supported by Checkbox: 
+
+label : 
+
+Screen reader users (will read out loud the label, when the user is focused on the element).
+
+Users who have difficulty clicking on very small regions (such as checkboxes) - because when a user clicks the text within the `<label>` element, it toggles the input (this increases the hit area). 
+
+
+
+<Canvas of={ChecksStories.Label} />

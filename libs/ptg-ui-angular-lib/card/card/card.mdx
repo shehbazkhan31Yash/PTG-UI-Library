@@ -1,0 +1,84 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import { CardComponent } from './card.component';
+import * as CardStories from './card.stories';
+
+<Meta of={CardStories} />
+
+
+
+# Card Component
+
+---
+
+A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+
+We can import the button tag using the following importation :
+
+```
+    import { CardModule } from '@ptg-ui/angular/card'
+```
+
+Types of controls supported by card:
+
+- title
+- content
+- footer
+- src
+- cardClass
+- cardHeaderClass
+- cardBodyClass
+- cardFooterClass
+- Kitchen Sink
+
+## Quick Start
+
+we can create a card using the following HTML Tag:
+
+```
+<ptg-ui-card [cardObj]="cardObj">
+          </ptg-ui-card>
+
+```
+
+Following are some controls with their explanation :
+
+1] title , subtitle ,content:
+
+The title , subtite and content are title ,subtitle and description of card respectively.
+
+A] title : <Canvas of={CardStories.Primary} />  
+B] subtitle : <Canvas of={CardStories.Subtitle} />
+
+2] Image :
+
+To show image for the card user need to pass src of the image :
+
+<Canvas of={CardStories.Image} />
+
+3] Footer :
+
+Add footer within a card.
+
+<Canvas of={CardStories.Footer} />
+
+4] Classes :
+
+User can pass classes to card, header,body and footer in the card.
+
+<Canvas of={CardStories.Classes} />
+
+5] Kitchen Sink :
+Mix and match multiple content types to create the card you need, or throw everything in there.
+For example user can write multiple button within card using their own html.
+
+```
+<ptg-ui-card [cardObj]="cardObj">
+ <ul class="list-group list-group-flush">
+   <li class="list-group-item">An item</li>
+   <li class="list-group-item">A second item</li>
+   <li class="list-group-item">A third item</li>
+ </ul>
+ </ptg-ui-card>
+
+```

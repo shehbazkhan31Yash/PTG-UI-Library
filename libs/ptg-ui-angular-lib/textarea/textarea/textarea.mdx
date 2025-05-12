@@ -1,0 +1,97 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import TextareaComponent from './textarea.component';
+
+import * as TextareaStories from './textarea.stories';
+
+<Meta of={TextareaStories} />
+
+ # Textarea Component
+
+ ---
+
+The `<textarea>` tag defines a multi-line text input control.
+
+The `<textarea>` element is often used in a form, to collect user inputs like comments or reviews.
+
+A text area can hold an unlimited number of characters, and the text renders in a fixed-width font (usually Courier).
+
+
+We can import the textarea tag using the following importation : 
+
+```
+    import { TextareaComponent } from ' @ptg-ui/angular'
+```    
+
+
+ ## Quick Start
+ 
+ we can create a textarea using the following HTML Tag: 
+
+
+```
+
+<textarea #textarea 
+[placeholder]="placeholder"
+[class]="className"
+[id]="id"
+[(ngModel)]="textareaValue"
+[value]="value"
+[attr.aria-placeholder] = "aria_placeholder"
+(input)="onchangeInput($event.target)"
+(blur)="onBlur()"></textarea>
+
+```
+
+
+ Following a are some controls with their values :
+
+ 1] placeholder :
+
+The placeholder attribute specifies a short hint that describes the expected value of an input field (e.g. a sample value or a short description of the expected format).
+
+The short hint is displayed in the input field before the user enters a value.
+
+Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
+
+<Canvas of={TextareaStories.Placeholder} />
+
+
+ 2] id : 
+
+
+The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by JavaScript to access and manipulate the element with the specific id.
+
+The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
+
+
+<Canvas of={TextareaStories.Id} />
+
+
+ 3] class :
+
+The HTML class attribute is used to specify a class for an HTML element.
+
+The class attribute is often used to point to a class name in a style sheet. It can also be used by a JavaScript to access and manipulate elements with the specific class name.
+
+Multiple HTML elements can share the same class.
+
+<Canvas of={TextareaStories.ClassName} />
+
+
+
+4]  value :
+
+
+The value attribute specifies the value of an  element.
+
+The value attribute is used differently for different input types:
+
+For "button", "reset", and "submit" - it defines the text on the button
+For "text", "password", and "hidden" - it defines the initial (default) value of the input field
+For "checkbox", "radio", "image" - it defines the value associated with the input (this is also the value that is sent on submit)
+
+
+<Canvas of={TextareaStories.Value} />

@@ -1,0 +1,105 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import LineChartComponent from './line-chart.component';
+
+import * as LineChartStories from './line-chart.stories';
+
+<Meta of={LineChartStories} />
+
+
+ # LineChart Component
+
+ ---
+This chart is created using the D3 charts library. 
+
+Of the available libraries, D3.js is one of the most popular. It allows you to create data visualizations by manipulating the DOM based on dynamic data.
+
+A line graph is a graphical representation of information that changes over a period of time.
+
+You can plot it by using several points linked by straight lines. It comprises two axes called the “x-axis” and the “y-axis“.
+
+
+We can import the LineChart  using the following importation : 
+```
+    import { LineChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+
+ Types of controls supported by barChart:
+
+ - height
+ - width
+ - margin
+ - color
+
+## Quick Start
+
+we can create a linechart using the following HTML Tag: 
+
+```
+<ptg-ui-line-chart
+  [data]="data"
+  [margin]="margin"
+  [width]="860"
+  [height]="400"
+  [color]="red"
+></ptg-ui-line-chart>
+
+```
+
+
+
+Following are some controls with their explanation :
+
+1] height :
+
+height control sets the Chart height to any given value in Pixels.
+
+If the height is not set for the chart container, it takes the default height.
+
+ <Canvas of={LineChartStories.Height} />
+
+
+2] width : 
+
+width control sets the Chart width to any given value in Pixels.
+
+If the Width is not set for the chart container, it takes the default width.
+ 
+ <Canvas of={LineChartStories.Width} />
+
+3] margin :
+
+Margin controls sets the chart margin from all section.
+
+If the Margin is not set for the chart container, it takes the default Margin.
+
+ <Canvas of={LineChartStories.Primary} />
+
+4] color :
+
+color controls sets the chart color.
+
+If the color is not set for the chart container, it takes the default color.
+
+Color attribute can be hexcode, color code etc.
+
+ <Canvas of={LineChartStories.Primary} />
+
+5] id: 
+Id controls sets the multiple chart on all section.
+
+If the id is not set for the chart container, it takes the default id.
+
+ <Canvas of={LineChartStories.Primary} />
+
+6] coordinateDataTypes:
+
+coordinateDataTypes controls sets the chart x & y co-ordinate type wheather it's number or date.
+
+If the coordinateDataTypes is not set for the chart container, it takes the default coordinateDataTypes.
+
+ <Canvas of={LineChartStories.Primary} />
+
+
