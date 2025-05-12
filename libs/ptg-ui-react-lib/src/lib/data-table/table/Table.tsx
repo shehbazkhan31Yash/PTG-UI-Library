@@ -136,7 +136,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 
 								return (
 									<th
-										key={column.accessor}
+										key={column?.accessor}
 										style={{
 											width: column.columnWidth ?? 'auto',
 										}}
@@ -154,10 +154,9 @@ export const PtgUiTable: React.FC<TableProps> = ({
 					<tbody>
 						{sortedData.length ? (
 							sortedData.map((row, rowIndex) => (
-								<tr key={row['id'] as React.Key} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>
-									{columns?.map((column) => (
+                           <tr key={row['id'] ? String(row['id']) : `row-${rowIndex}`} className={alternateRowColor && rowIndex % 2 === 0 ? 'alternate-row' : ''}>									{columns?.map((column) => (
 										<td
-											key={column.accessor}
+											key={column?.accessor}
 											style={{
 												width: column.columnWidth ?? 'auto',
 											}}
@@ -169,7 +168,7 @@ export const PtgUiTable: React.FC<TableProps> = ({
 							))
 						) : (
 							<tr>
-								<td colSpan={columns?.length} className="no-data">
+								<td colSpan={columns?.length ?? 1} className="no-data">
 									No data available
 								</td>
 							</tr>
