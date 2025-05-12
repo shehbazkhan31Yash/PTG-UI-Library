@@ -1,0 +1,64 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import {BreadcrumbsComponent} from './breadcrumbs.component';
+
+import * as BreadcrumbsStories from './breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+
+
+ # Breadcrumbs
+ 
+ Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.
+
+ We can import the breadcrumbs tag using the following importation : 
+
+```
+    import { BreadcrumbsModule } from '@ptg-ui/angular/breadcrumbs'
+```    
+
+ Types of controls supported by button:
+
+ - data
+ - dividers
+
+
+
+
+ ## Quick Start
+ 
+ we can create a breadcrumbs using the following HTML Tag: 
+
+
+```
+<ptg-ui-breadcrumbs [data]="data" [dividers]=">"></ptg-ui-breadcrumbs>
+
+```
+
+
+ Following are some controls with their explanation :
+
+ 1] data :
+
+ The data is object of parent child relationship that carries uRL and child values.
+```
+ {
+    "name": "Home",
+    "url": "home",
+    "child": {
+      "name": "Category",
+      "url": "/category",
+      "child": {
+        "name": "Alert"
+      }
+    }
+  };
+
+```
+<Canvas of={BreadcrumbsStories.Primary} />
+
+ 2] dividers : 
+
+ User can coustomize dividers of breadcrumbs by passing any string
+ <Canvas of={BreadcrumbsStories.Divider} />

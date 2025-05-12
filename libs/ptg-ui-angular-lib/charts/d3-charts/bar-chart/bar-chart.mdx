@@ -1,0 +1,102 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import BarChartComponent from './bar-chart.component';
+
+import * as BarChartStories from './bar-chart.stories';
+
+<Meta of={BarChartStories} />
+ # BarChart Component
+
+ ---
+This chart is created using the D3 charts library. 
+
+Of the available libraries, D3.js is one of the most popular. It allows you to create data visualizations by manipulating the DOM based on dynamic data.
+
+Bar Chart is the most common chart type that is used to compare different categories of data like frequency, count, total, or average displayed in vertical bars. 
+
+ We can import the BarChart  using the following importation : 
+```
+    import { BarChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+
+ Types of controls supported by barChart:
+
+ - height
+ - width
+ - margin
+ - start
+ - end
+ - id
+
+## Quick Start
+
+we can create a barchart using the following HTML Tag: 
+
+```
+<ptg-ui-bar-chart
+  [data]="data"
+  [margin]="50"
+  [width]="550"
+  [height]="330"
+  [start]="0"
+  [end]="160000"
+></ptg-ui-bar-chart>
+
+```
+
+
+
+
+Following are some controls with their explanation :
+
+1] height :
+
+height control sets the Chart height to any given value in Pixels.
+
+If the height is not set for the chart container, it takes the default height.
+
+<Canvas of={BarChartStories.Height} />
+
+
+2] width : 
+
+width control sets the Chart width to any given value in Pixels.
+
+If the Width is not set for the chart container, it takes the default width.
+
+<Canvas of={BarChartStories.Width} />
+
+
+3] margin : 
+
+The  margin conteol is used to create space around elements, outside of any defined borders.
+
+<Canvas of={BarChartStories.Margin} />
+
+
+
+4] start : 
+
+Start control is used to set the starting point of y-axis.
+
+we can change the starting point of y-axis using the start control.
+
+<Canvas of={BarChartStories.Start} />
+
+
+5] end :
+
+end control is used to set the ending point of y-axis.
+
+we can change the ending point of y-axis using the end control.
+
+<Canvas of={BarChartStories.End} />
+
+6] id: 
+Id controls sets the multiple chart on all section.
+
+If the id is not set for the chart container, it takes the default id.
+
+<Canvas of={BarChartStories.Primary} />
