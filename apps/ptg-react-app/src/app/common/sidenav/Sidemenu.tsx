@@ -224,6 +224,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/tooltip',
+    icon: 'fa-solid fa-question-circle',
+    label: 'TOOLTIP',
+    disabled: false,
+  },
+  {
     path: '/webAccessibility',
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',

@@ -87,6 +87,7 @@ const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
+const Tooltip = lazy(() => import('../examples/tooltip/tooltip'));
 const ChatbotFullScreen = lazy(
   () => import('../examples/chatbot/ChatbotFullScreen')
 );
@@ -249,6 +250,10 @@ const routing = [
   {
     path: '/loader',
     component: Loader,
+  },
+   {
+    path: '/tooltip',
+    component: Tooltip,
   },
   {
     path: '/aichatbot-yash',

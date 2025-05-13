@@ -577,3 +577,11 @@ export interface TableProps {
 	stickyHeader?: boolean; // Option to make the header sticky
 	alternateRowColor?: boolean; // Option to enable alternate row colors
 }
+
+export interface PtgUiTooltipProps {
+	content: string;
+	children: React.ReactNode;
+	placement?: 'top' | 'bottom' | 'left' | 'right';
+	className: ""
+
+}
