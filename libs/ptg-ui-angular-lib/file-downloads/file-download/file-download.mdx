@@ -1,0 +1,35 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+
+import FileDownloadComponent from './file-download.component';
+
+import * as FileDownloadStories from './file-download.stories';
+
+<Meta of={FileDownloadStories} />
+
+# File-Download Component
+
+---
+
+The File-Download component allows you to quickly download the file and stored on your local machine.
+
+We need to select the file type from dropdown.
+
+There are 4 types of formats are available in the dropdown such as PDF , Excel , Word and PNG.
+
+Once we click on download button file will be downloaded in your local machine.
+
+```
+    import { FileDownloadComponent } from ' @ptg-ui/angular'
+```    
+
+## Quick Start
+ 
+we can create a fileDownloadComponent using the following HTML Tag: 
+
+```
+<ptg-ui-file-download [tableData]="tableData"></ptg-ui-file-download>
+
+```
+
+

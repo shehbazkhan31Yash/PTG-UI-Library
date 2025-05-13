@@ -1,0 +1,31 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+import { MatThemeGeneratorComponent } from './mat-theme-generator.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import * as MatThemeGeneratorStories from './mat-theme-generator.stories';
+
+<Meta of={MatThemeGeneratorStories} />
+
+# MatThemeGenerator Component
+
+This component allows users to generate and save theme colors.
+
+We can import the Theme tag using the following importation :
+
+```
+    import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator'
+```
+## Quick Start
+
+we can create a theme-generator using the following HTML Tag:
+
+```
+  <ptg-ui-mat-theme-generator></ptg-ui-mat-theme-generator>`;
+
+
+```
+
+To view demo of theme-generator :
+
+<Canvas of={MatThemeGeneratorStories.Primary} />
+

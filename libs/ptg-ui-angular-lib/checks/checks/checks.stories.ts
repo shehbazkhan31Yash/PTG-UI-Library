@@ -1,7 +1,9 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { ChecksComponent } from './checks.component';
 
-export default {
+const meta: Meta<ChecksComponent> = {
   title: 'Component/ChecksComponent',
   component: ChecksComponent,
   decorators: [
@@ -9,14 +11,14 @@ export default {
       imports: [],
     }),
   ],
-} as Meta<ChecksComponent>;
+};
 
-const Template: Story<ChecksComponent> = (args: ChecksComponent) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<ChecksComponent>;
 
-export const Label = Template.bind({});
-Label.args = {
-  label: '',
-  // accessKey: '',
+export const Label: Story = {
+  args: {
+    label: '',
+    // accessKey: '',
+  },
 };

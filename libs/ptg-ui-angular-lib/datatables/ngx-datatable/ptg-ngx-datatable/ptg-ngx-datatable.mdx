@@ -1,0 +1,189 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import {PtgNgxDatatableComponent} from './ptg-ngx-datatable.component';
+
+import * as PtgNgxDatatableStories from './ptg-ngx-datatable.stories';
+
+<Meta of={PtgNgxDatatableStories} />
+
+
+ # PtgNgxDatatable Component
+
+ ---
+
+ngx-datatable is a fully-featured and highly customizable data grid.
+
+ngx-datatable is a Angular component for presenting large and complex data.
+It has all the features you would expect from any other table but in a light package with no external dependencies. The table was designed to be extremely flexible and light; it doesn't make any assumptions about your data or how you: filter, sort or page it.
+
+
+```
+    import { PtgNgxDatatableComponent } from ' @ptg-ui/angular'
+```    
+
+
+ Types of controls supported by datatable:
+
+ - scrollbarV
+ - scrollbarH
+ - HeaderHeight
+ - footerHeight
+ - rowHeight
+ - loaderShowWhen
+ - limit
+ - externalSorting
+ - rowClass
+ - showFiter
+ - showActionButton   
+ - actionButtonLabel
+ - actionButtonHeaderLabel
+
+
+ ## Quick Start
+ 
+
+we can create a datatable using the following HTML Tag: 
+
+```
+
+<ptg-ui-ptg-ngx-datatable
+  [scrollbarV]="false"
+  [scrollbarH]="false"
+  [headerHeight]="50"
+  [footerHeight]="100"
+  [rows]="rows"
+  [columns]="columns"
+  rowHeight="auto"
+  [loaderShowWhen]="false"
+  [limit]="2"
+  [externalSorting]="false"
+  rowClass=""
+  [showFiter]="true"
+  [selected]="selected"
+  [showActionButton]="false"
+  actionButtonLabel="Click Here"
+  actionButtonHeaderLabel="Action"
+></ptg-ui-ptg-ngx-datatable>
+
+
+```
+
+
+Following are some controls with their explanation :
+
+ 1] scrollbarV : 
+ 
+ The scrollbarV attribute hide or unhide the vertical scrollbar based on their boolean value.
+
+ true - The vertical scrollbar is hide
+
+ false - The vertical scrollbar is not unhide.
+
+<Canvas of={PtgNgxDatatableStories.scrollbarV} />
+
+
+  2] scrollbarH : 
+
+  The scrollbarH attribute hide or unhide the horizontal scrollbar based on their boolean value.
+
+  true - The horizontal scrollbar is unhide
+
+  false - The horizontal scrollbar is not hide.
+
+ <Canvas of={PtgNgxDatatableStories.scrollbarH} />
+
+
+  3] headerHeight :
+
+   The headerHeight attribute sets or returns the value of the headerHeight attribute of an ptg-ui-ptg-ngx-datatable element. 
+   
+   The headerHeight attribute specifies the height of an element, in pixels.
+
+ <Canvas of={PtgNgxDatatableStories.HeaderHeight} />
+
+  
+  4] footerHeight :
+
+   The footerHeight attribute sets or returns the value of the footerHeight attribute of an ptg-ui-ptg-ngx-datatable element. 
+   
+   The footerHeight attribute specifies the height of an element, in pixels.
+
+  <Canvas of={PtgNgxDatatableStories.FooterHeight} />
+
+
+  5] rowHeight :
+
+   The rowHeight attribute sets or returns the value of the rowHeight attribute of an ptg-ui-ptg-ngx-datatable element. 
+   
+   The rowHeight attribute specifies the height of an element, in pixels.
+
+   <Canvas of={PtgNgxDatatableStories.RowHeight} />
+
+  
+  6] loaderShowWhen :
+
+   Show the linear loading bar. 
+   
+   Default value is false , loading bar is not visible.
+
+   If the value is true loading bar is visible.
+
+  <Canvas of={PtgNgxDatatableStories.LoaderShowWhen} />
+
+
+   
+   7] limit :
+
+   Limit attribute set the value for number of rows.
+
+   Default value is 2 , showing only 2 rows of data on page number 1.
+
+   If we change the value number of rows will change.
+
+ <Canvas of={PtgNgxDatatableStories.Limit} />
+
+
+
+   8] externalSorting :
+
+   The externalSorting attribute is used for the sorting the data based on their boolean value.
+
+   Default value is false , externalSorting works fine.
+
+   If we change the boolean value to false externalSorting stops the working.
+
+ <Canvas of={PtgNgxDatatableStories.ExternalSorting} />
+
+  
+   9] rowClass - 
+
+   The rowClass attribute is used to specify a className for an element.
+ 
+   The className attribute is often used to point to a class name in a style sheet. It can also be used by a other languages to access and manipulate elements with the specific class name.
+
+  <Canvas of={PtgNgxDatatableStories.RowClass} />
+
+    
+   10] showActionButton - 
+
+   The showActionButton hide or unhide the button based on their boolean value.
+
+   Default value is false , button is hide.  
+
+   If we change the boolean value to true button is visible.
+
+  <Canvas of={PtgNgxDatatableStories.ShowActionButton} />
+
+
+   11] actionButtonLabel - 
+
+   The actionButtonLabel defines a name for the button.
+
+  <Canvas of={PtgNgxDatatableStories.ActionButtonLabel} />
+
+
+   12] actionButtonHeaderLabel - 
+
+   The actionButtonHeaderLabel defines a name of the column for the button.
+
+ <Canvas of={PtgNgxDatatableStories.ActionButtonHeaderLabel} />

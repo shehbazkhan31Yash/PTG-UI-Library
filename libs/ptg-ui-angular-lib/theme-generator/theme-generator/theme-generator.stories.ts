@@ -1,9 +1,10 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { ThemeGeneratorComponent } from './theme-generator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 
-export default {
+const meta: Meta<ThemeGeneratorComponent> = {
   title: 'Component/ThemeGeneratorComponent',
   component: ThemeGeneratorComponent,
   decorators: [
@@ -11,14 +12,12 @@ export default {
       imports: [ReactiveFormsModule, MatDialogModule],
     }),
   ],
-} as Meta<ThemeGeneratorComponent>;
+};
 
-const Template: Story<ThemeGeneratorComponent> = (args: ThemeGeneratorComponent) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<ThemeGeneratorComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const Primary: Story = {
+  args: {
+  },
 };

@@ -1,0 +1,53 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import {AlertComponent} from './alert.component';
+import * as AlertStories from './alert.stories';
+
+<Meta of={AlertStories} />
+
+
+# Alert Component
+
+---
+
+The alert method displays an alert with a message .
+
+Alerts are available for any length of text, as well as an optional dismiss button.
+
+The alert method is used when you want information to come through to the user.
+
+We can import the alert using the following importation :
+
+```
+    import { AlertComponent } from ' @ptg-ui/angular'
+```
+
+Types of controls supported by button:
+
+- message
+- isDismissible
+
+## Quick Start
+
+we can create a alert using the following HTML Tag:
+
+```
+<ptg-ui-alert message="Hello" [isDismissible]="true"></ptg-ui-alert>
+
+```
+
+Following are some controls with their explanation :
+
+<Canvas of={AlertStories.Primary} />
+
+1] Message :
+
+Alert messages can be used to notify the user about something special.
+
+<Canvas of={AlertStories.Message} />
+
+2]isDismissible :
+
+The isDismissible attribute specifies whether the alert  will be dismissed when user taps on the scrim.
+
+<Canvas of={AlertStories.IsDismissible} />

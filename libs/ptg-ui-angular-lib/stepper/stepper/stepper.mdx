@@ -1,0 +1,55 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import { StepperComponent } from './stepper.component';
+
+import * as StepperStories from './stepper.stories';
+
+<Meta of={StepperStories} />
+
+# Stepper Component
+
+---
+
+Stepper provides a wizard-like workflow by dividing content into logical steps.
+There are two stepper variants: horizontal and vertical. You can switch between the two using the orientation attribute.
+
+We can import the grid layout tag using the following importation :
+
+```
+    import { StepperModule } from '@ptg-ui/angular/stepper'
+```
+
+Types of controls supported by stepper:
+
+- steps
+- formGroups
+- orientation
+
+## Quick Start
+
+we can create a stepper using the following HTML Tag:
+
+```
+<ptg-ui-stepper [steps]="stepLabels" [formGroups]="[formGroup1, formGroup2, formGroup3]" (formReset)="onReset()"
+        (formReset)="onSubmit">
+            <ng-template>Your form group1 template</ng-template>
+             <ng-template>Your form group2 template</ng-template>
+              <ng-template>Your form group3 template</ng-template></ptg-ui-stepper>
+
+```
+
+Following are some controls with their explanation :
+
+1] steps , formGroups ,orientation:
+
+ A]steps : steps is an array of string for stepLabels:
+
+stepLabels = ['Account Info', 'Personal Information', 'Payment Details'];
+
+B] formGroups :  formGroups is an array of fromgroups of each steps .
+<Canvas of={StepperStories.Primary} />
+
+c] orientation :  using orientation input user can switch between stepper varients.
+<Canvas of={StepperStories.Orientation} />
+ 
+

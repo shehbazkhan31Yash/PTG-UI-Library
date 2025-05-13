@@ -1,27 +1,24 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { HighBarChartComponent } from './high-bar-chart.component';
-import {ChartModule} from '../../../chart.module';
-import {BAR_CHART_3D} from './high-bar-chart'
+import { ChartModule } from '../../../chart.module';
+import { BAR_CHART_3D } from './high-bar-chart';
 
-export default {
+const meta: Meta<HighBarChartComponent> = {
   title: 'Component/HighBarChartComponent',
   component: HighBarChartComponent,
-  
   decorators: [
     moduleMetadata({
       imports: [ChartModule],
     }),
   ],
-} as Meta<HighBarChartComponent>;
+};
 
-const Template: Story<HighBarChartComponent> = (
-  args: HighBarChartComponent
-) => ({
-  props: args,
-});
+export default meta;
+type Story = StoryObj<HighBarChartComponent>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  data: BAR_CHART_3D.data,
-  
+export const Primary: Story = {
+  args: {
+    data: BAR_CHART_3D.data,
+  },
 };

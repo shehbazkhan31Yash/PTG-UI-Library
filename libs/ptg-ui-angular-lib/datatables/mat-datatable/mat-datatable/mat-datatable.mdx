@@ -1,0 +1,81 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import {MatDatatableComponent} from './mat-datatable.component';
+
+import * as MatDatatableStories from './mat-datatable.stories';
+
+<Meta of={MatDatatableStories} />
+
+
+ # PtgMatDatatable Component
+
+ ---
+
+The mat-table provides a Material Design styled data-table that can be used to display rows of data.
+
+This table builds on the foundation of the CDK data-table and uses a similar interface for its data input and template, except that its element and attribute selectors will be prefixed with mat- instead of cdk-.
+
+
+We can import the datatable using the following importation : 
+
+
+```
+    import { MatDatatableComponent } from ' @ptg-ui/angular'
+```    
+
+
+ Types of controls supported by button:
+
+ - emptyStateMessage
+ - totalCount
+ - limit
+ - showFiter
+
+ ## Quick Start
+ 
+ we can create a datatable using the following HTML Tag: 
+
+```
+<ptg-ui-mat-datatable
+  [data]="data"
+  [columns]="columns"
+  emptyStateMessage="No data matching the filter"
+  [totalCount]="20"
+  [limit]="10"
+  [showFiter]="false"
+></ptg-ui-mat-datatable>
+```
+
+
+ Following are some controls with their explanation :
+
+ 1] emptyStateMessage :
+
+ emptyStateMessage is shown when the table is empty of data (regardless of filtering) - i.e. there are zero records in the table.
+
+
+ <Canvas of={MatDatatableStories.EmptyStateMessage} />
+
+
+
+ 2] limit:
+
+   Limit attribute set the value for number of rows.
+
+   Default value is 10 , showing only 10 rows of data on page number 1.
+
+   If we change the value number of rows will change.
+
+    <Canvas of={MatDatatableStories.Limit} />
+
+
+ 3] showFilter - 
+    
+  showFilter attribute is used to show the search bar filter on the datatable based on their boolean value.
+    
+  Default value is false , search bar filter is not visible
+    
+  If we change the value to true search bar filter is visible.
+
+   <Canvas of={MatDatatableStories.Filter} />
+
