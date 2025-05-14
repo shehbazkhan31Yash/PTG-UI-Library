@@ -32,8 +32,9 @@
     "**/*.tsx",
     "../../apps/ptg-next-app/.next/types/**/*.ts",
     "../../dist/apps/ptg-next-app/.next/types/**/*.ts",
+    ".next/types/**/*.ts",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    "../../dist/apps/ptg-ui-apps-backend/public/ptg-next-app/.next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
