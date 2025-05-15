@@ -1,5 +1,6 @@
 import { PtgUiTooltipProps } from "@ptg-react-libs/interfaces";
 import { useRef, useState } from "react";
+import './tooltip.css';
 
 /**
  * PtgUiTextArea Component

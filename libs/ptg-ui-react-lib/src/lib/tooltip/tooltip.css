@@ -1,0 +1,42 @@
+.ptg-ui-tooltip{
+    position: relative;
+    display:inline-block;
+}
+.ptg-ui-tooltip-content{
+    position: absolute;
+    background-color: var(--ptg-ui-tooltip-background-color, #333);
+    color: var(--ptg-ui-tooltip-text-color, #fff);
+    padding: 8px 12px;
+    font-size: var(--ptg-ui-tooltip-font-size, 14px);
+    border-radius: 4px;
+    z-index: 1000;
+    white-space: nowrap;
+    opacity: 0.9;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.ptg-ui-tooltip-top{
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+.ptg-ui-tooltip-bottom{
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+}
+.ptg-ui-tooltip-left{
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    margin-right: 8px;
+}   
+.ptg-ui-tooltip-right{
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
