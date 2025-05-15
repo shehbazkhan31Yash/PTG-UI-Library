@@ -26,7 +26,6 @@ app.all('/*', function (req, res, next) {
   next();
 }); //
 
-
 // main routes
 app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
@@ -64,6 +63,7 @@ app.get('*', (req, res) => {
   const apps = {
     'ptg-angular-app': 'ptg-angular-app',
     'ptg-react-app': 'ptg-react-app',
+    'ptg-next-app': 'ptg-next-app',
     'ptg-angular-doc-process': 'ptg-angular-doc-process',
     'ptg-angular-google-map': 'ptg-angular-google-map',
     'ptg-react-animations': 'ptg-react-animations',
