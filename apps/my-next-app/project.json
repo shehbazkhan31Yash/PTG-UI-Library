@@ -1,0 +1,32 @@
+{
+  "name": "my-next-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/my-next-app/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/my-next-app",
+        "root": "apps/my-next-app",
+        "fileReplacements": [],
+        "assets": []
+      }
+    },
+     "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "my-next-app:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "dev": false,
+          "buildTarget": "my-next-app:build:production"
+        }
+      }
+    }
+  }
+}
