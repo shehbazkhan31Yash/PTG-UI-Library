@@ -1,0 +1,95 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+
+
+import {ButtonComponent} from './button.component';
+import * as ButtonStories from './button.stories';
+
+<Meta of={ButtonStories} />
+
+
+ 
+
+
+
+ # Button Component
+
+ ---
+ The Button element is used to create an HTML button. Any text appearing between the opening and closing tags will appear as text on the button. No action takes place by default 
+ when a button is clicked.
+
+ We can import the button tag using the following importation : 
+
+```
+    import { ButtonComponent } from ' @ptg-ui/angular'
+```    
+
+ Types of controls supported by button:
+
+ - isDisable
+ - size
+ - isBlock
+ - backgroundColor
+ - accessKey
+
+
+
+
+ ## Quick Start
+ 
+ we can create a button using the following HTML Tag: 
+
+
+```
+<ptg-ui-button
+  type="button"
+  [isDisable]="false"
+  [isBlock]="false"
+  accessKey=""
+  label="Button"
+></ptg-ui-button>
+
+```
+
+
+ Following are some controls with their explanation :
+
+ 1] isDisable :
+
+ The disabled property sets or returns whether a button is disabled, or not.
+
+ A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+
+ true - The button is disabled
+
+ false - Default. The button is not disabled
+
+<Canvas of={ButtonStories.IsDisable} />
+
+
+ 2] size : 
+
+ Some types of sizes in buttons are below :  
+
+A] Primary Button :  <Canvas of={ButtonStories.Primary} />  
+B] Small Button :    <Canvas of={ButtonStories.Small} />
+C] Medium Button :   <Canvas of={ButtonStories.Medium} />   
+D] Large Button :    <Canvas of={ButtonStories.Large} />>
+
+
+
+ 3] isBlock :
+
+ We can set the conditional background Color for the Button. When the value is true background color get changes and the value is 
+ false it remains default.   
+
+
+<Canvas of={ButtonStories.IsBlock} />
+
+
+ 4] backgroundColor :
+
+ We can set a background color for an button by using the colour picker. Otherwise we can set the background color in HTML, use the style attribute, with the CSS property background-color inside the body tag of the HTML document.
+
+
+

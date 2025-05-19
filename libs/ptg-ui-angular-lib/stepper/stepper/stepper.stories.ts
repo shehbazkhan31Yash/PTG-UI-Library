@@ -1,31 +1,31 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
 import { StepperComponent } from './stepper.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-export default {
+const meta: Meta<StepperComponent> = {
   title: 'Component/StepperComponent',
   component: StepperComponent,
-
   decorators: [
     moduleMetadata({
-      imports: [ReactiveFormsModule]
-    })
-  ]
-} as Meta<StepperComponent>;
-const Template: Story<StepperComponent> = (args: StepperComponent) => ({
-  props: args
-});
-
-export const Primary = Template.bind({});
-Primary.args = {
-  formGroups: [],
-  steps: ['Account Info', 'Personal Information', 'Payment Details']
+      imports: [ReactiveFormsModule],
+    }),
+  ],
 };
 
-export const Orientation = Template.bind({});
-Orientation.args = {
-  formGroups: [],
-  steps: ['Account Info', 'Personal Information', 'Payment Details'],
-  orientation: 'vertical'
+export default meta;
+type Story = StoryObj<StepperComponent>;
+
+export const Primary: Story = {
+  args: {
+    formGroups: [],
+    steps: ['Account Info', 'Personal Information', 'Payment Details'],
+  },
 };
 
+export const Orientation: Story = {
+  args: {
+    formGroups: [],
+    steps: ['Account Info', 'Personal Information', 'Payment Details'],
+    orientation: 'vertical',
+  },
+};

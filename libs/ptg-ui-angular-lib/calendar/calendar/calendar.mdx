@@ -1,0 +1,85 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+
+import {CalendarComponent} from './calendar.component';
+import * as CalenderStories from './calendar.stories';
+
+<Meta of={CalenderStories} />
+
+ 
+
+
+
+ # Calender Component
+
+ ---
+
+
+The ngx-bootstrap library provides a bs-datepicker component with many configuration options that you can use to 
+customize the calendar view in your Angular application.
+
+Date pickers are commonly used in web apps for choosing dates.
+
+Dates can be selected by navigating between various dates using UI.
+
+
+```
+import { CalendarModule } from '@ptg-ui/angular/calendar'
+
+```
+
+Types of controls supported by calendar:
+
+ - className
+ - id
+ - isDisable
+ - placeholder
+
+
+## Quick Start
+ 
+1] className :
+
+The HTML className attribute is used to specify a className for an HTML element.
+
+The className attribute is often used to point to a class name in a style sheet. It can also be used by a other languages to access and manipulate elements with the specific class name.
+
+Multiple HTML elements can share the same class.
+
+<Canvas of={CalenderStories.ClassName} />
+
+
+2] id :
+
+The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages to access and manipulate the element with the specific id.
+
+The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
+
+
+<Canvas of={CalenderStories.Id} />
+
+
+3] is Disable : 
+
+The disabled property sets or returns whether a calendar is disabled, or not.
+
+A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+
+true - The calendar is disabled
+
+false - Default. The calendar is not disabled
+
+
+<Canvas of={CalenderStories.IsDisabled} />
+
+4] placeholder : 
+
+The placeholder attribute specifies a short hint that describes the expected value of an input field (e.g. a sample value or a short description of the expected format).
+
+The short hint is displayed in the input field before the user enters a value.
+
+Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
+
+<Canvas of={CalenderStories.Placeholder} />

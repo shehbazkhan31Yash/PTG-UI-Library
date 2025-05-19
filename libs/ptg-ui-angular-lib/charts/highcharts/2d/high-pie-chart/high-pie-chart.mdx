@@ -1,0 +1,58 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import HighPieChartComponent from './high-pie-chart.component';
+
+import * as HighPieChartStories from './high-pie-chart.stories';
+
+<Meta of={HighPieChartStories} />
+
+ # HighPieChart Component
+
+ ---
+
+This chart is created using the Highcharts library. Highcharts provides a wide variety of charts.  
+
+Pie chart is a type of graph that represents the data in the circular graph.
+
+Pie charts are divided into sections (or 'slices') to represent values of different sizes.
+
+
+We can import the PieChart  using the following importation : 
+```
+    import { HighPieChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+Types of controls supported by High2DPieChart:
+
+ - data
+ - id
+ - isCreditEnabled
+
+ 
+## Quick Start
+
+we can create a piechart using the following tag: 
+
+```
+<ptg-ui-high-pie-chart [data]="data" [colors]="colors"></ptg-ui-high-pie-chart>
+```
+
+1] isCreditEnabled:
+
+this property will enable / disable the High charts credits base on user input.
+
+by default the value is false.
+
+<Canvas of={HighPieChartStories.Primary} />
+
+2] id : 
+
+The id attribute specifies a unique id for an chart . The value of the id attribute must be unique.
+
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
+
+
+<Canvas of={HighPieChartStories.Primary} />
+
+

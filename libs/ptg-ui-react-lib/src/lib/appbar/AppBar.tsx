@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './AppBar.css'; // Import the CSS file
 import { IAppBarProps } from '@ptg-react-libs/interfaces';
 import { colorMap, defaultMenuConfig } from '../constants/Constants';
@@ -34,12 +34,12 @@ export const PtgUiAppBar: React.FC<IAppBarProps> = ({
 		}
 	};
 
-	const closeMenuHandler = () => {
-		setMenuOpen(false);
-		if (closeMenu) {
-			closeMenu(false); // Call the parent's closeMenu function if provided
-		}
-	};
+	const closeMenuHandler = useCallback(() => {
+        setMenuOpen(false);
+        if (closeMenu) {
+            closeMenu(false); // Call the parent's closeMenu function if provided
+        }
+    }, [closeMenu]);
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -49,7 +49,7 @@ export const PtgUiAppBar: React.FC<IAppBarProps> = ({
 		};
 		document.addEventListener('mousedown', handleClickOutside);
 		return () => document.removeEventListener('mousedown', handleClickOutside);
-	}, []);
+	}, [closeMenuHandler]);
 
 	useEffect(() => {
 		if (controlledMenuOpen !== undefined) {

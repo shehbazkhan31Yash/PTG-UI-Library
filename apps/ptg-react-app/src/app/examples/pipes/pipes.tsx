@@ -173,7 +173,7 @@ const htmlCode = `
             </div>
             <div className='mb-4'>
               {t('OUTPUT_TEXT')}
-              {inrFormat(value.inr)}
+              {inrFormat(parseFloat(value.inr))}
             </div>
           </div>
        

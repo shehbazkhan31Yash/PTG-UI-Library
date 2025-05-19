@@ -1,0 +1,47 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import LoadingComponent from './loading.component';
+
+import * as LoadingStories from './loading.stories';
+
+<Meta of={LoadingStories} />
+
+# Loading Component
+
+---
+
+The Loader component is an element which is displayed on the website to show that a process is running at the moment and the user needs to wait for it to complete (e.g. loading of data).
+
+We can import the loader tag using the following importation :
+
+```
+    import { LoadingComponent } from ' @ptg-ui/angular'
+```
+
+Types of controls supported by Loader:
+
+- loading
+
+## Quick Start
+
+we can create a loader using the following HTML Tag:
+
+```
+<ptg-ui-loading [loading]="false"></ptg-ui-loading>
+
+```
+
+Following are some controls with their explanation :
+
+1] loading :
+
+The loading property sets or returns whether a loaer is disabled, or not.
+
+A loader element is unusable and un-clickable. Loader elements are usually rendered in gray by default in browsers.
+
+true - Default. The loader is unabled
+
+false - The loader is not disabled
+
+<Canvas of={LoadingStories.Primary} />
+

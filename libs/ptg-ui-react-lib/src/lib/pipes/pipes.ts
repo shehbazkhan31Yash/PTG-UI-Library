@@ -7,8 +7,8 @@ export const capitalizeFirstLetter = (string: string) => string.charAt(0).toUppe
  *
  */
 
-export const inrFormat = (number: any) => {
-	const rupeeFormat: any = new Intl.NumberFormat('en-US', {
+export const inrFormat = (number: number) => {
+	const rupeeFormat: string = new Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'INR',
 	}).format(number);
@@ -30,18 +30,16 @@ export const truncateString = (str: string, num = 10) => {
 	}
 };
 
-export const phoneNumber = (tel: any) => {
+export const phoneNumber = (tel: string | number) => {
 	const value = tel.toString().trim().replace(/^\+/, '');
 
-	let city, number;
+	let city: string, number: string;
 
-	switch (value.length) {
-		case 10: // +1PPP####### -> C (PPP) ###-####
-			city = value.slice(0, 3);
-			number = value.slice(3);
-			break;
-		default:
-			return tel;
+	if (value.length === 10) { 
+		city = value.slice(0, 3);
+		number = value.slice(3);
+	} else {
+		return tel;
 	}
 
 	number = number.slice(0, 3) + '-' + number.slice(3);
@@ -49,8 +47,8 @@ export const phoneNumber = (tel: any) => {
 	return ('+1 (' + city + ') ' + number).trim();
 };
 
-export const convertIntoPhoneNumber = (value: any) => {
-	if (value.slice(0, 1) === '+') value = value.replace(/\D/g, '').slice(1);
+export const convertIntoPhoneNumber = (value: string) => {
+	if (value.startsWith('+')) value = value.replace(/\D/g, '').slice(1);
 	else value = value.replace(/\D/g, '');
 	value = '+1' + value;
 	const countryCodeStr = value.slice(0, 2);

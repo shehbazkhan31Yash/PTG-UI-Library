@@ -1,0 +1,54 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+
+import {SidenavComponent} from './sidenav.component';
+
+import * as SidenavStories from './sidenav.stories';
+
+<Meta of={SidenavStories} />
+
+
+
+ # Sidenav Component
+
+ ---
+ Sidenav menu element turns the navigation bar on and off by hiding it behind the button or displaying it.
+ 
+ It appears when we click on the icon of three lines.
+
+ We can import the sidenav tag using the following importation : 
+
+```
+    import { SidenavComponent } from ' @ptg-ui/angular'
+```    
+
+ Types of controls supported by button:
+
+ - isMenuOpen
+
+
+## Quick Start
+ 
+we can create a sidenav using the following HTML Tag: 
+
+
+```
+<ptg-ui-sidenav1 [isMenuOpen]="false"></ptg-ui-sidenav1>
+
+```
+
+
+ Following are some controls with their explanation :
+
+ 1] isMenuOpen :
+
+ The isMenuOpen property sets or returns whether a sidenav menu items is open or close
+ based on their boolean value.
+
+ true - The sidenav menu items is open.
+
+ false - Default. The sidenav menu items is close.
+
+<Canvas of={SidenavStories.IsMenuOpen} />
+
+
