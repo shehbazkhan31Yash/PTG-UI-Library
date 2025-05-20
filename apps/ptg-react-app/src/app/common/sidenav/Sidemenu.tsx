@@ -79,6 +79,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/aichatbot-langchain',
+    icon: 'fa-solid fa-robot',
+    label: 'AI Chatbot Langchain',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
