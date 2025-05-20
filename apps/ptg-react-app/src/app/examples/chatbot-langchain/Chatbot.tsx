@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PtgChatBot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot/Chat';
+import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot-langchain/Chatbot';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import IFrame from '../appbar/IFrame';
@@ -45,7 +45,7 @@ export default function LangchainChatbot() {
   import { PtgChatBot } from "@ptg-react-libs/chatbot/Chat";
   `;
   const htmlCode = `
-  <PtgChatBot />
+  <PtgLangChainChatbot />
   `;
 
   const openInNewTab = (target, options) => {
@@ -135,7 +135,7 @@ export default function LangchainChatbot() {
         </PtgUiModal>
 
         <IFrame>
-          <PtgChatBot genAIKey={genAIKey} />
+          <PtgLangChainChatbot genAIKey={genAIKey} />
         </IFrame>
       </div>
     </section>
