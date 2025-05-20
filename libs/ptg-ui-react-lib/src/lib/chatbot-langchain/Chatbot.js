@@ -61,12 +61,16 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
     }
   };
 
+  const resetCopyMessage = (id) => {
+    setCopyMessages((prev) => ({ ...prev, [id]: "" }));
+  };
+  
   const copyToClipboard = (text, id) => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
         setCopyMessages((prev) => ({ ...prev, [id]: "Copied!" }));
-        setTimeout(() => setCopyMessages((prev) => ({ ...prev, [id]: "" })), 1000);
+        setTimeout(() => resetCopyMessage(id), 1000);
       })
       .catch((err) => console.error("Copy failed", err));
   };
@@ -101,7 +105,7 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
     <div className="chatContainer">
       <div className="messages">
         {messages.map((msg, index) => (
-          <div key={`message-${index}`} className={`message ${msg.sender}`}>
+          <div key={`${msg.sender}-${index}`} className={`message ${msg.sender}`}>
             {msg.text && renderMessage(msg, index)}
             {msg.image && <img src={msg.image} alt="Uploaded" className="uploadedImage" />}
           </div>
