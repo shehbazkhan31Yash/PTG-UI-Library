@@ -87,6 +87,7 @@ const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
+const LangchainChatbot = lazy(()=> import('../examples/chatbot-langchain/Chatbot'));
 const ChatbotFullScreen = lazy(
   () => import('../examples/chatbot/ChatbotFullScreen')
 );
@@ -157,6 +158,10 @@ const routing = [
   {
     path: '/aichatbot',
     component: Chatbot,
+  },
+  {
+    path: '/aichatbot-langchain',
+    component: LangchainChatbot,
   },
   {
     path: '/dialog',
