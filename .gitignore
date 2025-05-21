@@ -47,9 +47,6 @@ Thumbs.db
 /libs/ptg-ui-web-components/www
 # /apps/ptg-ui-apps-backend/src/assets/
 
-.cursor\rules\nx-rules.mdc
-.github\instructions\nx.instructions.md
-
 # Next.js
 .next
 out

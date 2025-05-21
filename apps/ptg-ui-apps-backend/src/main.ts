@@ -26,7 +26,6 @@ app.all('/*', function (req, res, next) {
   next();
 }); //
 
-
 // main routes
 app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
