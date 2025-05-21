@@ -3,8 +3,8 @@ export const dashboardCardData = [
    title:"PTG Angular",
    description:"This application demonstrate reusable Angular components.",
    view:"View",
-   viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-angular-app",
-   documentationUrl:"https://yash-ui-apps.azurewebsites.net/ptg-angular-storybook",
+   viewUrl:"/ptg-angular-app",
+   documentationUrl:"/ptg-angular-storybook",
    documentation:"Documentation",
    download:""
    },
@@ -12,8 +12,8 @@ export const dashboardCardData = [
     title:"PTG React",
     description:"This application demonstrate reusable React components.",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-react-app",
-    documentationUrl:"https://yash-ui-apps.azurewebsites.net/ptg-react-storybook",
+    viewUrl:"/ptg-react-app",
+    documentationUrl:"/ptg-react-storybook",
     documentation:"Documentation",
     download:""
     },
@@ -29,7 +29,7 @@ export const dashboardCardData = [
     title:"PTG Document Assessment Portal",
     description:"Document Assessment portal to assess and track candidates document",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-document-assessment-portal",
+    viewUrl:"/ptg-angular-doc-process",
     documentation:"",
     download:""
     },
@@ -37,7 +37,7 @@ export const dashboardCardData = [
     title:"PTG Google Map",
     description:"Provides detailed information about geographical regions and sites worldwide.",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-google-map",
+    viewUrl:"/ptg-angular-google-map",
     documentation:"",
     download:""
     },
@@ -45,7 +45,7 @@ export const dashboardCardData = [
     title:"PTG Animantions",
     description:"The animation is a technique in which images are manipulated to appear as moving images",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-animations",
+    viewUrl:"/ptg-react-animations",
     documentation:"",
     download:""
     },
@@ -60,7 +60,7 @@ export const dashboardCardData = [
     title:"PTG React Web Components",
     description:"This application demonstrates how to consume stencil web components in a React application.",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-react-web-components",
+    viewUrl:"/ptg-ui-web-comp-react",
     documentation:"",
     download:""
     },
@@ -68,7 +68,7 @@ export const dashboardCardData = [
     title:"PTG Angular Web Components",
     description:"This applications demonstrate how to consume stencil web components in a Angular application.",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-angular-web-components",
+    viewUrl:"/ptg-ui-web-comp-angular",
     documentation:"",
     download:""
     },
@@ -76,7 +76,7 @@ export const dashboardCardData = [
     title:"PTG Metaverse Components",
     description:"This appications demonstrates how to consume stencil web components in a React application.",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-metaverse-components",
+    viewUrl:"/ptg-metaverse-comp-react",
     documentation:"",
     download:""
     },
@@ -92,7 +92,7 @@ export const dashboardCardData = [
     title:"PTG Courses Link",
     description:"Portal to access different Courses Links",
     view:"View",
-    viewUrl:"https://yash-ui-apps.azurewebsites.net/ptg-courses-link",
+    viewUrl:"https://yashtechn.plateau.com/learning/user/personal/landOnPortalHome.do?OWASP_CSRFTOKEN=Q4IE-FKDI-O2Q0-48US-38KJ-8J6D-9ADI-181X&fromSF=Y&fromDeepLink=true&pageID=",
     documentation:"",
     download:""
     }
