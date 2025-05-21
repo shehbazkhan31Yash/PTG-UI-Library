@@ -13,8 +13,8 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
   const [copyMessages, setCopyMessages] = useState({});
 
   const model = new ChatGoogleGenerativeAI({
-    modelName: "gemini-1.5-flash",
-    googleApiKey: genAIKey, // Accept the key dynamically
+    model: "gemini-1.5-flash",
+    apiKey: genAIKey,
   });
 
   const handleSend = async () => {
@@ -22,7 +22,6 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
     setLoading(true);
 
     try { 
-      const modelAI = model.getGenerativeModel({ model: "gemini-1.5-flash" });
 
       const contentToSend = image
         ? [
@@ -36,12 +35,12 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
           ]
         : [input];
 
-      const response = await modelAI.generateContent(contentToSend);
+      const response = await model.invoke(contentToSend);
 
       setMessages((prev) => [
         ...prev,
         { text: input, image, sender: "user" },
-        { text: response.response.text(), sender: "ai" },
+        { text: response?.content, sender: "ai" },
       ]);
       setInput("");
       setImage(null);
