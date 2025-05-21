@@ -1,7 +1,6 @@
 'use client'
 
-import { Button, Card, Col, Flex, Layout, Menu ,Row,Space,theme } from 'antd';
-import { Typography } from 'antd';
+import { Button, Card, Flex,Space,Typography } from 'antd';
 import { dashboardCardData } from './dashboardData';
 import Link from 'next/link';
 
@@ -30,7 +29,6 @@ export default function Home() {
 {
 it.view.length > 0 && it.viewUrl &&
 <Link
-  role='button'
   className="bg-blue-700 hover:bg-blue-600 hover:text-white text-white focus:outline-none text-center py-2 px-4 rounded-md"
   href={it.viewUrl}
   target="_blank"
@@ -42,7 +40,6 @@ it.view.length > 0 && it.viewUrl &&
 {
 it.documentation.length > 0 && it.documentationUrl && 
 <Link
-  role='button'
   className="bg-gray-600 hover:bg-gray-600 text-white focus:outline-none text-center py-2 px-4 rounded-md"
   href={it.documentationUrl}
   target="_blank"

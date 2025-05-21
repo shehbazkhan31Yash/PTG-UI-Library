@@ -1,7 +1,7 @@
 
 'use client'
 import './global.css';
-import { Col, Flex, Layout, Menu ,Row,theme } from 'antd';
+import { Col, Layout, Menu ,Row } from 'antd';
 import bg from '../../public/icons/yash_logo.png'
 import { useRouter } from "next/navigation";
 const { Header, Footer, Content } = Layout;
@@ -35,9 +35,9 @@ backgroundSize:'cover'
 };
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
    const items = [
     { label: "Home", key: "1", target: "/" },
     { label: "About", key: "2", target:"/about" },
