@@ -1,0 +1,65 @@
+{
+  "name": "my-next-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/my-next-app/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/my-next-app",
+        "index": "apps/my-next-app/src/app/layout.tsx",
+        "baseHref": "/",
+        "main": "apps/my-next-app/src/app/page.tsx",
+        "tsConfig": "apps/my-next-app/tsconfig.json",
+         "styles": ["apps/my-next-app/src/app/global.css"],
+        "root": "apps/my-next-app",
+        "fileReplacements": []
+      },
+       "dependsOn": [],
+        "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/my-next-app/src/app/environments/environment.ts",
+              "with": "apps/my-next-app/src/app/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+     "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-next-app:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-next-app:build:development"
+        },
+       "production": {
+          "buildTarget": "my-next-app:build:production",
+          "hmr": false
+        }
+      }
+    }
+  }
+}

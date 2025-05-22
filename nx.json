@@ -50,10 +50,10 @@
         "linter": "eslint"
       }
     },
-    "@nx/next": {
+    "@nrwl/next": {
       "application": {
-        "style": "css",
-        "linter": "none"
+        "style": "tailwind",
+        "linter": "eslint"
       }
     }
   },
