@@ -155,7 +155,7 @@
     "react-router-dom": "^6.4.2",
     "react-select": "^5.5.0",
     "react-select-event": "^5.5.0",
-    "react-syntax-highlighter": "^5.8.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-table": "^7.8.0",
     "react-text": "^3.2.5",
     "regenerator-runtime": "0.13.7",
@@ -168,7 +168,7 @@
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.12",
+    "@angular-devkit/build-angular": "^18.2.0",
     "@angular-eslint/eslint-plugin": "~14.0.0",
     "@angular-eslint/eslint-plugin-template": "~14.0.0",
     "@angular-eslint/template-parser": "~14.0.0",
