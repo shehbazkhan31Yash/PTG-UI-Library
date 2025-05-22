@@ -107,6 +107,6 @@ CustomColorAvatar.args = {
   backgroundColor: '#e91e63',
   textColor: '#ffeb3b',
   variant: 'circle',
-  children: 'CC',
+  children: 'CC ',
 };
  
