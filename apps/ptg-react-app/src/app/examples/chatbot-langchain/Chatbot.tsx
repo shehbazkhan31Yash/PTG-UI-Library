@@ -15,6 +15,9 @@ import { PtgUiButton } from '@ptg-react-libs/button/button';
 import './Chatbot.css';
 import './modal.css';
 import { environment } from '../../../environments/environment';
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+import { ChatTogetherAI } from "@langchain/community/chat_models/togetherai";
+import { ChatGroq } from "@langchain/groq";
 
 export default function LangchainChatbot() {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -41,6 +44,24 @@ export default function LangchainChatbot() {
     showHeader: true,
     showFooter: true,
   };
+  const AI_PROVIDERS = {
+      "google-ai": () => new ChatGoogleGenerativeAI({ model: "gemini-2.0-flash", apiKey: genAIKey }),
+      "chat-together-ai": () => new ChatTogetherAI({
+   model: "meta-llama/Llama-3-70b-chat-hf",
+    apiKey: environment.LANG_CHAIN_CHAT_TOGETHER_KEY,
+  }),
+  "chat-groq-ai": () => new ChatGroq({
+model: "llama-3.1-8b-instant",
+apiKey: environment.LANG_CHAIN_CHAT_GROQ_KEY,
+  }),
+  "chat-upstage-ai": ()=> {},
+  "chat-bedrock-ai": () => {},
+  "chat-anthropic": () => {},
+  "chat-aistral-ai": () => {},
+  "azure-chatOpen-ai": () => {},
+  "chat-vertex-ai": () => {},
+  "chat-mistral-ai":()=>{}
+    };
   const componentCode = `
   import { PtgChatBot } from "@ptg-react-libs/chatbot/Chat";
   `;
@@ -66,8 +87,9 @@ export default function LangchainChatbot() {
           <div className="tooltip-container mb-2 mt-3 mr-3">
             <button
               onClick={() =>
-                openInNewTab('aichatbot-yash', {
-                  state: genAIKey,
+                openInNewTab('ai-langchain-chatbot-yash', {
+                  genAIKey: genAIKey,
+                  AI_PROVIDERS: AI_PROVIDERS
                 })
               }
               style={{
@@ -135,7 +157,7 @@ export default function LangchainChatbot() {
         </PtgUiModal>
 
         <IFrame>
-          <PtgLangChainChatbot genAIKey={genAIKey} />
+          <PtgLangChainChatbot Ai_Providers={AI_PROVIDERS} genAIKey={genAIKey} />
         </IFrame>
       </div>
     </section>

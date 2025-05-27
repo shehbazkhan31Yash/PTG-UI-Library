@@ -91,6 +91,8 @@ const LangchainChatbot = lazy(()=> import('../examples/chatbot-langchain/Chatbot
 const ChatbotFullScreen = lazy(
   () => import('../examples/chatbot/ChatbotFullScreen')
 );
+const LangChainChatbotFullScreen = lazy(()=> import('../examples/chatbot-langchain/ChatbotFullScreen'));
+
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -258,6 +260,11 @@ const routing = [
   {
     path: '/aichatbot-yash',
     component: ChatbotFullScreen,
+    requiresLayout: true,
+  },
+  {
+    path: '/ai-langchain-chatbot-yash',
+    component: LangChainChatbotFullScreen,
     requiresLayout: true,
   },
 ];
