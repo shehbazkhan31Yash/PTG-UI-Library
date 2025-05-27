@@ -50,10 +50,10 @@
         "linter": "eslint"
       }
     },
-    "@nx/next": {
+    "@nrwl/next": {
       "application": {
-        "style": "css",
-        "linter": "none"
+        "style": "tailwind",
+        "linter": "eslint"
       }
     }
   },
@@ -63,18 +63,5 @@
     "sharedGlobals": [],
     "production": ["default"]
   },
-  "defaultBase": "master",
-  "plugins": [
-    {
-      "plugin": "@nx/next/plugin",
-      "options": {
-        "startTargetName": "start",
-        "buildTargetName": "build",
-        "devTargetName": "dev",
-        "serveStaticTargetName": "serve-static",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
-      }
-    }
-  ]
+  "defaultBase": "master"
 }
