@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property          | Attribute    | Description | Type       | Default     |
-| ----------------- | ------------ | ----------- | ---------- | ----------- |
-| `itemCount`       | `item-count` |             | `number`   | `undefined` |
-| `page`            | `page`       |             | `number`   | `0`         |
-| `pageSize`        | `page-size`  |             | `number`   | `10`        |
-| `pageSizeOptions` | --           |             | `number[]` | `[]`        |
+| Property          | Attribute           | Description | Type       | Default     |
+| ----------------- | ------------------- | ----------- | ---------- | ----------- |
+| `itemCount`       | `item-count`        |             | `number`   | `undefined` |
+| `page`            | `page`              |             | `number`   | `0`         |
+| `pageSize`        | `page-size`         |             | `number`   | `10`        |
+| `pageSizeOptions` | `page-size-options` |             | `number[]` | `[]`        |
 
 
 ## Events
