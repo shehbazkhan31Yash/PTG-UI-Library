@@ -9,7 +9,7 @@
 
 | Property        | Attribute       | Description    | Type                 | Default     |
 | --------------- | --------------- | -------------- | -------------------- | ----------- |
-| `callback`      | --              |                | `(val: any) => void` | `undefined` |
+| `callback`      | `callback`      |                | `(val: any) => void` | `undefined` |
 | `checked`       | `checked`       | The first name | `boolean`            | `undefined` |
 | `color`         | `color`         |                | `string`             | `undefined` |
 | `dataid`        | `dataid`        |                | `any`                | `undefined` |

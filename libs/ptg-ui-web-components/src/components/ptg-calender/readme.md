@@ -9,9 +9,9 @@
 
 | Property       | Attribute        | Description | Type                 | Default                                                                                                                                                                           |
 | -------------- | ---------------- | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `callback`     | --               |             | `(val: any) => void` | `undefined`                                                                                                                                                                       |
-| `dayNames`     | --               |             | `string[]`           | `['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']`                                                                                                                                      |
-| `monthNames`   | --               |             | `string[]`           | `[     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]` |
+| `callback`     | `callback`       |             | `(val: any) => void` | `undefined`                                                                                                                                                                       |
+| `dayNames`     | `day-names`      |             | `string[]`           | `['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']`                                                                                                                                      |
+| `monthNames`   | `month-names`    |             | `string[]`           | `[     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]` |
 | `showFillDays` | `show-fill-days` |             | `boolean`            | `true`                                                                                                                                                                            |
 | `startDate`    | `start-date`     |             | `any`                | `undefined`                                                                                                                                                                       |
 
