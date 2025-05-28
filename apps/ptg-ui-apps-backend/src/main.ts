@@ -63,7 +63,6 @@ app.get('*', (req, res) => {
   const apps = {
     'ptg-angular-app': 'ptg-angular-app',
     'ptg-react-app': 'ptg-react-app',
-    'my-next-app': 'my-next-app',
     'ptg-angular-doc-process': 'ptg-angular-doc-process',
     'ptg-angular-google-map': 'ptg-angular-google-map',
     'ptg-react-animations': 'ptg-react-animations',
