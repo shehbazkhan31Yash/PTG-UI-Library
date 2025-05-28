@@ -85,6 +85,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/pdf-renderer',
+    icon: 'fa-solid fa-file-pdf',
+    label: 'PDF Renderer',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
