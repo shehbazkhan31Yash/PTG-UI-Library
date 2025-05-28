@@ -63,10 +63,12 @@ apiKey: environment.LANG_CHAIN_CHAT_GROQ_KEY,
   "chat-mistral-ai":()=>{}
     };
   const componentCode = `
-  import { PtgChatBot } from "@ptg-react-libs/chatbot/Chat";
+import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot-langchain/Chatbot';
   `;
   const htmlCode = `
-  <PtgLangChainChatbot />
+  <IFrame>
+          <PtgLangChainChatbot Ai_Providers={AI_PROVIDERS} genAIKey={genAIKey} />
+        </IFrame>
   `;
 
   const openInNewTab = (target, options) => {
