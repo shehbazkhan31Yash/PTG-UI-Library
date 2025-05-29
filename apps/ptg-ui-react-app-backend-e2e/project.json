@@ -1,0 +1,10 @@
+{
+  "name": "ptg-ui-react-app-backend-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ptg-ui-react-app-backend-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["ptg-ui-react-app-backend"],
+  "// targets": "to see all targets run: nx show project ptg-ui-react-app-backend-e2e --web",
+  "targets": {}
+}

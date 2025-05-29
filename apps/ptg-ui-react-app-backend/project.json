@@ -1,0 +1,84 @@
+{
+  "name": "ptg-ui-react-app-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-ui-react-app-backend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-ui-react-app-backend",
+        "index": "apps/ptg-ui-react-app-backend/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-ui-react-app-backend/src/main.tsx",
+        "tsConfig": "apps/ptg-ui-react-app-backend/tsconfig.app.json",
+        "assets": [
+          "apps/ptg-ui-react-app-backend/src/favicon.ico",
+          "apps/ptg-ui-react-app-backend/src/assets"
+        ],
+        "styles": ["apps/ptg-ui-react-app-backend/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nx/react/plugins/webpack"
+      },
+      "dependsOn": [],
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-ui-react-app-backend/src/environments/environment.ts",
+              "with": "apps/ptg-ui-react-app-backend/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ptg-ui-react-app-backend:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ptg-ui-react-app-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "ptg-ui-react-app-backend:build:production",
+          "hmr": false
+        }
+      }
+    },
+     "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ptg-ui-react-app-backend/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-ui-react-app-backend"],
+      "options": {
+        "jestConfig": "apps/ptg-ui-react-app-backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
