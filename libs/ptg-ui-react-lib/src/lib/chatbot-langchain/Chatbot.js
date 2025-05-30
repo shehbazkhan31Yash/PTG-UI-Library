@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Chatbot.css";
 import { FaPaperclip, FaTrash, FaClipboard } from "react-icons/fa";
 import { marked } from "marked";
-
+import {modelOptions} from '../constants/Constants'
 export const PtgLangChainChatbot = ( {Ai_Providers,genAIKey} ) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
@@ -12,22 +12,9 @@ export const PtgLangChainChatbot = ( {Ai_Providers,genAIKey} ) => {
   const [copyMessages, setCopyMessages] = useState({});
   const [selectedModel, setSelectedModel] = useState("google-ai");
   const [modelProvider, setModelProvider] = useState(null);
- const modelOptions = [
-  { value: "google-ai", label: "Google AI" },
-  { value: "chat-together-ai", label: "Chat Together AI" },
-  { value: "chat-groq-ai", label: "Chat Groq AI" },
-  { value: "chat-upstage-ai", label: "Chat Upstage AI - paid" },
-  { value: "chat-bedrock-ai", label: "Chat Bedrock AI - paid" },
-  { value: "chat-anthropic", label: "Chat Anthropic AI - paid" },
-  { value: "chat-aistral-ai", label: "Chat Aistral AI - paid" },
-  { value: "azure-chatOpen-ai", label: "Azure ChatOpen AI - paid" },
-  {value: "chat-vertex-ai", label: "Chat Vertex AI - paid"},
-  {value: "chat-mistral-ai", label: "Chat Mistral AI - paid"},
-];
 
 
   useEffect(() => {
-    console.log("Ai_Providers",Ai_Providers)
     setModelProvider(Ai_Providers[selectedModel]?.());
   }, [selectedModel,Ai_Providers]);
 
