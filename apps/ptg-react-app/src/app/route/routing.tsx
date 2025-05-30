@@ -88,9 +88,12 @@ const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
 const LangchainChatbot = lazy(()=> import('../examples/chatbot-langchain/Chatbot'));
+const PDFRenderer = lazy(()=> import('../examples/PDF-Renderer/PDFRenderer'));
 const ChatbotFullScreen = lazy(
   () => import('../examples/chatbot/ChatbotFullScreen')
 );
+const LangChainChatbotFullScreen = lazy(()=> import('../examples/chatbot-langchain/ChatbotFullScreen'));
+
 /*--Declare routes and component for dynamic load--*/
 
 const routing = [
@@ -162,6 +165,10 @@ const routing = [
   {
     path: '/aichatbot-langchain',
     component: LangchainChatbot,
+  },
+  {
+    path: '/pdf-renderer',
+    component: PDFRenderer,
   },
   {
     path: '/dialog',
@@ -258,6 +265,11 @@ const routing = [
   {
     path: '/aichatbot-yash',
     component: ChatbotFullScreen,
+    requiresLayout: true,
+  },
+  {
+    path: '/ai-langchain-chatbot-yash',
+    component: LangChainChatbotFullScreen,
     requiresLayout: true,
   },
 ];

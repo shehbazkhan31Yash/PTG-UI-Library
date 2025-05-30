@@ -17,6 +17,19 @@ export interface IAccordion {
   title: string;
   content: string;
 }
+
+// pdf renderer
+export interface IPDFRenderer {
+   fileName: string;
+  fileUrl: string;
+  totalPages: number;
+  fileSize: string;
+  fileType: string;
+  uploadDate: string;
+  author?: string;
+  title?: string;
+  description?: string;
+}
 // Calender
 export interface IExampleOneProps {
   showCodeOne: boolean;
