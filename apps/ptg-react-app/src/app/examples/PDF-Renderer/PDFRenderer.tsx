@@ -11,14 +11,13 @@ import {
   RotateCw,
   Download,
   FileX,
-  Loader2,
   Maximize,
   Minimize,
   FileText,
   RefreshCw,
-  Code,
   Upload,
 } from 'lucide-react';
+import { ToolButton } from './ToolButton';
 
 // Interface for PDF renderer props
 interface IPDFRendererProps {
@@ -102,26 +101,29 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
       setState((prev) => ({ ...prev, pdfjsLoaded: true }));
       return;
     }
-
-    const script = document.createElement('script');
-    script.src =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js';
-    script.onload = () => {
-      setTimeout(() => {
-        if ((window as any).pdfjsLib) {
-          (window as any).pdfjsLib.GlobalWorkerOptions.workerSrc =
-            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
-          setState((prev) => ({ ...prev, pdfjsLoaded: true }));
-        }
-      }, 100);
+    const handleScriptLoad = () => {
+      setTimeout(setWorkerAndFlag, 100);
     };
-    script.onerror = () => {
+
+    const setWorkerAndFlag = () => {
+      if ((window as any).pdfjsLib) {
+        (window as any).pdfjsLib.GlobalWorkerOptions.workerSrc =
+          'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+        setState((prev) => ({ ...prev, pdfjsLoaded: true }));
+      }
+    };
+    const handleScriptError = () => {
       setState((prev) => ({
         ...prev,
         error: 'Failed to load PDF.js library',
         loading: false,
       }));
     };
+    const script = document.createElement('script');
+    script.src =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js';
+    script.onload = handleScriptLoad;
+    script.onerror = handleScriptError;
     document.head.appendChild(script);
 
     return () => {
@@ -173,7 +175,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
       .catch((err: any) => {
         setState((prev) => ({
           ...prev,
-          error: err.message || 'Failed to load PDF',
+          error: err.message ?? 'Failed to load PDF',
           loading: false,
         }));
         onLoadError?.(err);
@@ -185,6 +187,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
           loadingTask.destroy();
         } catch (e) {
           // Ignore cleanup errors
+          console.error('Error destroying loadingTask:', e);
         }
       }
       if (file instanceof File) {
@@ -205,17 +208,16 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
         }
       } catch (e) {
         // Ignore cancellation errors
+        console.error('Error cancelling renderTask:', e);
       }
     }
 
     try {
       const page = await state.pdfDoc.getPage(state.pageNumber);
-      const canvas = canvasRef.current as HTMLCanvasElement;
-      const context = canvas.getContext(
-        '2d'
-      ) as CanvasRenderingContext2D | null;
+      const canvas = canvasRef.current;
+      const context = canvas?.getContext('2d');
 
-      if (!context) return;
+      if (!canvas || !context) return;
 
       let viewport = page.getViewport({ scale: state.scale });
 
@@ -236,7 +238,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
       };
 
       const renderTask = page.render(renderContext);
-      renderTaskRef.current = renderTask as any;
+      renderTaskRef.current = renderTask;
       await renderTask.promise;
     } catch (err: any) {
       if (
@@ -256,7 +258,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
 
   // Event handlers
   const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= (state.numPages || 1)) {
+    if (page >= 1 && page <= (state.numPages ?? 1)) {
       setState((prev) => ({ ...prev, pageNumber: page }));
       onPageChange?.(page);
     }
@@ -272,11 +274,6 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
     const newScale = Math.max(state.scale - 0.25, minScale);
     setState((prev) => ({ ...prev, scale: newScale }));
     onZoomChange?.(newScale);
-  };
-
-  const handleResetZoom = () => {
-    setState((prev) => ({ ...prev, scale: initialScale }));
-    onZoomChange?.(initialScale);
   };
 
   const handleRotate = () => {
@@ -302,24 +299,6 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
       URL.revokeObjectURL(url);
     }
   };
-
-  // Button component for consistent styling
-  const ToolButton: React.FC<{
-    onClick: () => void;
-    disabled?: boolean;
-    title?: string;
-    children: React.ReactNode;
-    className?: string;
-  }> = ({ onClick, disabled = false, title, children, className = '' }) => (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      title={title}
-      className={`pdf-renderer-tool-button ${className}`}
-    >
-      {children}
-    </button>
-  );
 
   // Error state
   if (state.error) {
@@ -374,12 +353,12 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
               <div className="pdf-renderer-page-counter">
                 <span className="current-page">{state.pageNumber}</span>
                 <span className="separator">/</span>
-                <span className="total-pages">{state.numPages || '?'}</span>
+                <span className="total-pages">{state.numPages ?? '?'}</span>
               </div>
 
               <ToolButton
                 onClick={() => handlePageChange(state.pageNumber + 1)}
-                disabled={state.pageNumber >= (state.numPages || 1)}
+                disabled={state.pageNumber >= (state.numPages ?? 1)}
                 title="Next Page"
                 className="rounded-right"
               >
@@ -624,22 +603,13 @@ interface IPDFRendererProps {
           {/* </button>
           </div> */}
 
-          {/* {showCode && (
-            <div className="pdf-renderer-code-block">
-              <pre>
-                <code>{componentCode}</code>
-              </pre>
-            </div>
-          )} */}
-
-
           {/* <hr className="horizontal-line" /> */}
-                  {showCode && (
-                    <ShowCodeComponent
-                      componentCode={componentCode}
-                      htmlCode={htmlCode}
-                    />
-                  )}
+          {showCode && (
+            <ShowCodeComponent
+              componentCode={componentCode}
+              htmlCode={htmlCode}
+            />
+          )}
 
           <div className="pdf-renderer-load-controls">
             <h2>Load PDF Document</h2>
@@ -647,8 +617,9 @@ interface IPDFRendererProps {
             <div className="pdf-renderer-grid">
               {/* File Upload */}
               <div className="pdf-renderer-form-group">
-                <label>Upload PDF File</label>
+                <label htmlFor="pdf-file-input">Upload PDF File</label>
                 <input
+                  id="pdf-file-input"
                   type="file"
                   accept=".pdf"
                   onChange={handleFileChange}
@@ -658,9 +629,10 @@ interface IPDFRendererProps {
 
               {/* URL Input */}
               <div className="pdf-renderer-form-group">
-                <label>Or Load from URL</label>
+                <label htmlFor="pdf-url-input">Or Load from URL</label>
                 <div className="pdf-renderer-url-input-group">
                   <input
+                    id="pdf-url-input"
                     type="url"
                     placeholder="https://example.com/document.pdf"
                     value={pdfUrl}
@@ -669,7 +641,7 @@ interface IPDFRendererProps {
                   />
                   <button
                     onClick={handleUrlSubmit}
-                    disabled={isLoading || !pdfUrl.trim()}
+                    disabled={isLoading || !(pdfUrl ?? '').trim()}
                     className="pdf-renderer-load-btn"
                   >
                     {isLoading ? 'Loading...' : 'Load'}
@@ -737,23 +709,5 @@ interface IPDFRendererProps {
     </section>
   );
 };
-
-// Helper component for consistent button styling
-const ToolButton: React.FC<{
-  onClick: () => void;
-  disabled?: boolean;
-  title?: string;
-  children: React.ReactNode;
-  className?: string;
-}> = ({ onClick, disabled = false, title, children, className = '' }) => (
-  <button
-    onClick={onClick}
-    disabled={disabled}
-    title={title}
-    className={`pdf-renderer-tool-button ${className}`}
-  >
-    {children}
-  </button>
-);
 
 export default PDFRendererDemo;
