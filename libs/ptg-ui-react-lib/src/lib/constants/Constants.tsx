@@ -43,3 +43,16 @@ export const colorMap: Record<string, string> = {
 	primary: '#2196F3',
 	secondary: '#4CAF50',
 };
+
+export const modelOptions = [
+  { value: "google-ai", label: "Google AI" },
+  { value: "chat-together-ai", label: "Chat Together AI" },
+  { value: "chat-groq-ai", label: "Chat Groq AI" },
+  { value: "chat-upstage-ai", label: "Chat Upstage AI - paid" },
+  { value: "chat-bedrock-ai", label: "Chat Bedrock AI - paid" },
+  { value: "chat-anthropic", label: "Chat Anthropic AI - paid" },
+  { value: "chat-aistral-ai", label: "Chat Aistral AI - paid" },
+  { value: "azure-chatOpen-ai", label: "Azure ChatOpen AI - paid" },
+  {value: "chat-vertex-ai", label: "Chat Vertex AI - paid"},
+  {value: "chat-mistral-ai", label: "Chat Mistral AI - paid"},
+];

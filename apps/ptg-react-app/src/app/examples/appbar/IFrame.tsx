@@ -280,6 +280,10 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
               cursor: pointer;
               margin-right: 10px;
             }
+              .uploadIcon.disabledIcon {
+             color: rgb(172, 172, 172); 
+             cursor: not-allowed;
+              }
             .previewContainer {
               display: flex;
               align-items: center;
@@ -384,7 +388,10 @@ const IFrame: React.FC<IFrameProps> = ({ children }) => {
             .copyMessage.fade-out {
               opacity: 0;
             }
-
+.modelDropdown {
+	border: none;
+  margin-right: 10px;
+}
               
 
                 </style>

@@ -18,4 +18,9 @@ export const environment = {
   okta_logout_url: 'https://yash-ui-apps.azurewebsites.net',
   baseName: '/ptg-react-app',
   LANG_CHAIN_GENAI_KEY: 'AIzaSyDucUyRn5RGVl5FK7BRqre_rBeevA_EbqE',
+  LANG_CHAIN_CHAT_TOGETHER_KEY: '2e6e2bad23364512fd3939c78e138a943ab78e7951ca0e35f644bf745ec849dd',
+  LANG_CHAIN_CHAT_GROQ_KEY: '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',
+  LANG_CHAIN_CHAT_COHERE_KEY: 'RDMymMYMqht7pAnsduYKudQflJzF3gcLqhf1vH56y'
+
+
 };
