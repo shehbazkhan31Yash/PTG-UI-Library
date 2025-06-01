@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import PropTypes from "prop-types";
 import "./Chatbot.css";
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { FaPaperclip, FaTrash, FaClipboard } from "react-icons/fa";
 import { marked } from "marked";
-
-export const PtgLangChainChatbot = ({ genAIKey }) => {
+import {modelOptions} from '../constants/Constants'
+export const PtgLangChainChatbot = ( {Ai_Providers,genAIKey} ) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [copyMessages, setCopyMessages] = useState({});
+  const [selectedModel, setSelectedModel] = useState("google-ai");
+  const [modelProvider, setModelProvider] = useState(null);
 
-  const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
-    apiKey: genAIKey,
-  });
+
+  useEffect(() => {
+    setModelProvider(Ai_Providers[selectedModel]?.());
+  }, [selectedModel,Ai_Providers]);
 
   const handleSend = async () => {
     if (!input.trim() && !image) return;
@@ -24,18 +25,11 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
     try { 
 
       const contentToSend = image
-        ? [
-            input,
-            {
-              inlineData: {
-                data: image.split(",")[1],
-                mimeType: image.match(/^data:(.*?);/)?.[1] || "image/png",
-              },
-            },
-          ]
-        : [input];
-
-      const response = await model.invoke(contentToSend);
+				? [
+ image.split(',')[1]
+				  ]
+				: [input]
+      const response = await modelProvider?.invoke(contentToSend);
 
       setMessages((prev) => [
         ...prev,
@@ -73,6 +67,16 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
       })
       .catch((err) => console.error("Copy failed", err));
   };
+
+const handleModelChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedModel(selectedValue);
+    setModelProvider(Ai_Providers[selectedValue]?.());
+    setMessages([]);
+     setLoading(false); 
+     setImage(null)
+  };
+  
 
   const renderMessage = (msg, index) => {
     const html = marked(msg.text);
@@ -121,19 +125,30 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
           placeholder="Type your message..."
         />
-        <label htmlFor="file-upload" className="uploadIcon">
+        <label htmlFor="file-upload" className={`uploadIcon ${selectedModel !== "google-ai" ? "disabledIcon" : ""}`}>
           <FaPaperclip />
         </label>
-        <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} disabled={loading} className="hiddenFileInput" />
+        <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} className="hiddenFileInput"  disabled={loading || selectedModel !== "google-ai"}  />
         {image && (
           <div className="previewContainer">
             <img src={image} alt="Preview" className="previewImage" />
-            <button className="deleteImageBtn" onClick={() => setImage(null)}>
+            <button className="deleteImageBtn" disabled={loading} onClick={() => setImage(null)}>
               <FaTrash />
             </button>
           </div>
         )}
-        <button onClick={handleSend} disabled={loading}>Send</button>
+       <select value={selectedModel} disabled={loading} onChange={handleModelChange} className="modelDropdown">
+  {modelOptions.map((option) => (
+    <option
+      key={option.value}
+      value={option.value}
+      disabled={option.label.toLowerCase().includes("paid")}
+    >
+      {option.label}
+    </option>
+  ))}
+</select>
+        <button className="send-button" onClick={handleSend} disabled={loading}>Send</button>
       </div>
     </div>
   );
@@ -141,6 +156,7 @@ export const PtgLangChainChatbot = ({ genAIKey }) => {
 
 PtgLangChainChatbot.propTypes = {
   genAIKey: PropTypes.string.isRequired,
+  Ai_Providers: PropTypes.object.isRequired,
 };
 
 export default PtgLangChainChatbot;
