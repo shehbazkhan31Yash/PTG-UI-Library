@@ -15,13 +15,17 @@
         "index": "apps/ptg-ui-apps-react-backend/src/index.html",
         "baseHref": "/",
         "main": "apps/ptg-ui-apps-react-backend/src/main.tsx",
+        "polyfills": "apps/ptg-react-app/src/polyfills.ts",
         "tsConfig": "apps/ptg-ui-apps-react-backend/tsconfig.app.json",
         "assets": [
           "apps/ptg-ui-apps-react-backend/src/favicon.ico",
           "apps/ptg-ui-apps-react-backend/src/assets"
         ],
-        "styles": ["apps/ptg-ui-apps-react-backend/src/styles.scss"],
-        "scripts": [],
+        "styles": [
+          "apps/ptg-ui-apps-react-backend/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
         "webpackConfig": "@nx/react/plugins/webpack"
       },
       "dependsOn": [],
