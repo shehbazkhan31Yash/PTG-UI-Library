@@ -1,0 +1,80 @@
+{
+  "name": "ptg-ui-apps-react-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-ui-apps-react-backend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-ui-apps-react-backend",
+        "index": "apps/ptg-ui-apps-react-backend/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-ui-apps-react-backend/src/main.tsx",
+        "polyfills": "apps/ptg-react-app/src/polyfills.ts",
+        "tsConfig": "apps/ptg-ui-apps-react-backend/tsconfig.app.json",
+        "assets": [
+          "apps/ptg-ui-apps-react-backend/src/favicon.ico",
+          "apps/ptg-ui-apps-react-backend/src/assets"
+        ],
+        "styles": [
+          "apps/ptg-ui-apps-react-backend/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
+        "webpackConfig": "@nx/react/plugins/webpack"
+      },
+      "dependsOn": [],
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-ui-apps-react-backend/src/environments/environment.ts",
+              "with": "apps/ptg-ui-apps-react-backend/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ptg-ui-apps-react-backend/jest.config.ts"
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ptg-ui-apps-react-backend:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ptg-ui-apps-react-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "ptg-ui-apps-react-backend:build:production",
+          "hmr": false
+        }
+      }
+    }
+  }
+}

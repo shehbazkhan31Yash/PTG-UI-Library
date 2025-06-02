@@ -1,0 +1,182 @@
+/* You can add global styles to this file, and also import other style files */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f3f4f6;
+  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(17, 24, 39, 0.85); /* Dark overlay */
+  z-index: -1;
+}
+
+a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #3b82f6;
+  outline: none;
+}
+
+header {
+  background: rgba(17, 24, 39, 0.9);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  color: #fbbf24;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.8rem;
+  color: #fbbf24;
+  text-align: center;
+  user-select: none;
+}
+
+.about-text,
+.service-desc,
+.project-desc {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto 1.8rem auto;
+  color: #e5e7eb;
+}
+
+/* Card styles */
+.card {
+  background: rgba(31, 41, 55, 0.75);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(251, 191, 36, 0.9);
+  color: #111827;
+}
+
+/* Form styles */
+form {
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(31, 41, 55, 0.85);
+  padding: 2.8rem 2.2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
+  color: #e5e7eb;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fbbf24;
+  user-select: none;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.95rem 1rem;
+  margin-bottom: 1.4rem;
+  border-radius: 12px;
+  border: 1.8px solid #6b7280;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #fbbf24;
+  background: rgba(251, 191, 36, 0.15);
+  outline: none;
+}
+
+button[type='submit'] {
+  background: #fbbf24;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  padding: 1.15rem 0;
+  width: 100%;
+  font-size: 1.15rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover,
+button[type='submit']:focus {
+  background: #d97706;
+  outline: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  background: rgba(17, 24, 39, 0.9);
+  user-select: none;
+}
+
+footer a {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+}

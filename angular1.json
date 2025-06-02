@@ -14,6 +14,8 @@
     "ptg-react-animations": "apps/ptg-react-animations",
     "ptg-react-animations-e2e": "apps/ptg-react-animations-e2e",
     "ptg-react-app": "apps/ptg-react-app",
+    "ptg-ui-apps-react-backend": "apps/ptg-ui-apps-react-backend",
+    "ptg-ui-apps-react-backend-e2e": "apps/ptg-ui-apps-react-backend-e2e",
     "ptg-react-app-e2e": "apps/ptg-react-app-e2e",
     "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib",
     "ptg-ui-apps-backend": "apps/ptg-ui-apps-backend",

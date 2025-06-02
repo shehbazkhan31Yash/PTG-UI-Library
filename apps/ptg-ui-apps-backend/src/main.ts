@@ -68,6 +68,7 @@ app.get('*', (req, res) => {
     'ptg-react-animations': 'ptg-react-animations',
     'ptg-ui-web-comp-angular': 'ptg-ui-web-comp-angular',
     'ptg-ui-web-comp-react': 'ptg-ui-web-comp-react',
+    'ptg-ui-apps-react-backend': 'ptg-ui-apps-react-backend',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {
