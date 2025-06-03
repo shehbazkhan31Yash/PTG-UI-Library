@@ -1,6 +1,5 @@
-// src/auth/useGoogleAuth.js
-import {jwtDecode} from "jwt-decode";
-import { useAuth } from "./AuthContext";
+import { jwtDecode } from 'jwt-decode';
+import { useAuth } from './AuthContext';
 
 export function useGoogleAuth() {
   const { login } = useAuth();
@@ -15,7 +14,7 @@ export function useGoogleAuth() {
   };
 
   const handleError = () => {
-    console.error("Google Login Failed");
+    console.error('Google Login Failed');
   };
 
   return { handleSuccess, handleError };

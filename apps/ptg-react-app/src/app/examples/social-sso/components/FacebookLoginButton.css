@@ -1,28 +1,26 @@
 .facebook-login-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  /* Override default button appearance */
-  .facebook-button {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 100% !important;
-    padding: 10px 20px;
-    background-color: #1877F2 !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .facebook-button:hover {
-    background-color: #145dbf !important;
-  }
-  
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.facebook-button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  padding: 10px 20px;
+  background-color: #1877f2 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.facebook-button:hover {
+  background-color: #145dbf !important;
+}

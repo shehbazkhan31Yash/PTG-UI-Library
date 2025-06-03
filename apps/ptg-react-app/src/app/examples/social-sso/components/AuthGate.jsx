@@ -1,10 +1,9 @@
-import GoogleLoginButton from "./GoogleLoginButton";
-import FacebookLoginButton from "./FacebookLoginButton";
-import OtherComponent from "./OtherComponent";
-import SignInForm from "../auth/SignIn";
-import SocialSignupForm from "./SocialSignupForm";
-import { useAuth } from "../auth/AuthContext";
-import "./AuthGate.css"; // 🔹 Custom CSS for layout
+import GoogleLoginButton from './GoogleLoginButton';
+import FacebookLoginButton from './FacebookLoginButton';
+import OtherComponent from './OtherComponent';
+import SocialSignupForm from './SocialSignupForm';
+import { useAuth } from '../auth/AuthContext';
+import './AuthGate.css';
 
 const AuthGate = () => {
   const { isAuthenticated, pendingSocialUser } = useAuth();
@@ -12,10 +11,13 @@ const AuthGate = () => {
   return (
     <div className="auth-wrapper">
       <div className="auth-box">
-      <div className="auth-heading">
-  <h2>Welcome to the Portal</h2>
-  <p className="auth-subtext">Please sign in to continue or use one of the social login options below.</p>
-</div>
+        <div className="auth-heading">
+          <h2>Welcome to the Portal</h2>
+          <p className="auth-subtext">
+            Please sign in to continue or use one of the social login options
+            below.
+          </p>
+        </div>
 
         {!isAuthenticated && !pendingSocialUser && (
           <>

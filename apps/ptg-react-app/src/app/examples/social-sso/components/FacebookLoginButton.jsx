@@ -1,7 +1,6 @@
-import React from "react";
-import FacebookLogin from "react-facebook-login";
-import { useFacebookAuth } from "../auth/useFacebookAuth";
-import "./FacebookLoginButton.css"; // ✅ Import custom styles
+import FacebookLogin from 'react-facebook-login';
+import { useFacebookAuth } from '../auth/useFacebookAuth';
+import './FacebookLoginButton.css';
 
 const FacebookLoginButton = () => {
   const { handleResponse } = useFacebookAuth();
@@ -13,7 +12,7 @@ const FacebookLoginButton = () => {
         autoLoad={false}
         fields="name,email,picture"
         callback={handleResponse}
-        cssClass="facebook-button" // ✅ Custom button class
+        cssClass="facebook-button"
         icon="fa-facebook"
         textButton="&nbsp;&nbsp;Continue with Facebook"
       />
