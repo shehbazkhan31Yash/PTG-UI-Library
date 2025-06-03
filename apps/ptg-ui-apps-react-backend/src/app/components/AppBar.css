@@ -20,13 +20,20 @@
   flex-shrink: 0 !important;
 }
 
-.tabs {
+/* .tabs {
   display: flex;
   background: rgba(31, 41, 55, 0.7);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgb(0 0 0 / 0.3);
   flex-grow: 1;
+} */
+.navbar-form {
+  box-shadow: none;
+  background: none;
+  border-radius: unset;
+  padding: 0 0;
+  max-width: 250px;
 }
 
 .tab-button {
@@ -61,4 +68,14 @@
 .tab-button:focus-visible {
   outline: 2px solid #fbbf24;
   outline-offset: 2px;
+}
+
+
+.carousel-indicators {
+  bottom: -40px;
+}
+
+.carousel {
+  width: 70%;
+  margin: auto;
 }
