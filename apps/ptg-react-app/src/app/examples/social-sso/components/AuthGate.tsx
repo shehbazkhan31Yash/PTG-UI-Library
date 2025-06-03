@@ -20,12 +20,10 @@ const AuthGate = () => {
         </div>
 
         {!isAuthenticated && !pendingSocialUser && (
-          <>
-            <div className="social-buttons">
-              <GoogleLoginButton />
-              <FacebookLoginButton />
-            </div>
-          </>
+          <div className="social-buttons">
+            <GoogleLoginButton />
+            <FacebookLoginButton />
+          </div>
         )}
 
         {pendingSocialUser && <SocialSignupForm />}

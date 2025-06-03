@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SignupForm.css';
+import { UserProfile } from '../interface';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -12,14 +13,14 @@ const Signup = () => {
     age: '',
     phone: '',
   });
-  const [userProfile, setUserProfile] = useState(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [error, setError] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
@@ -36,7 +37,7 @@ const Signup = () => {
       });
 
       setUserProfile(profileRes.data);
-    } catch (err) {
+    } catch (err: any) {
       const errorMsg = err.response?.data?.error?.message || err.message;
       setError(errorMsg);
     }

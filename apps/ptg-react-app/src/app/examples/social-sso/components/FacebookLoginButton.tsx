@@ -1,4 +1,4 @@
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
 import { useFacebookAuth } from '../auth/useFacebookAuth';
 import './FacebookLoginButton.css';
 
@@ -11,7 +11,7 @@ const FacebookLoginButton = () => {
         appId="1260930645668639"
         autoLoad={false}
         fields="name,email,picture"
-        callback={handleResponse}
+        callback={handleResponse as (response: ReactFacebookLoginInfo) => void}
         cssClass="facebook-button"
         icon="fa-facebook"
         textButton="&nbsp;&nbsp;Continue with Facebook"

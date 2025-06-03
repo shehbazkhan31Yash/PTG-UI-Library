@@ -1,16 +1,27 @@
 import { createContext, useContext, useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import {
+  AuthProviderProps,
+  AuthContextType,
+  SocialUser,
+  SignupFormData,
+} from '../interface/index';
 
-const AuthContext = createContext();
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
-  const [pendingSocialUser, setPendingSocialUser] = useState(null); // user from Google/Facebook
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user, setUser] = useState<any>(null);
+  const [jwt, setJwt] = useState<string | null>(
+    localStorage.getItem('token') || null
+  );
+  const [pendingSocialUser, setPendingSocialUser] = useState<SocialUser | null>(
+    null
+  );
   const isAuthenticated = !!user;
 
   // Login via Strapi
-  const loginWithStrapi = async (identifier, password) => {
+  const loginWithStrapi = async (identifier: string, password: string) => {
     const res = await axios.post('http://localhost:1337/api/auth/local', {
       identifier,
       password,
@@ -27,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     setUser(userRes.data);
   };
 
-  const loginWithSocial = async (socialUser) => {
+  const loginWithSocial = async (socialUser: SocialUser) => {
     try {
       const res = await axios.get(
         'http://localhost:1337/api/user-check/email',
@@ -55,14 +66,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const completeSignup = async (formData) => {
+  const completeSignup = async (formData: SignupFormData) => {
     try {
-      const res = await axios.post(
+      await axios.post(
         'http://localhost:1337/api/cutom-user-table/create-custom-user',
         {
           data: {
             username: formData.username,
-            email: pendingSocialUser.email,
+            email: pendingSocialUser?.email,
             age: formData.age,
             phone: formData.phone,
           },
@@ -99,4 +110,14 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};

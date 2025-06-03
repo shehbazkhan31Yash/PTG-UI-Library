@@ -1,13 +1,14 @@
+import { FacebookResponse, SocialUser } from '../interface';
 import { useAuth } from './AuthContext';
 
 export const useFacebookAuth = () => {
   const { loginWithSocial } = useAuth();
 
-  const handleResponse = (response) => {
+  const handleResponse = (response: FacebookResponse) => {
     if (response.status !== 'unknown') {
-      const userData = {
-        name: response.name,
-        email: response.email,
+      const userData: SocialUser = {
+        name: response.name || '',
+        email: response.email || '',
         picture: response.picture?.data?.url,
         provider: 'facebook',
       };

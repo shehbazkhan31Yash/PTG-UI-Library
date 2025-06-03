@@ -1,12 +1,13 @@
 import { jwtDecode } from 'jwt-decode';
 import { useAuth } from './AuthContext';
+import { GoogleJwtPayload } from '../interface';
 
 export function useGoogleAuth() {
-  const { login } = useAuth();
+  const { loginWithSocial } = useAuth();
 
-  const handleSuccess = (res) => {
-    const decoded = jwtDecode(res.credential);
-    login({
+  const handleSuccess = (res: { credential: string }) => {
+    const decoded = jwtDecode<GoogleJwtPayload>(res.credential);
+    loginWithSocial({
       name: decoded.name,
       email: decoded.email,
       picture: decoded.picture,

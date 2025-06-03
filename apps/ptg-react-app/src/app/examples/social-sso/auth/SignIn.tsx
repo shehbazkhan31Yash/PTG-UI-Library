@@ -1,22 +1,29 @@
-import React, { useState } from "react";
-import { useAuth } from "../auth/AuthContext";
-import { Link } from "react-router-dom";
-import "./SignInForm.css";
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { useAuth } from '../auth/AuthContext';
+import { Link } from 'react-router-dom';
+import './SignInForm.css';
 
 const SignInForm = () => {
   const { loginWithStrapi } = useAuth();
-  const [credentials, setCredentials] = useState({ identifier: "", password: "" });
-  const [error, setError] = useState("");
+  const [credentials, setCredentials] = useState({
+    identifier: '',
+    password: '',
+  });
+  const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     try {
       await loginWithStrapi(credentials.identifier, credentials.password);
     } catch {
-      setError("Invalid email/username or password.");
+      setError('Invalid email/username or password.');
     }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (
@@ -33,7 +40,7 @@ const SignInForm = () => {
             type="text"
             placeholder="Enter your email or username"
             value={credentials.identifier}
-            onChange={(e) => setCredentials({ ...credentials, identifier: e.target.value })}
+            onChange={handleChange}
             required
           />
         </div>
@@ -45,17 +52,21 @@ const SignInForm = () => {
             name="password"
             placeholder="Enter your password"
             value={credentials.password}
-            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+            onChange={handleChange}
             required
           />
         </div>
 
-        <button type="submit" className="signin-button">Sign In</button>
+        <button type="submit" className="signin-button">
+          Sign In
+        </button>
       </form>
 
       <div className="signin-footer">
-        Don’t have an account?{" "}
-        <Link to="/signup" className="link">Sign up</Link>
+        Don’t have an account?{' '}
+        <Link to="/signup" className="link">
+          Sign up
+        </Link>
       </div>
     </div>
   );
