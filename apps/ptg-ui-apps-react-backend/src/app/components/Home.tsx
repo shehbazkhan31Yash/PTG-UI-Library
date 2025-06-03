@@ -1,30 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
-
-// Simple placeholder for ExampleCarouselImage
-const CarouselImage: React.FC<{ imageUrl: string }> = ({ imageUrl }) => (
-  <div
-    style={{
-      width: '100%',
-      height: '200px',
-      backgroundColor: '#777',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'white',
-      fontSize: '2rem',
-    }}
-  >
-    <img
-      src={imageUrl}
-      width="250"
-      height="auto"
-      className="d-inline-block align-top"
-      alt="client logo"
-    />
-  </div>
-);
+import { CarouselImageContainer } from './CarouselImageContainer';
 
 const Home: React.FC = () => {
   return (
@@ -43,7 +20,7 @@ const Home: React.FC = () => {
       <Carousel>
         {carouselItems.map((item, index) => (
           <Carousel.Item key={index} interval={1000}>
-            <CarouselImage imageUrl={item.image} />
+            <CarouselImageContainer imageUrl={item.imageURL ?? ''} />
             {/* <Carousel.Caption>
               <h3>{item.text}</h3>
               <p>{item.caption}</p>
