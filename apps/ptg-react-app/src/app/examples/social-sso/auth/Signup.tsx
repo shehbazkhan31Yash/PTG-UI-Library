@@ -38,7 +38,7 @@ const Signup = () => {
 
       setUserProfile(profileRes.data);
     } catch (err: any) {
-      const errorMsg = err.response?.data?.error?.message || err.message;
+      const errorMsg = err.response?.data?.error?.message ?? err.message;
       setError(errorMsg);
     }
   };
