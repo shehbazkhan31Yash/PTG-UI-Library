@@ -34,8 +34,9 @@ const SignInForm = () => {
 
       <form onSubmit={handleSubmit} className="signin-form">
         <div className="form-group">
-          <label>Email or Username</label>
+          <label htmlFor="signin-identifier">Email or Username</label>
           <input
+            id="signin-identifier"
             name="identifier"
             type="text"
             placeholder="Enter your email or username"
@@ -46,8 +47,9 @@ const SignInForm = () => {
         </div>
 
         <div className="form-group">
-          <label>Password</label>
+          <label htmlFor="signin-password">Password</label>
           <input
+            id="signin-password"
             type="password"
             name="password"
             placeholder="Enter your password"

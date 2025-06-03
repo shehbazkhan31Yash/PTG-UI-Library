@@ -5,7 +5,7 @@ const OtherComponent = () => {
 
   return (
     <div className="p-4 border rounded">
-      <p>Welcome, {user?.name || user?.username}</p>
+      <p>Welcome, {user?.name ?? user?.username}</p>
       {user?.picture && (
         <img src={user.picture} alt="User" className="w-12 h-12 rounded-full" />
       )}

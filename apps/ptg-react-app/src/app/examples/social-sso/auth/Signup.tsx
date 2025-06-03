@@ -52,53 +52,58 @@ const Signup = () => {
       <form onSubmit={handleSubmit} className="signup-form">
         {/* form groups here as before */}
         <div className="form-group">
-          <label>Username</label>
+          <label htmlFor="signup-username">Username</label>
           <input
+            id="signup-username"
             name="username"
-            value={formData.username}
+            value={formData.username ?? ''}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Email</label>
+          <label htmlFor="signup-email">Email</label>
           <input
+            id="signup-email"
             type="email"
             name="email"
-            value={formData.email}
+            value={formData.email ?? ''}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Password</label>
+          <label htmlFor="signup-password">Password</label>
           <input
+            id="signup-password"
             type="password"
             name="password"
-            value={formData.password}
+            value={formData.password ?? ''}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Age</label>
+          <label htmlFor="signup-age">Age</label>
           <input
+            id="signup-age"
             name="age"
             type="number"
-            value={formData.age}
+            value={formData.age ?? ''}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Phone Number</label>
+          <label htmlFor="signup-phone">Phone Number</label>
           <input
+            id="signup-phone"
             name="phone"
-            value={formData.phone}
+            value={formData.phone ?? ''}
             onChange={handleChange}
             required
           />

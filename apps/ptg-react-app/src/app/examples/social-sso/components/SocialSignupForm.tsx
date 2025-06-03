@@ -6,7 +6,7 @@ import { FormData } from '../interface';
 const SocialSignupForm = () => {
   const { completeSignup, pendingSocialUser, logout } = useAuth();
   const [formData, setFormData] = useState<FormData>({
-    username: pendingSocialUser?.name || '',
+    username: pendingSocialUser?.name ?? '',
     age: '',
     phone: '',
   });
@@ -37,18 +37,24 @@ const SocialSignupForm = () => {
         </p>
 
         <div className="form-group">
-          <label className="socialsignup-label">Email</label>
+          <label className="socialsignup-label" htmlFor="socialsignup-email">
+            Email
+          </label>
           <input
+            id="socialsignup-email"
             name="email"
-            value={pendingSocialUser?.email || ''}
+            value={pendingSocialUser?.email ?? ''}
             readOnly
             className="socialsignup-input readonly"
           />
         </div>
 
         <div className="form-group">
-          <label className="socialsignup-label">Username</label>
+          <label className="socialsignup-label" htmlFor="socialsignup-username">
+            Username
+          </label>
           <input
+            id="socialsignup-username"
             name="username"
             placeholder="Enter username"
             value={formData.username}
@@ -58,8 +64,11 @@ const SocialSignupForm = () => {
         </div>
 
         <div className="form-group">
-          <label className="socialsignup-label">Age</label>
+          <label className="socialsignup-label" htmlFor="socialsignup-age">
+            Age
+          </label>
           <input
+            id="socialsignup-age"
             name="age"
             placeholder="Enter age"
             type="number"
@@ -70,8 +79,11 @@ const SocialSignupForm = () => {
         </div>
 
         <div className="form-group">
-          <label className="socialsignup-label">Phone Number</label>
+          <label className="socialsignup-label" htmlFor="socialsignup-phone">
+            Phone Number
+          </label>
           <input
+            id="socialsignup-phone"
             name="phone"
             placeholder="Enter phone number"
             value={formData.phone}
