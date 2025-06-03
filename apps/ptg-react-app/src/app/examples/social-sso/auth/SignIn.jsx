@@ -1,0 +1,64 @@
+import React, { useState } from "react";
+import { useAuth } from "../auth/AuthContext";
+import { Link } from "react-router-dom";
+import "./SignInForm.css";
+
+const SignInForm = () => {
+  const { loginWithStrapi } = useAuth();
+  const [credentials, setCredentials] = useState({ identifier: "", password: "" });
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      await loginWithStrapi(credentials.identifier, credentials.password);
+    } catch {
+      setError("Invalid email/username or password.");
+    }
+  };
+
+  return (
+    <div className="signin-container">
+      <h2 className="signin-title">Sign In</h2>
+
+      {error && <div className="signin-error">{error}</div>}
+
+      <form onSubmit={handleSubmit} className="signin-form">
+        <div className="form-group">
+          <label>Email or Username</label>
+          <input
+            name="identifier"
+            type="text"
+            placeholder="Enter your email or username"
+            value={credentials.identifier}
+            onChange={(e) => setCredentials({ ...credentials, identifier: e.target.value })}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={credentials.password}
+            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+            required
+          />
+        </div>
+
+        <button type="submit" className="signin-button">Sign In</button>
+      </form>
+
+      <div className="signin-footer">
+        Don’t have an account?{" "}
+        <Link to="/signup" className="link">Sign up</Link>
+      </div>
+    </div>
+  );
+};
+
+export default SignInForm;
