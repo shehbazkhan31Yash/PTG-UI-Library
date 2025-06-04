@@ -1,74 +1,57 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React from 'react';
+import './Style/Contact.css'; // Import the CSS file for styling
+import SujalImage from '../../assets/images/UI-Sujal.jpg'; // Importing an example image
+import NitinImage from '../../assets/images/UI-Nitin.jpg'; // Importing an example image
+import LokeshImage from '../../assets/images/UI-Lokesh.jpg'; // Importing an example image
+import LokeshDaiyaImage from '../../assets/images/UI-Lokesh.jpeg'; // Importing an example image
 
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your message has been received.`);
-    setFormData({ name: '', email: '', message: '' });
-  };
-
+const ContactUs = () => {
+  const contacts = [
+    {
+      name: 'Nitin Gupta',
+      designation: 'Business Unit Head',
+      email: 'nitin@yash.com',
+      photo: NitinImage,
+    },
+    {
+      name: 'Lokesh Sapre',
+      designation: 'Competency Head',
+      email: 'lokesh.sapre@yash.com',
+      photo: LokeshImage,
+    },
+    {
+      name: 'Sujal Ray',
+      designation: 'Resource Competency Manager',
+      email: 'sujal.ray@yash.com',
+      photo: SujalImage,
+    },
+    {
+      name: 'Lokesh Daiya',
+      designation: 'Solution Architect',
+      email: 'lokesh.daiya@yash.com',
+      photo: LokeshDaiyaImage,
+    },
+  ];
   return (
-    <section id="contact" className="mt-5">
-      <h2 className="text-center text-warning">Get In Touch</h2>
-      <Form
-        onSubmit={handleSubmit}
-        className="mx-auto"
-        style={{ maxWidth: '480px' }}
-      >
-        <Form.Group controlId="formName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your full name"
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="you@example.com"
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formMessage">
-          <Form.Label>Message</Form.Label>
-          <Form.Control
-            as="textarea"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={3}
-            placeholder="Your message here..."
-            required
-          />
-        </Form.Group>
-        <Button variant="warning" type="submit">
-          Send Message
-        </Button>
-      </Form>
-    </section>
+    <div className="contact-container">
+      <h1>Contact Us</h1>
+      {contacts.map((contact, index) => (
+        <Contact key={index} {...contact} />
+      ))}
+    </div>
   );
 };
+export default ContactUs;
 
-export default Contact;
+const Contact = ({ name, designation, email, photo }) => {
+  return (
+    <div className="contact-card">
+      <img src={photo} alt={name} className="contact-photo" />
+      <div className="contact-info">
+        <h2>{name}</h2>
+        <p className="designation">{designation}</p>
+        <p>Email: {email}</p>
+      </div>
+    </div>
+  );
+};
