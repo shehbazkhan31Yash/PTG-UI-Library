@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
-import { Badge, Button, Form } from 'react-bootstrap';
+import { Badge } from 'react-bootstrap';
 
 import logoImage from '../../assets/images/yash_log_real.svg';
 

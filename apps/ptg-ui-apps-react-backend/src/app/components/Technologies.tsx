@@ -1,6 +1,5 @@
 import { technologiesItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import React from 'react';
-import CardComponent from './CardComponent';
 import Image from 'react-bootstrap/Image';
 
 const Technologies: React.FC = () => {
