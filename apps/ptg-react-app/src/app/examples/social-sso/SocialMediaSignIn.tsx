@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import AuthGate from './components/AuthGate';
 import Signup from './auth/Signup';
+import { AuthProvider } from './auth/AuthContext';
 
 export default function SocialMediaSignIn() {
   const [showCode, setShowCode] = useState<boolean>(false);
@@ -45,10 +46,9 @@ export default function SocialMediaSignIn() {
       </div>
       <div>
         <GoogleOAuthProvider clientId="152055446901-ird7ugmtueb9mp68sg20hp0h60qsthq5.apps.googleusercontent.com">
-          <Routes>
-            <Route path="/social-media-login" element={<AuthGate />} />
-            <Route path="/social-media-login/signup" element={<Signup />} />
-          </Routes>
+          <AuthProvider>
+            <AuthGate />
+          </AuthProvider>
         </GoogleOAuthProvider>
       </div>
     </section>
