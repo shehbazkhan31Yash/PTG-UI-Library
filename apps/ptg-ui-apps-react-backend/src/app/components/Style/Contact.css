@@ -1,0 +1,36 @@
+/* src/Contact.css */
+.contact-card {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  border: 1px solid #444; /* Darker border */
+  border-radius: 5px;
+  padding: 15px;
+  background: #333; /* Dark background */
+}
+.contact-photo {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+.contact-info {
+  flex: 1;
+}
+.designation {
+  font-style: italic;
+  color: #bbb; /* Lighter text for designation */
+}
+/* src/ContactUs.css */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #222; /* Dark background for container */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+}
+h1 {
+  text-align: center;
+  color: #fff; /* White text for the heading */
+}
