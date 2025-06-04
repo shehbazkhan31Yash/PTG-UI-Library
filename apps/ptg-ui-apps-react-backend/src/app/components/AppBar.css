@@ -69,13 +69,3 @@
   outline: 2px solid #fbbf24;
   outline-offset: 2px;
 }
-
-
-.carousel-indicators {
-  bottom: -40px;
-}
-
-.carousel {
-  width: 70%;
-  margin: auto;
-}

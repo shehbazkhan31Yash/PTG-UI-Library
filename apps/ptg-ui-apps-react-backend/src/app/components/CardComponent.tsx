@@ -20,17 +20,19 @@ const CardComponent: React.FC<CardComponentProps> = ({
           cursor: 'pointer',
         }}
       >
-        <img
-          src={imageUrl}
-          className="card-img-top"
-          alt={title}
-          style={{
-            borderTopLeftRadius: '15px',
-            borderTopRightRadius: '15px',
-            height: '160px',
-            objectFit: 'cover',
-          }}
-        />
+        <div className="text-center py-3">
+          <img
+            src={imageUrl}
+            className="card-img-top"
+            alt={title}
+            style={{
+              borderTopLeftRadius: '15px',
+              borderTopRightRadius: '15px',
+              height: '160px',
+              width: '200px',
+            }}
+          />
+        </div>
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{content}</p>

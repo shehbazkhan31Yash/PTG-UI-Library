@@ -1,0 +1,45 @@
+import { technologiesItems } from '@ptg-ui-apps-react-backend/constants/constants';
+import React from 'react';
+import CardComponent from './CardComponent';
+import Image from 'react-bootstrap/Image';
+
+const Technologies: React.FC = () => {
+  return (
+    <section id="technolgies" className="text-center text-light mt-5">
+      <h2 className="section-title pb-4">Web Technolgies List</h2>
+      <div>
+        <div className="row">
+          {technologiesItems.map((item) => (
+            <div className="col-md-2" key={item.id}>
+              <div
+                className="card text-white mb-4 "
+                style={{
+                  // Remove background here to allow CSS hover to work
+                  borderRadius: '80px',
+                  transition: 'transform 0.3s, background-color 0.3s',
+                  cursor: 'pointer',
+                  backgroundColor: '#fff',
+                  height: '170px',
+                  width: '170px',
+                  padding: '10px',
+                }}
+              >
+                <Image
+                  src={item.imageUrl}
+                  className="card-img-top"
+                  alt={item.title}
+                  roundedCircle
+                  style={{
+                    height: '160px',
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Technologies;
