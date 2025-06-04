@@ -224,6 +224,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/social-media-login',
+    icon: 'fa-solid fa-check-to-slot',
+    label: 'SOCIAL MEDIA LOGIN',
+    disabled: false,
+  },
+  {
     path: '/toaster',
     icon: 'fa-solid fa-bell',
     label: 'TOASTER',

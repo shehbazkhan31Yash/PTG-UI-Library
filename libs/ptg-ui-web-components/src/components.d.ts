@@ -22,6 +22,9 @@ export namespace Components {
     }
     interface PtgAccordion {
         "bgColor"?: string;
+        /**
+          * @default false
+         */
         "defaultOpened": boolean;
         "description": string;
         "label": string;
@@ -32,27 +35,60 @@ export namespace Components {
         "texed": string;
     }
     interface PtgBreadcrumbs {
+        /**
+          * @default []
+         */
         "datalist": any;
     }
     interface PtgButton {
         "appearance": string;
+        /**
+          * @default 'right'
+         */
         "btnIconAlignment"?: string;
+        /**
+          * @default ""
+         */
         "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
+        /**
+          * @default ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+         */
         "dayNames": string[];
+        /**
+          * @default [     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]
+         */
         "monthNames": string[];
+        /**
+          * @default true
+         */
         "showFillDays": boolean;
         "startDate": any;
     }
     interface PtgCard {
+        /**
+          * @default 'select'
+         */
         "cardButtonText": string;
+        /**
+          * @default ''
+         */
         "cardContent": string;
         "cardContentLength"?: number;
         "cardId": number;
+        /**
+          * @default ''
+         */
         "cardTitle": string;
+        /**
+          * @default false
+         */
         "isCardAction": boolean;
+        /**
+          * @default ''
+         */
         "src": string;
     }
     interface PtgCheckbox {
@@ -65,6 +101,9 @@ export namespace Components {
         "dataid": any;
         "datavalue": any;
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "indeterminate"?: boolean;
         "label"?: string;
     }
@@ -89,6 +128,7 @@ export namespace Components {
         "name": string;
         /**
           * The placeholder
+          * @default ''
          */
         "placeholder": string;
         /**
@@ -97,26 +137,69 @@ export namespace Components {
         "type": string;
         /**
           * name for inout
+          * @default ''
          */
         "value": string;
+        /**
+          * @default '100%'
+         */
         "width": string;
     }
     interface PtgModal {
+        /**
+          * @default ''
+         */
         "btnName": string;
+        /**
+          * @default 'secondary'
+         */
         "cancelBtn": string;
+        /**
+          * @default false
+         */
         "closeOutsideClick": boolean;
+        /**
+          * @default 'Confirm'
+         */
         "confirmButtonName": string;
+        /**
+          * @default false
+         */
         "isOpen": boolean;
+        /**
+          * @default 'Modal Header'
+         */
         "modalHeaderName": string;
+        /**
+          * @default 'md'
+         */
         "modalSize": string;
+        /**
+          * @default 'primary'
+         */
         "primaryBtn": string;
+        /**
+          * @default true
+         */
         "showFooter": boolean;
+        /**
+          * @default true
+         */
         "showHeader": boolean;
     }
     interface PtgPagination {
         "itemCount": number;
+        /**
+          * @default 0
+         */
         "page": number;
+        /**
+          * @default 10
+         */
         "pageSize": number;
+        /**
+          * @default []
+         */
         "pageSizeOptions": number[];
     }
     interface PtgRadiobtn {
@@ -134,6 +217,9 @@ export namespace Components {
         "value": string;
     }
     interface PtgSelect {
+        /**
+          * @default false
+         */
         "multiSelect": boolean;
         "selectData": any;
     }
@@ -146,8 +232,17 @@ export namespace Components {
     }
     interface PtgTable {
         "customClass"?: string;
+        /**
+          * @default []
+         */
         "pageSizeOptions": number[];
+        /**
+          * @default false
+         */
         "searchable": boolean;
+        /**
+          * @default false
+         */
         "sortable": boolean;
         "tableHover"?: boolean;
         "tableStrip"?: boolean;
@@ -175,13 +270,28 @@ export namespace Components {
         "appearance": string;
         "discription": string;
         "id1": string;
+        /**
+          * @default false
+         */
         "open": boolean;
         "type": string;
     }
     interface PtgUiCarousel {
+        /**
+          * @default []
+         */
         "images": Array<string>;
+        /**
+          * @default '200'
+         */
         "imgHeight": string;
+        /**
+          * @default '200'
+         */
         "imgWidth": string;
+        /**
+          * @default true
+         */
         "showIndicators": boolean;
     }
 }
@@ -453,6 +563,9 @@ declare namespace LocalJSX {
     }
     interface PtgAccordion {
         "bgColor"?: string;
+        /**
+          * @default false
+         */
         "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
@@ -463,30 +576,63 @@ declare namespace LocalJSX {
         "texed"?: string;
     }
     interface PtgBreadcrumbs {
+        /**
+          * @default []
+         */
         "datalist"?: any;
     }
     interface PtgButton {
         "appearance"?: string;
+        /**
+          * @default 'right'
+         */
         "btnIconAlignment"?: string;
+        /**
+          * @default ""
+         */
         "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
+        /**
+          * @default ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+         */
         "dayNames"?: string[];
+        /**
+          * @default [     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]
+         */
         "monthNames"?: string[];
         "onDayChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
         "onMonthChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
+        /**
+          * @default true
+         */
         "showFillDays"?: boolean;
         "startDate"?: any;
     }
     interface PtgCard {
+        /**
+          * @default 'select'
+         */
         "cardButtonText"?: string;
+        /**
+          * @default ''
+         */
         "cardContent"?: string;
         "cardContentLength"?: number;
         "cardId"?: number;
+        /**
+          * @default ''
+         */
         "cardTitle"?: string;
+        /**
+          * @default false
+         */
         "isCardAction"?: boolean;
         "onHandleClick"?: (event: PtgCardCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
         "src"?: string;
     }
     interface PtgCheckbox {
@@ -499,6 +645,9 @@ declare namespace LocalJSX {
         "dataid"?: any;
         "datavalue"?: any;
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "indeterminate"?: boolean;
         "label"?: string;
         "onValueChanged"?: (event: PtgCheckboxCustomEvent<string>) => void;
@@ -528,6 +677,7 @@ declare namespace LocalJSX {
         "onValueChanged"?: (event: PtgInputCustomEvent<string>) => void;
         /**
           * The placeholder
+          * @default ''
          */
         "placeholder"?: string;
         /**
@@ -536,30 +686,73 @@ declare namespace LocalJSX {
         "type"?: string;
         /**
           * name for inout
+          * @default ''
          */
         "value"?: string;
+        /**
+          * @default '100%'
+         */
         "width"?: string;
     }
     interface PtgModal {
+        /**
+          * @default ''
+         */
         "btnName"?: string;
+        /**
+          * @default 'secondary'
+         */
         "cancelBtn"?: string;
+        /**
+          * @default false
+         */
         "closeOutsideClick"?: boolean;
+        /**
+          * @default 'Confirm'
+         */
         "confirmButtonName"?: string;
+        /**
+          * @default false
+         */
         "isOpen"?: boolean;
+        /**
+          * @default 'Modal Header'
+         */
         "modalHeaderName"?: string;
+        /**
+          * @default 'md'
+         */
         "modalSize"?: string;
         "onConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        /**
+          * @default 'primary'
+         */
         "primaryBtn"?: string;
+        /**
+          * @default true
+         */
         "showFooter"?: boolean;
+        /**
+          * @default true
+         */
         "showHeader"?: boolean;
     }
     interface PtgPagination {
         "itemCount"?: number;
         "onPageChanged"?: (event: PtgPaginationCustomEvent<any>) => void;
         "onSizeChanged"?: (event: PtgPaginationCustomEvent<any>) => void;
+        /**
+          * @default 0
+         */
         "page"?: number;
+        /**
+          * @default 10
+         */
         "pageSize"?: number;
+        /**
+          * @default []
+         */
         "pageSizeOptions"?: number[];
     }
     interface PtgRadiobtn {
@@ -577,6 +770,9 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface PtgSelect {
+        /**
+          * @default false
+         */
         "multiSelect"?: boolean;
         "selectData"?: any;
     }
@@ -589,8 +785,17 @@ declare namespace LocalJSX {
     }
     interface PtgTable {
         "customClass"?: string;
+        /**
+          * @default []
+         */
         "pageSizeOptions"?: number[];
+        /**
+          * @default false
+         */
         "searchable"?: boolean;
+        /**
+          * @default false
+         */
         "sortable"?: boolean;
         "tableHover"?: boolean;
         "tableStrip"?: boolean;
@@ -618,13 +823,28 @@ declare namespace LocalJSX {
         "appearance"?: string;
         "discription"?: string;
         "id1"?: string;
+        /**
+          * @default false
+         */
         "open"?: boolean;
         "type"?: string;
     }
     interface PtgUiCarousel {
+        /**
+          * @default []
+         */
         "images"?: Array<string>;
+        /**
+          * @default '200'
+         */
         "imgHeight"?: string;
+        /**
+          * @default '200'
+         */
         "imgWidth"?: string;
+        /**
+          * @default true
+         */
         "showIndicators"?: boolean;
     }
     interface IntrinsicElements {

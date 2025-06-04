@@ -1,0 +1,100 @@
+.socialsignup-container {
+    max-width: 400px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .socialsignup-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .socialsignup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .socialsignup-warning {
+    font-size: 14px;
+    color: #e11d48;
+    background-color: #ffe4e6;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  .socialsignup-input {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .socialsignup-input:focus {
+    border-color: #2563eb;
+  }
+  
+  .socialsignup-input.readonly {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    cursor: not-allowed;
+  }
+  
+  .socialsignup-button {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .socialsignup-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .socialsignup-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #374151;
+  }
+  
+  .socialsignup-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .socialback-button {
+    background-color: #e5e7eb;
+    color: #1f2937;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .socialback-button:hover {
+    background-color: #d1d5db;
+  }
+  
