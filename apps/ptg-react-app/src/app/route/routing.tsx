@@ -87,12 +87,19 @@ const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
-const LangchainChatbot = lazy(()=> import('../examples/chatbot-langchain/Chatbot'));
-const PDFRenderer = lazy(()=> import('../examples/PDF-Renderer/PDFRenderer'));
+const LangchainChatbot = lazy(
+  () => import('../examples/chatbot-langchain/Chatbot')
+);
+const PDFRenderer = lazy(() => import('../examples/PDF-Renderer/PDFRenderer'));
 const ChatbotFullScreen = lazy(
   () => import('../examples/chatbot/ChatbotFullScreen')
 );
-const LangChainChatbotFullScreen = lazy(()=> import('../examples/chatbot-langchain/ChatbotFullScreen'));
+const LangChainChatbotFullScreen = lazy(
+  () => import('../examples/chatbot-langchain/ChatbotFullScreen')
+);
+const SocialMediaSignIn = lazy(
+  () => import('../examples/social-sso/SocialMediaSignIn')
+);
 
 /*--Declare routes and component for dynamic load--*/
 
@@ -261,6 +268,10 @@ const routing = [
   {
     path: '/loader',
     component: Loader,
+  },
+  {
+    path: '/social-media-login',
+    component: SocialMediaSignIn,
   },
   {
     path: '/aichatbot-yash',
