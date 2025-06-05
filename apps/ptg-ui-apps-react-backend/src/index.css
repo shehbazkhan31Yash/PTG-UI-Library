@@ -15,7 +15,7 @@ html {
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
@@ -138,7 +138,7 @@ textarea:focus {
   outline: none;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   background: #fbbf24;
   border: none;
   color: #111827;
@@ -151,8 +151,8 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
+button[type='submit']:hover,
+button[type='submit']:focus {
   background: #d97706;
   outline: none;
 }
@@ -181,7 +181,6 @@ footer a {
   }
 }
 
-
 .carousel-indicators {
   bottom: -40px;
 }
@@ -191,15 +190,12 @@ footer a {
   margin: auto;
 }
 
-.visionmissioncard {
+.vision {
   background: #e23827;
 }
 
-.visionandmission {
-  background-image: url('./assets/images/vision_mission.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 0px;
+.mission {
+  background: black;
 }
 
 .avatorClass {
@@ -218,20 +214,19 @@ footer a {
   padding: 1rem 2.2rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
-  color: #fbbf24
+  color: #fbbf24;
 }
 
 .list-group-flush {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-item {
+.list-group-flush>.list-group-item {
   color: #fbbf24;
   background-color: unset;
   border: none;
   text-align: justify;
 }
-
 
 .services-card .card-text {
   background: rgba(31, 41, 55, 0.75);
