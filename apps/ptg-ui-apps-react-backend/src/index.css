@@ -10,7 +10,8 @@ html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f3f4f6;
-  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -221,7 +222,7 @@ footer a {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-flush>.list-group-item {
+.list-group-flush > .list-group-item {
   color: #fbbf24;
   background-color: unset;
   border: none;
@@ -230,4 +231,41 @@ footer a {
 
 .services-card .card-text {
   background: rgba(31, 41, 55, 0.75);
+}
+
+.centered-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+.client-logo {
+  max-height: 150px; /* Adjust the height as needed */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+.client-logo:hover {
+  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+.carousel-caption {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Semi-transparent background for better text readability */
+  border-radius: 5px; /* Rounded corners for the caption */
+}
+/* CarouselImageContainer.css */
+.carousel-image-container {
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  height: 200px; /* Set a fixed height for the container */
+  overflow: hidden; /* Hide overflow to maintain circular shape */
+}
+.circular-image {
+  width: 40%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image covers the container */
 }
