@@ -10,8 +10,7 @@ html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f3f4f6;
-  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80')
-    no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -222,9 +221,11 @@ footer a {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-flush > .list-group-item {
+.list-group-flush>.list-group-item {
   color: #fbbf24;
-  background-color: rgba(31, 41, 55, 0.75);
+  background-color: unset;
+  border: none;
+  text-align: justify;
 }
 
 .services-card .card-text {
