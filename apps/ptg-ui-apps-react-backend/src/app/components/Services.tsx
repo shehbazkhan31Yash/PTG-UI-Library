@@ -1,54 +1,86 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
-
+import { ListGroup } from 'react-bootstrap';
+import {
+  FaClipboardList,
+  FaPaintBrush,
+  FaMobileAlt,
+  FaMousePointer,
+  FaUniversalAccess,
+  FaUserCheck,
+  FaBookOpen,
+  FaUsersCog,
+  FaChartLine,
+} from 'react-icons/fa';
 const Services: React.FC = () => {
+  const services = [
+    {
+      title: 'Wireframing & Prototyping',
+      description:
+        'Visualizing layouts and functionalities before development.',
+      icon: <FaClipboardList />,
+    },
+    {
+      title: 'Visual Design',
+      description:
+        'Crafting the aesthetic elements like color schemes and typography.',
+      icon: <FaPaintBrush />,
+    },
+    {
+      title: 'Responsive Design',
+      description:
+        'Ensuring adaptability across different devices and screen sizes.',
+      icon: <FaMobileAlt />,
+    },
+    {
+      title: 'Interaction Design',
+      description: 'Designing interactive elements to boost user engagement.',
+      icon: <FaMousePointer />,
+    },
+    {
+      title: 'Accessibility Design',
+      description: 'Implementing practices for inclusivity for all users.',
+      icon: <FaUniversalAccess />,
+    },
+    {
+      title: 'Usability Testing',
+      description:
+        'Evaluating the UI with real users for iterative improvements.',
+      icon: <FaUserCheck />,
+    },
+    {
+      title: 'Design Systems',
+      description: 'Creating style guides for consistency across applications.',
+      icon: <FaBookOpen />,
+    },
+    {
+      title: 'Collaboration',
+      description:
+        'Working with developers for accurate design implementation.',
+      icon: <FaUsersCog />,
+    },
+    {
+      title: 'Continuous Improvement',
+      description:
+        'Monitoring feedback to enhance the UI based on user behavior.',
+      icon: <FaChartLine />,
+    },
+  ];
   return (
-    <section id="services" className="text-center text-light mt-5">
-      <h2 className="section-title">What We Offer</h2>
-      <p className="">
-        As a UI team, we offer a variety of services to enhance user experience
-      </p>
-
-      <ListGroup>
-        <ListGroup.Item>
-          1. <b>Wireframing & Prototyping </b> : Visualizing layouts and
-          functionalities before development.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          2. <b>Visual Design</b> : Crafting the aesthetic elements like color
-          schemes and typography.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          3. <b>Responsive Design</b> : Ensuring adaptability across different
-          devices and screen sizes.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          4. <b>Interaction Design</b> : Designing interactive elements to boost
-          user engagement.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          5. <b>Accessibility Design</b> : Implementing practices for
-          inclusivity for all users.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          6. <b>Usability Testing</b> : Evaluating the UI with real users for
-          iterative improvements.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          7. <b>Design Systems</b> : Creating style guides for consistency
-          across applications.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          8. <b>Collaboration</b> : Working with developers for accurate design
-          implementation.
-        </ListGroup.Item>
-        <ListGroup.Item>
-          9. <b>Continuous Improvement</b> : Monitoring feedback to enhance the
-          UI based on user behavior.
-        </ListGroup.Item>
+    <section id="services" className="bg-dark text-light mt-5 p-4">
+      <ListGroup className="bg-dark border-0">
+        {services.map((service, index) => (
+          <ListGroup.Item
+            key={index}
+            className="bg-dark text-light border-0 d-flex align-items-center"
+          >
+            <span className="me-2">{service.icon}</span>
+            <span>
+              {index + 1}. <b>{service.title}</b>
+            </span>
+          </ListGroup.Item>
+        ))}
       </ListGroup>
     </section>
   );
 };
-
 export default Services;
