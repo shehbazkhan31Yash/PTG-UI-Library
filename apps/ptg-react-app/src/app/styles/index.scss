@@ -1,15 +1,20 @@
-@import "./variables";
-@import "~bootstrap/scss/bootstrap";
-@import "./forms";
-@import "./datatable";
-@import "./classes";
-@import "./modal";
-@import "./fonts";
-@import "./input";
-@import "./layout";
-@import "./showcodeicon";
-@import "./tabs";
+@import './variables';
+@import '~bootstrap/scss/bootstrap';
+@import './forms';
+@import './datatable';
+@import './classes';
+@import './modal';
+@import './fonts';
+@import './input';
+@import './layout';
+@import './showcodeicon';
+@import './tabs';
 
 // // fontawesome style
 // @import "~@fortawesome/fontawesome-free/css/all.css";
 // @import '@nosferatu500/react-sortable-tree/style.css';
+
+.bg-white {
+  background-color: #222 !important; /* Override Bootstrap's bg-white */
+  color: white; /* Optional: Change text color for contrast */
+}

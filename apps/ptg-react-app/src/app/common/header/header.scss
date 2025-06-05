@@ -1,7 +1,7 @@
 @import '../../styles/variables';
-.hiddenContent{
-  color:$main;
-  display:none;
+.hiddenContent {
+  color: $main;
+  display: none;
 }
 nav {
   height: 100%;
@@ -19,22 +19,23 @@ nav {
 
 @media (min-width: 300px) and (max-width: 600px) {
   .logo {
-    img{
+    img {
       height: 10px;
       width: 70px;
     }
   }
 }
-
 
 @media (min-width: 300px) and (max-width: 942px) {
   .logo {
-    img{
+    img {
       height: 10px;
       width: 70px;
-  
-  
     }
   }
 }
 
+.custom-bg-dark-blue {
+  background-color: $header-background-color;
+  color: white;
+}
