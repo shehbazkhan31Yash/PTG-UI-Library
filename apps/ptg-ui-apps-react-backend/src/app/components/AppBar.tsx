@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
-import { Button, Form } from 'react-bootstrap';
+import { Badge } from 'react-bootstrap';
 
 import logoImage from '../../assets/images/yash_log_real.svg';
 
@@ -38,15 +38,15 @@ const AppBar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <Form className="d-flex navbar-form">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="my-0 me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          <Badge
+            bg="warning"
+            text="dark"
+            className="rounded-circle justify-content-center align-items-center avatorClass"
+          >
+            <div className="px-2">
+              <span className="avatorText">{'SBK'}</span>
+            </div>
+          </Badge>
         </div>
       </div>
     </header>
