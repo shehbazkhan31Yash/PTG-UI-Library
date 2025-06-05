@@ -10,12 +10,13 @@ html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f3f4f6;
-  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center fixed;
   background-size: cover;
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
@@ -138,7 +139,7 @@ textarea:focus {
   outline: none;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   background: #fbbf24;
   border: none;
   color: #111827;
@@ -151,8 +152,8 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
+button[type='submit']:hover,
+button[type='submit']:focus {
   background: #d97706;
   outline: none;
 }
@@ -181,7 +182,6 @@ footer a {
   }
 }
 
-
 .carousel-indicators {
   bottom: -40px;
 }
@@ -191,15 +191,12 @@ footer a {
   margin: auto;
 }
 
-.visionmissioncard {
+.vision {
   background: #e23827;
 }
 
-.visionandmission {
-  background-image: url('/assets/images/vision_mission.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 0px;
+.mission {
+  background: black;
 }
 
 .avatorClass {
@@ -218,19 +215,17 @@ footer a {
   padding: 1rem 2.2rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
-  color: #fbbf24
+  color: #fbbf24;
 }
 
 .list-group-flush {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-flush>.list-group-item {
-
+.list-group-flush > .list-group-item {
   color: #fbbf24;
   background-color: rgba(31, 41, 55, 0.75);
 }
-
 
 .services-card .card-text {
   background: rgba(31, 41, 55, 0.75);
