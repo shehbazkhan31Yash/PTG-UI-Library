@@ -132,7 +132,7 @@ export default function Chatbot() {
           </div>
         </PtgUiModal>
 
-        <IFrame>
+        <IFrame bodyStyle={{ backgroundColor: '#222', color: '#fff' }}>
           <PtgChatBot genAIKey={genAIKey} />
         </IFrame>
       </div>
