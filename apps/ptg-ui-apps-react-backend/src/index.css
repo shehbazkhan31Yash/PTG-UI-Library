@@ -228,6 +228,13 @@ footer a {
   text-align: justify;
 }
 
+#services .list-group-item {
+  background-color: unset;
+  border: none;
+  text-align: justify;
+  color: #f3f4f6;
+}
+
 .services-card .card-text {
   background: rgba(31, 41, 55, 0.75);
 }
