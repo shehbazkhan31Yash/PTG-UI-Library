@@ -187,11 +187,11 @@ const splitDate = (dateStr: Date | null | undefined) => {
 
       <div className="container-fuild">
         <div className="row ms-1 me-1">
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-white">
             <label>en-US time zone</label>
             <PtgUiCalendar {...startDateProp} />
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-white">
             <label>Timezone</label>
             <PtgUiSelectbox
               name="time"
@@ -205,7 +205,7 @@ const splitDate = (dateStr: Date | null | undefined) => {
           </div>
         </div>
         <div className="row mt-2 ms-1 me-1">
-          <div className="col-md-6 col-lg-6">
+          <div className="col-md-6 col-lg-6 text-white">
             <label>Converted timezone</label>
             <PtgUiCalendar {...startDatePropLocal} />
           </div>

@@ -4,11 +4,33 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 import { PtgUiCustomAvatar } from '@ptg-ui/react';
 import { IAvatarsWithText } from '@ptg-react-app/interfaces';
 
-export default function AvatarsWithTextAndVariantsExample(props: Readonly<IAvatarsWithText>) {
-  const avatarData: Array<{ id: number; text: string; src: string; variant: 'circle' | 'rounded' | 'square' }> = [
-    { id: 1, text: 'John Doe', src: 'https://randomuser.me/api/portraits/men/1.jpg', variant: 'circle' },
-    { id: 2, text: 'Jane Smith', src: 'https://randomuser.me/api/portraits/women/2.jpg', variant: 'rounded' },
-    { id: 3, text: 'Alice Brown', src: 'https://randomuser.me/api/portraits/women/3.jpg', variant: 'square' },
+export default function AvatarsWithTextAndVariantsExample(
+  props: Readonly<IAvatarsWithText>
+) {
+  const avatarData: Array<{
+    id: number;
+    text: string;
+    src: string;
+    variant: 'circle' | 'rounded' | 'square';
+  }> = [
+    {
+      id: 1,
+      text: 'John Doe',
+      src: 'https://randomuser.me/api/portraits/men/1.jpg',
+      variant: 'circle',
+    },
+    {
+      id: 2,
+      text: 'Jane Smith',
+      src: 'https://randomuser.me/api/portraits/women/2.jpg',
+      variant: 'rounded',
+    },
+    {
+      id: 3,
+      text: 'Alice Brown',
+      src: 'https://randomuser.me/api/portraits/women/3.jpg',
+      variant: 'square',
+    },
   ];
 
   const componentCode = `
@@ -35,8 +57,9 @@ export default function AvatarsWithTextAndVariantsExample(props: Readonly<IAvata
 
   return (
     <section>
-         {props?.showCodeAvatarsWithText && (
-      <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />)}
+      {props?.showCodeAvatarsWithText && (
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+      )}
       <div className="mb-3">
         <div className="avatar-with-text-component">
           {avatarData.map((item) => (
@@ -46,7 +69,7 @@ export default function AvatarsWithTextAndVariantsExample(props: Readonly<IAvata
                 src={item.src}
                 variant={item.variant}
               />
-              <span className="avatar-text">{item.text}</span>
+              <span className="avatar-text text-white">{item.text}</span>
             </div>
           ))}
         </div>

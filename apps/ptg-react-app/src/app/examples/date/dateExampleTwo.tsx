@@ -10,9 +10,12 @@ import './date.scss';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
-import { IDatePickerProps, IDateState, IExampleTwoProps } from '../../interfaces';
+import {
+  IDatePickerProps,
+  IDateState,
+  IExampleTwoProps,
+} from '../../interfaces';
 import { DATE_RANGE, END_DATE, START_DATE } from '../../constants/Constant';
-
 
 export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   const { t } = useTranslation();
@@ -25,7 +28,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   });
 
   /*-----Set date state-----*/
-  const setDateState = (d: Date|string, field: string) => {
+  const setDateState = (d: Date | string, field: string) => {
     setStartDate((preState) => {
       if (
         field === DATE_RANGE &&
@@ -44,7 +47,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
     });
   };
   /*-----props for start datepicker-----*/
-  const startDateProp:IDatePickerProps = {
+  const startDateProp: IDatePickerProps = {
     selected: date?.startDate,
     className: `form-control w-100`,
     onChange: (d) => setDateState(d.target.value, START_DATE),
@@ -54,7 +57,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   };
 
   /*-----props for end datepicker-----*/
-  const endDateProp:IDatePickerProps = {
+  const endDateProp: IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
     onChange: (d) => setDateState(d.target.value, END_DATE),
@@ -64,7 +67,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
   };
 
   /*-----props for date range picker-----*/
-  const dateRangeProp:IDatePickerProps = {
+  const dateRangeProp: IDatePickerProps = {
     selected: date.dateRange,
     className: `form-control w-100`,
     onChange: (d) => setDateState(d.target.value, DATE_RANGE),
@@ -158,7 +161,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
         <div className="row mb-5">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="row mb-3">
-              <div className="col-12">
+              <div className="col-12 text-white">
                 <label>{t('MIN_DATE')}</label>
               </div>
               <div className="col-12" id="start-date">
@@ -166,7 +169,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
               </div>
             </div>
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 text-white">
                 <label>{t('MAX_DATE')}</label>
               </div>
               <div className="col-12" id="end-date">
@@ -174,7 +177,7 @@ export function ExampleTwo(props: Readonly<IExampleTwoProps>) {
               </div>
             </div>
           </div>
-          <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12 text-white">
             <label>{t('DATE_VALIDATOR_TEXT')}</label>
             <div className="row mb-3">
               <div

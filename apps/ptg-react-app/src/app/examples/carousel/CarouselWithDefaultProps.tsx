@@ -10,6 +10,7 @@ export const CarouselWithDefaultProps = (props: ICarouselWithDefaultProps) => {
     {
       id: '0',
       image: 'https://picsum.photos/id/328/3264/2448',
+      backgroundColor: '#222',
     },
     {
       id: '1',
@@ -52,7 +53,7 @@ export const CarouselWithDefaultProps = (props: ICarouselWithDefaultProps) => {
       {props?.showCodeDefaultCarousel && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
-      <div className="mb-3">
+      <div>
         <div className="carousel-component">
           <PtgUiCarousel items={imageList}></PtgUiCarousel>
         </div>

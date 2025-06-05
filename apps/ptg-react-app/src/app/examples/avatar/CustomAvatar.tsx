@@ -37,7 +37,7 @@ export default function CustomAvatarExample() {
   const [showCodeAvatarsWithBorder, setShowCodeAvatarsWithBorder] =
     useState<boolean>(false);
 
-    const [showCodeAvatarsWithText, setShowCodeAvatarsWithText] =
+  const [showCodeAvatarsWithText, setShowCodeAvatarsWithText] =
     useState<boolean>(false);
 
   const { t } = useTranslation();
@@ -73,10 +73,10 @@ export default function CustomAvatarExample() {
   return (
     <div>
       {/* Avatars with Image */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('AVATARS with Image')}
             </h5>
@@ -96,10 +96,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with Icon */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with Icon')}
             </h5>
@@ -119,10 +119,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with letter */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with letter ')}
             </h5>
@@ -142,10 +142,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with sizes */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with sizes ')}
             </h5>
@@ -165,10 +165,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with variants */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with variants ')}
             </h5>
@@ -188,10 +188,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with grouped */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with grouped ')}
             </h5>
@@ -211,10 +211,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with Badge */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with Badge ')}
             </h5>
@@ -234,10 +234,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with Border */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with Border')}
             </h5>
@@ -257,10 +257,10 @@ export default function CustomAvatarExample() {
       </section>
 
       {/* Avatars with text */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Avatars with Text')}
             </h5>

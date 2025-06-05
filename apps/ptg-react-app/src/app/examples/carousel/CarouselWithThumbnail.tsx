@@ -10,18 +10,21 @@ export const CarouselWithThumbnail = (props: ICarouselWithThumbnail) => {
       image: 'https://picsum.photos/id/328/3264/2448',
       maxWidth: '800px',
       shape: 'circle',
+      backgroundColor: '#222',
     },
     {
       id: '1',
       image: 'https://picsum.photos/id/431/5000/3334',
       maxWidth: '800px',
       shape: 'circle',
+      backgroundColor: '#222',
     },
     {
       id: '2',
       image: 'https://picsum.photos/id/5/5000/3334',
       maxWidth: '800px',
       shape: 'circle',
+      backgroundColor: '#222',
     },
   ];
 

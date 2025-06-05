@@ -13,8 +13,6 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 import { IDatePickerProps, IExampleThreeProps } from '../../interfaces';
 import { END_DATE, START_DATE } from '../../constants/Constant';
 
-
-
 export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   const { t } = useTranslation();
   const today = new Date();
@@ -34,7 +32,7 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
     });
   };
   /*-----props for start datepicker-----*/
-  const startDateProp:IDatePickerProps = {
+  const startDateProp: IDatePickerProps = {
     selected: date.startDate,
     className: `form-control w-100`,
     onChange: (d) => setDateState(d.target.value, START_DATE),
@@ -44,7 +42,7 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
   };
 
   /*-----props for end datepicker-----*/
-  const endDateProp:IDatePickerProps = {
+  const endDateProp: IDatePickerProps = {
     selected: date.endDate,
     className: `form-control w-100`,
     onChange: (d) => setDateState(d.target.value, END_DATE),
@@ -110,14 +108,14 @@ export function ExampleThree(props: Readonly<IExampleThreeProps>) {
       )}
       <div className="row">
         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <div className="form-group mb-2" id="start-date">
+          <div className="mb-2 text-white" id="start-date">
             <label htmlFor="inputDOB">{t('START_DATE_TEXT')}</label>
             {/*-----Usable component datepicker-----*/}
             <PtgUiCalendar {...startDateProp} />
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
-          <div className="form-group mb-2" id="end-date">
+          <div className="mb-2 text-white" id="end-date">
             <label htmlFor="inputDOB">{t('END_DATE_TEXT')}</label>
             {/*-----Usable component datepicker-----*/}
             <PtgUiCalendar {...endDateProp} />

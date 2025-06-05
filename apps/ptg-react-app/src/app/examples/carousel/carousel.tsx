@@ -43,10 +43,10 @@ const CarouselExample = () => {
   return (
     <div>
       {/* Carousel With Default Props */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('CAROUSEL with Default Property')}
             </h5>
@@ -58,7 +58,7 @@ const CarouselExample = () => {
               className="show-code-icon"
             ></CodeIcon>
           </div>
-          <hr className="horizontal-line" />
+          <hr className="horizontal-line mb-4" />
           <CarouselWithDefaultProps
             showCodeDefaultCarousel={showCodeDefaultCarousel}
           />
@@ -66,10 +66,10 @@ const CarouselExample = () => {
       </section>
 
       {/* Carousel with Custom Properties Related with CSS */}
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('CAROUSEL with Customize Width for Image')}
             </h5>
@@ -86,10 +86,10 @@ const CarouselExample = () => {
         </div>
       </section>
 
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t(
                 'Thumbnail Navigation and Button Position Middle and Image in Circle'
@@ -110,10 +110,10 @@ const CarouselExample = () => {
         </div>
       </section>
 
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Carousel with Card and Custom Background')}
             </h5>
@@ -132,10 +132,10 @@ const CarouselExample = () => {
         </div>
       </section>
 
-      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-2 mt-2">
         <div className="row">
           <div className="col-10 mt-1">
-            <h5 className="font-weight-bold example-heading">
+            <h5 className="text-white font-weight-bold example-heading">
               {' '}
               {t('Carousel with All Custom Props')}
             </h5>

@@ -58,7 +58,7 @@ export default function AvatarsWithVariantsExample(
       <div className="mb-3">
         {variants.map((variant) => (
           <div key={variant} style={{ marginBottom: '10px' }}>
-            <h4 style={{ marginLeft: '10px' }}>
+            <h4 style={{ marginLeft: '10px', color: 'white' }}>
               {variant.charAt(0).toUpperCase() + variant.slice(1)} Variant
             </h4>
             <div style={{ display: 'flex', gap: '5px' }}>

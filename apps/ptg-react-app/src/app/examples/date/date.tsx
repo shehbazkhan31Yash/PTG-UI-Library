@@ -30,10 +30,10 @@ export function PtgUiDateExample() {
 
   return (
     <div>
-      <section className="card-section-two bg-white rounded pt-2 pb-1 pr-3 mt-2">
+      <section className="card-section-two bg-dark rounded pt-2 pb-1 pr-3 mt-2">
         <div className="row">
           <div className="col-10 mb-2 mt-2">
-            <h5 className="example-heading calender-heading">
+            <h5 className="text-white example-heading calender-heading">
               {t('CALENDAR_EXAMPLE_1')}
             </h5>
           </div>
@@ -49,10 +49,12 @@ export function PtgUiDateExample() {
         <DateExampleOne showCodeOne={showCodeOne} />
       </section>
 
-      <section className="card-section-two bg-white rounded pt-2 pb-1 mt-4">
+      <section className="card-section-two bg-dark rounded pt-2 pb-1 mt-4">
         <div className="row">
           <div className="col-10 mb-2 mt-2">
-            <h5 className="example-heading">{t('CALENDAR_EXAMPLE_2')}</h5>
+            <h5 className="text-white example-heading">
+              {t('CALENDAR_EXAMPLE_2')}
+            </h5>
           </div>
 
           <div className="col-2">
@@ -67,10 +69,12 @@ export function PtgUiDateExample() {
         <DateExampleTwo showCodeTwo={showCodeTwo} />
       </section>
 
-      <section className="card-section-two bg-white rounded pt-2 pb-1 mt-4">
+      <section className="card-section-two bg-dark rounded pt-2 pb-1 mt-4">
         <div className="row">
           <div className="col-10 mb-2 mt-2">
-            <h5 className="example-heading">{t('CALENDAR_EXAMPLE_3')}</h5>
+            <h5 className="text-white example-heading">
+              {t('CALENDAR_EXAMPLE_3')}
+            </h5>
           </div>
 
           <div className="col-2">
@@ -84,10 +88,10 @@ export function PtgUiDateExample() {
         </div>
         <DateExampleThree showCodeThree={showCodeThree} />
       </section>
-      <section className="card-section-two pb-5 bg-white rounded mt-4">
+      <section className="card-section-two pb-5 bg-dark rounded mt-4">
         <div className="row">
           <div className="col-10 mb-2 mt-3">
-            <h5 className="example-heading covert-timezone">
+            <h5 className="text-white example-heading covert-timezone">
               {t('CONVERT_TIMEZONE')}
             </h5>
           </div>

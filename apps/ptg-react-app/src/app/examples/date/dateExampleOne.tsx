@@ -10,9 +10,16 @@ import './date.scss';
 import { PtgUiCalendar } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import {IDatePickerProps, IDateState, IExampleOneProps } from '../../interfaces';
-import { DATE_RANGE, END_DATE, START_DATE } from '@ptg-react-app/constants/Constant';
-
+import {
+  IDatePickerProps,
+  IDateState,
+  IExampleOneProps,
+} from '../../interfaces';
+import {
+  DATE_RANGE,
+  END_DATE,
+  START_DATE,
+} from '@ptg-react-app/constants/Constant';
 
 export function ExampleOne(props: IExampleOneProps) {
   const { t } = useTranslation();
@@ -139,7 +146,7 @@ export function ExampleOne(props: IExampleOneProps) {
         <div className="row mb-5">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="row mb-3">
-              <div className="col-12">
+              <div className="col-12 text-white">
                 <label>{t('MIN_DATE')}</label>
               </div>
               <div className="col-12" id="sdo">
@@ -147,7 +154,7 @@ export function ExampleOne(props: IExampleOneProps) {
               </div>
             </div>
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 text-white">
                 <label>{t('MAX_DATE')}</label>
               </div>
               <div className="col-12" id="edo">
@@ -156,7 +163,7 @@ export function ExampleOne(props: IExampleOneProps) {
             </div>
           </div>
 
-          <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div className="cal-heading col-lg-6 col-md-6 col-sm-12 col-xs-12 text-white">
             <label>{t('DATE_VALIDATOR_TEXT')}</label>
             <div className="row mb-3">
               <div

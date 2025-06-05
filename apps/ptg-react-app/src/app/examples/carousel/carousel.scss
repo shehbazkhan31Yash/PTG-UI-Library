@@ -1,3 +1,4 @@
+@import '../../styles/variables';
 /* carousel.css */
 .carousel {
   display: flex;
@@ -6,6 +7,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: $dark !important;
 }
 
 .carousel-content {
@@ -15,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $dark;
 }
 
 .dot-navigation {
