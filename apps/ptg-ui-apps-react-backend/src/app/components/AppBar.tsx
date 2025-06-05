@@ -11,7 +11,10 @@ const AppBar: React.FC = () => {
 
   useEffect(() => {
     // Redirect to the home page if the current path is empty
-    if (window.location.pathname === '/') {
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname === '/ptg-ui-apps-react-backend/'
+    ) {
       navigate('/home');
     }
   }, [navigate]);
