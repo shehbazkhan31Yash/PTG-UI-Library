@@ -196,7 +196,7 @@ footer a {
 }
 
 .visionandmission {
-  background-image: url('/assets/images/vision_mission.jpg');
+  background-image: url('./assets/images/vision_mission.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   margin-right: 0px;
@@ -225,10 +225,11 @@ footer a {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-flush>.list-group-item {
-
+.list-group-item {
   color: #fbbf24;
-  background-color: rgba(31, 41, 55, 0.75);
+  background-color: unset;
+  border: none;
+  text-align: justify;
 }
 
 
