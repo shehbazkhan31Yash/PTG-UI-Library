@@ -97,7 +97,9 @@
 .chatbot-input[type='file'] {
   display: none;
 }
-
+input[type='file'] {
+  display: none;
+}
 .uploadIcon {
   cursor: pointer;
   margin-right: 10px;
