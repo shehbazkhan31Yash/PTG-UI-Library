@@ -4,21 +4,9 @@ import { createPortal } from 'react-dom';
 
 interface IFrameProps {
   children: React.ReactNode;
-  bodyStyle?: React.CSSProperties;
 }
 
-const cssStyleToString = (style: React.CSSProperties | undefined) => {
-  if (!style) return '';
-  return Object.entries(style)
-    .map(([key, value]) => {
-      // Convert camelCase to kebab-case
-      const kebabKey = key.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase());
-      return `${kebabKey}: ${value};`;
-    })
-    .join(' ');
-};
-
-const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
+const IFrame: React.FC<IFrameProps> = ({ children }) => {
   const [ref, setRef] = useState<HTMLIFrameElement | null>(null);
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
@@ -26,7 +14,6 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
     if (ref) {
       const doc = ref.contentWindow?.document;
       if (doc) {
-        const bodyCss = cssStyleToString(bodyStyle);
         doc.open();
         doc.write(`
          <!DOCTYPE html>
@@ -43,7 +30,6 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
                     padding: 0;
                     background-color: white;
                     font-family: Arial, sans-serif; /* Ensure consistent font */
-                     ${bodyCss}
                 }
 
                 /* Add any additional styles you need here */
@@ -218,14 +204,13 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               height: 100vh;
               width: 80%;
               margin: 0 auto;
-              background-color: #222;
-              color: #E0E0E0;
+              background-color: #f9f9f9;
               overflow-y: auto;
             }
             .messages {
               flex: 1;
               padding: 20px;
-              background-color: #222;
+              background-color: #fff;
               border-radius: 8px 8px 0 0;
               overflow-y: auto;
             }
@@ -239,8 +224,7 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
             }
 
             .message.user .messageText {
-                background-color: rgba(46, 125, 50, 0.85);
-  color: #E0E0E0;
+              background-color: #d1e7dd;
               padding: 0.75rem 1.25rem;
               border-radius: 0.5rem;
             }
@@ -254,8 +238,7 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               border-radius: 0.5rem;
             }
             .message.ai .messageText {
-                background-color: rgba(38, 50, 56, 0.85);
-  color: #CFD8DC;
+              background-color: #cfe2ff;
               padding: 0.75rem 1.25rem;
               border-radius: 0.5rem;
             }
@@ -276,8 +259,8 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               display: flex;
               align-items: center;
               padding: 10px;
-              background-color: black;
-              border: 1px solid #222;
+              background-color: #fff;
+              border: 1px solid #ccc;
               border-radius: 15px;
               position: relative;
               margin-bottom: 15px;
@@ -285,12 +268,10 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
             .chatbot-input[type="text"] {
               flex: 1;
               padding: 10px;
-              border: 1px solid #222;
+              border: 1px solid #ccc;
               border-radius: 20px;
               margin-right: 10px;
               font-size: 16px;
-              background-color: black;
-              color: white;
             }
             .chatbot-input[type="file"] {
               display: none;
@@ -361,26 +342,25 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               }
             }
 
-           .codeBlock {
-                display: grid;
-                grid-template-rows: auto 1fr;
-                position: relative;
-                border: 1px solid #444; /* Darker border for dark mode */
-                border-radius: 8px;
-                padding: 16px;
-                background-color: #1E1E1E; /* Dark background for the code block */
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
-              }
+            .codeBlock {
+              display: grid;
+              grid-template-rows: auto 1fr;
+              position: relative;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              padding: 16px;
+              background-color: #fff;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
 
-              .codeBlock pre {
-                background-color: #2A2A2A; /* Darker background for the code area */
-                padding: 10px;
-                border-radius: 4px;
-                overflow-x: auto;
-                white-space: pre;
-                font-family: monospace;
-                color: #E0E0E0; /* Light gray text for readability */
-              }
+            .codeBlock pre {
+              background-color: #f5f5f5;
+              padding: 10px;
+              border-radius: 4px;
+              overflow-x: auto;
+              white-space: pre;
+              font-family: monospace;
+            }
 
             .codeBlock button {
               position: absolute;
@@ -419,13 +399,7 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
 
                 </style>
             </head>
-           <body style="${
-             bodyStyle
-               ? Object.entries(bodyStyle)
-                   .map(([key, value]) => `${key}: ${value};`)
-                   .join(' ')
-               : ''
-           }"></body>
+            <body></body>
             </html>
         `);
         doc.close();
