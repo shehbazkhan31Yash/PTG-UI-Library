@@ -50,7 +50,7 @@ const AppBar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <Badge
+          {/* <Badge
             bg="warning"
             text="dark"
             className="rounded-circle justify-content-center align-items-center avatorClass"
@@ -58,7 +58,7 @@ const AppBar: React.FC = () => {
             <div className="px-2">
               <span className="avatorText">{'SBK'}</span>
             </div>
-          </Badge>
+          </Badge> */}
         </div>
       </div>
     </header>
