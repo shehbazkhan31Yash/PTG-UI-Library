@@ -15,8 +15,7 @@ const App: React.FC = () => {
       <div className="container mt-4">
         <Routes>
           <Route path="/home" element={<Home />} />
-          {/* Hide for now */}
-          {/* <Route path="/services" element={<Services />} /> */}
+          <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/technologies" element={<Technologies />} />
           <Route path="/contact" element={<Contact />} />
