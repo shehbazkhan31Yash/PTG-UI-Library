@@ -89,7 +89,7 @@
   position: relative;
   margin-bottom: 15px;
 }
-input[type='text'] {
+.chatbot-input[type='text'] {
   flex: 1;
   padding: 10px;
   border: 1px solid #222;
@@ -98,6 +98,10 @@ input[type='text'] {
   font-size: 16px;
   background-color: black;
   color: white;
+}
+
+.chatbot-input[type='file'] {
+  display: none;
 }
 
 .uploadIcon {
