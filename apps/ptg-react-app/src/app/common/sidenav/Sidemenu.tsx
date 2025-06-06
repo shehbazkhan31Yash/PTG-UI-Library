@@ -223,13 +223,12 @@ export const NavigationData = [
     label: 'SELECT',
     disabled: false,
   },
-  // Note: Commenting out social media login as it is not available in demo
-  /*   {
+  {
     path: '/social-media-login',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SOCIAL MEDIA LOGIN',
     disabled: false,
-  }, */
+  },
   {
     path: '/toaster',
     icon: 'fa-solid fa-bell',
