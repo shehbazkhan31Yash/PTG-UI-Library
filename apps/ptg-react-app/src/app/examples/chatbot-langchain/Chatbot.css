@@ -99,7 +99,9 @@ input[type='text'] {
   background-color: black;
   color: white;
 }
-
+input[type='file'] {
+  display: none;
+}
 .uploadIcon {
   cursor: pointer;
   margin-right: 10px;
