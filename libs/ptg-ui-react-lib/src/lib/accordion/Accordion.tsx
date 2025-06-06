@@ -17,12 +17,12 @@ export const PtgUiAccordion: React.FC<Readonly<IPtgUiAccordionProps>> = ({
 	activeIndex,
 }) => {
 	return (
-		<div className="accordion ">
+		<div className="accordion">
 			{accordionItems?.map((item, index) => (
-				<div key={`${item?.title}-${index}`} className="accordion-item bg-dark border-secondary">
-					<h2 className="accordion-header " id={`heading${index}`}>
+				<div key={`${item?.title}-${index}`} className="accordion-item">
+					<h2 className="accordion-header">
 						<button
-							className={`accordion-button shadow-sm p-3 bg-secondary text-light border-0 ${activeIndex === index ? '' : 'collapsed'}`}
+							className={`accordion-button shadow-sm p-3 bg-white rounded ${activeIndex === index ? 'collapsed' : ''}`}
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target={`#collapse${index}`}
@@ -39,7 +39,7 @@ export const PtgUiAccordion: React.FC<Readonly<IPtgUiAccordionProps>> = ({
 						aria-labelledby={`heading${index}`}
 						data-bs-parent="#accordionExample"
 					>
-						<div className="accordion-body  text-light border-top border-secondary">{item?.content}</div>
+						<div className="accordion-body">{item?.content}</div>
 					</div>
 				</div>
 			))}
