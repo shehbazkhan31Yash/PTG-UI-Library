@@ -170,7 +170,9 @@
   .accordion-button::after {
     height: 0 !important;
   }
-  .sidenav-container .sidenav .menu-item.active:not(.parent-item):not(.disabled) {
+  .sidenav-container
+    .sidenav
+    .menu-item.active:not(.parent-item):not(.disabled) {
     width: 28px;
     height: 40px;
   }
