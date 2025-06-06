@@ -5,12 +5,11 @@
   height: 100vh;
   .main {
     height: 82vh;
-    background-color: $layout-background-color;
     .main-wrapper {
       width: 85vw;
       overflow-x: hidden;
       overflow-y: auto;
-      margin: 21px 20px 21px 21px;
+      margin:21px 20px 21px 21px;
       padding: 17px;
       border-radius: 9px;
       padding: 10px 20px;
@@ -23,35 +22,39 @@
   }
 }
 
-@media (min-width: 300px) and (max-width: 400px) {
+
+@media (min-width : 300px) and (max-width: 400px){
   .wrapper {
-    .main {
-      .main-wrapper {
-        padding: 0px 5px 5px 5px;
-      }
+  .main {
+    .main-wrapper {
+      padding: 0px 5px 5px 5px;
     }
   }
+}
 }
 
-@media (min-width: 400px) and (max-width: 500px) {
+@media (min-width : 400px) and (max-width: 500px){
   .wrapper {
-    .main {
-      .main-wrapper {
-        padding: 0px 5px 5px 5px;
-      }
+  .main {
+    .main-wrapper {
+      padding: 0px 5px 5px 5px;
     }
   }
+}
 }
 
-@media (min-width: 500px) and (max-width: 600px) {
+
+@media (min-width : 500px) and (max-width: 600px){
   .wrapper {
-    .main {
-      .main-wrapper {
-        padding: 0px 8px 8px 8px;
-      }
+  .main {
+    .main-wrapper {
+      padding: 0px 8px 8px 8px;
     }
   }
 }
+}
+
+
 
 @media only screen and (max-width: 942px) {
   .header-logo {
