@@ -142,7 +142,7 @@ export const CarouselWithAllCustomProps = (
         <div className="carousel-component">
           <PtgUiCarousel
             items={imageList}
-            backgroundColor="white"
+            backgroundColor="#222"
             buttonPosition="middle"
             navigationIconWidth="60px"
             navigationIconHeight="60px"

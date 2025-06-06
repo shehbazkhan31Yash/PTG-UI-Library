@@ -85,7 +85,7 @@
 	position: relative;
 	margin-bottom: 15px;
 }
-input[type='text'] {
+.chatbot-input[type='text'] {
 	flex: 1;
 	padding: 10px;
 	border: 1px solid #ccc;
@@ -93,7 +93,7 @@ input[type='text'] {
 	margin-right: 10px;
 	font-size: 16px;
 }
-input[type='file'] {
+.chatbot-input[type='file'] {
 	display: none;
 }
 .uploadIcon {
@@ -101,8 +101,8 @@ input[type='file'] {
 	margin-right: 10px;
 }
 .uploadIcon.disabledIcon {
-  color: rgb(172, 172, 172); /* Change color when disabled */
-  cursor: not-allowed;
+	color: rgb(172, 172, 172); /* Change color when disabled */
+	cursor: not-allowed;
 }
 .previewContainer {
 	display: flex;

@@ -8,14 +8,14 @@ import './datePicker.css';
 export default function DatePicker() {
   const [showCode, setShowCode] = useState<boolean>(false);
   const { t } = useTranslation();
- const [date, setDate] = useState('');
-  // Note: handle toggle to show/hide code 
+  const [date, setDate] = useState('');
+  // Note: handle toggle to show/hide code
   const handleShowCode = () => {
-    setShowCode(!showCode)
-  }
-    const dateChange = (val: string) => {
-        setDate(val);
-    };
+    setShowCode(!showCode);
+  };
+  const dateChange = (val: string) => {
+    setDate(val);
+  };
   const componentCode = `
     import { PtgUiDatePicker } from '@ptg-ui/react';
     import "@ptg-ui/react/lib/styles/index.css";
@@ -25,7 +25,7 @@ export default function DatePicker() {
         setDate(val);
     };
   `;
-    const htmlCode = `<PtgUiDatePicker sendSelectedDate={dateChange} />`;
+  const htmlCode = `<PtgUiDatePicker sendSelectedDate={dateChange} />`;
 
   return (
     <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
@@ -50,7 +50,7 @@ export default function DatePicker() {
           />
         )}
         <div className="row">
-          <div className="col-md-4 col-sm-12 mb-2 mt-2">
+          <div className="col-md-4 col-sm-12 mb-2 mt-2 ">
             <PtgUiDatePicker value={date} sendSelectedDate={dateChange} />
           </div>
         </div>

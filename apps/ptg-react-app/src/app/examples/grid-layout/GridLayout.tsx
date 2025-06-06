@@ -13,6 +13,7 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 import { CARD_ITEMS } from '@ptg-react-app/mock/mocks';
 import { CARD_BUTTON } from '@ptg-react-app/constants/Constant';
 import { ICardItems } from '@ptg-react-app/interfaces';
+import './GridLayout.scss';
 
 /* eslint-disable-next-line */
 
@@ -64,54 +65,52 @@ export function GridLayout() {
   </PtgUiRow>`;
 
   return (
-    <div className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
-      <PtgUiRow>
-        <PtgUiGridColumn md={9} className={'ptg-ui-mt-1 ptg-ui-mr-4'}>
-          <h5 className="font-weight-bold example-heading">
-            {t('GRID_LAYOUT_EXAMPLE_HEADING')}
-          </h5>
-        </PtgUiGridColumn>
-        <div className="col-2 mr-5 mb-2">
-          <CodeIcon
-            onClick={ShowExampleCode}
-            fontSize="large"
-            className="show-code-icon"
-          />
-        </div>
-        <hr className="horizontal-line" />
-        {showCode && (
-          <ShowCodeComponent
-            componentCode={componentCode}
-            htmlCode={htmlCode}
-          />
-        )}
-      </PtgUiRow>
-      <section className="bg-dark-primary m-4">
-        <div className="container">
-          <PtgUiRow>
-            {cardItems.map((item) => {
-              return (
-                <PtgUiGridColumn
-                  xl={3}
-                  lg={6}
-                  md={6}
-                  sm={12}
-                  className={'ptg-ui-grid-item ptg-ui-mb-8'}
-                  key={item.id}
-                >
-                  <PtgUiCard
-                    image={item.image}
-                    title={item.title}
-                    description={item.content}
-                    buttonText={item.button}
-                    buttonColor={CARD_BUTTON.COLOR}
-                    buttonWidth={CARD_BUTTON.WIDTH}
-                  />
-                </PtgUiGridColumn>
-              );
-            })}
-          </PtgUiRow>
-        </div>
+    <div>
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+        <PtgUiRow>
+          <PtgUiGridColumn md={9} className={'ptg-ui-mt-1 ptg-ui-mr-4'}>
+            <h5 className="font-weight-bold example-heading">
+              {t('GRID_LAYOUT_EXAMPLE_HEADING')}
+            </h5>
+          </PtgUiGridColumn>
+          <div className="col-2 mr-5 mb-2">
+            <CodeIcon
+              onClick={ShowExampleCode}
+              fontSize="large"
+              className="show-code-icon"
+            />
+          </div>
+          <hr className="horizontal-line" />
+          {showCode && (
+            <ShowCodeComponent
+              componentCode={componentCode}
+              htmlCode={htmlCode}
+            />
+          )}
+        </PtgUiRow>
+        <PtgUiRow>
+          {cardItems.map((item) => {
+            return (
+              <PtgUiGridColumn
+                xl={3}
+                lg={6}
+                md={6}
+                sm={12}
+                className={'ptg-ui-grid-item ptg-ui-mb-8'}
+                key={item.id}
+              >
+                <PtgUiCard
+                  image={item.image}
+                  title={item.title}
+                  description={item.content}
+                  buttonText={item.button}
+                  buttonColor={CARD_BUTTON.COLOR}
+                  buttonWidth={CARD_BUTTON.WIDTH}
+                />
+              </PtgUiGridColumn>
+            );
+          })}
+        </PtgUiRow>
       </section>
       <section className="bg-image m-4">
         <div className="container">

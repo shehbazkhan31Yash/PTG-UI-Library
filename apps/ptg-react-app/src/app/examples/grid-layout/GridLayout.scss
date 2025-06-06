@@ -710,133 +710,132 @@ section {
   }
 }
 
-
 /* Base margin-right classes */
 .ptg-ui-mr-0 {
-    margin-right: 0; /* No margin */
+  margin-right: 0; /* No margin */
 }
 
 .ptg-ui-mr-1 {
-    margin-right: 0.25rem; /* 0.25rem margin */
+  margin-right: 0.25rem; /* 0.25rem margin */
 }
 
 .ptg-ui-mr-2 {
-    margin-right: 0.5rem; /* 0.5rem margin */
+  margin-right: 0.5rem; /* 0.5rem margin */
 }
 
 .ptg-ui-mr-3 {
-    margin-right: 1rem; /* 1rem margin */
+  margin-right: 1rem; /* 1rem margin */
 }
 
 .ptg-ui-mr-4 {
-    margin-right: 1.5rem; /* 1.5rem margin */
+  margin-right: 1.5rem; /* 1.5rem margin */
 }
 
 .ptg-ui-mr-5 {
-    margin-right: 3rem; /* 3rem margin */
+  margin-right: 3rem; /* 3rem margin */
 }
 
 /* Responsive margin-right classes */
 @media (min-width: 576px) {
-    .ptg-ui-mr-sm-0 {
-        margin-right: 0; /* No margin on small screens */
-    }
+  .ptg-ui-mr-sm-0 {
+    margin-right: 0; /* No margin on small screens */
+  }
 
-    .ptg-ui-mr-sm-1 {
-        margin-right: 0.25rem; /* 0.25rem margin on small screens */
-    }
+  .ptg-ui-mr-sm-1 {
+    margin-right: 0.25rem; /* 0.25rem margin on small screens */
+  }
 
-    .ptg-ui-mr-sm-2 {
-        margin-right: 0.5rem; /* 0.5rem margin on small screens */
-    }
+  .ptg-ui-mr-sm-2 {
+    margin-right: 0.5rem; /* 0.5rem margin on small screens */
+  }
 
-    .ptg-ui-mr-sm-3 {
-        margin-right: 1rem; /* 1rem margin on small screens */
-    }
+  .ptg-ui-mr-sm-3 {
+    margin-right: 1rem; /* 1rem margin on small screens */
+  }
 
-    .ptg-ui-mr-sm-4 {
-        margin-right: 1.5rem; /* 1.5rem margin on small screens */
-    }
+  .ptg-ui-mr-sm-4 {
+    margin-right: 1.5rem; /* 1.5rem margin on small screens */
+  }
 
-    .ptg-ui-mr-sm-5 {
-        margin-right: 3rem; /* 3rem margin on small screens */
-    }
+  .ptg-ui-mr-sm-5 {
+    margin-right: 3rem; /* 3rem margin on small screens */
+  }
 }
 
 @media (min-width: 768px) {
-    .ptg-ui-mr-md-0 {
-        margin-right: 0; /* No margin on medium screens */
-    }
+  .ptg-ui-mr-md-0 {
+    margin-right: 0; /* No margin on medium screens */
+  }
 
-    .ptg-ui-mr-md-1 {
-        margin-right: 0.25rem; /* 0.25rem margin on medium screens */
-    }
+  .ptg-ui-mr-md-1 {
+    margin-right: 0.25rem; /* 0.25rem margin on medium screens */
+  }
 
-    .ptg-ui-mr-md-2 {
-        margin-right: 0.5rem; /* 0.5rem margin on medium screens */
-    }
+  .ptg-ui-mr-md-2 {
+    margin-right: 0.5rem; /* 0.5rem margin on medium screens */
+  }
 
-    .ptg-ui-mr-md-3 {
-        margin-right: 1rem; /* 1rem margin on medium screens */
-    }
+  .ptg-ui-mr-md-3 {
+    margin-right: 1rem; /* 1rem margin on medium screens */
+  }
 
-    .ptg-ui-mr-md-4 {
-        margin-right: 1.5rem; /* 1.5rem margin on medium screens */
-    }
+  .ptg-ui-mr-md-4 {
+    margin-right: 1.5rem; /* 1.5rem margin on medium screens */
+  }
 
-    .ptg-ui-mr-md-5 {
-        margin-right: 3rem; /* 3rem margin on medium screens */
-    }
+  .ptg-ui-mr-md-5 {
+    margin-right: 3rem; /* 3rem margin on medium screens */
+  }
 }
 
 @media (min-width: 992px) {
-    .ptg-ui-mr-lg-0 {
-        margin-right: 0; /* No margin on large screens */
-    }
+  .ptg-ui-mr-lg-0 {
+    margin-right: 0; /* No margin on large screens */
+  }
 
-    .ptg-ui-mr-lg-1 {
-        margin-right: 0.25rem; /* 0.25rem margin on large screens */
-    }
+  .ptg-ui-mr-lg-1 {
+    margin-right: 0.25rem; /* 0.25rem margin on large screens */
+  }
 
-    .ptg-ui-mr-lg-2 {
-        margin-right: 0.5rem; /* 0.5rem margin on large screens */
-    }
+  .ptg-ui-mr-lg-2 {
+    margin-right: 0.5rem; /* 0.5rem margin on large screens */
+  }
 
-    .ptg-ui-mr-lg-3 {
-        margin-right: 1rem; /* 1rem margin on large screens */
-    }
+  .ptg-ui-mr-lg-3 {
+    margin-right: 1rem; /* 1rem margin on large screens */
+  }
 
-    .ptg-ui-mr-lg-4 {
-        margin-right: 1.5rem; /* 1.5rem margin on large screens */
-    }
+  .ptg-ui-mr-lg-4 {
+    margin-right: 1.5rem; /* 1.5rem margin on large screens */
+  }
 
-    .ptg-ui-mr-lg-5 {
-        margin-right: 3rem; /* 3rem margin on large screens */
-    }
+  .ptg-ui-mr-lg-5 {
+    margin-right: 3rem; /* 3rem margin on large screens */
+  }
 }
 
 @media (min-width: 1200px) {
-    .ptg-ui-mr-xl-0 {
-        margin-right: 0; /* No margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-0 {
+    margin-right: 0; /* No margin on extra-large screens */
+  }
 
-    .ptg-ui-mr-xl-1 {
-        margin-right: 0.25rem; /* 0.25rem margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-1 {
+    margin-right: 0.25rem; /* 0.25rem margin on extra-large screens */
+  }
 
-    .ptg-ui-mr-xl-2 {
-        margin-right: 0.5rem; /* 0.5rem margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-2 {
+    margin-right: 0.5rem; /* 0.5rem margin on extra-large screens */
+  }
 
-    .ptg-ui-mr-xl-3 {
-        margin-right: 1rem; /* 1rem margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-3 {
+    margin-right: 1rem; /* 1rem margin on extra-large screens */
+  }
 
-    .ptg-ui-mr-xl-4 {
-        margin-right: 1.5rem; /* 1.5rem margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-4 {
+    margin-right: 1.5rem; /* 1.5rem margin on extra-large screens */
+  }
 
-    .ptg-ui-mr-xl-5 {
-        margin-right: 3rem; /* 3rem margin on extra-large screens */
-    }
+  .ptg-ui-mr-xl-5 {
+    margin-right: 3rem; /* 3rem margin on extra-large screens */
+  }
 }

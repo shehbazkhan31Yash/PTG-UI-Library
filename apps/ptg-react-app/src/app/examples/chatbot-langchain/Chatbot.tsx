@@ -15,16 +15,16 @@ import { PtgUiButton } from '@ptg-react-libs/button/button';
 import './Chatbot.css';
 import './modal.css';
 import { environment } from '../../../environments/environment';
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { ChatTogetherAI } from "@langchain/community/chat_models/togetherai";
-import { ChatGroq } from "@langchain/groq";
+import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
+import { ChatTogetherAI } from '@langchain/community/chat_models/togetherai';
+import { ChatGroq } from '@langchain/groq';
 
 export default function LangchainChatbot() {
   const [showCode, setShowCode] = useState<boolean>(false);
   const [genAIKey, setGenAIKey] = useState<string>(
     environment.LANG_CHAIN_GENAI_KEY
   );
-  
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGenAIKey(event.target.value);
   };
@@ -45,23 +45,29 @@ export default function LangchainChatbot() {
     showFooter: true,
   };
   const AI_PROVIDERS = {
-      "google-ai": () => new ChatGoogleGenerativeAI({ model: "gemini-2.0-flash", apiKey: genAIKey }),
-      "chat-together-ai": () => new ChatTogetherAI({
-   model: "meta-llama/Llama-3-70b-chat-hf",
-    apiKey: environment.LANG_CHAIN_CHAT_TOGETHER_KEY,
-  }),
-  "chat-groq-ai": () => new ChatGroq({
-model: "llama-3.1-8b-instant",
-apiKey: environment.LANG_CHAIN_CHAT_GROQ_KEY,
-  }),
-  "chat-upstage-ai": ()=> {},
-  "chat-bedrock-ai": () => {},
-  "chat-anthropic": () => {},
-  "chat-aistral-ai": () => {},
-  "azure-chatOpen-ai": () => {},
-  "chat-vertex-ai": () => {},
-  "chat-mistral-ai":()=>{}
-    };
+    'google-ai': () =>
+      new ChatGoogleGenerativeAI({
+        model: 'gemini-2.0-flash',
+        apiKey: genAIKey,
+      }),
+    'chat-together-ai': () =>
+      new ChatTogetherAI({
+        model: 'meta-llama/Llama-3-70b-chat-hf',
+        apiKey: environment.LANG_CHAIN_CHAT_TOGETHER_KEY,
+      }),
+    'chat-groq-ai': () =>
+      new ChatGroq({
+        model: 'llama-3.1-8b-instant',
+        apiKey: environment.LANG_CHAIN_CHAT_GROQ_KEY,
+      }),
+    'chat-upstage-ai': () => {},
+    'chat-bedrock-ai': () => {},
+    'chat-anthropic': () => {},
+    'chat-aistral-ai': () => {},
+    'azure-chatOpen-ai': () => {},
+    'chat-vertex-ai': () => {},
+    'chat-mistral-ai': () => {},
+  };
   const componentCode = `
 import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatbot-langchain/Chatbot';
   `;
@@ -82,7 +88,9 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
     <section className="card-section-two bg-white rounded">
       <div className="row">
         <div className="col-8 mb-2 mt-3">
-          <h5 className="font-weight-bold example-heading">AI Chatbot Using LangChain</h5>
+          <h5 className="font-weight-bold example-heading">
+            AI Chatbot Using LangChain
+          </h5>
         </div>
 
         <div className="col-4 d-flex ml-10">
@@ -91,7 +99,7 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
               onClick={() =>
                 openInNewTab('ai-langchain-chatbot-yash', {
                   genAIKey: genAIKey,
-                  AI_PROVIDERS: AI_PROVIDERS
+                  AI_PROVIDERS: AI_PROVIDERS,
                 })
               }
               style={{
@@ -112,7 +120,7 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
             <PtgUiButton
               text="GenAI Key"
               data-testid="open-button"
-              appearance={BUTTON_VARIANT.LIGHT}
+              appearance={BUTTON_VARIANT.DARK}
               btnIconAlignment={POSITIONS.RIGHT}
               onClick={openModal}
               width={WIDTH_110}
@@ -158,8 +166,11 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
           </div>
         </PtgUiModal>
 
-        <IFrame>
-          <PtgLangChainChatbot Ai_Providers={AI_PROVIDERS} genAIKey={genAIKey} />
+        <IFrame bodyStyle={{ backgroundColor: '#222', color: '#fff' }}>
+          <PtgLangChainChatbot
+            Ai_Providers={AI_PROVIDERS}
+            genAIKey={genAIKey}
+          />
         </IFrame>
       </div>
     </section>
