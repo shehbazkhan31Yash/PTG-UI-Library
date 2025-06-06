@@ -282,7 +282,7 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               position: relative;
               margin-bottom: 15px;
             }
-            .chatbot-input[type="text"] {
+            input[type="text"] {
               flex: 1;
               padding: 10px;
               border: 1px solid #222;
@@ -292,7 +292,7 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
               background-color: black;
               color: white;
             }
-            .chatbot-input[type="file"] {
+            input[type="file"] {
               display: none;
             }
             .uploadIcon {
