@@ -86,7 +86,7 @@ export default function Chatbot() {
             <PtgUiButton
               text="GenAI Key"
               data-testid="open-button"
-              appearance={BUTTON_VARIANT.LIGHT}
+              appearance={BUTTON_VARIANT.DARK}
               btnIconAlignment={POSITIONS.RIGHT}
               onClick={openModal}
               width={WIDTH_110}
