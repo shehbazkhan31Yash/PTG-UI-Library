@@ -58,10 +58,7 @@ export const CarouselWithMaxWidth = (props: ICarouselWithMaxWidth) => {
       )}
       <div className="mb-3">
         <div className="carousel-component">
-          <PtgUiCarousel
-            items={imageList}
-            backgroundColor="#222"
-          ></PtgUiCarousel>
+          <PtgUiCarousel items={imageList}></PtgUiCarousel>
         </div>
       </div>
     </section>

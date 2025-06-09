@@ -24,14 +24,13 @@
   height: 100vh;
   width: 80%;
   margin: 0 auto;
-  background-color: #222;
-  color: #e0e0e0;
+  background-color: #f9f9f9;
   overflow-y: auto;
 }
 .messages {
   flex: 1;
   padding: 20px;
-  background-color: #222;
+  background-color: #fff;
   border-radius: 8px 8px 0 0;
   overflow-y: auto;
 }
@@ -45,8 +44,7 @@
 }
 
 .message.user .messageText {
-  background-color: rgba(46, 125, 50, 0.85);
-  color: #e0e0e0;
+  background-color: #d1e7dd;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
 }
@@ -60,8 +58,7 @@
   border-radius: 0.5rem;
 }
 .message.ai .messageText {
-  background-color: rgba(38, 50, 56, 0.85);
-  color: #cfd8dc;
+  background-color: #cfe2ff;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
 }
@@ -82,9 +79,8 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: black;
-  border: 1px solid #222;
-
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 15px;
   position: relative;
   margin-bottom: 15px;
@@ -92,12 +88,10 @@
 input[type='text'] {
   flex: 1;
   padding: 10px;
-  border: 1px solid #222;
+  border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
   font-size: 16px;
-  background-color: black;
-  color: white;
 }
 input[type='file'] {
   display: none;
@@ -168,21 +162,20 @@ input[type='file'] {
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
-  border: 1px solid #444;
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
-  background-color: #1e1e1e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .codeBlock pre {
-  background-color: #2a2a2a;
+  background-color: #f5f5f5;
   padding: 10px;
   border-radius: 4px;
   overflow-x: auto;
   white-space: pre;
   font-family: monospace;
-  color: #e0e0e0;
 }
 
 .codeBlock button {
@@ -387,6 +380,3 @@ div[slot='btnIcon'] svg {
   padding: 0px 4px;
 }
 
-.wrapper {
-  background-color: #222;
-}
