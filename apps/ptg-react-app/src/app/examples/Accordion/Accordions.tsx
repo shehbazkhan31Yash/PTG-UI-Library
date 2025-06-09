@@ -44,17 +44,23 @@ export default function () {
       {
         title: 'Accordion Item #1',
         content:
-          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham 
+          hock cupim pork loin capicola bacon ham filet mignon prosciutto 
+          boudin turducken.',
       },
       {
         title: 'Accordion Item #2',
         content:
-          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham
+           hock cupim pork loin capicola bacon ham filet mignon prosciutto
+            boudin turducken.',
       },
       {
         title: 'Accordion Item #3',
         content:
-          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken.',
+          'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham
+           hock cupim pork loin capicola bacon ham filet mignon prosciutto 
+           boudin turducken.',
       },
     ];
  `;
@@ -70,10 +76,10 @@ export default function () {
     />
  `;
   return (
-    <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
+    <section className="card-section-two bg-dark text-light rounded pt-2 pb-2 mt-2">
       <div className="row">
         <div className="col-10 mb-2 mt-2">
-          <h5 className="font-weight-bold example-heading">{t('ACCORDION')}</h5>
+          <h5 className="font-weight-bold example-heading  text-light">{t('ACCORDION')}</h5>
         </div>
         <div className="col-2 mb-2 mt-1">
           <CodeIcon

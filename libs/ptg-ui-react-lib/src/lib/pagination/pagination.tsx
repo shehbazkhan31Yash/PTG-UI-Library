@@ -84,7 +84,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 				if (num === DOTS) {
 					return (
 						<li className="pagination-item dots" key={`dots-${num}-${index}`}>
-							<span className="page-link" aria-hidden="true">
+							<span className="page-link text-dark" aria-hidden="true">
 								&#8230;
 							</span>
 						</li>
@@ -94,7 +94,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 				return (
 					<li className={`page-item ${currentPage === num ? 'active' : ''}`} key={num}>
 						<button
-							className="page-link"
+							className="page-link text-dark"
 							onClick={() => gotoPage(num)}
 							aria-current={currentPage === num ? 'page' : undefined}
 						>
@@ -110,7 +110,7 @@ export const PtgUiPagination: React.FC<PtgUiPaginationProps> = ({
 				}`}
 			>
 				<button
-					className="page-link"
+					className="page-link text-dark"
 					onClick={nextPage}
 					disabled={!!(dataCount && pageSize && Math.ceil(dataCount / pageSize) === currentPage)}
 					aria-label="Next Page"

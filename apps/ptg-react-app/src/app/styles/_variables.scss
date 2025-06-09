@@ -3,43 +3,47 @@ Override variables defined in boostrap
 */
 
 // primary colors
-$main:#002144;
+$main: white;
 $second: #646464 !default;
 $secondDark: #1a222b;
-$error:#dc3545;
+$hover-color: yellow;
+$error: #dc3545;
 // scss-docs-start theme-color-variables
 $primary: $main !default;
-$light-grey : #bdbdbd;
+$light-grey: #bdbdbd;
+$dark: #222;
 
-$side-menu-text-color: $main; 
-$side-menu-text-color-hover : #EDE7F6;
-$form-check-input-checked-color:  $main;
+$side-menu-text-color: lightblue;
+$side-menu-text-color-hover: lightblue;
+$form-check-input-checked-color: $main;
 $form-check-input-checked-bg-color: $main;
 $multi-select-chip-color: #6c757d;
-$footer-text: #888b8d;  // #7c7f81
+$footer-text: #888b8d; // #7c7f81
 $multi-select-chip-bg-color: #efefef;
 $multi-select-chip-close-bg-color: #bbbbbb;
 $label-hint-text-color: #9f9f9f;
-$side-menu-color:#EDE7F6;
-$layout-background-color: #EEF2F6;
+$side-menu-color: lightblue;
+$layout-background-color: #222;
 $white: #ffffff;
-$grey:#cccccc;
-$secondGrey:#f5f6f8;
-$show-code-icon-bg-color : rgb(222, 227, 227);
-$horizontal-line-bg-color : #737374;
-$side-menu-active : #D7C9EC;
-$copy-icon-color : rgb(236, 231, 231);
-$syntax-highlighter-bg-color : rgb(2,43,55);
+$black: black;
+$grey: #cccccc;
+$secondGrey: #f5f6f8;
+$show-code-icon-bg-color: rgb(222, 227, 227);
+$horizontal-line-bg-color: #737374;
+$side-menu-active: #d7c9ec;
+$copy-icon-color: rgb(236, 231, 231);
+$syntax-highlighter-bg-color: rgb(2, 43, 55);
 $box-shadow-color: rgba(128, 128, 128, 0.1);
+$main-body-color: #222;
+$header-background-color: #111827;
+$layout-background-color: black;
 
 // Typography
-$font-family-sans-serif: "Poppins", Roboto, "Helvetica Neue", Arial,
-  "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif: 'Poppins', 'Roboto', 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji';
 $headings-font-weight: 700;
 
 /****************/
 
 /***************/
-
-

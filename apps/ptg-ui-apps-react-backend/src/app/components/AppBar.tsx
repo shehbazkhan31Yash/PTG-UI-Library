@@ -11,7 +11,10 @@ const AppBar: React.FC = () => {
 
   useEffect(() => {
     // Redirect to the home page if the current path is empty
-    if (window.location.pathname === '/') {
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname === '/ptg-ui-apps-react-backend/'
+    ) {
       navigate('/home');
     }
   }, [navigate]);
@@ -47,7 +50,7 @@ const AppBar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <Badge
+          {/* <Badge
             bg="warning"
             text="dark"
             className="rounded-circle justify-content-center align-items-center avatorClass"
@@ -55,7 +58,7 @@ const AppBar: React.FC = () => {
             <div className="px-2">
               <span className="avatorText">{'SBK'}</span>
             </div>
-          </Badge>
+          </Badge> */}
         </div>
       </div>
     </header>

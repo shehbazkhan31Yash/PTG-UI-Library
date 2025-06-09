@@ -69,7 +69,8 @@ export const DashboardCardItems = [
     content:
       'This tool is used to generate UI apps for modern frameworks like Angular, React with best practices needed for enterprise apps.',
     button: 'Download',
-    viewLink: './assets/uploads/PTG-UI-Generator.pptx',
+    viewLink:
+      'https://yash-ui-apps.azurewebsites.net/uploads/PTG-UI-Generator.pptx',
   },
   {
     id: 8,
@@ -103,7 +104,8 @@ export const DashboardCardItems = [
     title: 'PTG Best Practices Documents',
     content: 'Portal to access best practices documents.',
     button: 'View',
-    viewLink: './components/best-practices-docs.html',
+    viewLink:
+      'https://yash-ui-apps.azurewebsites.net/components/best-practices-docs.html',
   },
   {
     id: 12,

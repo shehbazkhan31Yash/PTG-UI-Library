@@ -18,8 +18,8 @@ import nextjs_Image from '../../assets/images/nextjs.png';
 import MaterialUI_Image from '../../assets/images/materialui.png';
 export const tabs = [
   { label: 'Home', to: '/home' },
-  { label: 'Services', to: '/services' },
-  { label: 'Projects', to: '/projects' },
+
+  { label: 'Accelerators', to: '/projects' },
   { label: 'Technologies', to: '/technologies' },
   { label: 'Contact', to: '/contact' },
 ];
