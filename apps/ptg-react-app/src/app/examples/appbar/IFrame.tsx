@@ -408,12 +408,9 @@ const IFrame: React.FC<IFrameProps> = ({ children, bodyStyle }) => {
             .copyMessage.fade-out {
               opacity: 0;
             }
-              
 .modelDropdown {
 	border: none;
   margin-right: 10px;
-  background-color: black;
-  color: white;
 }
               
 

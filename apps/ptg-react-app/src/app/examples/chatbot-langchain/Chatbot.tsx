@@ -82,9 +82,7 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
     <section className="card-section-two bg-white rounded">
       <div className="row">
         <div className="col-8 mb-2 mt-3">
-          <h5 className="font-weight-bold example-heading">
-            AI Chatbot Using LangChain
-          </h5>
+          <h5 className="font-weight-bold example-heading">AI Chatbot Using LangChain</h5>
         </div>
 
         <div className="col-4 d-flex ml-10">
@@ -93,7 +91,7 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
               onClick={() =>
                 openInNewTab('ai-langchain-chatbot-yash', {
                   genAIKey: genAIKey,
-                  AI_PROVIDERS: AI_PROVIDERS,
+                  AI_PROVIDERS: AI_PROVIDERS
                 })
               }
               style={{
@@ -160,11 +158,8 @@ import { PtgLangChainChatbot } from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/chatb
           </div>
         </PtgUiModal>
 
-        <IFrame bodyStyle={{ backgroundColor: '#222', color: '#fff' }}>
-          <PtgLangChainChatbot
-            Ai_Providers={AI_PROVIDERS}
-            genAIKey={genAIKey}
-          />
+        <IFrame>
+          <PtgLangChainChatbot Ai_Providers={AI_PROVIDERS} genAIKey={genAIKey} />
         </IFrame>
       </div>
     </section>

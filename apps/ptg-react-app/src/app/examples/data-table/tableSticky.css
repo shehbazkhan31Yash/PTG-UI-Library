@@ -20,18 +20,18 @@
   cursor: pointer;
   position: sticky; /* Make the header sticky */
   top: 0; /* Stick to the top */
-  background-color: black; /* Background color for the sticky header */
+  background-color: white; /* Background color for the sticky header */
   z-index: 1; /* Ensure the header is above other content */
 }
 
 /* Non-sticky header styling */
 .ptg-ui-table th.non-sticky {
   position: relative; /* Default positioning for non-sticky */
-  background-color: black; /* Optional: Different background for non-sticky */
+  background-color: #f9f9f9; /* Optional: Different background for non-sticky */
 }
 
 .ptg-ui-table th:hover {
-  color: yellow; /* Hover effect for headers */
+  background-color: #f0f0f0; /* Hover effect for headers */
 }
 
 .ptg-ui-table td {
