@@ -303,14 +303,14 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   // Error state
   if (state.error) {
     return (
-      <div className={`pdf-renderer-error bg-white border-secondary ${className}`}>
+      <div className={`pdf-renderer-error ${className}`}>
         <div className="pdf-renderer-error-content">
-          <div className="pdf-renderer-error-icon text-danger">
+          <div className="pdf-renderer-error-icon">
             <FileX className="w-full h-full" />
           </div>
-          <h3 className="text-light">Failed to load PDF</h3>
-          <p className="text-muted">{state.error}</p>
-          <button className="btn btn-outline-light" onClick={() => window.location.reload()}>Try Again</button>
+          <h3>Failed to load PDF</h3>
+          <p>{state.error}</p>
+          <button onClick={() => window.location.reload()}>Try Again</button>
         </div>
       </div>
     );
@@ -319,22 +319,22 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`pdf-renderer-container bg-dark border-secondary ${
+      className={`pdf-renderer-container ${
         state.isFullscreen ? 'fullscreen' : ''
       } ${className}`}
       style={{ height: state.isFullscreen ? '100vh' : height }}
     >
       {/* Main Toolbar */}
       {showToolbar && (
-        <div className="pdf-renderer-toolbar bg-dark border-bottom border-secondary">
+        <div className="pdf-renderer-toolbar">
           {/* Left Section - File Info */}
           <div className="pdf-renderer-toolbar-left">
             <div className="pdf-renderer-file-icon">
-              <FileText className="w-4 h-4 text-danger" style={{ color: '#dc3545' }} />
+              <FileText className="w-4 h-4" style={{ color: '#d32f2f' }} />
             </div>
             <div className="pdf-renderer-file-info">
-              <h3 className="text-light mb-0">{state.fileName}</h3>
-              <p className="text-muted mb-0 small">{state.fileSize}</p>
+              <h3>{state.fileName}</h3>
+              <p>{state.fileSize}</p>
             </div>
           </div>
 
@@ -345,24 +345,24 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
                 onClick={() => handlePageChange(state.pageNumber - 1)}
                 disabled={state.pageNumber <= 1}
                 title="Previous Page"
-                className="rounded-left btn-outline-secondary"
+                className="rounded-left"
               >
-                <ChevronLeft className="w-4 h-4 text-light" />
+                <ChevronLeft className="w-4 h-4" />
               </ToolButton>
 
-              <div className="pdf-renderer-page-counter bg-secondary text-light px-3 py-2">
-                <span className="current-page text-light">{state.pageNumber}</span>
-                <span className="separator text-muted mx-1">/</span>
-                <span className="total-pages text-light">{state.numPages ?? '?'}</span>
+              <div className="pdf-renderer-page-counter">
+                <span className="current-page">{state.pageNumber}</span>
+                <span className="separator">/</span>
+                <span className="total-pages">{state.numPages ?? '?'}</span>
               </div>
 
               <ToolButton
                 onClick={() => handlePageChange(state.pageNumber + 1)}
                 disabled={state.pageNumber >= (state.numPages ?? 1)}
                 title="Next Page"
-                className="rounded-right btn-outline-secondary"
+                className="rounded-right"
               >
-                <ChevronRight className="w-4 h-4 text-light" />
+                <ChevronRight className="w-4 h-4" />
               </ToolButton>
             </div>
           )}
@@ -375,12 +375,12 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
                 onClick={handleZoomOut}
                 disabled={state.scale <= minScale}
                 title="Zoom Out"
-                className="rounded-left btn-outline-secondary"
+                className="rounded-left"
               >
-                <ZoomOut className="w-4 h-4 text-light" />
+                <ZoomOut className="w-4 h-4" />
               </ToolButton>
 
-              <div className="pdf-renderer-zoom-display bg-secondary text-light px-3 py-2">
+              <div className="pdf-renderer-zoom-display">
                 {Math.round(state.scale * 100)}%
               </div>
 
@@ -388,24 +388,24 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
                 onClick={handleZoomIn}
                 disabled={state.scale >= maxScale}
                 title="Zoom In"
-                className="rounded-right btn-outline-secondary"
+                className="rounded-right"
               >
-                <ZoomIn className="w-4 h-4 text-light" />
+                <ZoomIn className="w-4 h-4" />
               </ToolButton>
             </div>
 
             {/* Tool Actions */}
             {enableRotation && (
-              <ToolButton onClick={handleRotate} title="Rotate" className="btn-outline-secondary">
-                <RotateCw className="w-4 h-4 text-light" />
+              <ToolButton onClick={handleRotate} title="Rotate">
+                <RotateCw className="w-4 h-4" />
               </ToolButton>
             )}
 
             {customToolbarActions}
 
             {enableDownload && (
-              <ToolButton onClick={handleDownload} title="Download PDF" className="btn-outline-secondary">
-                <Download className="w-4 h-4 text-light" />
+              <ToolButton onClick={handleDownload} title="Download PDF">
+                <Download className="w-4 h-4" />
               </ToolButton>
             )}
 
@@ -413,12 +413,11 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
               <ToolButton
                 onClick={handleFullscreen}
                 title={state.isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-                className="btn-outline-secondary"
               >
                 {state.isFullscreen ? (
-                  <Minimize className="w-4 h-4 text-light" />
+                  <Minimize className="w-4 h-4" />
                 ) : (
-                  <Maximize className="w-4 h-4 text-light" />
+                  <Maximize className="w-4 h-4" />
                 )}
               </ToolButton>
             )}
@@ -428,33 +427,33 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
 
       {/* PDF Viewer */}
       <div
-        className={`pdf-renderer-viewer bg-dark ${
+        className={`pdf-renderer-viewer ${
           state.isFullscreen ? 'fullscreen' : ''
         }`}
       >
         {state.loading && (
-          <div className="pdf-renderer-loading bg-dark text-light">
+          <div className="pdf-renderer-loading">
             <Spinner />
             <div>
-              <h3 className="text-light">
+              <h3>
                 {state.pdfjsLoaded
                   ? 'Loading PDF...'
                   : 'Initializing PDF viewer...'}
               </h3>
-              <p className="text-muted">Please wait</p>
+              <p>Please wait</p>
             </div>
           </div>
         )}
 
         {!state.loading && !state.error && (
           <div
-            className={`pdf-canvas-container bg-dark ${
+            className={`pdf-canvas-container ${
               state.isFullscreen ? 'fullscreen' : ''
             }`}
           >
             <canvas
               ref={canvasRef}
-              className="pdf-canvas border border-secondary"
+              className="pdf-canvas"
               style={{
                 display: state.loading ? 'none' : 'block',
               }}
@@ -468,7 +467,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
         state.numPages &&
         state.numPages > 1 &&
         !state.loading && (
-          <div className="pdf-renderer-pagination bg-dark border-top border-secondary">
+          <div className="pdf-renderer-pagination">
             <div className="pdf-renderer-pagination-container">
               <div className="pdf-renderer-pagination-buttons">
                 {Array.from(
@@ -479,10 +478,8 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
                       <button
                         key={pageNum}
                         onClick={() => handlePageChange(pageNum)}
-                        className={`pdf-renderer-page-button btn ${
-                          state.pageNumber === pageNum 
-                            ? 'btn-primary active' 
-                            : 'btn-outline-secondary text-light'
+                        className={`pdf-renderer-page-button ${
+                          state.pageNumber === pageNum ? 'active' : ''
                         }`}
                       >
                         {pageNum}
@@ -491,7 +488,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
                   }
                 )}
                 {state.numPages > 10 && (
-                  <span className="pdf-renderer-ellipsis text-muted">...</span>
+                  <span className="pdf-renderer-ellipsis">...</span>
                 )}
               </div>
             </div>
@@ -501,7 +498,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   );
 };
 
-// Demo Component with Enhanced Dark UI
+// Demo Component with Enhanced UI
 const PDFRendererDemo = () => {
   const [selectedFile, setSelectedFile] = useState<string | File | null>(null);
   const [pdfUrl, setPdfUrl] = useState('');
@@ -542,7 +539,7 @@ const PDFRendererDemo = () => {
   };
 
   const componentCode = `
-import { PtgUIPDFRenderer } from '@ptg-ui/react';
+  import { PtgUIPDFRenderer } from '@ptg-ui/react';
 import "@ptg-ui/react/lib/styles/index.css";
 
 interface IPDFRendererProps {
@@ -559,6 +556,8 @@ interface IPDFRendererProps {
 }`;
 
   const htmlCode = `
+
+
 <PtgUIPDFRenderer
   file={pdfFile}
   height="900px"
@@ -574,22 +573,37 @@ interface IPDFRendererProps {
 />`;
 
   return (
-    <section className="card-section-two bg-dark text-light rounded pt-2 pb-2 mt-2 border border-secondary">
+    <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
       <div className="pdf-renderer-demo-container">
         <div className="row">
           {/* Header Section */}
+          {/* <div className="pdf-renderer-demo-header"> */}
           <div className="col-10 mb-2 mt-2">
-            <h5 className="font-weight-bold example-heading text-light">PDF Renderer</h5>
+            <h5 className="font-weight-bold example-heading">PDF Renderer</h5>
           </div>
 
           <div className="col-2 mb-2 mt-1">
             <CodeIcon
               onClick={() => setShowCode(!showCode)}
               fontSize="large"
-              className="show-code-icon text-light"
-              style={{ cursor: 'pointer', color: '#ffffff' }}
-            />
+              className="show-code-icon"
+            ></CodeIcon>
           </div>
+
+          {/* <div className="pdf-renderer-demo-title">
+            <h1>PDF Renderer</h1>
+            <button
+              onClick={() => setShowCode(!showCode)}
+              className="pdf-renderer-show-code-btn"
+            >
+              <Code className="w-4 h-4" /> */}
+          {/* <span>
+                {showCode ? 'Hide Code' : 'Show Code'}
+              </span> */}
+          {/* </button>
+          </div> */}
+
+          {/* <hr className="horizontal-line" /> */}
           {showCode && (
             <ShowCodeComponent
               componentCode={componentCode}
@@ -597,38 +611,38 @@ interface IPDFRendererProps {
             />
           )}
 
-          <div className="pdf-renderer-load-controls bg-dark p-4 rounded border border-secondary">
-            <h2 className="text-light mb-4">Load PDF Document</h2>
+          <div className="pdf-renderer-load-controls">
+            <h2>Load PDF Document</h2>
 
             <div className="pdf-renderer-grid">
               {/* File Upload */}
-              <div className="pdf-renderer-form-group mb-4">
-                <label htmlFor="pdf-file-input" className="form-label text-light">Upload PDF File</label>
+              <div className="pdf-renderer-form-group">
+                <label htmlFor="pdf-file-input">Upload PDF File</label>
                 <input
                   id="pdf-file-input"
                   type="file"
                   accept=".pdf"
                   onChange={handleFileChange}
-                  className="form-control bg-secondary text-light border-secondary"
+                  className="pdf-renderer-file-input"
                 />
               </div>
 
               {/* URL Input */}
-              <div className="pdf-renderer-form-group mb-4">
-                <label htmlFor="pdf-url-input" className="form-label text-light">Or Load from URL</label>
-                <div className="input-group">
+              <div className="pdf-renderer-form-group">
+                <label htmlFor="pdf-url-input">Or Load from URL</label>
+                <div className="pdf-renderer-url-input-group">
                   <input
                     id="pdf-url-input"
                     type="url"
                     placeholder="https://example.com/document.pdf"
                     value={pdfUrl}
                     onChange={(e) => setPdfUrl(e.target.value)}
-                    className="form-control bg-secondary text-light border-secondary"
+                    className="pdf-renderer-url-input"
                   />
                   <button
                     onClick={handleUrlSubmit}
                     disabled={isLoading || !(pdfUrl ?? '').trim()}
-                     className="btn btn-light text-dark fw-semibold"
+                    className="pdf-renderer-load-btn"
                   >
                     {isLoading ? 'Loading...' : 'Load'}
                   </button>
@@ -637,58 +651,56 @@ interface IPDFRendererProps {
             </div>
 
             {/* Sample PDF Button */}
-            <div className="pdf-renderer-sample-section text-center">
+            <div className="pdf-renderer-sample-section">
               <button
                 onClick={loadSamplePDF}
-                className="btn btn-success mb-2"
+                className="pdf-renderer-sample-btn"
               >
                 Try Sample PDF
               </button>
-              <p className="text-muted">
+              <p className="pdf-renderer-sample-description">
                 Load a sample PDF to test the component features
               </p>
             </div>
           </div>
+          {/* </div> */}
 
           {/* PDF Renderer */}
           {selectedFile ? (
-            <div className="mt-4">
-              <PtgUIPDFRenderer
-                file={selectedFile}
-                height="900px"
-                showControls={true}
-                showToolbar={true}
-                showPagination={true}
-                enableDownload={true}
-                enableFullscreen={true}
-                enableRotation={true}
-                onLoadSuccess={(numPages) =>
-                  console.log(`PDF loaded with ${numPages} pages`)
-                }
-                onLoadError={(error) => console.error('PDF load error:', error)}
-                onPageChange={(page) => console.log(`Page changed to ${page}`)}
-                onZoomChange={(scale) =>
-                  console.log(`Zoom changed to ${Math.round(scale * 100)}%`)
-                }
-                customToolbarActions={
-                  <ToolButton
-                    onClick={() => window.location.reload()}
-                    title="Refresh"
-                    className="btn-outline-secondary"
-                  >
-                    <RefreshCw className="w-4 h-4 text-light" />
-                  </ToolButton>
-                }
-              />
-            </div>
+            <PtgUIPDFRenderer
+              file={selectedFile}
+              height="900px"
+              showControls={true}
+              showToolbar={true}
+              showPagination={true}
+              enableDownload={true}
+              enableFullscreen={true}
+              enableRotation={true}
+              onLoadSuccess={(numPages) =>
+                console.log(`PDF loaded with ${numPages} pages`)
+              }
+              onLoadError={(error) => console.error('PDF load error:', error)}
+              onPageChange={(page) => console.log(`Page changed to ${page}`)}
+              onZoomChange={(scale) =>
+                console.log(`Zoom changed to ${Math.round(scale * 100)}%`)
+              }
+              customToolbarActions={
+                <ToolButton
+                  onClick={() => window.location.reload()}
+                  title="Refresh"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </ToolButton>
+              }
+            />
           ) : (
-            <div className="pdf-renderer-no-file bg-dark border border-secondary rounded p-5 mt-4 text-center">
+            <div className="pdf-renderer-no-file">
               <div className="pdf-renderer-no-file-content">
-                <div className="pdf-renderer-no-file-icon text-muted mb-3">
-                  <Upload className="w-full h-full" style={{ width: '64px', height: '64px' }} />
+                <div className="pdf-renderer-no-file-icon">
+                  <Upload className="w-full h-full" />
                 </div>
-                <h3 className="text-light">No PDF selected</h3>
-                <p className="text-muted">Upload a file or load from URL to get started</p>
+                <h3>No PDF selected</h3>
+                <p>Upload a file or load from URL to get started</p>
               </div>
             </div>
           )}

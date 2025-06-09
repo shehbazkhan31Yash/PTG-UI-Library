@@ -131,7 +131,6 @@
   transition: all 0.2s ease-in-out;
   font-weight: bold;
   cursor: pointer;
-  background: darkgray;
 }
 
 .pdf-renderer-tool-button:hover:not(:disabled) {
