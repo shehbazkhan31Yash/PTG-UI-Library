@@ -45,14 +45,42 @@ const defaultPlatforms: SocialPlatform[] = [
 
 const SocialSharingComponent: React.FC<ISocialSharingProps> = ({ content, className = '', buttonText = 'Share', buttonVariant = 'primary', position = 'bottom', showLabels = true, enableCopyLink = true, enableEmail = true, enableDownload = true, customPlatforms, onShare, }) => {
   const [isOpen, setIsOpen] = useState(false); const [copied, setCopied] = useState(false); const dropdownRef = useRef<HTMLDivElement>(null);
-  const platforms = customPlatforms || defaultPlatforms; const supportedPlatforms = platforms.filter((platform) => platform.supportedTypes.includes(content.type) );
+  const platforms = customPlatforms ?? defaultPlatforms; 
+  const supportedPlatforms = platforms.filter((platform) => platform.supportedTypes.includes(content.type));
   const allPlatforms = [ ...supportedPlatforms, ...(enableEmail ? [{ name: 'email', icon: <Mail className="w-5 h-5" />, color: '#6B7280', label: 'Email', supportedTypes: ['text', 'url', 'document'] as ('text' | 'image' | 'document' | 'url')[], shareUrl: (content: ShareContent) => { const subject = content.title; const body = content.text || `${content.description || ''}\n\n${content.url || ''}`; return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }, },] : []), ];
 
-  useEffect(() => { const handleClickOutside = (event: MouseEvent) => { if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) { setIsOpen(false); } }; document.addEventListener('mousedown', handleClickOutside); return () => document.removeEventListener('mousedown', handleClickOutside); }, []);
+  useEffect(() => { 
+    const handleClickOutside = (event: MouseEvent) => { 
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) { 
+        setIsOpen(false); 
+      } 
+    }; 
+    document.addEventListener('mousedown', handleClickOutside); 
+    return () => document.removeEventListener('mousedown', handleClickOutside); 
+  }, [content.url]);
 
   const handleShare = async (platform: SocialPlatform) => { try { let shareContent = { ...content }; if (content.file && !content.url) { shareContent.url = URL.createObjectURL(content.file); } if (navigator.share && content.type !== 'url') { try { const shareData: ShareData = { title: content.title, text: content.description || content.text, url: shareContent.url, }; if (content.file && navigator.canShare && navigator.canShare({ files: [content.file] })) { shareData.files = [content.file]; } await navigator.share(shareData); onShare?.(platform.name, true, content); setIsOpen(false); return; } catch (error) { console.log('Web Share API failed, falling back to URL sharing'); } } const shareUrl = platform.shareUrl(shareContent); window.open(shareUrl, '_blank', 'width=600,height=400'); onShare?.(platform.name, true, content); setIsOpen(false); } catch (error) { console.error(`Error sharing to ${platform.name}:`, error); onShare?.(platform.name, false, content); } };
 
-  const handleCopy = async () => { try { let textToCopy = ''; switch (content.type) { case 'text': textToCopy = content.text || content.title; break; case 'url': textToCopy = content.url || ''; break; case 'document': case 'image': textToCopy = `${content.title}${content.description ? `\n${content.description}` : ''}${content.url ? `\n${content.url}` : ''}`; break; } await navigator.clipboard.writeText(textToCopy); setCopied(true); onShare?.('copy', true, content); setTimeout(() => { setCopied(false); }, 2000); } catch (error) { console.error('Error copying content:', error); onShare?.('copy', false, content); } };
+  const handleCopy = async () => {
+    try {
+      let textToCopy = content.title;
+      if (content.description) {
+        textToCopy += '\n' + content.description;
+      }
+      if (content.url) {
+        textToCopy += '\n' + content.url;
+      }
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      onShare?.('copy', true, content);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (error) {
+      console.error('Error copying content:', error);
+      onShare?.('copy', false, content);
+    }
+  };
 
   const handleDownload = () => { if (content.file) { const url = URL.createObjectURL(content.file); const link = document.createElement('a'); link.href = url; link.download = content.file.name; link.click(); URL.revokeObjectURL(url); onShare?.('download', true, content); } else if (content.url) { const link = document.createElement('a'); link.href = content.url; link.download = content.title; link.click(); onShare?.('download', true, content); } };
 
