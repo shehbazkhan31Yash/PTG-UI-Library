@@ -5,7 +5,26 @@ import {Share2,MessageCircle, Twitter, Linkedin, Facebook, Link2, Mail, X, Check
 import './SocialMediaShare.css';
 import { ToolButton } from './ToolButton';
 
-interface ShareContent { type: 'text' | 'image' | 'document' | 'url'; title: string; description?: string; url?: string; file?: File; text?: string; hashtags?: string[]; }
+/**
+ * Interface representing content to be shared on social media platforms
+ */
+interface ShareContent {
+  /** Type of content being shared */
+  type: 'text' | 'image' | 'document' | 'url';
+  /** Title of the shared content */
+  title: string;
+  /** Optional description of the content */
+  description?: string;
+  /** Optional URL associated with the content */
+  url?: string;
+  /** Optional file attachment */
+  file?: File;
+  /** Optional text content */
+  text?: string;
+  /** Optional array of hashtags */
+  hashtags?: string[];
+}
+
 interface ISocialSharingProps { content: ShareContent; className?: string; buttonText?: string; buttonVariant?: 'primary' | 'secondary' | 'outline'; position?: 'bottom' | 'top' | 'left' | 'right'; showLabels?: boolean; enableCopyLink?: boolean; enableEmail?: boolean; enableDownload?: boolean; customPlatforms?: SocialPlatform[]; onShare?: (platform: string, success: boolean, content: ShareContent) => void; }
 interface SocialPlatform { name: string; icon: React.ReactNode; color: string; shareUrl: (content: ShareContent) => string; label: string; supportedTypes: ('text' | 'image' | 'document' | 'url')[]; }
 
