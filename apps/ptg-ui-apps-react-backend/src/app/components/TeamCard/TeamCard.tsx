@@ -1,7 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
+import { Col, Image } from 'react-bootstrap';
 
 interface CardProps {
+  key: number;
   memberImage: any;
   memberName?: string;
   qualification?: string;
@@ -10,24 +11,23 @@ interface CardProps {
 }
 
 const TeamCard: React.FC<CardProps> = ({
+  key,
   memberImage,
   memberName,
   qualification,
   designation,
-  researchArea,
 }) => {
   return (
-    <div className="flex-row overflow-hidden text-center bg-white border rounded-m py-4">
+    <Col xs={6} md={3} key={key}>
       <Image
-        className="inline-block h-40 w-40 rounded-full ring-2 ring-white pb-1"
         src={memberImage}
-        alt={''}
-        aria-label={''}
+        alt={`${memberName} Image`}
+        aria-label=""
+        fluid
       />
       <h5 className="pt-4">{`${memberName}, ${qualification}`}</h5>
       <h5>{designation}</h5>
-      <p className="text-neutral-500">{researchArea}</p>
-    </div>
+    </Col>
   );
 };
 

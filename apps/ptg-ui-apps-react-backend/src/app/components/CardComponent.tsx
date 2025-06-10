@@ -3,6 +3,7 @@ import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
 
 const CardComponent: React.FC<CardComponentProps> = ({
+  key,
   title,
   content,
   imageUrl,
