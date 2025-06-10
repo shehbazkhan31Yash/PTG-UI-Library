@@ -100,6 +100,7 @@ const LangChainChatbotFullScreen = lazy(
 const SocialMediaSignIn = lazy(
   () => import('../examples/social-sso/SocialMediaSignIn')
 );
+const SocialMediaShare = lazy(() => import('../examples/social-media-share/SocialMediaShare'));
 
 /*--Declare routes and component for dynamic load--*/
 
@@ -176,6 +177,10 @@ const routing = [
   {
     path: '/pdf-renderer',
     component: PDFRenderer,
+  },
+  {
+    path: '/social-media-share',
+    component: SocialMediaShare,
   },
   {
     path: '/dialog',
