@@ -125,12 +125,12 @@
   width: 2rem;
   height: 2rem;
   border: 1px solid #d1d5db;
+  background-color: white;
   color: #374151;
   border-radius: 0.25rem;
   transition: all 0.2s ease-in-out;
   font-weight: bold;
   cursor: pointer;
-  background-color: darkgray;
 }
 
 .pdf-renderer-tool-button:hover:not(:disabled) {

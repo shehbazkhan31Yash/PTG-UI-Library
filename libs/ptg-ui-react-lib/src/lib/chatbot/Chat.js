@@ -55,10 +55,10 @@ export const PtgChatBot = ({ genAIKey }) => {
 				  ]
 				: [input];
 
-			// to provide old context to llm send old messages along with new one
+      // to provide old context to llm send old messages along with new one
 			generatedContent = await model.generateContent([...oldMessages, ...contentToSend]);
 
-			setOldMessages([...oldMessages, ...contentToSend]);
+      setOldMessages([...oldMessages, ...contentToSend])
 
 			setMessages((prevMessages) => [
 				...prevMessages,
@@ -163,7 +163,6 @@ export const PtgChatBot = ({ genAIKey }) => {
 					onChange={(e) => setInput(e.target.value)}
 					onKeyDown={(e) => e.key === 'Enter' && handleSend()}
 					placeholder="Type your message..."
-					className="chatbot-input"
 				/>
 				<label htmlFor="file-upload" className="uploadIcon">
 					<FaPaperclip />
@@ -174,7 +173,7 @@ export const PtgChatBot = ({ genAIKey }) => {
 					accept="image/*"
 					onChange={handleImageUpload}
 					disabled={loading}
-					className="chatbot-input" // Use CSS to hide
+					className="hiddenFileInput" // Use CSS to hide
 				/>
 				{image.data && (
 					<div className="previewContainer">
