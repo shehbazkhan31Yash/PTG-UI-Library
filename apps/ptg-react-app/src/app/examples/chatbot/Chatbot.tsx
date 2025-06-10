@@ -86,7 +86,7 @@ export default function Chatbot() {
             <PtgUiButton
               text="GenAI Key"
               data-testid="open-button"
-              appearance={BUTTON_VARIANT.DARK}
+              appearance={BUTTON_VARIANT.LIGHT}
               btnIconAlignment={POSITIONS.RIGHT}
               onClick={openModal}
               width={WIDTH_110}
@@ -132,7 +132,7 @@ export default function Chatbot() {
           </div>
         </PtgUiModal>
 
-        <IFrame bodyStyle={{ backgroundColor: '#222', color: '#fff' }}>
+        <IFrame>
           <PtgChatBot genAIKey={genAIKey} />
         </IFrame>
       </div>

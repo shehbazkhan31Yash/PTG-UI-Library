@@ -58,6 +58,3 @@
 .accordion-button:not(.collapsed) {
 	color: #000;
 }
-.accordion-item {
-	color: #fff !important;
-}

@@ -6,7 +6,6 @@ import { TableWithDefaultProps } from './TableWithDefaultProps';
 import { TableWithPagination } from './TableWithPagination';
 import { TableWithStickyHeader } from './TableWithStickyHeader';
 import { TableWithServerSidePagination } from './TableWithServerSide';
-import '../pagination/pagination.css';
 
 const TableExample = () => {
   const { t } = useTranslation();

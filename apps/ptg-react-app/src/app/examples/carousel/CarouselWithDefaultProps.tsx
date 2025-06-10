@@ -54,10 +54,7 @@ export const CarouselWithDefaultProps = (props: ICarouselWithDefaultProps) => {
       )}
       <div className="mb-3">
         <div className="carousel-component">
-          <PtgUiCarousel
-            backgroundColor="#222"
-            items={imageList}
-          ></PtgUiCarousel>
+          <PtgUiCarousel items={imageList}></PtgUiCarousel>
         </div>
       </div>
     </section>
