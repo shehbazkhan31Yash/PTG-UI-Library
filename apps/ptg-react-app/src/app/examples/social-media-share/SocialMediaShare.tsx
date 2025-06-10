@@ -8,20 +8,15 @@ import { ToolButton } from './ToolButton';
 /**
  * Interface representing content to be shared on social media platforms
  */
+type ContentType = 'text' | 'image' | 'document' | 'url';
+
 interface ShareContent {
-  /** Type of content being shared */
-  type: 'text' | 'image' | 'document' | 'url';
-  /** Title of the shared content */
+  type: ContentType;
   title: string;
-  /** Optional description of the content */
   description?: string;
-  /** Optional URL associated with the content */
   url?: string;
-  /** Optional file attachment */
   file?: File;
-  /** Optional text content */
   text?: string;
-  /** Optional array of hashtags */
   hashtags?: string[];
 }
 
