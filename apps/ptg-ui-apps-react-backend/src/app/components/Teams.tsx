@@ -49,7 +49,7 @@ const Teams: React.FC = () => {
         ))}
       </Row>
 
-      <Row className="" gap={4}>
+      <Row className="pt-4">
         {teamMembersSampleData.map((data, index) => (
           <TeamCard
             key={index}
