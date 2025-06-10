@@ -24,8 +24,21 @@ interface ISocialSharingProps { content: ShareContent; className?: string; butto
 interface SocialPlatform { name: string; icon: React.ReactNode; color: string; shareUrl: (content: ShareContent) => string; label: string; supportedTypes: ('text' | 'image' | 'document' | 'url')[]; }
 
 const defaultPlatforms: SocialPlatform[] = [
-  { name: 'whatsapp', icon: <MessageCircle className="w-5 h-5" />, color: '#25D366', label: 'WhatsApp', supportedTypes: ['text', 'url', 'document'], shareUrl: (content) => { const text = content.text || `${content.title}\n${content.description || ''}${content.url ? `\n${content.url}` : ''}`; return `https://wa.me/?text=${encodeURIComponent(text)}`; }, },
-  { name: 'twitter', icon: <Twitter className="w-5 h-5" />, color: '#1DA1F2', label: 'Twitter', supportedTypes: ['text', 'url', 'document'], shareUrl: (content) => { const text = content.text || content.title; const hashtags = content.hashtags?.join(',') || ''; const url = content.url || ''; return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`; }, },
+  { 
+    name: 'whatsapp',
+    icon: <MessageCircle className="w-5 h-5" />,
+    color: '#25D366',
+    label: 'WhatsApp',
+    supportedTypes: ['text', 'url', 'document'],
+    shareUrl: (content) => {
+      const title = content.title;
+      const description = content.description || '';
+      const url = content.url ? '\n' + content.url : '';
+      const text = content.text || (title + '\n' + description + url);
+      return 'https://wa.me/?text=' + encodeURIComponent(text ?? '');
+        },
+      },
+      { name: 'twitter', icon: <Twitter className="w-5 h-5" />, color: '#1DA1F2', label: 'Twitter', supportedTypes: ['text', 'url', 'document'], shareUrl: (content) => { const text = content.text ?? content.title; const hashtags = content.hashtags?.join(',') ?? ''; const url = content.url ?? ''; return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`; }, },
   { name: 'linkedin', icon: <Linkedin className="w-5 h-5" />, color: '#0077B5', label: 'LinkedIn', supportedTypes: ['text', 'url', 'document'], shareUrl: (content) => { const url = content.url || ''; const title = content.title; const summary = content.description || content.text || ''; return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`; }, },
   { name: 'facebook', icon: <Facebook className="w-5 h-5" />, color: '#1877F2', label: 'Facebook', supportedTypes: ['text', 'url', 'image', 'document'], shareUrl: (content) => { const url = content.url || ''; const quote = content.text || content.title; return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`; }, },
 ];
