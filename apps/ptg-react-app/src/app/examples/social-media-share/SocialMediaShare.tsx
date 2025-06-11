@@ -20,9 +20,6 @@ import {
 import './SocialMediaShare.css';
 import { ToolButton } from './ToolButton';
 
-/**
- * Interface representing content to be shared on social media platforms
- */
 type ContentType = 'text' | 'image' | 'document' | 'url';
 
 interface ShareContent {
@@ -34,7 +31,6 @@ interface ShareContent {
   text?: string;
   hashtags?: string[];
 }
-
 interface ISocialSharingProps {
   content: ShareContent;
   className?: string;
@@ -48,7 +44,6 @@ interface ISocialSharingProps {
   customPlatforms?: SocialPlatform[];
   onShare?: (platform: string, success: boolean, content: ShareContent) => void;
 }
-
 interface SocialPlatform {
   name: string;
   icon: React.ReactNode;
@@ -57,7 +52,6 @@ interface SocialPlatform {
   label: string;
   supportedTypes: ContentType[];
 }
-
 const defaultPlatforms: SocialPlatform[] = [
   {
     name: 'whatsapp',
@@ -112,7 +106,6 @@ const defaultPlatforms: SocialPlatform[] = [
     },
   },
 ];
-
 const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
   content,
   className = '',
@@ -147,12 +140,10 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     },
   };
-
   const allPlatforms = [
     ...supportedPlatforms,
     ...(enableEmail ? [emailPlatform] : []),
   ];
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -179,9 +170,7 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       }
     } catch (error) {
       console.log('Web Share API failed, falling back to URL sharing', error);
-      // Gracefully fall back to URL sharing - this is expected behavior
     }
-
     try {
       const shareUrl = platform.shareUrl(content);
       window.open(shareUrl, '_blank', 'width=600,height=400');
@@ -192,7 +181,6 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       onShare?.(platform.name, false, content);
     }
   };
-
   const handleCopy = async () => {
     try {
       let textToCopy = content.title;
@@ -213,7 +201,6 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       onShare?.('copy', false, content);
     }
   };
-
   const handleDownload = () => {
     if (content.file) {
       const url = URL.createObjectURL(content.file);
@@ -235,7 +222,6 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       onShare?.('download', true, content);
     }
   };
-
   const getContentIcon = () => {
     switch (content.type) {
       case 'text':
@@ -250,14 +236,12 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
         return <Share2 className="w-4 h-4" />;
     }
   };
-
   const positionClasses = {
     bottom: 'social-share-dropdown-bottom',
     top: 'social-share-dropdown-top',
     left: 'social-share-dropdown-left',
     right: 'social-share-dropdown-right',
   };
-
   return (
     <div className={`social-share-container ${className}`} ref={dropdownRef}>
       <ToolButton
@@ -357,7 +341,6 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
     </div>
   );
 };
-
 const SocialSharingDemo: React.FC = () => {
   const [showCode, setShowCode] = useState(false);
   const [selectedContent, setSelectedContent] = useState<ShareContent>({
@@ -460,7 +443,6 @@ interface ISocialMediaSharingProps {
     } else if (isDocument) {
       contentType = 'document';
     }
-
     setSelectedContent({
       type: contentType,
       title: file.name,
@@ -468,15 +450,12 @@ interface ISocialMediaSharingProps {
       file: file,
     });
   };
-
   const handleContentSelection = (content: ShareContent) => {
     setSelectedContent(content);
   };
-
   const handleToggleCode = () => {
     setShowCode(!showCode);
   };
-
   const renderContentIcon = (type: ContentType) => {
     switch (type) {
       case 'text':
@@ -491,7 +470,6 @@ interface ISocialMediaSharingProps {
         return <FileText className="w-5 h-5" />;
     }
   };
-
   return (
     <div className="social-share-demo-container bg-white rounded">
       <section className="card-section-two rounded pt-0">
@@ -552,7 +530,6 @@ interface ISocialMediaSharingProps {
                   </div>
                 </div>
               </div>
-
               <hr className="horizontal-line" />
               <h2 className="social-share-section-title my-3">Select Content to Share</h2>
               <div className="social-share-content-grid">
