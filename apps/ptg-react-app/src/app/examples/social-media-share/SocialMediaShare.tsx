@@ -178,7 +178,8 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
         return;
       }
     } catch (error) {
-      console.log('Web Share API failed, falling back to URL sharing');
+      console.log('Web Share API failed, falling back to URL sharing', error);
+      // Gracefully fall back to URL sharing - this is expected behavior
     }
 
     try {
