@@ -67,9 +67,9 @@ const defaultPlatforms: SocialPlatform[] = [
     supportedTypes: ['text', 'url', 'document'],
     shareUrl: (content) => {
       const title = content.title;
-      const description = content.description || '';
+      const description = content.description ?? '';
       const url = content.url ? '\n' + content.url : '';
-      const text = content.text || (title + '\n' + description + url);
+      const text = content.text ?? (title + '\n' + description + url);
       return 'https://wa.me/?text=' + encodeURIComponent(text);
     },
   },
@@ -93,9 +93,9 @@ const defaultPlatforms: SocialPlatform[] = [
     label: 'LinkedIn',
     supportedTypes: ['text', 'url', 'document'],
     shareUrl: (content) => {
-      const url = content.url || '';
+      const url = content.url ?? '';
       const title = content.title;
-      const summary = content.description || content.text || '';
+      const summary = content.description ?? content.text ?? '';
       return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
     },
   },
@@ -106,8 +106,8 @@ const defaultPlatforms: SocialPlatform[] = [
     label: 'Facebook',
     supportedTypes: ['text', 'url', 'image', 'document'],
     shareUrl: (content) => {
-      const url = content.url || '';
-      const quote = content.text || content.title;
+      const url = content.url ?? '';
+      const quote = content.text ?? content.title;
       return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`;
     },
   },
@@ -143,7 +143,7 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
     supportedTypes: ['text', 'url', 'document'],
     shareUrl: (content: ShareContent) => {
       const subject = content.title;
-      const body = content.text || `${content.description || ''}\n\n${content.url || ''}`;
+      const body = content.text ?? `${content.description ?? ''}\n\n${content.url ?? ''}`;
       return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     },
   };
@@ -169,7 +169,7 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({
       if (navigator.share && (content.type === 'text' || content.type === 'url')) {
         const shareData: ShareData = {
           title: content.title,
-          text: content.text || content.description,
+          text: content.text ?? content.description,
           url: content.url,
         };
         await navigator.share(shareData);
