@@ -284,5 +284,9 @@ export interface IAvatarsWithText {
   showCodeAvatarsWithText: boolean;
 }
 
+export interface PtgUiD3BarProps {
+  data?: [];
+  series?: [];
+}
 
 

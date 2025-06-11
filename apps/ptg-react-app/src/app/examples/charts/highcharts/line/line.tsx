@@ -1,47 +1,50 @@
-import './line.scss';
-import { PtgUiLine, PtguseFetch } from '@ptg-ui/react';
+import { PtguseFetch } from '@ptg-ui/react';
 import { useState, useEffect } from 'react';
-import { highchartsLineData, highchartsMultiLineData } from '@ptg-react-app/mock/mocks';
+import {
+  highchartsLineData,
+  highchartsMultiLineData,
+} from '@ptg-react-app/mock/mocks';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import PtgUiLine from '@ptg-react-app/components/charts/highcharts/line/line';
 
 /* eslint-disable-next-line */
-export interface PtgUiHCLineProps { }
+export interface PtgUiHCLineProps {}
 
 export function PtgUiHCLine(_props: PtgUiHCLineProps) {
   const { t } = useTranslation();
 
-  
   const [showLineChartCode, setShowLineChartCode] = useState(false);
   const [showMultiLineChartCode, setShowMultiLineChartCode] = useState(false);
   const [high2DMultiLine, setHigh2DMultiLine] = useState<any[]>([]);
- 
-  const {data:apiHigh2DMultiLine} = PtguseFetch('high-chart-multi-line-lists') as any
 
-  useEffect(()=>{
-    const multiLineChart : any  = {
-      title : apiHigh2DMultiLine[0]?.attributes?.chart?.title,
+  const { data: apiHigh2DMultiLine } = PtguseFetch(
+    'high-chart-multi-line-lists'
+  ) as any;
+
+  useEffect(() => {
+    const multiLineChart: any = {
+      title: apiHigh2DMultiLine[0]?.attributes?.chart?.title,
       data: [],
-      remainingOptions: apiHigh2DMultiLine[0]?.attributes?.chart?.remainingOptions
-    }
-    setHigh2DMultiLine(multiLineChart)
-  },[apiHigh2DMultiLine])
-  
+      remainingOptions:
+        apiHigh2DMultiLine[0]?.attributes?.chart?.remainingOptions,
+    };
+    setHigh2DMultiLine(multiLineChart);
+  }, [apiHigh2DMultiLine]);
+
   const ShowLineChartCode = () => {
-    if(!showLineChartCode){
+    if (!showLineChartCode) {
       setShowLineChartCode(true);
-    }
-    else{
+    } else {
       setShowLineChartCode(false);
     }
   };
 
   const ShowMultiLineChartCode = () => {
-    if(!showMultiLineChartCode){
+    if (!showMultiLineChartCode) {
       setShowMultiLineChartCode(true);
-    }
-    else{
+    } else {
       setShowMultiLineChartCode(false);
     }
   };
@@ -89,44 +92,55 @@ export function PtgUiHCLine(_props: PtgUiHCLineProps) {
     export function PtgUiHCLine(props: PtgUiHCLineProps) {
     
   
-    export default PtgUiHCLine;`
+    export default PtgUiHCLine;`;
 
   const multipleLineChartHtmlCode = `
     <PtgUiLine {...highchartsMultiLineData} /> 
-  `
+  `;
   return (
     <>
-      <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-      <div className='row'>
-        <div className="col-10 mt-2">
-          <h5 className='example-heading'>{t('SINGLE_LINE_CHART')}</h5>
-        </div>
-  
-        <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowLineChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
-        </div>
-        <hr className='horizontal-line'/>
-      </div>
-      <PtgUiLine {...highchartsLineData} />
-    </section>
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+        <div className="row">
+          <div className="col-10 mt-2">
+            <h5 className="example-heading">{t('SINGLE_LINE_CHART')}</h5>
+          </div>
 
-    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-      <div className='row'>
-        <div className="col-10 mt-2">
-          <h5 className='example-heading'>{t('MULTIPLE_LINE_CHART')}</h5>
+          <div className="col-2 mr-5 mt-1 mb-2">
+            <CodeIcon
+              onClick={ShowLineChartCode}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
         </div>
+        <PtgUiLine {...highchartsLineData} />
+      </section>
 
-        <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowMultiLineChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
+      <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+        <div className="row">
+          <div className="col-10 mt-2">
+            <h5 className="example-heading">{t('MULTIPLE_LINE_CHART')}</h5>
+          </div>
+
+          <div className="col-2 mr-5 mt-1 mb-2">
+            <CodeIcon
+              onClick={ShowMultiLineChartCode}
+              fontSize="large"
+              className="show-code-icon"
+            ></CodeIcon>
+          </div>
+          <hr className="horizontal-line" />
         </div>
-        <hr className='horizontal-line'/>
-      </div>
-      {!showMultiLineChartCode ? (
-        <PtgUiLine {...highchartsMultiLineData} />
-      ): (
-        <ShowCodeComponent componentCode={mutlipleLineChartComponentCode} htmlCode={multipleLineChartHtmlCode}/>
-      )}
-    </section>
+        {!showMultiLineChartCode ? (
+          <PtgUiLine {...highchartsMultiLineData} />
+        ) : (
+          <ShowCodeComponent
+            componentCode={mutlipleLineChartComponentCode}
+            htmlCode={multipleLineChartHtmlCode}
+          />
+        )}
+      </section>
     </>
   );
 }

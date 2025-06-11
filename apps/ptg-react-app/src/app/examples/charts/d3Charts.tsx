@@ -2,95 +2,103 @@
  * @since March 2022
  * @author Ankit Patidar
  * @uses Example using 3D charts as reusable component.
- * 
-*/
+ *
+ */
 import { useState, useEffect } from 'react';
-import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie, PtguseFetch } from '@ptg-ui/react';
+import { PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import { Row } from 'react-bootstrap';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import PtgUiD3Bar from '@ptg-react-app/components/charts/d3/bar/bar';
+import PtgUiD3Pie from '@ptg-react-app/components/charts/d3/pie/pie';
+import PtgUiD3Line from '@ptg-react-app/components/charts/d3/line/line';
 
 /* eslint-disable-next-line */
 
 export interface PtgUiD3BarProps {
-  data?:[],
+  data?: [];
 }
 export function D3Charts() {
-  const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
-  const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
-  const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();
+  const [apiDataBarChartData, setapiDataBarChartData] =
+    useState<PtgUiD3BarProps>();
+  const [apiDataPieChartData, setapiDataPieChartData] =
+    useState<PtgUiD3BarProps>();
+  const [apiDataLineChartData, setapiDataLineChartData] =
+    useState<PtgUiD3BarProps>();
   const [barChartCode, setBarChartCode] = useState(false);
   const [pieChartCode, setPieChartCode] = useState(false);
   const [lineChartCode, setLineChartCode] = useState(false);
-  const {data:apiDataBarChart} = PtguseFetch('d3-bar-lists') as any
-  const {data:apiDataPieChart} = PtguseFetch('d3-pie-r-lists') as any
-  const {data:apiDataLineChart} = PtguseFetch('d3-line-lists') as any
+  const { data: apiDataBarChart } = PtguseFetch('d3-bar-lists') as any;
+  const { data: apiDataPieChart } = PtguseFetch('d3-pie-r-lists') as any;
+  const { data: apiDataLineChart } = PtguseFetch('d3-line-lists') as any;
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    const heightValue = Number(apiDataPieChart[0]?.attributes?.height)
-    const widthValue = Number(apiDataPieChart[0]?.attributes?.width)
-    const innerRadiusValue = Number(apiDataPieChart[0]?.attributes?.innerRadius)
-    const outerRadiusValue = Number(apiDataPieChart[0]?.attributes?.outerRadius)
+    const heightValue = Number(apiDataPieChart[0]?.attributes?.height);
+    const widthValue = Number(apiDataPieChart[0]?.attributes?.width);
+    const innerRadiusValue = Number(
+      apiDataPieChart[0]?.attributes?.innerRadius
+    );
+    const outerRadiusValue = Number(
+      apiDataPieChart[0]?.attributes?.outerRadius
+    );
 
-    const d3PieChart : any = {
-      height : heightValue,
-      width  : widthValue,
-      innerRadius : innerRadiusValue,
-      outerRadius : outerRadiusValue,
-      data : apiDataPieChart[0]?.attributes?.data
-    }
-      setapiDataPieChartData(d3PieChart)
-  },[apiDataPieChart])
-
-  
-  useEffect(() => {
-    const d3LineChart : any = {
-      data : apiDataLineChart[0]?.attributes?.data.map((item) => { 
-        return {...item , date : new Date(item.date)}
-      })
-    }
-    setapiDataLineChartData(d3LineChart)
-  },[apiDataLineChart])
+    const d3PieChart: any = {
+      height: heightValue,
+      width: widthValue,
+      innerRadius: innerRadiusValue,
+      outerRadius: outerRadiusValue,
+      data: apiDataPieChart[0]?.attributes?.data,
+    };
+    setapiDataPieChartData(d3PieChart);
+  }, [apiDataPieChart]);
 
   useEffect(() => {
-    const heightValue = Number(apiDataBarChart[0]?.attributes?.height)
-    const widthValue = Number( apiDataBarChart[0]?.attributes?.width)
-    const d3BarChart : any = {
-      height : heightValue,
-      width : widthValue,
-      title : apiDataBarChart[0]?.attributes?.title,
-      source : apiDataBarChart[0]?.attributes?.source,
-      x_title : apiDataBarChart[0]?.attributes?.x_title,
-      y_title :  apiDataBarChart[0]?.attributes?.y_title,
-      data : apiDataBarChart[0]?.attributes?.data
-    }
-      setapiDataBarChartData(d3BarChart)
-    },[apiDataBarChart])
+    const d3LineChart: any = {
+      data: apiDataLineChart[0]?.attributes?.data.map((item) => {
+        return { ...item, date: new Date(item.date) };
+      }),
+    };
+    setapiDataLineChartData(d3LineChart);
+  }, [apiDataLineChart]);
+
+  useEffect(() => {
+    const heightValue = Number(apiDataBarChart[0]?.attributes?.height);
+    const widthValue = Number(apiDataBarChart[0]?.attributes?.width);
+    const d3BarChart: any = {
+      height: heightValue,
+      width: widthValue,
+      title: apiDataBarChart[0]?.attributes?.title,
+      source: apiDataBarChart[0]?.attributes?.source,
+      x_title: apiDataBarChart[0]?.attributes?.x_title,
+      y_title: apiDataBarChart[0]?.attributes?.y_title,
+      data: apiDataBarChart[0]?.attributes?.data,
+    };
+    setapiDataBarChartData(d3BarChart);
+  }, [apiDataBarChart]);
   const ShowExampleCode = () => {
-    if(!barChartCode){
+    if (!barChartCode) {
       setBarChartCode(true);
-    }
-    else{
+    } else {
       setBarChartCode(false);
     }
   };
 
   const ShowExampleCodeTwo = () => {
-    if(!pieChartCode){
-      setPieChartCode(true)
-    }else{
-      setPieChartCode(false)
+    if (!pieChartCode) {
+      setPieChartCode(true);
+    } else {
+      setPieChartCode(false);
     }
   };
 
   const ShowExampleCodeThree = () => {
-    if(!lineChartCode){
-      setLineChartCode(true)
-    }else{
-      setLineChartCode(false)
+    if (!lineChartCode) {
+      setLineChartCode(true);
+    } else {
+      setLineChartCode(false);
     }
   };
 
@@ -116,10 +124,10 @@ export function D3Charts() {
   export function D3Charts() {
    
   export default D3Charts;
-  `
+  `;
   const htmlCodeBarChart = `
     <PtgUiD3Bar {...d3BarData} />
-  `
+  `;
 
   const componentCodePieChart = `
   
@@ -142,10 +150,10 @@ export function D3Charts() {
 
   export function D3Charts() {
   export default D3Charts;
-`
+`;
   const htmlCodePieChart = `
     <PtgUiD3Pie {...d3PieData} />
-  `
+  `;
 
   const componentCodeLineChart = `
 
@@ -161,65 +169,89 @@ export function D3Charts() {
 
   export function D3Charts() {
   
-  export default D3Charts;`
+  export default D3Charts;`;
 
   const htmlCodeLineChart = `
     <PtgUiD3Line {...d3LineData} />
-  `
-
+  `;
 
   return (
     <>
-      <Row className='charts-card bg-white rounded pt-2 pb-1 mb-4'>
-          <div className="col-10 mt-2">
-            <h5>{t('BAR_CHART_TEXT')}</h5>
-          </div>
-         
-          <div className='col-2 mb-2 mt-1'>
-            <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          
-          {!barChartCode ? 
-           (apiDataBarChartData && apiDataBarChartData?.data?.length ? <PtgUiD3Bar {...apiDataBarChartData} /> :null)
-          : (
-           <ShowCodeComponent componentCode={componentCodeBarChart} htmlCode={htmlCodeBarChart} />
-          )}
-        </Row>
+      <Row className="charts-card bg-white rounded pt-2 pb-1 mb-4">
+        <div className="col-10 mt-2">
+          <h5>{t('BAR_CHART_TEXT')}</h5>
+        </div>
 
-        <Row className='charts-card bg-white rounded pt-2 pb-1 mb-4'>
+        <div className="col-2 mb-2 mt-1">
+          <CodeIcon
+            onClick={ShowExampleCode}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
+        </div>
+        <hr className="horizontal-line" />
+
+        {!barChartCode ? (
+          apiDataBarChartData && apiDataBarChartData?.data?.length ? (
+            <PtgUiD3Bar {...apiDataBarChartData} />
+          ) : null
+        ) : (
+          <ShowCodeComponent
+            componentCode={componentCodeBarChart}
+            htmlCode={htmlCodeBarChart}
+          />
+        )}
+      </Row>
+
+      <Row className="charts-card bg-white rounded pt-2 pb-1 mb-4">
         <div className="col-10 mt-2">
           <h5>{t('PIE_CHART_TEXT')}</h5>
         </div>
-        <div className='col-2 mr-5 mb-2 mt-1'>
-          <CodeIcon onClick={ShowExampleCodeTwo} fontSize="large" className='show-code-icon'></CodeIcon>
+        <div className="col-2 mr-5 mb-2 mt-1">
+          <CodeIcon
+            onClick={ShowExampleCodeTwo}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
         </div>
-        <hr className='horizontal-line'/>
+        <hr className="horizontal-line" />
 
         {!pieChartCode ? (
-          apiDataPieChartData && apiDataPieChartData?.data?.length ? <PtgUiD3Pie {...apiDataPieChartData} /> : null
-        ): (
-          <ShowCodeComponent componentCode={componentCodePieChart} htmlCode={htmlCodePieChart} />
+          apiDataPieChartData && apiDataPieChartData?.data?.length ? (
+            <PtgUiD3Pie {...apiDataPieChartData} />
+          ) : null
+        ) : (
+          <ShowCodeComponent
+            componentCode={componentCodePieChart}
+            htmlCode={htmlCodePieChart}
+          />
         )}
-        
-        </Row>
-        <Row className='charts-card bg-white rounded pt-2 pb-1 mb-2'>
+      </Row>
+      <Row className="charts-card bg-white rounded pt-2 pb-1 mb-2">
         <div className="col-10 mt-2">
           <h5>{t('LINE_CHART_TEXT')}</h5>
         </div>
 
-        <div className='col-2 mr-5 mb-2 mt-1'>
-          <CodeIcon onClick={ShowExampleCodeThree} fontSize="large" className='show-code-icon'></CodeIcon>
+        <div className="col-2 mr-5 mb-2 mt-1">
+          <CodeIcon
+            onClick={ShowExampleCodeThree}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
         </div>
-        <hr className='horizontal-line'/>
+        <hr className="horizontal-line" />
         {!lineChartCode ? (
-          apiDataLineChartData && apiDataLineChartData?.data?.length ? <PtgUiD3Line {...apiDataLineChartData} /> :null
-        ): (
-          <ShowCodeComponent componentCode={componentCodeLineChart} htmlCode={htmlCodeLineChart} /> 
+          apiDataLineChartData && apiDataLineChartData?.data?.length ? (
+            <PtgUiD3Line {...apiDataLineChartData} />
+          ) : null
+        ) : (
+          <ShowCodeComponent
+            componentCode={componentCodeLineChart}
+            htmlCode={htmlCodeLineChart}
+          />
         )}
-         
-        </Row>
-      </>
+      </Row>
+    </>
   );
 }
 
