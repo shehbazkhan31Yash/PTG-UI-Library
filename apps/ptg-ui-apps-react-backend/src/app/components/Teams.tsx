@@ -1,30 +1,30 @@
 import React from 'react';
 import TeamCard from './TeamCard/TeamCard';
-import polaris_Image from '../../assets/images/polaris.jpg';
+import ux_Image from '../../assets/images/ux_team.png';
 import { Card, Col, Row } from 'react-bootstrap';
 import { contactsTeams } from '@ptg-ui-apps-react-backend/constants/constants';
 const Teams: React.FC = () => {
   const teamMembersSampleData = [
     {
-      memberImage: polaris_Image,
+      memberImage: ux_Image,
       memberName: 'Michelle Stricker',
       qualification: 'B.S',
       designation: 'UI Lead',
     },
     {
-      memberImage: polaris_Image,
+      memberImage: ux_Image,
       memberName: 'Valentina Ionova',
       qualification: 'Ph.D',
       designation: 'UI Specialist',
     },
     {
-      memberImage: polaris_Image,
+      memberImage: ux_Image,
       memberName: 'Travis Feaker',
       qualification: 'M.S',
       designation: 'UI/UX Engineer',
     },
     {
-      memberImage: polaris_Image,
+      memberImage: ux_Image,
       memberName: 'Mohamed Elmansy',
       qualification: 'Ph.D',
       designation: 'UI Associate',
