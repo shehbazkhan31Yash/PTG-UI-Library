@@ -65,7 +65,7 @@ const SocialSharingComponent: React.FC<ISocialSharingProps> = ({ content, classN
     try {
       let textToCopy = content.title;
       if (content.description) {
-        textToCopy += '\n' + content.description;
+        textToCopy += content.description ? '\n' + content.description : '';
       }
       if (content.url) {
         textToCopy += '\n' + content.url;
@@ -115,7 +115,19 @@ const SocialSharingDemo = () => {
 
   const handleShare = (platform: string, success: boolean, content: ShareContent) => { console.log(`Shared ${content.type} to ${platform}: ${success ? 'Success' : 'Failed'}`); };
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0]; if (file) { setUploadedFile(file); const isImage = file.type.startsWith('image/'); const isDocument = file.type === 'application/pdf' || file.type.includes('document') || file.type.includes('text'); setSelectedContent({ type: isImage ? 'image' : isDocument ? 'document' : 'document', title: file.name, description: `File size: ${(file.size / 1024 / 1024).toFixed(2)} MB`, file: file, }); } };
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    setUploadedFile(file);
+    const isImage = file.type.startsWith('image/');
+    const isDocument = file.type === 'application/pdf' || file.type.includes('document') || file.type.includes('text');
+    setSelectedContent({
+      type: isImage ? 'image' : isDocument ? 'document' : 'text',
+      title: file.name,
+      description: `File size: ${(file.size / 1024 / 1024).toFixed(2)} MB`,
+      file: file,
+    });
+  };
 
   const sampleContents: ShareContent[] = [ { type: 'text', title: 'Inspirational Quote', text: 'The only way to do great work is to love what you do. - Steve Jobs', hashtags: ['inspiration', 'quote', 'motivation'], }, { type: 'url', title: 'Amazing Article', description: 'Check out this comprehensive guide to React development', url: 'https://react.dev/learn', hashtags: ['react', 'development', 'tutorial'], }, { type: 'image', title: 'Beautiful Landscape', description: 'Stunning mountain view from my recent trip', url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800', hashtags: ['photography', 'nature', 'mountains'], }, ];
 
@@ -129,17 +141,17 @@ const SocialSharingDemo = () => {
       {showCode && ( <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} /> )}
       <div style={{ marginBottom: '2rem', borderTop: '1px solid #e5e7eb' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div> <h6 className="social-share-section-title my-3 text-light"> Share Selected Content </h6>
+          <div> <h6 className="social-share-section-title my-3  "> Share Selected Content </h6>
             <div className="social-share-current-content d-flex justify-content-between p-2"> <div className="social-share-current-preview"> <div className="social-share-current-icon"> {selectedContent.type === 'text' && ( <FileText className="w-5 h-5 social-share-icon-text" /> )} {selectedContent.type === 'url' && ( <Link2 className="w-5 h-5 social-share-icon-url" /> )} {selectedContent.type === 'image' && ( <Image className="w-5 h-5 social-share-icon-image" /> )} {selectedContent.type === 'document' && ( <FileText className="w-5 h-5 social-share-icon-document" /> )} </div> <div className="social-share-current-content-body"> <h6 className="social-share-current-title font-size-12"> {selectedContent.title} </h6> {selectedContent.description && ( <p className="social-share-current-description"> {selectedContent.description} </p> )} {selectedContent.text && ( <div className="social-share-current-text"> "{selectedContent.text}" </div> )} <p className="social-share-current-type"> Content Type: {selectedContent.type} </p> </div> </div>
               <div className="social-share-buttons-container"> <SocialSharingComponent content={selectedContent} buttonText="Share" buttonVariant="primary" position="left" showLabels={true} onShare={handleShare} /> </div>
             </div>
           </div>
         </div>
         <hr className="horizontal-line" />
-        <h2 className="social-share-section-title text-light my-3">Select Content to Share</h2>
+        <h2 className="social-share-section-title   my-3">Select Content to Share</h2>
         <div className="social-share-content-grid">
-          <div className="social-share-content-section"> <h6 className="social-share-section-subtitle text-light mb-0"> Sample Content </h6> {sampleContents.map((content, index) => ( <button key={index} onClick={() => setSelectedContent(content)} className={`social-share-content-option ${selectedContent === content ? 'social-share-content-option-active' : ''}`}> <div className="social-share-content-preview"> <div className="social-share-content-icon"> {content.type === 'text' && ( <FileText className="w-5 h-5 social-share-icon-text" /> )} {content.type === 'url' && ( <Link2 className="w-5 h-5 social-share-icon-url" /> )} {content.type === 'image' && ( <Image className="w-5 h-5 social-share-icon-image" /> )} </div> <div> <div className="social-share-content-title"> {content.title} </div> <div className="social-share-content-type"> {content.type} content </div> </div> </div> </button> ))} </div>
-          <div className="social-share-content-section"> <h6 className="social-share-section-subtitle mb-0 text-light">Upload File</h6> <div className="social-share-upload"> <Upload className="social-share-upload-icon" /> <label htmlFor="file-upload" className="social-share-upload-label"> <span className="social-share-upload-link"> Click to upload </span> <span className="social-share-upload-text"> {' '} or drag and drop </span> </label> <input id="file-upload" type="file" className="social-share-upload-hidden" onChange={handleFileUpload} accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif" /> <p className="social-share-upload-note"> PDF, DOC, TXT, JPG, PNG up to 10MB </p> </div> {uploadedFile && ( <div className="social-share-upload-success"> <p className="social-share-upload-success-title"> File uploaded: {uploadedFile.name} </p> <p className="social-share-upload-success-size"> Size: {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB </p> </div> )} </div>
+          <div className="social-share-content-section"> <h6 className="social-share-section-subtitle   mb-0"> Sample Content </h6> {sampleContents.map((content, index) => ( <button key={index} onClick={() => setSelectedContent(content)} className={`social-share-content-option ${selectedContent === content ? 'social-share-content-option-active' : ''}`}> <div className="social-share-content-preview"> <div className="social-share-content-icon"> {content.type === 'text' && ( <FileText className="w-5 h-5 social-share-icon-text" /> )} {content.type === 'url' && ( <Link2 className="w-5 h-5 social-share-icon-url" /> )} {content.type === 'image' && ( <Image className="w-5 h-5 social-share-icon-image" /> )} </div> <div> <div className="social-share-content-title"> {content.title} </div> <div className="social-share-content-type"> {content.type} content </div> </div> </div> </button> ))} </div>
+          <div className="social-share-content-section"> <h6 className="social-share-section-subtitle mb-0  ">Upload File</h6> <div className="social-share-upload"> <Upload className="social-share-upload-icon" /> <label htmlFor="file-upload" className="social-share-upload-label"> <span className="social-share-upload-link"> Click to upload </span> <span className="social-share-upload-text"> {' '} or drag and drop </span> </label> <input id="file-upload" type="file" className="social-share-upload-hidden" onChange={handleFileUpload} accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif" /> <p className="social-share-upload-note"> PDF, DOC, TXT, JPG, PNG up to 10MB </p> </div> {uploadedFile && ( <div className="social-share-upload-success"> <p className="social-share-upload-success-title"> File uploaded: {uploadedFile.name} </p> <p className="social-share-upload-success-size"> Size: {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB </p> </div> )} </div>
         </div>
       </div>
     </div>
@@ -148,5 +160,4 @@ const SocialSharingDemo = () => {
       </div>
   );
 };
-
 export default SocialSharingDemo;

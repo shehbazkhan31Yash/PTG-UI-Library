@@ -1,13 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
-/* Container Classes */
 .social-share-container {
   position: relative;
   display: inline-block;
 }
-
 .social-share-demo-container {
   max-width: 1024px;
   margin: 0 auto;
@@ -15,21 +12,18 @@
   background-color: #f9fafb;
   min-height: auto;
 }
-
 .social-share-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-
 .social-share-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 0.5rem;
 }
-
 .social-share-subtitle {
   color: #6b7280;
   font-size: 12px;
@@ -37,8 +31,6 @@
 .font-size-12 {
   font-size: 12px;
 }
-
-/* Button Base Styles */
 .social-share-btn-base {
   display: inline-flex;
   align-items: center;
@@ -53,32 +45,25 @@
   outline: none;
   text-decoration: none;
 }
-
 .social-share-btn-base:focus {
   outline: 2px solid;
   outline-offset: 2px;
 }
-
 .social-share-btn-base:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 .social-share-btn-base:hover:not(:disabled) {
   transform: scale(1.05);
 }
-
 .social-share-btn-base:active:not(:disabled) {
   transform: scale(0.95);
 }
-
-/* Button Variants */
 .social-share-btn-primary {
   background-color: #2563eb;
   color: white;
   border-color: #2563eb;
 }
-
 .social-share-btn-primary:hover:not(:disabled) {
   background-color: #1d4ed8;
 }
@@ -114,13 +99,9 @@
 .social-share-btn-outline:focus {
   outline-color: #6b7280;
 }
-
-/* Button with gap */
 .social-share-btn-gap {
   gap: 0.5rem;
 }
-
-/* Dropdown Styles */
 .social-share-dropdown {
   position: absolute;
   z-index: 50;
@@ -132,7 +113,6 @@
   padding: 0.5rem 0;
   animation: social-share-fade-in 0.2s ease-out;
 }
-
 @keyframes social-share-fade-in {
   from {
     opacity: 0;
@@ -143,54 +123,43 @@
     transform: translateY(0);
   }
 }
-
-/* Dropdown Positions */
 .social-share-dropdown-bottom {
   top: 100%;
   margin-top: 0.5rem;
 }
-
 .social-share-dropdown-top {
   bottom: 100%;
   margin-bottom: 0.5rem;
 }
-
 .social-share-dropdown-left {
   right: 100%;
   margin-right: 0.5rem;
   top: 0;
 }
-
 .social-share-dropdown-right {
   left: 100%;
   margin-left: 0.5rem;
   top: 0;
 }
-
-/* Dropdown Header */
 .social-share-dropdown-header {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #f3f4f6;
 }
-
 .social-share-dropdown-header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .social-share-dropdown-title {
   font-size: 0.875rem;
   font-weight: 500;
   color: #111827;
 }
-
 .social-share-dropdown-subtitle {
   font-size: 0.75rem;
   color: #6b7280;
   text-transform: capitalize;
 }
-
 .social-share-close-btn {
   color: #9ca3af;
   padding: 0.25rem;
@@ -200,16 +169,12 @@
   cursor: pointer;
   transition: color 0.15s ease-in-out;
 }
-
 .social-share-close-btn:hover {
   color: #6b7280;
 }
-
-/* Platform Buttons */
 .social-share-platforms {
   padding: 0.5rem 0;
 }
-
 .social-share-platform-btn {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -222,11 +187,9 @@
   transition: background-color 0.15s ease-in-out;
   text-align: left;
 }
-
 .social-share-platform-btn:hover {
   background-color: #f9fafb;
 }
-
 .social-share-platform-icon {
   display: flex;
   align-items: center;
@@ -241,14 +204,10 @@
   font-weight: 500;
   color: #374151;
 }
-
-/* Divider */
 .social-share-divider {
   border-top: 1px solid #f3f4f6;
   margin: 0.5rem 0;
 }
-
-/* Action Buttons (Copy, Download) */
 .social-share-action-btn {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -275,15 +234,12 @@
   border-radius: 9999px;
   background-color: #f3f4f6;
 }
-
 .social-share-copy-icon-success {
   color: #059669;
 }
-
 .social-share-copy-icon-default {
   color: #6b7280;
 }
-
 .social-share-download-icon {
   display: flex;
   align-items: center;
@@ -294,8 +250,6 @@
   background-color: #dbeafe;
   color: #2563eb;
 }
-
-/* Demo Section Styles */
 .social-share-section-title {
   font-size: 1.125rem;
   font-weight: 600;
@@ -325,7 +279,6 @@
   font-weight: 500;
   color: #111827;
 }
-
 .social-share-content-option {
   width: 100%;
   padding: 5px;
@@ -336,149 +289,119 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 .social-share-content-option:hover {
   border-color: #d1d5db;
 }
-
 .social-share-content-option-active {
   border-color: #3b82f6;
   background-color: #eff6ff;
 }
-
 .social-share-content-preview {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
-
 .social-share-content-icon {
   flex-shrink: 0;
 }
-
 .social-share-content-title {
   font-weight: 500;
   color: #111827;
   font-size: 12px;
 }
-
 .social-share-content-type {
   font-size: 0.7rem;
   color: #6b7280;
   text-transform: capitalize;
 }
-
-/* File Upload */
 .social-share-upload {
   border: 2px dashed #d1d5db;
   border-radius: 0.5rem;
   padding: 1.5rem;
   text-align: center;
 }
-
 .social-share-upload-icon {
   width: 2rem;
   height: 2rem;
   color: #9ca3af;
   margin: 0 auto 0.5rem;
 }
-
 .social-share-upload-label {
   cursor: pointer;
 }
-
 .social-share-upload-link {
   font-size: 0.875rem;
   font-weight: 500;
   color: #2563eb;
 }
-
 .social-share-upload-link:hover {
   color: #1d4ed8;
 }
-
 .social-share-upload-text {
   font-size: 0.875rem;
   color: #6b7280;
 }
-
 .social-share-upload-note {
   font-size: 0.75rem;
   color: #6b7280;
   margin-top: 0.25rem;
 }
-
 .social-share-upload-hidden {
   display: none;
 }
-
 .social-share-upload-success {
   padding: 0.75rem;
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
   border-radius: 0.5rem;
 }
-
 .social-share-upload-success-title {
   font-size: 0.875rem;
   font-weight: 500;
   color: #166534;
 }
-
 .social-share-upload-success-size {
   font-size: 0.75rem;
   color: #15803d;
 }
-
-/* Current Content Display */
 .social-share-current-content {
   background-color: #f9fafb;
-  /* padding: 1rem; */
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
 }
-
 .social-share-current-preview {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
-
 .social-share-current-icon {
   flex-shrink: 0;
   margin-top: 0.25rem;
 }
-
 .social-share-current-content-body {
   flex: 1;
 }
-
 .social-share-current-title {
   font-weight: 500;
   color: #111827;
 }
-
 .social-share-current-description {
   font-size: 0.875rem;
   color: #6b7280;
   margin-top: 0.25rem;
 }
-
 .social-share-current-text {
   font-size: 0.7rem;
   color: #374151;
   margin-top: 0.5rem;
   font-style: italic;
 }
-
 .social-share-current-type {
   font-size: 0.75rem;
   color: #6b7280;
   margin-top: 0.5rem;
   text-transform: capitalize;
 }
-
-/* Code Display */
 .social-share-code-container {
   margin-bottom: 1.5rem;
   padding: 1rem;
@@ -486,45 +409,35 @@
   border-radius: 0.5rem;
   overflow-x: auto;
 }
-
 .social-share-code {
   font-size: 0.875rem;
   color: #f3f4f6;
   white-space: pre;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
-
-/* Share Buttons Container */
 .social-share-buttons-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
-
-/* Responsive Utilities */
 @media (max-width: 767px) {
   .social-share-demo-container {
     padding: 1rem;
   }
-  
   .social-share-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
   .social-share-dropdown {
     min-width: 260px;
   }
 }
-
-/* Icon Colors */
 .social-share-icon-text { color: #6b7280; }
 .social-share-icon-url { color: #2563eb; }
 .social-share-icon-image { color: #059669; }
 .social-share-icon-document { color: #7c3aed; }
 
-/* Platform Colors */
 .whatsapp-color { color: #25D366; }
 .twitter-color { color: #1DA1F2; }
 .linkedin-color { color: #0077B5; }
