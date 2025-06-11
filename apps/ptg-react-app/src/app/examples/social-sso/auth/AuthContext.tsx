@@ -13,6 +13,7 @@ import {
   SocialUser,
   SignupFormData,
 } from '../interface/index';
+import { environment } from '@ptg-ui/apps/ptg-react-app/src/environments/environment';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -51,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     async (socialUser: SocialUser) => {
       try {
         const res = await axios.get(
-          'http://localhost:1337/api/user-check/email',
+          `${environment.baseUrl}api/user-check/email`,
           {
             params: {
               email: socialUser.email,
@@ -82,7 +83,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     async (formData: SignupFormData) => {
       try {
         await axios.post(
-          'http://localhost:1337/api/cutom-user-table/create-custom-user',
+          `${environment.baseUrl}api/custom-user-table/create-custom-user`,
           {
             data: {
               username: formData.username,

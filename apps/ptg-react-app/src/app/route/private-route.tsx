@@ -5,7 +5,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const location = useLocation();
   const isAuthenticatedMSAL = authClass.getToken();
   const { isAuthenticated } = useAuth0();
-  return !isAuthenticated || isAuthenticatedMSAL ? (
+  return isAuthenticated || isAuthenticatedMSAL ? (
     children
   ) : (
     <Navigate to="/ptg-react-app/login" state={{ from: location }} />
