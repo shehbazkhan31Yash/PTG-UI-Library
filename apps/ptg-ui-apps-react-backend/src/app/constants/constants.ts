@@ -27,7 +27,6 @@ export const tabs = [
   { label: 'Technologies', to: '/technologies' },
   { label: 'Services', to: '/services' },
   { label: 'Teams', to: '/teams' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 export const carouselItems = [

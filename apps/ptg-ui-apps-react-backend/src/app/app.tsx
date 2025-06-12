@@ -16,12 +16,12 @@ const App: React.FC = () => {
       <div className="container mt-4">
         <Routes>
           <Route path="/home" element={<Home />} />
-          {/* Hide for now */}
           <Route path="/services" element={<Services />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/technologies" element={<Technologies />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* Hide for now when the contact us form will be implemented then we can unhide this*/}
+          {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
