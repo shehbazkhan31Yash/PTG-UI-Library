@@ -9,12 +9,14 @@ import * as React from 'react';
 import * as d3 from 'd3';
 
 export interface PtgUiD3LineProps {
-  data: any;
-  height: number;
-  width: number;
+  readonly data?: Array<{ date: Date; value: number }>;
+  readonly height?: number;
+  readonly width?: number;
 }
 
-const defaultProps: PtgUiD3LineProps = {
+const defaultProps: Required<
+  Pick<PtgUiD3LineProps, 'data' | 'height' | 'width'>
+> = {
   data: [
     {
       date: new Date('2022-03-01'),
@@ -29,7 +31,11 @@ const defaultProps: PtgUiD3LineProps = {
   width: 600,
 };
 
-export function PtgUiD3Line({ data, height, width }: PtgUiD3LineProps) {
+export function PtgUiD3Line({
+  data = defaultProps.data,
+  height = defaultProps.height,
+  width = defaultProps.width,
+}: Readonly<PtgUiD3LineProps>) {
   const flag = React.useRef(true);
   const createGraph = () => {
     // set the dimensions and margins of the graph
