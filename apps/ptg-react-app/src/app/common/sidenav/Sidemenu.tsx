@@ -91,6 +91,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/social-media-share',
+    icon: 'fa-solid fa-share-nodes',
+    label: 'Social Media Share',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
