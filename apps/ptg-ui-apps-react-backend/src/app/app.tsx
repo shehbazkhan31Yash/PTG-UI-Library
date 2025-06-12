@@ -4,7 +4,6 @@ import AppBar from './components/AppBar';
 import Home from './components/Home';
 import Services from './components/Services';
 import Projects from './components/Projects';
-import Contact from './components/Contact';
 import Footer from './components/Footer/Footer';
 import Technologies from './components/Technologies';
 import Teams from './components/Teams';
