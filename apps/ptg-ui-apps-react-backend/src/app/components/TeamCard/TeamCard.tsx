@@ -2,12 +2,11 @@ import React from 'react';
 import { Col, Image } from 'react-bootstrap';
 
 interface CardProps {
-  key: number;
+  key: string;
   memberImage: any;
   memberName?: string;
   qualification?: string;
   designation?: string;
-  researchArea?: string;
 }
 
 const TeamCard: React.FC<CardProps> = ({

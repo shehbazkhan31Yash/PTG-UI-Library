@@ -35,7 +35,7 @@ const Teams: React.FC = () => {
       <h2 className="text-center text-warning pb-2">Meet Our Group</h2>
       <Row>
         {contactsTeams.map((team, index) => (
-          <Col key={index} className="text-center">
+          <Col key={team.name} className="text-center">
             <Card>
               <Card.Img variant="top" src={team.photo} />
               <Card.Body className="text-white">
@@ -52,7 +52,7 @@ const Teams: React.FC = () => {
       <Row className="pt-4">
         {teamMembersSampleData.map((data, index) => (
           <TeamCard
-            key={index}
+            key={data.memberName}
             memberImage={data.memberImage}
             memberName={data.memberName}
             qualification={data.qualification}
