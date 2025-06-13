@@ -51,14 +51,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const loginWithSocial = useCallback(
     async (socialUser: SocialUser) => {
       try {
-        const res = await axios.get(
-          `${environment.baseUrl}api/user-check/email`,
-          {
-            params: {
-              email: socialUser.email,
-            },
-          }
-        );
+        const res = await axios.get(`${environment.baseUrl}user-check/email`, {
+          params: {
+            email: socialUser.email,
+          },
+        });
         const existingUser = res?.data?.exists;
         if (existingUser) {
           setUser({
@@ -83,7 +80,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     async (formData: SignupFormData) => {
       try {
         await axios.post(
-          `${environment.baseUrl}api/custom-user-table/create-custom-user`,
+          `${environment.baseUrl}custom-user-table/create-custom-user`,
           {
             data: {
               username: formData.username,
