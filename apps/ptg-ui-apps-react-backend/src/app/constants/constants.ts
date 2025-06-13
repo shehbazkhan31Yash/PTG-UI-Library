@@ -16,12 +16,17 @@ import vue_Image from '../../assets/images/vue.png';
 import javascript_Image from '../../assets/images/javascript-1.svg';
 import nextjs_Image from '../../assets/images/nextjs.png';
 import MaterialUI_Image from '../../assets/images/materialui.png';
+import SujalImage from '../../assets/images/UI-Sujal.jpg';
+import NitinImage from '../../assets/images/UI-Nitin.jpg';
+import LokeshImage from '../../assets/images/UI-Lokesh.jpg';
+import LokeshDaiyaImage from '../../assets/images/UI-Lokesh.jpeg';
 export const tabs = [
   { label: 'Home', to: '/home' },
-  { label: 'Services', to: '/services' },
-  { label: 'Projects', to: '/projects' },
+
+  { label: 'Accelerators', to: '/projects' },
   { label: 'Technologies', to: '/technologies' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Services', to: '/services' },
+  { label: 'Teams', to: '/teams' },
 ];
 
 export const carouselItems = [
@@ -124,5 +129,32 @@ export const technologiesItems = [
     id: 10,
     imageUrl: MaterialUI_Image,
     title: 'materail UI',
+  },
+];
+
+export const contactsTeams = [
+  {
+    name: 'Nitin Gupta',
+    designation: 'Business Unit Head',
+    email: 'nitin@yash.com',
+    photo: NitinImage,
+  },
+  {
+    name: 'Lokesh Sapre',
+    designation: 'Competency Head',
+    email: 'lokesh.sapre@yash.com',
+    photo: LokeshImage,
+  },
+  {
+    name: 'Sujal Ray',
+    designation: 'Competency Manager',
+    email: 'sujal.ray@yash.com',
+    photo: SujalImage,
+  },
+  {
+    name: 'Lokesh Daiya',
+    designation: 'Solution Architect',
+    email: 'lokesh.daiya@yash.com',
+    photo: LokeshDaiyaImage,
   },
 ];

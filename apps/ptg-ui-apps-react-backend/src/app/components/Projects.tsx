@@ -6,7 +6,7 @@ const Projects: React.FC = () => {
   const items = DashboardCardItems;
   return (
     <section id="projects" className="mt-5">
-      <h2 className="text-center text-warning">Our Projects</h2>
+      <h2 className="text-center text-warning">Our Accelerators</h2>
       <div className="row">
         {items.map((item) => (
           <CardComponent

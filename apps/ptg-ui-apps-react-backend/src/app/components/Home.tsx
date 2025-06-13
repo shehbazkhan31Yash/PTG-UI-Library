@@ -1,66 +1,52 @@
 import React from 'react';
-import { Carousel, Col, Row, Image } from 'react-bootstrap';
-import { CarouselImageContainer } from './CarouselImageContainer';
-import visionImage from '../../assets/images/yash_vision.jpg';
-import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
-import missionImage from '../../assets/images/yash_mission.jpg';
+import { Col, Row, Image, Container } from 'react-bootstrap';
 
+import visionImage from '../../assets/images/yash_vision.jpg';
+import missionImage from '../../assets/images/yash_mission.jpg';
+import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
+import ClientCarousel from './CarouselImageContainer'; // Import the new carousel component
 const Home: React.FC = () => {
   return (
-    <section id="about" className="text-center text-light mt-5">
-      <Row className="visionandmission mb-3">
-        <Col xs={5} md={5}>
-          <h2 className="section-title">Vision and Mission</h2>
-          <p>
-            At Yash, we are driven by this vision to deliver top-tier products
-            and services to the global power industry, proudly bearing the label
-            "Made in India for the World.”
-          </p>
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col xs={6} md={6} className="visionmissioncard">
-          <h2 className="pt-3 pb-2">Vision</h2>
-          <p className="about-text">
-            Inspired by the Honourable Prime Minister’s vision for an
-            Atmanirbhar Bharat (Self-Sufficient India), YASH is pioneering
-            technological advancements to bolster the resilience and longevity
-            of power infrastructure, thereby contributing to our nation's energy
-            independence. With a commitment to offering cutting-edge solutions
-            to customers, our products embody efficient innovation, delivering
-            exceptional performance at competitive costs.
-          </p>
-        </Col>
-        <Col xs={6} md={6}>
-          <Image src={visionImage} fluid className="h-100" />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={6} md={6} className="visionmissioncard">
-          <h2 className="pt-3 pb-2">Mission</h2>
-          <p className="about-text">
-            We are steadfastly committed to delivering superior quality
-            products, highly customised solutions and exceedingly responsive
-            services to customers; thus offering benchmark performance and
-            customer experience. We shall uphold the highest standards in human
-            values and shall invest our best efforts to fulfil the expectations
-            of all our stakeholders.
-          </p>
-        </Col>
-        <Col xs={6} md={6}>
-          <Image src={missionImage} fluid className="h-100" />
-        </Col>
-      </Row>
-      <h1 className="section-title">Our Clients</h1>
-      <Carousel>
-        {carouselItems.map((item, index) => (
-          <Carousel.Item key={index} interval={1000}>
-            <CarouselImageContainer imageUrl={item.imageURL ?? ''} />
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </section>
+    <Container fluid className="bg-dark text-light p-5">
+      <section id="about" className="text-center">
+        <Row className="mb-5">
+          <Col xs={12} md={6} className="mb-4">
+            <Image src={visionImage} fluid alt="Vision" />
+          </Col>
+          <Col xs={12} md={6}>
+            <h2 className="pt-3 pb-2">Vision</h2>
+            <p className="lead about-text">
+              To create intuitive, accessible, and engaging user experiences
+              that empower users and elevate the digital landscape.
+            </p>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col xs={12} md={6} className="mb-4">
+            <h2 className="pt-3 pb-2">Mission</h2>
+            <p className="lead about-text">
+              Our mission is to design and develop high-quality, responsive, and
+              user-centric web applications. We strive to leverage the latest
+              technologies and best practices in frontend development to deliver
+              seamless interactions, foster collaboration, and continuously
+              improve our products based on user feedback and evolving industry
+              standards.
+            </p>
+          </Col>
+          <Col xs={12} md={6}>
+            <Image
+              src={missionImage}
+              fluid
+              className="shadow rounded"
+              alt="Mission"
+            />
+          </Col>
+        </Row>
+        <h1 className="section-title mb-4">Our Clients</h1>
+        <ClientCarousel items={carouselItems} />{' '}
+        {/* Use the new carousel component */}
+      </section>
+    </Container>
   );
 };
-
 export default Home;

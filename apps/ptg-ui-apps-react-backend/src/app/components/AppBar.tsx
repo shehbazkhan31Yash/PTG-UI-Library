@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
 import { Badge } from 'react-bootstrap';
@@ -7,6 +7,18 @@ import { Badge } from 'react-bootstrap';
 import logoImage from '../../assets/images/yash_log_real.svg';
 
 const AppBar: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to the home page if the current path is empty
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname === '/ptg-ui-apps-react-backend/'
+    ) {
+      navigate('/home');
+    }
+  }, [navigate]);
+
   return (
     <header className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid d-flex align-items-center gap-4">
@@ -38,7 +50,7 @@ const AppBar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <Badge
+          {/* <Badge
             bg="warning"
             text="dark"
             className="rounded-circle justify-content-center align-items-center avatorClass"
@@ -46,7 +58,7 @@ const AppBar: React.FC = () => {
             <div className="px-2">
               <span className="avatorText">{'SBK'}</span>
             </div>
-          </Badge>
+          </Badge> */}
         </div>
       </div>
     </header>
