@@ -104,8 +104,7 @@ export const DashboardCardItems = [
     title: 'PTG Best Practices Documents',
     content: 'Portal to access best practices documents.',
     button: 'View',
-    viewLink:
-      'https://yash-ui-apps.azurewebsites.net/components/best-practices-docs.html',
+    viewLink: '/BestPracticesDocs',
   },
   {
     id: 12,

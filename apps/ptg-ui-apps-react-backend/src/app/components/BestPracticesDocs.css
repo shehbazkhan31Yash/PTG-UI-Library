@@ -1,0 +1,67 @@
+.page-header {
+      margin-bottom: 20px !important;
+    }
+    .content {
+      flex: 1;
+      /* Allow content to take the remaining space */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+      padding: 20px;
+      /* Add padding to the content */
+      background-color: rgba(248, 249, 250, 0.9);
+      /* Light gray background for content with transparency */
+      border-radius: 8px;
+      /* Rounded corners for content container */
+    }
+
+    .card {
+      margin-bottom: 25px;
+      min-height: 12rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+      /* White card background */
+      border: 1px solid #0056b3;
+      /* Reduced intensity blue border for cards */
+    }
+
+    .card-text {
+      color: #000000;
+      /* Black card text color */
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 86, 179, 0.2);
+      /* Light blue shadow on hover */
+    }
+
+    .card-title {
+      font-weight: bold;
+      color: #0056b3;
+      /* Reduced intensity blue card title color */
+    }
+
+    .btn-primary {
+      background-color: #0056b3;
+      /* Reduced intensity primary button color */
+      border-color: #0056b3;
+      /* Reduced intensity primary button border color */
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #004494;
+      /* Darker blue on hover */
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      /* Secondary button color */
+      border-color: #6c757d;
+      /* Secondary button border color */
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+      /* Darker secondary button on hover */
+    }
