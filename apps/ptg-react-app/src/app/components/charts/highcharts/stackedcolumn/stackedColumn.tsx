@@ -12,15 +12,15 @@ import HighchartsReact from 'highcharts-react-official';
 
 /* eslint-disable-next-line */
 export interface PtgUiStackedColumnProps {
-	remainingOptions: any;
-	highcharts?: any;
-	title?: any;
-	data?: any;
-	yTitle?: any;
-	categories?: any;
+	readonly remainingOptions?: any;
+	readonly highcharts?: any;
+	readonly title?: any;
+	readonly data?: any;
+	readonly yTitle?: any;
+	readonly categories?: any;
 }
 
-const defaultProps: PtgUiStackedColumnProps = {
+const defaultProps: Partial<PtgUiStackedColumnProps> = {
 	title: {},
 	highcharts: Highcharts,
 	remainingOptions: {},
@@ -29,13 +29,13 @@ const defaultProps: PtgUiStackedColumnProps = {
 };
 
 export function PtgUiStackedColumn({
-	title,
-	yTitle,
+	title = defaultProps.title,
+	yTitle = defaultProps.yTitle,
 	data,
-	categories,
-	remainingOptions,
+	categories = defaultProps.categories,
+	remainingOptions = defaultProps.remainingOptions,
 	...rest
-}: PtgUiStackedColumnProps) {
+}: Readonly<PtgUiStackedColumnProps>) {
 	const graphOptions: any = {
 		chart: {
 			type: 'column',
@@ -54,9 +54,7 @@ export function PtgUiStackedColumn({
 				style: {
 					fontWeight: 'bold',
 					color:
-						// theme
-						(defaultProps.highcharts.defaultOptions.title.style &&
-							defaultProps.highcharts.defaultOptions.title.style.color) ||
+						defaultProps.highcharts?.defaultOptions?.title?.style?.color ||
 						'gray',
 				},
 			},

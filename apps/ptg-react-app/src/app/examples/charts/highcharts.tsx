@@ -3,181 +3,181 @@
  * @author Ankit Patidar
  * @updatedby Harsha Zalawa
  * @uses Example using 3D highcharts as reusable component.
- * 
-*/
+ *
+ */
 import { useState, useEffect } from 'react';
 import PtgUiHCLine from './highcharts/line/line';
 import PtgUiHCLineBar from './highcharts/linebar/linebar';
 import PtgUiHCSColumn from './highcharts/stackedColumn/stackedColumn';
-import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie, PtguseFetch } from '@ptg-ui/react';
+import { PtguseFetch } from '@ptg-ui/react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-
+import PtgUiColumn from '@ptg-react-app/components/charts/highcharts/column/column';
+import PtgUiPie from '@ptg-react-app/components/charts/highcharts/pie/pie';
+import PtgUi3dColumn from '@ptg-react-app/components/charts/highcharts/3D/column/column';
+import PtgUi3dLine from '@ptg-react-app/components/charts/highcharts/3D/line/line';
+import PtgUi3dPie from '@ptg-react-app/components/charts/highcharts/3D/pie/pie';
+import { PtgUiD3BarProps } from '@ptg-react-app/interfaces';
 
 /* eslint-disable-next-line */
-export interface HighchartsProps { }
-export interface PtgUiD3BarProps {
-  data?:[],
-  series?:[]
-}
+export interface HighchartsProps {}
+
 export function Highcharts(_props: HighchartsProps) {
-const [highchartsPieDataList, setHighchartsPieDataList] = useState<PtgUiD3BarProps>()
-const [high2DBarData, setHigh2DBarData] = useState<any[]>([]);
-const [high3DBarData, setHigh3DBarData] = useState<any[]>([]);
-const [high3DPieData, setHigh3DPieData] = useState<any[]>([]);
-const [high3DPieDataTitle, setHigh3DPieDataTitle] = useState<any[]>([]);
-const [high3DLineData, setHigh3DLineData] = useState<any[]>([]);
-const [high3DLineCat, setHigh3DLineCat] = useState<any[]>([]);
+  const [highchartsPieDataList, setHighchartsPieDataList] =
+    useState<PtgUiD3BarProps>();
+  const [high2DBarData, setHigh2DBarData] = useState<any[]>([]);
+  const [high3DBarData, setHigh3DBarData] = useState<any[]>([]);
+  const [high3DPieData, setHigh3DPieData] = useState<any[]>([]);
+  const [high3DPieDataTitle, setHigh3DPieDataTitle] = useState<any[]>([]);
+  const [high3DLineData, setHigh3DLineData] = useState<any[]>([]);
+  const [high3DLineCat, setHigh3DLineCat] = useState<any[]>([]);
   const [high3DLineName] = useState<any[]>([]);
-const [high2DSingleLineChart, setHigh2DSingleLineChart] = useState<any[]>([]);
+  const [high2DSingleLineChart, setHigh2DSingleLineChart] = useState<any[]>([]);
 
-const {data:apiDataPieChart} = PtguseFetch('higher-charts-pie-lists') as any
-const {data:apiHigh2DBarChart} = PtguseFetch('high-chart-column-lists') as any
-const {data:apiHigh3DBarChart} = PtguseFetch('bar-chart-3ds') as any
-const {data:apiHigh3DPieChart} = PtguseFetch('higher-charts-pie-lists') as any
-const {data:apiHigh3DLineChart} = PtguseFetch('bar-chart-3ds') as any
-const {data:api2DSingleLineChart} = PtguseFetch('high-charts-line-lists') as any
+  const { data: apiDataPieChart } = PtguseFetch(
+    'higher-charts-pie-lists'
+  ) as any;
+  const { data: apiHigh2DBarChart } = PtguseFetch(
+    'high-chart-column-lists'
+  ) as any;
+  const { data: apiHigh3DBarChart } = PtguseFetch('bar-chart-3ds') as any;
+  const { data: apiHigh3DPieChart } = PtguseFetch(
+    'higher-charts-pie-lists'
+  ) as any;
+  const { data: apiHigh3DLineChart } = PtguseFetch('bar-chart-3ds') as any;
+  const { data: api2DSingleLineChart } = PtguseFetch(
+    'high-charts-line-lists'
+  ) as any;
 
-const { t } = useTranslation();
+  const { t } = useTranslation();
 
-useEffect(()=>{
+  useEffect(() => {
+    const singleLineChart: any = {
+      title: api2DSingleLineChart[0]?.attributes?.chart?.title,
+      data: api2DSingleLineChart[0]?.attributes?.chart?.data,
+      remainingOptions:
+        api2DSingleLineChart[0]?.attributes?.chart?.remainingOptions,
+    };
 
-  const singleLineChart : any = {
-    title : api2DSingleLineChart[0]?.attributes?.chart?.title,
-    data : api2DSingleLineChart[0]?.attributes?.chart?.data,
-    remainingOptions : api2DSingleLineChart[0]?.attributes?.chart?.remainingOptions
-  }
- 
-  if(api2DSingleLineChart[0]){
-    setHigh2DSingleLineChart(singleLineChart)
-  }
- },[api2DSingleLineChart])
+    if (api2DSingleLineChart[0]) {
+      setHigh2DSingleLineChart(singleLineChart);
+    }
+  }, [api2DSingleLineChart]);
 
-useEffect(()=>{
-  const highPieChart : any = {
-    title : apiDataPieChart[0]?.attributes?.title,
-    data : apiDataPieChart[0]?.attributes?.data
-  }
-  setHighchartsPieDataList(highPieChart)
-},[apiDataPieChart])
+  useEffect(() => {
+    const highPieChart: any = {
+      title: apiDataPieChart[0]?.attributes?.title,
+      data: apiDataPieChart[0]?.attributes?.data,
+    };
+    setHighchartsPieDataList(highPieChart);
+  }, [apiDataPieChart]);
 
-  useEffect(()=>{
-    const dataArray = apiHigh2DBarChart[0]?.attributes?.categories.split(",");
+  useEffect(() => {
+    const dataArray = apiHigh2DBarChart[0]?.attributes?.categories.split(',');
     const value = apiHigh2DBarChart[0]?.attributes?.data;
- 
-    const barChartData : any  = {
-      title : apiHigh2DBarChart[0]?.attributes?.title,
-      data : value && JSON.parse(value),
-      remainingOptions:{
+
+    const barChartData: any = {
+      title: apiHigh2DBarChart[0]?.attributes?.title,
+      data: value && JSON.parse(value),
+      remainingOptions: {
         xAxis: {
-          categories: dataArray
+          categories: dataArray,
         },
-      }
-    }
+      },
+    };
 
-    if(apiHigh2DBarChart[0]){
-      setHigh2DBarData(barChartData)
+    if (apiHigh2DBarChart[0]) {
+      setHigh2DBarData(barChartData);
     }
-  },[apiHigh2DBarChart])
-
-  useEffect(()=>{
-    const arrayCat = apiHigh3DBarChart[0]?.attributes?.categories.split(",")
-    const barChart3d : any = {
-      data : apiHigh3DBarChart[0]?.attributes?.data,
-      categories: arrayCat
-    }
-    setHigh3DBarData(barChart3d)
-  },[apiHigh3DBarChart])
+  }, [apiHigh2DBarChart]);
 
   useEffect(() => {
-    setHigh3DPieData(apiHigh3DPieChart[0]?.attributes?.data)
-    setHigh3DPieDataTitle(apiHigh3DPieChart[0]?.attributes?.title)
-  },[apiHigh3DPieChart])
+    const arrayCat = apiHigh3DBarChart[0]?.attributes?.categories.split(',');
+    const barChart3d: any = {
+      data: apiHigh3DBarChart[0]?.attributes?.data,
+      categories: arrayCat,
+    };
+    setHigh3DBarData(barChart3d);
+  }, [apiHigh3DBarChart]);
 
   useEffect(() => {
-    setHigh3DLineData(apiHigh3DLineChart[0]?.attributes?.data)
-    const categoryArray = apiHigh3DLineChart[0]?.attributes?.categories.split(",");
-    setHigh3DLineCat(categoryArray)
-  },[apiHigh3DLineChart])
+    setHigh3DPieData(apiHigh3DPieChart[0]?.attributes?.data);
+    setHigh3DPieDataTitle(apiHigh3DPieChart[0]?.attributes?.title);
+  }, [apiHigh3DPieChart]);
+
+  useEffect(() => {
+    setHigh3DLineData(apiHigh3DLineChart[0]?.attributes?.data);
+    const categoryArray =
+      apiHigh3DLineChart[0]?.attributes?.categories.split(',');
+    setHigh3DLineCat(categoryArray);
+  }, [apiHigh3DLineChart]);
 
   const [barChartCode, setBarChartCode] = useState(false);
   const [pieChartCode, setPieChartCode] = useState(false);
-  const [lineBarChartCode, setLineBarChartCode ] = useState(false);
-  const [stackChartCode, setStackChartCode ] = useState(false);
+  const [lineBarChartCode, setLineBarChartCode] = useState(false);
+  const [stackChartCode, setStackChartCode] = useState(false);
   const [bar3DCode, setBar3DCode] = useState(false);
-  const [pie3DCode, setPie3DCode ] = useState(false);
-  const [line3DCode, setLine3DCode ] = useState(false);
+  const [pie3DCode, setPie3DCode] = useState(false);
+  const [line3DCode, setLine3DCode] = useState(false);
 
   const ShowBarChartCode = () => {
-    if(!barChartCode){
+    if (!barChartCode) {
       setBarChartCode(true);
-    }
-    else{
+    } else {
       setBarChartCode(false);
     }
   };
 
   const ShowPieChartCode = () => {
-    if(!pieChartCode){
+    if (!pieChartCode) {
       setPieChartCode(true);
-    }
-    else{
+    } else {
       setPieChartCode(false);
     }
   };
 
-  
   const ShowLineBarChartCode = () => {
-    if(!lineBarChartCode){
+    if (!lineBarChartCode) {
       setLineBarChartCode(true);
-    }
-    else{
+    } else {
       setLineBarChartCode(false);
     }
   };
 
-   
   const ShowStackBarChartCode = () => {
-    if(!stackChartCode){
+    if (!stackChartCode) {
       setStackChartCode(true);
-    }
-    else{
+    } else {
       setStackChartCode(false);
     }
   };
 
   const ShowBar3DCode = () => {
-    if(!bar3DCode){
+    if (!bar3DCode) {
       setBar3DCode(true);
-    }
-    else{
+    } else {
       setBar3DCode(false);
     }
   };
 
-  
   const ShowPie3DCode = () => {
-    if(!pie3DCode){
+    if (!pie3DCode) {
       setPie3DCode(true);
-    }
-    else{
+    } else {
       setPie3DCode(false);
     }
   };
 
-   
   const ShowLine3DCode = () => {
-    if(!line3DCode){
+    if (!line3DCode) {
       setLine3DCode(true);
-    }
-    else{
+    } else {
       setLine3DCode(false);
     }
   };
-  
-  
+
   const barChartComponentCode = `
   
   export const highchartsColumnData:any ={
@@ -213,11 +213,11 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const barChartHtmlCode = `
     <PtgUiColumn {...highchartsColumnData} />
-  `
+  `;
 
   const pieChartComponentCode = `
 
@@ -242,11 +242,11 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const pieChartHtmlCode = `
     <PtgUiPie {...highchartsPieData} />
-  `
+  `;
 
   const lineBarComponentCode = `
  
@@ -283,12 +283,11 @@ useEffect(()=>{
   
   export function Highcharts(props: HighchartsProps) {
    
-  export default Highcharts;`
-  
+  export default Highcharts;`;
 
   const lineBarHtmlCode = `
   <PtgUiHCLineBar {...highchartsLineData} />
-  `
+  `;
 
   const stackChartComponentCode = `
 
@@ -317,11 +316,11 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const stackChartHtmlCode = `
     <PtgUiHCSColumn {...highchartStackedColumnData} />
-  `
+  `;
 
   const bar3DComponentCode = `
 
@@ -344,11 +343,11 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const bar3DHtmlCode = `
     <PtgUi3dColumn {...column3DOptions} />
-  `
+  `;
 
   const pie3DComponentCode = `
 
@@ -378,11 +377,11 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const pie3DHtmlCode = `
     <PtgUi3dPie {...pie3dData} />
-  `
+  `;
 
   const line3DComponentCode = `
 
@@ -405,156 +404,204 @@ useEffect(()=>{
     
     export function Highcharts(props: HighchartsProps) {
      
-    export default Highcharts;`
+    export default Highcharts;`;
 
   const line3DHtmlCode = `
      <PtgUi3dLine {...line3DOptions} />
-  `
-
-
-
-
+  `;
 
   return (
     <div className="w-77">
-      <Tabs defaultActiveKey="2d" className='active-tabs'>
+      <Tabs defaultActiveKey="2d" className="active-tabs">
         <Tab eventKey="2d" title="2D graphs">
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
+              </div>
 
-          <div className='col-2 mr-3 mt-1 mb-2'>
-          <CodeIcon onClick={ShowBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-    
-          {!barChartCode ? (
-            <PtgUiColumn {...high2DBarData} />
-          ):(
-            <ShowCodeComponent componentCode={barChartComponentCode} htmlCode={barChartHtmlCode}/>
-          )}
-        </section>
-          
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
-          </div>
+              <div className="col-2 mr-3 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowBarChartCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowPieChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-          
-          {!pieChartCode ? (
-            <PtgUiPie {...highchartsPieDataList} />
-          ):(
-            <ShowCodeComponent componentCode={pieChartComponentCode} htmlCode={pieChartHtmlCode}/>
-          )}
-        </section>
+            {!barChartCode ? (
+              <PtgUiColumn {...high2DBarData} />
+            ) : (
+              <ShowCodeComponent
+                componentCode={barChartComponentCode}
+                htmlCode={barChartHtmlCode}
+              />
+            )}
+          </section>
+
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
+              </div>
+
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowPieChartCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
+
+            {!pieChartCode ? (
+              <PtgUiPie {...highchartsPieDataList} />
+            ) : (
+              <ShowCodeComponent
+                componentCode={pieChartComponentCode}
+                htmlCode={pieChartHtmlCode}
+              />
+            )}
+          </section>
 
           <PtgUiHCLine {...[high2DSingleLineChart]} />
 
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('LINE_BAR_CHART_TEXT')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('LINE_BAR_CHART_TEXT')}</h5>
+              </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowLineBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowLineBarChartCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
 
-          {!lineBarChartCode ? (
-            <PtgUiHCLineBar />
-          ):(
-            <ShowCodeComponent componentCode={lineBarComponentCode} htmlCode={lineBarHtmlCode}/>
-          )}
-        </section>
+            {!lineBarChartCode ? (
+              <PtgUiHCLineBar />
+            ) : (
+              <ShowCodeComponent
+                componentCode={lineBarComponentCode}
+                htmlCode={lineBarHtmlCode}
+              />
+            )}
+          </section>
 
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('STACKED_CHART')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('STACKED_CHART')}</h5>
+              </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowStackBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-          
-          {!stackChartCode ? (
-            <PtgUiHCSColumn />
-          ):(
-            <ShowCodeComponent componentCode={stackChartComponentCode} htmlCode={stackChartHtmlCode}/>
-          )}
-        </section>
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowStackBarChartCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
 
+            {!stackChartCode ? (
+              <PtgUiHCSColumn />
+            ) : (
+              <ShowCodeComponent
+                componentCode={stackChartComponentCode}
+                htmlCode={stackChartHtmlCode}
+              />
+            )}
+          </section>
         </Tab>
         <Tab eventKey="3d" title="3D Graphs">
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
+              </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowBar3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-          {!bar3DCode ? (
-          <PtgUi3dColumn {...high3DBarData} />
-          ):(
-            <ShowCodeComponent componentCode={bar3DComponentCode} htmlCode={bar3DHtmlCode}/>
-          )}
-        </section>
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowBar3DCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
+            {!bar3DCode ? (
+              <PtgUi3dColumn {...high3DBarData} />
+            ) : (
+              <ShowCodeComponent
+                componentCode={bar3DComponentCode}
+                htmlCode={bar3DHtmlCode}
+              />
+            )}
+          </section>
 
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>  
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
+              </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowPie3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-          {!pie3DCode ? (
-            <PtgUi3dPie data={high3DPieData} title={high3DPieDataTitle} />
-          ):(
-            <ShowCodeComponent componentCode={pie3DComponentCode} htmlCode={pie3DHtmlCode}/>
-          )}
-        </section>
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowPie3DCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
+            {!pie3DCode ? (
+              <PtgUi3dPie data={high3DPieData} title={high3DPieDataTitle} />
+            ) : (
+              <ShowCodeComponent
+                componentCode={pie3DComponentCode}
+                htmlCode={pie3DHtmlCode}
+              />
+            )}
+          </section>
 
-        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
-          <div className='row'>
-          <div className="col-10 mt-2">
-          <h5 className="example-heading">{t('LINE_CHART_TEXT')}</h5>
-          </div>
+          <section className="card-section-two bg-white rounded pt-2 pb-2 mt-4">
+            <div className="row">
+              <div className="col-10 mt-2">
+                <h5 className="example-heading">{t('LINE_CHART_TEXT')}</h5>
+              </div>
 
-          <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowLine3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
-          </div>
-          <hr className='horizontal-line'/>
-          </div>
-          {!line3DCode ? (
-           <PtgUi3dLine data={high3DLineData} categories={high3DLineCat} title={high3DLineName} />
-          ):(
-            <ShowCodeComponent componentCode={line3DComponentCode} htmlCode={line3DHtmlCode}/>
-          )}
-        </section>
+              <div className="col-2 mr-5 mt-1 mb-2">
+                <CodeIcon
+                  onClick={ShowLine3DCode}
+                  fontSize="large"
+                  className="show-code-icon"
+                ></CodeIcon>
+              </div>
+              <hr className="horizontal-line" />
+            </div>
+            {!line3DCode ? (
+              <PtgUi3dLine
+                data={high3DLineData}
+                categories={high3DLineCat}
+                title={high3DLineName}
+              />
+            ) : (
+              <ShowCodeComponent
+                componentCode={line3DComponentCode}
+                htmlCode={line3DHtmlCode}
+              />
+            )}
+          </section>
         </Tab>
       </Tabs>
-    </div> 
+    </div>
   );
 }
 

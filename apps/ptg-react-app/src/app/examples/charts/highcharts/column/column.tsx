@@ -1,14 +1,11 @@
-import './column.scss';
-import {PtgUiColumn} from '@ptg-ui/react';
-import { highchartsColumnData} from '@ptg-react-app/mock/mocks';
+import PtgUiColumn from '@ptg-react-app/components/charts/highcharts/column/column';
+import { highchartsColumnData } from '@ptg-react-app/mock/mocks';
 
 /* eslint-disable-next-line */
 export interface PtgUiHCColumnProps {}
 
 export function PtgUiHCColumn(props: PtgUiHCColumnProps) {
-  return (
-    <PtgUiColumn {...highchartsColumnData}/>
-  );
+  return <PtgUiColumn {...highchartsColumnData} />;
 }
 
 export default PtgUiHCColumn;
