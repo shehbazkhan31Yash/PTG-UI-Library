@@ -10,9 +10,9 @@ import { useTranslation } from 'react-i18next';
 import { Row } from 'react-bootstrap';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import PtgUiD3Bar from '@ptg-react-app/components/charts/d3/bar/bar';
 import PtgUiD3Pie from '@ptg-react-app/components/charts/d3/pie/pie';
 import PtgUiD3Line from '@ptg-react-app/components/charts/d3/line/line';
+import PtgUId3Bar from './d3/bar/bar';
 
 /* eslint-disable-next-line */
 
@@ -191,16 +191,19 @@ export function D3Charts() {
         </div>
         <hr className="horizontal-line" />
 
-        {!barChartCode ? (
-          apiDataBarChartData && apiDataBarChartData?.data?.length ? (
-            <PtgUiD3Bar {...apiDataBarChartData} />
-          ) : null
-        ) : (
-          <ShowCodeComponent
-            componentCode={componentCodeBarChart}
-            htmlCode={htmlCodeBarChart}
-          />
-        )}
+        {/* Extracted ternary for bar chart */}
+        {(() => {
+          const hasBarData = apiDataBarChartData?.data?.length;
+          if (!barChartCode) {
+            return hasBarData ? <PtgUId3Bar {...apiDataBarChartData} /> : null;
+          }
+          return (
+            <ShowCodeComponent
+              componentCode={componentCodeBarChart}
+              htmlCode={htmlCodeBarChart}
+            />
+          );
+        })()}
       </Row>
 
       <Row className="charts-card bg-white rounded pt-2 pb-1 mb-4">
@@ -216,16 +219,19 @@ export function D3Charts() {
         </div>
         <hr className="horizontal-line" />
 
-        {!pieChartCode ? (
-          apiDataPieChartData && apiDataPieChartData?.data?.length ? (
-            <PtgUiD3Pie {...apiDataPieChartData} />
-          ) : null
-        ) : (
-          <ShowCodeComponent
-            componentCode={componentCodePieChart}
-            htmlCode={htmlCodePieChart}
-          />
-        )}
+        {/* Extracted ternary for pie chart */}
+        {(() => {
+          const hasPieData = apiDataPieChartData?.data?.length;
+          if (!pieChartCode) {
+            return hasPieData ? <PtgUiD3Pie {...apiDataPieChartData} /> : null;
+          }
+          return (
+            <ShowCodeComponent
+              componentCode={componentCodePieChart}
+              htmlCode={htmlCodePieChart}
+            />
+          );
+        })()}
       </Row>
       <Row className="charts-card bg-white rounded pt-2 pb-1 mb-2">
         <div className="col-10 mt-2">
@@ -240,16 +246,19 @@ export function D3Charts() {
           ></CodeIcon>
         </div>
         <hr className="horizontal-line" />
-        {!lineChartCode ? (
-          apiDataLineChartData && apiDataLineChartData?.data?.length ? (
-            <PtgUiD3Line {...apiDataLineChartData} />
-          ) : null
-        ) : (
-          <ShowCodeComponent
-            componentCode={componentCodeLineChart}
-            htmlCode={htmlCodeLineChart}
-          />
-        )}
+        {/* Extracted ternary for line chart */}
+        {(() => {
+          const hasLineData = apiDataLineChartData?.data?.length;
+          if (!lineChartCode) {
+            return hasLineData ? <PtgUiD3Line {...apiDataLineChartData} /> : null;
+          }
+          return (
+            <ShowCodeComponent
+              componentCode={componentCodeLineChart}
+              htmlCode={htmlCodeLineChart}
+            />
+          );
+        })()}
       </Row>
     </>
   );

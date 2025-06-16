@@ -11,16 +11,16 @@ import HighchartsReact from 'highcharts-react-official';
 
 /* eslint-disable-next-line */
 export interface PtgUi3dLineProps {
-  remainingOptions: any;
-  highcharts?: any;
-  title?: any;
-  data?: any;
-  categories?: any;
-  xTitle?: any;
-  yTitle?: any;
+  readonly remainingOptions?: any;
+  readonly highcharts?: any;
+  readonly title?: any;
+  readonly data?: any;
+  readonly categories?: any;
+  readonly xTitle?: any;
+  readonly yTitle?: any;
 }
 
-const defaultProps: PtgUi3dLineProps = {
+const defaultProps: Partial<PtgUi3dLineProps> = {
   title: null,
   highcharts: Highcharts,
   remainingOptions: {},
@@ -29,14 +29,14 @@ const defaultProps: PtgUi3dLineProps = {
 };
 
 export function PtgUi3dLine({
-  title,
-  xTitle,
-  yTitle,
+  title = defaultProps.title,
+  xTitle = defaultProps.xTitle,
+  yTitle = defaultProps.yTitle,
   data,
   categories,
-  remainingOptions,
+  remainingOptions = defaultProps.remainingOptions,
   ...rest
-}: PtgUi3dLineProps) {
+}: Readonly<PtgUi3dLineProps>) {
   const graphOptions: any = {
     title: {
       text: title,

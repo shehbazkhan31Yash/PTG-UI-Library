@@ -10,16 +10,16 @@ import HighchartsReact from 'highcharts-react-official';
 
 /* eslint-disable-next-line */
 export interface PtgUi3dColumnProps {
-  remainingOptions: any;
-  highcharts?: any;
-  title?: any;
-  data?: any;
-  categories?: any;
-  xTitle?: any;
-  yTitle?: any;
+  readonly remainingOptions?: any;
+  readonly highcharts?: any;
+  readonly title?: any;
+  readonly data?: any;
+  readonly categories?: any;
+  readonly xTitle?: any;
+  readonly yTitle?: any;
 }
 
-const defaultProps: PtgUi3dColumnProps = {
+const defaultProps: Partial<PtgUi3dColumnProps> = {
   title: null,
   highcharts: Highcharts,
   remainingOptions: {},
@@ -28,14 +28,14 @@ const defaultProps: PtgUi3dColumnProps = {
 };
 
 export function PtgUi3dColumn({
-  title,
-  xTitle,
-  yTitle,
+  title = defaultProps.title,
+  xTitle = defaultProps.xTitle,
+  yTitle = defaultProps.yTitle,
   data,
   categories,
-  remainingOptions,
+  remainingOptions = defaultProps.remainingOptions,
   ...rest
-}: PtgUi3dColumnProps) {
+}: Readonly<PtgUi3dColumnProps>) {
   const graphOptions: any = {
     title: {
       text: title,

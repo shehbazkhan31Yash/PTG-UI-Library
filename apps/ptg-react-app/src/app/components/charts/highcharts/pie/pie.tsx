@@ -11,35 +11,43 @@ import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 /* eslint-disable-next-line */
 export interface PtgUiPieProps {
-	remainingOptions: any;
-	highcharts?: any;
-	title?: any;
-	data?: any;
+  readonly remainingOptions?: any;
+  readonly highcharts?: any;
+  readonly title?: any;
+  readonly data?: any;
 }
 
-const defaultProps: PtgUiPieProps = {
-	title: {},
-	highcharts: Highcharts,
-	remainingOptions: {},
+const defaultProps: Partial<PtgUiPieProps> = {
+  title: {},
+  highcharts: Highcharts,
+  remainingOptions: {},
 };
 
-export function PtgUiPie({ title, data, remainingOptions, ...rest }: PtgUiPieProps) {
-	const graphOptions: any = {
-		title: title,
-		chart: {
-			type: 'pie',
-		},
-		series: [
-			{
-				data: data,
-			},
-		],
-	};
-	return (
-		<div>
-			<HighchartsReact options={{ ...graphOptions, ...remainingOptions }} {...rest} />
-		</div>
-	);
+export function PtgUiPie({
+  title = defaultProps.title,
+  data,
+  remainingOptions = defaultProps.remainingOptions,
+  ...rest
+}: Readonly<PtgUiPieProps>) {
+  const graphOptions: any = {
+    title: title,
+    chart: {
+      type: 'pie',
+    },
+    series: [
+      {
+        data: data,
+      },
+    ],
+  };
+  return (
+    <div>
+      <HighchartsReact
+        options={{ ...graphOptions, ...remainingOptions }}
+        {...rest}
+      />
+    </div>
+  );
 }
 
 PtgUiPie.defaultProps = defaultProps;

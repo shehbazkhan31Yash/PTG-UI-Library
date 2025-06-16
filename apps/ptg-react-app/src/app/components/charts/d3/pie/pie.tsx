@@ -45,12 +45,12 @@ const defaultProps: Partial<PtgUiD3PieProps> = {
 };
 
 export function PtgUiD3Pie({
-  data = defaultProps.data!,
-  height = defaultProps.height!,
-  width = defaultProps.width!,
-  innerRadius = defaultProps.innerRadius!,
-  outerRadius = defaultProps.outerRadius!,
-  colorsArray = defaultProps.colorsArray!,
+  data = defaultProps.data ?? [],
+  height = defaultProps.height,
+  width = defaultProps.width,
+  innerRadius = defaultProps.innerRadius,
+  outerRadius = defaultProps.outerRadius,
+  colorsArray = defaultProps.colorsArray,
 }: Readonly<PtgUiD3PieProps>) {
   const flag = React.useRef(true);
 
@@ -58,19 +58,22 @@ export function PtgUiD3Pie({
     return d3
       .select('.d3_pie')
       .append('svg')
-      .attr('width', width)
-      .attr('height', height)
-      .attr('viewBox', [0, 0, width, height])
+      .attr('width', width ?? 400)
+      .attr('height', height ?? 400)
+      .attr('viewBox', [0, 0, width ?? 400, height ?? 400])
       .attr('style', 'max-width: 100%; height: auto; height: intrinsic;')
       .append('g')
-      .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+      .attr(
+        'transform',
+        'translate(' + (width ?? 400) / 2 + ',' + (height ?? 400) / 2 + ')'
+      );
   }, [width, height]);
 
   const createColors = React.useCallback(() => {
     return d3
       .scaleOrdinal<string>()
       .domain(data.map((d) => d.label))
-      .range(colorsArray);
+      .range(colorsArray || []);
   }, [data, colorsArray]);
 
   const drawChart = React.useCallback(
@@ -87,7 +90,10 @@ export function PtgUiD3Pie({
         .append('path')
         .attr(
           'd',
-          d3.arc<any>().innerRadius(innerRadius).outerRadius(outerRadius)
+          d3
+            .arc<any>()
+            .innerRadius(innerRadius ?? 0)
+            .outerRadius(outerRadius ?? 150)
         )
         .attr('fill', (_d: any, i: number) => colors(i.toString()))
         .attr('stroke', '#ffffff')
@@ -96,7 +102,7 @@ export function PtgUiD3Pie({
       const labelLocation = d3
         .arc<any>()
         .innerRadius(100)
-        .outerRadius(outerRadius);
+        .outerRadius(outerRadius ?? 150);
 
       svg
         .selectAll('pieces')
