@@ -30,6 +30,17 @@ export interface IPDFRenderer {
   title?: string;
   description?: string;
 }
+// social-media-share
+export interface ISocialMediaShare {
+  url: string;
+  title: string;
+  description: string;
+  image: string;
+  hashtags?: string[];
+  via?: string;
+  related?: string[];
+
+}
 // Calender
 export interface IExampleOneProps {
   showCodeOne: boolean;
