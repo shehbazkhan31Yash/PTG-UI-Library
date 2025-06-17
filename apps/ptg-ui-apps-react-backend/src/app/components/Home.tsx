@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <Image
               src={
                 process.env['NODE_ENV'] === 'production'
-                  ? `${environment.url}/yash_vision.jpg`
+                  ? `${environment.url}/yash_mission.jpg`
                   : `${environment.localUrl}/assets/images/yash_mission.jpg`
               }
               fluid
