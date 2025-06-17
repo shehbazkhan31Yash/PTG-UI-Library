@@ -271,8 +271,8 @@ footer a {
   overflow: hidden; /* Hide overflow to maintain circular shape */
 }
 .circular-image {
-  width: 40%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
+  width: 50%; /* Make the image responsive */
+  height: 100%; /* Maintain aspect ratio */
   border-radius: 50%; /* Make the image circular */
-  object-fit: cover; /* Ensure the image covers the container */
+  object-fit: fill; /* Ensure the image covers the container */
 }
