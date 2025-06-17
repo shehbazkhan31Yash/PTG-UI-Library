@@ -16,10 +16,7 @@ import vue_Image from '../../assets/images/vue.png';
 import javascript_Image from '../../assets/images/javascript-1.svg';
 import nextjs_Image from '../../assets/images/nextjs.png';
 import MaterialUI_Image from '../../assets/images/materialui.png';
-import SujalImage from '../../assets/images/UI-Sujal.jpg';
-import NitinImage from '../../assets/images/UI-Nitin.jpg';
-import LokeshImage from '../../assets/images/UI-Lokesh.jpg';
-import LokeshDaiyaImage from '../../assets/images/UI-Lokesh.jpeg';
+import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
 export const tabs = [
   { label: 'Home', to: '/home' },
 
@@ -137,24 +134,36 @@ export const contactsTeams = [
     name: 'Nitin Gupta',
     designation: 'Business Unit Head',
     email: 'nitin@yash.com',
-    photo: NitinImage,
+    photo:
+      process.env['NODE_ENV'] === 'production'
+        ? `${environment.url}/UI-Nitin.jpg`
+        : `${environment.localUrl}/assets/images/UI-Nitin.jpg`,
   },
   {
     name: 'Lokesh Sapre',
     designation: 'Competency Head',
     email: 'lokesh.sapre@yash.com',
-    photo: LokeshImage,
+    photo:
+      process.env['NODE_ENV'] === 'production'
+        ? `${environment.url}/UI-Lokesh.jpg`
+        : `${environment.localUrl}/assets/images/UI-Lokesh.jpg`,
   },
   {
     name: 'Sujal Ray',
     designation: 'Competency Manager',
     email: 'sujal.ray@yash.com',
-    photo: SujalImage,
+    photo:
+      process.env['NODE_ENV'] === 'production'
+        ? `${environment.url}/UI-Sujal.jpg`
+        : `${environment.localUrl}/assets/images/UI-Sujal.jpg`,
   },
   {
     name: 'Lokesh Daiya',
     designation: 'Solution Architect',
     email: 'lokesh.daiya@yash.com',
-    photo: LokeshDaiyaImage,
+    photo:
+      process.env['NODE_ENV'] === 'production'
+        ? `${environment.url}/UI-Lokesh.jpeg`
+        : `${environment.localUrl}/assets/images/UI-Nitin.jpeg`,
   },
 ];

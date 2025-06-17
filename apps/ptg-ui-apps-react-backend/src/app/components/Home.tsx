@@ -1,17 +1,23 @@
 import React from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
-
-import visionImage from '../../assets/images/yash_vision.jpg';
-import missionImage from '../../assets/images/yash_mission.jpg';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import ClientCarousel from './CarouselImageContainer'; // Import the new carousel component
+import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
 const Home: React.FC = () => {
   return (
     <Container fluid className="bg-dark text-light p-5">
       <section id="about" className="text-center">
         <Row className="mb-5">
           <Col xs={12} md={6} className="mb-4">
-            <Image src={visionImage} fluid alt="Vision" />
+            <Image
+              src={
+                process.env['NODE_ENV'] === 'production'
+                  ? `${environment.url}/yash_vision.jpg`
+                  : `${environment.localUrl}/assets/images/yash_vision.jpg`
+              }
+              fluid
+              alt="Vision"
+            />
           </Col>
           <Col xs={12} md={6}>
             <h2 className="pt-3 pb-2">Vision</h2>
@@ -35,7 +41,11 @@ const Home: React.FC = () => {
           </Col>
           <Col xs={12} md={6}>
             <Image
-              src={missionImage}
+              src={
+                process.env['NODE_ENV'] === 'production'
+                  ? `${environment.url}/yash_vision.jpg`
+                  : `${environment.localUrl}/assets/images/yash_mission.jpg`
+              }
               fluid
               className="shadow rounded"
               alt="Mission"
