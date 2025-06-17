@@ -3,6 +3,7 @@ const { NxReactWebpackPlugin } = require('@nx/react');
 const { join } = require('path');
 
 module.exports = {
+  mode: process.env['NODE_ENV'] === 'production' ? 'production' : 'development',
   output: {
     path: join(__dirname, '../../dist/apps/ptg-ui-apps-react-backend'),
   },

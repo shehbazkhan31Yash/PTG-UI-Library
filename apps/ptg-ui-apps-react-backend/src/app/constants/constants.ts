@@ -164,6 +164,6 @@ export const contactsTeams = [
     photo:
       process.env['NODE_ENV'] === 'production'
         ? `${environment.url}/UI-Lokesh.jpeg`
-        : `${environment.localUrl}/assets/images/UI-Nitin.jpeg`,
+        : `${environment.localUrl}/assets/images/UI-Lokesh.jpeg`,
   },
 ];

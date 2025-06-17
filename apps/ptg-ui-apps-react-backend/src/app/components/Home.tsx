@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import ClientCarousel from './CarouselImageContainer'; // Import the new carousel component
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <Image
               src={
                 process.env['NODE_ENV'] === 'production'
-                  ? `${environment.url}/yash_vision.jpg`
+                  ? `${environment.url}/yash_mission.jpg`
                   : `${environment.localUrl}/assets/images/yash_mission.jpg`
               }
               fluid
