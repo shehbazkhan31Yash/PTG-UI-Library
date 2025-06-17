@@ -102,6 +102,6 @@
 	opacity: 1;
 }
 
-CarouselImageContainer{
+.CarouselImageContainer{
     object-fit: cover;
     height: 200px;}

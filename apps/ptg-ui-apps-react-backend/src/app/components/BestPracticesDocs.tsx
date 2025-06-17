@@ -1,6 +1,5 @@
 import React from 'react';
 import './BestPracticesDocs.css';
-import { Link } from 'react-router-dom';
 
  
 const BestPracticesDocs = () => {
@@ -39,7 +38,6 @@ const BestPracticesDocs = () => {
             </div>
             <div className="card-footer">
               <a
-                content-disposition="attach"
                 className="btn btn-primary"
                 href={'https://yash-ui-apps.azurewebsites.net/uploads/CodingStandard-React.docx'}
                 >Download</a
@@ -59,7 +57,6 @@ const BestPracticesDocs = () => {
             </div>
             <div className="card-footer">
               <a
-                content-disposition="attach"
                 className="btn btn-primary"
                 href={'https://yash-ui-apps.azurewebsites.net/uploads/BestPractices-FrontEnd.pptx'}
                 >Download</a
