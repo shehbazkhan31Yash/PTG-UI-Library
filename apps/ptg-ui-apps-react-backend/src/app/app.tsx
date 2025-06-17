@@ -23,7 +23,7 @@ const App: React.FC = () => {
           {/* Hide for now when the contact us form will be implemented then we can unhide this*/}
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/" element={<Home />} />
-          <Route path="/BestPracticesDocs" element={<BestPracticesDocs />} />
+          {/* <Route path="/bestPracticesDocs" element={<BestPracticesDocs />} /> */}
         </Routes>
       </div>
       <Footer />
