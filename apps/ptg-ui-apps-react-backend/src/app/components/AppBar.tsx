@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
-import { Badge } from 'react-bootstrap';
-
 import logoImage from '../../assets/images/yash_log_real.svg';
-
+import { FaSearch } from 'react-icons/fa'; // Importing a search icon from react-icons
 const AppBar: React.FC = () => {
   const navigate = useNavigate();
-
   useEffect(() => {
     // Redirect to the home page if the current path is empty
     if (
@@ -18,9 +15,8 @@ const AppBar: React.FC = () => {
       navigate('/home');
     }
   }, [navigate]);
-
   return (
-    <header className="navbar navbar-expand-lg navbar-dark">
+    <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container-fluid d-flex align-items-center gap-4">
         <div className="navbar-brand">
           <img
@@ -45,24 +41,34 @@ const AppBar: React.FC = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="tabs d-flex flex-row flex-grow-1 ms-auto">
             {tabs.map((tab) => (
-              <Link key={tab.to} to={tab.to} className="tab-button nav-link">
+              <Link
+                key={tab.to}
+                to={tab.to}
+                className="tab-button nav-link text-dark"
+              >
                 {tab.label}
               </Link>
             ))}
           </div>
-          {/* <Badge
-            bg="warning"
-            text="dark"
-            className="rounded-circle justify-content-center align-items-center avatorClass"
-          >
-            <div className="px-2">
-              <span className="avatorText">{'SBK'}</span>
-            </div>
-          </Badge> */}
+          <div className="w-200"></div>
+          <div className="search-container d-flex align-items-center mx-auto">
+            <input
+              id="searchInputDocument"
+              type="text"
+              placeholder="Search for a document"
+              className="form-control w-200 m-4"
+              aria-label="Search"
+            />
+            <button
+              className="btn btn-outline-secondary search-icon"
+              type="button"
+            >
+              <FaSearch />
+            </button>
+          </div>
         </div>
       </div>
     </header>
   );
 };
-
 export default AppBar;

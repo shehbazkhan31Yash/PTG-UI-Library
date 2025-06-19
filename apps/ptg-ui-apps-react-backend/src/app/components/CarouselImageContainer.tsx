@@ -10,9 +10,15 @@ interface ClientCarouselProps {
 }
 const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
   return (
-    <Carousel indicators interval={3000} pause="hover" fade>
+    <Carousel
+      indicators
+      interval={3000}
+      pause="hover"
+      fade
+      data-bs-theme="dark"
+    >
       {items.map((item, index) => (
-        <Carousel.Item key={index}>
+        <Carousel.Item key={item.clientName}>
           <CarouselImageContainer imageUrl={item.imageURL} />
           {item.clientName && (
             <Carousel.Caption>
@@ -40,7 +46,7 @@ const CarouselImageContainer: React.FC<CarouselImageContainerProps> = ({
         src={imageUrl}
         fluid
         className="circular-image"
-        alt={altText || 'Carousel image'}
+        alt={altText ?? 'Carousel image'}
       />
     </div>
   );

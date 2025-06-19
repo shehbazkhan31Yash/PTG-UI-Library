@@ -13,10 +13,10 @@ const CardComponent: React.FC<CardComponentProps> = ({
   return (
     <div className="col-md-4">
       <div
-        className="card text-white mb-4"
+        className="card text-dark mb-4"
         style={{
           // Remove background here to allow CSS hover to work
-          borderRadius: '15px',
+          border: '2px solid black',
           transition: 'transform 0.3s, background-color 0.3s',
           cursor: 'pointer',
         }}
