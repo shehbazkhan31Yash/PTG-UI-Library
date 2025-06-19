@@ -20,14 +20,6 @@
   flex-shrink: 0 !important;
 }
 
-/* .tabs {
-  display: flex;
-  background: rgba(31, 41, 55, 0.7);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 0.3);
-  flex-grow: 1;
-} */
 .navbar-form {
   box-shadow: none;
   background: none;
@@ -60,12 +52,23 @@
 }
 
 .tab-button:focus {
-  background: #fbbf24;
   color: #111827;
   text-decoration: none;
 }
 
 .tab-button:focus-visible {
-  outline: 2px solid #fbbf24;
   outline-offset: 2px;
+}
+
+.w-200 {
+  width: 200px; /* Adjust width as needed */
+}
+/* Hover effect for the search icon */
+.search-icon {
+  transition: transform 0.2s, color 0.2s; /* Animation for smooth transition */
+}
+.search-icon:hover {
+  transform: scale(1.2); /* Scale the icon */
+  color: #007bff; /* Change color on hover */
+  background: white;
 }

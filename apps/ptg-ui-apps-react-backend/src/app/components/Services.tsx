@@ -66,12 +66,12 @@ const Services: React.FC = () => {
     },
   ];
   return (
-    <section id="services" className="bg-dark text-light mt-5 p-4">
-      <ListGroup className="bg-dark border-0">
+    <section id="services" className="bg-light text-dark mt-5 p-4">
+      <ListGroup className="bg-light border-0">
         {services.map((service, index) => (
           <ListGroup.Item
             key={index}
-            className="bg-dark text-light border-0 d-flex align-items-center"
+            className="bg-light text-dark border-0 d-flex align-items-center"
           >
             <span className="me-2">{service.icon}</span>
             <span>

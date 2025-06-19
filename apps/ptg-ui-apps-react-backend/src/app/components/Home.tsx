@@ -5,7 +5,7 @@ import ClientCarousel from './CarouselImageContainer'; // Import the new carouse
 import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
 const Home: React.FC = () => {
   return (
-    <Container fluid className="bg-dark text-light p-5">
+    <Container fluid className="bg-light text-dark p-5">
       <section id="about" className="text-center">
         <Row className="mb-5">
           <Col xs={12} md={6} className="mb-4">
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
           </Col>
           <Col xs={12} md={6}>
             <h2 className="pt-3 pb-2">Vision</h2>
-            <p className="lead about-text">
+            <p className="lead about-text text-dark">
               To create intuitive, accessible, and engaging user experiences
               that empower users and elevate the digital landscape.
             </p>
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <Row className="mb-5">
           <Col xs={12} md={6} className="mb-4">
             <h2 className="pt-3 pb-2">Mission</h2>
-            <p className="lead about-text">
+            <p className="lead about-text text-dark">
               Our mission is to design and develop high-quality, responsive, and
               user-centric web applications. We strive to leverage the latest
               technologies and best practices in frontend development to deliver

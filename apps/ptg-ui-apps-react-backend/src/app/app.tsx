@@ -7,7 +7,6 @@ import Projects from './components/Projects';
 import Footer from './components/Footer/Footer';
 import Technologies from './components/Technologies';
 import Teams from './components/Teams';
-import BestPracticesDocs from './components/BestPracticesDocs';
 
 const App: React.FC = () => {
   return (
