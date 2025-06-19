@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Col, Row, Image, Container } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import ClientCarousel from './CarouselImageContainer'; // Import the new carousel component
