@@ -72,3 +72,7 @@
   color: #007bff; /* Change color on hover */
   background: white;
 }
+input[type='text']::placeholder {
+  font-family: inherit; /* Inherit the font from the input */
+  font-style: normal;
+}

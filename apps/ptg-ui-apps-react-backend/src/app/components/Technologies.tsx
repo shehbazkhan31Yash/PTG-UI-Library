@@ -4,8 +4,8 @@ import Image from 'react-bootstrap/Image';
 
 const Technologies: React.FC = () => {
   return (
-    <section id="technolgies" className="text-center text-light mt-5">
-      <h2 className="section-title pb-4">Web Technolgies List</h2>
+    <section id="technologies" className="text-center text-light mt-5">
+      <h2 className="section-title pb-4 text-dark">Web Technologies List</h2>
       <div>
         <div className="row">
           {technologiesItems.map((item) => (
@@ -13,8 +13,6 @@ const Technologies: React.FC = () => {
               <div
                 className="card text-white mb-4 "
                 style={{
-                  // Remove background here to allow CSS hover to work
-                  borderRadius: '80px',
                   transition: 'transform 0.3s, background-color 0.3s',
                   cursor: 'pointer',
                   backgroundColor: '#fff',
@@ -29,7 +27,7 @@ const Technologies: React.FC = () => {
                   alt={item.title}
                   roundedCircle
                   style={{
-                    height: '160px',
+                    height: '150px',
                   }}
                 />
               </div>

@@ -68,7 +68,6 @@ header {
 .section-title {
   font-size: 2rem;
   margin-bottom: 1.8rem;
-  color: #fbbf24;
   text-align: center;
   user-select: none;
   margin-top: 1rem;
@@ -262,4 +261,7 @@ footer a {
   height: 100%; /* Maintain aspect ratio */
   border-radius: 50%; /* Make the image circular */
   object-fit: fill; /* Ensure the image covers the container */
+}
+.card-img-top {
+  border-radius: 30% !important;
 }

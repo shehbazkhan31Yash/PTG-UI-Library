@@ -131,7 +131,7 @@ export const technologiesItems = [
 export const contactsTeams = [
   {
     name: 'Nitin Gupta',
-    designation: 'Business Unit Head',
+    designation: 'Sr. Vice President',
     email: 'nitin@yash.com',
     photo:
       process.env['NODE_ENV'] === 'production'
@@ -140,7 +140,7 @@ export const contactsTeams = [
   },
   {
     name: 'Lokesh Sapre',
-    designation: 'Competency Head',
+    designation: 'Lead Practice Manager',
     email: 'lokesh.sapre@yash.com',
     photo:
       process.env['NODE_ENV'] === 'production'
@@ -149,7 +149,7 @@ export const contactsTeams = [
   },
   {
     name: 'Sujal Ray',
-    designation: 'Competency Manager',
+    designation: 'Technical Architect',
     email: 'sujal.ray@yash.com',
     photo:
       process.env['NODE_ENV'] === 'production'
@@ -158,7 +158,7 @@ export const contactsTeams = [
   },
   {
     name: 'Lokesh Daiya',
-    designation: 'Solution Architect',
+    designation: 'Technical Architect',
     email: 'lokesh.daiya@yash.com',
     photo:
       process.env['NODE_ENV'] === 'production'
