@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer/Footer';
 import Technologies from './components/Technologies';
 import Teams from './components/Teams';
+import BestPracticesDocs from './components/BestPracticesDocs';
 
 const App: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const App: React.FC = () => {
           {/* Hide for now when the contact us form will be implemented then we can unhide this*/}
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/" element={<Home />} />
-          {/* <Route path="/bestPracticesDocs" element={<BestPracticesDocs />} /> */}
+          <Route path="/bestPracticesDocs" element={<BestPracticesDocs />} />
         </Routes>
       </div>
       <Footer />
