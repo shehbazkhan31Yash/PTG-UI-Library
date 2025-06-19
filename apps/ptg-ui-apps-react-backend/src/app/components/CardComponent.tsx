@@ -1,15 +1,17 @@
 import React from 'react';
 import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
+import { Link } from 'react-router-dom';
 
 const CardComponent: React.FC<CardComponentProps> = ({
   key,
-  title,
+  title ,
   content,
   imageUrl,
   viewLink,
   docLink,
 }) => {
+   const isInternalLink = viewLink?.startsWith('/bestPracticesDocs');
   return (
     <div className="col-md-4">
       <div
@@ -37,14 +39,24 @@ const CardComponent: React.FC<CardComponentProps> = ({
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{content}</p>
-          <a
-            href={viewLink}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-warning"
-          >
-            View
-          </a>
+          
+            {isInternalLink ? (
+            <Link
+              to={viewLink!}
+              className="btn btn-warning"
+            >
+              View
+            </Link>
+          ) : (
+            <a
+              href={viewLink}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-warning"
+            >
+              View
+            </a>
+          )}
           {docLink && (
             <a
               href={docLink}
