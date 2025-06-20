@@ -4,6 +4,7 @@ import { IAppBarWithDefaultProps } from '@ptg-react-app/interfaces';
 import { PtgUiAppBar } from '@ptg-react-libs/appbar/AppBar';
 import './AppBarWithDefaultProps.css'; // Import the CSS file
 import IFrame from './IFrame';
+import { useTranslation } from 'react-i18next';
 
 export const AppBarWithDefaultProps = (props: IAppBarWithDefaultProps) => {
   const componentCode = `
@@ -51,10 +52,10 @@ export const AppBarWithDefaultProps = (props: IAppBarWithDefaultProps) => {
     <PtgUiAppBar menuConfig={menuConfig} />
  
   `;
-
+const { t } = useTranslation();
   const menuItems = [
     {
-      label: 'Home',
+      label: t('HOME'),
       link: '/home',
     },
     {
@@ -62,7 +63,7 @@ export const AppBarWithDefaultProps = (props: IAppBarWithDefaultProps) => {
       link: '/services',
     },
     {
-      label: 'About',
+      label: t('ABOUT_US'),
       link: '/about',
     },
     {

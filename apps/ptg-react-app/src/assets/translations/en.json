@@ -161,5 +161,17 @@
   "ICON_ALIGNMENT_LEFT": "Icon Alignment Left",
   "ICON_ALIGNMENT_RIGHT": "Icon Alignment Right",
   "PAGINATION": "Pagination",
-  "DIALOG": "Dialog"
+  "DIALOG": "Dialog",
+  "APPBAR_WITH_DEFAULT_PROPS": "Appbar with Default Props",
+  "OKTA_SIGN_IN": "Okta Sign In",
+  "AVATARS-WITH-IMAGE": "Avatars with image",
+  "AVATARS-WITH-ICON": "Avatars with icon",
+  "AVATARS-WITH-LETTER": "Avatars with letter",
+  "AVATARS-WITH-SIZES": "Avatars with sizes",
+  "AVATARS-WITH-VARIENTS": "Avatars with variants",
+  "AVATARS-WITH-GROUPS": "Avatars with groups",
+  "AVATARS-WITH-BADGE": "Avatars with Badge",
+  "AVATARS-WITH-BORDER": "Avatars with Border",
+  "AVATARS-WITH-TEXT": "Avatars with Text"
+  
 }

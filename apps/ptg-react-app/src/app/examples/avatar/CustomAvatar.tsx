@@ -78,7 +78,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('AVATARS with Image')}
+              {t('AVATARS-WITH-IMAGE')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -101,7 +101,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with Icon')}
+              {t('AVATARS-WITH-ICON')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -124,7 +124,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with letter ')}
+              {t('AVATARS-WITH-LETTER')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -147,7 +147,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with sizes ')}
+              {t('AVATARS-WITH-SIZES')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -170,7 +170,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with variants ')}
+              {t('AVATARS-WITH-VARIENTS')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -193,7 +193,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with grouped ')}
+              {t('AVATARS-WITH-GROUPS')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -216,7 +216,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with Badge ')}
+              {t('AVATARS-WITH-BADGE')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -239,7 +239,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with Border')}
+              {t('AVATARS-WITH-BORDER')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -262,7 +262,7 @@ export default function CustomAvatarExample() {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Avatars with Text')}
+              {t('AVATARS-WITH-TEXT')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

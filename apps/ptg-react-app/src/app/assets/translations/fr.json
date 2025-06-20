@@ -161,5 +161,8 @@
   "PAGINATION": "Pagination",
   "DOT-LOADER": "Chargeur de points",
   "LINEAR-LOADER": "Chargeur linéaire",
-  "CIRCULAR-LOADER": "Chargeur circulaire"
+  "CIRCULAR-LOADER": "Chargeur circulaire",
+  "HOME": "Maison",
+  "APPBAR_WITH_DEFAULT_PROPS": "Appbar avec accessoires par défaut",
+  "OKTA_SIGN_IN": "Okta Se connecter"
 }

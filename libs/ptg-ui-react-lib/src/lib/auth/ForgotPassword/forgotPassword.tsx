@@ -5,6 +5,7 @@ import PtgUiInput from '../../input/input';
 import { IForgotPassword } from '../../interfaces';
 import { PtgUiModal } from '../../modal/modal';
 import './forgotPassword.css';
+import { useTranslation } from 'react-i18next';
 
 // Destructure button color constants for easier access
 const { FORGOT_BTN_TEXT, FORGOT_BTN_BACKGROUND, FORGOT_BTN_BACKGROUND_GRAY } = FORGOT_PASSWORD_BTN_COLOR;
@@ -39,6 +40,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
 		setFormErr({ email: false });
 	};
 
+	const { t } = useTranslation();
 	const handleShow = () => {
 		setValues({
 			show: true,
@@ -139,18 +141,18 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
 						<div className="forgot-form-wrapper">
 							<div className="form-group">
 								<div className="text-center mb-3">
-									<h3>Forgot Password</h3>
+									<h3>{`${forgotPasswordLabel}?`}</h3>
 								</div>
 							</div>
 							<div className="forgot-form">
 								<div className="form-group required mb-4">
-									<label htmlFor="inputEmail">Email</label>
+									<label htmlFor="inputEmail">{t('LABEL_PASSWORD')}</label>
 									<PtgUiInput
 										type="email"
 										className={getInputClassName()}
 										name="email"
 										id="email"
-										placeholder="Enter Your Email"
+										placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}
 										onChange={handleChange}
 										value={values.email}
 									/>
@@ -161,7 +163,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
 											data-testid="handleSubmit"
 											textColor={FORGOT_BTN_TEXT}
 											backgroundColor={FORGOT_BTN_BACKGROUND}
-											text="Forgot Password"
+											text={t('FORGOT_PASSWORD')}
 											onClick={onForgotPasswordSubmit}
 											disabled={values.btnDisable}
 										/>
@@ -172,7 +174,7 @@ export const PtgUIForgotPassword: React.FC<IForgotPassword> = ({
 											onClick={handleClose}
 											textColor={FORGOT_BTN_TEXT}
 											backgroundColor={FORGOT_BTN_BACKGROUND_GRAY}
-											text="Cancel"
+											text={t('CANCEL')}
 										/>
 									</div>
 								</div>

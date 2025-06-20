@@ -52,7 +52,7 @@ const AppBarExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('AppBar with Default Props')}
+              {t('APPBAR_WITH_DEFAULT_PROPS')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

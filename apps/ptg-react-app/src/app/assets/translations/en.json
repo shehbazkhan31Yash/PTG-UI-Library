@@ -160,5 +160,10 @@
   "PAGINATION": "Pagination",
   "DOT-LOADER": "Dot Loader",
   "LINEAR-LOADER": "Linear Loader",
-  "CIRCULAR-LOADER": "Circular Loader"
+  "CIRCULAR-LOADER": "Circular Loader",
+  "HOME": "Home",
+  "APPBAR_WITH_DEFAULT_PROPS": "AppBar With Default Props",
+  "OKTA_SIGN_IN": "Okta Sign In"
+  
+  
 }
