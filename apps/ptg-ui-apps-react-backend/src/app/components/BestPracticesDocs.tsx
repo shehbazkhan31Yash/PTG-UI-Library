@@ -6,7 +6,7 @@ const BestPracticesDocs = () => {
  
   return (
     <div className="container pb-5">
-      <h1 className="page-header">Best Practices Documents</h1>
+      <h1 className="page-header text-black">Best Practices Documents</h1>
       <div className="row pb-5">
          <div className="col-md-4">
           <div className="card">

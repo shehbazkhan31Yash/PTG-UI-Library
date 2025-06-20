@@ -1,6 +1,6 @@
 {
   "IMG_LOGO": "logo",
-  "LABEL_EMAIL": "Email",
+  "LABEL_EMAIL": "E-mail",
   "INPUT_PLACEHOLDER_EMAIL": "Entrer votre Email",
   "LABEL_PASSWORD": "Mot de passe",
   "INPUT_PLACEHOLDER_PASSWORD": "Tapez votre mot de passe",
@@ -162,5 +162,16 @@
   "ICON_ALIGNMENT_LEFT": "Alignement des icônes à gauche",
   "ICON_ALIGNMENT_RIGHT": "Alignement des icônes à droite",
   "PAGINATION": "Pagination",
-  "DIALOG": "Dialogue"
+  "DIALOG": "Dialogue",
+  "APPBAR_WITH_DEFAULT_PROPS": "Appbar avec accessoires par défaut",
+  "OKTA_SIGN_IN": "Okta Se connecter",
+  "AVATARS-WITH-IMAGE": "Avatars avec image",
+  "AVATARS-WITH-ICON": "Avatars avec icône",
+  "AVATARS-WITH-LETTER": "Avatars avec lettre",
+  "AVATARS-WITH-SIZES": "Avatars avec tailles",
+  "AVATARS-WITH-VARIENTS": "Avatars avec variantes",
+  "AVATARS-WITH-GROUPS": "Avatars avec groupes",
+  "AVATARS-WITH-BADGE": "Avatars avec badge",
+  "AVATARS-WITH-BORDER": "Avatars avec bordure",
+  "AVATARS-WITH-TEXT": "Avatars avec texte"
 }

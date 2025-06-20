@@ -187,7 +187,7 @@ export function PtgLogin() {
         getForgetEmail={getForgetEmail} // get forgot email from forgot password modal
         errorMessage={''}
         successMessage={''}
-        oktaButtonName={'Okta Sign In'}
+        oktaButtonName={t('OKTA_SIGN_IN')} // Okta button name
         onOktaClick={() => console.log('Okta Sign In')}
       />
     </div>
