@@ -5,4 +5,5 @@ export interface CardComponentProps {
   imageUrl: string;
   viewLink: string;
   docLink?: string;
+  downloadLink?: string;
 }

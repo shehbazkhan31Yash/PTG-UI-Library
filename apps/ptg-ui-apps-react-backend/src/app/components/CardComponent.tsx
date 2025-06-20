@@ -10,6 +10,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
   imageUrl,
   viewLink,
   docLink,
+  downloadLink,
 }) => {
   const isInternalLink = viewLink?.startsWith('/bestPracticesDocs');
   return (
@@ -36,35 +37,51 @@ const CardComponent: React.FC<CardComponentProps> = ({
             }}
           />
         </div>
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{content}</p>
+        {!downloadLink ? (
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p className="card-text">{content}</p>
 
-          {isInternalLink ? (
-            <Link to={viewLink!} className="btn btn-primary">
-              View
-            </Link>
-          ) : (
+            {isInternalLink ? (
+              <Link to={viewLink!} className="btn btn-primary">
+                View
+              </Link>
+            ) : (
+              <a
+                href={viewLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary"
+              >
+                View
+              </a>
+            )}
+            {docLink && (
+              <a
+                href={docLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-light ms-2"
+              >
+                Documentation
+              </a>
+            )}
+          </div>
+        ) : (
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p className="card-text">{content}</p>
+
             <a
-              href={viewLink}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary"
-            >
-              View
-            </a>
-          )}
-          {docLink && (
-            <a
-              href={docLink}
+              href={downloadLink}
               target="_blank"
               rel="noreferrer"
               className="btn btn-light ms-2"
             >
-              Documentation
+              Download
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
