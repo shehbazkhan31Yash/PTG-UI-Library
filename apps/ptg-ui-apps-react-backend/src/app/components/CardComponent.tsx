@@ -77,6 +77,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
               target="_blank"
               rel="noreferrer"
               className="btn btn-light ms-2"
+              download
             >
               Download
             </a>

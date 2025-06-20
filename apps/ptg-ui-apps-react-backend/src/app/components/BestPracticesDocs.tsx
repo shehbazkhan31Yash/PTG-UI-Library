@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import CardComponent from './CardComponent';
-import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentService';
 import folder_image from '../../assets/images/Folder.jpg';
+import { bestPracticesDocs } from '@ptg-ui-apps-react-backend/constants/constants';
 
 const BestPracticesDocs: React.FC = () => {
-  const [data, setData] = React.useState<any[]>([]);
-  useEffect(() => {
-    fetchDataFromStrapi('best-practice-documents').then((data) =>
-      setData(data.data)
-    );
-  }, []);
+  // const [data, setData] = React.useState<any[]>([]);
+  // useEffect(() => {
+  //   fetchDataFromStrapi('best-practice-documents').then((data) =>
+  //     setData(data.data)
+  //   );
+  // }, []);
   return (
     <section id="projects" className="mt-5">
       <div className="row">
-        {data.map((item, index) => (
+        {bestPracticesDocs.map((item, index) => (
           <React.Fragment
             key={item.attributes.file.data[0]?.attributes.name + '' + index}
           >
