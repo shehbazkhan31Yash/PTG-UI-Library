@@ -1,72 +1,39 @@
-import React from 'react';
-import './BestPracticesDocs.css';
-const BestPracticesDocs = () => {
+import React, { useEffect } from 'react';
+import CardComponent from './CardComponent';
+import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentService';
+import folder_image from '../../assets/images/Folder.jpg';
+
+const BestPracticesDocs: React.FC = () => {
+  const [data, setData] = React.useState<any[]>([]);
+  useEffect(() => {
+    fetchDataFromStrapi('best-practice-documents').then((data) =>
+      setData(data.data)
+    );
+  }, []);
   return (
-    <div className="container pb-5">
-      <div className="row pb-5">
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body" style={{ minHeight: '120px' }}>
-              <h5 className="card-title">Coding Standard Angular</h5>
-              <p className="card-text">
-                This document explains coding standards of Angular.
-              </p>
-            </div>
-            <div className="card-footer">
-              <a
-                className="btn btn-primary"
-                href={
-                  'https://yash-ui-apps.azurewebsites.net/uploads/CodingStandard-Angular.docx'
+    <section id="projects" className="mt-5">
+      <div className="row">
+        {data.map((item, index) => (
+          <React.Fragment
+            key={item.attributes.file.data[0]?.attributes.name + '' + index}
+          >
+            {item.attributes.file && item.attributes.file.data?.length > 0 && (
+              <CardComponent
+                keyName={
+                  item.attributes.file.data[0]?.attributes.name + '' + index
                 }
-                download="CodingStandard-Angular.docx"
-              >
-                Download
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body" style={{ minHeight: '120px' }}>
-              <h5 className="card-title">Best Practices Frontend</h5>
-              <p className="card-text">
-                This document explains coding standards of React.
-              </p>
-            </div>
-            <div className="card-footer">
-              <a
-                className="btn btn-primary"
-                href={
-                  'https://yash-ui-apps.azurewebsites.net/uploads/CodingStandard-React.docx'
-                }
-              >
-                Download
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body" style={{ minHeight: '120px' }}>
-              <h5 className="card-title">Best Practices Frontend</h5>
-              <p className="card-text">
-                This document explains best practices of Frontend.
-              </p>
-            </div>
-            <div className="card-footer">
-              <a
-                className="btn btn-primary"
-                href={
-                  'https://yash-ui-apps.azurewebsites.net/uploads/BestPractices-FrontEnd.pptx'
-                }
-              >
-                Download
-              </a>
-            </div>
-          </div>
-        </div>
+                title={item.attributes.file.data[0]?.attributes.name}
+                content={''}
+                imageUrl={folder_image}
+                viewLink={''}
+                docLink={''}
+                downloadLink={item.attributes.file.data[0]?.attributes.url}
+              />
+            )}
+          </React.Fragment>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 export default BestPracticesDocs;
