@@ -50,7 +50,7 @@ const AppBar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <div className="w-200"></div>
+
           <div className="search-container d-flex align-items-center mx-auto">
             <input
               id="searchInputDocument"
