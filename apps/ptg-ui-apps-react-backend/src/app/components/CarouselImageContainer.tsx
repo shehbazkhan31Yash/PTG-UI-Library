@@ -1,4 +1,3 @@
-// ClientCarousel.tsx
 import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
 interface CarouselItem {
@@ -9,6 +8,7 @@ interface ClientCarouselProps {
   items: CarouselItem[];
 }
 const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
+  const chunkedItems = chunkArray(items, 3); // Chunk items into groups of 3
   return (
     <Carousel
       indicators
@@ -17,12 +17,20 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
       fade
       data-bs-theme="dark"
     >
-      {items.map((item, index) => (
-        <Carousel.Item key={item.clientName + '' + index}>
-          <CarouselImageContainer imageUrl={item.imageURL} />
-          {item.clientName && (
+      {chunkedItems.map((chunk, index) => (
+        <Carousel.Item key={index}>
+          <div className="d-flex justify-content-around">
+            {chunk.map((item, itemIndex) => (
+              <CarouselImageContainer
+                key={item.clientName + '' + itemIndex}
+                imageUrl={item.imageURL}
+                altText={item.clientName}
+              />
+            ))}
+          </div>
+          {chunk.some((item) => item.clientName) && (
             <Carousel.Caption>
-              <h5>{item.clientName}</h5>
+              <h5>{chunk.map((item) => item.clientName).join(', ')}</h5>
             </Carousel.Caption>
           )}
         </Carousel.Item>
@@ -31,7 +39,6 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
   );
 };
 export default ClientCarousel;
-
 interface CarouselImageContainerProps {
   imageUrl: string;
   altText?: string; // Optional alt text for accessibility
@@ -41,7 +48,10 @@ const CarouselImageContainer: React.FC<CarouselImageContainerProps> = ({
   altText,
 }) => {
   return (
-    <div className="carousel-image-container">
+    <div
+      className="carousel-image-container"
+      style={{ flex: '1 1 30%', margin: '0 10px' }}
+    >
       <Image
         src={imageUrl}
         fluid
@@ -50,4 +60,12 @@ const CarouselImageContainer: React.FC<CarouselImageContainerProps> = ({
       />
     </div>
   );
+};
+// Utility function to chunk the items array
+const chunkArray = (array: any[], chunkSize: number) => {
+  const result: any[] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
+  }
+  return result;
 };
