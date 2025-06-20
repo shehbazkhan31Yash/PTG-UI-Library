@@ -1,22 +1,74 @@
-import React from 'react';
-import { Col, Row, Image, Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Row, Image, Container, Spinner } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
-import ClientCarousel from './CarouselImageContainer'; // Import the new carousel component
+import ClientCarousel from './CarouselImageContainer';
 import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
+
 const Home: React.FC = () => {
+  const [imageLoading, setImageLoading] = useState({
+    vision: true,
+    mission: true,
+  });
+
+  const handleImageLoad = (imageKey: 'vision' | 'mission') => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [imageKey]: false,
+    }));
+  };
+
+  const handleImageError = (imageKey: 'vision' | 'mission') => {
+    setImageLoading((prev) => ({
+      ...prev,
+      [imageKey]: false,
+    }));
+  };
+
+  const ImageWithLoader: React.FC<{
+    src: string;
+    alt: string;
+    imageKey: 'vision' | 'mission';
+    className?: string;
+  }> = ({ src, alt, imageKey, className = '' }) => (
+    <div className="position-relative">
+      {imageLoading[imageKey] && (
+        <div
+          className="position-absolute top-50 start-50 translate-middle"
+          style={{ zIndex: 2 }}
+        >
+          <Spinner animation="border" role="status" variant="primary">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      )}
+      <Image
+        src={src}
+        fluid
+        alt={alt}
+        className={`${className} ${imageLoading[imageKey] ? 'opacity-25' : ''}`}
+        onLoad={() => handleImageLoad(imageKey)}
+        onError={() => handleImageError(imageKey)}
+        style={{
+          transition: 'opacity 0.3s ease-in-out',
+          minHeight: '200px',
+        }}
+      />
+    </div>
+  );
+
   return (
     <Container fluid className="bg-light text-dark p-5">
       <section id="about" className="text-center">
         <Row className="mb-5">
           <Col xs={12} md={6} className="mb-4">
-            <Image
+            <ImageWithLoader
               src={
                 process.env['NODE_ENV'] === 'production'
                   ? `${environment.url}/yash_vision.jpg`
                   : `${environment.localUrl}/assets/images/yash_vision.jpg`
               }
-              fluid
               alt="Vision"
+              imageKey="vision"
             />
           </Col>
           <Col xs={12} md={6}>
@@ -40,23 +92,23 @@ const Home: React.FC = () => {
             </p>
           </Col>
           <Col xs={12} md={6}>
-            <Image
+            <ImageWithLoader
               src={
                 process.env['NODE_ENV'] === 'production'
                   ? `${environment.url}/yash_mission.jpg`
                   : `${environment.localUrl}/assets/images/yash_mission.jpg`
               }
-              fluid
-              className="shadow rounded"
               alt="Mission"
+              imageKey="mission"
+              className="shadow rounded"
             />
           </Col>
         </Row>
         <h1 className="section-title mb-4">Our Clients</h1>
-        <ClientCarousel items={carouselItems} />{' '}
-        {/* Use the new carousel component */}
+        <ClientCarousel items={carouselItems} />
       </section>
     </Container>
   );
 };
+
 export default Home;

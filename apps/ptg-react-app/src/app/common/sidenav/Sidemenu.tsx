@@ -85,18 +85,6 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/pdf-renderer',
-    icon: 'fa-solid fa-file-pdf',
-    label: 'PDF Renderer',
-    disabled: false,
-  },
-  {
-    path: '/social-media-share',
-    icon: 'fa-solid fa-share-nodes',
-    label: 'Social Media Share',
-    disabled: false,
-  },
-  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
@@ -157,30 +145,20 @@ export const NavigationData = [
     label: 'Date Picker',
     disabled: false,
   },
-  {
-    path: '/loader',
-    icon: 'fa fa-spinner',
-    label: 'LOADER',
-    disabled: false,
-  },
-  {
-    path: '/pagination',
-    icon: 'fa-solid fa-table-list',
-    label: 'PAGINATION',
-    disabled: false,
-  },
+
   {
     path: '/dialog',
     icon: 'fa fa-th',
     label: 'DIALOG',
     disabled: false,
   },
-  {
+  // Note: The drag and drop example is commented till it start working properly
+  /*   {
     path: '/dragnDrop',
     icon: 'fa fa-bars',
     label: 'DRAG N DROP',
     disabled: false,
-  },
+  }, */
   {
     path: '/downloadFile',
     icon: 'fa-solid fa-download',
@@ -200,9 +178,27 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/loader',
+    icon: 'fa fa-spinner',
+    label: 'LOADER',
+    disabled: false,
+  },
+  {
     path: '/multistep',
     icon: 'fa fa-brands fa-wpforms',
     label: 'MULTI_STEP_FORM_NAV',
+    disabled: false,
+  },
+  {
+    path: '/pagination',
+    icon: 'fa-solid fa-table-list',
+    label: 'PAGINATION',
+    disabled: false,
+  },
+  {
+    path: '/pdf-renderer',
+    icon: 'fa-solid fa-file-pdf',
+    label: 'PDF Renderer',
     disabled: false,
   },
   {
@@ -227,6 +223,12 @@ export const NavigationData = [
     path: '/select',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
+    disabled: false,
+  },
+  {
+    path: '/social-media-share',
+    icon: 'fa-solid fa-share-nodes',
+    label: 'Social Media Share',
     disabled: false,
   },
   {
