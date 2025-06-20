@@ -6,11 +6,10 @@ const Projects: React.FC = () => {
   const items = DashboardCardItems;
   return (
     <section id="projects" className="mt-5">
-      <h2 className="text-center text-warning">Our Accelerators</h2>
       <div className="row">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <CardComponent
-            key={item.title}
+            keyName={item.title + '' + index}
             title={item.title}
             content={item.content}
             imageUrl={item.imageUrl}

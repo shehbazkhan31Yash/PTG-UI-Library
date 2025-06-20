@@ -1,5 +1,5 @@
 export interface CardComponentProps {
-  key: string;
+  keyName: string;
   title: string;
   content: string;
   imageUrl: string;

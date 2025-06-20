@@ -5,7 +5,6 @@ import Image from 'react-bootstrap/Image';
 const Technologies: React.FC = () => {
   return (
     <section id="technologies" className="text-center text-light mt-5">
-      <h2 className="section-title pb-4 text-dark">Web Technologies List</h2>
       <div>
         <div className="row">
           {technologiesItems.map((item) => (
@@ -19,6 +18,7 @@ const Technologies: React.FC = () => {
                   height: '170px',
                   width: '170px',
                   padding: '10px',
+                  border: '2px solid black',
                 }}
               >
                 <Image

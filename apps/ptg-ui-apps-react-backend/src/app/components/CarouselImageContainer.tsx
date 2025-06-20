@@ -18,7 +18,7 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
       data-bs-theme="dark"
     >
       {items.map((item, index) => (
-        <Carousel.Item key={item.clientName}>
+        <Carousel.Item key={item.clientName + '' + index}>
           <CarouselImageContainer imageUrl={item.imageURL} />
           {item.clientName && (
             <Carousel.Caption>

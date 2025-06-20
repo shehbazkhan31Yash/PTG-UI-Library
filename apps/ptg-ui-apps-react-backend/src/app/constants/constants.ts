@@ -22,6 +22,7 @@ export const tabs = [
 
   { label: 'Accelerators', to: '/projects' },
   { label: 'Technologies', to: '/technologies' },
+  { label: 'Documents', to: '/bestPracticesDocs' },
   { label: 'Contact Us', to: '/teams' },
 ];
 

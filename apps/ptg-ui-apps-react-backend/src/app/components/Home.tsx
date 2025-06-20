@@ -75,7 +75,11 @@ const Home: React.FC = () => {
             <h2 className="pt-3 pb-2">Vision</h2>
             <p className="lead about-text text-dark">
               To create intuitive, accessible, and engaging user experiences
-              that empower users and elevate the digital landscape.
+              that empower users and elevate the digital landscape, it is
+              essential to prioritize user-centered design principles. This
+              involves understanding the diverse needs and preferences of users,
+              ensuring that interfaces are not only visually appealing but also
+              functional and easy to navigate.
             </p>
           </Col>
         </Row>

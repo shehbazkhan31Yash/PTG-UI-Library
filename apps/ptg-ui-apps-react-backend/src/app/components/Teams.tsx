@@ -5,10 +5,9 @@ import { contactsTeams } from '@ptg-ui-apps-react-backend/constants/constants';
 const Teams: React.FC = () => {
   return (
     <section id="teams" className="text-light mt-2 p-4 pt-2">
-      <h2 className="text-center text-dark pb-2">Meet Our Group</h2>
       <Row>
-        {contactsTeams.map((team, index) => (
-          <Col key={team.name} className="text-center">
+        {contactsTeams.map((team) => (
+          <Col key={team.name} className="text-center teams">
             <Card>
               <Card.Img variant="top" src={team.photo} />
               <Card.Body>
