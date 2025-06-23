@@ -74,7 +74,9 @@ app.get('*', (req, res) => {
   if (projectName) {
     res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
   } else {
-    res.sendFile(path.join(__dirname, ``) + '/index.html');
+    res.sendFile(
+      path.join(__dirname, `public/ptg-ui-apps-react-backend`) + '/index.html'
+    );
   }
 });
 server.on('error', console.error);
