@@ -10,12 +10,17 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
+    <div class="container text-center mt-5">
+      <h1>Welcome to PTG UI Apps</h1>
+      <p>You will be redirected shortly...</p>
+    </div>
     <script>
-      // Redirect to the PTG UI library after a short delay
+      // Redirect to the PTG UI library after a short delay (e.g., 3 seconds)
       window.onload = function () {
-        window.location.href = './ptg-ui-apps-react-backend/';
+        setTimeout(function () {
+          window.location.href = './ptg-ui-apps-react-backend/';
+        }, 3000); // Delay in milliseconds
       };
     </script>
   </body>
