@@ -56,7 +56,10 @@ mongoose
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(
+  '/',
+  express.static(path.join(__dirname, 'public/ptg-ui-apps-react-backend'))
+);
 app.get('*', (req, res) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
