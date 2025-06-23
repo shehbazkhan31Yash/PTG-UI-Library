@@ -1,4 +1,4 @@
-import Slb_Image from '../../assets/images/slb.jpg';
+import Slb_Image from '../../assets/images/SLB_Logo_Positive_RGB_TM.svg';
 import chRobinson_Image from '../../assets/images/ch_Robinson.jpg';
 import johnDeere_Image from '../../assets/images/johndeer.jpg';
 import polaris_Image from '../../assets/images/polaris.jpg';
