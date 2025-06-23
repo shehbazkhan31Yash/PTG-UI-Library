@@ -9,11 +9,16 @@
 	margin-right: 5px;
 	accent-color: #002144; /* Replace with the actual value of $main */
 }
-
 .checkbox.isIndeterminate::after {
-	content: '\2212';
+	content: '\2212'; /* This is a dash character */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	line-height: 16px; /* Center the dash vertically */
+	color: #002144; /* Adjust color if necessary */
 }
-
 .indeterminatespan {
-	visibility: hidden;
+	visibility: hidden; /* Hide the text span when indeterminate */
 }
