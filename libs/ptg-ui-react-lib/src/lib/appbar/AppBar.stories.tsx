@@ -30,7 +30,7 @@ const TemplateWithParagraph: StoryFn<typeof PtgUiAppBar> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   menuConfig: {
-    logo: 'https://your-logo-url.com/logo.png',
+    logo: 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg',
     logoAlignment: 'left',
     menuAlignment: 'right',
     burgerMenu: true,
@@ -54,7 +54,7 @@ Default.args = {
 export const WithBurgerMenu = Template.bind({});
 WithBurgerMenu.args = {
   menuConfig: {
-    logo: 'https://your-logo-url.com/logo.png',
+    logo: 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg',
     logoAlignment: 'left',
     menuAlignment: 'left',
     burgerMenu: true,
@@ -78,7 +78,7 @@ WithBurgerMenu.args = {
 export const WithoutBurgerMenu = Template.bind({});
 WithoutBurgerMenu.args = {
   menuConfig: {
-    logo: 'https://your-logo-url.com/logo.png',
+    logo: 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg',
     logoAlignment: 'left',
     menuAlignment: 'right',
     burgerMenu: false,
@@ -101,7 +101,7 @@ WithoutBurgerMenu.args = {
 export const MenuAtBottom = Template.bind({});
 MenuAtBottom.args = {
   menuConfig: {
-    logo: 'https://your-logo-url.com/logo.png',
+    logo: 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg',
     logoAlignment: 'left',
     menuAlignment: 'left',
     burgerMenu: true,
@@ -147,7 +147,7 @@ NoLogo.args = {
 export const WithStickyMenu = TemplateWithParagraph.bind({});
 WithStickyMenu.args = {
   menuConfig: {
-    logo: 'https://your-logo-url.com/logo.png',
+    logo: 'https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg',
     logoAlignment: 'left',
     menuAlignment: 'right',
     burgerMenu: true,
