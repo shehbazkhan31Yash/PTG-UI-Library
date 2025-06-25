@@ -30,51 +30,68 @@ export class LineChartComponent  {
     "xData": "number",
     "yData": "number"
   };
-
+ngOnChanges() {
+  if (this.data && this.data.length) {
+    this.createGraph();
+  }
+}
 
   ngAfterViewInit(): void {
     this.createGraph();
   }
 
   // Chart creation function 
-  createGraph(){
-    // set the dimensions and margins of the graph
-   const margin = this.margin,
-   d3width : number= this.width - margin.left - margin.right,
-   d3height:number = this.height  - margin.top - margin.bottom;
-   // append the svg object to the body of the page
-   const svg = d3.select("figure#" + this.id).append("svg")
-   .attr("width", d3width)
-   .attr("height", d3height)
-   .attr("viewBox", [0, 0, this.width, this.height])
-   .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
-   .append("g")
-   .attr("transform", `translate(${margin.left},     ${margin.top})`);
-   
-    // Add X axis and Y axis
-   const x = d3.scaleTime().range([0, d3width]);
-   const y = d3.scaleLinear().range([d3height, 0]);
-   // modify the xDomain & yDomain to date base and number base
-   const xdomain:any = d3.extent(this.data, (d:any) => { return (this.coordinateDataTypes['x-axis'] == "date") ? Date.parse(d.date) : d.date; });
-   const ydomain: any = d3.max(this.data, (d:any) => { return (this.coordinateDataTypes['y-axis'] == "date") ? Date.parse(d.value) : d.value; });
-   x.domain(xdomain);
-   y.domain([0, ydomain]);
-   svg.append("g")
-   .attr("transform", `translate(0, ${d3height})`)
-   .call(d3.axisBottom(x).ticks(6));
-   svg.append("g")
-   .call(d3.axisLeft(y).ticks(6));
+ createGraph() {
+  // Clear the chart container first
+  d3.select("figure#" + this.id).selectAll("*").remove();
 
-    // add the Line
-    const valueLine: any = d3.line()
-      .x((d:any) => { return x(d.date); })
-      .y((d:any) => { return y(d.value); });
-    svg.append("path")
-     .data([this.data])
-     .attr("class", "line")
-     .attr("fill", "none")
-     .attr("stroke", this.color)
-     .attr("stroke-width", 1.5)
-     .attr("d", valueLine)
-  }
+  // Dimensions
+  const margin = this.margin,
+        d3width = this.width - margin.left - margin.right,
+        d3height = this.height - margin.top - margin.bottom;
+
+  // Create SVG
+  const svg = d3.select("figure#" + this.id)
+    .append("svg")
+    .attr("width", this.width)
+    .attr("height", this.height)
+    .attr("viewBox", [0, 0, this.width, this.height])
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+  // Axes setup
+  const x = d3.scaleTime().range([0, d3width]);
+  const y = d3.scaleLinear().range([d3height, 0]);
+
+  // Parse data
+  const parsedData = this.data.map(d => ({
+    date: new Date(d.date),
+    value: +d.value
+  }));
+
+  x.domain(d3.extent(parsedData, d => d.date) as [Date, Date]);
+  y.domain([0, d3.max(parsedData, d => d.value) as number]);
+
+  // Draw axes
+  svg.append("g")
+    .attr("transform", `translate(0, ${d3height})`)
+    .call(d3.axisBottom(x).ticks(6));
+
+  svg.append("g")
+    .call(d3.axisLeft(y).ticks(6));
+
+  // Draw line
+  const line = d3.line<any>()
+    .x(d => x(d.date))
+    .y(d => y(d.value));
+
+  svg.append("path")
+    .datum(parsedData)
+    .attr("fill", "none")
+    .attr("stroke", this.color)
+    .attr("stroke-width", 1.5)
+    .attr("d", line);
+}
+
 }

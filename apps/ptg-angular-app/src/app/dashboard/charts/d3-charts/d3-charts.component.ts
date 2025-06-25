@@ -151,21 +151,39 @@ export class D3ChartsComponent implements OnInit {
         };
       }
     });
-
+this.lineChartData={
+  data:[
+      {
+        date:new Date("2022-03-01"),
+        value:130
+      },
+      {
+        date:new Date("2022-02-15"),
+        value:300
+      },
+      {
+        date: new Date("2022-02-01"),
+        value:1000
+      },
+  ],
+  margin: { top: 20, right: 20, bottom: 50, left: 70 },
+  width: 860,
+  height: 400
+};
     //line chart
-    this.chartApiService.getD3LineChart().subscribe((response) => {
-      const data1 = response?.data[0].attributes.data.map((e) => ({
-        date: new Date(e.date),
-        value: e.value,
-      }));
-      if (data1.length) {
-        this.lineChartData = {
-          data: data1,
-          margin: { top: 20, right: 20, bottom: 50, left: 70 },
-          width: 560,
-          height: 400,
-        };
-      }
-    });
+    // this.chartApiService.getD3LineChart().subscribe((response) => {
+    //   const data1 = response?.data[0].attributes.data.map((e) => ({
+    //     date: new Date(e.date),
+    //     value: e.value,
+    //   }));
+    //   if (data1.length) {
+    //     this.lineChartData = {
+    //       data: data1,
+    //       margin: { top: 20, right: 20, bottom: 50, left: 70 },
+    //       width: 560,
+    //       height: 400,
+    //     };
+    //   }
+    // });
   }
 }

@@ -16,7 +16,7 @@ type Story = StoryObj<TextareaComponent>;
 
 export const Placeholder: Story = {
   args: {
-    placeholder: '',
+    placeholder: 'Type Here',
     className: '',
     type: 'text',
     id: '',
@@ -27,7 +27,7 @@ export const Placeholder: Story = {
 export const ClassName: Story = {
   args: {
     placeholder: '',
-    className: '',
+    className: 'customClass',
     type: 'text',
     id: '',
     value: '',
@@ -39,7 +39,7 @@ export const Id: Story = {
     placeholder: '',
     className: '',
     type: 'text',
-    id: '',
+    id: '1',
     value: '',
   },
 };
@@ -50,6 +50,6 @@ export const Value: Story = {
     className: '',
     type: 'text',
     id: '',
-    value: '',
+    value: 'text area data',
   },
 };

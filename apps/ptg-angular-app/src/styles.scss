@@ -12,6 +12,8 @@
 @import "../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 // Ag-grid datatable
+@import '~ag-grid-community/styles/ag-grid.css';
+@import '~ag-grid-community/styles/ag-theme-alpine.css'; 
 
 // Ngx datatable
 @import '../../../node_modules/@swimlane/ngx-datatable/index.css';
