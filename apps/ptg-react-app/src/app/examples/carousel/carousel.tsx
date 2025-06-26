@@ -48,7 +48,7 @@ const CarouselExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('CAROUSEL with Default Property')}
+              {t('CAROUSEL-WITH-DEFAULT-PROPERTY')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -71,7 +71,7 @@ const CarouselExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('CAROUSEL with Customize Width for Image')}
+              {t('CAROUSEL-WITH-COSTOMIZE-WIDTH-FOR-IMAGE')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -92,7 +92,7 @@ const CarouselExample = () => {
             <h5 className="font-weight-bold example-heading">
               {' '}
               {t(
-                'Thumbnail Navigation and Button Position Middle and Image in Circle'
+                'THUMBNAIL-NAVIGATION-AND-BUTTON-POSITION-MIDDLE-AND-IMAGE-IN-CIRCLE'
               )}
             </h5>
           </div>
@@ -115,7 +115,7 @@ const CarouselExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Carousel with Card and Custom Background')}
+              {t('CAROUSEL-WITH-CARD-AND-CUSTOM-BACKGROUND')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -137,7 +137,7 @@ const CarouselExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Carousel with All Custom Props')}
+              {t('CARAUSEL-WITH-ALL-CUSTOM-PROPS')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

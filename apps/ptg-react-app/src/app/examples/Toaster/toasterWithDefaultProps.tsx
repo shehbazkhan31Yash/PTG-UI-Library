@@ -55,7 +55,7 @@ export default function ToasterWithDefaultProps() {
     <section className="card-section-two bg-white rounded pt-2 pb-2 mt-2">
    <div className="row">
           <div className="col-10 mb-2 mt-2">
-            <h5 className="font-weight-bold example-heading">{t('Basic Toaster')}</h5>
+            <h5 className="font-weight-bold example-heading">{t('BASIC-TOASTER')}</h5>
           </div>
           <div className="col-2">
         <CodeIcon

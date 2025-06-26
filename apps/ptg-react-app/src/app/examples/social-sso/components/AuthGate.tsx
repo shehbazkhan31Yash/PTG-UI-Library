@@ -4,18 +4,19 @@ import OtherComponent from './OtherComponent';
 import SocialSignupForm from './SocialSignupForm';
 import { useAuth } from '../auth/AuthContext';
 import './AuthGate.css';
+import { useTranslation } from 'react-i18next';
 
 const AuthGate = () => {
   const { isAuthenticated, pendingSocialUser } = useAuth();
+  const { t } = useTranslation();
 
   return (
     <div className="auth-wrapper">
       <div className="auth-box">
         <div className="auth-heading">
-          <h2>Welcome to the Portal</h2>
+          <h2> {t('WELCOME-TO-THE-PORTAL')}</h2>
           <p className="auth-subtext">
-            Please sign in to continue or use one of the social login options
-            below.
+            {t('PLEASE-SIGN-IN-TO-CONTINUE-OR-USE-ONE-OF-THE-SOCIAL-LOGIN-OPTIONS-BELOW')}
           </p>
         </div>
 

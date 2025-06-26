@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CodeIcon from '@mui/icons-material/Code';
+import { useTranslation } from 'react-i18next';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import {
   Share2,
@@ -345,7 +346,7 @@ const SocialSharingDemo: React.FC = () => {
   const [showCode, setShowCode] = useState(false);
   const [selectedContent, setSelectedContent] = useState<ShareContent>({
     type: 'text',
-    title: 'Sample Text Content',
+    title: 'SAMPLE-TEXT-CONTENT',
     text: 'This is some sample text content that can be shared across social media platforms.',
     hashtags: ['react', 'sharing', 'demo'],
   });
@@ -470,13 +471,14 @@ interface ISocialMediaSharingProps {
         return <FileText className="w-5 h-5" />;
     }
   };
+  const { t } = useTranslation();
   return (
     <div className="social-share-demo-container bg-white rounded">
       <section className="card-section-two rounded pt-0">
         <div className="pdf-renderer-demo-container">
           <div className="row">
             <div className="col-10 mb-2">
-              <h5 className="font-weight-bold">Social Media Share</h5>
+              <h5 className="font-weight-bold">{t('SOCIAL-MEDIA-SHARE')}</h5>
             </div>
             <div className="col-2 mb-2">
               <CodeIcon
@@ -492,7 +494,7 @@ interface ISocialMediaSharingProps {
             <div style={{ marginBottom: '2rem', borderTop: '1px solid #e5e7eb' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 <div>
-                  <h6 className="social-share-section-title my-3">Share Selected Content</h6>
+                  <h6 className="social-share-section-title my-3">{t('SHARE-SELECTED-CONTENT')}</h6>
                   <div className="social-share-current-content d-flex justify-content-between p-2">
                     <div className="social-share-current-preview">
                       <div className="social-share-current-icon">
@@ -531,10 +533,10 @@ interface ISocialMediaSharingProps {
                 </div>
               </div>
               <hr className="horizontal-line" />
-              <h2 className="social-share-section-title my-3">Select Content to Share</h2>
+              <h2 className="social-share-section-title my-3">{t('SELECTED-CONTENT-TO-SHARE')}</h2>
               <div className="social-share-content-grid">
                 <div className="social-share-content-section">
-                  <h6 className="social-share-section-subtitle mb-0">Sample Content</h6>
+                  <h6 className="social-share-section-subtitle mb-0">{t('SAMPLE-CONTENT')}</h6>
                   {sampleContents.map((content, index) => (
                     <button
                       key={`${content.type}-${content.title}-${index}`}
@@ -557,12 +559,12 @@ interface ISocialMediaSharingProps {
                   ))}
                 </div>
                 <div className="social-share-content-section">
-                  <h6 className="social-share-section-subtitle mb-0">Upload File</h6>
+                  <h6 className="social-share-section-subtitle mb-0">{t('UPLOAD-FILE')}</h6>
                   <div className="social-share-upload">
                     <Upload className="social-share-upload-icon" />
                     <label htmlFor="file-upload" className="social-share-upload-label">
-                      <span className="social-share-upload-link">Click to upload</span>
-                      <span className="social-share-upload-text"> or drag and drop</span>
+                      <span className="social-share-upload-link">{t('CLICK-TO-UPLOAD')}</span>
+                      <span className="social-share-upload-text">{t('OR-DRAG-AND-DROP')}</span>
                     </label>
                     <input
                       id="file-upload"
