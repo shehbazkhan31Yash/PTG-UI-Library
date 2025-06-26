@@ -35,6 +35,24 @@ export const Title: Story = {
   },
 };
 
+export const Subtitle: Story = {
+  args: {
+    title: STACKED_COLUMN_DATA.title,
+    subtitle: STACKED_COLUMN_DATA.subtitle,
+    remainingOptions: STACKED_COLUMN_DATA.remainingOptions,
+    categories: STACKED_COLUMN_DATA.categories,
+  },
+};
+
+export const RemainingOptions: Story = {
+  args: {
+    title: STACKED_COLUMN_DATA.title,
+    subtitle: STACKED_COLUMN_DATA.subtitle,
+    remainingOptions: STACKED_COLUMN_DATA.remainingOptions,
+    categories: STACKED_COLUMN_DATA.categories,
+  },
+};
+
 export const Yaxistitle: Story = {
   args: {
     remainingOptions: STACKED_COLUMN_DATA.remainingOptions,

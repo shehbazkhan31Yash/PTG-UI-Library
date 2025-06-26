@@ -25,7 +25,8 @@ We can import the StackedColumnChart using the following importation :
  - title
  - yTitle
  - isCreditEnabled
- - id
+ - subtitle
+ - remainingOptions
 
 ## Quick Start
 
@@ -61,6 +62,13 @@ The axis title is a short text displayed alongside the axis. Usually, the axis t
 
 <Canvas of={StackedColumnChartStories.Yaxistitle} />
 
+
+2] subtitle : 
+
+The subtitle of a piece of writing is a second title which is often longer and explains more than the main title. 
+
+<Canvas of={StackedColumnChartStories.Subtitle} />
+
 3] isCreditEnabled:
 
 this property will enable / disable the High charts credits base on user input.
@@ -69,11 +77,8 @@ by default the value is false.
 
 <Canvas of={StackedColumnChartStories.Primary} />
 
-4] id : 
+4] RemainingOptions : 
 
-The id attribute specifies a unique id for an chart . The value of the id attribute must be unique.
+Highcharts configuration objects can be large and complex (axes, series, tooltips, etc.). Instead of passing each part separately (series, yAxis, plotOptions, etc.), you're using remainingOptions as a flexible container for all additional config, so your chart component can be reused easily without being tightly coupled to specific chart types.
 
-The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
-
-
-<Canvas of={StackedColumnChartStories.Primary} />
+<Canvas of={StackedColumnChartStories.RemainingOptions} />
