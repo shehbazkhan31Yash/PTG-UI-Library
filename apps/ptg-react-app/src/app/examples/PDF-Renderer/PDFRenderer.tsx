@@ -1,6 +1,8 @@
 import './PDFRenderer.css';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import CodeIcon from '@mui/icons-material/Code';
+import { useTranslation } from 'react-i18next';
+
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
@@ -18,6 +20,9 @@ import {
   Upload,
 } from 'lucide-react';
 import { ToolButton } from './ToolButton';
+import { t } from 'i18next';
+
+
 
 // Interface for PDF renderer props
 interface IPDFRendererProps {
@@ -58,6 +63,7 @@ interface IPDFRendererState {
 // Spinner component
 const Spinner = () => <div className="pdf-renderer-spinner" />;
 
+
 const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   file,
   className = '',
@@ -77,6 +83,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   onZoomChange,
   customToolbarActions,
 }) => {
+  
   const [state, setState] = useState<IPDFRendererState>({
     numPages: null,
     pageNumber: 1,
@@ -95,6 +102,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
   const renderTaskRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  
   // Load PDF.js
   useEffect(() => {
     if ((window as any).pdfjsLib) {
@@ -500,6 +508,7 @@ const PtgUIPDFRenderer: React.FC<IPDFRendererProps> = ({
 
 // Demo Component with Enhanced UI
 const PDFRendererDemo = () => {
+  const { t } = useTranslation();
   const [selectedFile, setSelectedFile] = useState<string | File | null>(null);
   const [pdfUrl, setPdfUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -577,18 +586,19 @@ interface IPDFRendererProps {
       <div className="pdf-renderer-demo-container">
         <div className="row">
           {/* Header Section */}
-          {/* <div className="pdf-renderer-demo-header"> */}
-          <div className="col-10 mb-2 mt-2">
-            <h5 className="font-weight-bold example-heading">PDF Renderer</h5>
-          </div>
-
-          <div className="col-2 mb-2 mt-1">
+          <div className="d-flex justify-content-between align-items-center">
+            <h5 className="font-weight-bold example-heading">{t('PDF_RENDERER')}</h5>
+            {/* <h5 className="font-weight-bold example-heading">{t('PDF_RENDERER')}</h5> */}
+           <div className="col-2 mb-2 mt-1">
             <CodeIcon
               onClick={() => setShowCode(!showCode)}
               fontSize="large"
               className="show-code-icon"
             ></CodeIcon>
           </div>
+          </div>
+
+         
 
           {/* <div className="pdf-renderer-demo-title">
             <h1>PDF Renderer</h1>
@@ -612,12 +622,12 @@ interface IPDFRendererProps {
           )}
 
           <div className="pdf-renderer-load-controls">
-            <h2>Load PDF Document</h2>
+            <h2>{t('LOAD-PDF-DOCUMENT')}</h2>
 
             <div className="pdf-renderer-grid">
               {/* File Upload */}
               <div className="pdf-renderer-form-group">
-                <label htmlFor="pdf-file-input">Upload PDF File</label>
+                <label htmlFor="pdf-file-input">{t('UPLOAD-PDF-FILE')}</label>
                 <input
                   id="pdf-file-input"
                   type="file"
@@ -629,7 +639,7 @@ interface IPDFRendererProps {
 
               {/* URL Input */}
               <div className="pdf-renderer-form-group">
-                <label htmlFor="pdf-url-input">Or Load from URL</label>
+                <label htmlFor="pdf-url-input">{t('OR-LOAD-FROM-URL')}</label>
                 <div className="pdf-renderer-url-input-group">
                   <input
                     id="pdf-url-input"
@@ -656,10 +666,10 @@ interface IPDFRendererProps {
                 onClick={loadSamplePDF}
                 className="pdf-renderer-sample-btn"
               >
-                Try Sample PDF
+                {t('TRY-SAMPLE-PDF')}
               </button>
               <p className="pdf-renderer-sample-description">
-                Load a sample PDF to test the component features
+                {t('LOAD-A-SAMPLE-PDF-TO-TEST-COMPONENT-FEATURES')}
               </p>
             </div>
           </div>
@@ -699,13 +709,13 @@ interface IPDFRendererProps {
                 <div className="pdf-renderer-no-file-icon">
                   <Upload className="w-full h-full" />
                 </div>
-                <h3>No PDF selected</h3>
-                <p>Upload a file or load from URL to get started</p>
+                <h3>{t('NO-PDF-SELECTED')}</h3>
+                <p>{t('PLEASE-SELECT-A-PDF-FILE-OR-URL')}Upload a file or load from URL to get started</p>
               </div>
             </div>
           )}
         </div>
-      </div>
+     </div>
     </section>
   );
 };

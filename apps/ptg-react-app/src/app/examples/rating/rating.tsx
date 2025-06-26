@@ -77,7 +77,7 @@ const RatingExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Basic Rating')}
+              {t('BASIC_RATING')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -141,7 +141,7 @@ const RatingExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Rating Precision')}
+              {t('RATING-PRECISION')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -163,7 +163,7 @@ const RatingExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Hover Feedback')}
+              {t('HOVER-FEEDBACK')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -185,7 +185,7 @@ const RatingExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Rating with Various Size')}
+              {t('RATING-WITH-VARIOUS-SIZE')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -207,7 +207,7 @@ const RatingExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Rating with Various Icon')}
+              {t('RATING-WITH-VARIOUS-ICON')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">

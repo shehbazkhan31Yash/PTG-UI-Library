@@ -43,7 +43,7 @@ const TableExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Table with Default Props')}
+              {t('TABLE-WITH-DEFAULT-PROPS')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -65,7 +65,7 @@ const TableExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Table with Pagination')}
+              {t('TABLE-WITH-PAGINATION')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -87,7 +87,7 @@ const TableExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Table with Sticky Header')}
+              {t('TABLE-WITH-STICKY-HEADER')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
@@ -109,7 +109,7 @@ const TableExample = () => {
           <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">
               {' '}
-              {t('Table with Server Side Pagination')}
+              {t('TABLE-WITH-SERVER-SIDE-PAGINATION')}
             </h5>
           </div>
           <div className="col-2 mr-5 mb-2">
