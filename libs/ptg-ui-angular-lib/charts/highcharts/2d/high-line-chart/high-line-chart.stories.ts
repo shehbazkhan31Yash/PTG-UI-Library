@@ -18,14 +18,22 @@ type Story = StoryObj<HighLineChartComponent>;
 
 export const Primary: Story = {
   args: {
-    id: 'line-chart',
+    isCreditEnabled: false,
     data: LINE_CHART_2D.data,
   },
 };
 
-export const Id: Story = {
+export const IsCreditEnabled: Story = {
   args: {
-    id: 'line-chart',
+    isCreditEnabled: true,
     data: LINE_CHART_2D.data,
+  },
+};
+
+export const Categories: Story = {
+  args: {
+    isCreditEnabled: true,
+    data: LINE_CHART_2D.data,
+    categories:LINE_CHART_2D.categories
   },
 };

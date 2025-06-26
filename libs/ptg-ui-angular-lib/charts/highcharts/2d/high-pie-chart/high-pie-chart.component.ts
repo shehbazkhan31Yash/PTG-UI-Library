@@ -1,15 +1,11 @@
-/**
- * @since March 2022
- * @author Aakash Patidar
- * @Component Pie Chart;
- * @description This module used for reusable pie chart
- */
-
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 interface pieData1 {
-  name: string, selected: boolean,sliced: boolean, y: number
+  name: string;
+  selected?: boolean;
+  sliced?: boolean;
+  y: number;
 }
 
 @Component({
@@ -17,19 +13,21 @@ interface pieData1 {
   templateUrl: './high-pie-chart.component.html',
   styleUrls: ['./high-pie-chart.component.scss']
 })
-export class HighPieChartComponent implements OnInit {
-@Input() data:pieData1[] | [string, string] = [];
-@Input() colors: string[] = ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'];
-@Input() id = "chart-pie";
-@Input() isCreditEnabled = false;
+export class HighPieChartComponent implements  AfterViewInit {
+  @Input() data: pieData1[] | [string, number][] = [];
+  @Input() colors: string[] = ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'];
+  @Input() isCreditEnabled = false;
 
-  ngOnInit(): void {
+  @ViewChild('chartContainer', { static: false }) chartContainer!: ElementRef;
+
+ 
+
+  ngAfterViewInit(): void {
     this.createChartPie();
   }
 
-  // Creating chart 
   private createChartPie(): void {
-    Highcharts.chart(this.id, {
+    Highcharts.chart(this.chartContainer.nativeElement, {
       chart: {
         type: 'pie',
       },
@@ -47,10 +45,9 @@ export class HighPieChartComponent implements OnInit {
       series: [{
         name: null,
         innerSize: '30%',
-        data:this.data,
-        colors:this.colors
+        data: this.data,
+        colors: this.colors,
       }],
     } as any);
   }
-
 }

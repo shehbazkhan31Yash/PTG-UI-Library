@@ -1,4 +1,4 @@
-import { Component, Input, OnInit ,SimpleChanges , OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -6,47 +6,47 @@ import * as Highcharts from 'highcharts';
   templateUrl: './linebar-chart.component.html',
   styleUrls: ['./linebar-chart.component.scss']
 })
-export class LinebarChartComponent implements OnInit, OnChanges {
-  @Input() remainingOptions:any;
-  @Input() title?:any;
-  @Input() subtitle?:any;
+export class LinebarChartComponent implements OnChanges, AfterViewInit {
+  @Input() remainingOptions: any;
+  @Input() title?: any;
+  @Input() subtitle?: any;
   @Input() categories?: string[] = [];
-  @Input() id?:string = "linebar-3d-chart";
   @Input() isCreditEnabled = false;
 
-  ngOnInit(): void {
-  // Call function to create chart 
-  this.createChartColumn();
+  @ViewChild('chartContainer', { static: false }) chartContainer!: ElementRef;
+
+  private chartInitialized = false;
+
+  ngAfterViewInit(): void {
+    this.createChartColumn();
+    this.chartInitialized = true;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['title'] || changes['subtitle']) {
-      // Recreate the chart when input properties change
+    if (this.chartInitialized && (changes['title'] || changes['subtitle'] || changes['remainingOptions'] || changes['categories'])) {
       this.createChartColumn();
     }
   }
 
-  // Function for create chart 
   createChartColumn(): void {
-    Highcharts.chart(this.id as any, {
-       chart: {
+    Highcharts.chart(this.chartContainer.nativeElement, {
+      chart: {
         zoomType: 'xy'
-    },
-    
-    subtitle:{
-        text:this.subtitle 
-    },
-    credits: {
-      enabled: this.isCreditEnabled,
-    },
-    title:{
-        text:this.title
-    },
-    xAxis: [{
+      },
+      subtitle: {
+        text: this.subtitle
+      },
+      credits: {
+        enabled: this.isCreditEnabled
+      },
+      title: {
+        text: this.title
+      },
+      xAxis: [{
         categories: this.categories,
         crosshair: true
-    }],
-    ...this.remainingOptions
+      }],
+      ...this.remainingOptions
     } as any);
   }
 }

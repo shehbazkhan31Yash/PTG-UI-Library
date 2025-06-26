@@ -1,15 +1,9 @@
-/**
- * @since March 2022
- * @author Aakash Patidar
- * @Component Bar Chart;
- * @description This module used for reusable bar chart
- */
-
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 interface bar2dData {
-  name: string; data: number[];
+  name: string;
+  data: number[];
 }
 
 @Component({
@@ -17,21 +11,19 @@ interface bar2dData {
   templateUrl: './high-bar-chart.component.html',
   styleUrls: ['./high-bar-chart.component.scss']
 })
-
-export class HighBarChartComponent implements OnInit {
-  @Input() data: bar2dData[]  = [];
-  @Input() id = "chart-column";
+export class HighBarChartComponent implements AfterViewInit {
+  @Input() data: bar2dData[] = [];
   @Input() isCreditEnabled = false;
-  
-  ngOnInit(): void {
-    
-  // Call function to create chart 
-  this.createChartColumn();
+  @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef;
+
+  ngAfterViewInit(): void {
+    this.createChartColumn();
   }
 
-  // Function for create chart 
   createChartColumn(): void {
-    Highcharts.chart(this.id as any, {
+    if (!this.chartContainer) return;
+
+    Highcharts.chart(this.chartContainer.nativeElement, {
       chart: {
         type: 'column',
       },
@@ -67,5 +59,4 @@ export class HighBarChartComponent implements OnInit {
       series: this.data
     } as any);
   }
-
 }

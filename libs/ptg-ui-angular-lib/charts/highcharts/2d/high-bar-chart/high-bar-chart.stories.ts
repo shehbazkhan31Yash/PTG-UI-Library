@@ -22,3 +22,10 @@ export const Primary: Story = {
     data: BAR_CHART_3D.data,
   },
 };
+
+export const IsCreditEnabled: Story = {
+  args: {
+    data: BAR_CHART_3D.data,
+    isCreditEnabled:true
+  },
+};
