@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import Technologies from './components/Technologies';
 import Teams from './components/Teams';
 import BestPracticesDocs from './components/BestPracticesDocs';
-
+import 'bootstrap-icons/font/bootstrap-icons.css';
 const App: React.FC = () => {
   return (
     <div>
