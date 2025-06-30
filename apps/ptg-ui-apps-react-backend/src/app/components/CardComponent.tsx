@@ -13,6 +13,23 @@ const CardComponent: React.FC<CardComponentProps> = ({
   downloadLink,
 }) => {
   const isInternalLink = viewLink?.startsWith('/bestPracticesDocs');
+  const getFileIcon = (title: any) => {
+    const fileExtension = title.slice((title.lastIndexOf('.') >>> 0) + 1);
+    switch (fileExtension) {
+      case 'pptx':
+        return 'bi-file-earmark-ppt-fill';
+      case 'pdf':
+        return 'bi-file-earmark-pdf-fill';
+      case 'docx':
+        return 'bi-file-earmark-word-fill';
+      case 'xlsx':
+        return 'bi-file-earmark-excel-fill';
+      case 'txt':
+        return 'bi-file-earmark-text-fill';
+      default:
+        return 'bi-file-earmark-pdf-fill';
+    }
+  };
   return (
     <div className="col-md-4" key={keyName}>
       <div
@@ -25,17 +42,27 @@ const CardComponent: React.FC<CardComponentProps> = ({
         }}
       >
         <div className="text-center py-3">
-          <img
-            src={imageUrl}
-            className="card-img-top"
-            alt={title}
-            style={{
-              borderTopLeftRadius: '15px',
-              borderTopRightRadius: '15px',
-              height: '160px',
-              width: '200px',
-            }}
-          />
+          {imageUrl === '' ? (
+            <i
+              className={`bi ${getFileIcon(title)}`}
+              style={{
+                fontSize: '4.5rem',
+                color: '#a1a103',
+              }}
+            ></i>
+          ) : (
+            <img
+              src={imageUrl}
+              className="card-img-top"
+              alt={title}
+              style={{
+                borderTopLeftRadius: '15px',
+                borderTopRightRadius: '15px',
+                height: '160px',
+                width: '200px',
+              }}
+            />
+          )}
         </div>
         {!downloadLink ? (
           <div className="card-body">

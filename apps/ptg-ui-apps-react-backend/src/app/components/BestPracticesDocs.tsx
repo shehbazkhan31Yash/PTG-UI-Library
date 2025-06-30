@@ -38,7 +38,7 @@ const BestPracticesDocs: React.FC = () => {
                 }
                 title={item.attributes.file.data[0]?.attributes.name}
                 content={''}
-                imageUrl={folder_image}
+                imageUrl={''}
                 viewLink={''}
                 docLink={''}
                 downloadLink={item.attributes.file.data[0]?.attributes.url}
