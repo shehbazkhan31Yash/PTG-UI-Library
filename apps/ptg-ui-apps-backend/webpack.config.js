@@ -35,13 +35,6 @@ module.exports = (config) => {
     },
     plugins: [
       ...(config.plugins || []),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, './src/index.html'), // Use path.resolve to create an absolute path
-      }),
-      new webpack.ProvidePlugin({
-        process: 'process/browser',
-        Buffer: ['buffer', 'Buffer'],
-      }),
       new webpack.ContextReplacementPlugin(/express[/\\]lib/, (data) => {
         delete data.dependencies[0].critical;
         return data;

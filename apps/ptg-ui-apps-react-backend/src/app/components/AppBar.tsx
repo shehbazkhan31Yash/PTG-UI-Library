@@ -4,7 +4,12 @@ import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
 import logoImage from '../../assets/images/yash_log_real.svg';
 import { FaSearch } from 'react-icons/fa'; // Importing a search icon from react-icons
-const AppBar: React.FC = () => {
+type AppBarProps = {
+  searchText: string;
+  setSearchText: (text: string) => void;
+};
+
+const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
   const navigate = useNavigate();
   useEffect(() => {
     // Redirect to the home page if the current path is empty
@@ -53,6 +58,8 @@ const AppBar: React.FC = () => {
 
           <div className="search-container d-flex align-items-center mx-auto">
             <input
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
               id="searchInputDocument"
               type="text"
               placeholder="Search for a document"

@@ -10,7 +10,7 @@ export const NavigationChildData = [
   {
     path: '/carousel',
     icon: 'fa fa-sliders',
-    label: 'Carousel',
+    label: 'CAROUSEL',
     disabled: false,
   },
   {
@@ -198,7 +198,7 @@ export const NavigationData = [
   {
     path: '/pdf-renderer',
     icon: 'fa-solid fa-file-pdf',
-    label: 'PDF Renderer',
+    label: 'PDF RENDERER',
     disabled: false,
   },
   {
@@ -216,7 +216,7 @@ export const NavigationData = [
   {
     path: '/rating',
     icon: 'fa-solid fa-ranking-star',
-    label: 'Rating',
+    label: 'RATING',
     disabled: false,
   },
   {
@@ -228,7 +228,7 @@ export const NavigationData = [
   {
     path: '/social-media-share',
     icon: 'fa-solid fa-share-nodes',
-    label: 'Social Media Share',
+    label: 'SOCIAL MEDIA SHARE',
     disabled: false,
   },
   {

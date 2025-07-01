@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Home from './components/Home';
@@ -8,11 +8,13 @@ import Footer from './components/Footer/Footer';
 import Technologies from './components/Technologies';
 import Teams from './components/Teams';
 import BestPracticesDocs from './components/BestPracticesDocs';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const App: React.FC = () => {
+      const [searchText, setSearchText] = useState('');
   return (
     <div>
-      <AppBar />
+      <AppBar searchText={searchText} setSearchText={setSearchText} />
       <div className="container mt-4">
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -23,7 +25,7 @@ const App: React.FC = () => {
           {/* Hide for now when the contact us form will be implemented then we can unhide this*/}
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/" element={<Home />} />
-          <Route path="/bestPracticesDocs" element={<BestPracticesDocs />} />
+          <Route path="/best_practices_docs"  element={<BestPracticesDocs searchText={searchText} />} />
         </Routes>
       </div>
       <Footer />
