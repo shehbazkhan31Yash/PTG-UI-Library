@@ -1,54 +1,52 @@
-import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
-
-
-import {SidenavComponent} from './sidenav.component';
-
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as SidenavStories from './sidenav.stories';
+import { SidenavComponent } from './sidenav.component';
 
 <Meta of={SidenavStories} />
 
+# 📌 Sidenav Component
 
+The `SidenavComponent` provides a responsive and collapsible side navigation menu. It adapts based on the screen size and allows navigation via menu items, including nested submenus.
 
- # Sidenav Component
+---
 
- ---
- Sidenav menu element turns the navigation bar on and off by hiding it behind the button or displaying it.
- 
- It appears when we click on the icon of three lines.
+## ✅ Import
 
- We can import the sidenav tag using the following importation : 
-
-```
-    import { SidenavComponent } from ' @ptg-ui/angular'
-```    
-
- Types of controls supported by button:
-
- - isMenuOpen
-
-
-## Quick Start
- 
-we can create a sidenav using the following HTML Tag: 
-
-
-```
-<ptg-ui-sidenav1 [isMenuOpen]="false"></ptg-ui-sidenav1>
+```ts
+import { SidenavComponent } from '@ptg-ui/angular';
 
 ```
 
+⚙️ Component Inputs
+```
+| Input          | Type      | Default | Description                                  |
+| -------------- | --------- | ------- | -------------------------------------------- |
+| `isMenuOpen`   | boolean   | false   | Determines if the sidenav is expanded or not |
+| `menuItems`    | object\[] | `[]`    | List of menu items to render                 |
+| `selectedPath` | string    | `''`    | Currently active/selected route path         |
 
- Following are some controls with their explanation :
+```
+🔁 Component Outputs
+```
 
- 1] isMenuOpen :
+| Output       | Description                       |
+| ------------ | --------------------------------- |
+| `selectMenu` | Emits selected menu item on click |
+```
 
- The isMenuOpen property sets or returns whether a sidenav menu items is open or close
- based on their boolean value.
+💡 Usage
+```
+<ptg-ui-sidenav1 
+  [isMenuOpen]="true" 
+  [menuItems]="menuList" 
+  (selectMenu)="onMenuSelect($event)">
+</ptg-ui-sidenav1>
+```
+🧪 Examples
 
- true - The sidenav menu items is open.
+▶️ Default (Collapsed)
+<Canvas of={SidenavStories.Primary} /> 
 
- false - Default. The sidenav menu items is close.
-
-<Canvas of={SidenavStories.IsMenuOpen} />
-
+📂 Expanded with Active Item
+<Canvas of={SidenavStories.ExpandedMenu} /> 
 

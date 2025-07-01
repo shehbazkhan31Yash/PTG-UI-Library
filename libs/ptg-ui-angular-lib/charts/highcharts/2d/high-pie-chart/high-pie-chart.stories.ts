@@ -23,3 +23,19 @@ export const Primary: Story = {
     data: PIE_CHART_3D.data,
   },
 };
+
+export const IsCreditEnabled: Story = {
+  args: {
+    colors: ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'],
+    data: PIE_CHART_3D.data,
+    isCreditEnabled: true
+  },
+};
+
+export const Colors: Story = {
+  args: {
+    colors: ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'],
+    data: PIE_CHART_3D.data,
+    isCreditEnabled: true
+  },
+};

@@ -1,12 +1,8 @@
-/**
- * @since March 2022
- * @author Aakash Patidar
- * @Component 3D Line Chart;
- * @description This module used for reusable 3D line chart
- */
-
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import Highcharts3d from 'highcharts/highcharts-3d';
+Highcharts3d(Highcharts);
+
 interface linebar3dData {
   name: string, data: number[]
 }
@@ -18,28 +14,23 @@ interface linebar3dData {
 })
 export class High3dLineChartComponent implements AfterViewInit {
   @Input() data: linebar3dData[] = [];
-  @Input() remainingOptions:any = {};
-  @Input() highcharts?:any;
-  @Input() title?:string = "";
-  @Input() categories?:any;
-  @Input() xTitle?:string = "";
-  @Input() yTitle?:string = "null";
-  @Input() id = 'chart-line-3d';
+  @Input() remainingOptions: any = {};
+  @Input() title = '';
+  @Input() categories: string[] = [];
+  @Input() xTitle = '';
+  @Input() yTitle = '';
   @Input() isCreditEnabled = false;
 
-  // We have used ngAfterViewInit becauce of chart dynamic Id
-  ngAfterViewInit(){
+  @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef;
+
+  ngAfterViewInit(): void {
     this.createChartLine();
   }
 
-  // Chart configuration 
   private createChartLine(): void {
-    Highcharts.chart(this.id, {
-      title:{
-        text:this.title
-      },
-      chart:{
-        type:'line',
+    Highcharts.chart(this.chartContainer.nativeElement, {
+      chart: {
+        type: 'line',
         options3d: {
           enabled: true,
           alpha: 15,
@@ -48,28 +39,22 @@ export class High3dLineChartComponent implements AfterViewInit {
           viewDistance: 50
         },
       },
+      title: { text: this.title },
+      xAxis: {
+        categories: this.categories,
+        title: { text: this.xTitle }
+      },
+      yAxis: {
+        title: { text: this.yTitle }
+      },
       plotOptions: {
-        column: {
-            depth: 5
-        }
-    },
-    credits: {
-      enabled: this.isCreditEnabled,
-    },
-    xAxis: {
-      categories: this.categories,
-      title:{
-        text:this.xTitle
-      }
-    },
-    yAxis:{
-      title:{
-        text:this.yTitle
-      }
-    },
-      series:this.data,
+        column: { depth: 5 }
+      },
+      credits: {
+        enabled: this.isCreditEnabled
+      },
+      series: this.data,
       ...this.remainingOptions
-    } as any);
+    });
   }
-
 }

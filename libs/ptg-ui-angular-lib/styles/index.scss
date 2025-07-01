@@ -12,8 +12,8 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 // // Ag-grid datatable
-// @import "../../../node_modules/ag-grid-community/dist/styles/ag-grid.css";
-// @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import '~ag-grid-community/styles/ag-grid.css';
+@import '~ag-grid-community/styles/ag-theme-alpine.css'; 
 
 // // Ngx datatable
 @import '../../../node_modules/@swimlane/ngx-datatable/index.css';

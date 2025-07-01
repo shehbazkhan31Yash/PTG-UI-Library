@@ -1,17 +1,16 @@
-/**
- * @since March 2022
- * @author Aakash Patidar
- * @Component Line Chart;
- * @description This module used for reusable line chart
- */
-
-import { AfterViewInit, Component, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 
-interface lineData2d  {
-  name: string,
-  data: number[]
+interface lineData2d {
+  name: string;
+  data: number[];
 }
 
 HighchartsMore(Highcharts);
@@ -19,21 +18,23 @@ HighchartsMore(Highcharts);
 @Component({
   selector: 'ptg-ui-high-line-chart',
   templateUrl: './high-line-chart.component.html',
-  styleUrls: ['./high-line-chart.component.scss']
+  styleUrls: ['./high-line-chart.component.scss'],
 })
 export class HighLineChartComponent implements AfterViewInit {
   @Input() data: lineData2d[] = [];
   @Input() categories: string[] = [];
-  @Input() id = 'line-chart';
   @Input() isCreditEnabled = false;
-  // We have used ngAfterViewInit becauce of chart dynamic Id
-  ngAfterViewInit(){
+
+  @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef;
+
+  ngAfterViewInit() {
     this.createChartLine();
   }
 
-  // Chart configuration 
   private createChartLine(): void {
-    Highcharts.chart(this.id, {
+    if (!this.chartContainer) return;
+
+    Highcharts.chart(this.chartContainer.nativeElement, {
       chart: {
         type: 'line',
       },
@@ -49,7 +50,7 @@ export class HighLineChartComponent implements AfterViewInit {
       yAxis: {
         title: {
           text: null,
-        }
+        },
       },
       xAxis: {
         categories: this.categories,
@@ -61,7 +62,7 @@ export class HighLineChartComponent implements AfterViewInit {
         shared: true,
         useHTML: true,
       },
-     series: this.data
+      series: this.data,
     } as any);
   }
 }

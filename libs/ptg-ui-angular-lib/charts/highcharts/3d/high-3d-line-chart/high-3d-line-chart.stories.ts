@@ -24,8 +24,7 @@ export const Primary: Story = {
     categories: LINE_CHART_2D.categories,
     title: 'LINE_CHART_3D',
     xTitle: 'Categories',
-    yTitle: 'Values',
-    id: 'chart-line-3d',
+    yTitle: 'Values'
   },
 };
 
@@ -36,8 +35,7 @@ export const Title: Story = {
     categories: LINE_CHART_2D.categories,
     title: 'LINE_CHART_3D',
     xTitle: 'Categories',
-    yTitle: 'Values',
-    id: 'chart-line-3d',
+    yTitle: 'Values'
   },
 };
 
@@ -48,8 +46,7 @@ export const XTitle: Story = {
     categories: LINE_CHART_2D.categories,
     title: 'LINE_CHART_3D',
     xTitle: 'Categories',
-    yTitle: 'Values',
-    id: 'chart-line-3d',
+    yTitle: 'Values'
   },
 };
 
@@ -60,19 +57,7 @@ export const YTitle: Story = {
     categories: LINE_CHART_2D.categories,
     title: 'LINE_CHART_3D',
     xTitle: 'Categories',
-    yTitle: 'Values',
-    id: 'chart-line-3d',
+    yTitle: 'Values'
   },
 };
 
-export const Chart: Story = {
-  args: {
-    data: LINE_CHART_2D.data,
-    remainingOptions: {},
-    categories: LINE_CHART_2D.categories,
-    title: 'LINE_CHART_3D',
-    xTitle: 'Categories',
-    yTitle: 'Values',
-    id: 'chart-line-3d',
-  },
-};

@@ -8,7 +8,7 @@
  * @description This module used for reusable D3 bar chart
  */
 
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 
 interface barData {
@@ -22,6 +22,7 @@ interface barData {
 })
 export class BarChartComponent implements OnChanges {
   // Basic inputs
+  @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef;
   @Input() data: barData[] = [];
   @Input() margin = 20;
   @Input() width: string | number | any = "0";
@@ -29,25 +30,25 @@ export class BarChartComponent implements OnChanges {
   @Input() start = 0;
   @Input() end = 0;
   @Input() id = "bar";
- // Mock data for 3d bar chart
- public BAR_CHART_3D = {
-  data: [
-    {
-      name: 'Year 1800',
-      data: [107, 120, 635, 203, 300, 203, 300]
-    }
-  ],
-  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'Canada', 'Uk']
-}
+  // Mock data for 3d bar chart
+  public BAR_CHART_3D = {
+    data: [
+      {
+        name: 'Year 1800',
+        data: [107, 120, 635, 203, 300, 203, 300]
+      }
+    ],
+    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'Canada', 'Uk']
+  }
 
 
 
   svg: any;
 
   ngOnChanges() {
-    d3.select('figure#' + this.id).selectAll('*').remove();
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
     this.svg = d3
-      .select('figure#' + this.id) //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
+      .select(this.chartContainer.nativeElement) //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
       .attr('width', parseInt(this.width, this.margin)) //Sets the attribute with the specified name to the specified value on the selected elements and returns this selection
       .attr('height', parseInt(this.height, this.margin))
@@ -56,7 +57,7 @@ export class BarChartComponent implements OnChanges {
       .append('g')
       .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
 
-      this.drawBars(this.data);
+    this.drawBars(this.data);
 
   }
 

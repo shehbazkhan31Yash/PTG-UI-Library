@@ -43,3 +43,12 @@ export const Subtitle: Story = {
     categories: LINE_BAR_DATA.categories,
   },
 };
+
+export const RemainingOptions: Story = {
+  args: {
+    title: LINE_BAR_DATA.title,
+    subtitle: LINE_BAR_DATA.subtitle,
+    remainingOptions: LINE_BAR_DATA.remainingOptions,
+    categories: LINE_BAR_DATA.categories,
+  },
+};

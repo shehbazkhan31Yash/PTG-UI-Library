@@ -1,61 +1,65 @@
-import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
-
+import { Meta, Canvas } from '@storybook/addon-docs';
 import HighLineChartComponent from './high-line-chart.component';
-
 import * as HighLineChartStories from './high-line-chart.stories';
 
 <Meta of={HighLineChartStories} />
- # HighLineChart Component
 
- ---
+# HighLineChart Component
 
-This chart is created using the Highcharts library. Highcharts provides a wide variety of charts.   
+---
 
-A line graph is a graphical representation of information that changes over a period of time.
+This component renders a 2D line chart using the [Highcharts](https://www.highcharts.com/) library.
 
-You can plot it by using several points linked by straight lines. It comprises two axes called the “x-axis” and the “y-axis“.
+A line chart is commonly used to show trends over time or categories using connected points.
+
+---
+
+## 📦 Import
+
+```ts
+import { HighLineChartComponent } from '@ptg-ui/angular';
 
 
-We can import the LineChart  using the following importation : 
 ```
-    import { HighLineChartComponent } from ' @ptg-ui/angular'
 
-```    
+Supported Inputs :
 
-Types of controls supported by High2DLinerChart:
+```
+| Input             | Type       | Description                                                         |
+| ----------------- | ---------- | ------------------------------------------------------------------- |
+| `data`            | `Array`    | Array of data series to be plotted on the chart. Required.          |
+| `categories`      | `string[]` | X-axis categories (labels for each point on the X-axis). Optional.  |
+| `isCreditEnabled` | `boolean`  | Whether to display the Highcharts credit label. Default is `false`. |
 
- - data
- - id
- - isCreditEnabled
-
-
- ## Quick Start
+```
+## Quick Start
  
  we can create a highLineChart using the following tag: 
 
 ```
+html
+
 <ptg-ui-high-line-chart
   [data]="data"
-  id="line-chart"
 ></ptg-ui-high-line-chart>
 
+
+Where lineChartData is an array like:
+ts
+[
+  {
+    name: 'Year 1800',
+    data: [7.0, 6.9, 9.5]
+  }
+]
+
 ```
+Stories Showcase :
 
-Following control is supported by Checkbox: 
-
-1] id : 
-
-The id attribute specifies a unique id for an chart . The value of the id attribute must be unique.
-
-The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
-
-
-<Canvas of={HighLineChartStories.Id} />
-
-2] isCreditEnabled:
-
-this property will enable / disable the High charts credits base on user input.
-
-by default the value is false.
-
+Default Line Chart
 <Canvas of={HighLineChartStories.Primary} />
+✅ Credit Label Enabled
+<Canvas of={HighLineChartStories.IsCreditEnabled} />
+📅 Custom Categories on X-axis
+<Canvas of={HighLineChartStories.Categories} /> 
+
