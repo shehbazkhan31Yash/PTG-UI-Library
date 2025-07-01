@@ -12,7 +12,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
   docLink,
   downloadLink,
 }) => {
-  const isInternalLink = viewLink?.startsWith('/bestPracticesDocs');
+  const isInternalLink = viewLink?.startsWith('/best_practices_docs');
   const getFileIcon = (title: any) => {
     const fileExtension = title.slice((title.lastIndexOf('.') >>> 0) + 1);
     switch (fileExtension) {

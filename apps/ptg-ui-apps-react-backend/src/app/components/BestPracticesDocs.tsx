@@ -3,7 +3,11 @@ import CardComponent from './CardComponent';
 import folder_image from '../../assets/images/Folder.jpg';
 import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentService';
 
-const BestPracticesDocs: React.FC = () => {
+type BestPracticesDocsProps = {
+  searchText: string;
+};
+
+const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({searchText}) => {
   const [data, setData] = React.useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
@@ -13,6 +17,12 @@ const BestPracticesDocs: React.FC = () => {
       setIsLoading(false);
     });
   }, []);
+
+
+  const filteredDocs = data.filter(item => {
+    const name = item.attributes.file.data[0]?.attributes.name || '';
+    return name.toLowerCase().includes(searchText.toLowerCase());
+  });
 
   return (
     <section id="projects" className="mt-5">
@@ -27,7 +37,7 @@ const BestPracticesDocs: React.FC = () => {
             please wait it's Loading...
           </button>
         )}
-        {data.map((item, index) => (
+        {filteredDocs.map((item, index) => (
           <React.Fragment
             key={item.attributes.file.data[0]?.attributes.name + '' + index}
           >

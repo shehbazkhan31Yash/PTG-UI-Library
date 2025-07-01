@@ -104,7 +104,7 @@ export const DashboardCardItems = [
     title: 'PTG Best Practices Documents',
     content: 'Portal to access best practices documents.',
     button: 'View',
-    viewLink: '/bestPracticesDocs',
+    viewLink: '/best_practices_docs',
   },
   {
     id: 12,

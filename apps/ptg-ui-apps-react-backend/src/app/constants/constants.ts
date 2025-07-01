@@ -22,7 +22,7 @@ export const tabs = [
 
   { label: 'Accelerators', to: '/projects' },
   { label: 'Technologies', to: '/technologies' },
-  { label: 'Documents', to: '/bestPracticesDocs' },
+  { label: 'Documents', to: '/best_practices_docs' },
   { label: 'Contact Us', to: '/teams' },
 ];
 
