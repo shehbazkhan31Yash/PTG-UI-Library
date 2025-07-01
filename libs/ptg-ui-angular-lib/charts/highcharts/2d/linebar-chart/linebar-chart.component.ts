@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -47,6 +47,6 @@ export class LinebarChartComponent implements OnChanges, AfterViewInit {
         crosshair: true
       }],
       ...this.remainingOptions
-    } as any);
+    });
   }
 }

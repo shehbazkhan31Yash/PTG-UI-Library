@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -63,6 +63,6 @@ export class StackedColumnChartComponent implements AfterViewInit {
         enabled: this.isCreditEnabled
       },
       ...this.remainingOptions
-    } as any);
+    });
   }
 }

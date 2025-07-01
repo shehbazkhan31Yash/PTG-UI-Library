@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import Highcharts3D from 'highcharts/highcharts-3d';
 Highcharts3D(Highcharts);
@@ -75,6 +75,6 @@ export class High3dPieChartComponent implements AfterViewInit {
         data: this.data
       }],
       ...this.remainingOptions
-    } as any);
+    });
   }
 }

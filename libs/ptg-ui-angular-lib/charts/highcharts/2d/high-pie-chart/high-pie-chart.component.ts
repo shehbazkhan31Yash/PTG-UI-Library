@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 interface pieData1 {
@@ -13,14 +13,14 @@ interface pieData1 {
   templateUrl: './high-pie-chart.component.html',
   styleUrls: ['./high-pie-chart.component.scss']
 })
-export class HighPieChartComponent implements  AfterViewInit {
+export class HighPieChartComponent implements AfterViewInit {
   @Input() data: pieData1[] | [string, number][] = [];
   @Input() colors: string[] = ['#242582', '#8D8741', '#659DBD', '#BC986A', '#FBEEC1'];
   @Input() isCreditEnabled = false;
 
   @ViewChild('chartContainer', { static: false }) chartContainer!: ElementRef;
 
- 
+
 
   ngAfterViewInit(): void {
     this.createChartPie();

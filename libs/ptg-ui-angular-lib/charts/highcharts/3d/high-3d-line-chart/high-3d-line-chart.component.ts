@@ -55,6 +55,6 @@ export class High3dLineChartComponent implements AfterViewInit {
       },
       series: this.data,
       ...this.remainingOptions
-    } as any);
+    });
   }
 }

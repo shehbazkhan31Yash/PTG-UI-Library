@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import Highcharts3d from 'highcharts/highcharts-3d';
 Highcharts3d(Highcharts);
@@ -19,7 +19,7 @@ export class High3dBarChartComponent implements AfterViewInit {
 
   @ViewChild('chartContainer', { static: true }) chartContainer!: ElementRef;
 
- 
+
   ngAfterViewInit(): void {
     this.createChartColumn();
   }
@@ -52,6 +52,6 @@ export class High3dBarChartComponent implements AfterViewInit {
       },
       series: this.data,
       ...this.remainingOptions
-    } as any);
+    });
   }
 }
