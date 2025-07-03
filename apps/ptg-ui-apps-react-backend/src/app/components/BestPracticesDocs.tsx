@@ -30,7 +30,7 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({searchText}) => {
       .flatMap(item => item.attributes.file.data)
       .filter(
         (file: any) =>
-          file && file.attributes.name.toLowerCase().includes(folder.toLowerCase())
+          file?.attributes?.name?.toLowerCase().includes(folder.toLowerCase())
       );
   };
 
@@ -49,12 +49,22 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({searchText}) => {
         )}
         {!isLoading && (
         <div className="mb-3" style={{ fontSize: 18 }}>
-          <span
-            style={{ color: "#007bff", cursor: selectedFolder ? "pointer" : "default" }}
+          <button
+            type="button"
+            className="breadcrumb-home"
+            style={{
+              color: "#007bff",
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: selectedFolder ? "pointer" : "default",
+              fontSize: 18,
+            }}
+            disabled={!selectedFolder}
             onClick={() => selectedFolder && setSelectedFolder(null)}
           >
             Home
-          </span>
+          </button>
           {selectedFolder && (
             <>
               <span style={{ color: "#333" }}>{" / "}</span>
@@ -71,17 +81,21 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({searchText}) => {
             key={item}
             className="col-md-4 d-flex justify-content-center"
             style={{ minHeight: 220 }}
-            onClick={() => setSelectedFolder(item)}
-            role="button"
-            tabIndex={0}
           >
-            <CardComponent
-              keyName={item}
-              title={item}
-              content=""
-              imageUrl={folder_image}
-              viewLink=""
-            />
+            <button
+              type="button"
+              onClick={() => setSelectedFolder(item)}
+              className="w-100 h-100 p-0 border-0 bg-transparent"
+              style={{ textAlign: "left", minHeight: 220, cursor: "pointer" }}
+            >
+              <CardComponent
+                keyName={item}
+                title={item}
+                content=""
+                imageUrl={folder_image}
+                viewLink=""
+              />
+            </button>
           </div>
         ))}
 

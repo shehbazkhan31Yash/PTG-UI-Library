@@ -34,12 +34,17 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
   };
   return (
     <div className="col-md-4" key={keyName}>
-      <div
+      <button
+        type="button"
         className="card text-dark mb-4"
         style={{
           border: '2px solid black',
           transition: 'transform 0.3s, background-color 0.3s',
           cursor: onClick ? 'pointer' : 'default',
+          background: 'none',
+          width: '100%',
+          textAlign: 'left',
+          padding: 0,
         }}
         onClick={onClick}
       >
@@ -110,7 +115,7 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
             </a>
           )}
         </div>
-      </div>
+      </button>
     </div>
   );
 };
