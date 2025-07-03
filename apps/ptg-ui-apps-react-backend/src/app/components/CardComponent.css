@@ -11,3 +11,7 @@
 .projectClass .card-body a:first-of-type:focus {
   color: #fff;
 }
+
+.card.text-dark.mb-4 {
+  min-width: 300px;
+}

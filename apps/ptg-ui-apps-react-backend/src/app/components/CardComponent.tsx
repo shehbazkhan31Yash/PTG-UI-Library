@@ -3,7 +3,7 @@ import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
 import { Link } from 'react-router-dom';
 
-const CardComponent: React.FC<CardComponentProps> = ({
+const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick?: () => void }> = ({
   keyName,
   title,
   content,
@@ -11,6 +11,8 @@ const CardComponent: React.FC<CardComponentProps> = ({
   viewLink,
   docLink,
   downloadLink,
+  isFolder = false,
+  onClick,
 }) => {
   const isInternalLink = viewLink?.startsWith('/best_practices_docs');
   const getFileIcon = (title: any) => {
@@ -32,14 +34,19 @@ const CardComponent: React.FC<CardComponentProps> = ({
   };
   return (
     <div className="col-md-4" key={keyName}>
-      <div
+      <button
+        type="button"
         className="card text-dark mb-4"
         style={{
-          // Remove background here to allow CSS hover to work
           border: '2px solid black',
           transition: 'transform 0.3s, background-color 0.3s',
-          cursor: 'pointer',
+          cursor: onClick ? 'pointer' : 'default',
+          background: 'none',
+          width: '100%',
+          textAlign: 'left',
+          padding: 0,
         }}
+        onClick={onClick}
       >
         <div className="text-center py-3">
           {imageUrl === '' ? (
@@ -64,12 +71,12 @@ const CardComponent: React.FC<CardComponentProps> = ({
             />
           )}
         </div>
-        {!downloadLink ? (
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{content}</p>
-
-            {isInternalLink ? (
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{content}</p>
+          {/* Show View button only if not a folder and no downloadLink */}
+          {!isFolder && !downloadLink && viewLink && (
+            isInternalLink ? (
               <Link to={viewLink!} className="btn btn-primary">
                 View
               </Link>
@@ -82,23 +89,10 @@ const CardComponent: React.FC<CardComponentProps> = ({
               >
                 View
               </a>
-            )}
-            {docLink && (
-              <a
-                href={docLink}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-light ms-2"
-              >
-                Documentation
-              </a>
-            )}
-          </div>
-        ) : (
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{content}</p>
-
+            )
+          )}
+          {/* Show Download button if downloadLink is present */}
+          {downloadLink && (
             <a
               href={downloadLink}
               target="_blank"
@@ -108,9 +102,20 @@ const CardComponent: React.FC<CardComponentProps> = ({
             >
               Download
             </a>
-          </div>
-        )}
-      </div>
+          )}
+          {/* Show Documentation button if docLink is present */}
+          {docLink && (
+            <a
+              href={docLink}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-light ms-2"
+            >
+              Documentation
+            </a>
+          )}
+        </div>
+      </button>
     </div>
   );
 };
