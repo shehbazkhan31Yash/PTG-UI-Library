@@ -26,12 +26,10 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({searchText}) => {
   }, []);
 
   const getFilteredFiles = (folder: string) => {
-    return data
-      .flatMap(item => item.attributes.file.data)
-      .filter(
-        (file: any) =>
-          file?.attributes?.name?.toLowerCase().includes(folder.toLowerCase())
-      );
+    const folderItem = data.find(
+      item => item.attributes.folder_title?.trim().toLowerCase() === folder.trim().toLowerCase()
+    );
+    return folderItem?.attributes.file?.data ?? [];
   };
 
   return (
