@@ -54,7 +54,9 @@
         "browserTarget": "ptg-ui-angular-lib:build-storybook",
         "compodoc": false,
         "styles": [
-          "libs/ptg-ui-angular-lib/styles/index.scss"
+          "libs/ptg-ui-angular-lib/styles/index.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
         ]
       },
       "configurations": {
