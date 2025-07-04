@@ -28,6 +28,7 @@ module.exports = {
       config = await rootMain.webpackFinal(config, { configType });
     }
 
+    // Add MDX loader
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [
@@ -38,16 +39,8 @@ module.exports = {
           },
         },
       ],
-    },{
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-       include: /libs\/ptg-ui-angular-lib|src|node_modules/,
-    },{
-     test: /\.css$/,
-    use: ['style-loader', 'css-loader'],
-     include: /node_modules/,
-  });
- config.resolve.extensions.push('.ts', '.tsx', '.html', '.scss' ,'.css');
+    });
+
     return config;
   },
 };
