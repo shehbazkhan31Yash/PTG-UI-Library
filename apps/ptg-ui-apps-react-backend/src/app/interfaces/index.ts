@@ -6,4 +6,5 @@ export interface CardComponentProps {
   viewLink: string;
   docLink?: string;
   downloadLink?: string;
+  setIcon?: boolean;
 }
