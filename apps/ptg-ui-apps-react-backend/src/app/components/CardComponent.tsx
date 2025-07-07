@@ -35,6 +35,43 @@ const CardComponent: React.FC<
         return 'bi-file-earmark-pdf';
     }
   };
+  const renderCardImage = () => {
+    if (imageUrl === '' && setIcon === true) {
+      return (
+        <i
+          className={'border-bottom bi-folder-fill'}
+          style={{
+            fontSize: '6.5rem',
+            color: '#ffcf01',
+          }}
+        ></i>
+      );
+    } else if (imageUrl === '') {
+      return (
+        <i
+          className={`border-bottom bi ${getFileIcon(content)}`}
+          style={{
+            fontSize: '6.5rem',
+          }}
+        ></i>
+      );
+    } else {
+      return (
+        <img
+          src={imageUrl}
+          className="card-img-top"
+          alt={title}
+          style={{
+            borderTopLeftRadius: '15px',
+            borderTopRightRadius: '15px',
+            height: '160px',
+            width: '200px',
+          }}
+        />
+      );
+    }
+  };
+
   return (
     <div className="col-md-4" key={keyName}>
       <button
@@ -55,34 +92,7 @@ const CardComponent: React.FC<
           className="text-center py-3"
           style={{ backgroundColor: '#f6f6f6' }}
         >
-          {imageUrl === '' && setIcon === true ? (
-            <i
-              className={'border-bottom bi-folder-fill'}
-              style={{
-                fontSize: '6.5rem',
-                color: '#ffcf01',
-              }}
-            ></i>
-          ) : imageUrl === '' ? (
-            <i
-              className={`border-bottom bi ${getFileIcon(content)}`}
-              style={{
-                fontSize: '6.5rem',
-              }}
-            ></i>
-          ) : (
-            <img
-              src={imageUrl}
-              className="card-img-top"
-              alt={title}
-              style={{
-                borderTopLeftRadius: '15px',
-                borderTopRightRadius: '15px',
-                height: '160px',
-                width: '200px',
-              }}
-            />
-          )}
+          {renderCardImage()}
         </div>
         <div className="card-body pt-0 " style={{ backgroundColor: '#f6f6f6' }}>
           <h5 className="card-title">{title}</h5>
