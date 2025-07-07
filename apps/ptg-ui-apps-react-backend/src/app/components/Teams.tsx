@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { contactsTeams } from '@ptg-ui-apps-react-backend/constants/constants';
 const Teams: React.FC = () => {
   return (
-    <section id="teams" className="text-light mt-2 p-4 pt-2">
+    <section id="teams" className="text-light">
       <Row>
         {contactsTeams.map((team) => (
           <Col key={team.name} className="text-center teams">
