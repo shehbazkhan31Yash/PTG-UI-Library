@@ -73,7 +73,7 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
         </div>
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
-          <p className="card-text">{content}</p>
+          <p className="card-text" style={{ marginLeft: '10px' }}>{content}</p>
           {/* Show View button only if not a folder and no downloadLink */}
           {!isFolder && !downloadLink && viewLink && (
             isInternalLink ? (
@@ -93,16 +93,48 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
           )}
           {/* Show Download button if downloadLink is present */}
           {downloadLink && (
+        <>
+          {/* View in browser for PDF */}
+          {downloadLink.toLowerCase().endsWith('.pdf') && (
             <a
               href={downloadLink}
               target="_blank"
               rel="noreferrer"
               className="btn btn-light ms-2"
-              download
+              style={{ marginRight: '8px' }}
             >
-              Download
+              View PDF
             </a>
           )}
+          {/* View in browser for Office files */}
+          {(downloadLink.toLowerCase().endsWith('.doc') ||
+            downloadLink.toLowerCase().endsWith('.docx') ||
+            downloadLink.toLowerCase().endsWith('.xls') ||
+            downloadLink.toLowerCase().endsWith('.xlsx') ||
+            downloadLink.toLowerCase().endsWith('.ppt') ||
+            downloadLink.toLowerCase().endsWith('.pptx')) && (
+            <a
+              href={`https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(downloadLink)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-light ms-2"
+              style={{ marginRight: '8px' }}
+            >
+              View Online
+            </a>
+          )}
+          {/* Download button */}
+          <a
+            href={downloadLink}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary"
+            download
+          >
+            Download
+          </a>
+        </>
+        )}
           {/* Show Documentation button if docLink is present */}
           {docLink && (
             <a
