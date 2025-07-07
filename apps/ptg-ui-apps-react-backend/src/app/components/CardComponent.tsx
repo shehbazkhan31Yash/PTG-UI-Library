@@ -3,7 +3,9 @@ import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
 import { Link } from 'react-router-dom';
 
-const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick?: () => void }> = ({
+const CardComponent: React.FC<
+  CardComponentProps & { isFolder?: boolean; onClick?: () => void }
+> = ({
   keyName,
   title,
   content,
@@ -13,23 +15,24 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
   downloadLink,
   isFolder = false,
   onClick,
+  setIcon,
 }) => {
   const isInternalLink = viewLink?.startsWith('/best_practices_docs');
-  const getFileIcon = (title: any) => {
-    const fileExtension = title.slice((title.lastIndexOf('.') >>> 0) + 1);
+  const getFileIcon = (content: any) => {
+    const fileExtension = content.slice((content.lastIndexOf('.') >>> 0) + 1);
     switch (fileExtension) {
       case 'pptx':
-        return 'bi-file-earmark-ppt-fill';
+        return 'bi-file-earmark-ppt';
       case 'pdf':
-        return 'bi-file-earmark-pdf-fill';
+        return 'bi-file-earmark-pdf';
       case 'docx':
-        return 'bi-file-earmark-word-fill';
+        return 'bi-file-earmark-word';
       case 'xlsx':
-        return 'bi-file-earmark-excel-fill';
+        return 'bi-file-earmark-excel';
       case 'txt':
-        return 'bi-file-earmark-text-fill';
+        return 'bi-file-earmark-text';
       default:
-        return 'bi-file-earmark-pdf-fill';
+        return 'bi-file-earmark-pdf';
     }
   };
   return (
@@ -38,7 +41,7 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
         type="button"
         className="card text-dark mb-4"
         style={{
-          border: '2px solid black',
+          border: '2px solid #eee',
           transition: 'transform 0.3s, background-color 0.3s',
           cursor: onClick ? 'pointer' : 'default',
           background: 'none',
@@ -48,13 +51,23 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
         }}
         onClick={onClick}
       >
-        <div className="text-center py-3">
-          {imageUrl === '' ? (
+        <div
+          className="text-center py-3"
+          style={{ backgroundColor: '#f6f6f6' }}
+        >
+          {imageUrl === '' && setIcon === true ? (
             <i
-              className={`bi ${getFileIcon(title)}`}
+              className={'border-bottom bi-folder-fill'}
               style={{
-                fontSize: '4.5rem',
-                color: '#a1a103',
+                fontSize: '6.5rem',
+                color: '#ffcf01',
+              }}
+            ></i>
+          ) : imageUrl === '' ? (
+            <i
+              className={`border-bottom bi ${getFileIcon(content)}`}
+              style={{
+                fontSize: '6.5rem',
               }}
             ></i>
           ) : (
@@ -71,12 +84,16 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
             />
           )}
         </div>
-        <div className="card-body">
+        <div className="card-body pt-0 " style={{ backgroundColor: '#f6f6f6' }}>
           <h5 className="card-title">{title}</h5>
-          <p className="card-text" style={{ marginLeft: '10px' }}>{content}</p>
+          <p className="card-text" style={{ marginLeft: '10px' }}>
+            {content}
+          </p>
           {/* Show View button only if not a folder and no downloadLink */}
-          {!isFolder && !downloadLink && viewLink && (
-            isInternalLink ? (
+          {!isFolder &&
+            !downloadLink &&
+            viewLink &&
+            (isInternalLink ? (
               <Link to={viewLink!} className="btn btn-primary">
                 View
               </Link>
@@ -89,52 +106,53 @@ const CardComponent: React.FC<CardComponentProps & { isFolder?: boolean; onClick
               >
                 View
               </a>
-            )
-          )}
+            ))}
           {/* Show Download button if downloadLink is present */}
           {downloadLink && (
-        <>
-          {/* View in browser for PDF */}
-          {downloadLink.toLowerCase().endsWith('.pdf') && (
-            <a
-              href={downloadLink}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-light ms-2"
-              style={{ marginRight: '8px' }}
-            >
-              View PDF
-            </a>
+            <>
+              {/* View in browser for PDF */}
+              {downloadLink.toLowerCase().endsWith('.pdf') && (
+                <a
+                  href={downloadLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-light ms-2"
+                  style={{ marginRight: '8px' }}
+                >
+                  View PDF
+                </a>
+              )}
+              {/* View in browser for Office files */}
+              {(downloadLink.toLowerCase().endsWith('.doc') ||
+                downloadLink.toLowerCase().endsWith('.docx') ||
+                downloadLink.toLowerCase().endsWith('.xls') ||
+                downloadLink.toLowerCase().endsWith('.xlsx') ||
+                downloadLink.toLowerCase().endsWith('.ppt') ||
+                downloadLink.toLowerCase().endsWith('.pptx')) && (
+                <a
+                  href={`https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(
+                    downloadLink
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-light ms-2"
+                  style={{ marginRight: '8px' }}
+                >
+                  View Online
+                </a>
+              )}
+              {/* Download button */}
+              <a
+                href={downloadLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary"
+                download
+              >
+                Download
+              </a>
+            </>
           )}
-          {/* View in browser for Office files */}
-          {(downloadLink.toLowerCase().endsWith('.doc') ||
-            downloadLink.toLowerCase().endsWith('.docx') ||
-            downloadLink.toLowerCase().endsWith('.xls') ||
-            downloadLink.toLowerCase().endsWith('.xlsx') ||
-            downloadLink.toLowerCase().endsWith('.ppt') ||
-            downloadLink.toLowerCase().endsWith('.pptx')) && (
-            <a
-              href={`https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(downloadLink)}`}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-light ms-2"
-              style={{ marginRight: '8px' }}
-            >
-              View Online
-            </a>
-          )}
-          {/* Download button */}
-          <a
-            href={downloadLink}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary"
-            download
-          >
-            Download
-          </a>
-        </>
-        )}
           {/* Show Documentation button if docLink is present */}
           {docLink && (
             <a
