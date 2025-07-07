@@ -5,7 +5,7 @@ import { DashboardCardItems } from '@ptg-ui-apps-react-backend/utils/DashboardCa
 const Projects: React.FC = () => {
   const items = DashboardCardItems;
   return (
-    <section id="projects" className="mt-5 projectClass">
+    <section id="projects" className="projectClass">
       <div className="row">
         {items.map((item, index) => (
           <CardComponent

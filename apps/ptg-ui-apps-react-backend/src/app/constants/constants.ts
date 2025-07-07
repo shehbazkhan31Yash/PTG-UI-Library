@@ -297,7 +297,7 @@ export const bestPracticesDocs = [
           {
             id: 3,
             attributes: {
-              name: 'PTG-UI-Generator.pptx',
+              name: 'PTG-UI-Generator.pdf',
               alternativeText: null,
               caption: null,
               width: null,
@@ -307,10 +307,7 @@ export const bestPracticesDocs = [
               ext: '.pptx',
               mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
               size: 781.26,
-              url:
-                process.env['NODE_ENV'] === 'production'
-                  ? `${environment.docUrl}/uploads/PTG-UI-Generator.pptx`
-                  : `${environment.localUrl}/uploads/PTG-UI-Generator.pptx`,
+              url:"https://yashuiappstorage.blob.core.windows.net/yashuiappimages/uploads/react_beginners_handbook_481e7b876f.pdf",
               previewUrl: null,
               provider: 'local',
               provider_metadata: null,
@@ -336,7 +333,7 @@ export const bestPracticesDocs = [
           {
             id: 13,
             attributes: {
-              name: 'Security Guidelines-UI.pptx',
+              name: 'Security Guidelines-UI.xlsx',
               alternativeText: null,
               caption: null,
               width: null,
@@ -346,10 +343,7 @@ export const bestPracticesDocs = [
               ext: '.pptx',
               mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
               size: 2037.92,
-              url:
-                process.env['NODE_ENV'] === 'production'
-                  ? `${environment.docUrl}/uploads/Security Guidelines-UI.pptx`
-                  : `${environment.localUrl}/uploads/Security Guidelines-UI.pptx`,
+              url:"https://yashuiappstorage.blob.core.windows.net/yashuiappimages/uploads/Front_End_Best_Practices_Using_React_JS_f3635f0bc6.xlsx",
               previewUrl: null,
               provider: 'local',
               provider_metadata: null,
