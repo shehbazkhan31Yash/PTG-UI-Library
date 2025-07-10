@@ -78,23 +78,28 @@ const CardComponent: React.FC<
         type="button"
         className="card text-dark mb-4"
         style={{
-          border: '2px solid #eee',
+          border: 'none',
           transition: 'transform 0.3s, background-color 0.3s',
           cursor: onClick ? 'pointer' : 'default',
-          background: 'none',
+          background:'none',
           width: '100%',
           textAlign: 'left',
           padding: 0,
+          borderRadius: '15px',        
+		      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
+
+
+          
         }}
         onClick={onClick}
       >
         <div
           className="text-center py-3"
-          style={{ backgroundColor: '#f6f6f6' }}
+          style={{ background: 'none', borderRadius: '15px'}}
         >
           {renderCardImage()}
         </div>
-        <div className="card-body pt-0 " style={{ backgroundColor: '#f6f6f6' }}>
+        <div className="card-body pt-0 " style={{ background: 'none', borderRadius: '15px'}}>
           <h5 className="card-title">{title}</h5>
           <p className="card-text" style={{ marginLeft: '10px' }}>
             {content}
@@ -105,6 +110,7 @@ const CardComponent: React.FC<
             viewLink &&
             (isInternalLink ? (
               <Link to={viewLink!} className="btn btn-primary">
+                <i className="bi bi-eye me-2"></i>
                 View
               </Link>
             ) : (
@@ -112,9 +118,11 @@ const CardComponent: React.FC<
                 href={viewLink}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-primary"
+                className="btn btn-primary "
               >
+                <i className="bi bi-eye me-2"></i>
                 View
+                
               </a>
             ))}
           {/* Show Download button if downloadLink is present */}
@@ -157,6 +165,7 @@ const CardComponent: React.FC<
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary"
+                style={{background: 'none'}}
                 download
               >
                 Download
@@ -170,11 +179,15 @@ const CardComponent: React.FC<
               target="_blank"
               rel="noreferrer"
               className="btn btn-light ms-2"
+              style={{ border: '1px solid #0d6efd', color: '#0d6efd', background: 'none' }}
             >
+              <i className="bi bi-file-earmark-text me-2"></i>
               Documentation
+              
             </a>
           )}
         </div>
+        <i className="fa-solid fa-arrow-rotate-right"></i>
       </button>
     </div>
   );

@@ -63,7 +63,7 @@ const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
               id="searchInputDocument"
               type="text"
               placeholder="Search for a document"
-              className="form-control w-200 m-4"
+              className="form-control w-200 m-1"
               aria-label="Search"
             />
             <button
