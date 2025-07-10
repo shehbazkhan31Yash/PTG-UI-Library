@@ -21,7 +21,7 @@ const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
     }
   }, [navigate]);
   return (
-    <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-0" >
       <div className="container-fluid d-flex align-items-center gap-4">
         <div className="navbar-brand">
           <img

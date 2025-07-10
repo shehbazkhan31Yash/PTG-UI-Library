@@ -13,5 +13,9 @@
 }
 
 .card.text-dark.mb-4 {
-  min-width: 300px;
+  min-width: 325px;
+}
+
+.card .btn-light {
+  background: #d3d4d5;
 }
