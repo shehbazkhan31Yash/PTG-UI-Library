@@ -96,3 +96,30 @@ footer {
   background: white;
   z-index: 999;
 }
+
+.search-dropdown-list {
+  min-width: 220px;
+  margin-top: 2px;
+}
+
+.search-dropdown-item {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.search-dropdown-item:hover {
+  background: #f6f6f6;
+}
+
+.dropdown-action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.dropdown-action-buttons a {
+  transition: background 0.1s, color 0.1s;
+}
+
+.dropdown-action-buttons a:active {
+  background: #e0e0e0;
+}

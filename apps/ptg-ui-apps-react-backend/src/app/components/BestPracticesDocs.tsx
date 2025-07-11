@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CardComponent from './CardComponent';
-import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentService';
 
 type BestPracticesDocsProps = {
   searchText: string;
+  data: any[];
+  isLoading: boolean;
 };
 
 const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
   searchText,
+  data,
+  isLoading,
 }) => {
-  const [data, setData] = React.useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
 
   const folderTitles = React.useMemo(() => {
@@ -19,14 +20,6 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
       .filter(Boolean);
     return Array.from(new Set(titles));
   }, [data]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchDataFromStrapi('best-practice-documents?populate=*').then((data) => {
-      setData(data.data);
-      setIsLoading(false);
-    });
-  }, []);
 
   const getFilteredFiles = (folder: string) => {
     const folderItem = data.find(
@@ -38,7 +31,7 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
   };
 
   return (
-    <section id="projects" className="mt-5">
+    <section id="projects" className="">
       <div className="row">
         {isLoading && (
           <button className="btn btn-primary" type="button" disabled>
