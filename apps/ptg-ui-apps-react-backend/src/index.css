@@ -252,10 +252,7 @@ footer a {
   /* Slightly enlarge the logo on hover */
 }
 
-.carousel-caption {
-  border-radius: 5px;
-  /* Rounded corners for the caption */
-}
+
 
 /* CarouselImageContainer.css */
 .carousel-image-container {

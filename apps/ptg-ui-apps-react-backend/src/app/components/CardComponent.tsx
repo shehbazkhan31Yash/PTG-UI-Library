@@ -54,7 +54,7 @@ const CardComponent: React.FC<
           alt={title}
           style={{
             height: '100px',
-            width: '100px',
+            width: '75px',
           }}
         />
       );

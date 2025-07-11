@@ -1,80 +1,15 @@
 import React, { useState } from 'react';
-import { Col, Row, Image, Container, Spinner } from 'react-bootstrap';
+import { Col, Row, Image, Container } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import ClientCarousel from './CarouselImageContainer';
 import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
+import ImageWithLoader from './ImageWithLoader';
 
 const Home: React.FC = () => {
   const [imageLoading, setImageLoading] = useState({
     vision: true,
     mission: true,
   });
-
-  const handleImageLoad = (imageKey: 'vision' | 'mission') => {
-    setImageLoading((prev) => ({
-      ...prev,
-      [imageKey]: false,
-    }));
-  };
-
-  const handleImageError = (imageKey: 'vision' | 'mission') => {
-    setImageLoading((prev) => ({
-      ...prev,
-      [imageKey]: false,
-    }));
-  };
-
-  const ImageWithLoader: React.FC<{
-    src: string;
-    alt: string;
-    imageKey: 'vision' | 'mission';
-    className?: string;
-    description: string;
-  }> = ({ src, alt, imageKey, className = '', description }) => (
-    <div
-      className="position-relative card-hover-group"
-      style={{ display: 'inline-block' }}
-    >
-      {/* {imageLoading[imageKey] && (
-        <div
-          className="position-absolute top-50 start-50 translate-middle"
-          style={{ zIndex: 2 }}
-        >
-          <Spinner animation="border" role="status" variant="primary">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      )} */}
-      <Image
-        src={src}
-        fluid
-        alt={alt}
-        style={{ background: 'none' }}
-        className={`${className}`}
-        // onLoad={() => handleImageLoad(imageKey)}
-        // onError={() => handleImageError(imageKey)}
-        // style={{
-        //   transition: 'opacity 0.3s ease-in-out',
-        //   minHeight: '200px',
-        // }}
-      />
-      <div
-        className="position-absolute hoverContainer"
-        style={{
-          top: 10,
-          left: 10,
-          zIndex: 2,
-          color: '#222',
-          background: 'rgba(255,255,255,0)',
-          padding: '1rem',
-          maxWidth: '90%',
-        }}
-      >
-        <h2 className="pt-3 pb-2 titleCard">{imageKey}</h2>
-        <p className="lead about-text text-dark textCard">{description}</p>
-      </div>
-    </div>
-  );
 
   return (
     <Container fluid className="text-dark p-5">
