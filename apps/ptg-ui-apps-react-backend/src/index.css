@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   div {
     background: white;
   }
@@ -213,7 +214,7 @@ footer a {
   background: rgba(31, 41, 55, 0.75);
 }
 
-.list-group-flush > .list-group-item {
+.list-group-flush>.list-group-item {
   color: #fbbf24;
   background-color: unset;
   border: none;
@@ -235,37 +236,129 @@ footer a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  /* Full viewport height */
 }
+
 .client-logo {
-  max-height: 150px; /* Adjust the height as needed */
-  transition: transform 0.3s; /* Smooth transition for hover effect */
+  max-height: 150px;
+  /* Adjust the height as needed */
+  transition: transform 0.3s;
+  /* Smooth transition for hover effect */
 }
+
 .client-logo:hover {
-  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+  transform: scale(1.05);
+  /* Slightly enlarge the logo on hover */
 }
-.carousel-caption {
-  border-radius: 5px; /* Rounded corners for the caption */
-}
+
+
+
 /* CarouselImageContainer.css */
 .carousel-image-container {
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  height: 200px; /* Set a fixed height for the container */
-  overflow: hidden; /* Hide overflow to maintain circular shape */
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  height: 200px;
+  /* Set a fixed height for the container */
+  overflow: hidden;
+  /* Hide overflow to maintain circular shape */
 }
+
 .circular-image {
-  width: 50%; /* Make the image responsive */
-  height: 100%; /* Maintain aspect ratio */
-  object-fit: fill; /* Ensure the image covers the container */
+  width: 50%;
+  /* Make the image responsive */
+  height: 100%;
+  /* Maintain aspect ratio */
+  object-fit: fill;
+  /* Ensure the image covers the container */
 }
+
 .card-img-top {
   border-radius: 30% !important;
 }
+
 .teams .card-img-top {
   border-radius: 50% !important;
 }
+
 .teams .card {
   border: 2px solid black;
+}
+
+
+.titleCard {
+  position: absolute;
+  width: 98%;
+  left: 3px;
+  top: 124px;
+  padding: 10px;
+  font-size: 40px !important;
+  font-weight: 600 !important;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 1;
+  transition: top .5s ease;
+  color: #fff !important;
+}
+
+.textCard {
+  color: #fff !important;
+  position: relative;
+  font-size: 1rem;
+  width: 98%;
+  left: 0;
+  top: 40px;
+  text-align: left;
+  opacity: 0;
+  transition: opacity .35s ease;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.card-hover-group img {
+  min-height: 360px;
+}
+
+.card-hover-group:hover .titleCard {
+  top: 0 !important;
+  position: relative !important;
+  padding: 10px;
+  line-height: normal;
+}
+
+.card-hover-group:hover .textCard {
+  opacity: 1;
+  color: #fff !important;
+  display: block;
+}
+
+.card-hover-group:hover .hoverContainer {
+  top: 0 !important;
+  left: 0 !important;
+  background: rgba(40, 127, 221, .8) !important;
+  max-width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel,
+.carousel-inner {
+  background-color: #22223b;
+}
+
+.carousel-caption {
+  background: rgba(40, 127, 221, 0.8);
+  color: #fff;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #ffcf01;
+}
+
+.carousel-indicators .active {
+  background-color: red;
 }

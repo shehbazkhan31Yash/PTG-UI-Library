@@ -24,6 +24,7 @@
   position: sticky;
   top: 0;
 }
+
 .navbar-form {
   box-shadow: none;
   background: none;
@@ -65,27 +66,37 @@
 }
 
 .w-200 {
-  width: 200px; /* Adjust width as needed */
+  width: 200px;
+  /* Adjust width as needed */
 }
+
 /* Hover effect for the search icon */
 .search-icon {
-  transition: transform 0.2s, color 0.2s; /* Animation for smooth transition */
+  transition: transform 0.2s, color 0.2s;
+  /* Animation for smooth transition */
 }
+
 .search-icon:hover {
-  transform: scale(1.2); /* Scale the icon */
-  color: #007bff; /* Change color on hover */
+  transform: scale(1.2);
+  /* Scale the icon */
+  color: #007bff;
+  /* Change color on hover */
   background: white;
 }
+
 input[type='text']::placeholder {
-  font-family: inherit; /* Inherit the font from the input */
+  font-family: inherit;
+  /* Inherit the font from the input */
   font-style: normal;
 }
+
 footer {
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 999;
 }
+
 .search-dropdown-list {
   min-width: 220px;
   margin-top: 2px;

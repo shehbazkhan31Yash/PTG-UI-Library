@@ -43,12 +43,12 @@ const AppBar: React.FC<AppBarProps> = ({
     }
   }, [navigate]);
   return (
-    <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-0" >
-      <div className="container-fluid d-flex align-items-center gap-4">
+    <header className="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-0">
+      <div className="container d-flex align-items-center gap-4">
         <div className="navbar-brand">
           <img
             src={logoImage}
-            width="92"
+            width="66"
             height="auto"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
@@ -84,7 +84,7 @@ const AppBar: React.FC<AppBarProps> = ({
           >
             <input
               value={searchText}
-              onChange={e => setSearchText(e.target.value)}
+              onChange={(e) => setSearchText(e.target.value)}
               id="searchInputDocument"
               type="text"
               placeholder="Search for a document"
@@ -118,38 +118,49 @@ const AppBar: React.FC<AppBarProps> = ({
                   padding: 0,
                 }}
               >
-                {filteredFiles.map(item => (
-                    <button
-                      key={item.file.id}
-                      type="button"
-                      className="search-dropdown-item"
-                      onMouseEnter={() => setHoveredId(item.file.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                      title={item.file.attributes.name}
+                {filteredFiles.map((item) => (
+                  <button
+                    key={item.file.id}
+                    type="button"
+                    className="search-dropdown-item"
+                    onMouseEnter={() => setHoveredId(item.file.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                    title={item.file.attributes.name}
+                    style={{
+                      fontSize: 16,
+                      padding: '8px 18px',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      position: 'relative',
+                      background: 'none',
+                      border: 'none',
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <span
                       style={{
-                        fontSize: 16,
-                        padding: '8px 18px',
-                        whiteSpace: 'nowrap',
+                        maxWidth: 220,
+                        display: 'inline-block',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        position: 'relative',
-                        background: 'none',
-                        border: 'none',
-                        textAlign: 'left',
-                        cursor: 'pointer',
+                        color: '#333',
                       }}
                     >
-                      <span style={{ maxWidth: 220, display: 'inline-block', overflow: 'hidden', textOverflow: 'ellipsis', color: '#333' }}>
-                        {getDisplayName(item.file.attributes.name)}
-                      </span>
-                      {hoveredId === item.file.id && (
-                        <FileActionButtons downloadUrl={item.file.attributes.url} buttonSize="sm" />
-                      )}
-                    </button>
+                      {getDisplayName(item.file.attributes.name)}
+                    </span>
+                    {hoveredId === item.file.id && (
+                      <FileActionButtons
+                        downloadUrl={item.file.attributes.url}
+                        buttonSize="sm"
+                      />
+                    )}
+                  </button>
                 ))}
               </div>
             )}
