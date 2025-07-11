@@ -22,17 +22,17 @@ const CardComponent: React.FC<
     const fileExtension = content.slice((content.lastIndexOf('.') >>> 0) + 1);
     switch (fileExtension) {
       case 'pptx':
-        return 'bi-file-earmark-ppt';
+        return 'microsoft-powerpoint-icon.svg';
       case 'pdf':
-        return 'bi-file-earmark-pdf';
+        return 'pdf-icon.svg';
       case 'docx':
-        return 'bi-file-earmark-word';
+        return 'microsoft-word-icon.svg';
       case 'xlsx':
-        return 'bi-file-earmark-excel';
+        return 'microsoft-excel-icon.svg';
       case 'txt':
         return 'bi-file-earmark-text';
       default:
-        return 'bi-file-earmark-pdf';
+        return 'microsoft-word-icon.svg';
     }
   };
   const renderCardImage = () => {
@@ -48,12 +48,15 @@ const CardComponent: React.FC<
       );
     } else if (imageUrl === '') {
       return (
-        <i
-          className={`border-bottom bi ${getFileIcon(content)}`}
+        <img
+          src={`../assets/images/${getFileIcon(content)}`}
+          className=" border-bottom"
+          alt={title}
           style={{
-            fontSize: '6.5rem',
+            height: '100px',
+            width: '100px',
           }}
-        ></i>
+        />
       );
     } else {
       return (

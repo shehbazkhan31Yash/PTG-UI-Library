@@ -47,7 +47,7 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
               role="status"
               aria-hidden="true"
             ></span>
-            please wait it's Loading...
+            please wait it's loading...
           </button>
         )}
         {!isLoading && (
@@ -66,11 +66,11 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
               disabled={!selectedFolder}
               onClick={() => selectedFolder && setSelectedFolder(null)}
             >
-              Home
+              Document
             </button>
             {selectedFolder && (
               <>
-                <span style={{ color: '#333' }}>{' / '}</span>
+                <span style={{ color: '#333' }}>{' > '}</span>
                 <span style={{ color: '#333' }}>{selectedFolder}</span>
               </>
             )}

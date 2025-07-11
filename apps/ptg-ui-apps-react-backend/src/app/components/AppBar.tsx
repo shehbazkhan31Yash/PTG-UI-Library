@@ -9,7 +9,7 @@ type AppBarProps = {
   setSearchText: (text: string) => void;
 };
 
-const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
+const AppBar: React.FC<AppBarProps> = ({ searchText, setSearchText }) => {
   const navigate = useNavigate();
   useEffect(() => {
     // Redirect to the home page if the current path is empty
@@ -21,12 +21,12 @@ const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
     }
   }, [navigate]);
   return (
-    <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-0" >
-      <div className="container-fluid d-flex align-items-center gap-4">
+    <header className="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-0">
+      <div className="container d-flex align-items-center gap-4">
         <div className="navbar-brand">
           <img
             src={logoImage}
-            width="92"
+            width="66"
             height="auto"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
@@ -59,7 +59,7 @@ const AppBar: React.FC<AppBarProps>  = ({ searchText, setSearchText} ) => {
           <div className="search-container d-flex align-items-center mx-auto">
             <input
               value={searchText}
-              onChange={e => setSearchText(e.target.value)}
+              onChange={(e) => setSearchText(e.target.value)}
               id="searchInputDocument"
               type="text"
               placeholder="Search for a document"
