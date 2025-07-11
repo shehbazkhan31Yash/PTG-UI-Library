@@ -10,9 +10,9 @@ type BestPracticesDocsProps = {
 
 const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
   searchText,
+  data,
+  isLoading,
 }) => {
-  const [data, setData] = React.useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
 
   const folderTitles = React.useMemo(() => {
@@ -21,14 +21,6 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
       .filter(Boolean);
     return Array.from(new Set(titles));
   }, [data]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchDataFromStrapi('best-practice-documents?populate=*').then((data) => {
-      setData(data.data);
-      setIsLoading(false);
-    });
-  }, []);
 
   const getFilteredFiles = (folder: string) => {
     const folderItem = data.find(

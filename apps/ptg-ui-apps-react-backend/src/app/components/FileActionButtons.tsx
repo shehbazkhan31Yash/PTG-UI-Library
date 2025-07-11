@@ -32,7 +32,12 @@ const FileActionButtons: React.FC<FileActionButtonsProps> = ({
   style = {},
   buttonSize = 'md',
 }) => {
-  const btnSizeClass = buttonSize === 'sm' ? 'btn-sm' : buttonSize === 'lg' ? 'btn-lg' : '';
+  let btnSizeClass = '';
+  if (buttonSize === 'sm') {
+    btnSizeClass = 'btn-sm';
+  } else if (buttonSize === 'lg') {
+    btnSizeClass = 'btn-lg';
+  }
   return (
     <span className={`file-action-buttons ${className}`} style={style}>
       {/* View button */}

@@ -119,32 +119,37 @@ const AppBar: React.FC<AppBarProps> = ({
                 }}
               >
                 {filteredFiles.map(item => (
-                  <div
-                    key={item.file.id}
-                    className="search-dropdown-item"
-                    onMouseEnter={() => setHoveredId(item.file.id)}
-                    onMouseLeave={() => setHoveredId(null)}
-                    title={item.file.attributes.name}
-                    style={{
-                      fontSize: 16,
-                      padding: '8px 18px',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      width: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      position: 'relative',
-                    }}
-                  >
-                    <span style={{ maxWidth: 220, display: 'inline-block', overflow: 'hidden', textOverflow: 'ellipsis', color: '#333' }}>
-                      {getDisplayName(item.file.attributes.name)}
-                    </span>
-                    {hoveredId === item.file.id && (
-                      <FileActionButtons downloadUrl={item.file.attributes.url} buttonSize="sm" />
-                    )}
-                  </div>
+                    <button
+                      key={item.file.id}
+                      type="button"
+                      className="search-dropdown-item"
+                      onMouseEnter={() => setHoveredId(item.file.id)}
+                      onMouseLeave={() => setHoveredId(null)}
+                      title={item.file.attributes.name}
+                      style={{
+                        fontSize: 16,
+                        padding: '8px 18px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        position: 'relative',
+                        background: 'none',
+                        border: 'none',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <span style={{ maxWidth: 220, display: 'inline-block', overflow: 'hidden', textOverflow: 'ellipsis', color: '#333' }}>
+                        {getDisplayName(item.file.attributes.name)}
+                      </span>
+                      {hoveredId === item.file.id && (
+                        <FileActionButtons downloadUrl={item.file.attributes.url} buttonSize="sm" />
+                      )}
+                    </button>
                 ))}
               </div>
             )}
