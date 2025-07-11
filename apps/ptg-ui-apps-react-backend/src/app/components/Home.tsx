@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import { Col, Row, Image, Container } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 import { carouselItems } from '@ptg-ui-apps-react-backend/constants/constants';
 import ClientCarousel from './CarouselImageContainer';
 import { environment } from '@ptg-ui-apps-react-backend/environments/environment';
 import ImageWithLoader from './ImageWithLoader';
 
 const Home: React.FC = () => {
-  const [imageLoading, setImageLoading] = useState({
-    vision: true,
-    mission: true,
-  });
-
   return (
     <Container fluid className="text-dark p-5">
       <section id="about" className="text-center">
