@@ -4,6 +4,8 @@ import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentSe
 
 type BestPracticesDocsProps = {
   searchText: string;
+  data: any[];
+  isLoading: boolean;
 };
 
 const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({

@@ -2,6 +2,7 @@ import React from 'react';
 import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
 import { Link } from 'react-router-dom';
+import FileActionButtons from './FileActionButtons';
 
 const CardComponent: React.FC<
   CardComponentProps & { isFolder?: boolean; onClick?: () => void }
@@ -119,49 +120,7 @@ const CardComponent: React.FC<
             ))}
           {/* Show Download button if downloadLink is present */}
           {downloadLink && (
-            <>
-              {/* View in browser for PDF */}
-              {downloadLink.toLowerCase().endsWith('.pdf') && (
-                <a
-                  href={downloadLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-light ms-2"
-                  style={{ marginRight: '8px' }}
-                >
-                  View PDF
-                </a>
-              )}
-              {/* View in browser for Office files */}
-              {(downloadLink.toLowerCase().endsWith('.doc') ||
-                downloadLink.toLowerCase().endsWith('.docx') ||
-                downloadLink.toLowerCase().endsWith('.xls') ||
-                downloadLink.toLowerCase().endsWith('.xlsx') ||
-                downloadLink.toLowerCase().endsWith('.ppt') ||
-                downloadLink.toLowerCase().endsWith('.pptx')) && (
-                <a
-                  href={`https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(
-                    downloadLink
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-light ms-2"
-                  style={{ marginRight: '8px' }}
-                >
-                  View Online
-                </a>
-              )}
-              {/* Download button */}
-              <a
-                href={downloadLink}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-                download
-              >
-                Download
-              </a>
-            </>
+            <FileActionButtons downloadUrl={downloadLink} buttonSize="md" />
           )}
           {/* Show Documentation button if docLink is present */}
           {docLink && (
