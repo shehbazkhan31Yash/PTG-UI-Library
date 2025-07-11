@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CardComponent from './CardComponent';
-import { fetchDataFromStrapi } from '@ptg-ui-apps-react-backend/utils/DocumentService';
 
 type BestPracticesDocsProps = {
   searchText: string;
