@@ -31,7 +31,7 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
   };
 
   return (
-    <section id="projects" className="mt-5">
+    <section id="projects" className="">
       <div className="row">
         {isLoading && (
           <button className="btn btn-primary" type="button" disabled>
