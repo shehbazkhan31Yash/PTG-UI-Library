@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import './AppBar.css';
 import { tabs } from '@ptg-ui-apps-react-backend/constants/constants';
 import logoImage from '../../assets/images/yash_log_real.svg';
-import { FaSearch } from 'react-icons/fa'; // Importing a search icon from react-icons
 import FileActionButtons from './FileActionButtons';
 
 type AppBarProps = {
@@ -93,12 +92,7 @@ const AppBar: React.FC<AppBarProps> = ({
               autoComplete="off"
               style={{ minWidth: 220, maxWidth: 320 }}
             />
-            <button
-              className="btn btn-outline-secondary search-icon"
-              type="button"
-            >
-              <FaSearch />
-            </button>
+
             {/* Dropdown list */}
             {searchText && filteredFiles.length > 0 && (
               <div
