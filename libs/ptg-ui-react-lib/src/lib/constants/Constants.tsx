@@ -46,8 +46,8 @@ export const colorMap: Record<string, string> = {
 
 export const modelOptions = [
   { value: "google-ai", label: "Google AI" },
-  { value: "chat-together-ai", label: "Chat Together AI" },
   { value: "chat-groq-ai", label: "Chat Groq AI" },
+  { value: "chat-together-ai", label: "Chat Together AI - paid" },
   { value: "chat-upstage-ai", label: "Chat Upstage AI - paid" },
   { value: "chat-bedrock-ai", label: "Chat Bedrock AI - paid" },
   { value: "chat-anthropic", label: "Chat Anthropic AI - paid" },
