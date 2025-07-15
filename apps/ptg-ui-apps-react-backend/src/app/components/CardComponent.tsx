@@ -3,6 +3,10 @@ import './CardComponent.css';
 import { CardComponentProps } from '@ptg-ui-apps-react-backend/interfaces';
 import { Link } from 'react-router-dom';
 import FileActionButtons from './FileActionButtons';
+import PptIcon from '../../assets/images/microsoft-powerpoint-icon.svg';
+import PdfIcon from '../../assets/images/pdf-icon.svg';
+import DocsIcon from '../../assets/images/microsoft-word-icon.svg';
+import XlsxIcon from '../../assets/images/microsoft-excel-icon.svg';
 
 const CardComponent: React.FC<
   CardComponentProps & { isFolder?: boolean; onClick?: () => void }
@@ -23,17 +27,17 @@ const CardComponent: React.FC<
     const fileExtension = content.slice((content.lastIndexOf('.') >>> 0) + 1);
     switch (fileExtension) {
       case 'pptx':
-        return 'microsoft-powerpoint-icon.svg';
+        return PptIcon;
       case 'pdf':
-        return 'pdf-icon.svg';
+        return PdfIcon;
       case 'docx':
-        return 'microsoft-word-icon.svg';
+        return DocsIcon;
       case 'xlsx':
-        return 'microsoft-excel-icon.svg';
+        return XlsxIcon;
       case 'txt':
-        return 'bi-file-earmark-text';
+        return DocsIcon;
       default:
-        return 'microsoft-word-icon.svg';
+        return DocsIcon;
     }
   };
   const renderCardImage = () => {
@@ -50,7 +54,7 @@ const CardComponent: React.FC<
     } else if (imageUrl === '') {
       return (
         <img
-          src={`../assets/images/${getFileIcon(content)}`}
+          src={getFileIcon(content)}
           className=" border-bottom"
           alt={title}
           style={{
@@ -85,25 +89,25 @@ const CardComponent: React.FC<
           border: 'none',
           transition: 'transform 0.3s, background-color 0.3s',
           cursor: onClick ? 'pointer' : 'default',
-          background:'none',
+          background: 'none',
           width: '100%',
           textAlign: 'left',
           padding: 0,
-          borderRadius: '15px',        
-		      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
-
-
-          
+          borderRadius: '15px',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
         }}
         onClick={onClick}
       >
         <div
           className="text-center py-3"
-          style={{ background: 'none', borderRadius: '15px'}}
+          style={{ background: 'none', borderRadius: '15px' }}
         >
           {renderCardImage()}
         </div>
-        <div className="card-body pt-0 " style={{ background: 'none', borderRadius: '15px'}}>
+        <div
+          className="card-body pt-0 "
+          style={{ background: 'none', borderRadius: '15px' }}
+        >
           <h5 className="card-title">{title}</h5>
           <p className="card-text" style={{ marginLeft: '10px' }}>
             {content}
@@ -126,7 +130,6 @@ const CardComponent: React.FC<
               >
                 <i className="bi bi-eye me-2"></i>
                 View
-                
               </a>
             ))}
           {/* Show Download button if downloadLink is present */}
@@ -140,11 +143,14 @@ const CardComponent: React.FC<
               target="_blank"
               rel="noreferrer"
               className="btn btn-light ms-2"
-              style={{ border: '1px solid #0d6efd', color: '#0d6efd', background: 'none' }}
+              style={{
+                border: '1px solid #0d6efd',
+                color: '#0d6efd',
+                background: 'none',
+              }}
             >
               <i className="bi bi-file-earmark-text me-2"></i>
               Documentation
-              
             </a>
           )}
         </div>
