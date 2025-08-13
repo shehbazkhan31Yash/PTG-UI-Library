@@ -39,7 +39,8 @@ export const DashboardCardItems = [
     id: 13,
     imageUrl: courses_link_Image,
     title: 'Frontend Migration Accelerator',
-    content: 'Portal to access Migration Accelerator resources.',
+    content:
+      'Migration Accelerator resources portal to assist with frontend migration.',
     button: 'View',
     viewLink: '/frontend-migration-accelerator',
   },
