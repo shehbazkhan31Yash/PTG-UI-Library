@@ -10,6 +10,7 @@ import Teams from './components/Teams';
 import BestPracticesDocs from './components/BestPracticesDocs';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { fetchDataFromStrapi } from './utils/DocumentService';
+import Frontend_Accelerator from './components/Frontend_Accelerator';
 
 const App: React.FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -26,20 +27,28 @@ const App: React.FC = () => {
 
   const filteredFiles = useMemo(() => {
     if (!searchText) return [];
-    return data.flatMap(doc =>
-      (doc.attributes.file?.data || []).map((file: any) => ({
-        docId: doc.id,
-        folderTitle: doc.attributes.folder_title,
-        file,
-      }))
-    ).filter(item =>
-      item.file.attributes.name?.toLowerCase().includes(searchText.toLowerCase())
-    );
+    return data
+      .flatMap((doc) =>
+        (doc.attributes.file?.data || []).map((file: any) => ({
+          docId: doc.id,
+          folderTitle: doc.attributes.folder_title,
+          file,
+        }))
+      )
+      .filter((item) =>
+        item.file.attributes.name
+          ?.toLowerCase()
+          .includes(searchText.toLowerCase())
+      );
   }, [data, searchText]);
 
   return (
     <div>
-      <AppBar searchText={searchText} setSearchText={setSearchText} filteredFiles={filteredFiles} />
+      <AppBar
+        searchText={searchText}
+        setSearchText={setSearchText}
+        filteredFiles={filteredFiles}
+      />
       <div className="container mt-4">
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -50,7 +59,20 @@ const App: React.FC = () => {
           {/* Hide for now when the contact us form will be implemented then we can unhide this*/}
           {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/" element={<Home />} />
-          <Route path="/best_practices_docs"  element={<BestPracticesDocs searchText={searchText} data={data} isLoading={isLoading} />} />
+          <Route
+            path="/best_practices_docs"
+            element={
+              <BestPracticesDocs
+                searchText={searchText}
+                data={data}
+                isLoading={isLoading}
+              />
+            }
+          />
+          <Route
+            path="/frontend-migration-accelerator"
+            element={<Frontend_Accelerator />}
+          />
         </Routes>
       </div>
       <Footer />

@@ -36,6 +36,14 @@ export const DashboardCardItems = [
     viewLink: 'https://interview-assessment.azurewebsites.net/',
   },
   {
+    id: 13,
+    imageUrl: courses_link_Image,
+    title: 'Frontend Migration Accelerator',
+    content: 'Portal to access Migration Accelerator resources.',
+    button: 'View',
+    viewLink: '/frontend-migration-accelerator',
+  },
+  {
     id: 4,
     imageUrl: ptg_document_Image,
     title: 'PTG Document Assessment Portal',
