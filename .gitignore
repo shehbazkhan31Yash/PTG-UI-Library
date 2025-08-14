@@ -2,8 +2,10 @@
 
 # compiled output
 /dist
+/dist_old
 /tmp
 /out-tsc
+/apps/Form-builder
 
 # dependencies
 node_modules
