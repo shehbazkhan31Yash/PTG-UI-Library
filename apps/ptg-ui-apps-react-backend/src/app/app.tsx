@@ -10,6 +10,8 @@ import Teams from './components/Teams';
 import BestPracticesDocs from './components/BestPracticesDocs';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { fetchDataFromStrapi } from './utils/DocumentService';
+import { FormBuilder } from './components/components/form-builder';
+import './globals.css';
 
 const App: React.FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -68,6 +70,7 @@ const App: React.FC = () => {
               />
             }
           />
+          <Route path="/form-builder" element={<FormBuilder />} />
         </Routes>
       </div>
       <Footer />
