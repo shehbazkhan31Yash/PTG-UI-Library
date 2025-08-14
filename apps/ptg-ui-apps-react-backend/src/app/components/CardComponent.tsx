@@ -22,7 +22,9 @@ const CardComponent: React.FC<
   onClick,
   setIcon,
 }) => {
-  const isInternalLink = viewLink?.startsWith('/best_practices_docs');
+  const isInternalLink =
+    viewLink?.startsWith('/best_practices_docs') ||
+    viewLink?.startsWith('/form-builder');
   const getFileIcon = (content: any) => {
     const fileExtension = content.slice((content.lastIndexOf('.') >>> 0) + 1);
     switch (fileExtension) {

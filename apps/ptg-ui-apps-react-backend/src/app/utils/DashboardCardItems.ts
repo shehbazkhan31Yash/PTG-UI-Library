@@ -8,6 +8,7 @@ import ptg_uisemantic_Image from '../../assets/images/ui_semanticc.jpg';
 import metaVerse_Image from '../../assets/images/metaverse.jpg';
 import best_practice_Image from '../../assets/images/best_practice.jpg';
 import courses_link_Image from '../../assets/images/courses_link.jpg';
+import next_image from '../../assets/images/nextjs.png';
 
 export const DashboardCardItems = [
   {
@@ -43,6 +44,14 @@ export const DashboardCardItems = [
       'Migration Accelerator resources portal to assist with frontend migration.',
     button: 'View',
     viewLink: '/files/components/Migration_Accelerator.html',
+  },
+  {
+    id: 14,
+    imageUrl: next_image,
+    title: 'Form Builder',
+    content: 'Form Builder resources portal to assist with frontend migration.',
+    button: 'View',
+    viewLink: '/form-builder',
   },
   {
     id: 4,
