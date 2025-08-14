@@ -73,17 +73,34 @@ app.get('*', (req, res) => {
       'ptg-frontend-migration-accelerator-app',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
-  console.log(projectName);
+  console.log('Requested project name:', projectName);
   if (projectName === 'ptg-frontend-migration-accelerator-app') {
-    res.sendFile(
+    console.log(
+      'Serving file from:',
       path.join(__dirname, `assets/components/Migration_Accelerator.html`)
     );
-  } else if (projectName) {
-    res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
-  } else {
-    res.sendFile(
-      path.join(__dirname, `public/ptg-ui-apps-react-backend`) + '/index.html'
+    const filePath = path.join(
+      __dirname,
+      `assets/components/Migration_Accelerator.html`
     );
+    console.log('Serving file from:', filePath);
+    res.sendFile(filePath, (err) => {
+      if (err) {
+        console.error('File not found:', err);
+        res.status((err as any).status || 404).end();
+      }
+    });
+  } else if (projectName) {
+    const filePath = path.join(__dirname, `public/${projectName}/index.html`);
+    console.log('Serving file from:', filePath);
+    res.sendFile(filePath);
+  } else {
+    const defaultPath = path.join(
+      __dirname,
+      `public/ptg-ui-apps-react-backend/index.html`
+    );
+    console.log('Serving default file from:', defaultPath);
+    res.sendFile(defaultPath);
   }
 });
 server.on('error', console.error);
