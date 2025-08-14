@@ -69,9 +69,16 @@ app.get('*', (req, res) => {
     'ptg-ui-web-comp-angular': 'ptg-ui-web-comp-angular',
     'ptg-ui-web-comp-react': 'ptg-ui-web-comp-react',
     'ptg-ui-apps-react-backend': 'ptg-ui-apps-react-backend',
+    'ptg-frontend-migration-accelerator-app':
+      'ptg-frontend-migration-accelerator-app',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
-  if (projectName) {
+  console.log(projectName);
+  if (projectName === 'ptg-frontend-migration-accelerator-app') {
+    res.sendFile(
+      path.join(__dirname, `assets/components/Migration_Accelerator.html`)
+    );
+  } else if (projectName) {
     res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
   } else {
     res.sendFile(

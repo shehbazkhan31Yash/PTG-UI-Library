@@ -36,6 +36,15 @@ export const DashboardCardItems = [
     viewLink: 'https://interview-assessment.azurewebsites.net/',
   },
   {
+    id: 13,
+    imageUrl: courses_link_Image,
+    title: 'Frontend Migration Accelerator',
+    content:
+      'Migration Accelerator resources portal to assist with frontend migration.',
+    button: 'View',
+    viewLink: '/ptg-frontend-migration-accelerator-app',
+  },
+  {
     id: 4,
     imageUrl: ptg_document_Image,
     title: 'PTG Document Assessment Portal',
@@ -67,7 +76,7 @@ export const DashboardCardItems = [
     imageUrl: ptg_uisemantic_Image,
     title: 'PTG UI Schematics',
     content:
-      'This tool is used to generate UI apps for modern frameworks like Angular, React with best practices needed for enterprise apps.',
+      'This tool is used to generate UI apps for modern frameworks like Angular, React.',
     button: 'Download',
     viewLink:
       'https://yash-ui-apps.azurewebsites.net/uploads/PTG-UI-Generator.pptx',
@@ -76,8 +85,7 @@ export const DashboardCardItems = [
     id: 8,
     imageUrl: react_Image,
     title: 'PTG React Web Components',
-    content:
-      'This application demonstrates how to consume stencil web components in a React application.',
+    content: 'Demonstrates how to consume stencil web components.',
     button: 'View',
     viewLink: '/ptg-ui-web-comp-react',
   },
