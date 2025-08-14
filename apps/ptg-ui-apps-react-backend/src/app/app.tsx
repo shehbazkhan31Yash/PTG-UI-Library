@@ -10,7 +10,6 @@ import Teams from './components/Teams';
 import BestPracticesDocs from './components/BestPracticesDocs';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { fetchDataFromStrapi } from './utils/DocumentService';
-import Frontend_Accelerator from './components/Frontend_Accelerator';
 
 const App: React.FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -68,10 +67,6 @@ const App: React.FC = () => {
                 isLoading={isLoading}
               />
             }
-          />
-          <Route
-            path="/frontend-migration-accelerator"
-            element={<Frontend_Accelerator />}
           />
         </Routes>
       </div>
