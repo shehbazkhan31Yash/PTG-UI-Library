@@ -42,7 +42,7 @@ export const DashboardCardItems = [
     content:
       'Migration Accelerator resources portal to assist with frontend migration.',
     button: 'View',
-    viewLink: '/ptg-frontend-migration-accelerator-app',
+    viewLink: '/files/components/Migration_Accelerator.html',
   },
   {
     id: 4,
