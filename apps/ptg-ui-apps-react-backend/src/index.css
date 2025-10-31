@@ -270,7 +270,6 @@ footer a {
 .circular-image {
   width: 50%;
   /* Make the image responsive */
-  height: 100%;
   /* Maintain aspect ratio */
   object-fit: fill;
   /* Ensure the image covers the container */
@@ -316,10 +315,32 @@ footer a {
   transition: opacity .35s ease;
   padding: 10px;
   font-weight: 500;
+
+  @media (max-width: 1024px) {
+    top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    top: 0;
+  }
+
+  @media (max-width: 480px) {
+    top: 20px;
+  }
+
+  @media (max-width: 320px) {
+    top: 0;
+  }
+}
+
+.card-hover-group{
+  height: 100%;
 }
 
 .card-hover-group img {
   min-height: 360px;
+  height: 100%;
 }
 
 .card-hover-group:hover .titleCard {
@@ -343,6 +364,10 @@ footer a {
   height: 100% !important;
 }
 
+.misson-vision-loader .card-hover-group .hoverContainer {
+  padding: 0 !important;
+}
+
 .carousel,
 .carousel-inner {
   background-color: #22223b;
@@ -361,4 +386,29 @@ footer a {
 
 .carousel-indicators .active {
   background-color: red;
+}
+
+.loading-data-info {
+  height: calc(100vh - 160px);
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 144px);
+  }
+}
+
+.loading-data-info.loader-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  @media (max-width: 767px) {
+    left: -20px !important;
+  }
+}
+.carousel-control-next {
+  @media (max-width: 767px) {
+    right: -20px !important;
+  }
 }

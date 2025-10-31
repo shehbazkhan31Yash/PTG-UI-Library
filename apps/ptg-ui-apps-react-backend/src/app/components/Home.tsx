@@ -7,10 +7,10 @@ import ImageWithLoader from './ImageWithLoader';
 
 const Home: React.FC = () => {
   return (
-    <Container fluid className="text-dark p-5">
-      <section id="about" className="text-center">
+    <Container fluid className="text-dark p-md-5 p-3">
+      <section id="about" className="text-center misson-vision-loader">
         <Row className="mb-5">
-          <Col xs={12} md={6} className="mb-4">
+          <Col xs={12} md={6}>
             <ImageWithLoader
               src={
                 process.env['NODE_ENV'] === 'production'
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
               }
               alt="Vision"
               imageKey="vision"
-              className="shadow "
+              className="shadow"
               description={
                 'To create intuitive, accessible, and engaging user experiences that empower users and elevate the digital landscape, it is essential to prioritize user-centered design principles. This involves understanding the diverse needs and preferences of users,ensuring that interfaces are not only visually appealing but also functional and easy to navigate.'
               }

@@ -34,14 +34,16 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
     <section id="projects" className="">
       <div className="row">
         {isLoading && (
-          <button className="btn btn-primary" type="button" disabled>
-            <span
-              className="spinner-grow spinner-grow-sm"
-              role="status"
-              aria-hidden="true"
-            ></span>
-            please wait it's loading...
-          </button>
+          <div className='loading-data-info loader-info'> 
+            <button className="btn btn-primary" type="button" disabled>
+              <span
+                className="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              please wait it's loading...
+            </button>
+          </div>
         )}
         {!isLoading && (
           <div className="mb-3" style={{ fontSize: 18 }}>
