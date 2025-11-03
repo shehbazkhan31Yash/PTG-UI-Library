@@ -45,13 +45,15 @@ const AppBar: React.FC<AppBarProps> = ({
     <header className="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-0">
       <div className="container d-flex align-items-center gap-4">
         <div className="navbar-brand">
+          <Link to="/">
           <img
             src={logoImage}
             width="66"
             height="auto"
             className="d-inline-block align-top"
-            alt="React Bootstrap logo"
+            alt="Yash Technologies"
           />
+          </Link>
         </div>
         <button
           className="navbar-toggler"
