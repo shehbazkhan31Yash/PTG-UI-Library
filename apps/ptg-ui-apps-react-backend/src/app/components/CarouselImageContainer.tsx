@@ -46,12 +46,15 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
         className="carousel-control-prev"
         style={{
           position: 'absolute',
-          top: 0,
+          top: '50%',
           left: 0,
           zIndex: 10,
           background: 'none',
           border: 'none',
           opacity: 'unset',
+          width:'auto',
+          height:'max-content',
+          transform:'translateY(-50%)'
         }}
         onClick={() =>
           setIndex((prev) => (prev === 0 ? chunkedItems.length - 1 : prev - 1))
@@ -59,19 +62,22 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
       >
         <span
           className="bi bi-chevron-left"
-          style={{ fontSize: '2rem', color: 'red' }}
+          style={{ fontSize: '3rem', color: '#222021' }}
         />
       </button>
       <button
         className="carousel-control-next"
         style={{
           position: 'absolute',
-          top: 0,
+          top: '50%',
           right: 0,
           zIndex: 10,
           background: 'none',
           border: 'none',
           opacity: 'unset',
+          width:'auto',
+          height:'max-content',
+          transform:'translateY(-50%)'
         }}
         onClick={() =>
           setIndex((prev) => (prev === chunkedItems.length - 1 ? 0 : prev + 1))
@@ -79,7 +85,7 @@ const ClientCarousel: React.FC<ClientCarouselProps> = ({ items }) => {
       >
         <span
           className="bi bi-chevron-right"
-          style={{ fontSize: '2rem', color: 'red' }}
+          style={{ fontSize: '3rem', color: '#222021' }}
         />
       </button>
     </div>
