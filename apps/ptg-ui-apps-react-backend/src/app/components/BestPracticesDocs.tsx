@@ -51,12 +51,12 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
               type="button"
               className="breadcrumb-home"
               style={{
-                color: '#007bff',
+                color: '#2E3031',
                 background: 'none',
                 border: 'none',
                 padding: 0,
                 cursor: selectedFolder ? 'pointer' : 'default',
-                fontSize: 18,
+                fontSize: 16,
               }}
               disabled={!selectedFolder}
               onClick={() => selectedFolder && setSelectedFolder(null)}
@@ -65,8 +65,8 @@ const BestPracticesDocs: React.FC<BestPracticesDocsProps> = ({
             </button>
             {selectedFolder && (
               <>
-                <span style={{ color: '#333' }}>{' > '}</span>
-                <span style={{ color: '#333' }}>{selectedFolder}</span>
+                <span style={{ color: '#2E3031' }}>{' > '}</span>
+                <span style={{ color: '#2E3031',fontWeight: '500'} }>{selectedFolder}</span>
               </>
             )}
           </div>

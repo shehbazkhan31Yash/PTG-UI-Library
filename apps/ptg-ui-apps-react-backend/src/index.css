@@ -407,8 +407,15 @@ footer a {
     left: -20px !important;
   }
 }
+
 .carousel-control-next {
   @media (max-width: 767px) {
     right: -20px !important;
+  }
+}
+
+.main-center-content-wrapper {
+  @media (min-width: 1280px) {
+    min-height: calc(100vh - 160px)
   }
 }

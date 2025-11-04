@@ -50,7 +50,7 @@ const App: React.FC = () => {
         setSearchText={setSearchText}
         filteredFiles={filteredFiles}
       />
-      <div className="container mt-4">
+      <div className="container mt-4 main-center-content-wrapper">
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/services" element={<Services />} />
