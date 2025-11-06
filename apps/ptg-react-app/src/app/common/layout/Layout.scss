@@ -4,16 +4,17 @@
   width: 100vw;
   height: 100vh;
   .main {
-    height: 82vh;
+    height: calc(100vh - 48px);
+    background-color: $main-color;
+
     .main-wrapper {
       width: 85vw;
       overflow-x: hidden;
       overflow-y: auto;
-      margin:21px 20px 21px 21px;
       padding: 17px;
-      border-radius: 9px;
       padding: 10px 20px;
-      background-color: $layout-background-color;
+      background-color: $white;
+      
       .main-conatiner {
         display: block;
         width: 100%;

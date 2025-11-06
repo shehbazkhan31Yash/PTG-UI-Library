@@ -44,7 +44,7 @@ export function Layout() {
                     <Header />
                     <div className="main">
                       <div className="d-flex h-100">
-                        <div className="flex-shrink-1 side-nav-wrapper h-100 pt-4">
+                        <div className="flex-shrink-1 side-nav-wrapper h-100">
                           <Sidenav />
                         </div>
                         <div className="main-wrapper">

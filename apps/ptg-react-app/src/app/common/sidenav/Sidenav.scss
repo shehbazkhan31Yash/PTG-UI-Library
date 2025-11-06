@@ -6,7 +6,6 @@
 }
 .sidenav-container {
   width: 15vw;
-  background-color: $white;
   height: 100%;
   position: relative;
   overflow: auto;
@@ -15,7 +14,7 @@
     width: 100%;
 
     .menu-item {
-      padding: 5px 8px;
+      padding: 10px 8px 10px 20px;
       text-decoration: none;
       font-size: 0.8rem; //---
       display: flex;
@@ -47,33 +46,38 @@
         margin-left: 0; // Remove left margin for better alignment
         color: $main;
         font-size: 1em;
+
+        @media (max-width: 767px){
+          display: none;
+        }
       }
 
       &.child-item {
         margin: 1px 0px;
-        padding-left: 4rem;
         color: $main;
         font-size: 0.75rem;
+        gap: 1.25rem;
       }
 
       &:hover,
       &.active {
         &:not(.parent-item):not(.disabled) {
-          background-color: $side-menu-color;
+          background-color: $side-menu-text-color;
           width: 300px;
-          border-radius: 0.5rem;
           color: $white;
           background-size: 100% 100%;
           margin-top: 0.02rem !important;
+          font-weight: 500;
 
-          i {
-            color: black !important;
-          }
           &.child-item {
             color: $side-menu-text-color !important;
           }
           .menu-item-text {
-            color: $side-menu-text-color !important;
+            color: $white !important;
+          }
+
+          i {
+            color: $white;
           }
         }
       }
@@ -88,10 +92,10 @@
 }
 .navbar .fa.fa-bars {
   display: none;
-  font-size: 1 em;
+  font-size: 1.2rem;
   width: min-content;
-  color: $secondGrey;
-  background-color: $main;
+  color: $main;
+  background-color: transparent;
   padding: 10px;
   border-radius: 5px;
 }
@@ -103,18 +107,26 @@
 .acc-header {
   font-size: small !important;
   .accordion-button {
-    background-color: $white !important;
+    background-color: $main-color !important;
     border: none !important;
     height: 35px !important;
     font-size: small !important;
     box-shadow: none !important;
     margin-top: 10px;
+    padding: 0;
   }
 }
 
-.accordion-button::after {
-  --bs-accordion-btn-icon-width: 0.8rem;
-  --bs-accordion-btn-icon-height: 0.8rem;
+.accordion-button {
+  position: relative;
+  
+  &::after {
+    --bs-accordion-btn-icon-width: 0.8rem;
+    --bs-accordion-btn-icon-height: 0.8rem;
+    position: absolute;
+    top: 13px;
+    right: 8px;
+  }
 }
 .accordion-with-arrow {
   .accordion-button::after {
@@ -124,9 +136,7 @@
 .acc-body {
   height: 40px;
   font-size: 8px;
-  margin-top: -10px;
-  margin-left: -36px;
-  margin-bottom: 10px;
+  padding: 0;
 }
 
 .acc {
@@ -137,7 +147,7 @@
 
 @media (min-width: 320px) and (max-width: 550px) {
   .sidenav-container {
-    width: 3rem;
+    width: 4rem;
     position: absolute;
     left: -181px;
   }
@@ -155,12 +165,6 @@
   }
   .accordion-button::after {
     height: 0 !important;
-  }
-  .sidenav-container
-    .sidenav
-    .menu-item.active:not(.parent-item):not(.disabled) {
-    width: 28px;
-    height: 40px;
   }
   .child-icon {
     margin-left: 2px;
@@ -182,12 +186,6 @@
   }
   .accordion-button::after {
     height: 0 !important;
-  }
-  .sidenav-container
-    .sidenav
-    .menu-item.active:not(.parent-item):not(.disabled) {
-    width: 28px;
-    height: 40px;
   }
 }
 
@@ -274,4 +272,14 @@
 
 .table-chart-icon {
   margin-right: 13px;
+}
+
+
+.accordion {
+  background-color: $main-color !important;
+}
+
+.side-nav-wrapper {
+  border-right: 1px solid $border-color;
+  padding-bottom: 62px;
 }

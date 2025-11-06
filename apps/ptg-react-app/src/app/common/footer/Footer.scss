@@ -1,8 +1,13 @@
 @import '../../styles/variables';
 footer {
   height: 8vh;
-  background-color: $secondDark;
-  font-size: 0.688rem;
+  background-color: $footer-bg;
+  font-size: 0.875rem;
+
+  @media (max-width: 376px){
+    font-size: 0.7rem;
+  }
+
   p {
     color: $footer-text;
   }
