@@ -11,12 +11,14 @@ $error:#dc3545;
 $primary: $main !default;
 $light-grey : #bdbdbd;
 
-$side-menu-text-color: $main; 
+$side-menu-text-color: #9C9191; 
 $side-menu-text-color-hover : #EDE7F6;
 $form-check-input-checked-color:  $main;
 $form-check-input-checked-bg-color: $main;
 $multi-select-chip-color: #6c757d;
-$footer-text: #888b8d;  // #7c7f81
+$footer-text: #212529;  // #7c7f81
+$footer-bg: rgba(248, 249, 250,1);
+$main-color: #FAFAFA;
 $multi-select-chip-bg-color: #efefef;
 $multi-select-chip-close-bg-color: #bbbbbb;
 $label-hint-text-color: #9f9f9f;
@@ -31,7 +33,7 @@ $side-menu-active : #D7C9EC;
 $copy-icon-color : rgb(236, 231, 231);
 $syntax-highlighter-bg-color : rgb(2,43,55);
 $box-shadow-color: rgba(128, 128, 128, 0.1);
-
+$border-color: #f1f1f1;
 // Typography
 $font-family-sans-serif: "Poppins", Roboto, "Helvetica Neue", Arial,
   "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
