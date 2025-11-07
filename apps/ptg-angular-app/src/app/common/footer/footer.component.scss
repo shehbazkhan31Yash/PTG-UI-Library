@@ -1,9 +1,14 @@
 @import "variables";
 footer{
     height: 8vh;
-    background-color: $secondDark;
-    font-size: 11px;
+    background-color: rgba(248, 249, 250,1);;
+    font-size: 14px;
+
+    @media (max-width: 376px){
+        font-size: 11px;
+    }
+    
     p{
-        color: $footer-text;
+        color: #212529;
     }
 }
