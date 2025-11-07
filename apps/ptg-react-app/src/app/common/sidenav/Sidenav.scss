@@ -70,7 +70,7 @@
           font-weight: 500;
 
           &.child-item {
-            color: $side-menu-text-color !important;
+            color: $white !important;
           }
           .menu-item-text {
             color: $white !important;
@@ -141,6 +141,7 @@
 
 .acc {
   .accordion-item {
+    background-color: $main-color !important;
     border: none !important;
   }
 }
@@ -274,12 +275,6 @@
   margin-right: 13px;
 }
 
-
-.accordion {
-  background-color: $main-color !important;
-}
-
 .side-nav-wrapper {
   border-right: 1px solid $border-color;
-  padding-bottom: 62px;
 }

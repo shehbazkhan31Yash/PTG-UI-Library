@@ -10,35 +10,43 @@
 }
 
 @mixin sidenav-theme($main, $color: #6f90b8) {
-    .sidenav {
-      background-color: $whiteColor;
-    }
-    .sidenav .menu-item {
-      &:hover,
-      &.active {
-        &:not(.parent-item):not(.disabled) {
+    .sidenav{
+      .menu-item {
+        padding: 10px 8px 10px 20px !important;
+        border-radius: 0 !important;
 
-          background-color: $side-menu-color !important;
-          border-end-end-radius: 5rem;
-          border-start-end-radius: 5rem;
-          color: $side-menu-label-color !important;
-          i{
-            color: $side-menu-label-color !important;
-          }
-          &.child-item {color:$side-menu-label-color !important;}
-          .menu-item-text{color: $side-menu-label-color !important;}
+        .menu-item-text {
+          font-size: 0.85rem;
+          margin-left: 5px !important;
         }
-       
+        
+        &.child-item{
+          padding-left: 65px !important;
+        }
+
+        &:hover,
+        &.active {
+          &:not(.parent-item):not(.disabled) {
+            background-color: #9C9191 !important;
+            border-radius: 0 !important;
+            color: $whiteColor !important;
+            i{
+              color: $whiteColor !important;
+            }
+            &.child-item {color:$whiteColor !important;}
+            .menu-item-text{color: $whiteColor !important;}
+          }
+        
+        }
+    
+        &.disabled {
+          color: rgba($color, 0.5);
+        }
+        margin: 0px;
+        letter-spacing: 0em;
+        font-weight: 400;
+        line-height: 1.5em;
+        font-size: 0.8rem;
       }
-  
-      &.disabled {
-        color: rgba($color, 0.5);
-      }
-      margin: 0px;
-      letter-spacing: 0em;
-      font-weight: 400;
-      line-height: 1.5em;
-      font-family: Roboto, sans-serif;
-      font-size: 0.8rem;
     }
   }
