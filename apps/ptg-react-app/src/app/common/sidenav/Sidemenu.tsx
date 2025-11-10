@@ -208,15 +208,21 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/roleBased',
-    icon: 'fa fa-lock',
-    label: 'ROLE BASED',
+    path: '/radioBox',
+    icon: 'fa-solid fa-record-vinyl',
+    label: 'Radio',
     disabled: false,
   },
   {
     path: '/rating',
     icon: 'fa-solid fa-ranking-star',
     label: 'RATING',
+    disabled: false,
+  },
+  {
+    path: '/roleBased',
+    icon: 'fa fa-lock',
+    label: 'ROLE BASED',
     disabled: false,
   },
   {

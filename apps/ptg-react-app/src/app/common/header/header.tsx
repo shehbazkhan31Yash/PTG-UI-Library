@@ -8,6 +8,8 @@
  *
  */
 
+import React from "react";
+import { Link } from "react-router-dom";
 import './header.scss';
 import UserProfile from '../userprofile/UserProfile';
 import MultiLang from '../multi-lang/multi-lang';
@@ -19,13 +21,15 @@ export function Header() {
           <label htmlFor="toggle" className="fa fa-bars" aria-hidden="true">
             <i className="hiddenContent">.</i>
           </label>
-          <a className="navbar-brand logo px-2 me-auto" href="#">
-            <img
-              src="assets/images/yash-logo-new@2x.png"
-              aria-label="logo"
-              className="header-logo"
-            />
-          </a>
+          <Link to="/calendar">
+            <a className="navbar-brand logo px-2 me-auto" href="#">
+              <img
+                src="assets/images/yash-logo-new@2x.png"
+                aria-label="logo"
+                className="header-logo"
+              />
+            </a>
+          </Link>
           <div className="d-flex mt-1">
             <MultiLang />
             <UserProfile />

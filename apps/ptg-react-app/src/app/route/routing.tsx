@@ -84,6 +84,7 @@ const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
 const Rating = lazy(() => import('../examples/rating/rating'));
 const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
+const Radiobox = lazy(()=> import('../examples/Radiobox/Radiobox'));
 const Loader = lazy(() => import('../examples/loader/Loader'));
 const AppBar = lazy(() => import('../examples/appbar/appbar'));
 const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
@@ -265,6 +266,10 @@ const routing = [
   {
     path: '/appbar',
     component: AppBar,
+  },
+  {
+    path:'/radioBox',
+    component: Radiobox,
   },
   {
     path: '/datePicker',
