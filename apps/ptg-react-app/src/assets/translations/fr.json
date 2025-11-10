@@ -71,7 +71,7 @@
   "ADD_USER_TEXT": "Ajouter un utilisateur",
   "EDIT_USER_TEXT": "Modifier l'utilisateur",
   "VIEW_USER_TEXT": "Afficher l'utilisateur",
-  "SINGLE_SELECT_TEXT": "Sélection simple",
+  "SINGLE_SELECT_TEXT": "Sélection unique",
   "SINGLE_RADIO_BUTTON": "Bouton radio",
   "RADIO_GROUP": "Groupe radio",
   "MULTI_SELECT_TEXT": "Sélection multiple",
