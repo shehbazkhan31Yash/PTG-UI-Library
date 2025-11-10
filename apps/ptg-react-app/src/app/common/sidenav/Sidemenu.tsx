@@ -54,6 +54,12 @@ export const NavigationData = [
     label: 'Auth',
     disabled: false,
   },
+    {
+    path: '/radioBox',
+    icon: 'fa-solid fa-mobile-button',
+    label: 'Radio',
+    disabled: false,
+  },
   {
     path: '/accordian',
     icon: 'fa fa-lock',

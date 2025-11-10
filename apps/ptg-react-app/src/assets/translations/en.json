@@ -72,6 +72,8 @@
   "EDIT_USER_TEXT": "Edit User",
   "VIEW_USER_TEXT": "View User",
   "SINGLE_SELECT_TEXT": "Single Select",
+  "SINGLE_RADIO_BUTTON":"Radio Button",
+  "RADIO_GROUP": "Radio Group",
   "MULTI_SELECT_TEXT": "Multi Select",
   "SELECT_PLACEHOLDER": "Select",
   "DATE_PLACEHOLDER": "MM/DD/YYYY",
