@@ -77,6 +77,7 @@ const Indeterminate = lazy(
 const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
 const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
+const TransferList = lazy(() => import('../examples/TransferList/TransferList'));
 const Avatar = lazy(() => import('../examples/avatar/CustomAvatar'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
@@ -270,6 +271,10 @@ const routing = [
   {
     path:'/radioBox',
     component: Radiobox,
+  },
+  {
+    path:'/transferList',
+    component: TransferList,
   },
   {
     path: '/datePicker',

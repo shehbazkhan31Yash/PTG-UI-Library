@@ -10,6 +10,7 @@ export * from './lib/checks/checks';
 export * from './lib/radio/radio';
 export * from './lib/select/select';
 export * from './lib/MultiSelect/MultiSelect';
+export * from './lib/transferList/TransferList';
 export * from './lib/loading/loading';
 export * from './lib/avatar/CustomAvatar';
 export * from './lib/chatbot-langchain/Chatbot';

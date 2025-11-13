@@ -256,6 +256,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/transferList',
+    icon: 'fa-solid fa-arrow-right-arrow-left',
+    label: 'Transfer List',
+    disabled: false,
+  },
+  {
     path: '/webAccessibility',
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',
