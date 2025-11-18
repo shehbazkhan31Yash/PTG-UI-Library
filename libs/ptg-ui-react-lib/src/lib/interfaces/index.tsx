@@ -597,3 +597,36 @@ export interface PtgUiMultiSelectProps {
 	toggleDropdown?: () => void;
 	removeItem?: (item: string) => void;
 }
+
+// Transfer List
+/**
+ * Represents a single item in the transfer list
+ */
+export interface TransferItem {
+	id: string;
+	label: string;
+}
+
+/**
+ * Props for the PtgUiTransferList component
+ */
+export interface PtgUiTransferListProps {
+	id?: string;
+	name?: string;
+	className?: string;
+	disabled?: boolean;
+	searchLeft: string;
+	searchRight: string;
+	leftItems: TransferItem[];
+	rightItems: TransferItem[];
+	selectedLeft: Set<string>;
+	selectedRight: Set<string>;
+	onSearchLeft: (val: string) => void;
+	onSearchRight: (val: string) => void;
+	onToggleLeft: (id: string) => void;
+	onToggleRight: (id: string) => void;
+	onMoveSelectedToRight: () => void;
+	onMoveSelectedToLeft: () => void;
+	onMoveAllToRight: () => void;
+	onMoveAllToLeft: () => void;
+}
